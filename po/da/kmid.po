@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmid\n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 1999-01-28 21:29-0500\n"
+"PO-Revision-Date: 1999-02-16 21:29-0500\n"
 "Last-Translator: Erik Kjær Pedersen <erik@binghamton.edu>\n"
 "Language-Team: da <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr "Læg automatisk til samlingen"
 
 #: kmidframe.cpp:133
 msgid "&General Midi file"
-msgstr "&Generel-midi-fil"
+msgstr "&Generel midifil"
 
 #: kmidframe.cpp:137
 msgid "&MT-32 file"
@@ -239,7 +239,7 @@ msgstr "Denne fil er dårlig eller ikke rigtigt lavet"
 
 #: kmidclient.cpp:282
 msgid "Unknown error message"
-msgstr "Ukendt fejl melding"
+msgstr "Ukendt fejlmelding"
 
 #: kmidclient.cpp:466
 msgid "You must load a file before playing it"
@@ -348,7 +348,7 @@ msgstr "Akustisk flygel"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
-msgstr "Stærkt akustisk piano"
+msgstr "Lyst akustisk piano"
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
@@ -556,7 +556,7 @@ msgstr "Kor-A'er"
 
 #: instrname.i18n:59
 msgid "Voice Oohs"
-msgstr "Åhh-stemme"
+msgstr "Ua-stemme"
 
 #: instrname.i18n:60
 msgid "Synth Voice"
