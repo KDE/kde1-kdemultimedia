@@ -85,7 +85,7 @@ kmidFrame::kmidFrame(const char *name)
     kKeysAccel->readSettings();
 
     m_file = new QPopupMenu;
-    m_file->insertItem( i18n("&Open ..."), this, 
+    m_file->insertItem( i18n("&Open..."), this, 
                         SLOT(file_Open()), CTRL+Key_O );
     m_file->insertSeparator();
     m_file->insertItem( i18n("&Save Lyrics ..."), this, 
