@@ -11,6 +11,7 @@ const int	HEIGHT = 30;
 #include <qbitmap.h>
 #include <qtooltip.h>
 #include <qkeycode.h>
+#include <qlist.h>
 #include <kmenubar.h>
 #include <kstatusbar.h>
 #include <ktopwidget.h>
@@ -79,7 +80,7 @@ public slots:
   void		bwdClicked();
   void		bwdReleased();
   void		pllClicked();
-  void		quitClicked();
+  void		quitAll();
   void		TimerFunctions();
   void		ejectClicked();
   void		trackSelected( int );
@@ -94,7 +95,6 @@ public slots:
   void		SlaveStatusQuery();
 
   void		quit();
-  void		quitLW();
   void		closeEvent( QCloseEvent * );
   void		onDrop( KDNDDropZone* _zone );
 
@@ -135,6 +135,7 @@ private:
   QLabel	*playstat;
   QLabel	*mediatitle;
   KDNDDropZone	*dropZone;
+  static QList<KMediaWin> allMediaWins;
 };
 
 #endif

@@ -96,8 +96,3 @@ void KMediaWin::bwdReleased()
   TimerAction=NOP;
 }
 
-/* Martin Jones told me the CloseEvent trick. Thank you! */
-void KMediaWin::closeEvent( QCloseEvent * )
-{
-  quitClicked();
-}

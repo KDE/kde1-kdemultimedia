@@ -24,43 +24,43 @@
 #include "kmedia.h"
 
 extern KApplication	*globalKapp;
+QList<KMediaWin> KMediaWin::allMediaWins;
 
 
-void KMediaWin::quit()
+
+void KMediaWin::quitAll()
 {
+  KMediaWin *kmw;
+  for (kmw=allMediaWins.first(); kmw != 0; kmw = allMediaWins.next() ) {
+    if ( kmw != this )
+      delete kmw;
+  }
+
+  delete this;
   exit(0);
 }
 
-void KMediaWin::quitLW()
+void KMediaWin::quit()
+{
+  // Quit should be done by the "lastWindowClosed SIGNAL handler. But
+  // it does not make it through KApplication:-(
+  //  if ( allMediaWins.count() > 1 )
+  delete this;
+  //  else
+  //    quitAll();
+}
+
+/* Martin Jones told me the CloseEvent trick. Thank you!
+ * This */
+void KMediaWin::closeEvent( QCloseEvent * )
 {
   quit();
 }
-
-void KMediaWin::quitClicked()
-{
-
-      /*
-      bool exitOK = removePlayer();
-      if (!exitOK)
-	fprintf(stderr,"Player does not quit!!!\n");
-	*/
-
-      timer->stop();
-      //delete this;
-
-      quit(); 
-      /* Quit should be done by the "lastWindowClosed SIGNAL handler. But
-       * it does not make it through KApplication:-(
-       */
-}
-
 
 bool KMediaWin::removePlayer()
 {
   if (!MaudioLaunched)
     return true;
-
-
 
   /* Press the exit "button". This tells the slave to quit */
   EventCounterRaise(&(KeysChunk->exit),1);

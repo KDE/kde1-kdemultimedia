@@ -1,3 +1,4 @@
+#include <iostream.h> //!!!
 #include <string.h>
 #include <klocale.h>
 #include <kiconloader.h>
@@ -17,12 +18,15 @@
 #include "pics/logo.xbm"
 
 
-KIconLoader	*globalKIL;		// KIconLoader should be global
+KIconLoader		*globalKIL; // KIconLoader should be global
 extern KApplication	*globalKapp;
-
 
 KMediaWin::~KMediaWin()
 {
+  timer->stop();
+  allMediaWins.removeRef(this);
+  cerr << "Deleting win " << this << "\n";
+
   bool exitOK = removePlayer();
   if (!exitOK)
     fprintf(stderr,"Player does not quit!!!\n");
@@ -62,11 +66,13 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
 
   connect( timer, 	SIGNAL(timeout()), 	SLOT(SlaveStatusQuery()) );
   connect( timerFn,	SIGNAL(timeout()),	SLOT(TimerFunctions()) );
-  connect( this, SIGNAL(lastWindowClosed()), SLOT(quitLW()));
 
   timer->start( 50 );
   timerFn->start( 100 );
   globalKapp->setMainWidget( this );
+
+  allMediaWins.setAutoDelete(FALSE);
+  allMediaWins.append(this);
 }
 
 
@@ -125,6 +131,7 @@ void KMediaWin::createPanel()
 
   // Create Slider (Position indicator)
   PosSB = new KSlider( 0, 0, 1, 5, KSlider::Horizontal, Container, "mediaslider" );
+  PosSB->setTracking(false);
   QSize PosSBsize = PosSB->sizeHint();
   PosSB->setGeometry( ix, iy, w, PosSBsize.height() +4);
   //  PosSB->setTracking(false);
@@ -194,7 +201,7 @@ void KMediaWin::createMenu()
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
   Mfile->insertItem( klocale->translate("New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
-  Mfile->insertItem( klocale->translate("Exit")    ,  this, SLOT(quitClicked())   , CTRL+Key_Q  );
+  Mfile->insertItem( klocale->translate("Quit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
 
   QPopupMenu *Moptions = new QPopupMenu;
   CHECK_PTR( Moptions );

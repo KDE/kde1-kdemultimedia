@@ -57,7 +57,7 @@ int main ( int argc, char *argv[] )
   act.sa_flags = SA_NOCLDSTOP;
   sigaction( SIGCHLD, &act, NULL);
 
-//  globalKIL = new KIconLoader();
+  // globalKIL = new KIconLoader();
   kmedia  = new KMEDIA;
 
   /* Create initial Playlist from command line */
@@ -76,12 +76,8 @@ int main ( int argc, char *argv[] )
 	  break;
 	}
     }
+  globalKapp->connect( globalKapp, SIGNAL(lastWindowClosed()), kmedia->kmw, SLOT( quitAll()));
 
-
-  //  PlaylistShow(kmedia->Playlist);
-
-  globalKapp->setMainWidget( kmedia->kmw );
-  //  kmedia->show();
   return globalKapp->exec();
 }
 
