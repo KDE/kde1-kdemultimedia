@@ -47,7 +47,7 @@ binary-arch:	build
 	dh_fixperms
 	dh_suidregister
 	dh_installdeb
-	dh_shlbdeps
+	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
