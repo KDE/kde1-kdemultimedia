@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "Last-Translator: Bjarni R. Einarsson <bre@mmedia.is>\n"
 "Language-Team: is <kde-isl@mmedia.is>\n"
 "MIME-Version: 1.0\n"
@@ -214,12 +214,12 @@ msgstr "Taktur :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Skráin %s er ekki til eða er óopnanleg"
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Skráin %s er ekki gild MIDI skrá"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -227,27 +227,27 @@ msgstr ""
 "'Ticks per cuarter note' er neikvætt, vinsamlegast senduantlarr@arrakis.es "
 "afrit af þessari skrá"
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Vantar minni !!"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Þessi skrá er skemmd eða illa formuð"
 
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Óþekkt villuboð"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Opnaðu skrána áður en þú spilar hana"
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "Það er nú þegar verið að spila lag"
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

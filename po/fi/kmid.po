@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "Content-Type: text/plain; charset=\n"
 "Date: 1998-04-03 19:18:58+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
@@ -212,38 +212,38 @@ msgstr "Tempo :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Tiedostoa %s ei ole olemassa tai sitä ei saada avattua"
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Tiedosto %s ei ole miditiedosto"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Muistia ei ole tarpeeksi !!"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Tämä tiedosto on viallinen tai huonosti rakennettu"
 
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Tuntematon virhe"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Sinun on ladattava tiedosto ennen sen soittamista"
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "Kappaletta soitetaan jo"
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "PO-Revision-Date: 1998-03-20 12:20 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Slovak <bednar@isternet.sk>\n"
@@ -215,12 +215,12 @@ msgstr "Tempo :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Súbor %s neexistuje alebo sa nedá otvori»."
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Súbor %s nie je midi súbor."
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -228,29 +228,29 @@ msgstr ""
 "Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tento súbor na "
 "adresu antlarr@arrakis.es."
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Nedostatok pamäte !!"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Tento súbor je po¹kodený alebo zle urobený."
 
 # ## Navrhujem zameni» "zle urobený" za "zle vygenerovaný". Urobený znie
 # ## divne :-)
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Neznáma chyba"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Musíte naèíta» súbor pred hraním."
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "U¾ hrá pesnièka."
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

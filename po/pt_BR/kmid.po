@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,12 +212,12 @@ msgstr "Tempo :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "O arquivo %s não existe ou não pode ser aberto"
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "O arquivo %s não é um arquivo midi"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -225,27 +225,27 @@ msgstr ""
 "Passos por semínima é negativo, por favor mande essearquivo para "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Memória insuficiente !!"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Este arquivo está corrompido ou não foi bem formado"
 
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Mensagem de erro desconhecida"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Você precisa carregar um arquivo antes de tocá-lo"
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "Já está sendo executada uma música"
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

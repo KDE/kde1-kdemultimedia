@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid-1.1\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "PO-Revision-Date: 1999-03-12 15:41+0100\n"
 "Last-Translator: Romuald Texier <texierr@worldnet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -219,12 +219,12 @@ msgstr "Lusk :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "N'eus ket eus ar restr %s pe n'eus ket tu e zigeriñ"
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "%s n'eo ket ur restr midi"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -232,27 +232,27 @@ msgstr ""
 "Negativel eo an niver tikoù dre zuenn. Kasit ar restr-mañda "
 "antlarr@arrakis.es, mar plij."
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "N'eus ket a-walc'h a vemor !"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Brein eo ar restr-mañ pe savet fall"
 
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Kemennad fazi dianav"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Ret eo kargañ ur restr a-raok seniñ anezhañ"
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "Emañ o seniñ un ton dija"
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

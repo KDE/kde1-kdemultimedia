@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 1.0\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "PO-Revision-Date: 1998-06-29 11:00+0200\n"
 "Last-Translator: Kerem ERZURUMLU <kerem@linux.org.tr>\n"
 "Language-Team: Hacettepe Linux Users Group <hacettepe@linux.org.tr>\n"
@@ -217,12 +217,12 @@ msgstr "Tempo :"
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "%s dosyasý yok ya da açýlamýyor"
 
-#: kmidclient.cpp:275
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "%s dosyasý bir midi dosyasý deðil"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -230,27 +230,27 @@ msgstr ""
 "Nota baþýna vuruþ sayýsý negatif, lütfen bu dosyayýantlarr@arrakis.es "
 "adresine gönderiniz"
 
-#: kmidclient.cpp:279
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Yetersiz bellek !!"
 
-#: kmidclient.cpp:281
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Bu dosya oynanmýþ yada iyi yapýlmamýþ"
 
-#: kmidclient.cpp:282
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Bilinmeyen hata mesajý"
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Dosyayý çalmadan önce yüklemelisiniz"
 
-#: kmidclient.cpp:472
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "Bir þarký zaten çalýnýyor"
 
-#: kmidclient.cpp:478
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
