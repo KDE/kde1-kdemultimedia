@@ -1,0 +1,66 @@
+<HTML>
+<TITLE>Ayuda de KMid - Sobre KMid</TITLE>
+<BODY>
+<P><H5>KMid 0.6  .  Antonio Larrosa Jimenez (antlarr@arrakis.es)  .  1-4-98 . Malaga (Espa&ntilde;a)</H5></P>
+<HR>
+<P><A NAME="1."></A><H2>1. Sobre KMid</H2></P>
+<P>
+KMid es un reproductor de ficheros midi/karaoke para sistemas operativod Linux y BSDs, que esta
+ totalmente integrado en el entorno de KDE .
+ Usa el driver de sonido de OSS, asi que posiblemente KMid tambi&eacute;n se 
+ ejecute en otros sistemas operativos en los que compile el OSS y el KDE .
+ KMid tambien soporta el driver del Linux Ultrasound Project, que es requerido
+ (por ahora) para conseguir algun sonido de una tarjeta GUS .
+<BR>KMid muestra la letra cambiando de color en la pantalla a la vez que la
+ musica suena, por lo tanto es muy facil de seguir la melodia de las canciones .
+<BR>He incluido algunos ejemplos que se habran instalado en el directorio
+ $KDEDIR/share/apps/kmid .
+</P>
+<P><A NAME="1.1."></A><H3>1.1. Caracter&iacute;sticas de KMid</H3></P>
+<P>
+<LI>KMid tiene un bonito interfaz para mostrar la letra de las canciones .
+<LI>El Mapeador Midi mas potente que existe .
+<LI>Drag & drop (arrastrar y soltar) para soltar en KMid los ficheros del Kfm .
+<LI>Fuentes personalizables para el karaoke .
+<LI>Soporta los dos estandares para introducir letra en ficheros midi, eventos de lirica y eventos de texto (y adivina automaticamente cual es el que debe mostrar) .
+<LI>Session Management. Si una cancion esta tocandose mientras sales del KDE,
+ la proxima vez que entres, la cancion seguira tocandose .
+<LI>Puede abrir algunos ficheros corruptos que hace que otros programas suelten un core !
+<LI>Puede abrir ficheros comprimidos con gzip exactamente igual que cualquier otro fichero midi .
+<LI>Consume aproximadamente un 0.1% de mi CPU (depende de la complejidad de la canci&oacute;n) .
+<LI>Soporta sintetizadores externos, AWE , FM y GUS (paara la ultima necesita el driver del Linux Ultrasound Project con el gusd instalado) .
+<LI>Se ejecuta en Linux y FreeBSD (quizas tambien en otros sistemas unix ...) .
+
+</P>
+
+<P><A NAME="1.2."></A><H3>1.2. Requerimientos</H3></P>
+<P>
+KMid requiere para funcionar:
+<LI> KDE 
+<BR>    Bueno, supongo que ya tienes esto :-)
+<LI> Una tarjeta de sonido 
+<BR>    La calidad del sonido depende enormemente de la tarjeta de sonido,
+ no es lo mismo tocar musica usando un dispositivo FM que usar una AWE .
+ Aunque usar un teclado exteno es mucho mejor que ambos :-)
+</P>
+<P><A NAME="1.3."></A><H3>1.3. Algunas notas</H3></P>
+<P>
+Si tienes una tarjeta AWE y has cargado una distribucion binaria de KMid
+ (por ejemplo un paquete rpm), probablemente no te funcione bien el KMid .
+ Esto es debido a que al compilar el KMid se necesita el driver de la AWE
+ para que el fichero binario tenga soporte para AWE .
+<BR>Asi que para que funcione tu AWE, tendras que cargar el codigo fuente
+ (que encontraras en la pagina de KMid y en cualquier mirror de KDE) y
+ compilarlo tu mismo .
+</P>
+<P>
+La pagina de KMid es : http://www.arrakis.es/~rlarrosa/kmid.html
+Desde alli puedes cargar la ultima version.
+</P>
+<HR>
+<P ALIGN="RIGHT">
+<A HREF="index.html">Anterior</A>
+    <A HREF="index.html">Tabla de Contenidos</A>
+    <A HREF="index2.html">Siguiente</A>
+</P>
+</BODY></HTML>

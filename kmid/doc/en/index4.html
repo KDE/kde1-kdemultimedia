@@ -1,0 +1,195 @@
+<HTML>
+<TITLE>KMid Help - Midi Maps</TITLE>
+<BODY>
+<P><H5>KMid 0.6  .  Antonio Larrosa Jimenez (antlarr@arrakis.es)  .  1-4-98 . Malaga (Spain)</H5></P>
+<HR>
+<P><A NAME="4."></A><H1>4. Midi Maps</H1></P>
+<P><A NAME="4.1."></A><H2>4.1. What is a midi map ?</H2></P>
+<P>
+A Midi Map is something that maps midi events in other midi events .
+<BR>This is very useful (totally needed) if a synthesizer doesn't understand
+ the standard events (that is, if a synthesizer is not General Midi compliant)
+ , in this case, a midi map will translate General Midi events in the events
+ that that synthesizer understands.
+<BR>For example you can make a midi map that converts all the 'Change patch to
+ Bright Piano' events, to 'Change patch to Trumpet' events, and so when a song
+ tries to play a piano, it will play a trumpet instead.
+<BR>This may sound odd, (why playing a trumpet when the song is made to play
+ a piano ?), but it is very useful. The GM standard specifies that when a
+ midi keyboard receives an event to change patch to 0, it will change the
+ current patch to 'Grand Piano', but older synthesizer will change to a
+ 'Electric Guitar' (for example) when it receives a 0. This old keyboard,
+ needed to receive a 3 (for example) to change to a Piano. And here comes
+ the midi map in action, changing all 'change patch to 0' to 'change patch to 3'
+ and thus really playing the correct instrument when it has to.
+</P>
+
+<P><A NAME="4.2."></A><H2>4.2. Do I need a midi map ?</H2></P>
+<P>
+Quickly, if you don't have an external synth, NO.
+<BR>If you only have a sound card, midi maps are not needed because all the sound
+ cards are GM compliant (this include AWE cards, GUS cards, and so on).
+<BR>If you are playing music through an external synthesizer, and it is
+not GM compliant, you will need to make a midi map for your midi keyboard .
+ Although you will perhaps be a whole afternoon doing your map file and
+ trying different values for all the options, you will be fully rewarded
+ when you finish it, because then you will find all the hidden possibilities
+ of your keyboard. For example, I have a low-cost Yamaha PSS-790, which is not
+ GM compatible, and doesn't has as many instruments as a GM synthesizer,
+ but with the midi map I've made, it sounds even better than many soundcards
+ (including AWE :-)), due to the sound quality found in external synths (even on
+ non GM)
+</P>
+
+<P><A NAME="4.3."></A><H2>4.3. Creating midi maps</H2></P>
+<P>
+There isn't any program (yet) to generate midi maps, so you will have to 
+ edit a file by hand .
+<BR>A Midi map is a file that keeps all the needed translations there will
+ be made when playing music .
+<BR>It consist of many sections: PATCHMAP, KEYMAP, CHANNELMAP, OPTIONS
+<BR>Each section must appear only once, except the KEYMAP section that
+ can appear as many times as needed, provided that each appearance use
+ a different TextID (continue reading for details) .
+<BR>The general structure of a map file is :
+<BR>-----------
+<BU>
+<BR>DEFINE PATCHMAP
+<BR> ...
+<BR>END
+<BR>
+<BR>DEFINE KEYMAP "Name of Keymap"
+<BR> ...
+<BR>END
+<BR>DEFINE KEYMAP "Another name of Keymap"
+<BR> ...
+<BR>END
+<BR>DEFINE CHANNELMAP
+<BR> ...
+<BR>END
+<BR>OPTIONS
+<BR> ...
+<BR>END
+</BU>
+<BR>----------
+<BR>You can see that the DEFINE word is used to specify which section is going
+ to be started (except for OPTIONS), and END is put at the end of each section.
+<BR>You can put comments by starting the line with a '#' character .
+<BR>Please, don't forget to send me your map file by email, so that future
+releases of KMid will include support for more non General Midi compliant
+keyboards.
+</P>
+
+<P><A NAME="4.3.1."></A><H2>4.3.1. The PATCHMAP section</H2></P>
+<P>
+This section is used to specify how are going to be mapped the Patches, from GM
+ to your keyboard specs . The general usage is :
+<BR> (Name of GM Patch name)=(N) [AllKeysTo M]
+<BR>Where N is the number that you keyboard needs to receive to change the patch
+ to the same that the GM standard does .
+<BR>Please note that the left side of the equal sign is ignored, so GM patches are
+ supossed to be in order (from 0 to 127) , and so you are not allowed to change
+ the order of the lines nor to omit any of the 128 instruments.
+<BR>The optional 'AllKeysTo M' is used to map all notes that use that instrument
+ to the M key . For example, suppose that your midi keyboard doesn't have
+ a Gun Shot sound (GM patch 127) so you want to map it to a percussion drum (i.e. key 60),
+ which sounds similar to a gun shot, then you can put in the 127th line of
+ the PATCHMAP section:
+<BR> Gunshot       =100 AllKeysTo 60
+<BR>So when a midi file tries to play a note with the patch 127 (gun shot), it
+ will be mapped to the patch 100 (your keyboard's percussion patch) and play
+ the note 60 (independently of the key that was goind to be played) .
+<BR>Please note that when I use the expression 'Percussion patch', I mean
+ the patch in which each key plays a different drum, cymbal and so on, and
+ not to a possible sound which some keyboards have and which plays a
+ different tone of the same drum with each key .
+</P>
+
+<P><A NAME="4.3.2."></A><H2>4.3.2. The KEYMAP section</H2></P>
+<P>
+The KEYMAP section is used to specify how keys are going to be mapped, within 
+ a given channel or instrument . The usage is :
+</P>
+<P>
+<BR>DEFINE KEYMAP "Name of Keymap"
+<BR>C 0 =0
+<BR>C#0 =1
+<BR>D 0 =2
+<BR>...
+<BR>END
+</P>
+<P>
+As with the PATCHMAP section, it is very important the order of the lines, and
+ that they are all there (the 128 keys).
+<BR>As you can define multiple keymaps for different channels and instruments,
+ you must give a different name to each one in the first line.
+<BR>Keymaps are mainly used to map keys in the percussion channel . Have a look
+ at the distributed maps to see some examples.
+</P>
+
+<P><A NAME="4.3.3."></A><H2>4.3.3. The CHANNELMAP section</H2></P>
+<P>
+This section can be used to map some channels to different ones . For example,
+ if you want to swap the first and second channels, you can easily do it within
+ the CHANNELMAP section .
+<BR>However it is more usefull for keyboards that need the percussion channel 
+ to be in a given channel (the GM standard use the channel 10, others use the
+ channel 16 and others use channel 9).
+<BR>Note that midi devices use 16 channels, so the CHANNELMAP section, has
+ 16 lines, from 0 to 15 , as this one :
+<BR> (N) = (M) [Keymap "Name"] [ForcePatch x]
+<BR>Where N is the channel which is mapped to the M channel .
+ If the Keymap option is used, the Keymap with name "Name" will be used
+ in this channel (this Keymap should be defined earlier in the map file !) .
+ If the ForcePatch option is used, all events that try to change the patch
+ which is used in this channel will be ignored, and patch x will be used instead .
+<BR>The ForcePatch option may be useful for example to always use the
+ percussion patch on the percussion channel .
+</P>
+
+<P><A NAME="4.3.4."></A><H2>4.3.4. The OPTIONS section</H2></P>
+<P>
+The OPTIONS section has some general options that can be very useful :
+</P>
+<P>
+OPTIONS
+<BR>PitchBenderRatio = r
+<BR>MapExpressionToVolumeEvents
+<BR>END
+</P>
+<P>
+You can specify both options, only one, or none of them.
+<BR>The PitchBenderRatio r value, has the ratio by which pitch bender events
+ will be multiplied . That is, when a midi file tries to send a pitch bender
+ event with a n value, the real value that will be sent is n*(r/4096) (the
+ 4096 value is for not having to put decimal points in the map file) .
+<BR>This is used because the GM standard says that when a midi keyboard receives
+ a Pitch Bender event with a 4096 data value, it should bend the note to a
+ higher one , but some midi keyboards try to bend the initial note by
+ two or more higher notes (even an octave higher !) when they receive a 4096 .
+ This can be easily fixed by trying different values so that instead of sending
+ a 4096, KMid sends the appropiate value .
+<BR>When the MapExpressionToVolumeEvents option is set in the map file, and
+ a midi file try to send an expression event, KMid will send a volume event
+ which is understood by more non-GM keyboards, and which has a similar effect .
+ There are many midi files which use expression events to fade out at the end
+ of a song, so if you feel that music should be heard softer and softer, you
+ can turn on this option and see if this is what you need, because your midi
+ synthesizer could be ignoring the expression events because it doesn't
+ understand them.
+</P>
+
+<P><A NAME="4.4."></A><H2>4.4. Using midi maps</H2></P>
+<P>
+To use a midi map, simply open the 'Midi Setup' dialog by selecting the
+'Midi Setup ...' entry of the 'Options' menu .
+<BR>Then click on 'Browse ...', select the map file within the open file dialog
+ and enjoy the music ! :-)
+</P>
+<HR>
+<P ALIGN="RIGHT">
+<A HREF="index3.html">Previous</A>
+    <A HREF="index.html">Table of Contents</A>
+    <A HREF="index5.html">Next</A>
+</P>
+</BODY></HTML>

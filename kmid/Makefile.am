@@ -56,7 +56,7 @@ install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) mini-kmid.xpm $(kde_minidir)/kmid.xpm
 	@echo "********************************************"
-	@echo "Thanks for installing kmid 0.5.1 !"
+	@echo "Thanks for installing kmid 0.6 !"
 	@echo "I have included some example songs that have been installed in"
 	@echo $(kde_datadir)/kmid
 	@echo ""

@@ -1,0 +1,66 @@
+<HTML>
+<TITLE>KMid Help - About KMid</TITLE>
+<BODY>
+<P><H5>KMid 0.6  .  Antonio Larrosa Jimenez (antlarr@arrakis.es)  .  1-4-98 . Malaga (Spain)</H5></P>
+<HR>
+<P><A NAME="1."></A><H3>1. About KMid</H3></P>
+<P>
+KMid is a midi/karaoke player for Linux and BSD o.s. that is fully integrated
+in the KDE environment .
+ It uses the OSS sound driver, so KMid may run in other operating systems
+ in which OSS and KDE compile. KMid also supports the Linux Ultrasound
+ Project Driver (LUP from now on), which is required to get sound
+ with a GUS card .
+<BR>KMid shows the lyrics in the screen changing its color at the same
+ time the music is playing, so it is very easy to follow the tune of the songs .
+<BR>I've include some examples, which are installed in the $KDEDIR/share/apps/kmid
+ directory .
+</P>
+<P><A NAME="1.1."></A><H3>1.1. KMid's features</H3></P>
+<P>
+<LI>KMid has a nice interface to display karaoke text .
+<LI>The most powerful Midi Mapper that you will ever find .
+<LI>Drag & drop so you can drop in KMid any midi file from a kfm window .
+<LI>Customizable fonts for karaoke text to be displayed .
+<LI>Supports the two standards to introduce lyrics in midi files, that is, lyrics or text events (and guess which one a song uses automatically) .
+<LI>Session Management. If a song is playing while you logout from KDE, the next
+time you login, the same song will start playing .
+<LI>Can play some broken midi files which make other players core dump !
+<LI>Can open gzipped files just as any other midi file .
+<LI>Consumes approximately 0.1% of my CPU (depends on the complexity of
+the song) .
+<LI>Supports external midi synths, AWE , FM and GUS cards (for the latter needs the Linux Ultrasound Project driver and gusd installed) .
+<LI>Runs on Linux and FreeBSD (perhaps also other unices ...) .
+
+</P>
+
+<P><A NAME="1.2."></A><H3>1.2. KMid's requirements</H3></P>
+<P>
+KMid requires to work:
+<LI> KDE 
+<BR>    Well, you probably already have this :-)
+<LI> A sound card 
+<BR>    The sound quality depends greatly in your soundcard, it's not
+ the same to play the music using an FM device, than using an AWE card .
+ Altough using an external synth is far better than both :-)
+</P>
+<P><A NAME="1.3."></A><H3>1.3. Some notes</H3></P>
+<P>
+If you have an AWE card and you get a binary distribution of KMid (i.e. in
+a rpm package), you will probably not be able to use your soundcard .
+ This is due to the needings of the AWE driver at compile time to build a
+binary with AWE support .
+<BR>So to get your AWE card working, you will have to get the source code
+(found at KMid's homepage and every KDE mirror) and compile it yourself .
+</P>
+<P>
+KMid's homepage is at http://www.arrakis.es/~rlarrosa/kmid.html
+<BR>There you can download the latest version.
+</P>
+<HR>
+<P ALIGN="RIGHT">
+<A HREF="index.html">Previous</A>
+    <A HREF="index.html">Table of Contents</A>
+    <A HREF="index2.html">Next</A>
+</P>
+</BODY></HTML>
