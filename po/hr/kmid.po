@@ -88,22 +88,21 @@ msgstr "&Automatski izbor teksta"
 
 #: kmidframe.cpp:128
 msgid "Show &Volume Bar"
-msgstr ""
+msgstr "Prika¾i &jaèinu zvuka"
 
 #: kmidframe.cpp:133
 msgid "Show &Channel View"
-msgstr ""
+msgstr "Prika¾i &Kanale"
 
 #: kmidframe.cpp:138
 msgid "Channel View &Options"
-msgstr ""
+msgstr "&Opcije za prikaz kanala"
 
 #: kmidframe.cpp:142
 msgid "&Font Change ..."
 msgstr "&Promjena Pisma ..."
 
 #: kmidframe.cpp:145
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Postava Midija ..."
 
@@ -172,11 +171,11 @@ msgstr "Slijedeæa Pjesma"
 
 #: kmidframe.cpp:198
 msgid "Show Channel View"
-msgstr ""
+msgstr "Prika¾i kanale"
 
 #: kmidframe.cpp:203
 msgid "Show Volume Bar"
-msgstr ""
+msgstr "Prika¾i jaèinu zvuka"
 
 #: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
 msgid "Error"
@@ -344,21 +343,20 @@ msgid "Change Collection Name"
 msgstr "Promijenite ime kolekcije"
 
 #: channel.cpp:75
-#, fuzzy
 msgid "Channel"
-msgstr "Poni¹ti"
+msgstr "Kanal"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
-msgstr ""
+msgstr "Podesi pogled na kanale"
 
 #: channelcfgdlg.cpp:22
 msgid "Choose look mode"
-msgstr ""
+msgstr "Izaberi izgled"
 
 #: channelcfgdlg.cpp:23
 msgid "3D look"
-msgstr ""
+msgstr "3D izgled"
 
 #: channelcfgdlg.cpp:24
 msgid "3D - filled"
@@ -366,7 +364,7 @@ msgstr ""
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
-msgstr ""
+msgstr "Akustièni koncertni klavir"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
@@ -374,7 +372,7 @@ msgstr ""
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
-msgstr ""
+msgstr "Elektrièni koncertni klavir"
 
 #: instrname.i18n:9
 msgid "Honky-Tonk"
@@ -382,7 +380,7 @@ msgstr ""
 
 #: instrname.i18n:10
 msgid "Rhodes Piano"
-msgstr ""
+msgstr "Rhodes klavir"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
@@ -390,24 +388,23 @@ msgstr ""
 
 #: instrname.i18n:12
 msgid "Harpsichord"
-msgstr ""
+msgstr "Klavièembalo"
 
 #: instrname.i18n:13
 msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Pobri¹i"
+msgstr "Èelesta"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
-msgstr ""
+msgstr "Glokn¹pil"
 
 #: instrname.i18n:16
 msgid "Music Box"
-msgstr ""
+msgstr "Muzièka kutija"
 
 #: instrname.i18n:17
 msgid "Vibraphone"
@@ -439,11 +436,11 @@ msgstr ""
 
 #: instrname.i18n:24
 msgid "Rock Organ"
-msgstr ""
+msgstr "Rock orgulje"
 
 #: instrname.i18n:25
 msgid "Church Organ"
-msgstr ""
+msgstr "Crkvene orgulje"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
@@ -455,7 +452,7 @@ msgstr ""
 
 #: instrname.i18n:28
 msgid "Harmonica"
-msgstr ""
+msgstr "Usna harmonika"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
@@ -463,15 +460,15 @@ msgstr ""
 
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
-msgstr ""
+msgstr "Akustièna gitara (najlon)"
 
 #: instrname.i18n:31
 msgid "Acoustic Guitar (Steel)"
-msgstr ""
+msgstr "Akustièna gitara (metal)"
 
 #: instrname.i18n:32
 msgid "Electric Guitar (Jazz)"
-msgstr ""
+msgstr "Elektrièna gitara (D¾ez)"
 
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
@@ -495,11 +492,11 @@ msgstr ""
 
 #: instrname.i18n:38
 msgid "Acoustic Bass"
-msgstr ""
+msgstr "Akustièni Bas"
 
 #: instrname.i18n:39
 msgid "Electric Bass (Finger)"
-msgstr ""
+msgstr "Elektrièni Bas (Prst)"
 
 #: instrname.i18n:40
 msgid "Electric Bass (Pick)"
@@ -527,11 +524,11 @@ msgstr ""
 
 #: instrname.i18n:46
 msgid "Violin"
-msgstr ""
+msgstr "Violina"
 
 #: instrname.i18n:47
 msgid "Viola"
-msgstr ""
+msgstr "Viola"
 
 #: instrname.i18n:48
 msgid "Cello"
@@ -539,7 +536,7 @@ msgstr ""
 
 #: instrname.i18n:49
 msgid "Contrabass"
-msgstr ""
+msgstr "Kontrabas"
 
 #: instrname.i18n:50
 msgid "Tremolo Strings"
@@ -591,11 +588,11 @@ msgstr ""
 
 #: instrname.i18n:62
 msgid "Trumpet"
-msgstr ""
+msgstr "Truba"
 
 #: instrname.i18n:63
 msgid "Trombone"
-msgstr ""
+msgstr "Trombone"
 
 #: instrname.i18n:64
 msgid "Tuba"
@@ -623,23 +620,23 @@ msgstr ""
 
 #: instrname.i18n:70
 msgid "Soprano Sax"
-msgstr ""
+msgstr "Soprano Sax"
 
 #: instrname.i18n:71
 msgid "Alto Sax"
-msgstr ""
+msgstr "Alto Sax"
 
 #: instrname.i18n:72
 msgid "Tenor Sax"
-msgstr ""
+msgstr "Tenor Sax"
 
 #: instrname.i18n:73
 msgid "Baritone Sax"
-msgstr ""
+msgstr "Baritone Sax"
 
 #: instrname.i18n:74
 msgid "Oboe"
-msgstr ""
+msgstr "Oboa"
 
 #: instrname.i18n:75
 msgid "English Horn"
@@ -651,7 +648,7 @@ msgstr ""
 
 #: instrname.i18n:77
 msgid "Clarinet"
-msgstr ""
+msgstr "Klarinet"
 
 #: instrname.i18n:78
 msgid "Piccolo"
@@ -659,7 +656,7 @@ msgstr ""
 
 #: instrname.i18n:79
 msgid "Flute"
-msgstr ""
+msgstr "Flauta"
 
 #: instrname.i18n:80
 msgid "Recorder"
@@ -679,7 +676,7 @@ msgstr ""
 
 #: instrname.i18n:84
 msgid "Whistle"
-msgstr ""
+msgstr "Zvi¾duk"
 
 #: instrname.i18n:85
 msgid "Ocarina"
@@ -806,9 +803,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Datoteka"
+msgstr ""
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -832,7 +828,7 @@ msgstr ""
 
 #: instrname.i18n:122
 msgid "Taiko Drum"
-msgstr ""
+msgstr "Taiko bubanj"
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
@@ -840,7 +836,7 @@ msgstr ""
 
 #: instrname.i18n:124
 msgid "Synth Drum"
-msgstr ""
+msgstr "Synth bubanj"
 
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
@@ -852,11 +848,11 @@ msgstr ""
 
 #: instrname.i18n:127
 msgid "Breath Noise"
-msgstr ""
+msgstr "Zvuk udisaja"
 
 #: instrname.i18n:128
 msgid "Seashore"
-msgstr ""
+msgstr "Morska obala"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
@@ -864,17 +860,16 @@ msgstr ""
 
 #: instrname.i18n:130
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 #: instrname.i18n:131
 msgid "Helicopter"
-msgstr ""
+msgstr "Helikopter"
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pauziraj"
+msgstr "Pljesak"
 
 #: instrname.i18n:133
 msgid "Gunshot"
-msgstr ""
+msgstr "Pucanj"
