@@ -11,6 +11,7 @@ static char *ident = "@(#)cdrom.c	1.11 04 Jun 1995";
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/time.h>
+#include <string.h>
 
 #include "struct.h"
 #include "config.h"

@@ -8,7 +8,9 @@ static char *ident = "@(#)cdinfo.c	1.85 12/18/93";
 #include <errno.h>
 #include <stdio.h>
 #include <sys/types.h>
+#include <string.h>
 #include "struct.h"
+
 
 void *calloc(), *malloc(), *realloc(), print_cdinfo(), wipe_cdinfo();
 char *strchr(), *getenv();
