@@ -91,9 +91,9 @@ typedef struct _SFOrder {
 static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp);
 static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp);
 static int is_excluded(int bank, int preset, int keynote);
-/*static void free_exclude(void);*/
+static void free_exclude(void);
 static int is_ordered(int bank, int preset, int keynote);
-/*static void free_order(void);*/
+static void free_order(void);
 static void parse_preset(SFInsts *rec, SFInfo *sf, int preset, int order);
 static void parse_gen(Layer *lay, tgenrec *gen);
 static void parse_preset_layer(Layer *lay, SFInfo *sf, int idx);
@@ -204,7 +204,6 @@ void init_soundfont(char *fname, int order, int oldbank, int newbank)
 #endif
 }
 
-
 #if 0
 static void free_sample(InstList *ip)
 {
@@ -221,29 +220,40 @@ static void free_sample(InstList *ip)
 }
 #endif
 
-
-/* what is this for? It's never called. --gl */
-#if 0
 void end_soundfont(void)
 {
 	InstList *ip, *next;
+	FILE *still_open = NULL;
+	char *still_not_free = NULL;
 
-	if (sfrec.fd) {
-		fclose(sfrec.fd);
-		sfrec.fd = NULL;
+	while (1) {
+	    for (ip = sfrec.instlist; ip; ip = next) {
+		next = ip->next;
+		if (!still_open && ip->fd) {
+		    still_open = ip->fd;
+		    still_not_free = ip->fname;
+		}
+		if (still_open && ip->fd == still_open) ip->fd = NULL;
+	    }
+	    if (still_open) {
+		fclose(still_open);
+		still_open = NULL;
+		if (still_not_free) free(still_not_free);
+	    }
+	    else break;
 	}
-	free(sfrec.fname); sfrec.fname = NULL;
 
+/** freeing samples done by free_instrument in instrum.c
 	for (ip = sfrec.instlist; ip; ip = next) {
 		next = ip->next;
 		free_sample(ip);
 	}
+**/
 	sfrec.instlist = NULL;
 
 	free_exclude();
 	free_order();
 }
-#endif
 
 /*----------------------------------------------------------------
  * get converted instrument info and load the wave data from file
@@ -509,7 +519,6 @@ static int is_excluded(int bank, int preset, int keynote)
 }
 
 /* free exclude list */
-#if 0
 static void free_exclude(void)
 {
 	SFExclude *p, *next;
@@ -519,7 +528,6 @@ static void free_exclude(void)
 	}
 	sfexclude = NULL;
 }
-#endif
 
 
 /*----------------------------------------------------------------
@@ -552,7 +560,6 @@ static int is_ordered(int bank, int preset, int keynote)
 }
 
 /* free order list */
-#if 0
 static void free_order(void)
 {
 	SFOrder *p, *next;
@@ -562,7 +569,6 @@ static void free_order(void)
 	}
 	sforder = NULL;
 }
-#endif
 
 /*----------------------------------------------------------------
  * parse a preset
@@ -715,7 +721,7 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 	int sub_banknum = sf->presethdr[pr_idx].sub_bank;
 	int sub_preset = sf->presethdr[pr_idx].sub_preset;
 	int keynote, n_order, program, truebank;
-	int strip_loop = 0, strip_envelope = 0, strip_tail = 0, panning = 0, amp = 0;
+	int strip_loop = 0, strip_envelope = 0, strip_tail = 0, panning = 0;
 #ifndef ADAGIO
 	ToneBank *bank=0;
 	char **namep;
@@ -813,11 +819,10 @@ else printf("NO CFG NAME!\n");
 	if (truebank && bank->tone[program].font_type != FONT_SBK) return;
 #endif
 	panning = bank->tone[program].pan;
-	amp = bank->tone[program].amp;
 	strip_loop = bank->tone[program].strip_loop;
-	/*strip_envelope = bank->tone[program].strip_envelope;*/
+	strip_envelope = bank->tone[program].strip_envelope;
 	strip_tail = bank->tone[program].strip_tail;
-	if (!strip_envelope) strip_envelope = (banknum == 128);
+	/*if (!strip_envelope) strip_envelope = (banknum == 128);*/
 #endif
 
 	if (is_excluded(banknum, preset, keynote))
@@ -826,6 +831,7 @@ else printf("NO CFG NAME!\n");
 		order = n_order;
 
 #ifndef ADAGIO
+#if 0
 	if (*namep == NULL || strlen(*namep) < 2) {
 		if (*namep) free(*namep);
 		*namep = safe_malloc(21);
@@ -834,6 +840,7 @@ else printf("NO CFG NAME!\n");
 		else memcpy(*namep, sf->insthdr[in_idx].name, 20);
 		(*namep)[20] = 0;
 	}
+#endif
 #endif
 
 	/* search current instrument list */
@@ -885,9 +892,6 @@ else printf("NO CFG NAME!\n");
 		+ (short)lay->val[SF_endAddrs]
 		+ sample->endsample - sp->startsample;
 
-/* TODO: Substitute values given in config file, assessed by, e.g.:
-	    bank->tone[program].strip_tail=-1;
-*/
 
 	/* set loop position */
 	sp->v.loop_start = ((short)lay->val[SF_startloopAddrsHi] * 32768)
@@ -1003,8 +1007,8 @@ if (strip_loop == 1) {
 			/* strip the tail */
 			sp->v.data_length = sp->v.loop_end + 1;
 	}
+	if (strip_tail == 1) sp->v.data_length = sp->v.loop_end + 1;
 
-/** --gl add strip env later **/
       /* Strip any loops and envelopes we're permitted to */
       if ((strip_loop==1) && 
 	  (sp->v.modes & (MODES_SUSTAIN | MODES_LOOPING | 
@@ -1023,13 +1027,14 @@ if (strip_loop == 1) {
 
 
 	/* panning position: 0 to 127 */
-	sp->v.panning = 64;
-	if (lay->set[SF_panEffectsSend]) {
+	if (panning != -1) sp->v.panning=(uint8)(panning & 0x7F);
+	else if (lay->set[SF_panEffectsSend]) {
 		if (sf->version == 1)
 			sp->v.panning = (int8)lay->val[SF_panEffectsSend];
 		else
 			sp->v.panning = (int8)(((int)lay->val[SF_panEffectsSend] + 500) * 127 / 1000);
 	}
+	else sp->v.panning = 64;
 
 	/* tremolo & vibrato */
 	sp->v.tremolo_sweep_increment = 0;
@@ -1061,11 +1066,13 @@ if (strip_loop == 1) {
 	sp->endsample *= 2;
 
 	/* set cutoff frequency */
-	sp->cutoff_freq = 0;
 	if (lay->set[SF_initialFilterFc] || lay->set[SF_env1ToFilterFc])
 		calc_cutoff(lay, sf, sp);
+	else sp->cutoff_freq = 0;
 	if (lay->set[SF_initialFilterQ])
 		calc_filterQ(lay, sf, sp);
+	sp->v.cutoff_freq = sp->cutoff_freq;
+	sp->v.resonance = sp->resonance;
 }
 
 /* calculate root pitch */
