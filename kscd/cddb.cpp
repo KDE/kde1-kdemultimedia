@@ -305,8 +305,10 @@ void CDDB::cddb_timed_out_slot()
 void CDDB::close_connection()
 {
     if(sock)
+    {
 	cddb_close(sock);
-    sock = 0L;
+	sock = 0L;
+    }
 }
 void CDDB::cddb_close(KSocket *socket)
 {
@@ -592,10 +594,11 @@ void CDDB::do_state_machine()
     case CDDB_READING:
 	if(lastline.left(1) == QString("."))
 	{
-            if(protocol==CDDBHTTP)
+            if(protocol!=CDDBHTTP)
                 write(sock->socket(),"quit\n",6);
             state = CDDB_DONE;
 	    respbuffer.detach();
+	    cddb_close(sock);
 	    emit cddb_done();
 	} else {
             respbuffer.prepend("\n");
@@ -634,7 +637,7 @@ void CDDB::do_state_machine()
 	{
 	    if(debugflag) 
                 fprintf(stderr,"GOT SERVERLIST\n");
-            if(protocol==CDDBHTTP)
+            if(protocol!=CDDBHTTP)
                 write(sock->socket(),"quit\n",6);
 	    cddb_close(sock);
 	    emit get_server_list_done();

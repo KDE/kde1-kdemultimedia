@@ -1,3 +1,7 @@
+1998-04-28  Vadim Zaliva  <lord@crocodile.org>
+
+	* Corrected bug in cddb with current CD information disappearing after some time of playing.
+
 1998-04-26  Vadim Zaliva  <lord@crocodile.org>
 
 	* Removed potetial concurency problem in CDDB connection procedure.
