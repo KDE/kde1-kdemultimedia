@@ -24,7 +24,7 @@
 
 #include <sys/types.h> 
 #include <sys/wait.h> 
-
+#include <limits.h>
 
 #include <klocale.h>
 
@@ -46,6 +46,7 @@ int main ( int argc, char *argv[] )
 {
   int i;
   struct sigaction act;
+  char pbuf[PATH_MAX];
 
   globalKapp = new KApplication( argc, argv, "kmedia" );
   KMediaUI *kmediaui;
@@ -67,7 +68,16 @@ int main ( int argc, char *argv[] )
       /*
 	PlaylistAdd(kmediaui->Playlist, argv[i],-1);
       */
-      KURL *url = new KURL( argv[i] );
+      KURL *url = 0L;
+      if ((strchr(argv[i],':') == 0) || (*argv[i] != '/')) {
+	getcwd(pbuf, sizeof(pbuf));
+	strcat(pbuf, "/");
+	strcat(pbuf, argv[i]);
+	url = new KURL(pbuf);
+      } else {
+	url = new KURL(QString( argv[i] ));
+      }
+
       kmediaui->kmw->launchPlayer(url->path()); // Will be launched only one time
       // OK, this cast is ... not-so-good. But it is the low-level
       // protocol, only kmediaui and the media players speak lowlevel protocol.
