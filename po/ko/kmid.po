@@ -197,7 +197,7 @@ msgid ""
 "Probably there is another program using it"
 msgstr ""
 "/dev/sequencer의 정보를 얻을 수 없읍니다\n"
-"다른 프로그램이 사용중인 것 같습니다\n"
+"다른 프로그램이 사용중인 것 같습니다"
 
 #: kmidframe.cpp:682 kmidframe.cpp:683
 #, c-format
@@ -256,7 +256,7 @@ msgid ""
 "Probably there is another program using it"
 msgstr ""
 "/dev/sequencer를 열 수 없읍니다\n"
-"다른 프로그램이 사용중인 것 같습니다\n"
+"다른 프로그램이 사용중인 것 같습니다"
 
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"
