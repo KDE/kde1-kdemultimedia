@@ -233,7 +233,7 @@ msgstr "Gjør mulig KPanel-dokking"
 
 #: configdlg.cpp:165
 msgid "Play on Tray Close"
-msgstr "Spell når døren lukkes"
+msgstr "Spill når døren lukkes"
 
 #: configdlg.cpp:171
 msgid "AutoDock on Minimize"
