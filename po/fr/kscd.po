@@ -91,6 +91,8 @@ msgid ""
 "Could not pipe contents into:\n"
 " %s"
 msgstr ""
+"Impossible de rediriger le contenu dans :\n"
+" %s"
 
 #: CDDialog.cpp:590
 msgid "Under which category would you like to store this CDDB entry?"
@@ -138,6 +140,8 @@ msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
 msgstr ""
+"Tous les titres de piste ne peuvent pas être vides.\n"
+"Veuillez corriger l'entrée et ré-essayer."
 
 #: CDDialog.cpp:877
 msgid "Internal Error"
@@ -301,7 +305,7 @@ msgstr "Temps de connexion écoulé"
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Délai d'interaction avec le serveur écoulé."
 
 #: kscd.cpp:248
 #, c-format
@@ -329,11 +333,11 @@ msgstr "Vol : --"
 
 #: kscd.cpp:528
 msgid "Performances"
-msgstr ""
+msgstr "Concerts"
 
 #: kscd.cpp:531
 msgid "Purchases"
-msgstr ""
+msgstr "Achats"
 
 #: kscd.cpp:538
 msgid "KSCD Magic"
@@ -402,7 +406,7 @@ msgstr "Lecture"
 #: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr "%02d: <Inconnu>"
+msgstr "%02d : <Inconnu>"
 
 #: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
@@ -459,7 +463,7 @@ msgstr ""
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Remerciements spéciaux à Ti Kan et Steve Scherf, les inventeurs du concept "
-"debase de données CDDB. Visitez http://www.cddb.com pour plus d'informations "
+"de base de données CDDB. Visitez http://www.cddb.com pour plus d'informations "
 "sur CDDB.\n"
 "\n"
 
@@ -528,11 +532,11 @@ msgstr "Aucune entrée CDDB correspondante."
 
 #: kscd.cpp:1834 kscd.cpp:1844
 msgid "Error getting CDDB entry."
-msgstr ""
+msgstr "Erreur de lecture de l'entrée CDDB."
 
 #: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
-msgstr ""
+msgstr "Le délai d'interrogation de CDDB est écoulé."
 
 #: kscd.cpp:2060
 msgid "Tra Rem"
