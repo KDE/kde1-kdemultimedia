@@ -1,7 +1,6 @@
-# Copyright (C) YEAR Free Software Foundation, Inc.
+# Copyright (C) 1998 Free Software Foundation, Inc.
 # Logi Ragnarsson <logir@hi.is>, 1998.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "POT-Creation-Date: 1998-10-01 13:39+0200\n"
@@ -11,7 +10,7 @@ msgstr ""
 
 #: kscd.cpp:330
 msgid "Vol: --"
-msgstr "Styrk: --"
+msgstr "Strk --"
 
 #: kscd.cpp:475
 msgid "Performances"
@@ -161,7 +160,7 @@ msgid ""
 "for his work on the http proxy code.\n"
 msgstr ""
 "Vadin Zaliva <lord@crocodile.org> fær\n"
-"fær þakkir fyrir http proxy forritun.\n"
+"fær þakkir fyrir http sel forritun.\n"
 
 #: kscd.cpp:959
 msgid "Kscd Options"
@@ -455,7 +454,7 @@ msgstr "Sjálfgefin gildi"
 
 #: CDDBSetupData.cpp:133
 msgid "Use HTTP proxy to access CDDB"
-msgstr "Nota HTTP proxy í samskiptum við CDDB þjón"
+msgstr "Nota HTTP sel í samskiptum við CDDB þjón"
 
 #: docking.cpp:75
 msgid "Backward"
