@@ -101,6 +101,8 @@ typedef struct {
     left_amp, right_amp, tremolo_volume;
   int32
     vibrato_sample_increment[VIBRATO_SAMPLE_INCREMENTS];
+  int32
+    envelope_rate[6], envelope_offset[6];
   int
     vibrato_phase, vibrato_control_ratio, vibrato_control_counter,
     envelope_stage, control_counter, panning, panned;

@@ -70,10 +70,10 @@ int recompute_envelope(int v)
     }
   voice[v].envelope_stage=stage+1;
 
-  if (voice[v].envelope_volume==voice[v].sample->envelope_offset[stage])
+  if (voice[v].envelope_volume==voice[v].envelope_offset[stage])
     return recompute_envelope(v);
-  voice[v].envelope_target=voice[v].sample->envelope_offset[stage];
-  voice[v].envelope_increment = voice[v].sample->envelope_rate[stage];
+  voice[v].envelope_target=voice[v].envelope_offset[stage];
+  voice[v].envelope_increment = voice[v].envelope_rate[stage];
   if (voice[v].envelope_target<voice[v].envelope_volume)
     voice[v].envelope_increment = -voice[v].envelope_increment;
   return 0;
