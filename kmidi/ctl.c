@@ -721,7 +721,8 @@ void pipe_string_read(char *str)
     if (len!=sizeof(slen)) pipe_error("PIPE_STRING_READ");
     
     len = read(fpip_in,str,slen); 
-    if (len!=slen) pipe_error("PIPE_STRING_READ on string part");
+    /*if (len!=slen) pipe_error("PIPE_STRING_READ on string part");*/
+    if (len!=slen) str[0]='\0';
     str[slen]='\0';		/* Append a terminal 0 */
 }
 
