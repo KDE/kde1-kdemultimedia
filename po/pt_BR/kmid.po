@@ -91,7 +91,7 @@ msgstr "AutoAdicionar à Coleção"
 
 #: kmidframe.cpp:133
 msgid "&General Midi file"
-msgstr "Arquivo &General Midi"
+msgstr "Arquivo Midi &Genérico"
 
 #: kmidframe.cpp:137
 msgid "&MT-32 file"

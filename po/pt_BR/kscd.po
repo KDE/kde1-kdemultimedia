@@ -504,7 +504,7 @@ msgid ""
 "%s"
 msgstr ""
 "Erro de acesso/leitura no CDROM.\n"
-"Por favor tenha certeza que você tem permissão de acesso a:\n"
+"Por favor verifique se você tem permissão de acesso a:\n"
 "%s"
 
 #: kscd.cpp:1334
