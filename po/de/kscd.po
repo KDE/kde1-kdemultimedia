@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
 "POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1999-01-10 11:15+MET\n"
-"Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 "Last-Translator: Thomas Diehl <th_diehl@csi.com>\n"
+"Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
@@ -455,7 +455,8 @@ msgstr ""
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Besonderer Dank geht an Ti Kan und Steve Scherf, die Erfinder des CDDB "
-"Datenbank-Konzepts. Besuchen Sie http://www.cddb.com für weitere Information zu CDDB.\n"
+"Datenbank-Konzepts. Besuchen Sie http://www.cddb.com für weitere Information "
+"zu CDDB.\n"
 "\n"
 
 #: kscd.cpp:1021
