@@ -10,13 +10,15 @@ CXXFLAGS= @CXXFLAGS@ @all_includes@ -DHAVE_CONFIG_H -I..
 # you need also @LIBSOCKET@, if you link with -lkfm
 LDFLAGS	= @LDFLAGS@ @all_libraries@ -lkdecore -lkdeui -lqt -lXext -lX11 -lmediatool @LIBCOMPAT@ @LIBSOCKET@
 
+top_builddir = ..
+kde_libraries = @kde_libraries@
+qt_libraries = @qt_libraries@
+LIBTOOL = @LIBTOOL@
+KDE_RPATH = @KDE_RPATH@
+
 # both are clear, I think
 CXX     = @CXX@
 MOC   	= @MOC@
-GMSGFMT = @GMSGFMT@
-MSGFMT  = @MSGFMT@
-XGETTEXT = @XGETTEXT@
-
 
 ############# INSTALL #################
 
@@ -39,24 +41,13 @@ APPDIR = $(prefix)/share/apps/kmedia
 .cpp.o:
 	$(CXX) -c $(CXXFLAGS) $<
 
-#%.moc: %.h
-#	$(MOC) $< -o $@
-#
-#%.mo: %.po
-#	$(MSGFMT) -o $@ $<
-#
-#.po.gmo:
-#	file=$(srcdir)/echo $* | sed 's,.*/,,'.gmo \
-#	&& rm -f $$file && $(GMSGFMT) -o $$file $<
-
-
 ########## Files #####################
 
 OBJECTS =	kmedia.o uiactions.o mediaactions.o prefs.o kmediawin.o
 SRCS :=         $(OBJECTS:*.o:*.c)
 SRCMETA =	kmedia.moc prefs.moc kmediawin.moc
-SRCNLS  :=	$(patsubst %.po,%, $(wildcard *.po))
-OBJNLS  :=	$(patsubst %,%.mo, $(SRCNLS))
+#SRCNLS  :=	$(patsubst %.po,%, $(wildcard *.po))
+#OBJNLS  :=	$(patsubst %,%.mo, $(SRCNLS))
 TARGET	=	kmedia
 
 ######### build rules ################
@@ -65,7 +56,7 @@ all: $(TARGET) # .depend
 
 
 $(TARGET): $(SRCMETA) $(OBJECTS) $(OBJNLS)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS) $(KDE_RPATH)
 
 clean:
 	rm -f *.o *.bak .depend *~ *% #*
@@ -75,10 +66,10 @@ clean:
 distclean: clean
 	rm -f Makefile
 
-#.depend: $(SRCS)
-#	@if test ! -f .depend ; then $(MAKE) depend ; fi
+.depend: $(SRCS) *.h
+	$(MAKE) depend
 
-#depend:
+depend:
 #	@echo "Creating dependencies."
 #	@makedepend $(INCDIRS) $(SRCS)
 #	touch .depend
