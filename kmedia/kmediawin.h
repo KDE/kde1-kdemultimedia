@@ -86,6 +86,7 @@ public slots:
   void		hideMenu();
   void		PosChanged( int new_pos ); 
   void		aboutClicked();
+  void		aboutqt();
   void		newviewClicked();
   void		showOpts();
   void		SlaveStatusQuery();

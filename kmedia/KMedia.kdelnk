@@ -9,8 +9,7 @@ TerminalOptions=
 Path=
 Extensions=
 Type=Application
-MimeType=audio/x-wav
-#multimedia/midi;multimedia/mod;
+MimeType=audio/x-wav;
 Terminal=0
 Comment=Multimedia playing tool
 Comment[de]=Multimedia-Wiedergabe

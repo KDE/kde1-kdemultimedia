@@ -148,20 +148,18 @@ void KMediaWin::aboutClicked()
 
   sprintf(TalkIdStr,"%i", m.talkid);
 
-  msg = \
-    "Kmedia and the mediatool protocol are written\n" \
-    "and (C)1997 by Christian Esken. This program is\n"\
-    "in the GPL. Please send comments and bug reports\n"\
-    "to chris@magicon.prima.ruhr.de\n" \
-    "The talk id is: ";
+   msg = \
+         klocale->translate("kmedia 0.45\n(C) 1996, 1997 Christian Esken (esken@kde.org)\n\nMedia player for the KDE Desktop Environment.\n\n(Communication id: ");
   msg += TalkIdStr;
+  msg += ")";
 
-  KMsgBox::message(0, "About Kmedia 0.39",\
-			msg,
-			KMsgBox::INFORMATION, "OK" );
+  QMessageBox::about( this, "kmedia 0.45",msg);
 }
 
-
+void KMediaWin::aboutqt()
+{
+  QMessageBox::aboutQt(this);
+}
 
 
 void KMediaWin::TimerFunctions()

@@ -208,6 +208,7 @@ void KMediaWin::createMenu()
   Mhelp->insertItem( klocale->translate("&Contents"), this, SLOT(launchHelp()), ALT+Key_H);
   Mhelp->insertSeparator();
   Mhelp->insertItem( klocale->translate("&About"), this, SLOT(aboutClicked()));
+  Mhelp->insertItem( klocale->translate("&About Qt..."), this, SLOT(aboutqt()));
 
   mainmenu = new KMenuBar( this /*Container*/ , "mainmenu" );
   CHECK_PTR( mainmenu );
