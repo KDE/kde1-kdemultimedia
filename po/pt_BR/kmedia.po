@@ -1,0 +1,101 @@
+msgid ""
+msgstr "Project-Id-Version: kuser\n"
+       "POT-Creation-Date: 1998-03-21 18:32+0300\n"
+       "PO-Revision-Date: 1998-03-23 00:00+0100\n"
+       "Last-Translator: Sandro Henrique <sandro@conectiva.com.br>\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Posição"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Ejetar"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Faixa anterior"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "Recuar"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Parar"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Tocar/Pausar"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "Avançar"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Próxima faixa"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Nova janela"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Sair"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mixer"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "Preferências"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "&Conteúdo"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Sobre"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Arquivo"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Opções"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "A&juda"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Saiu"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Iniciou"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Ocupado"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Tocando"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Pausado"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Pronto"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Indefinido"
