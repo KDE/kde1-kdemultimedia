@@ -1,4 +1,3 @@
-
 /*
  *
  * kscd -- A simple CD player for the KDE project           
@@ -104,8 +103,15 @@ class CDDB:public QObject
  protected:
     void 	do_state_machine();
     void 	parse_serverlist();
+    void        send_http_command(QString command);
+    void        strip_HTTP_header();
+    
+    typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
+    transport protocol;
+    transport decodeTransport(const char *);
+    
 
-    public slots:
+ public slots:
 
     void	 cddb_connect(QString& server);
     void	 cddb_connect_internal();
@@ -157,10 +163,6 @@ class CDDB:public QObject
     QStrList 	serverlist;
     unsigned long magicID;
 
-    typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
-
-    transport protocol;
-    transport decodeTransport(const char *);
 };
 
 #endif

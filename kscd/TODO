@@ -2,3 +2,6 @@
 * auto save of cddb entries
 * fix html encoding
 * make cddb timout configurable
+* allow to choose email submisson address from server list entries with protocol SMTP
+* cache entries received by CDDBP localy
+* allow user to type in CDDB server name

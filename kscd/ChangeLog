@@ -1,3 +1,7 @@
+1998-04-16  Vadim Zaliva  <lord@crocodile.org>
+
+	* CDDB over HTTP works, w/o proxy now. Proxy support to be implemeted to-morrow.
+
 1998-04-15  Vadim Zaliva  <lord@crocodile.org>
 
 	* cddb.h, cddb.cpp reformated
