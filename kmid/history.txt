@@ -380,3 +380,8 @@ Wednesday 9-9-98
 Monday 14-9-98
 - Released Version 1.2
 
+Tuesday 15-9-98
+- Added the change tempo widget and the KTriangleButton widget
+
+Wednesday 16-9-98
+- It's possible now to change the tempo of a song.
