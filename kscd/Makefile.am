@@ -47,9 +47,9 @@ CDDB_DIRS = rock blues classical jazz newage soundtrack \
 
 install-data-local:
 	for i in $(CDDB_DIRS); do \
-	if test ! -d $(CDDBDIR)/$i; then \
-		$(mkinstalldirs) $(CDDBDIR)/$i ;\
-		chmod 0777 $(CDDBDIR)/$i ;\
+	if test ! -d $(CDDBDIR)/$$i; then \
+		$(mkinstalldirs) $(CDDBDIR)/$$i ;\
+		chmod 0777 $(CDDBDIR)/$$i ;\
 	fi ;\
 	done 
 	$(mkinstalldirs) $(kde_bin)
