@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
 "POT-Creation-Date: 1998-10-13 13:33+0200\n"
-"PO-Revision-Date: 1998-06-19 09:22 MET DST\n"
+"PO-Revision-Date: 1998-10-24 23:50 CEST\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -231,16 +231,15 @@ msgstr "Povolit vsazení do KPanelu"
 
 #: configdlg.cpp:159
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Hrát pøi uzavøení"
 
 #: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Start/Pauza"
 
 #: docking.cpp:74
-#, fuzzy
 msgid "Forward"
-msgstr "o 30s dopøedu"
+msgstr "Dopøedu"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -315,9 +314,8 @@ msgid "Previous Track"
 msgstr "Pøedchozí stopa"
 
 #: kscd.cpp:522
-#, fuzzy
 msgid "Dock Kscd"
-msgstr "Magic Kscd"
+msgstr "Dokovat Kscd"
 
 #: kscd.cpp:523
 msgid "Cycle Time Display"
@@ -354,7 +352,7 @@ msgstr "Hraji"
 #: kscd.cpp:592 kscd.cpp:1173 kscd.cpp:1221 kscd.cpp:1614 kscd.cpp:1812
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: (neznámý)"
 
 #: kscd.cpp:623 kscd.cpp:1202
 msgid "Pause"
@@ -385,7 +383,6 @@ msgid "kscd Configuraton"
 msgstr "Nastavení kscd"
 
 #: kscd.cpp:912
-#, fuzzy
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -402,6 +399,12 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"Spravováno:\n"
+"     Samem Maloneym <thufir@illogic.ml.org>\n"
+"kscd (>=1.2.1) obsahuje kód z:\n"
+"\n"
+"kscd 1.2.0 (branched from)\n"
+"Copyright (c) 1997-98 \n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
@@ -409,8 +412,7 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB "
-"databáze. Dal¹í informace na http://www.cddb.com.\n"
+"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
 #: kscd.cpp:927
@@ -424,7 +426,6 @@ msgstr ""
 "\n"
 
 #: kscd.cpp:931
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -432,6 +433,7 @@ msgid ""
 msgstr ""
 "Dìkuji Vadimu Zalivovi <lord@crocodile.org>\n"
 "za práci na kódu pro http proxy.\n"
+"\n"
 
 #: kscd.cpp:934
 msgid ""
@@ -440,6 +442,10 @@ msgid ""
 "tweek, and configuration fixes.\n"
 "\n"
 msgstr ""
+"Díky Samu Maloneymu <thufir@illogic.ml.org>\n"
+"za mnoho oprav chyb v CDDB kódu, ke¹ování CDDB lokálních záznamù\n"
+"a opravy konfigurace.\n"
+"\n"
 
 #: kscd.cpp:986
 msgid "Kscd Options"
@@ -481,9 +487,8 @@ msgid "No matching CDDB entry found."
 msgstr "®ádná odpovídající polo¾ka CDDB."
 
 #: kscd.cpp:1693 kscd.cpp:1703
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "®ádná odpovídající polo¾ka CDDB."
+msgstr "Chyba pøi získávání CDDB polo¾ky."
 
 #: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."
@@ -540,9 +545,3 @@ msgstr "Vý¹ka magického okna:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Magický jas:"
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Ukonèi Kscd"
-
-#~ msgid "Track %02d"
-#~ msgstr "Stopa %02d"

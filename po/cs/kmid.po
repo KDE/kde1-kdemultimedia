@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
 "POT-Creation-Date: 1998-10-13 13:33+0200\n"
-"PO-Revision-Date: 1998-06-20 19:18 CEST\n"
+"PO-Revision-Date: 1998-10-24 23:53 CEST\n"
 "Last-Translator: Miroslav Flísr <flidr@kky.zcu.cz>\n"
 "Language-Team: czech <flidr@kky.zcu.cz>\n"
 "MIME-Version: 1.0\n"
@@ -10,9 +10,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Pauza"
+msgstr "Hrát/Pauza"
 
 #: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
@@ -123,12 +122,11 @@ msgid "Configure &Keys ..."
 msgstr ""
 
 #: kmidframe.cpp:179
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Nastavit Midi.."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -145,11 +143,12 @@ msgid ""
 msgstr ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
 "Malaga (Spain)\n"
 "\n"
 "Pøehrávaè souboru Midi/Karaoke\n"
-"\n"
+"Domovská stránka je na: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "KMid je dodáván BEZ JAKÉKOLI ZÁRUKY. Pro bli¾¹í podrobnosti se podívejte\n"
 "do souboru COPYING. Toto je volnì ¹íøitelný software a pøivítáme, kdy¾ \n"
 "ho budete ¹íøit za daných podmínek\n"
@@ -315,7 +314,6 @@ msgid "Change Collection Name"
 msgstr "Zmìnit název kolekce"
 
 #: channel.cpp:89
-#, fuzzy
 msgid "Channel"
 msgstr "Zru¹it"
 
@@ -368,9 +366,8 @@ msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Smazat"
+msgstr "Celesta"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -777,9 +774,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Soubor"
+msgstr "Housle"
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -842,55 +838,9 @@ msgid "Helicopter"
 msgstr ""
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pauza"
+msgstr "Potlesk"
 
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
-
-#~ msgid "&Open ..."
-#~ msgstr "&Otevøít ..."
-
-#~ msgid "&Quit"
-#~ msgstr "&Ukonèit"
-
-#~ msgid "&File"
-#~ msgstr "&Soubor"
-
-#~ msgid "&Options"
-#~ msgstr "&Mo¾nosti"
-
-#~ msgid "&Help"
-#~ msgstr "&Nápovìda"
-
-#~ msgid "Stop"
-#~ msgstr "Stop"
-
-#~ msgid "Error"
-#~ msgstr "Chyba"
-
-#~ msgid "Warning"
-#~ msgstr "Varování"
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "Cancel"
-#~ msgstr "Zru¹it"
-
-#~ msgid "Browse..."
-#~ msgstr "Listovat..."
-
-#~ msgid "Copy"
-#~ msgstr "Kopírovat"
-
-#~ msgid "Delete"
-#~ msgstr "Smazat"
-
-#~ msgid "Add"
-#~ msgstr "Pøidat"
-
-#~ msgid "Remove"
-#~ msgstr "Odstranit"
