@@ -488,6 +488,13 @@ static int cmsg(int type, int verbosity_level, char *fmt, ...)
 {
   va_list ap;
   char p[1000];
+  int flagnl = 1;
+  static int msg_col = 0;
+  if (*fmt == '~')
+    {
+      flagnl = 0;
+      fmt++;
+    }
   if ((type==CMSG_TEXT || type==CMSG_INFO || type==CMSG_WARNING) &&
       ctl.verbosity<verbosity_level)
     return 0;
@@ -524,12 +531,23 @@ static int cmsg(int type, int verbosity_level, char *fmt, ...)
     }
   else
     {
-      SLsmg_gotorc(msg_row++,0);
+      if (msg_row > SLtt_Screen_Rows-1)
+       {
+	int i;
+	for (i = 6; i < SLtt_Screen_Rows; i++)
+	 {
+	   SLsmg_gotorc(i,0);
+           SLsmg_erase_eol();
+	 }
+	msg_row = 6;
+       }
+      SLsmg_gotorc(msg_row,msg_col);
       switch(type)
       {
       default:
         vsprintf(p, fmt, ap);
         SLsmg_write_string(p);
+	msg_col += strlen(p);
         _ctl_refresh();
         break;
 
@@ -537,6 +555,7 @@ static int cmsg(int type, int verbosity_level, char *fmt, ...)
       SLsmg_bold();
         vsprintf(p, fmt, ap);
         SLsmg_write_string(p);
+	msg_col += strlen(p);
       SLsmg_normal();
         _ctl_refresh();
         break;
@@ -546,12 +565,18 @@ static int cmsg(int type, int verbosity_level, char *fmt, ...)
       SLsmg_bold();
         vsprintf(p, fmt, ap);
         SLsmg_write_string(p);
+	msg_col += strlen(p);
       SLsmg_normal();
         _ctl_refresh();
         if (type==CMSG_FATAL)
           sleep(2);
         break;
       }
+      if (flagnl)
+       {
+	 msg_row++;
+	 msg_col = 0;
+       }
     }
 
   va_end(ap);
