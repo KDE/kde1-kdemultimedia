@@ -1,3 +1,7 @@
+1998-04-29  Vadim Zaliva  <lord@crocodile.org>
+
+	* Corrected problem with not saving "UnixMailCommand" option which was disabling CDDB submissions.
+
 1998-04-28  Vadim Zaliva  <lord@crocodile.org>
 
 	* Corrected bug in cddb with current CD information disappearing after some time of playing.

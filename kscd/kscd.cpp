@@ -1242,17 +1242,18 @@ void KSCD::setColors(){
 }
 
 
-void KSCD::readSettings(){
+void KSCD::readSettings()
+{
 
     config = mykapp->getConfig();
   
     config->setGroup("GENERAL");
-    volume = config->readNumEntry("Volume",40);
-    tooltips  = (bool) config->readNumEntry("ToolTips",1);
+    volume     = config->readNumEntry("Volume",40);
+    tooltips   = (bool) config->readNumEntry("ToolTips",1);
     randomplay = (bool) config->readNumEntry("RandomPlay", 0);
-    use_kfm   = (bool) config->readNumEntry("USEKFM", 1);
-    docking   = (bool) config->readNumEntry("DOCKING", 1);
-
+    use_kfm    = (bool) config->readNumEntry("USEKFM", 1);
+    docking    = (bool) config->readNumEntry("DOCKING", 1);
+    mailcmd    =        config->readEntry("UnixMailCommand","/bin/mail -s \"%s\"");
 
 #ifdef DEFAULT_CD_DEVICE
 
