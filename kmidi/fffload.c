@@ -689,11 +689,11 @@ sp->sample_rate, sp->low_freq, sp->high_freq, sp->root_freq);
 /**
 I think it's better to adjust the envelopes, somehow.  Now, loops and
 envelopes are only stripped by specific request in config file.
-**/
     if (note_to_use >= 0) {
 	strip_loop = 1;
 	strip_envelope = 1;
     }
+**/
 
 #define STRIP_PERCUSSION
 #ifdef ADAGIO
