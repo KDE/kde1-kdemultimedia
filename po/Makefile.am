@@ -2,7 +2,7 @@
 SUBDIRS = cs de fr pl fi es pt ro it zh_TW.Big5 \
 	zh_CN.GB2312 hr sk nl no pt_BR
 
-APPS = kmedia kmix kmid
+APPS = kmedia kmix kmid kscd
 
 merge:
 	@apps='$(APPS)'; \
