@@ -108,7 +108,7 @@ msgstr "KMix asetukset"
 
 #: prefs.cpp:88
 msgid "Mixer channel setup (not saved yet)"
-msgstr "Sekoittajan kanavaasetukset"
+msgstr "Sekoittajan kanava-asetukset"
 
 #: prefs.cpp:95
 msgid "Device"

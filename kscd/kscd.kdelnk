@@ -2,12 +2,12 @@
 [KDE Desktop Entry]
 Comment[C]=A CD Player
 Comment[pl]=Prosty odtwarzacz p³yt CD
-Comment[fi]=CD Soittaja
+Comment[fi]=CD Soitin
 BinaryPattern=kscd;
 Protocols=
 Name[C]=CD Player
 Name[pl]=Odtwarzacz CD
-Name[fi]=CD Soittaja
+Name[fi]=CD Soitin
 Exec=kscd
 DocPath=kscd/kscd.html
 Icon=kscd.xpm

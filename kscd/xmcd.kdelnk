@@ -2,6 +2,7 @@
 [KDE Desktop Entry]
 Comment=CD Database File
 Comment[de]=CD Dataenbank Datei
+Comment[fi]=CD Tietokantatiedosto
 DefaultApp=kedit
 Icon=cd.xpm
 Type=MimeType
