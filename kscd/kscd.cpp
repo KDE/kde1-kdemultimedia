@@ -829,7 +829,7 @@ void KSCD::quitClicked()
     writeSettings();
     qApp->quit();
     //e->accept();
-    
+
 }
 
 void KSCD::dockClicked()
@@ -849,8 +849,26 @@ void KSCD::dockClicked()
 
 void KSCD::closeEvent( QCloseEvent *e ){
 
-  emit dockClicked();
-
+    //emit dockClicked();
+  
+    quitPending = true;
+    randomplay = FALSE;
+                                                    
+    statuslabel->setText("");
+                                                    
+    setLEDs( "--:--" );
+   
+    qApp->processEvents();
+    qApp->flushX();
+                                                    
+    if(stopexit)
+	stop_cd ();
+                                                    
+    cd_status();
+    cd_status();
+    cleanUp();
+    writeSettings();
+    e->accept();
 }
 
 bool KSCD::event( QEvent *e ){
