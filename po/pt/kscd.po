@@ -4,6 +4,10 @@ msgstr ""
 "POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
+"Language-Team: pt\n"
+"MIME-Version:\n"
+"Content-Type:\n"
+"Content-Transfer-Encoding:\n"
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
@@ -224,29 +228,27 @@ msgstr "Activar Atracagem no Painel"
 
 #: configdlg.cpp:165
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Tocar ao Fechar Gaveta"
 
 #: configdlg.cpp:171
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Atracar ao Minimizar"
 
 #: configdlg.cpp:178
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Parar Reprodução ao Sair"
 
 #: configdlg.cpp:184
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "A Ejectar"
+msgstr "Ejectar ao Sair"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "Tocar/Pausar"
 
 #: docking.cpp:75
-#, fuzzy
 msgid "Forward"
-msgstr "Avançar 30 Segs"
+msgstr "Avançar"
 
 #: docking.cpp:76
 msgid "Backward"
@@ -282,25 +284,23 @@ msgstr "Por favor seleccione um Título ou carregue em Cancel"
 
 #: kscd.cpp:226
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Registo submetido correctamente"
 
 #: kscd.cpp:236
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Nenhuma entrada encontrada no CDDB."
+msgstr "Erro ao ligar ao servidor."
 
 #: kscd.cpp:239
 msgid "Not connected."
-msgstr ""
+msgstr "Desligado."
 
 #: kscd.cpp:242
-#, fuzzy
 msgid "Connection timed out."
-msgstr "Acesso CDDB timed out."
+msgstr "Ligação timed out."
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Time out ao esperar por interacção do servidor."
 
 #: kscd.cpp:248
 #, c-format
@@ -308,6 +308,8 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
+"Servidor disse:\n"
+"\"%s\""
 
 #: kscd.cpp:250
 #, c-format
@@ -316,6 +318,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Erro #%d ao enviar mensagem por SMTP.\n"
+"\n"
+"%s"
 
 #: kscd.cpp:378
 msgid "Vol: --"
@@ -358,9 +363,8 @@ msgid "Previous Track"
 msgstr "Faixa Anterior"
 
 #: kscd.cpp:570
-#, fuzzy
 msgid "Quit Kscd"
-msgstr "Sair do Kscd"
+msgstr "Sair"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
@@ -397,7 +401,7 @@ msgstr "A Tocar"
 #: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: <Desconhecida>"
 
 #: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
@@ -428,7 +432,6 @@ msgid "kscd Configuraton"
 msgstr "Configuração do kscd"
 
 #: kscd.cpp:1008
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -444,10 +447,14 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"kscd 1.2.5\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"kscd contém código do:\n"
+"Mantido por:\n"
+"     Sam Maloney <thufir@illogic.ml.org>\n"
+"kscd contém codigo de:\n"
+"\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -466,7 +473,6 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 
 #: kscd.cpp:1025
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -477,7 +483,7 @@ msgstr ""
 
 #: kscd.cpp:1080
 msgid "SMTP Setup"
-msgstr ""
+msgstr "Configuração SMTP"
 
 #: kscd.cpp:1081
 msgid "Kscd Options"
@@ -519,9 +525,8 @@ msgid "No matching CDDB entry found."
 msgstr "Nenhuma entrada encontrada no CDDB."
 
 #: kscd.cpp:1834 kscd.cpp:1844
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "Nenhuma entrada encontrada no CDDB."
+msgstr "Erro ao receber entrada CDDB."
 
 #: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
@@ -556,9 +561,8 @@ msgstr ""
 "Tem a certeza que ele está instalado?"
 
 #: kscd.cpp:2368
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "Directory do CDDB"
+msgstr "Insira a Directoria da base de dados CDBD local"
 
 #: kscd.cpp:2422
 msgid "-h: display commandline options\n"
@@ -586,19 +590,12 @@ msgstr "Brilho MÁGICO:"
 
 #: smtpconfig.cpp:37
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Activar envio por SMTP"
 
 #: smtpconfig.cpp:44
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP Endereço:Porta"
 
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
-msgstr ""
-
-#, fuzzy
-#~ msgid "Dock Kscd"
-#~ msgstr "Kscd Mágico"
-
-#~ msgid "Track %02d"
-#~ msgstr "Faixa %02d"
+msgstr "Endereço de Email"

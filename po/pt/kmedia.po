@@ -4,6 +4,10 @@ msgstr ""
 "POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: 1998-01-22 00:00+0100\n"
 "Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
+"Language-Team: pt\n"
+"MIME-Version:\n"
+"Content-Type:\n"
+"Content-Transfer-Encoding:\n"
 
 #: kmediawin.cpp:163
 msgid "Playback position"
@@ -82,6 +86,3 @@ msgstr "Pronto"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Indefinido"
-
-#~ msgid "About KMedia "
-#~ msgstr "Acerca do KMedia "

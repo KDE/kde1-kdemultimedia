@@ -1,25 +1,25 @@
 msgid ""
 msgstr ""
+"Project-Id-Version: kmid\n"
 "POT-Creation-Date: 1998-12-21 02:20+0100\n"
-"Content-Type: text/plain; charset=\n"
-"Date: 1998-04-13 18:42:57+0000\n"
-"From: antonio <antonio@jupiter.arrakis.es>\n"
-"Xgettext-Options: -C -ki18n\n"
-"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
-"midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
+"PO-Revision-Date: 1998-11-20 00:00:00+0000\n"
+"Last-Translator: Pedro Morais <morais@kde.org>\n"
+"Language-Team: pt\n"
+"MIME-Version:\n"
+"Content-Type:\n"
+"Content-Transfer-Encoding:\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Pausa"
+msgstr "Tocar/Pausar"
 
 #: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
-msgstr "Cançã‡ƒo Anterior"
+msgstr "Canção Anterior"
 
 #: kmidframe.cpp:70 kmidframe.cpp:228
 msgid "Next Song"
-msgstr "Próxima Cançã‡ƒo"
+msgstr "Próxima Canção"
 
 #: kmidframe.cpp:72 kmidframe.cpp:142
 msgid "See &Text events"
@@ -31,19 +31,19 @@ msgstr "Ver eventos de &Letras"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr ""
+msgstr "Descer karaoke"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr ""
+msgstr "Subir karaoke"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr ""
+msgstr "Descer página karaoke"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr ""
+msgstr "Subir página karaoke"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -67,7 +67,7 @@ msgstr "Cançã‡ƒo Ante&rior"
 
 #: kmidframe.cpp:107
 msgid "&Next Song"
-msgstr "Próx&ima Cançã‡ƒo"
+msgstr "Próx&ima Canção"
 
 #: kmidframe.cpp:111
 msgid "&Loop"
@@ -87,7 +87,7 @@ msgstr "Modo baralhado"
 
 #: kmidframe.cpp:127
 msgid "AutoAdd to Collection"
-msgstr "Auto Adicionar à€ Coleçã‡ƒo"
+msgstr "Auto Adicionar à Coleção"
 
 #: kmidframe.cpp:133
 msgid "&General Midi file"
@@ -103,7 +103,7 @@ msgstr "&Escolha Automática de Texto"
 
 #: kmidframe.cpp:160
 msgid "Show &Volume Bar"
-msgstr ""
+msgstr "Mostrar Barra de &Volume"
 
 #: kmidframe.cpp:165
 msgid "Show &Channel View"
@@ -119,14 +119,14 @@ msgstr "Mudar &Fonte ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr ""
+msgstr "Configurar &Teclas ..."
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
 msgstr "Configuração do &Midi..."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -147,14 +147,15 @@ msgstr ""
 "Malaga (Espanha)\n"
 "\n"
 "Reprodutor de ficheiros Midi/Karaoke\n"
+"Página do KMid: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
-"KMid nãoo tem ABSOLUTAMENTE NENHUMA GARANTIA;\n"
+"KMid não tem ABSOLUTAMENTE NENHUMA GARANTIA;\n"
 "para mais detalhes veja o ficheiro COPYING\n"
-"Este software é‰ livre, e pode redistribui-lo sobre certas conições\n"
+"Este software é‰ livre, e pode redistribui-lo sobre certas condições\n"
 
 #: kmidframe.cpp:197
 msgid "&Song"
-msgstr "&Cançã‡ƒo"
+msgstr "&Canção"
 
 #: kmidframe.cpp:198
 msgid "&Collections"
@@ -189,7 +190,7 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"Nãƒo consegui abrir /dev/sequencer para obter informções\n"
+"Não consegui abrir /dev/sequencer para obter informções\n"
 "Provavelmente está a ser utilizado por outro programa"
 
 #: kmidframe.cpp:682 kmidframe.cpp:683
@@ -208,12 +209,12 @@ msgstr "Tempo :"
 #: kmidclient.cpp:272
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
-msgstr "O ficheiro %s nãƒo existe ounãƒo pode ser aberto"
+msgstr "O ficheiro %s não existe ou não pode ser aberto"
 
 #: kmidclient.cpp:275
 #, c-format
 msgid "The file %s is not a midi file"
-msgstr "%s não é‰ um ficheiro mid válido"
+msgstr "%s não é um ficheiro mid válido"
 
 #: kmidclient.cpp:277
 msgid ""
@@ -241,14 +242,14 @@ msgstr "Deve carregar um ficheiro antes de o tocar"
 
 #: kmidclient.cpp:472
 msgid "A song is already being played"
-msgstr "Uma cançã‡ƒoá está a ser tocada"
+msgstr "Uma canção já está a ser tocada"
 
 #: kmidclient.cpp:478
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
 msgstr ""
-"Nãƒo consegui abrir /dev/sequencer\n"
+"Não consegui abrir /dev/sequencer\n"
 "Provavelmente está a ser utilizado por outro programa"
 
 #: midicfgdlg.cpp:37
@@ -285,11 +286,11 @@ msgstr "Nova"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
-msgstr "Insira o nome da nova colecçã‡ƒo"
+msgstr "Insira o nome da nova colecção"
 
 #: collectdlg.cpp:152
 msgid "New Collection"
-msgstr "Nova Colecçã‡ƒo"
+msgstr "Nova Colecção"
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
 #, c-format
@@ -313,9 +314,8 @@ msgid "Change Collection Name"
 msgstr "Mudar Nome da Colecção"
 
 #: channelview.cpp:33
-#, fuzzy
 msgid "ChannelView"
-msgstr "Canal"
+msgstr "VistaCanal"
 
 #: channel.cpp:87
 msgid "Channel"
@@ -379,7 +379,7 @@ msgstr ""
 
 #: instrname.i18n:16
 msgid "Music Box"
-msgstr ""
+msgstr "Caixa de Música"
 
 #: instrname.i18n:17
 msgid "Vibraphone"
@@ -411,11 +411,11 @@ msgstr ""
 
 #: instrname.i18n:24
 msgid "Rock Organ"
-msgstr ""
+msgstr "Orgão de Rock"
 
 #: instrname.i18n:25
 msgid "Church Organ"
-msgstr ""
+msgstr "Orgão de Igreja"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
@@ -423,11 +423,11 @@ msgstr ""
 
 #: instrname.i18n:27
 msgid "Accordion"
-msgstr ""
+msgstr "Acordião"
 
 #: instrname.i18n:28
 msgid "Harmonica"
-msgstr ""
+msgstr "Harmónica"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
@@ -499,15 +499,15 @@ msgstr ""
 
 #: instrname.i18n:46
 msgid "Violin"
-msgstr ""
+msgstr "Violino"
 
 #: instrname.i18n:47
 msgid "Viola"
-msgstr ""
+msgstr "Viola"
 
 #: instrname.i18n:48
 msgid "Cello"
-msgstr ""
+msgstr "Violoncelo"
 
 #: instrname.i18n:49
 msgid "Contrabass"
@@ -555,7 +555,7 @@ msgstr ""
 
 #: instrname.i18n:60
 msgid "Synth Voice"
-msgstr ""
+msgstr "Voz Sintetizada"
 
 #: instrname.i18n:61
 msgid "Orchestra Hit"
@@ -563,7 +563,7 @@ msgstr ""
 
 #: instrname.i18n:62
 msgid "Trumpet"
-msgstr ""
+msgstr "Trompete"
 
 #: instrname.i18n:63
 msgid "Trombone"
@@ -631,11 +631,11 @@ msgstr ""
 
 #: instrname.i18n:79
 msgid "Flute"
-msgstr ""
+msgstr "Flauta"
 
 #: instrname.i18n:80
 msgid "Recorder"
-msgstr ""
+msgstr "Gravador"
 
 #: instrname.i18n:81
 msgid "Pan Flute"
@@ -651,7 +651,7 @@ msgstr ""
 
 #: instrname.i18n:84
 msgid "Whistle"
-msgstr ""
+msgstr "Assobio"
 
 #: instrname.i18n:85
 msgid "Ocarina"
@@ -723,19 +723,19 @@ msgstr ""
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
-msgstr ""
+msgstr "FX 1 - Chuva"
 
 #: instrname.i18n:103
 msgid "FX 2 - Soundtrack"
-msgstr ""
+msgstr "FX 2 - Banda sonora"
 
 #: instrname.i18n:104
 msgid "FX 3 - Crystal"
-msgstr ""
+msgstr "FX 3 - Cristal"
 
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
-msgstr ""
+msgstr "FX 4 - Atmosfera"
 
 #: instrname.i18n:106
 msgid "FX 5 - Brightness"
@@ -743,15 +743,15 @@ msgstr ""
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
-msgstr ""
+msgstr "FX 6 - Goblins"
 
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
-msgstr ""
+msgstr "FX 7 - Ecos"
 
 #: instrname.i18n:109
 msgid "FX 8 - Sci-fi"
-msgstr ""
+msgstr "FX 8 - Sci-fi"
 
 #: instrname.i18n:110
 msgid "Sitar"
@@ -759,7 +759,7 @@ msgstr ""
 
 #: instrname.i18n:111
 msgid "Banjo"
-msgstr ""
+msgstr "Banjo"
 
 #: instrname.i18n:112
 msgid "Shamisen"
@@ -823,15 +823,15 @@ msgstr ""
 
 #: instrname.i18n:127
 msgid "Breath Noise"
-msgstr ""
+msgstr "Respiração"
 
 #: instrname.i18n:128
 msgid "Seashore"
-msgstr ""
+msgstr "Beira mar"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
-msgstr ""
+msgstr "Pássaro"
 
 #: instrname.i18n:130
 msgid "Telephone"
@@ -848,48 +848,3 @@ msgstr "Aplauso"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr "Tiro"
-
-#~ msgid "&Open ..."
-#~ msgstr "&Abrir ..."
-
-#~ msgid "&Quit"
-#~ msgstr "&Sair"
-
-#~ msgid "&File"
-#~ msgstr "&Ficheiro"
-
-#~ msgid "&Options"
-#~ msgstr "&Opções"
-
-#~ msgid "&Help"
-#~ msgstr "&Ajuda"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"
-
-#~ msgid "Error"
-#~ msgstr "Erro"
-
-#~ msgid "Warning"
-#~ msgstr "Aviso"
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgid "Browse..."
-#~ msgstr "Explorar..."
-
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgid "Delete"
-#~ msgstr "Apagar"
-
-#~ msgid "Add"
-#~ msgstr "Adicionar"
-
-#~ msgid "Remove"
-#~ msgstr "Apagar"
