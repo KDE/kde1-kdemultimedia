@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 1999-01-24 18:24+0100\n"
+"PO-Revision-Date: 1999-02-05 23:40+0100\n"
 "Last-Translator: Sebastià Pla <sastia@redestb.es>\n"
 "Language-Team: CATALAN <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -123,7 +123,7 @@ msgstr "Canvi de &font ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr "Configura &tecles ..."
+msgstr "Configura t&ecles ..."
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
@@ -164,7 +164,7 @@ msgstr "&Cançó"
 
 #: kmidframe.cpp:198
 msgid "&Collections"
-msgstr "C&ol·leccions"
+msgstr "Co&l·leccions"
 
 #: kmidframe.cpp:212
 msgid "Rewind"
