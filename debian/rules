@@ -50,7 +50,7 @@ binary-arch:	build
 	echo "DOCKING=1" >> debian/tmp/etc/kde/kscdrc
 	perl -w debian/kderules
 	dh_movefiles
-	dh_undocumented `cat debian/man-pages`
+	dh_undocumented
 	dh_installdocs
 	dh_installmenu
 	dh_installchangelogs
