@@ -1433,9 +1433,10 @@ extern "C" {
 	KApplication kmidiapp( (int &) narg,argv ,"kmidi");
 	thisapp = &kmidiapp;
   
-	kmidi = new KMidi; 
-	kmidiapp.setMainWidget( kmidi );
-
+	kmidi = new KMidi;
+       	thisapp->enableSessionManagement(true);
+	thisapp->setWmCommand("kmidi");      
+	thisapp->setTopWidget(kmidi);
 	kmidi->show();
 	kmidiapp.exec();
 
