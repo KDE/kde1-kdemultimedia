@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmedia \n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 19998-01-03 20:44+0200\n"
+"PO-Revision-Date: 1999-01-27 23:41+0100\n"
 "Last-Translator: Piotr Roszatycki <dexter@fnet.pl>\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
 
@@ -39,9 +39,8 @@ msgid "&Mixer"
 msgstr "&Mikser"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "&W³a¶ciwo¶ci"
+msgstr "&W³a¶ciwo¶ci..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -87,26 +86,24 @@ msgstr "Niezdefiniowany"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Odtwarzacze"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
-msgstr "&Mikser"
+msgstr "Mikser"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "U¿yj urz±dzenia"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Urz±dzenie 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Urz±dzenie 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "&W³a¶ciwo¶ci"
+msgstr "W³a¶ciwo¶ci odtwarzacza"
