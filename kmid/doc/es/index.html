@@ -1,0 +1,151 @@
+<HTML>
+<TITLE>Ayuda de KMid</TITLE>
+<BODY>
+<P><CENTER><H1><STRONG>Ayuda de KMid</STRONG></H1></CENTER></P>
+<HR>
+<P><H5>KMid 0.5.1<BR>
+Antonio Larrosa Jimenez (antlarr@arrakis.es)<BR>
+14-3-98 . Malaga (España)</H5></P>
+<HR>
+<P>
+Lo siento, pero todavía no he traducido la ayuda de KMid, espero poder
+hacerlo para la próxima versión :-)
+</P>
+<P><H2>What's KMid ?</H2></P>
+<P>KMid is a midi/karaoke player, that uses /dev/sequencer to play a midi file
+through an external synth, GUS , AWE and FM cards . 
+ At the same time that the song is played, lyrics are displayed in a beautiful
+ window so that the user can sing or just follow the letter :-).
+</P>
+<P><H2>Features</H2></P>
+<P>
+<LI>KMid has a nice interface to display karaoke text
+<LI>Powerful Midi Mapper that will make people with no general midi
+synths happier than ever :-).
+<LI>Drag & drop so you can drop in KMid any midi file from a kfm window.
+<LI>Customizable fonts for karaoke text to be displayed.
+<LI>Supports the two standards to introduce lyrics in midi files, that is, lyrics or text events (and guess which one a song uses automatically)
+<LI>Session Management. If a song is playing while you logout from KDE, the next
+time you login, the same song will start playing !
+<LI>Can play some broken midi files which make other players core dump !
+<LI>Can open gzipped files just as any other midi file.
+<LI>Consumes approximately 0.1% of my CPU (depends on the complexity of
+the song)
+<LI>Supports external midi synths, AWE , FM and GUS cards (for the latter needs the Linux Ultrasound Project driver and gusd installed).
+<LI>Runs on Linux and FreeBSD (perhaps also other unices ...)
+</P>
+<P><H2>How can I open a song?</H2></P>
+<P>You can open a song by pressing File | Open ... , or by dragging the file
+ from a kfm window and dropping it in the kmid window. You can also pass a
+ song to kmid in the command line. There's yet another way to open a file,
+ it is by selecting it from the currently selected collection, that is,
+ from the combo box under the time bar.
+<BR>
+Hey that's easy, let's go to more difficult questions ! :-) ...</P>
+<P><H2>How do I start playing a song?</H2></P>
+<P>You have three ways to start playing a song, by selecting it from the menu in
+Song|Play , by clicking on the play button of the toolbar, or by pressing the
+Space key of the keyboard. Songs will automatically start playing if you
+drop it in KMid's window</P>
+<P><H2>What's all that about text and lyrics events ?</H2></P>
+<P>There are two methods to store lyrics in a song, by using "Text events"
+or "lyrics events", some songs use the first, some the second, some use both
+of them, and some  don't include lyrics :-) . KMid lets you choose which events
+to display, and even better, it has an option to automagically select the type of
+events that a song uses, so that you don't have to change the type manually.
+</P>
+<P><H2>How do I play a song from a specified second?</H2></P>
+<P>
+Start playing the song and then press with the middle button of your mouse
+on the slider
+</P>
+<P><H2>Where can I download more karaoke songs from?</H2></P>
+<P>
+Just ask me if you are interested :-)
+</P>
+<P><H2>What's a collection ?, How do I use them ?</H2></P>
+<P>
+A collection is a list of midi files that you put in a set, and which
+ are played sequencially . You can create new collections from the organize
+ collections dialog, which you can open by selecting "Collections | Organize..."
+ in the menu.
+<BR>To create a new collection click on the "New" button and enter the name you
+want it to have. To remove a collection just select it and press on the
+"Delete" button. There is a collection that you cannot delete, it's the
+Temporary collection, which holds songs you want to hear without adding them
+to any of the other collections.
+<BR>You can select a song to play of the current collection from the combo
+ box under the time bar, or from the organize dialog. To change the current
+ collection, select it from the dialog.
+<BR>Keep in mind that the Temporary Collection contents are not saved to disk,
+so if you want to save it, you should click on the "Copy" button to copy
+it to another name.
+</P>
+<P><H2>How do I add songs to a collection?<BR>What's autoAdd ?</H2></P>
+<P>To add a song to a collection, just open the organize dialog, select the
+ collection and click on the "Add" button, then select the file you want
+ to add.
+<BR>There is another method, if you turn on the "autoAdd to collection" option
+from the "Collections" menu, every song you open or drop to kmid, will be
+automatically added to the collection.
+<BR>If you don't want this to happen, turn it off, and then, when you open
+a song, the current collection will be set to the Temporary Collection, and
+the opened song added to it.
+</P>
+<P><H2>My AWE card doesn't generate any sound</H2></P>
+<P>
+If you have installed kmid from a binary package, awe support may not
+ be built into the kmid binaries, so you should download the sources and
+ compile them. If you have already done that, then it may be a bug :-), so
+ mail me.
+</P>
+<P><H2>What's a Midi Mapper?</H2></P>
+<P>
+If you have a synthesizer that doesn't complain with the General Midi
+ standard, and you play a midi file with it, you will hear a piano playing
+ the track that should be played by a flute and a drum playing the track
+ that should be played by a piano. So you need some method to map sounds
+ to different ones, this is what a Midi Mapper does. You can specify what
+ values have to be passed to your synth so that it emulates a GM synth.
+</P>
+<P><H2>How can I use a mapper with my synthesizer?</H2></P>
+<P>
+There isn't a graphical tool to configure it (yet) so you should
+edit the map file by hand :-(.
+<BR>Once you have done a map, select Options | Midi Setup ... and press on the
+Browse button to select the map file you have created.  
+<BR>Another method is to add two lines like these to 
+ ~/.kde/share/config/kmidrc :
+<BR>[Midimapper]
+<BR>Loadfile=**absolute path to map file** 
+</P>
+<P>
+So if you, like me, have a Yamaha PSS790 you are of luck, just use the
+ included file . But if you have a different synthesizer that isn't General
+ Midi compliant, then you will have to make your own mapper
+</P>
+<P>
+To do so, you should copy the file yamaha790.map to work on it without
+ changing the original . Suppose that it is mysynth.map (though it
+ should be "model of your synth".map) . Then you should edit the kmidrc
+ file as above, pointing Loadfile to this copy on which you will work.
+ Now you are ready to start.</P>
+<P>... but I'm not, this version is not finished so I don't think that
+ anybody will notice a small lack of help ;-) So please, follow your instinct
+ and if you have any question, send it to me at : antlarr@arrakis.es
+</P><P>
+And remember three things :
+<BR>1.- You should encourage the author to continue working on kmid,
+because he has better things to do than programming kmid if nobody uses
+it :-)
+<BR>2.- You can download the latest version at :
+<BR>http://www.arrakis.es/~rlarrosa/kmid.html</P>
+<BR>3.- Please send me a postcard from where you live to :
+<BR>
+<BR>Antonio Larrosa Jimenez
+<BR>Rio Arnoya. 10 5B
+<BR>29006 Malaga 
+<BR>(Spain)
+<BR> This would keep me happy and you will also enter in the postcard senders
+of the PEOPLE file (currently empty)
+</BODY></HTML>
