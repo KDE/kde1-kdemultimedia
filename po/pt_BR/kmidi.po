@@ -152,7 +152,9 @@ msgstr "Impossível abrir dispositivo de saída."
 msgid ""
 "%s\n"
 "is not readable or doesn't exist."
-msgstr "%s\nnão é legível ou não existe."
+msgstr ""
+"%s\n"
+"não é legível ou não existe."
 
 #: kmidi.cpp:1025
 msgid "KMidi Warning"

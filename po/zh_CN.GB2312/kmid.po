@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-11 02:21+0100\n"
+"POT-Creation-Date: 1999-01-17 02:14+0100\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 ) \n"
@@ -267,48 +267,48 @@ msgstr "使用 midi 映射表:"
 msgid "None"
 msgstr "无"
 
-#: collectdlg.cpp:38
+#: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "收藏集管理程序"
 
-#: collectdlg.cpp:46
+#: collectdlg.cpp:47
 msgid "Available collections :"
 msgstr "可用的收藏集 :"
 
-#: collectdlg.cpp:66
+#: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "在选中的收藏集中的歌曲:"
 
-#: collectdlg.cpp:80
+#: collectdlg.cpp:81
 msgid "New"
 msgstr "新建"
 
-#: collectdlg.cpp:150
+#: collectdlg.cpp:154
 msgid "Enter the name of the new collection"
 msgstr "输入新的收藏集的名字"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:155
 msgid "New Collection"
 msgstr "新建收藏集"
 
-#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
+#: collectdlg.cpp:162 collectdlg.cpp:188 collectdlg.cpp:229
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "名字 '%s' 已经被使用了"
 
-#: collectdlg.cpp:176
+#: collectdlg.cpp:180
 msgid "Enter the name of the copy collection"
 msgstr "输入复制的收藏集的名字"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:181
 msgid "Copy Collection"
 msgstr "复制收藏集"
 
-#: collectdlg.cpp:218
+#: collectdlg.cpp:222
 msgid "Enter the new name for the selected collection"
 msgstr "输入选中的收藏集的新名字"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:223
 msgid "Change Collection Name"
 msgstr "改变收藏集的名字"
 

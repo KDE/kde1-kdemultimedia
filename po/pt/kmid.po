@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1999-01-11 02:21+0100\n"
+"POT-Creation-Date: 1999-01-17 02:14+0100\n"
 "PO-Revision-Date: 1998-11-20 00:00:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt\n"
@@ -268,48 +268,48 @@ msgstr "Utilizar o mapa midi :"
 msgid "None"
 msgstr "Nenhum"
 
-#: collectdlg.cpp:38
+#: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Gestor de Colecções"
 
-#: collectdlg.cpp:46
+#: collectdlg.cpp:47
 msgid "Available collections :"
 msgstr "Colecções disponíveis :"
 
-#: collectdlg.cpp:66
+#: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Canções na colecção seleccionada:"
 
-#: collectdlg.cpp:80
+#: collectdlg.cpp:81
 msgid "New"
 msgstr "Nova"
 
-#: collectdlg.cpp:150
+#: collectdlg.cpp:154
 msgid "Enter the name of the new collection"
 msgstr "Insira o nome da nova colecção"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:155
 msgid "New Collection"
 msgstr "Nova Colecção"
 
-#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
+#: collectdlg.cpp:162 collectdlg.cpp:188 collectdlg.cpp:229
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "O nome '%s' já está em uso"
 
-#: collectdlg.cpp:176
+#: collectdlg.cpp:180
 msgid "Enter the name of the copy collection"
 msgstr "Insira o nome da colecção copiada"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:181
 msgid "Copy Collection"
 msgstr "Copiar Colecção"
 
-#: collectdlg.cpp:218
+#: collectdlg.cpp:222
 msgid "Enter the new name for the selected collection"
 msgstr "Insira o novo nome da colecção seleccionada"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:223
 msgid "Change Collection Name"
 msgstr "Mudar Nome da Colecção"
 

@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-11 02:21+0100\n"
+"POT-Creation-Date: 1999-01-17 02:14+0100\n"
 "Last-Translator: Bjarni R. Einarsson <bre@mmedia.is>\n"
 "Language-Team: is <kde-isl@mmedia.is>\n"
 "MIME-Version: 1.0\n"
@@ -271,48 +271,48 @@ msgstr "Nota MIDI töfluna :"
 msgid "None"
 msgstr "Engin"
 
-#: collectdlg.cpp:38
+#: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Safnastjóri"
 
-#: collectdlg.cpp:46
+#: collectdlg.cpp:47
 msgid "Available collections :"
 msgstr "Söfn í boði :"
 
-#: collectdlg.cpp:66
+#: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Lög í valda safninu:"
 
-#: collectdlg.cpp:80
+#: collectdlg.cpp:81
 msgid "New"
 msgstr "Nýtt"
 
-#: collectdlg.cpp:150
+#: collectdlg.cpp:154
 msgid "Enter the name of the new collection"
 msgstr "Gefðu nýja safninu nafn"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:155
 msgid "New Collection"
 msgstr "Nýtt safn"
 
-#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
+#: collectdlg.cpp:162 collectdlg.cpp:188 collectdlg.cpp:229
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "Nafnið '%s' er í notkun nú þegar"
 
-#: collectdlg.cpp:176
+#: collectdlg.cpp:180
 msgid "Enter the name of the copy collection"
 msgstr "Gefðu afritinu nafn"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:181
 msgid "Copy Collection"
 msgstr "Afrita safn"
 
-#: collectdlg.cpp:218
+#: collectdlg.cpp:222
 msgid "Enter the new name for the selected collection"
 msgstr "Gefðu valda safninu nýtt nafn"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:223
 msgid "Change Collection Name"
 msgstr "Breyta nafni safns"
 

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1999-01-11 02:21+0100\n"
+"POT-Creation-Date: 1999-01-17 02:14+0100\n"
 "PO-Revision-Date: 1998-05-14 20:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -263,48 +263,48 @@ msgstr "Koristi midi mapu :"
 msgid "None"
 msgstr "Ni¹ta"
 
-#: collectdlg.cpp:38
+#: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Upravitelj kolekcija"
 
-#: collectdlg.cpp:46
+#: collectdlg.cpp:47
 msgid "Available collections :"
 msgstr "Dostupne kolekcije :"
 
-#: collectdlg.cpp:66
+#: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Pjesme u izabranoj kolekciji:"
 
-#: collectdlg.cpp:80
+#: collectdlg.cpp:81
 msgid "New"
 msgstr "Novi"
 
-#: collectdlg.cpp:150
+#: collectdlg.cpp:154
 msgid "Enter the name of the new collection"
 msgstr "Unesite ime za novu kolekciju"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:155
 msgid "New Collection"
 msgstr "Nova kolekcija"
 
-#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
+#: collectdlg.cpp:162 collectdlg.cpp:188 collectdlg.cpp:229
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "Ime '%s' se veæ koristi"
 
-#: collectdlg.cpp:176
+#: collectdlg.cpp:180
 msgid "Enter the name of the copy collection"
 msgstr "Unesite ime kopirane kolekcije"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:181
 msgid "Copy Collection"
 msgstr "Kopirana kolekcija"
 
-#: collectdlg.cpp:218
+#: collectdlg.cpp:222
 msgid "Enter the new name for the selected collection"
 msgstr "Unesite novo ime za izabranu kolekciju"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:223
 msgid "Change Collection Name"
 msgstr "Promijenite ime kolekcije"
 
