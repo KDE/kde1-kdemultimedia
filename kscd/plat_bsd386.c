@@ -23,7 +23,8 @@ static char *ident = "@(#)plat_bsd386.c	1.6 12/26/93";
 
 #include <sys/time.h>
 #include <string.h>
-#include <sys/cdrom.h>
+#include <cdrom.h>
+/*#include <sys/cdrom.h>*/
 #ifdef SOUNDBLASTER
 # include <i386/isa/sblast.h>
 #endif
@@ -415,7 +416,7 @@ wmcd_open(d)
 	if ((aux = cdopen(cd_device)) == NULL)
 	{
 		fprintf(stderr, "No cdrom found by libcdrom\n");
-		retrun(-1);
+		return(-1);
 	}
 
 	if ((daux = malloc(sizeof(struct pause_info))) == NULL)

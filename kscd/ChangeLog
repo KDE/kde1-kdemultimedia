@@ -1,3 +1,7 @@
+Fri Dec 26 13:48:56 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* headerfile changes in plat_bsd.c
+
 Sat Oct 25 11:13:40 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
 
 	* fixed the segfault problem when you didn't have acess permissions
