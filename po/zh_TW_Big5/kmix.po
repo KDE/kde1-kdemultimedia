@@ -6,113 +6,128 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"POT-Creation-Date: 1998-04-26 23:08+0200\n"
 "PO-Revision-Date: 1998-04-22 03:31+0800\n"
 "Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:411
-msgid "Hide Menubar"
-msgstr "隱藏選單"
+#: docking.cpp:70 docking.cpp:166
+msgid "Restore"
+msgstr ""
+
+#: docking.cpp:164
+msgid "Minimize"
+msgstr ""
 
 #: kmix.cpp:414
-msgid "Tickmarks On/Off"
-msgstr "刻度顯示 On/Off"
+#, fuzzy
+msgid "&Hide Menubar"
+msgstr "隱藏選單"
 
 #: kmix.cpp:417
-msgid "&Options"
-msgstr "選項[&O]"
-
-#: kmix.cpp:419
-msgid "&Quit"
-msgstr "離開[&Q]"
-
-#: kmix.cpp:423
-msgid "&Contents"
-msgstr "內容[&C]"
-
-#: kmix.cpp:426
-msgid "&About"
-msgstr "有關[&A]"
-
-#: kmix.cpp:427
-msgid "&About Qt..."
-msgstr "有關 &Qt..."
+#, fuzzy
+msgid "&Tickmarks On/Off"
+msgstr "刻度顯示 On/Off"
 
 #: kmix.cpp:431
-msgid "&File"
-msgstr "檔案[&F]"
+msgid ""
+"\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Sound mixer panel for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+"SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
+"*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"and Lennart Augustsson (augustss@cs.chalmers.se)."
+msgstr ""
 
-#: kmix.cpp:433
-msgid "&Help"
-msgstr "求助[&H]"
-
-#: kmix.cpp:437
+#: kmix.cpp:455
 msgid "&Left"
 msgstr "左[&H]"
 
-#: kmix.cpp:438
+#: kmix.cpp:456
 msgid "&Center"
 msgstr "中[&C]"
 
-#: kmix.cpp:439
+#: kmix.cpp:457
 msgid "&Right"
 msgstr "右[&R]"
 
-#: kmix.cpp:561
+#: kmix.cpp:580
 msgid "Un&mute"
 msgstr "解除靜音[&M]"
 
-#: kmix.cpp:563
+#: kmix.cpp:582
 msgid "&Mute"
 msgstr "靜音[&M]"
 
-#: kmix.cpp:566
+#: kmix.cpp:585
 msgid "&Split"
 msgstr "分割[&S]"
 
-#: kmix.cpp:568
+#: kmix.cpp:587
 msgid "Un&split"
 msgstr "組合[&S]"
 
-#: kmix.cpp:570
+#: kmix.cpp:589
 msgid "&RecSource"
 msgstr "錄音來源[&R]"
 
-#: prefs.cpp:43
+#: prefs.cpp:42
 msgid "General"
 msgstr "一般"
 
-#: prefs.cpp:44
+#: prefs.cpp:43
 msgid "Channels"
 msgstr "頻道"
 
-#: prefs.cpp:47
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "初始設定"
 
-#: prefs.cpp:52
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "選單"
 
-#: prefs.cpp:57
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "刻度顯示"
 
-#: prefs.cpp:82
+#: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix 功\能設定"
 
-#: prefs.cpp:88
+#: prefs.cpp:87
 msgid "Mixer channel setup (not saved yet)"
 msgstr "混音器頻道設定 (還不能儲存)"
 
-#: prefs.cpp:95
+#: prefs.cpp:94
 msgid "Device"
 msgstr "裝置"
 
-#: prefs.cpp:98
+#: prefs.cpp:97
 msgid "Show"
 msgstr "顯示"
+
+#~ msgid "&Options"
+#~ msgstr "選項[&O]"
+
+#~ msgid "&Quit"
+#~ msgstr "離開[&Q]"
+
+#~ msgid "&Contents"
+#~ msgstr "內容[&C]"
+
+#~ msgid "&About"
+#~ msgstr "有關[&A]"
+
+#~ msgid "&About Qt..."
+#~ msgstr "有關 &Qt..."
+
+#~ msgid "&File"
+#~ msgstr "檔案[&F]"
+
+#~ msgid "&Help"
+#~ msgstr "求助[&H]"

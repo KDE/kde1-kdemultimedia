@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"POT-Creation-Date: 1998-04-26 23:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,106 +14,121 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:411
-msgid "Hide Menubar"
-msgstr "Sakrij izbornik"
+#: docking.cpp:70 docking.cpp:166
+msgid "Restore"
+msgstr ""
+
+#: docking.cpp:164
+msgid "Minimize"
+msgstr ""
 
 #: kmix.cpp:414
-msgid "Tickmarks On/Off"
-msgstr "Oznake uklj/isklj"
+#, fuzzy
+msgid "&Hide Menubar"
+msgstr "Sakrij izbornik"
 
 #: kmix.cpp:417
-msgid "&Options"
-msgstr "&Opcije"
-
-#: kmix.cpp:419
-msgid "&Quit"
-msgstr "&Zavr¹i"
-
-#: kmix.cpp:423
-msgid "&Contents"
-msgstr "&Sadr¾aj"
-
-#: kmix.cpp:426
-msgid "&About"
-msgstr "&O programu"
-
-#: kmix.cpp:427
-msgid "&About Qt..."
-msgstr "O &Qt..."
+#, fuzzy
+msgid "&Tickmarks On/Off"
+msgstr "Oznake uklj/isklj"
 
 #: kmix.cpp:431
-msgid "&File"
-msgstr "&Datoteka"
+msgid ""
+"\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Sound mixer panel for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+"SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
+"*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"and Lennart Augustsson (augustss@cs.chalmers.se)."
+msgstr ""
 
-#: kmix.cpp:433
-msgid "&Help"
-msgstr "Po&moæ"
-
-#: kmix.cpp:437
+#: kmix.cpp:455
 msgid "&Left"
 msgstr "&Lijevo"
 
-#: kmix.cpp:438
+#: kmix.cpp:456
 msgid "&Center"
 msgstr "&Centar"
 
-#: kmix.cpp:439
+#: kmix.cpp:457
 msgid "&Right"
 msgstr "&Desno"
 
-#: kmix.cpp:561
+#: kmix.cpp:580
 msgid "Un&mute"
 msgstr "Zvu&k"
 
-#: kmix.cpp:563
+#: kmix.cpp:582
 msgid "&Mute"
 msgstr "&Ti¹ina"
 
-#: kmix.cpp:566
+#: kmix.cpp:585
 msgid "&Split"
 msgstr "Podje&li"
 
-#: kmix.cpp:568
+#: kmix.cpp:587
 msgid "Un&split"
 msgstr "Spo&ji"
 
-#: kmix.cpp:570
+#: kmix.cpp:589
 msgid "&RecSource"
 msgstr "&Izvor snimka"
 
-#: prefs.cpp:43
+#: prefs.cpp:42
 msgid "General"
 msgstr "Opæeniti"
 
-#: prefs.cpp:44
+#: prefs.cpp:43
 msgid "Channels"
 msgstr "Kanali"
 
-#: prefs.cpp:47
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Postavke pri startu"
 
-#: prefs.cpp:52
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Izbornik"
 
-#: prefs.cpp:57
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Oznake"
 
-#: prefs.cpp:82
+#: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix pode¹avanja"
 
-#: prefs.cpp:88
+#: prefs.cpp:87
 msgid "Mixer channel setup (not saved yet)"
 msgstr "Postavi mikser kanala (jo¹ nije snimljen)"
 
-#: prefs.cpp:95
+#: prefs.cpp:94
 msgid "Device"
 msgstr "Ureðaj"
 
-#: prefs.cpp:98
+#: prefs.cpp:97
 msgid "Show"
 msgstr "Prika¾i"
+
+#~ msgid "&Options"
+#~ msgstr "&Opcije"
+
+#~ msgid "&Quit"
+#~ msgstr "&Zavr¹i"
+
+#~ msgid "&Contents"
+#~ msgstr "&Sadr¾aj"
+
+#~ msgid "&About"
+#~ msgstr "&O programu"
+
+#~ msgid "&About Qt..."
+#~ msgstr "O &Qt..."
+
+#~ msgid "&File"
+#~ msgstr "&Datoteka"
+
+#~ msgid "&Help"
+#~ msgstr "Po&moæ"
