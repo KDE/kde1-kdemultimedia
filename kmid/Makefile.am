@@ -84,7 +84,7 @@ instrname.i18n:
 
 
 messages: instrname.i18n
-	$(XGETTEXT) -C -ki18n $(kmid_SOURCES) instrname.i18n && mv messages.po ../po/kmid.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kmid_SOURCES) instrname.i18n && mv messages.po ../po/kmid.pot
 
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
