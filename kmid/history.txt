@@ -418,3 +418,10 @@ Monday 2-11-98
 
 Sunday 8-11-98
 - Some small changes 
+
+Wednesday 25-11-98
+- I've finally fixed the bug that made kmid play music sometimes
+faster and sometimes slower on some machines (i.e. mine, since I installed
+kernel 2.0.36)
+This bug was there since the real beginning,  and now, it is FIXED.
+This deserves a new 2.0 version, probably next week. 
