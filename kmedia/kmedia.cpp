@@ -27,8 +27,6 @@
 
 
 #include <klocale.h>
-KLocale locale("kmedia"); // this is the global instance for KLocale
-
 
 KApplication	*globalKapp;
 
@@ -60,10 +58,6 @@ int main ( int argc, char *argv[] )
   sigaddset(&(act.sa_mask), SIGCHLD);                                       
   act.sa_flags = SA_NOCLDSTOP;
   sigaction( SIGCHLD, &act, NULL);
-
-#ifdef USE_NLS
-  textdomain("kmedia");
-#endif
 
 //  globalKIL = new KIconLoader();
   kmedia  = new KMEDIA;
