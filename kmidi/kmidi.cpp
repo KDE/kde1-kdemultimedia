@@ -842,20 +842,21 @@ void KMidi::PlayCommandlineMods(){
     if (blink){
       blink = false;
       statusLA->setText("           ");
+      modlabel->setText(""); // clear the error message
 	}
     else{
       blink = true;
-      statusLA->setText("Error");
-      modlabel->setText("Can't open Output Device");
+      statusLA->setText("ERROR");
+      modlabel->setText("Can't open Output Device.");
       song_count_label->setText( "Song --/--" );
     }
     
     
-    modlabel->setText(""); // clear the error message
-    song_count_label->setText( "Song --/--" );
-    
     return;    
   }
+  
+  modlabel->setText(""); // clear the error message
+  song_count_label->setText( "Song --/--" );
 
   // O.K all clear -- the driver is ready.
   
