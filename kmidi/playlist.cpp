@@ -69,7 +69,6 @@ PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playl
   menu->insertItem( "&Help", help );
   
   panner = new KPanner(this, "_panner", KPanner::O_VERTICAL, 30);
-  panner->setGeometry(20,20,400,300);
 
   connect(panner, SIGNAL(positionChanged()), this, SLOT(pannerHasChanged()));
   listbox = new QListBox(panner->child1(),"listbox",0); 
@@ -103,7 +102,7 @@ PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playl
   set_local_dir(QString(""));    
 
   this->resize(PLAYLIST_WIDTH,PLAYLIST_HEIGHT);
-  
+
   songlist = playlist;
   if (songlist)
     listbox->insertStrList(songlist,-1);
@@ -112,7 +111,8 @@ PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playl
     loadPlaylist("default");
   
   current_playlist = "default";
-  
+
+
 };
 
 
@@ -352,6 +352,8 @@ void PlaylistDialog::resizeEvent(QResizeEvent *e){
   
   panner->setGeometry( BORDER_WIDTH, menu->height() + BORDER_WIDTH ,
   	       w - 2*BORDER_WIDTH, h - 37 -  menu->height());
+
+  panner->setSeparator(panner->getSeparator());
 
   local_list->resize( panner->child0()->width(), panner->child0()->height());  
   listbox->resize( panner->child1()->width(), panner->child1()->height());
