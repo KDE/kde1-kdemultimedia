@@ -6,7 +6,6 @@ BINDIR  = $(prefix)/bin
 LIBDIR  = $(prefix)/lib
 ICONDIR  = $(prefix)/share/icons
 PICSDIR  = $(prefix)/share/apps/kscd/pics/
-DOCSDIR = $(prefix)/share/doc/HTML/default/kscd
 APPSDIR = $(prefix)/share/applnk/Multimedia
 
 install = @INSTALL@
@@ -92,12 +91,6 @@ install: all
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET1) $(BINDIR)
 	$(INSTALL) $(TARGET2) $(BINDIR)
-	$(INSTALL_DIR) $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-1.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-2.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-3.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-4.html $(DOCSDIR)
 	$(INSTALL_DIR) $(ICONDIR)
 	$(INSTALL_DATA) kscd.xpm $(ICONDIR)
 	$(INSTALL_DIR) $(PICSDIR)
