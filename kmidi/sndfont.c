@@ -290,6 +290,7 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
     else keynote = -1;
 
     cutoff_allowed = command_cutoff_allowed;
+
 /*
     if (command_cutoff_allowed) cutoff_allowed = !percussion;
     else cutoff_allowed = 0;
@@ -369,9 +370,7 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 {
 	int i;
 
-	/*for (i = 0, sp = ip->slist; i < ip->samples && sp; i++, sp = sp->next) {*/
 	for (i = 0; i < sample_count && sp; i++, sp = sp->next) {
-		/*Sample *sample = inst->sample + i;*/
 		Sample *sample = base_sample + i;
 #ifndef LITTLE_ENDIAN
 		int32 j;
@@ -400,10 +399,8 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 		if (sp->cutoff_freq > 0 && cutoff_allowed) {
 			/* restore the normal value */
 			sample->data_length >>= FRACTION_BITS;
-/**
-    		ctl->cmsg(CMSG_INFO, VERB_NOISY, "bank=%d, preset=%d, keynote=%d / cutoff = %ld / resonance = %g",
-				ip->bank, ip->preset, ip->keynote, sp->cutoff_freq, sp->resonance);
-**/
+    		        if (!i) ctl->cmsg(CMSG_INFO, VERB_NOISY, "cutoff = %ld ; resonance = %g",
+				sp->cutoff_freq, sp->resonance);
 			do_lowpass(sample, sp->cutoff_freq, sp->resonance);
 			/* convert again to the fractional value */
 			sample->data_length <<= FRACTION_BITS;
@@ -1247,6 +1244,7 @@ static int32 calc_sustain(Layer *lay, SFInfo *sf)
 
 static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp)
 {
+	extern int32 convert_tremolo_rate(uint8 rate);
 	int32 level, freq;
 
 	if (!lay->set[SF_lfo1ToVolume])
@@ -1256,10 +1254,14 @@ static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp)
 	if (sf->version == 1)
 		level = (120 * level) / 64;  /* to centibel */
 	/* centibel to linear */
-	sp->v.tremolo_depth = TO_LINEAR(level);
+	/*sp->v.tremolo_depth = TO_LINEAR(level);*/
+
+	if (level < 0) sp->v.tremolo_depth = -level;
+	else if (level < 20) sp->v.tremolo_depth = 20;
+	else sp->v.tremolo_depth = level;
 
 	/* frequency in mHz */
-	if (lay->set[SF_freqLfo1]) {
+	if (! lay->set[SF_freqLfo1]) {
 		if (sf->version == 1)
 			freq = TO_MHZ(-725);
 		else
@@ -1271,9 +1273,13 @@ static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp)
 		freq = TO_MHZ(freq);
 	}
 	/* convert mHz to sine table increment; 1024<<rate_shift=1wave */
-	sp->v.tremolo_phase_increment = (freq * 1024) << RATE_SHIFT;
+	/*sp->v.tremolo_phase_increment = (freq * 1024) << RATE_SHIFT;*/
 
-	sp->v.tremolo_sweep_increment = 0;
+	freq /= 40;
+	if (freq < 5) return;
+	if (freq > 255) freq = 255;
+	sp->v.tremolo_phase_increment = convert_tremolo_rate((uint8)freq);
+	sp->v.tremolo_sweep_increment = 41;
 }
 #endif
 
@@ -1311,7 +1317,7 @@ static void convert_vibrato(Layer *lay, SFInfo *sf, SampleList *sp)
 	/* frequency in mHz */
 	if (!freq) {
 		if (sf->version == 1)
-			freq = TO_MHZ(-725);
+			freq = TO_HZ(-725);
 		else
 			freq = 0;
 	} else {
@@ -1347,7 +1353,7 @@ static void calc_cutoff(Layer *lay, SFInfo *sf, SampleList *sp)
 	if (lay->set[SF_env1ToFilterFc]) {
 		val += lay->val[SF_env1ToFilterFc];
 	}
-	if (val >= 13500)
+	if (val < 6500 || val >= 13500)
 		sp->cutoff_freq = 0;
 	else
 		sp->cutoff_freq = TO_HZ(val);
