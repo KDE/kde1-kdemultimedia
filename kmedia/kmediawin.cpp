@@ -69,7 +69,7 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
 
   timer->start( 50 );
   timerFn->start( 100 );
-  globalKapp->setMainWidget( this );
+//  globalKapp->setMainWidget( this );
 
   allMediaWins.setAutoDelete(FALSE);
   allMediaWins.append(this);
