@@ -61,7 +61,6 @@ msgstr ""
 "Lettore Media  per il KDE Desktop Environment.\n"
 "Questo programma è coperto dalla licenza GPL.\n"
 
-
 #: kmediawin.cpp:309
 msgid "Exited"
 msgstr "Uscito"
