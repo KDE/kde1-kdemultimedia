@@ -52,9 +52,9 @@ APPDIR = $(prefix)/share/apps/kmedia
 
 ########## Files #####################
 
-OBJECTS =	kmedia.o uiactions.o mediaactions.o prefs.o kslider.o kmediawin.o
+OBJECTS =	kmedia.o uiactions.o mediaactions.o prefs.o kmediawin.o
 SRCS :=         $(OBJECTS:*.o:*.c)
-SRCMETA =	kmedia.moc prefs.moc kslider.moc kmediawin.moc
+SRCMETA =	kmedia.moc prefs.moc kmediawin.moc
 SRCNLS  :=	$(patsubst %.po,%, $(wildcard *.po))
 OBJNLS  :=	$(patsubst %,%.mo, $(SRCNLS))
 TARGET	=	kmedia
@@ -83,7 +83,7 @@ depend:
 	@makedepend $(INCDIRS) $(SRCS)
 	touch .depend
 
-install: $(TARGET) install-appdir install-icons install-nls
+install: $(TARGET) install-appdir install-icons # install-nls
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
 	$(INSTALL_DIR) $(prefix)/share/doc/HTML/kmedia
