@@ -102,9 +102,8 @@ msgid "KMix Preferences"
 msgstr "Preferências do KMix"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Configuração dos canais do mixer (ainda não foi gravada)"
+msgstr "Configuração dos canais do mixer"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -115,6 +114,5 @@ msgid "Show"
 msgstr "Mostrar"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "&Dividir"
+msgstr "Dividir"
