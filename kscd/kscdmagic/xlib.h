@@ -22,6 +22,8 @@
 
 #ifdef linux
 
+#include "magicconf.h"
+
 #ifndef XAOS_X11_H
 #define XAOS_X11_H
 

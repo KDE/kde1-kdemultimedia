@@ -43,8 +43,9 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "syna.h"
 
+#include "syna.h"
+#include "magicconf.h"
 
 
 static int configUseCD, device;

@@ -2,6 +2,7 @@
 /*
 
   kscdmagic 1.0   Bernd Johannes Wuebben <wuebben@kde.org>
+  $ Id: $
 
   based on:
  
@@ -41,6 +42,7 @@
 #include <string.h>
 #include <getopt.h>
 
+#include "magicconf.h"
 #include "syna.h"
 #include "alphabet.h"
 

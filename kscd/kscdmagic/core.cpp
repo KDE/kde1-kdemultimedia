@@ -22,11 +22,13 @@
 */
 
 #ifdef linux
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include "syna.h"
+#include "magicconf.h"
 
 int brightFactor = brightness;
 

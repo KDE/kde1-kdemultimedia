@@ -1,5 +1,12 @@
-/* Synaesthesia - program to display sound graphically
-   Copyright (C) 1997  Paul Francis Harrison
+
+/*
+
+  kscdmagic 1.0   Bernd Johannes Wuebben <wuebben@kde.org>
+  $ Id: $
+  based on:
+
+  Synaesthesia - program to display sound graphically
+  Copyright (C) 1997  Paul Francis Harrison
 
   This program is free software; you can redistribute it and/or modify it
   under the terms of the GNU General Public License as published by the
@@ -21,24 +28,12 @@
     27 Bond St., Mt. Waverley, 3149, Melbourne, Australia
 */
 
+#ifndef __SYNA_H__
+#define __SYNA_H__
+
 #ifdef linux
 
-/***************************************/
-/*   For the incurably fiddle prone:   */
-
-/* log2 of sample size */
-#define m 8 
-
-/* overlap amount between samples. Set to 1 or 2 if you have a fast computer */
-#define overlap 0
-
-/* Brightness */
-#define brightness 150
-
-/* Sample frequency*/
-#define frequency 22050
-
-/***************************************/
+#include "magicconf.h"
 
 
 #define PROGNAME "kscdmagic"
@@ -113,5 +108,7 @@ void closeSound();
 void setupMixer(double &loudness);
 void setVolume(double loudness);
 void getNextFragment(void);
+
+#endif
 
 #endif

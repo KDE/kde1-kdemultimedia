@@ -36,7 +36,7 @@ kscdmagic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 kscdmagic_LDADD   = -lkdeui -lkdecore -lqt -lXext -lX11 -lm $(LIBSOCKET)
 
 # this option you can leave out. Just, if you use "make dist", you need it
-noinst_HEADERS = alphabet.h  bitmap.h    symbol.h    syna.h      xlib.h
+noinst_HEADERS = alphabet.h  bitmap.h    symbol.h    syna.h      xlib.h magicconf.h
 
 # just to make sure, automake makes them 
 BUILTSOURCES =

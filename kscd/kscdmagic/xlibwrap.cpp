@@ -33,6 +33,7 @@ extern "C" {
 
 }
 
+#include "magicconf.h"
 #include "syna.h"
 
 static xlibparam xparams = { 0, 0, 0 };

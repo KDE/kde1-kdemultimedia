@@ -2,6 +2,8 @@
  *     XaoS, a fast portable realtime fractal zoomer 
  *                  Copyright (C) 1996,1997 by
  *
+ *   $ Id: $
+ *
  *      Jan Hubicka          (hubicka@paru.cas.cz)
  *      Thomas Marsh         (tmarsh@austin.ibm.com)
  *
@@ -20,7 +22,9 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
+
 #ifdef linux
+
 
 #define X11_DRIVER
 
