@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-LDADD = player/libplayer.a -lkdeui -lkdecore -lqt -lXext -lX11 
+LDADD = player/libplayer.a -lkdeui -lkdecore -lqt -lXext -lX11 -lkfm
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp 
@@ -50,7 +50,7 @@ kdisptext.cpp:kdisptext.moc
 
 install-data-local:
 	@echo "********************************************"
-	@echo "Thanks for installing kmid !"
+	@echo "Thanks for installing kmid 0.5.1 !"
 	@echo "I have included some example songs that have been installed in"
 	@echo $(kde_datadir)/kmid
 	@echo ""

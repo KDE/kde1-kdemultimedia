@@ -2,7 +2,7 @@ Begin
 Title:          kmid
 Version:        0.5
 Entered-date:   150398
-Description:    midi/karaoke file player.Use external synths,fm,awe or gus cards
+Description:    midi/karaoke player.Use external synths,fm,awe or gus cards
 Keywords:       mid kar player midi karaoke KDE X11 Qt kmid fm awe gus synth
 Author:         Antonio Larrosa Jimenez <antlarr@arrakis.es>
 Maintained-by:  Antonio Larrosa Jimenez <antlarr@arrakis.es>

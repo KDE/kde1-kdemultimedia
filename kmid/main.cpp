@@ -28,7 +28,8 @@
 #include <qwidget.h>
 #include <signal.h>
 #include "version.h"
-
+#include <locale.h>
+#include <klocale.h>
 
 int main(int argc, char **argv)
 {
