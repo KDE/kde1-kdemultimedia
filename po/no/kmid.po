@@ -155,7 +155,7 @@ msgstr ""
 "KMids hjemmeside er på: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid utgis med absolutt INGEN GARANTI; for detaljer se fil KOPIERING\n"
-"Dette er fri programvare, and du må gjerne distribuere det videre\n"
+"Dette er fri programvare, og du må gjerne distribuere det videre\n"
 "på visse betingelser\n"
 
 #: kmidframe.cpp:197
