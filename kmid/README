@@ -43,7 +43,7 @@ Index
 2. Requirements of consoleKMid
 -------------------------------
 
-   A UNIX machine, a soundcard and a /dev/sequencer device well installed 
+   A UNIX machine, a soundcard and a /dev/sequencer device well installed. 
    If you have a GUS, you need a properly installed driver from the Linux 
    Ultrasound Project, AWE cards are also supported, but you will probably
    need to compile consoleKMid in order to get an AWE card to work.
@@ -52,6 +52,15 @@ Index
    KMid to work on FreeBSD
    If you sucessfully run KMid in other unices, please tell me !
 
+   Currently there's no support to GUS cards with the oss driver, I'm
+   looking to find people with GUS cards that want to help me to 
+   provide such support (either programming or testing), as I think that
+   if nobody has worried about it it's because there's no need for it ;-) 
+    
+   I've also had reports of some people (4 at this moment), with a 
+   not-good-timing-when-playing problem, I would like to hear more about
+   it (especially someone who wants to help me in debugging this bug)
+
 3. Compiling consoleKMid
 -----------------
    Do a configure from the parent directory, then go to the player directory,
@@ -59,12 +68,14 @@ Index
 
    By default it will use the external midi device, if you want to use another
    one (fm, awe, or anything else), edit the file main.cc and change the value
-   of DEVICETOUSE to the one you want.
+   of DEFAULT_DEVICE to the one you want, or specify the -d option as in :
+
+      consolekmid -d 0 mymidifile
 
 4. Installing 
 -----------------
    No installing of consoleKMid is actually done, just copy the consoleKMid file
-   yourself to where you want.
+   yourself to where you want (usually /usr/local/bin ).
 
 5. Running
 --------------
@@ -77,19 +88,25 @@ Index
    computer as General Midi compliant. Thus, a GM synth is emulated with a
    nonGM.
    Look the KMid docs for more info on creating/using a midi map.
-   If you want to use one with consolekmid, just edit main.cc in the player
-   directory and change the value of MAP_PATH to whatever you want. 
+   If you want to use one with consolekmid, you can use the -M option,
+   use it like this example :
+
+      consolekmid -M /opt/kde/share/apps/kmid/maps/YamahaPSS790.map mymidifile
+
+   You can also edit main.cc in the player directory and change the value of
+   DEFAULT_MAP to whatever you want, so that you don't need to specify the
+   -M option each time you run consolekmid. 
 
    If you want to define a new map for your midi keyboard, I recommend you to
    start by copying the file yamaha790.map and modifying it. And remember to
    send it to me so that it will be included in future revisions and other
    people can use it !
 
-7. Where can I download KMid and consoleKMidfrom ?
+7. Where can I download KMid and consoleKMid from ?
 ---------------------------------------------------
 
    KMid's homepage is at :
-   www.arrakis.es/~rlarrosa/kmid.html
+   http://www.arrakis.es/~rlarrosa/kmid.html
 
    From there you can download latest versions as well as know the latest
    changes and improvements of KMid and consoleKMid
@@ -100,6 +117,6 @@ Index
    The KMidServer and make KMid use it.
 
 -------
-22-6-1998
+22-8-1998
 Antonio Larrosa Jimenez
 antlarr@arrakis.es

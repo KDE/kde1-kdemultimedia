@@ -194,9 +194,12 @@ kmidClient::~kmidClient()
         //    sleep(1);
     }; 
     
-    if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-    waitpid(playerProcessID, NULL, 0);
-    playerProcessID=0;
+    if (playerProcessID!=0)
+    {
+        kill(playerProcessID,SIGTERM);
+        waitpid(playerProcessID, NULL, 0);
+        playerProcessID=0;
+    };
     
     kdispt->PreDestroyer();
     delete kdispt;
@@ -276,7 +279,8 @@ int kmidClient::openFile(char *filename)
 #ifdef KMidDEBUG
     printf("TOTAL TIME : %g milliseconds\n",Player->Info()->millisecsTotal);
 #endif
-    noteArray=Player->parseNotes();
+//    noteArray=Player->parseNotes();
+    noteArray=Player->getNoteArray();
     timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
     timetags->repaint(TRUE);
     kdispt->ClearEv();
@@ -673,10 +677,8 @@ void kmidClient::volumebarChange(int i)
     int autochangemap=0;
     if ((pctl->playing==1)&&(pctl->paused==0)) autochangemap=1;
     
-    int tmppid=0;	
     if (autochangemap)
     {
-        tmppid=playerProcessID; 
         song_Pause();
     };
     i=200-i;
@@ -684,7 +686,6 @@ void kmidClient::volumebarChange(int i)
     
     if (autochangemap)
     {
-        waitpid(tmppid, NULL, 0);
         song_Pause(); 
     };
 }
@@ -777,8 +778,12 @@ void kmidClient::song_Pause()
 #endif
     if (pctl->paused==0)
     {
-        if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-        playerProcessID=0;
+        if (playerProcessID!=0)
+        {
+            kill(playerProcessID,SIGTERM);
+            waitpid(playerProcessID, NULL, 0);
+            playerProcessID=0;
+        };
         pausedatmillisec=(ulong)pctl->millisecsPlayed;
         pctl->paused=1;
         timer4timebar->stop(); 
@@ -843,8 +848,8 @@ void kmidClient::song_Pause()
 
 void kmidClient::song_Stop()
 {
-    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
-    if (channelView!=NULL) channelView->reset();
+//    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
+//    if (channelView!=NULL) channelView->reset();
 
 #ifndef MODE_DEMO_ONLYVISUAL
     if (pctl->playing==0) return;
@@ -853,8 +858,12 @@ void kmidClient::song_Stop()
 #ifdef KMidDEBUG
     printf("song Stop\n");
 #endif
-    if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-    playerProcessID=0;
+    if (playerProcessID!=0)
+    {
+        int r=kill(playerProcessID,SIGTERM);
+        waitpid(playerProcessID, NULL, 0);
+        playerProcessID=0;
+    };
     pctl->playing=0;
     ////////pctl->OK=0;
     ////////pctl->message|=PLAYER_HALT;
@@ -1008,19 +1017,16 @@ int kmidClient::ChooseTypeOfTextEvents(void)
 void kmidClient::songType(int i)
 {
     int autochangetype=0;
-    int tmppid=0;
     if ((pctl->playing==1)&&(pctl->paused==0)) autochangetype=1;
     
     if (autochangetype) 
     {
-        tmppid=playerProcessID;
         song_Pause();
     };
     pctl->gm=i;
 
     if (autochangetype)
     {
-        waitpid(tmppid, NULL, 0);
         song_Pause();
     };
     
@@ -1063,16 +1069,13 @@ void kmidClient::setMidiMapFilename(char *mapfilename)
     int autochangemap=0;
     if ((pctl->playing==1)&&(pctl->paused==0)) autochangemap=1;
 
-    int tmppid=0;	
     if (autochangemap)
 	{
-	tmppid=playerProcessID; 
 	song_Pause();
 	};
     Midi->setMidiMap(Map); 
     if (autochangemap) 
 	{
-        waitpid(tmppid, NULL, 0);
 	song_Pause(); 
 	};
 }; 
@@ -1236,7 +1239,6 @@ void kmidClient::visibleChannelView(int i)
     if (channelView==NULL)
     {
         channelView=new ChannelView();
-        channelView->show();
         if (noteArray!=NULL)
         {
             int pgm[16],j;
@@ -1248,6 +1250,7 @@ void kmidClient::visibleChannelView(int i)
                 channelView->changeForceState(j,pctl->forcepgm[j]);
             };
         };
+        channelView->show();
         connect(channelView,SIGNAL(signalToKMidClient(int *)),this,SLOT(communicationFromChannelView(int *)));
     }
     else
@@ -1290,14 +1293,12 @@ void kmidClient::communicationFromChannelView(int *i)
 {
     if (i==NULL) return;
     int autocontplaying=0;
-    int tmppid=0;
     if ((i[0]==CHN_CHANGE_PGM)||((i[0]==CHN_CHANGE_FORCED_STATE)&&(i[3]==1)))
     {
         if ((pctl->playing==1)&&(pctl->paused==0)) autocontplaying=1;
         
         if (autocontplaying)
         {
-            tmppid=playerProcessID;
             song_Pause();
         };
     };
@@ -1312,7 +1313,6 @@ void kmidClient::communicationFromChannelView(int *i)
     {
         if (autocontplaying)
         {
-            waitpid(tmppid, NULL, 0);
             song_Pause();
         };
     };

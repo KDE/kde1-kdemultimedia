@@ -51,7 +51,7 @@ KMidChannel::KMidChannel(int chn,QWidget *parent) : QWidget (parent)
     qcvfont=new QFont(kcfg->readFontEntry("ChannelViewFont",qtextfontdefault));
     delete qtextfontdefault;
 
-    instrumentCombo = new KCombo(this,"instr");
+    instrumentCombo = new KCombo(FALSE,this,"instr");
     instrumentCombo->setGeometry(160,2,200,20);
 
     for (i=0;i<128;i++)

@@ -355,3 +355,22 @@ kmid)
 Monday 13-7-98
 - I've restructured the Channel view, it's much nicer and allows for easier
 expansion. It also shows the used instrument
+
+Saturday 15-8-98
+- Wow, I haven't updated this file for so long ...
+ I've finished the changing instrument feature and so the channel view.
+ I've also improved speed a little by supressing some parses to the midi file.
+ I have improved consolekmid, now it is much more usuable.
+ Finally, I've changed the sources to use the KAccel class.
+
+Monday 31-8-98
+- I've fixed some bugs, the most important one being that kmid left its player
+ processes as zombies after stopping playing (it worked ok, but now it doesn't, 
+ dunno why). That problem made to appear some weird dialogs telling "song is already
+ playing" at each moment
+- I left a color hardcoded in button*.xpm when it should be Transparent (not 
+ everybody has a window background color of #5D5D8F8FA0A0 :-) )
+- I created a Motif 1.0 combo box in the channelview, but it should be Motif 2.0
+ because 1.0 has a "feature" for large como boxes (as this one) 
+ 
+

@@ -1,7 +1,7 @@
 /* XPM */
 static char * button2_xpm[] = {
 "16 16 3 1",
-" 	c #5D5D8F8FA0A0",
+" 	c None",
 ".	c #000000000000",
 "X	c #0000FFFF0000",
 "                ",

@@ -169,7 +169,15 @@ signals:
     void song_stopPause();
     void channelView_Destroyed();
 
-    
+public:
+    void saveLyrics(FILE *fh);
+
+    DeviceManager *devman(void) {return Midi;};
+    void setMidiDevice(int i);
+    void setMidiMapFilename(char *mapfilename);
+
+    ChannelView *getChannelView(void) { return channelView; };
+    KDisplayText *getKDisplayText(void) { return kdispt; };
 private:
     KSlider *timebar;
     KSliderTime *timetags;
@@ -181,16 +189,6 @@ private:
     KCombo *comboSongs;
 
     ChannelView *channelView;
-
-public:
-    void saveLyrics(FILE *fh);
-
-    DeviceManager *devman(void) {return Midi;};
-    void setMidiDevice(int i);
-    void setMidiMapFilename(char *mapfilename);
-
-    ChannelView *getChannelView(void) { return channelView; };
-    KDisplayText *getKDisplayText(void) { return kdispt; };
 
 };
 
