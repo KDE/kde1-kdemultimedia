@@ -848,8 +848,8 @@ void kmidClient::song_Pause()
 
 void kmidClient::song_Stop()
 {
-//    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
-//    if (channelView!=NULL) channelView->reset();
+    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
+    if (channelView!=NULL) channelView->reset();
 
 #ifndef MODE_DEMO_ONLYVISUAL
     if (pctl->playing==0) return;
