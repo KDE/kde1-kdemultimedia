@@ -44,7 +44,7 @@ HEADER = kscd.h struct.h bwlednum.h ledlamp.h inexact.h CDDialog.h CDDialogData.
 	CDDBSetup.h CDDBSetupData.h
 
 SOURCES	= kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp CDDialogData.cpp \
-	CDDBSetup.cpp CDDBSetupData.cpp\
+	CDDBSetup.cpp CDDBSetupData.cpp docking.cpp \
 	inexact.cpp cdinfo.c\
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
@@ -53,7 +53,7 @@ SOURCES	= kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp CDDialogData.
 SOURCES2=plat_sun_audio.c plat_sun_cdda.c cddaslave.c  
 
 OBJECTS	= kscd.o configdlg.o  ledlamp.o inexact.o cddb.o cdinfo.o\
-	CDDialog.o CDDialogData.o CDDBSetup.o CDDBSetupData.o\
+	CDDialog.o CDDialogData.o CDDBSetup.o CDDBSetupData.o docking.o\
 	plat_sun.o plat_hpux.o plat_linux.o plat_news.o \
 	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o \
 	plat_svr4.o plat_freebsd.o plat_osf1.o plat_irix.o bwlednum.o
@@ -61,7 +61,8 @@ OBJECTS	= kscd.o configdlg.o  ledlamp.o inexact.o cddb.o cdinfo.o\
 OBJECTS2=plat_sun_audio.o plat_sun_cdda.o cddaslave.o 
 
 SRCMETA	= kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc inexact.moc\
-	CDDialog.moc CDDialogData.moc CDDBSetup.moc CDDBSetupData.moc
+	CDDialog.moc CDDialogData.moc CDDBSetup.moc CDDBSetupData.moc\
+	docking.moc
 
 TARGET1 = kscd
 TARGET2 = cddaslave
@@ -126,6 +127,7 @@ install: all
 	$(INSTALL_DATA) mini-kscd.xpm $(MINIDIR)/kscd.xpm
 	$(INSTALL_DIR) $(PICSDIR)
 	$(INSTALL_DATA) kscdlogo.xpm $(PICSDIR)
+	$(INSTALL_DATA) bitmaps/cdsmall.xpm $(PICSDIR)
 	$(INSTALL_DIR) $(MIMEDIR)
 	$(INSTALL_DATA) xmcd.kdelnk $(MIMEDIR)/xmcd.kdelnk
 	$(INSTALL_DIR) $(APPSDIR)
@@ -176,6 +178,9 @@ CDDialogData.moc: CDDialogData.h
 
 CDDBSetupData.moc: CDDBSetupData.h
 	$(MOC) CDDBSetupData.h -o CDDBSetupData.moc
+	
+docking.moc: docking.h
+	$(MOC) docking.h -o docking.moc
 
 
 

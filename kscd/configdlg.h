@@ -66,6 +66,7 @@ private slots:
   void set_background_color();
   void help();
   void ttclicked();
+  void dockclicked();
   void device_changed(const char*);
   void mail_changed(const char*);
   void custombutton_clicked();
@@ -103,6 +104,8 @@ private:
 
   QLabel *tooltipslabel;
   QCheckBox *ttcheckbox;
+
+  QCheckBox *dockcheckbox;
   
   QLabel *label5;
   QLineEdit *cd_device_edit;

@@ -42,6 +42,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.tooltips = true;
   configdata.cd_device ="/dev/cdrom";
   configdata.cd_device ="mail -s \"%s\" ";
+  configdata.docking = true;
 
   if(data){
     configdata.background_color = data->background_color;
@@ -51,11 +52,12 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
     configdata.mailcmd = data->mailcmd;
     configdata.browsercmd = data->browsercmd;
     configdata.use_kfm = data->use_kfm;
+    configdata.docking = data->docking;
   }
 
   colors_changed = false;
 
-  setCaption("Configure kscd");
+  setCaption(klocale->translate("Configure kscd"));
 
   box = new QGroupBox(this, "box");
   box->setGeometry(10,10,365,360);
@@ -72,12 +74,12 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   button1 = new QPushButton(this);
   button1->setGeometry(255,25,100,25);
-  button1->setText("Change");
+  button1->setText(klocale->translate("Change"));
   connect(button1,SIGNAL(clicked()),this,SLOT(set_led_color()));
 
   label2 = new QLabel(this);
   label2->setGeometry(20,65,135,25);
-  label2->setText("Background Color:");
+  label2->setText(klocale->translate("Background Color:"));
 
   qframe2 = new QFrame(this);
   qframe2->setGeometry(155,65,30,25);	
@@ -86,17 +88,17 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   button2 = new QPushButton(this);
   button2->setGeometry(255,65,100,25);
-  button2->setText("Change");
+  button2->setText(klocale->translate("Change"));
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
   button3 = new QPushButton(this);
   button3->setGeometry(255,330,100,25);
-  button3->setText("Help");
+  button3->setText(klocale->translate("Help"));
   connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 
   label5 = new QLabel(this);
   label5->setGeometry(20,110,135,25);
-  label5->setText("CDROM Device:");
+  label5->setText(klocale->translate("CDROM Device:"));
 
   cd_device_edit = new QLineEdit(this);
   cd_device_edit->setGeometry(155,110,200,25);
@@ -113,7 +115,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   label6 = new QLabel(this);
   label6->setGeometry(20,150,135,25);
-  label6->setText("Unix mail command:");
+  label6->setText(klocale->translate("Unix mail command:"));
 
   mail_edit = new QLineEdit(this);
   mail_edit->setGeometry(155,150,200,25);
@@ -121,16 +123,18 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   connect(mail_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(mail_changed(const char*)));  
 
-  browserbox = new  QButtonGroup("WWW-Browser",this,"wwwbox");
+  browserbox = new  QButtonGroup(klocale->translate("WWW-Browser"),this,"wwwbox");
   browserbox->setGeometry(20,190,338,120);
 
-  kfmbutton = new QRadioButton("Use kfm as Browser",browserbox,"kfmbutton");
+  kfmbutton = new QRadioButton(klocale->translate("Use kfm as Browser"),
+			       browserbox,"kfmbutton");
   kfmbutton->move(10,20);
   kfmbutton->adjustSize();
   kfmbutton->setChecked(configdata.use_kfm);
   connect(kfmbutton,SIGNAL(clicked()),this,SLOT(kfmbutton_clicked()));
 
-  custombutton = new QRadioButton("Use Custom Browser:",browserbox,"custombutton");
+  custombutton = new QRadioButton(klocale->translate("Use Custom Browser:"),
+				  browserbox,"custombutton");
   custombutton->move(10,50);
   custombutton->adjustSize();
   custombutton->setChecked(!configdata.use_kfm);
@@ -141,10 +145,17 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   custom_edit->setEnabled(!configdata.use_kfm);
   custom_edit->setGeometry(30,80,198,28);
 
-  ttcheckbox = new QCheckBox("Show Tool Tips", this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30,320,135,25);
+  ttcheckbox = new QCheckBox(klocale->translate("Show Tool Tips"), 
+			     this, "tooltipscheckbox");
+  ttcheckbox->setGeometry(30,315,135,20);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
+
+  dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
+			       this, "dockcheckbox");
+  dockcheckbox->setGeometry(30,340,160,20);
+  dockcheckbox->setChecked(configdata.docking);
+  connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
   
 }
 
@@ -185,6 +196,15 @@ void ConfigDlg::ttclicked(){
     configdata.tooltips = TRUE;
   else
     configdata.tooltips = FALSE;
+
+}
+
+void ConfigDlg::dockclicked(){
+
+  if(dockcheckbox->isChecked())
+    configdata.docking = TRUE;
+  else
+    configdata.docking = FALSE;
 
 }
 void ConfigDlg::help(){

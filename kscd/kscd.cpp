@@ -29,6 +29,7 @@ extern "C" {
 #include <qdir.h>
 #include <kfm.h>
 
+#include "docking.h"
 #include "kscd.h"
 #include "configdlg.h"
 #include "version.h"
@@ -53,6 +54,9 @@ extern "C" {
 #include "bitmaps/options.xbm"
 
 KApplication 	*mykapp;
+KSCD 	         *k;
+DockWidget*     dock_widget;
+
 bool             debugflag = false;
 char 		tmptime[100];
 char 		*tottime;
@@ -115,7 +119,7 @@ int mark_a, mark_b;
 *****************************************************************************/
 
 KSCD::KSCD( QWidget *parent, const char *name ) :
-  QDialog( parent, name ){
+  QWidget( parent, name ){
 
   cd_device_str        	= "";
   background_color 	= black;
@@ -132,6 +136,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   cddb_inexact_sentinel =false;
   revision		= 1;
   use_kfm 		= true;
+  docking 		= true;
   updateDialog          = false;
   drawPanel();
   loadBitmaps();
@@ -175,7 +180,10 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   setupPopups();
   volstartup = TRUE;
   volSB->setValue(volume);
-  
+
+  dock_widget = new DockWidget("dockw");  
+
+  setFocusPolicy ( QWidget::NoFocus );
   srandom(time(0L));
   initimer->start(500,TRUE);
 
@@ -270,6 +278,7 @@ QPushButton *KSCD::makeButton( int x, int y, int w, int h, const char *n )
 {
   QPushButton *pb = new QPushButton( n, this );
   pb->setGeometry( x, y, w, h );
+  pb->setFocusPolicy ( QWidget::NoFocus );
   return pb;
 }
 	
@@ -303,6 +312,7 @@ void KSCD::drawPanel()
   
   backdrop = new QFrame(this);
   backdrop->setGeometry(ix,iy,SBARWIDTH -2, 2* HEIGHT + HEIGHT /2 -1);
+  backdrop->setFocusPolicy ( QWidget::NoFocus );
   
 
 
@@ -381,31 +391,33 @@ void KSCD::drawPanel()
 
   volSB = new QSlider( 0, 100, 5,  50, QSlider::Horizontal, this, "Slider" );
   volSB->setGeometry( ix, iy, SBARWIDTH, HEIGHT/2 );
-  
+  volSB->setFocusPolicy ( QWidget::NoFocus );
 
   iy += HEIGHT/2  +1 ;
   cddbbutton = new QPushButton( this );
   cddbbutton->setGeometry( ix , iy, SBARWIDTH/10 *2 , HEIGHT );
   cddbbutton->setFont( QFont( "helvetica", 12 ) );
-  
+  cddbbutton->setFocusPolicy ( QWidget::NoFocus );
 
   ix += SBARWIDTH/10*2;
   shufflebutton = new QPushButton( this );
   shufflebutton->setGeometry( ix , iy, SBARWIDTH/10 *2  , HEIGHT );
   shufflebutton->setFont( QFont( "helvetica", 12 ) );
-  
+  shufflebutton->setFocusPolicy ( QWidget::NoFocus );
+
   ix += SBARWIDTH/10*2;
   
   optionsbutton = new QPushButton( this );
   optionsbutton->setGeometry( ix, iy, SBARWIDTH/10 *2  , HEIGHT );
   optionsbutton->setFont( QFont( "helvetica", 12 ) );
-  
+  optionsbutton->setFocusPolicy ( QWidget::NoFocus );
 
   ix += SBARWIDTH/10*2;
   songListCB = new QComboBox( this );
   songListCB->setGeometry( ix, iy, SBARWIDTH/10*4, HEIGHT );
   songListCB->setFont( QFont( "helvetica", 12 ) );
-  
+  songListCB->setFocusPolicy ( QWidget::NoFocus );
+
   iy = 0;
   ix = WIDTH + SBARWIDTH;
   playPB = makeButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" );
@@ -774,11 +786,14 @@ void KSCD::quitClicked(){
 
 void KSCD::closeEvent( QCloseEvent *e ){
 
-  (void) e;
 
-  writeSettings();
-  cleanUp();
-  qApp->quit();
+  if(docking){
+    dock_widget->dock();
+    this->hide();
+  }
+  else{
+    e->ignore();
+  }
 
 };
 
@@ -922,6 +937,7 @@ void KSCD::aboutClicked(){
   config.mailcmd = mailcmd.copy();
   config.browsercmd = browsercmd.copy();
   config.use_kfm    = use_kfm;
+  config.docking    = docking;
 
   dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
@@ -947,6 +963,7 @@ void KSCD::aboutClicked(){
 
     browsercmd = dlg->getData()->browsercmd.copy();
     use_kfm = dlg->getData()->use_kfm;
+    docking = dlg->getData()->docking;
 
     if( (QString)cd_device != dlg->getData()->cd_device){
       cd_device_str = dlg->getData()->cd_device;
@@ -1229,6 +1246,7 @@ void KSCD::readSettings(){
   tooltips  = (bool) config->readNumEntry("ToolTips",1);
   randomplay = (bool) config->readNumEntry("RandomPlay", 0);
   use_kfm   = (bool) config->readNumEntry("USEKFM", 1);
+  docking   = (bool) config->readNumEntry("DOCKING", 1);
 
   cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
   cd_device = cd_device_str.data();
@@ -1272,6 +1290,7 @@ void KSCD::writeSettings(){
   else
     config->writeEntry("RandomPlay", 0); 
   config->writeEntry("USEKFM", (int)use_kfm); 
+  config->writeEntry("DOCKING", (int)docking); 
   config->writeEntry("CDDevice",cd_device);
   config->writeEntry("CustomBroserCmd",browsercmd);
   config->writeEntry("Volume", volume);
@@ -1957,7 +1976,7 @@ void KSCD::get_pathlist(QStrList& _pathlist){
 int main( int argc, char *argv[] ){
 
   mykapp = new KApplication( argc, argv,"kscd" );
-  KSCD 	*k = new KSCD; 
+  k = new KSCD; 
 
   cur_track = 1;
   debugflag = false;

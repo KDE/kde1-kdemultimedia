@@ -87,12 +87,13 @@ struct configstruct{
   QString mailcmd;
   QString browsercmd;
   bool	use_kfm;
+  bool	docking;
 };
 
 
 class CDDB;
 
-class KSCD : public QDialog {
+class KSCD : public QWidget {
 
 	Q_OBJECT
 
@@ -248,6 +249,7 @@ private:
 	QString  	browsercmd;
 	bool		cddb_remote_enabled;
 	bool 		use_kfm;
+	bool            docking;
 	bool 		cddb_inexact_sentinel;
 	bool            updateDialog;
 public:
