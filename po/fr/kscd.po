@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8\n"
 "POT-Creation-Date: 1998-12-23 02:19+0100\n"
-"PO-Revision-Date: 1999-01-11 23:30+0100\n"
+"PO-Revision-Date: 1999-03-04 23:30+0100\n"
 "Last-Translator: Francois-Xavier DURANCEAU "
 "<Francois-Xavier.Duranceau@loria.fr>\n"
 "Language-Team: Français <fr@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
-msgstr "Répertoire de base de CDDB :"
+msgstr "Répertoire de base CDDB :"
 
 #: CDDBSetupData.cpp:62
 msgid "Send CDDB submissions to:"
@@ -66,19 +66,19 @@ msgstr ""
 
 #: CDDialog.cpp:255
 msgid "Use this Editor to annotate this track"
-msgstr "Utiliser cet éditeur pour annoter cette piste"
+msgstr "Utilisez cet éditeur pour annoter cette piste"
 
 #: CDDialog.cpp:281
 msgid "Use this Editor to annotate the title"
-msgstr "Utiliser cet éditeur pour annoter le titre"
+msgstr "Utilisez cet éditeur pour annoter le titre"
 
 #: CDDialog.cpp:430 CDDialog.cpp:589
 msgid "Please select a Category or press Cancel"
-msgstr "Sélectionnez une Catégorie ou appuyer sur Annuler"
+msgstr "Sélectionnez une Catégorie ou appuyez sur Annuler"
 
 #: CDDialog.cpp:431
 msgid "To which category does the CD belong?"
-msgstr "A quelle catégorie appartient cd CD ?"
+msgstr "A quelle catégorie appartient ce CD ?"
 
 #: CDDialog.cpp:501
 #, c-format
@@ -140,7 +140,7 @@ msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
 msgstr ""
-"Tous les titres de piste ne peuvent pas être vides.\n"
+"Les titres de piste ne peuvent pas tous être vides.\n"
 "Veuillez corriger l'entrée et ré-essayer."
 
 #: CDDialog.cpp:877
@@ -157,7 +157,7 @@ msgstr ""
 
 #: CDDialog.cpp:907
 msgid "Invalid Playlist\n"
-msgstr "Playlist invalide\n"
+msgstr "Play List invalide\n"
 
 #: CDDialogData.cpp:74
 msgid "Load"
@@ -209,7 +209,7 @@ msgstr "Périphérique CDROM :"
 
 #: configdlg.cpp:123
 msgid "Unix mail command:"
-msgstr "Commande de mail Unix :"
+msgstr "Commande de mail :"
 
 #: configdlg.cpp:131
 msgid "WWW-Browser"
@@ -229,7 +229,7 @@ msgstr "Afficher les bulles d'aide"
 
 #: configdlg.cpp:159
 msgid "Enable KPanel Docking"
-msgstr "Autoriser l'insertion dans le panneau"
+msgstr "Activer l'insertion dans le panneau"
 
 #: configdlg.cpp:165
 msgid "Play on Tray Close"
@@ -237,15 +237,15 @@ msgstr "Lecture lors de la fermeture de la trappe"
 
 #: configdlg.cpp:171
 msgid "AutoDock on Minimize"
-msgstr "Insertion automatique dans le panneau au lieu d'Icônifier"
+msgstr "Insérer dans le panneau au lieu d'Icônifier"
 
 #: configdlg.cpp:178
 msgid "Stop Playing on Exit"
-msgstr "Arrêt de la lecture à la sortie"
+msgstr "Arrêter la lecture à la sortie"
 
 #: configdlg.cpp:184
 msgid "Eject on Finish"
-msgstr "Ejection à la fin"
+msgstr "Ejecter à la fin"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -301,7 +301,7 @@ msgstr "Non connecté."
 
 #: kscd.cpp:242
 msgid "Connection timed out."
-msgstr "Temps de connexion écoulé"
+msgstr "Délai de connexion écoulé."
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
@@ -373,7 +373,7 @@ msgstr "Quitter Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
-msgstr ""
+msgstr "Affichage des temps"
 
 #: kscd.cpp:572
 msgid "Configure Kscd"
@@ -584,11 +584,11 @@ msgstr "Magic Kscd"
 
 #: mgconfdlg.cpp:59
 msgid "Width of Magic Window:"
-msgstr "Largeur de la fenêtre Magic :"
+msgstr "Largeur de fenêtre Magic :"
 
 #: mgconfdlg.cpp:71
 msgid "Height of Magic Window:"
-msgstr "Hauteur de la fenêtre Magic :"
+msgstr "Hauteur de fenêtre Magic :"
 
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
