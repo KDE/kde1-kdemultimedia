@@ -194,7 +194,7 @@ int processUserInput() {
 int main() { 
 
   fprintf(stderr,"KSCD Magic works currently only on Linux.\n"\
-	  "It however be should be extremely easy to port it to other platforms ...\n");
+	  "It should however be trivial to port it to other platforms ...\n");
 
 }
 
