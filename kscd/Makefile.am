@@ -67,7 +67,7 @@ install-data-local:
 	$(INSTALL_DATA) $(srcdir)/bitmaps/cd.xpm $(kde_icondir)
 	$(mkinstalldirs) $(kde_minidir)
 	$(mkinstalldirs) $(kde_icondir)/large
-	$(INSTALL_DATA) $(srcdir)/mini-kscd.xpm $(kde_icondir)cd.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kscd.xpm $(kde_minidir)/kscd.xpm
 	$(INSTALL_DATA) $(srcdir)/large-kscd.xpm $(kde_icondir)/large/kscd.xpm
 	$(mkinstalldirs) $(PICSDIR)
 	$(INSTALL_DATA) $(srcdir)/kscdlogo.xpm $(PICSDIR)
@@ -81,7 +81,7 @@ uninstall:
 	rm -f $(APPSDIR)/kscd.kdelnk
 	rm -f $(PICSDIR)/kscdlogo.xpm
 	rm -f $(kde_icondir)/kscd.xpm
-	rm -f $(kde_icondir)cd.xpm
+	rm -f $(kde_minidir)/kscd.xpm
 	rm -f $(kde_icondir)/cd.xpm
 	rm -f $(MIMEDIR)/xmcd.kdelnk
 

@@ -54,7 +54,7 @@ install-data-local:
 
 	$(mkinstalldirs) $(kde_minidir)
 	$(mkinstalldirs) $(kde_icondir)/large
-	$(INSTALL_DATA) $(srcdir)/kmidi-mini.xpm $(kde_icondir)idi.xpm
+	$(INSTALL_DATA) $(srcdir)/kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
 	$(INSTALL_DATA) $(srcdir)/large-kmidi.xpm $(kde_icondir)/large/kmidi.xpm
 
 	@echo ""
