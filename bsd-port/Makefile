@@ -1,11 +1,11 @@
-# New ports collection makefile for:   kdeutils
-# Version required:    Beta4
+# New ports collection makefile for:   kdemultimedia
+# Version required:    1.0
 # Date created:        28 October 1997
 # Whom:                Stefan Eßer <se@freebsd.org>
 #
 # $Id$
 #
-PKGNAME=	kdeutils-`date "+%y%m%d"`
+PKGNAME=	kdemultimedia-`date "+%y%m%d"`
 CATEGORIES=	misc kde
 
 MAINTAINER=	garbanzo@hooked.net
