@@ -1,0 +1,15 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: kscd 0.8.0\n"
+"POT-Creation-Date: 1998-01-24 18:35+0100\n"
+"PO-Revision-Date: 1998-01-24 18:50+0100\n"
+"Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
+
+#: kscd.cpp:497
+msgid "Performances"
+msgstr "Touren und Auftritte"
+
+#: kscd.cpp:500
+msgid "Purchases"
+msgstr "Kaufgelegenheiten"
