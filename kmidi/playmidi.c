@@ -100,6 +100,10 @@ int GM_System_On=0;
 int XG_System_On=0;
 int GS_System_On=0;
 
+int XG_System_reverb_type;
+int XG_System_chorus_type;
+int XG_System_variation_type;
+
 static int32 lost_notes, cut_notes;
 static int32 common_buffer[AUDIO_BUFFER_SIZE*2], /* stereo samples */
              *buffer_pointer;
@@ -111,6 +115,11 @@ static int32 sample_count, current_sample;
 static void adjust_amplification(void)
 { 
   master_volume = (double)(amplification) / 100.0L;
+}
+
+static void adjust_master_volume(int32 vol)
+{ 
+  master_volume = (double)(vol*amplification) / 1638400.0L;
 }
 
 static void reset_voices(void)
@@ -160,6 +169,7 @@ static void reset_midi(void)
       channel[i].attacktime=64,
       channel[i].brightness=64,
       channel[i].kit=0;
+      /* channel[i].transpose is initialized in readmidi.c */
     }
   reset_voices();
 }
@@ -291,21 +301,18 @@ static void recompute_amp(int v)
 {
   int32 tempamp;
   int chan = voice[v].channel;
+  int vol = channel[chan].volume;
 
   /* TODO: use fscale */
 
   if (ISDRUMCHANNEL(chan) || channel[chan].kit)
    {
-    int vol = channel[chan].volume;
     int note = voice[v].sample->note_to_use;
     if (note && drumvolume[chan][note]>=0) vol = drumvolume[chan][note];
-    tempamp= (voice[v].velocity *
-	    vol * 
-	    channel[chan].expression); /* 21 bits */
    }
-  else
-    tempamp= (voice[v].velocity *
-	    channel[chan].volume * 
+
+  tempamp= (voice[v].velocity *
+	    vol * 
 	    channel[chan].expression); /* 21 bits */
 
   if (!(play_mode->encoding & PE_MONO))
@@ -429,23 +436,28 @@ static int vc_alloc(int j)
 #endif
 }
 
-static void clone_voice(int v, MidiEvent *e)
+static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 {
   int w, k, played_note, chorus, reverb;
   int chan = voice[v].channel;
   extern int command_cutoff_allowed;
   voice[v].clone_voice = -1;
 
-  chorus = channel[chan].chorusdepth;
-  reverb = channel[chan].reverberation;
+  chorus = ip->sample->chorusdepth;
+  reverb = ip->sample->reverberation;
+
   if (ISDRUMCHANNEL(chan) || channel[chan].kit) {
-	if ((k=drumreverberation[chan][voice[v].note]) >= 0) reverb = k;
-	if ((k=drumchorusdepth[chan][voice[v].note]) >= 0) chorus = k;
+	if ((k=drumreverberation[chan][voice[v].note]) >= 0) reverb = (reverb+k)/2;
+	if ((k=drumchorusdepth[chan][voice[v].note]) >= 0) chorus = (chorus+k)/2;
+  }
+  else {
+	if (channel[chan].chorusdepth) chorus = (chorus + channel[chan].chorusdepth)/2;
+	if (channel[chan].reverberation) reverb = (reverb + channel[chan].reverberation)/2;
   }
 /* also clone for reverb and chorus depth */
   if (!voice[v].right_sample) {
 	if (voices - current_polyphony < 8) return;
-	if ((reverb < 10 && chorus < 10) || !command_cutoff_allowed) return;
+	if ((reverb < 8 && chorus < 8) || !command_cutoff_allowed) return;
 	/*if (!voice[v].vibrato_control_ratio) return;*/
 	voice[v].right_sample = voice[v].sample;
   }
@@ -498,14 +510,43 @@ static void clone_voice(int v, MidiEvent *e)
   voice[w].panning = voice[w].sample->panning;
 
   if (reverb) {
+	int milli = play_mode->rate/1000;
 	if (voice[w].panning < 64) voice[w].panning = 127;
 	else voice[w].panning = 0;
 	/*voice[w].velocity /= 2;*/
 	voice[w].velocity = (voice[w].velocity * reverb) / 128;
 	/*voice[w].echo_delay = 50 * (play_mode->rate/1000);*/
-	voice[w].echo_delay = (reverb>>2) * (play_mode->rate/1000);
+	voice[w].echo_delay = (reverb>>2) * milli;
 /* 500, 250, 100, 50 too long; 25 pretty good */
-/*printf("start clone %d del %ld\n", w, voice[w].echo_delay);*/
+	if (XG_System_reverb_type >= 0) switch (XG_System_reverb_type) {
+		case 0: /* no effect */
+		  break;
+		case 1: /* hall */
+		  break;
+		case 2: /* room */
+		  voice[w].echo_delay /= 2;
+		  break;
+		case 3: /* stage */
+		  voice[w].velocity = voice[v].velocity;
+		  break;
+		case 4: /* plate */
+		  voice[w].panning = voice[v].panning;
+		  break;
+		case 16: /* white room */
+		  voice[w].echo_delay = 0;
+		  break;
+		case 17: /* tunnel */
+		  voice[w].echo_delay *= 2;
+		  voice[w].velocity /= 2;
+		  break;
+		case 18: /* canyon */
+		  voice[w].echo_delay *= 2;
+		  break;
+		case 19: /* basement */
+		  voice[w].velocity /= 2;
+		  break;
+	     default: break;
+	}
   }
   played_note = voice[w].sample->note_to_use;
   if (!played_note) played_note = e->a & 0x7f;
@@ -535,6 +576,28 @@ static void clone_voice(int v, MidiEvent *e)
 /*fprintf(stderr, " to %ld (cr %d, depth %d).\n", voice[w].vibrato_sweep,
 	 voice[w].vibrato_control_ratio, voice[w].vibrato_depth);
 	voice[w].vibrato_phase = 20;*/
+	if (XG_System_chorus_type >= 0) switch (XG_System_chorus_type) {
+		case 0: /* no effect */
+		  break;
+		case 1: /* chorus */
+		  break;
+		case 2: /* celeste */
+		  voice[w].orig_frequency += (voice[w].orig_frequency/128) * chorus;
+		  voice[w].velocity = voice[v].velocity;
+		  break;
+		case 3: /* flanger */
+		  voice[w].vibrato_sweep = chorus * 4;
+		  break;
+		case 4: /* symphonic */
+		  voice[w].orig_frequency += (voice[w].orig_frequency/128) * chorus;
+		  voice[v].orig_frequency -= (voice[v].orig_frequency/128) * chorus;
+		  recompute_freq(v);
+		  break;
+		case 8: /* phaser */
+		  break;
+	      default:
+		  break;
+	}
   }
   recompute_freq(w);
   recompute_amp(w);
@@ -670,7 +733,7 @@ static void start_note(MidiEvent *e, int i)
       voice[i].envelope_increment=0;
       apply_envelope_to_amp(i);
     }
-  clone_voice(i, e);
+  clone_voice(ip, i, e);
   ctl->note(i);
 }
 
@@ -997,6 +1060,10 @@ static void seek_forward(int32 until_time)
 	  channel[current_event->channel].volume=current_event->a;
 	  break;
 	  
+	case ME_MASTERVOLUME:
+	  adjust_master_volume(current_event->a + (current_event->b <<7));
+	  break;
+	  
 	case ME_PAN:
 	  channel[current_event->channel].panning=current_event->a;
 	  break;
@@ -1279,6 +1346,7 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      /* Effects affecting a single note */
 
 	    case ME_NOTEON:
+	      current_event->a += channel[current_event->channel].transpose;
 	      if (!(current_event->b)) /* Velocity 0? */
 		note_off(current_event);
 	      else
@@ -1286,6 +1354,7 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_NOTEOFF:
+	      current_event->a += channel[current_event->channel].transpose;
 	      note_off(current_event);
 	      break;
 
@@ -1317,6 +1386,10 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      ctl->volume(current_event->channel, current_event->a);
 	      break;
 	      
+	    case ME_MASTERVOLUME:
+	      adjust_master_volume(current_event->a + (current_event->b <<7));
+	      break;
+	      
 	    case ME_REVERBERATION:
 	      channel[current_event->channel].reverberation=current_event->a;
 	      break;
@@ -1339,7 +1412,6 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_PROGRAM:
-	      /*if (ISDRUMCHANNEL(current_event->channel))*/
   	      if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
 		{
 		  /* Change drum set */
@@ -1393,17 +1465,12 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_TONE_KIT:
-	    /*
-	      if (current_event->a != 127)
-	          channel[current_event->channel].bank=current_event->a;
-	    */
 	      channel[current_event->channel].kit=current_event->a;
 	      break;
 
 	    case ME_EOT:
 	      /* Give the last notes a couple of seconds to decay  */
-	      /*compute_data(play_mode->rate * 2);*/
-	      compute_data(play_mode->rate * 4);
+	      compute_data(play_mode->rate * 2);
 	      compute_data(0); /* flush buffer to device */
 	      ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
 		   "Playing time: ~%d seconds",
