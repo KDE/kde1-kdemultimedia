@@ -707,28 +707,23 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	    {
 	      if (current_kit[meep->event.channel]==126)
 		{
+		  /* note request for 2nd sfx rhythm kit */
 		  if (meep->event.a) current_kit[meep->event.channel]=125;
 		  break;
 		}
 	      if (drumset[meep->event.a]) /* Is this a defined drumset? */
 		new_value=meep->event.a;
-	      else if (current_kit[meep->event.channel] && drumset[ current_kit[meep->event.channel] ])
-		{
-		  new_value=meep->event.a=current_kit[meep->event.channel];
-		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		       "Using XG kit %d", meep->event.a);
-		}
-	      else if (current_kit[meep->event.channel] == 64 && drumset[56])
-		{
-		  new_value=meep->event.a=current_kit[meep->event.channel] = 56;
-		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		       "Using XG SFX %d", meep->event.a);
-		}
 	      else
 		{
 		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		       "Drum set %d is undefined (kit %d)", meep->event.a,current_kit[meep->event.channel]);
-		  new_value=meep->event.a=0;
+		       "Drum set %d is undefined", meep->event.a);
+		  if (drumset[0])
+		      new_value=meep->event.a=0;
+		  else
+		    {
+			skip_this_event=1;
+			break;
+		    }
 		}
 	      if (current_set[meep->event.channel] != new_value)
 		current_set[meep->event.channel]=new_value;
@@ -765,13 +760,23 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 		drumset[current_set[meep->event.channel]]
 		  ->tone[meep->event.a].instrument=
 		    MAGIC_LOAD_INSTRUMENT;
+	      if (drumset[current_set[meep->event.channel]]
+		  ->tone[meep->event.a].brightness==-1)
+	        drumset[current_set[meep->event.channel]]
+		  ->tone[meep->event.a].brightness=
+		    channel[meep->event.channel].brightness;
+	      if (drumset[current_set[meep->event.channel]]
+		  ->tone[meep->event.a].harmoniccontent==-1)
+	        drumset[current_set[meep->event.channel]]
+		  ->tone[meep->event.a].harmoniccontent=
+		    channel[meep->event.channel].harmoniccontent;
 	    }
 	  else
 	    {
 	      int chan=meep->event.channel;
 	      int banknum;
 
-	      if (current_banktype[chan]) banknum=MAXBANK-1;
+	      if (current_banktype[chan]) banknum=SFXBANK;
 	      else banknum=current_bank[chan];
 
 	      if (current_program[chan]==SPECIAL_PROGRAM)
@@ -782,6 +787,16 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 		tonebank[banknum]
 		  ->tone[current_program[chan]].instrument=
 		    MAGIC_LOAD_INSTRUMENT;
+	      if (tonebank[banknum]
+		  ->tone[current_program[chan]].brightness==-1)
+	        tonebank[banknum]
+		  ->tone[current_program[chan]].brightness=
+		    channel[meep->event.channel].brightness;
+	      if (tonebank[banknum]
+		  ->tone[current_program[chan]].harmoniccontent==-1)
+	        tonebank[banknum]
+		  ->tone[current_program[chan]].harmoniccontent=
+		    channel[meep->event.channel].harmoniccontent;
 	    }
 	  break;
 
@@ -823,7 +838,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	      skip_this_event=1;
 	      break;
 	    }
-	  if (tonebank[MAXBANK-1]) /* Is this a defined tone bank? */
+	  if (tonebank[SFXBANK]) /* Is this a defined tone bank? */
 	    new_value=SFX_BANKTYPE;
 	  else 
 	    {
@@ -858,6 +873,14 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	  else
 	    skip_this_event=1;
 	  break;
+
+	case ME_HARMONICCONTENT:
+	  channel[meep->event.channel].harmoniccontent=meep->event.a;
+	  break;
+	case ME_BRIGHTNESS:
+	  channel[meep->event.channel].brightness=meep->event.a;
+	  break;
+
 	}
 
       /* Recompute time in samples*/
@@ -918,6 +941,8 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
 	channel[i].transpose = 0;
 	if (ISDRUMCHANNEL(i)) channel[i].kit = 127;
 	else channel[i].kit = 0;
+	channel[i].brightness = 64;
+	channel[i].harmoniccontent = 64;
      }
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
