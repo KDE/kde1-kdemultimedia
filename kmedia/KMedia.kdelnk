@@ -3,7 +3,7 @@
 BinaryPattern=kmedia;
 Protocols=file;
 Exec=kmedia  -caption "%c" %i %m %f
-Icon=media.xpm
+Icon=kmedia.xpm
 DocPath=kmedia/kmedia.html
 TerminalOptions=
 Path=
