@@ -143,8 +143,7 @@ msgstr ""
 "Höfundarréttur 1997-98\n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"Í kscd er kóði úr:"
-"workman 1.4 beta 3\n"
+"Í kscd er kóði úr:workman 1.4 beta 3\n"
 "Höfundarréttur: Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Sérstakar þakkir fá Ti Kan og Steve Scherf sem fundu upp CDDB "
@@ -378,13 +377,11 @@ msgstr ""
 "Settu skástrik á milli nafns höfundar og nafns disks, sbr.\n"
 "Peter Gabriel / Greatest Hits\n"
 
-
 #: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
-msgstr ""
-"Það meiga ekki öll lögin vera nafnlaus."
+msgstr "Það meiga ekki öll lögin vera nafnlaus."
 
 #: CDDialog.cpp:823
 msgid "Internal Error"
@@ -475,15 +472,14 @@ msgid "Eject"
 msgstr "Spýta út"
 
 #: docking.cpp:175
-msgid "Smækka"
-msgstr "Lágmarka"
+msgid "Minimize"
+msgstr ""
 
 #: inexact.cpp:54
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr ""
-"Enginn einn diskur fannst. Veldu úr listanum."
+msgstr "Enginn einn diskur fannst. Veldu úr listanum."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -504,3 +500,6 @@ msgstr "Hæð galdraglugga"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Birta galdra"
+
+#~ msgid "Smækka"
+#~ msgstr "Lágmarka"
