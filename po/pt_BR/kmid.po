@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1999-01-11 02:21+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -253,64 +253,64 @@ msgstr ""
 "Não pude abrir /dev/sequencer\n"
 "Provavelmente outro programa está usando-o"
 
-#: midicfgdlg.cpp:37
+#: midicfgdlg.cpp:36
 msgid "Configure Midi devices"
 msgstr "Configurar dispositivos Midi"
 
-#: midicfgdlg.cpp:47
+#: midicfgdlg.cpp:46
 msgid "Select the midi device you want to use :"
 msgstr "Selecione o dispositivo midi que você quer usar :"
 
-#: midicfgdlg.cpp:67
+#: midicfgdlg.cpp:66
 msgid "Use the midi map :"
 msgstr "Use o mapa midi :"
 
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+#: midicfgdlg.cpp:83 midicfgdlg.cpp:93 midicfgdlg.cpp:125
 msgid "None"
 msgstr "Nenhum"
 
-#: collectdlg.cpp:39
+#: collectdlg.cpp:38
 msgid "Collections Manager"
 msgstr "Gerenciador de Coleções"
 
-#: collectdlg.cpp:47
+#: collectdlg.cpp:46
 msgid "Available collections :"
 msgstr "Coleções disponíveis:"
 
-#: collectdlg.cpp:67
+#: collectdlg.cpp:66
 msgid "Songs in selected collection:"
 msgstr "Músicas na coleção selecionada:"
 
-#: collectdlg.cpp:81
+#: collectdlg.cpp:80
 msgid "New"
 msgstr "Novo"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:150
 msgid "Enter the name of the new collection"
 msgstr "digite o nome da nova coleção"
 
-#: collectdlg.cpp:152
+#: collectdlg.cpp:151
 msgid "New Collection"
 msgstr "Nova coleção"
 
-#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "O nome '%s' já está em uso"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:176
 msgid "Enter the name of the copy collection"
 msgstr "Digite o nome da coleção a copiar"
 
-#: collectdlg.cpp:178
+#: collectdlg.cpp:177
 msgid "Copy Collection"
 msgstr "Copiar Coleção"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:218
 msgid "Enter the new name for the selected collection"
 msgstr "Digite o novo nome da coleção selecionada"
 
-#: collectdlg.cpp:220
+#: collectdlg.cpp:219
 msgid "Change Collection Name"
 msgstr "Mudar nome da coleção"
 

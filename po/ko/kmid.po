@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1999-01-11 02:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -258,64 +258,64 @@ msgstr ""
 "/dev/sequencer를 열 수 없읍니다\n"
 "다른 프로그램이 사용중인 것 같습니다"
 
-#: midicfgdlg.cpp:37
+#: midicfgdlg.cpp:36
 msgid "Configure Midi devices"
 msgstr "미디 장치 설정"
 
-#: midicfgdlg.cpp:47
+#: midicfgdlg.cpp:46
 msgid "Select the midi device you want to use :"
 msgstr "사용할 미디 장치를 선택하십시오 :"
 
-#: midicfgdlg.cpp:67
+#: midicfgdlg.cpp:66
 msgid "Use the midi map :"
 msgstr "미디 맵 사용 :"
 
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+#: midicfgdlg.cpp:83 midicfgdlg.cpp:93 midicfgdlg.cpp:125
 msgid "None"
 msgstr "없음"
 
-#: collectdlg.cpp:39
+#: collectdlg.cpp:38
 msgid "Collections Manager"
 msgstr "앨범 관리기"
 
-#: collectdlg.cpp:47
+#: collectdlg.cpp:46
 msgid "Available collections :"
 msgstr "사용가능한 앨범 :"
 
-#: collectdlg.cpp:67
+#: collectdlg.cpp:66
 msgid "Songs in selected collection:"
 msgstr "선택된 앨범에 담긴 노래:"
 
-#: collectdlg.cpp:81
+#: collectdlg.cpp:80
 msgid "New"
 msgstr "새 파일"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:150
 msgid "Enter the name of the new collection"
 msgstr "새 앨범의 이름을 넣으십시오"
 
-#: collectdlg.cpp:152
+#: collectdlg.cpp:151
 msgid "New Collection"
 msgstr "새 앨범"
 
-#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "'%s'라는 이름이 이미 사용되었습니다."
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:176
 msgid "Enter the name of the copy collection"
 msgstr "앨범 복사본의 이름을 입력하십시오"
 
-#: collectdlg.cpp:178
+#: collectdlg.cpp:177
 msgid "Copy Collection"
 msgstr "앨범 복사본"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:218
 msgid "Enter the new name for the selected collection"
 msgstr "선택된 앨범의 새 이름을 입력하십시오"
 
-#: collectdlg.cpp:220
+#: collectdlg.cpp:219
 msgid "Change Collection Name"
 msgstr "앨범 이름 변경"
 

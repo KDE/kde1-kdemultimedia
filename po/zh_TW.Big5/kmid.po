@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1999-01-11 02:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -255,64 +255,64 @@ msgstr ""
 "無法開啟 /dev/sequencer\n"
 "可能有其它程式正在使用它"
 
-#: midicfgdlg.cpp:37
+#: midicfgdlg.cpp:36
 msgid "Configure Midi devices"
 msgstr "設定 Midi 裝置"
 
-#: midicfgdlg.cpp:47
+#: midicfgdlg.cpp:46
 msgid "Select the midi device you want to use :"
 msgstr "請選擇您想要使用的 MIDI 裝置 :"
 
-#: midicfgdlg.cpp:67
+#: midicfgdlg.cpp:66
 msgid "Use the midi map :"
 msgstr "使用此 MIDI 對照:"
 
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+#: midicfgdlg.cpp:83 midicfgdlg.cpp:93 midicfgdlg.cpp:125
 msgid "None"
 msgstr "無"
 
-#: collectdlg.cpp:39
+#: collectdlg.cpp:38
 msgid "Collections Manager"
 msgstr "收集管理"
 
-#: collectdlg.cpp:47
+#: collectdlg.cpp:46
 msgid "Available collections :"
 msgstr "已經有的收集 :"
 
-#: collectdlg.cpp:67
+#: collectdlg.cpp:66
 msgid "Songs in selected collection:"
 msgstr "在目前這個收集中的歌曲:"
 
-#: collectdlg.cpp:81
+#: collectdlg.cpp:80
 msgid "New"
 msgstr "新建"
 
-#: collectdlg.cpp:151
+#: collectdlg.cpp:150
 msgid "Enter the name of the new collection"
 msgstr "請輸入這個新收集的名稱"
 
-#: collectdlg.cpp:152
+#: collectdlg.cpp:151
 msgid "New Collection"
 msgstr "新的收集"
 
-#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#: collectdlg.cpp:158 collectdlg.cpp:184 collectdlg.cpp:225
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "'%s' 這個名稱已經用過了"
 
-#: collectdlg.cpp:177
+#: collectdlg.cpp:176
 msgid "Enter the name of the copy collection"
 msgstr "請輸入欲複製的收集名稱"
 
-#: collectdlg.cpp:178
+#: collectdlg.cpp:177
 msgid "Copy Collection"
 msgstr "複製收集"
 
-#: collectdlg.cpp:219
+#: collectdlg.cpp:218
 msgid "Enter the new name for the selected collection"
 msgstr "請輸入一個新的名稱給這個收集"
 
-#: collectdlg.cpp:220
+#: collectdlg.cpp:219
 msgid "Change Collection Name"
 msgstr "更改收集的名稱"
 
