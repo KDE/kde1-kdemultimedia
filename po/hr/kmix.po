@@ -49,7 +49,6 @@ msgstr ""
 "*BSD popravke Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "i Lennart Augustsson (augustss@cs.chalmers.se)."
 
-
 #: kmix.cpp:455
 msgid "&Left"
 msgstr "&Lijevo"

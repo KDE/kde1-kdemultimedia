@@ -100,4 +100,3 @@ msgstr "Gerät"
 #: prefs.cpp:97
 msgid "Show"
 msgstr "Zeige"
-
