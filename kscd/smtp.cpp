@@ -133,7 +133,7 @@ void SMTP::sendMessage(void)
             printf("state was == FINISHED\n");
         finished = false;
         state = IN;
-        writeString.sprintf("helo %s\n", domainName.data());
+        writeString.sprintf("helo %s\r\n", domainName.data());
         write(sock->socket(), writeString.data(), writeString.length());
     }
     if(connected){
@@ -269,7 +269,7 @@ void SMTP::processLine(QString *line)
     switch(stat){
     case GREET:     //220
         state = IN;
-        writeString.sprintf("helo %s\n", domainName.data());
+        writeString.sprintf("helo %s\r\n", domainName.data());
 	write(sock->socket(), writeString.data(), writeString.length());
         break;
     case GOODBYE:   //221
@@ -279,17 +279,17 @@ void SMTP::processLine(QString *line)
         switch(state){
         case IN:
             state = READY;
-            writeString.sprintf("mail from: %s\n", senderAddress.data());
+            writeString.sprintf("mail from: %s\r\n", senderAddress.data());
             write(sock->socket(), writeString.data(), writeString.length());
             break;
         case READY:
             state = SENTFROM;
-            writeString.sprintf("rcpt to: %s\n", recipientAddress.data());
+            writeString.sprintf("rcpt to: %s\r\n", recipientAddress.data());
             write(sock->socket(), writeString.data(), writeString.length());
             break;
         case SENTFROM:
             state = SENTTO;
-            writeString.sprintf("data\n");
+            writeString.sprintf("data\r\n");
             write(sock->socket(), writeString.data(), writeString.length());
             break;
         case DATA:
@@ -310,9 +310,9 @@ void SMTP::processLine(QString *line)
     case READYDATA: //354
         state = DATA;
         //        writeString.sprintf("Subject: %s\n%s\n.\n", messageSubject.data(), messageBody.data());
-        writeString.sprintf("Subject: %s\n", messageSubject.data());
+        writeString.sprintf("Subject: %s\r\n", messageSubject.data());
         writeString += messageBody.data();
-        writeString += ".\n";
+        writeString += ".\r\n";
         write(sock->socket(), writeString.data(), writeString.length());
         break;
     case ERROR:     //501

@@ -467,7 +467,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
       QString subject;
       
       while (!ti.eof()){
-          s += ti.readLine() + "\n";
+          s += ti.readLine() + "\r\n";
 //          if(!ti.eof()){
               //  mimetranslate(s);
 //              to << s.data() << '\n';
