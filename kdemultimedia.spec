@@ -1,15 +1,15 @@
-%define version Beta3
+%define version @VERSION@
 %define name kdemultimedia
 Name: %{name}
 Summary: K Desktop Environment - Multimedia Applications
 Version: %{version}
 Release: 1 
-Source: ftp.kde.org:/pub/kde/unstable/CVS/snapshots/current/%{name}-%{version}.tar.gz
+Source: ftp.kde.org:/pub/kde/stable/Beta4/distribution/rpm/source/%{name}-%{version}-1.src.tar.gz
 Group: X11/KDE/Multimedia
 BuildRoot: /tmp/realhot_%{name}
 Copyright: GPL
-Requires: qt >= 1.31
-Packager: Magnus Pfeffer <pfeffer@unix-ag.uni-kl.de>
+Requires: qt >= 1.33
+Packager: Preston Brown <pbrown@kde.org>
 Vendor: The KDE Team
 Distribution: KDE
 
