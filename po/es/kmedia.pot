@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Posición de reproducción"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Expulsar disco"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Pista anterior"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "Retroceder"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Parar"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Reproducir/Pausa"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "Adelante"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Siguiente pista"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Nuveva ventana"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Salir"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mezclador"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "Preferencias"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "&Contenido"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Acerca de"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Archivo"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Opciones"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "Ayuda"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Finalizado"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Iniciar"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Ocupado"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Reproduciendo"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Detenido"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Listo"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Sin definir"
