@@ -79,8 +79,8 @@ kmidFrame::kmidFrame(const char *name)
 		SLOT(song_PlayNextSong()) , Key_Right);
 	m_song->insertSeparator();
 	m_song->insertItem( i18n("&Loop"), this, SLOT(song_Loop()) );
-	m_song->setId(4,4);
-	m_song->setItemChecked(4,FALSE);
+	m_song->setId(7,7);
+	m_song->setItemChecked(7,FALSE);
 
 	m_collections = new QPopupMenu;
 	m_collections->setCheckable(TRUE);
@@ -194,12 +194,12 @@ kmidFrame::kmidFrame(const char *name)
 		options_MT32();
 	if ((kcfg->readNumEntry("Loop",0))==0)
 		{
-		m_song->setItemChecked(4,FALSE);
+		m_song->setItemChecked(7,FALSE);
 		kmidclient->setSongLoop(0);
 		}
 	   else
 		{
-		m_song->setItemChecked(4,TRUE);
+		m_song->setItemChecked(7,TRUE);
 		kmidclient->setSongLoop(1);
 		};
 	if (kcfg->readNumEntry("CollectionPlayMode",0)==0)
@@ -563,7 +563,7 @@ if ((kcfg->readNumEntry("Loop",0))==0)
 
 kcfg->writeEntry("Loop",loop);
 kcfg->sync();
-m_song->setItemChecked(4,(loop==1)? TRUE : FALSE);
+m_song->setItemChecked(7,(loop==1)? TRUE : FALSE);
 kmidclient->setSongLoop(loop);
 };
 

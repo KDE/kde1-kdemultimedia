@@ -214,7 +214,7 @@ msgstr "No hay suficiente memoria !!"
 
 #: kmidclient.cpp:239
 msgid "This file is corrupted or not well built"
-msgstr "El fichero esta corrupto o no esta bien construido"
+msgstr "El fichero está corrupto o no está bien construido"
 
 #: kmidclient.cpp:240
 msgid "Unknown error message"

@@ -328,4 +328,7 @@ Saturday 9-5-98
 Sunday 10-5-98
 - I've fixed a small bug with which midi files without text events (nor lyrics)
 got the time slider very desynchronized after pausing for a long time.
- 
+
+Monday 25-5-98
+- Applied a patch submitted by Kevin Street, to compile kmid on FreeBSD 3.0
+systems with awe support (directory settings has changed since 2.2) 

@@ -16,6 +16,7 @@ Christian Esken - For answering my (silly) questions in kdedevel ;-)
 Stephan Kulow - For the fabulous configure scripts and help with automake & CVS
 Jaroslav Kysela - For helping me supporting gusd
 Adrian Knoth    - For giving me good news and suggestions (as save lyrics)
+Kevin Street    - Patch to support FreeBSD 3.0
 
 Thanks go also to Marc Diefenbruch, Peter Gritsch, Magnus Pfeffer, 
 Urko Lusa, Peter-Paul Witta, Thorsten Westheider, Ulrich Cordes, Ola Sigurdson,
