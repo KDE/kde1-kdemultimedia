@@ -639,6 +639,11 @@ sp->sample_rate, sp->low_freq, sp->high_freq, sp->root_freq);
 
     sp->panning = l->pan;
 
+      sp->resonance=0;
+      sp->cutoff_freq=0;
+      sp->reverberation=0;
+      sp->chorusdepth=0;
+
       if (!l->tremolo.freq || !l->tremolo.depth)
 	{
 	  sp->tremolo_sweep_increment=
@@ -1227,6 +1232,10 @@ patch->base_freq, patch->low_note, patch->high_note, patch->base_note);
     else gus_voice[tpgm].right_attenuation = 0x7f & (l->attenuation + w->attenuation);
 
     patch->panning = 2*(l->pan - 64);
+    patch->resonance=0;
+    patch->cutoff_freq=0;
+    patch->reverberation=0;
+    patch->chorusdepth=0;
 
     patch->tremolo_sweep = l->tremolo.sweep;
     patch->tremolo_rate = l->tremolo.freq;
