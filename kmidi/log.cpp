@@ -105,21 +105,22 @@ void LogWindow::updatewindow(){
       /* after a string starting with "~", don't start a new line --gl */
 	static int tildaflag = 0;
 	static int line = 0, col = 0;
-	int futuretilda;
+	int futuretilda, len;
 	char *s = stringlist->current();
 	if (*s == '~') {
 	    futuretilda = 1;
 	    s++;
 	}
 	else futuretilda = 0;
-	if (tildaflag) {
+	len = strlen(s);
+	if (tildaflag && len) {
 	    text_window->insertAt(s, line, col);
-	    col += strlen(s);
+	    col += len;
 	}
 	else {
-	    text_window->insertLine(s,-1);
 	    line++;
-	    col = strlen(s);
+	    text_window->insertLine(s,line);
+	    col = len;
 	}
 	tildaflag = futuretilda;
     }
@@ -128,7 +129,8 @@ void LogWindow::updatewindow(){
     text_window->setCursorPosition(text_window->numLines(),0,FALSE);
 
 
-    //text_window->update();
+    //update here causes flicker --gl
+    text_window->update();
     stringlist->clear();
 
   }
@@ -147,12 +149,13 @@ void LogWindow::insertStr(char* str){
     stringlist->append(" ");
   }
  
-
-  int index;
+// This makes it difficult to keep track of the cursor when
+// a lyric contains a ';' (and also lies about the lyric). --gl
+  //--gl int index;
   //  char newl = '\n';
-  if((index = string.find(";",0,TRUE)) != -1){
-    string.replace(index,1,"\n");
-  }
+  //--gl if((index = string.find(";",0,TRUE)) != -1){
+  //--gl   string.replace(index,1,"\n");
+  //--gl }
 
 
 
