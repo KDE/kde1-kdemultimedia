@@ -89,9 +89,9 @@ int main ( int argc, char *argv[] )
 
 KMEDIA::KMEDIA( QWidget *parent, const char *name ) :  QWidget(parent,name)
 {
-  kmw = new KMediaWin(this, "name des fensters");
+  kmw = new KMediaWin(this, " ");
   // Window title
-  setCaption( globalKapp->getCaption() /*"Kmedia"*/ );
+  setCaption( globalKapp->getCaption() );
 }
 
 

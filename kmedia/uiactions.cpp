@@ -194,8 +194,10 @@ void KMediaWin::pllClicked()
    QMessageBox::about( this, "Playlist Loop", PlayLoopInfo);
 }
 
-void KMediaWin::PosChanged( int /*new_pos*/ )
+void KMediaWin::PosChanged( int new_pos )
 {
+  (KeysChunk->pos_new) = new_pos;
+  EventCounterRaise(&(KeysChunk->posnew),1);
 }
 
 
