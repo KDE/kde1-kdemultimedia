@@ -72,25 +72,19 @@ void Preferences::slotShow()
 
 void Preferences::slotOk()
 {
-  fprintf(stderr, "OK pressed, ");
   slotApply();
   hide();
 }
 
 void Preferences::slotApply()
 {
-  fprintf(stderr, "applying prefs\n");
   mixerCommand = mixerLE->text();
   kcfg->writeEntry( "MixerCommand", mixerCommand, true );
   kcfg->sync();
-//  fprintf(stderr, "MixerCommand=%s\n", mixerCommand);
   emit optionsApply();
 }
 
 void Preferences::slotCancel()
 {
-  fprintf(stderr, "Cancelling prefs dialog\n");
   hide();
 }
-
-

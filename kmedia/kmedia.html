@@ -88,11 +88,9 @@ be pretty buggy with many cards, I have activated the bugflags by default.
 <LI>kmedia and maudio eat up CPU time even when being &quot;idle&quot;.
 This problem and it solution is known already.</LI>
 
-<LI><I>kmedia</I>. can block for the last few seconds of every WAV.</LI>
-
-<LI>Multiple window support does not work 100%. This is because LAST_WINDOW_CLOSED
-signal does not make it through KApplication. This means, maudio orphans
-may be straggeling around which you have to kill explicitely.</LI>
+<LI>Multiple window support does not work 100%. Closing the application when
+multiple windows were open
+can leave "maudio" processes running, which you have to kill explicitely.</LI>
 
 <H2><A NAME="Changelog"></A>Changelog:</H2>
 
@@ -112,14 +110,13 @@ menubar, has standard keybindings, ...</P>
 Supports DnD. Uses Statusbar. Can open multiple windows. Multiple windows
 support actually works (see <A HREF="#BUGS">BUGS</A> section though). SHM
 segments are freed automatically when unused, ...</P>
+
+<P><B>V0.45</B> Updated to new FSSTND and shortcut standard. Uses
+KIconLoader. Fixed lockups. This is the version being sent out with Beta1.
 </UL>
 
-<P><B>V0.5</B> Updated to new FSSTND and shortcut standard. Uses
-KIconLoader. Fixed lockups.
-
 <P>
-<HR WIDTH="100%">Christian Esken <A HREF="mailto:chris@magicon.prima.ruhr.de">(chris@magicon.prima.ruhr.de
-)</A></P>
+<HR WIDTH="100%">Christian Esken <A HREF="mailto:esken@kde.org">(esken@kde.org)</A></P>
 
 </BODY>
 </HTML>

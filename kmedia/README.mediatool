@@ -2,18 +2,18 @@
                                Mediatool 0.37
 
    A media player framework, including library, user interfaces and players
-            by Christian Esken (chris@magcion.prima.ruhr.de).
+                  by Christian Esken (esken@kde.org).
 
       (Linux-)Binaries, Docs, up-to-date informations are available at
-              http://www.prima.ruhr.de/home/magicon/mediatool
+                  http://wallace.free.de/~chris/mediatool.html              
 -----------------------------------------------------------------------------
   Currently available:
-  - KMedia             A Qt based media player for KDE
-  - CMedia             A ncurses based media player
-  - libmediatool.a     The mediatool library
+  - kmedia             A Qt based media player for KDE
+  - cmedia             A ncurses based media player
+  - libmediatool.so    The mediatool shared library
+  - maudio             A audio (*.wav) player
 
   The following players are available seperately:
-  - maudio             A audio (*.wav) player
   - mplaymidi          A midi player based on playmidi v2.3
   - tracker            A mod player based on tracker v4.31
 -----------------------------------------------------------------------------
@@ -53,11 +53,9 @@ Calling "make; make install" should work well. Please report compilation
 problems to me. Everything goes below $(KDEDIR), only cmedia will go to
 /usr/local/bin.
 
-!!! You should have either the environment variables KDEDIR and QTDIR,
-!!! or you must edit the Makefiles and set the paths manually.
-!!! If you dont know what KDE is, see http://www.kde.org. For testing
-!!! purposes, you can just set KDEDIR=/usr/local.
-
+!!! This package (kmedia) needs KDE and Qt.
+!!! If you dont know what KDE is, see http://www.kde.org.
+!!! To learn more about Qt, see http://www.troll.no
 
 
 
@@ -69,7 +67,7 @@ Bugs
 Author
 ------
 kmedia, cmedia and the mediatool protocol were developed by Christian Esken.
-Please send comments and bug reports to me at chris@magcion.prima.ruhr.de
+Please send comments and bug reports to me at esken@kde.org
 
 
 

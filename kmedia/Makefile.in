@@ -86,8 +86,8 @@ depend:
 install: $(TARGET) install-appdir install-icons # install-nls
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
-	$(INSTALL_DIR) $(prefix)/share/doc/HTML/kmedia
-	$(INSTALL_DATA) kmedia.html $(prefix)/share/doc/HTML/kmedia
+	$(INSTALL_DIR) $(prefix)/share/doc/HTML/en/kmedia
+	$(INSTALL_DATA) kmedia.html $(prefix)/share/doc/HTML/en/kmedia
 	$(INSTALL_DIR) $(prefix)/share/applnk/Multimedia
 	$(INSTALL_DATA) KMedia.kdelnk $(prefix)/share/applnk/Multimedia
 

@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 1997 Christian Esken (chris@magicon.prima.ruhr.de)
+   Copyright (c) 1997 Christian Esken (esken@kde.org)
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -45,7 +45,6 @@ void KMediaWin::playClicked()
 
 void KMediaWin::stopClicked()
 {
-  printf( "EventCounter Stop raised\n");
   EventCounterRaise(&(KeysChunk->stop),1);
 }
 

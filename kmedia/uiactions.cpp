@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 1997 Christian Esken (chris@magicon.prima.ruhr.de)
+   Copyright (c) 1997 Christian Esken (esken@kde.org)
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -88,12 +88,10 @@ bool KMediaWin::removePlayer()
 
 void KMediaWin::ejectClicked()
 {
-
 }
 
 void KMediaWin::trackSelected( int trk )
 {
-  fprintf(stderr, "Track selected: %i\n",trk);
 }
 
 
@@ -105,40 +103,16 @@ void KMediaWin::onDrop( KDNDDropZone* _zone )
   KURL *url;
   char *str;
 
-  fprintf(stderr, "URLs dropped on KMedia!\n");
+//  fprintf(stderr, "URLs dropped on KMedia!\n");
   strlist = _zone->getURLList();
 
   url = new KURL( strlist.first() );
-  fprintf(stderr, "%s\n",url->path());
+//  fprintf(stderr, "%s\n",url->path());
   FileNameSet( FnamChunk, url->path());
 
   launchPlayer(url->path());
 
   delete url;
-  return;
-
-  /* commented out !!! */
-  fprintf(stderr, "URLs dropped on KMedia:\n");
-
-  if ( strlist.count()==1 )
-    {
-      // Open first URL
-      url = new KURL( strlist.first() );
-      FileNameSet( FnamChunk, url->path());
-      delete url;
-      fprintf(stderr,"Set Filename completed.\n");
-    }
-  else
-    {
-      for( str=strlist.first(); str!=0; str=strlist.next() )
-	{
-	  fprintf(stderr, "%s\n", str);
-	  PlaylistAdd(Playlist, str, -1);
-	}
-    }
-
-  printf("Playlist is now:\n");
-  PlaylistShow(Playlist);
 }
 
 
@@ -220,7 +194,7 @@ void KMediaWin::TimerFunctions()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  fprintf(stderr,"New Position is %i.\n", new_pos);
+//  fprintf(stderr,"New Position is %i.\n", new_pos);
 }
 
 
@@ -339,19 +313,5 @@ void KMediaWin::launchMixer()
 
 void KMediaWin::hideMenu()
 {
-  static bool x=0;
-  x=!x;
-
-  /*   if (mainmenu->isVisible()) */
-  if (x)
-    {
-      /* mainmenu->hide(); */
-      printf("only container\n");
-    }
-  else
-    {
-      /* mainmenu->show(); */
-      printf("both\n");
-    }
 }
 
