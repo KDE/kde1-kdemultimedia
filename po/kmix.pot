@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-04-26 23:08+0200\n"
+"POT-Creation-Date: 1998-05-22 01:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +14,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: docking.cpp:70 docking.cpp:166
+#: docking.cpp:70 docking.cpp:168
 msgid "Restore"
 msgstr ""
 
-#: docking.cpp:164
+#: docking.cpp:166
 msgid "Minimize"
 msgstr ""
 
-#: kmix.cpp:414
+#: kmix.cpp:425
 msgid "&Hide Menubar"
 msgstr ""
 
-#: kmix.cpp:417
+#: kmix.cpp:428
 msgid "&Tickmarks On/Off"
 msgstr ""
 
-#: kmix.cpp:431
+#: kmix.cpp:442
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -42,35 +42,35 @@ msgid ""
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
 
-#: kmix.cpp:455
+#: kmix.cpp:461
 msgid "&Left"
 msgstr ""
 
-#: kmix.cpp:456
+#: kmix.cpp:462
 msgid "&Center"
 msgstr ""
 
-#: kmix.cpp:457
+#: kmix.cpp:463
 msgid "&Right"
 msgstr ""
 
-#: kmix.cpp:580
+#: kmix.cpp:553
 msgid "Un&mute"
 msgstr ""
 
-#: kmix.cpp:582
+#: kmix.cpp:555
 msgid "&Mute"
 msgstr ""
 
-#: kmix.cpp:585
+#: kmix.cpp:558
 msgid "&Split"
 msgstr ""
 
-#: kmix.cpp:587
+#: kmix.cpp:560
 msgid "Un&split"
 msgstr ""
 
-#: kmix.cpp:589
+#: kmix.cpp:562
 msgid "&RecSource"
 msgstr ""
 
@@ -94,22 +94,26 @@ msgstr ""
 msgid "Tickmarks"
 msgstr ""
 
-#: prefs.cpp:59
+#: prefs.cpp:61
 msgid "Allow docking"
 msgstr ""
 
-#: prefs.cpp:81
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr ""
 
-#: prefs.cpp:87
-msgid "Mixer channel setup (not saved yet)"
+#: prefs.cpp:96
+msgid "Mixer channel setup"
 msgstr ""
 
-#: prefs.cpp:94
+#: prefs.cpp:103
 msgid "Device"
 msgstr ""
 
-#: prefs.cpp:97
+#: prefs.cpp:109
 msgid "Show"
+msgstr ""
+
+#: prefs.cpp:115
+msgid "Split"
 msgstr ""
