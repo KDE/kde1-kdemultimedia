@@ -101,7 +101,7 @@ gen_get_trackinfocddb(d, track, min, sec, frm)
 
 	struct cdrom_tocentry	entry;
 
-//printf("IN get_get_trackinfocddb\n");
+/* printf("IN get_get_trackinfocddb\n"); */
 
 	entry.cdte_track = track;
 	entry.cdte_format = CDROM_MSF;

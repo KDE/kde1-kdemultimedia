@@ -79,26 +79,26 @@ public:
     void setMessageBody(char *message);
 
     typedef enum {
-        NONE = 0,             // null
-        GREET = 220,          // greeting from server
-        GOODBYE = 221,        // server acknolages quit
-        SUCCESSFUL = 250,     // command successful
-        READYDATA = 354,      // server ready to recieve data
-        ERROR = 501,          // error
-        UNKNOWN = 550        // user unknown
+      NONE = 0,             /* null */
+      GREET = 220,          /* greeting from server */
+      GOODBYE = 221,        /* server acknolages quit */
+      SUCCESSFUL = 250,     /* command successful */
+      READYDATA = 354,      /* server ready to recieve data */
+      ERROR = 501,          /* error */
+      UNKNOWN = 550         /* user unknown */
     }SMTPServerStatus;
 
     typedef enum {
-        INIT = 50,            // not logged in yet
-        IN = 100,             // logged in, got 220
-        READY = 150,          // sent HELO, got 250
-        SENTFROM = 200,       // sent MAIL FROM:, got 250
-        SENTTO = 250,         // sent RCTP TO:, got 250
-        DATA = 300,           // DATA sent, got 354
-        FINISHED = 350,       // finished sending data, got 250
-        QUIT = 400,           // sent QUIT, got 221
-        OUT = 450,            // finished, logged out
-        CERROR = 500           // didn't finish, had error or connection drop
+      INIT = 50,            /* not logged in yet */
+      IN = 100,             /* logged in, got 220 */
+      READY = 150,          /* sent HELO, got 250 */
+      SENTFROM = 200,       /* sent MAIL FROM:, got 250 */
+      SENTTO = 250,         /* sent RCTP TO:, got 250 */
+      DATA = 300,           /* DATA sent, got 354 */
+      FINISHED = 350,       /* finished sending data, got 250 */
+      QUIT = 400,           /* sent QUIT, got 221 */
+      OUT = 450,            /* finished, logged out */
+      CERROR = 500          /* didn't finish, had error or connection drop */
     }SMTPClientStatus;
 
     typedef enum {

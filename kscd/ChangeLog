@@ -1,3 +1,10 @@
+1999-04-13  Harri Porten  <porten@kde.org>
+
+	* converted some C++ comments in C file files
+	* incorporated patches from Dag Nygren <dag@newtech.fi>:
+	* plat_scor5.c: support for SCO Openserver 5.0 
+	* cdrom.c: added SONY CDU-76S
+
 1999-03-17  Harri Porten  <porten@kde.org>
 
 	* kscd.cpp: applied patch from Petter Reinholdtsen <pere@hungry.com>

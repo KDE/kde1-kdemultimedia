@@ -20,7 +20,7 @@ noinst_HEADERS = kscd.h struct.h bwlednum.h ledlamp.h inexact.h \
 kscd_SOURCES = kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp \
 	CDDialogData.cpp CDDBSetup.cpp CDDBSetupData.cpp docking.cpp \
 	inexact.cpp cdinfo.c mgconfdlg.cpp \
-	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
+	plat_scor5.c plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
 	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp \
 	smtpconfig.cpp smtp.cpp
@@ -95,6 +95,7 @@ plat_irix.c:config.h
 plat_linux.c:config.h
 plat_news.c:config.h
 plat_osf1.c:config.h
+plat_scor5.c:config.h
 plat_sun.c:config.h
 plat_sun_audio.c:config.h
 plat_sun_cdda.c:config.h
