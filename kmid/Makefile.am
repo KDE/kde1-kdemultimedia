@@ -29,3 +29,22 @@ docs_DATA = kmid.html
 icondir = $(kde_icondir)
 icon_DATA = kmid.xpm
 
+kmidframe.cpp: kmidframe.moc                   
+kmidframe.moc: kmidframe.h                     
+	$(MOC) -o kmidframe.moc kmidframe.h 
+
+kmidclient.cpp: kmidclient.moc                   
+kmidclient.moc: kmidclient.h                     
+	$(MOC) -o kmidclient.moc kmidclient.h 
+
+kdisptext.cpp: kdisptext.moc                   
+kdisptext.moc: kdisptext.h                     
+	$(MOC) -o kdisptext.moc kdisptext.h 
+
+kslidertime.cpp: kslidertime.moc                   
+kslidertime.moc: kslidertime.h                     
+	$(MOC) -o kslidertime.moc kslidertime.h 
+
+midicfgdlg.cpp: midicfgdlg.moc                   
+midicfgdlg.moc: midicfgdlg.h                     
+	$(MOC) -o midicfgdlg.moc midicfgdlg.h 
