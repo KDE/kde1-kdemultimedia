@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
 "POT-Creation-Date: 1998-12-14 02:08+0100\n"
-"PO-Revision-Date: 1998-11-05 09:06+01:00\n"
+"PO-Revision-Date: 1998-12-18 11:34+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgstr "S&tupnice zapnout/vypnout"
 
 #: kmix.cpp:526 kmix.cpp:642
 msgid "&Options..."
-msgstr ""
+msgstr "&Mo¾nosti..."
 
 #: kmix.cpp:535
 msgid ""

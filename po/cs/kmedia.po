@@ -41,15 +41,13 @@ msgstr "Vpøed"
 msgid "Next track"
 msgstr "Následující stopa"
 
-# , fuzzy
 #: kmediawin.cpp:232
 msgid "&Mixer"
-msgstr "Mixer"
+msgstr "&Mixer"
 
-# , fuzzy
 #: kmediawin.cpp:234
 msgid "&Preferences"
-msgstr "Preference"
+msgstr "&Preference"
 
 #: kmediawin.cpp:240
 msgid ""
@@ -92,6 +90,3 @@ msgstr "Pøipraven"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Nedefinován"
-
-#~ msgid "About KMedia "
-#~ msgstr "Informace o aplikaci kmedia"

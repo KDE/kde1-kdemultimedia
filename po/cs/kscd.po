@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
 "POT-Creation-Date: 1998-12-17 02:06+0100\n"
-"PO-Revision-Date: 1998-11-09 08:54+01:00\n"
+"PO-Revision-Date: 1998-12-18 11:37+01:00\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -242,9 +242,8 @@ msgid "Stop Playing on Exit"
 msgstr "Pøestat hrát pøi ukonèení"
 
 #: configdlg.cpp:183
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Vysouvám"
+msgstr "Vysunout pøi ukonèení"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -367,9 +366,8 @@ msgid "Previous Track"
 msgstr "Pøedchozí stopa"
 
 #: kscd.cpp:570
-#, fuzzy
 msgid "Quit Kscd"
-msgstr "Magic Kscd"
+msgstr "Ukonèit Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
@@ -437,7 +435,6 @@ msgid "kscd Configuraton"
 msgstr "Nastavení kscd"
 
 #: kscd.cpp:1006
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -453,21 +450,17 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
-"Spravováno:\n"
-"     Samem Maloneym <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) obsahuje kód z:\n"
-"\n"
-"kscd 1.2.0 (branched from)\n"
-"Copyright (c) 1997-98 \n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"V souèasné dobì spravováno:\n"
+"Samem Maloneym <thufir@illogic.ml.org>\n"
 "\n"
 "kscd obsahuje kód z programu\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB "
-"databáze. Dal¹í informace na http://www.cddb.com.\n"
+"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
 #: kscd.cpp:1019
@@ -570,9 +563,8 @@ msgstr ""
 "Máte KSCD Magic nainstalován?"
 
 #: kscd.cpp:2353
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "Výchozí adresáø CDDB:"
+msgstr "Vlo¾te adresáø lokální CDDB databáze:"
 
 #: kscd.cpp:2407
 msgid "-h: display commandline options\n"
@@ -609,17 +601,3 @@ msgstr "SMTP Adresa:Port"
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr "Va¹e e-malová adresa"
-
-#~ msgid "Dock Kscd"
-#~ msgstr "Dokovat Kscd"
-
-#~ msgid ""
-#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
-#~ "tweek, and configuration fixes.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Díky Samu Maloneymu <thufir@illogic.ml.org>\n"
-#~ "za mnoho oprav chyb v CDDB kódu, ke¹ování CDDB lokálních záznamù\n"
-#~ "a opravy konfigurace.\n"
-#~ "\n"
