@@ -124,7 +124,7 @@ bank 0 sbk
 	120 Fret_Noise
 	121 Breath_Noise
 	122 Seashore
-	123 Bird
+	123 Bird	note=48
 	125 Helicopter
 	126 Applause
 	127 Gunshot
@@ -337,1041 +337,1013 @@ bank 127 sbk
 	127 Jungle_Tune
 
 drumset 0 sbk		#Standard_1_[SC-55]
-	 33 Click808
-	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
 	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 84 Bell_tree
 	 28 Slap
-	 30 Scratch_Push
 	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
+	 30 Scratch_Push
 	 31 Sticks
 	 32 Square_Click
+	 33 Click808
+	 34 Click808
 	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
-	 66 Timbale_Low
-	 67 Agogo_High
-	 68 Agogo_Low
-	 71 Whistle_Short
-	 72 Whistle_Long
-	 73 Guiro_Short
-	 74 Guiro_Long
-	 76 Wood_Block_High
-	 77 Wood_Block_Low
-	 78 Cuica_Mute
-	 79 Cuica_Open
-	 83 Jingle_Bell
-	 85 Castanets1
-	 86 Surdo_Mute
-	 87 Surdo_Open
+	 36 Kick
+	 37 Side_Stick_[Stn]
 	 38 Snare_Drum_1_[Stan1]
+	 39 Clap
 	 40 Snare_Drum_2_[Stan1]
 	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
 	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
 	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
 	 47 Tom_Mid_1_[Stan1]
 	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
 	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
 	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
+	 66 Timbale_Low
+	 67 Agogo_High
+	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
+	 71 Whistle_Short
+	 72 Whistle_Long
+	 73 Guiro_Short
+	 74 Guiro_Long
+	 75 Rosewood_Claves
+	 76 Wood_Block_High
+	 77 Wood_Block_Low
+	 78 Cuica_Mute
+	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
+	 83 Jingle_Bell
+	 84 Bell_tree
+	 85 Castanets1
+	 86 Surdo_Mute
+	 87 Surdo_Open
 
 drumset 1 sbk		#Standard_2_[SC-88]
-	 33 Click808
-	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
 	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 84 Bell_tree
 	 28 Slap
-	 30 Scratch_Push
 	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 38 Snare_1_[Stan2]
-	 40 Snare_2_[Stan2]
+	 30 Scratch_Push
 	 31 Sticks
 	 32 Square_Click
+	 33 Click808
+	 34 Click808
 	 35 Kick_2_[Stan1]
+	 36 Kick
+	 37 Side_Stick_[Stn]
+	 38 Snare_1_[Stan2]
+	 39 Clap
+	 40 Snare_2_[Stan2]
+	 41 Tom_Mid_1_[Stan1]
 	 42 Closed_HiHat_[Stan1]
+	 43 Tom_Mid_1_[Stan1]
 	 44 Pedal_HiHat_[Stan1]
+	 45 Tom_Mid_1_[Stan1]
 	 46 Open_HiHat_[Stan1]
+	 47 Tom_Mid_1_[Stan1]
+	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Tom_Mid_1_[Stan1]
+	 51 Ride_Cymbal
 	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
 	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
 	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 41 Tom_Mid_1_[Stan1]
-	 43 Tom_Mid_1_[Stan1]
-	 45 Tom_Mid_1_[Stan1]
-	 47 Tom_Mid_1_[Stan1]
-	 48 Tom_Mid_1_[Stan1]
-	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 drumset 7 sbk		#Room_[SC-88]
-	 33 Click808
-	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 41 SnareVerb
-	 43 SnareVerb
-	 45 SnareVerb
-	 47 SnareVerb
-	 48 SnareVerb
-	 50 SnareVerb
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
 	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
 	 28 Slap
-	 30 Scratch_Push
 	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 38 Snare_1_[Room]
-	 40 Snare_2_[Room]
-	 36 Kick_1_[Room]
-	 41 Tom_1_[Room]
-	 43 Tom_2_[Room]
-	 45 Tom_3_[Room]
-	 47 Tom_4_[Room]
-	 48 Tom_5_[Room]
-	 50 Tom_6_[Room]
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
+	 30 Scratch_Push
 	 31 Sticks
 	 32 Square_Click
+	 33 Click808
+	 34 Click808
 	 35 Kick_2_[Stan1]
+	 36 Kick_1_[Room]
+	 37 Side_Stick_[Stn]
+	 38 Snare_1_[Room]
+	 39 Clap
+	 40 Snare_2_[Room]
+	 41 SnareVerb
 	 42 Closed_HiHat_[Stan1]
+	 43 SnareVerb
 	 44 Pedal_HiHat_[Stan1]
+	 45 SnareVerb
 	 46 Open_HiHat_[Stan1]
+	 47 SnareVerb
+	 48 SnareVerb
+	 49 Crash_Cymbal_1_[Stn]
+	 50 SnareVerb
+	 51 Ride_Cymbal
 	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
 	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
 	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 drumset 8 sbk		#Room_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
+	 35 Kick_2_[Stan1]
+	 36 Kick_1_[Room]
+	 37 Side_Stick_[Stn]
+	 38 Snare_1_[Room]
+	 39 Clap
+	 40 Snare_2_[Room]
 	 41 SnareVerb
+	 42 Closed_HiHat_[Stan1]
 	 43 SnareVerb
+	 44 Pedal_HiHat_[Stan1]
 	 45 SnareVerb
+	 46 Open_HiHat_[Stan1]
 	 47 SnareVerb
 	 48 SnareVerb
+	 49 Crash_Cymbal_1_[Stn]
 	 50 SnareVerb
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
 	 64 Low_Tumba
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 38 Snare_1_[Room]
-	 40 Snare_2_[Room]
-	 36 Kick_1_[Room]
-	 41 Tom_1_[Room]
-	 43 Tom_2_[Room]
-	 45 Tom_3_[Room]
-	 47 Tom_4_[Room]
-	 48 Tom_5_[Room]
-	 50 Tom_6_[Room]
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 drumset 16 sbk		#Power_[SC-55]
-	 33 Click808
-	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
 	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
 	 28 Slap
-	 30 Scratch_Push
 	 29 Scratch_Pull
-	 38 Snare_1_[Power]
-	 40 Snare_2_[Power]
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 36 Kick_1_[Power]
-	 35 Kick_2_[Power]
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
+	 30 Scratch_Push
 	 31 Sticks
 	 32 Square_Click
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
-	 66 Timbale_Low
-	 67 Agogo_High
-	 68 Agogo_Low
-	 71 Whistle_Short
-	 72 Whistle_Long
-	 73 Guiro_Short
-	 74 Guiro_Long
-	 76 Wood_Block_High
-	 77 Wood_Block_Low
-	 78 Cuica_Mute
-	 79 Cuica_Open
-	 83 Jingle_Bell
-	 85 Castanets1
-	 86 Surdo_Mute
-	 87 Surdo_Open
+	 33 Click808
+	 34 Click808
+	 35 Kick_2_[Power]
+	 36 Kick_1_[Power]
+	 37 Side_Stick_[Stn]
+	 38 Snare_1_[Power]
+	 39 Clap
+	 40 Snare_2_[Power]
 	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
 	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
 	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
 	 47 Tom_Mid_1_[Stan1]
 	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
 	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
 	 51 Ride_Cymbal
-
-drumset 24 sbk		#Electronic_[SC-55]
-	 52 Med_Crash
-	 33 Click808
-	 34 Click808
-	 38 Syn_Drum_Wave
-	 40 Snare_2
-	 41 Syn_Drum_Wave
-	 43 Syn_Drum_Wave
-	 45 Syn_Drum_Wave
-	 47 Syn_Drum_Wave
-	 48 Syn_Drum_Wave
-	 50 Syn_Drum_Wave
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
 	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
 	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 38 PinkNoiseWave
-	 40 SnareVerb
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
 	 64 Low_Tumba
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 36 Kick_1_[Elec]
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 56 Cowbell
-	 63 Conga_High_Open
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
-drumset 25 sbk		#TR-909_[SC-55]
-	 49 Med_Crash
+drumset 24 sbk		#Electronic_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick_1_[Elec]
+	 37 Side_Stick_[Stn]
+	 38 Syn_Drum_Wave
+	 39 Clap
+	 40 Snare_2
+	 41 Syn_Drum_Wave
+	 42 Closed_HiHat_[Stan1]
+	 43 Syn_Drum_Wave
+	 44 Pedal_HiHat_[Stan1]
+	 45 Syn_Drum_Wave
+	 46 Open_HiHat_[Stan1]
+	 47 Syn_Drum_Wave
+	 48 Syn_Drum_Wave
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Syn_Drum_Wave
+	 51 Ride_Cymbal
+	 52 Med_Crash
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
+	 66 Timbale_Low
+	 67 Agogo_High
+	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
+	 71 Whistle_Short
+	 72 Whistle_Long
+	 73 Guiro_Short
+	 74 Guiro_Long
+	 75 Rosewood_Claves
+	 76 Wood_Block_High
+	 77 Wood_Block_Low
+	 78 Cuica_Mute
+	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
+	 83 Jingle_Bell
+	 84 Bell_tree
+	 85 Castanets1
+	 86 Surdo_Mute
+	 87 Surdo_Open
+
+drumset 25 sbk		#TR-909_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull_[TR909]
+	 30 Scratch_Push_[TR909]
+	 31 Sticks
+	 32 Square_Click
+	 33 Click808
+	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick_1_[TR909]
 	 37 Click808
+	 38 Snare_1_[TR909]
+	 39 Clap
+	 40 Snare_2_[TR909]
 	 41 Sine_Wave
 	 42 Hat808
 	 43 Sine_Wave
 	 44 Hat808
 	 45 Sine_Wave
+	 46 Hi-Hat_Open_[TR909]
 	 47 Sine_Wave
 	 48 Sine_Wave
+	 49 Med_Crash
 	 50 Sine_Wave
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
 	 54 Brass_Tambourine
+	 55 Splash_Cymbal
 	 56 Cowbell808
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
 	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
 	 62 Sine_Wave
 	 63 Sine_Wave
 	 64 Sine_Wave
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 49 Hat808
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 75 Rosewood_Claves
-	 30 Scratch_Push_[TR909]
-	 29 Scratch_Pull_[TR909]
-	 40 Snare_2_[TR909]
-	 36 Kick_1_[TR909]
-	 46 Hi-Hat_Open_[TR909]
-	 38 Snare_1_[TR909]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 52 Chinese_Cymbal
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 drumset 26 sbk		#Dance_[SC-88]
-	 52 Med_Crash
-	 33 Click808
-	 34 Click808
-	 40 Snare_2
-	 41 Syn_Drum_Wave
-	 43 Syn_Drum_Wave
-	 45 Syn_Drum_Wave
-	 47 Syn_Drum_Wave
-	 48 Syn_Drum_Wave
-	 50 Syn_Drum_Wave
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 40 SnareVerb
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
 	 27 Filter_Snap
-	 58 Vibra_Slap
-	 84 Bell_tree
 	 28 Slap
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 36 Kick_1_[Elec]
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 38 Snare_1_[Dance]
 	 29 Scratch_Pull_[TR909]
 	 30 Scratch_Push_[TR909]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
 	 31 Sticks
 	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 56 Cowbell
-	 63 Conga_High_Open
-	 66 Timbale_Low
-	 67 Agogo_High
-	 68 Agogo_Low
-	 71 Whistle_Short
-	 72 Whistle_Long
-	 73 Guiro_Short
-	 74 Guiro_Long
-	 76 Wood_Block_High
-	 77 Wood_Block_Low
-	 78 Cuica_Mute
-	 79 Cuica_Open
-	 83 Jingle_Bell
-	 85 Castanets1
-	 86 Surdo_Mute
-	 87 Surdo_Open
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
-
-drumset 32 sbk		#Jazz_[SC-55]
 	 33 Click808
 	 34 Click808
-	 54 Brass_Tambourine
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
+	 35 Kick_2_[Stan1]
+	 36 Kick_1_[Elec]
+	 37 Side_Stick_[Stn]
+	 38 Snare_1_[Dance]
 	 39 Clap
+	 40 Snare_2
+	 41 Syn_Drum_Wave
+	 42 Closed_HiHat_[Stan1]
+	 43 Syn_Drum_Wave
+	 44 Pedal_HiHat_[Stan1]
+	 45 Syn_Drum_Wave
+	 46 Open_HiHat_[Stan1]
+	 47 Syn_Drum_Wave
+	 48 Syn_Drum_Wave
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Syn_Drum_Wave
+	 51 Ride_Cymbal
+	 52 Med_Crash
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
 	 64 Low_Tumba
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 38 Snare_Drum_1_[Stan1]
-	 40 Snare_Drum_2_[Stan1]
-	 41 Tom_Mid_1_[Stan1]
-	 43 Tom_Mid_1_[Stan1]
-	 45 Tom_Mid_1_[Stan1]
-	 47 Tom_Mid_1_[Stan1]
-	 48 Tom_Mid_1_[Stan1]
-	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
-drumset 40 sbk		#Brush_[SC-55]
+drumset 32 sbk		#Jazz_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick
+	 37 Side_Stick_[Stn]
+	 38 Snare_Drum_1_[Stan1]
+	 39 Clap
+	 40 Snare_Drum_2_[Stan1]
+	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
+	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
+	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
+	 47 Tom_Mid_1_[Stan1]
+	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Tom_Mid_1_[Stan1]
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
+	 66 Timbale_Low
+	 67 Agogo_High
+	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
+	 71 Whistle_Short
+	 72 Whistle_Long
+	 73 Guiro_Short
+	 74 Guiro_Long
+	 75 Rosewood_Claves
+	 76 Wood_Block_High
+	 77 Wood_Block_Low
+	 78 Cuica_Mute
+	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
+	 83 Jingle_Bell
+	 84 Bell_tree
+	 85 Castanets1
+	 86 Surdo_Mute
+	 87 Surdo_Open
+
+drumset 40 sbk		#Brush_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
+	 33 Click808
+	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick
+	 37 Side_Stick_[Stn]
 	 38 Brush_Snare
 	 39 Brush_Snare
 	 40 PinkNoiseWave
+	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
+	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
+	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
+	 47 Tom_Mid_1_[Stan1]
+	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Tom_Mid_1_[Stan1]
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
 	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
 	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 39 Snare_2
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
 	 64 Low_Tumba
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 41 Tom_Mid_1_[Stan1]
-	 43 Tom_Mid_1_[Stan1]
-	 45 Tom_Mid_1_[Stan1]
-	 47 Tom_Mid_1_[Stan1]
-	 48 Tom_Mid_1_[Stan1]
-	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 drumset 48 sbk		#Orchestra_[SC-55]
-	 55 Med_Crash
-	 57 Med_Crash
-	 59 Med_Crash
 	 27 Hat
 	 28 Hat
 	 29 Hat
+	 30 Ride_Bell_[Stn]
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
-	 38 OrchSnare1oct
-	 40 OrchSnare1oct
-	 54 Brass_Tambourine
-	 59 Hat
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 88 Applause
-	 34 Carillon_C6
-	 88 Applause
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 64 Low_Tumba
-	 65 Timbale_Rim.
+	 35 Kick_2_[Stan1]
 	 36 Tom_Mid_1_[Stan1]
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 75 Rosewood_Claves
-	 62 Closed_Slap
 	 37 Side_Stick_[Stn]
-	 30 Ride_Bell_[Stn]
+	 38 OrchSnare1oct
+	 39 Castanets1
+	 40 OrchSnare1oct
 	 41 Timpany_-Bass_boost
 	 46 Timpany_-Bass_boost
 	 51 Timpany_-Bass_boost
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
+	 54 Brass_Tambourine
+	 55 Med_Crash
 	 56 Cowbell
+	 57 Med_Crash
+	 58 Vibra_Slap
+	 59 Med_Crash
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
 	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
 	 66 Timbale_Low
-	 36 Timpany_-Bass_boost
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
-	 39 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
+	 88 Applause
 
 drumset 49 sbk		#Ethnic_[SC-88]
-	 55 Med_Crash
-	 57 Med_Crash
-	 59 Med_Crash
 	 27 Hat
 	 28 Hat
 	 29 Hat
+	 30 Ride_Bell_[Stn]
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
-	 38 OrchSnare1oct
-	 40 OrchSnare1oct
-	 54 Brass_Tambourine
-	 59 Hat
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 88 Applause
-	 34 Carillon_C6
-	 88 Applause
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 64 Low_Tumba
-	 65 Timbale_Rim.
+	 35 Kick_2_[Stan1]
 	 36 Tom_Mid_1_[Stan1]
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 75 Rosewood_Claves
-	 62 Closed_Slap
 	 37 Side_Stick_[Stn]
-	 30 Ride_Bell_[Stn]
+	 38 OrchSnare1oct
+	 39 Castanets1
+	 40 OrchSnare1oct
 	 41 Timpany_-Bass_boost
 	 46 Timpany_-Bass_boost
 	 51 Timpany_-Bass_boost
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
+	 54 Brass_Tambourine
+	 55 Med_Crash
 	 56 Cowbell
+	 57 Med_Crash
+	 58 Vibra_Slap
+	 59 Med_Crash
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
 	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
 	 66 Timbale_Low
-	 36 Timpany_-Bass_boost
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
-	 39 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
+	 88 Applause
 
 drumset 50 sbk		#Kick_&_Snare_[SC-88]
-	 55 Med_Crash
-	 57 Med_Crash
-	 59 Med_Crash
 	 27 Hat
 	 28 Hat
 	 29 Hat
+	 30 Ride_Bell_[Stn]
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
-	 38 OrchSnare1oct
-	 40 OrchSnare1oct
-	 54 Brass_Tambourine
-	 59 Hat
-	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 88 Applause
-	 34 Carillon_C6
-	 88 Applause
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 64 Low_Tumba
-	 65 Timbale_Rim.
+	 35 Kick_2_[Stan1]
 	 36 Tom_Mid_1_[Stan1]
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 75 Rosewood_Claves
-	 62 Closed_Slap
 	 37 Side_Stick_[Stn]
-	 30 Ride_Bell_[Stn]
+	 38 OrchSnare1oct
+	 39 Castanets1
+	 40 OrchSnare1oct
 	 41 Timpany_-Bass_boost
 	 46 Timpany_-Bass_boost
 	 51 Timpany_-Bass_boost
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 56 Cowbell
-	 63 Conga_High_Open
-	 66 Timbale_Low
-	 36 Timpany_-Bass_boost
-	 67 Agogo_High
-	 68 Agogo_Low
-	 71 Whistle_Short
-	 72 Whistle_Long
-	 73 Guiro_Short
-	 74 Guiro_Long
-	 76 Wood_Block_High
-	 77 Wood_Block_Low
-	 78 Cuica_Mute
-	 79 Cuica_Open
-	 83 Jingle_Bell
-	 85 Castanets1
-	 39 Castanets1
-	 86 Surdo_Mute
-	 87 Surdo_Open
-
-drumset 56 sbk		#SFX_[SC-55]
-	 71 ChinaCrashCymb
-	 45 Click808
-	 46 Click808
-	 47 FretNoise
-	 48 GtrCutDwn1oct
-	 49 GtrCutUp1oct
-	 50 GtrSlap1oct
-	 51 GtrClick1oct
-	 52 Laughter1oct
-	 55 Kick_2_[Stn]
-	 56 Step1oct
-	 57 Step1oct
-	 59 DoorCreak1oct
-	 60 DoorSlam1oct
-	 61 Scratch_1
-	 62 Chimes1oct
-	 63 CarStart1oct
-	 64 Skid1oct
-	 65 RaceCar1oct
-	 66 CarCrash
-	 67 Siren1oct
-	 68 Train1oct
-	 69 PinkNoiseWave
-	 70 Helicopter
-	 72 Gun_Shot
-	 73 MachGun1oct
-	 74 Ride_Bell
-	 76 Dog1oct
-	 77 Horse1oct
-	 79 Applause
-	 80 Gun_Shot
-	 81 PinkNoiseWave
-	 82 PinkNoiseWave
-	 83 Brook1oct
-	 84 Bubbles1oct
-	 46 Carillon_C6
-	 55 Helicopter
-	 61 PinkNoiseWave
-	 62 Chimes1oct
-	 63 CarStart1oct
-	 66 Applause
-	 68 Train1oct
-	 69 Harpsichord_C6
-	 71 Harpsichord_C6
-	 72 PinkNoiseWave
-	 74 PinkNoiseWave
-	 79 Brook1oct
-	 80 PinkNoiseWave
-	 81 PinkNoiseWave
-	 82 PinkNoiseWave
-	 83 Brook1oct
-	 84 Bubbles1oct
-	 39 Filter_Snap
-	 40 Slap
-	 42 Scratch_Push
-	 41 Scratch_Pull
-	 53 Scream_[Man]
-	 54 Punch
-	 75 Explosion
-	 78 Bird
-	 58 Applause
-	 58 Applause
-	 43 Sticks
-	 44 Square_Click
-
-drumset 57 sbk		#Rhythm_FX_[SC-88]
-	 71 ChinaCrashCymb
-	 45 Click808
-	 46 Click808
-	 47 FretNoise
-	 48 GtrCutDwn1oct
-	 49 GtrCutUp1oct
-	 50 GtrSlap1oct
-	 51 GtrClick1oct
-	 52 Laughter1oct
-	 55 Kick_2_[Stn]
-	 56 Step1oct
-	 57 Step1oct
-	 59 DoorCreak1oct
-	 60 DoorSlam1oct
-	 61 Scratch_1
-	 62 Chimes1oct
-	 63 CarStart1oct
-	 64 Skid1oct
-	 65 RaceCar1oct
-	 66 CarCrash
-	 67 Siren1oct
-	 68 Train1oct
-	 69 PinkNoiseWave
-	 70 Helicopter
-	 72 Gun_Shot
-	 73 MachGun1oct
-	 74 Ride_Bell
-	 76 Dog1oct
-	 77 Horse1oct
-	 79 Applause
-	 80 Gun_Shot
-	 81 PinkNoiseWave
-	 82 PinkNoiseWave
-	 83 Brook1oct
-	 84 Bubbles1oct
-	 46 Carillon_C6
-	 55 Helicopter
-	 61 PinkNoiseWave
-	 62 Chimes1oct
-	 63 CarStart1oct
-	 66 Applause
-	 68 Train1oct
-	 69 Harpsichord_C6
-	 71 Harpsichord_C6
-	 72 PinkNoiseWave
-	 74 PinkNoiseWave
-	 79 Brook1oct
-	 80 PinkNoiseWave
-	 81 PinkNoiseWave
-	 82 PinkNoiseWave
-	 83 Brook1oct
-	 84 Bubbles1oct
-	 39 Filter_Snap
-	 40 Slap
-	 42 Scratch_Push
-	 41 Scratch_Pull
-	 53 Scream_[Man]
-	 54 Punch
-	 75 Explosion
-	 78 Bird
-	 58 Applause
-	 58 Applause
-	 43 Sticks
-	 44 Square_Click
-
-drumset 99 sbk		#Chaos_Standard_Drum
-	 33 Click808
-	 34 Click808
 	 54 Brass_Tambourine
+	 55 Med_Crash
+	 56 Cowbell
+	 57 Med_Crash
+	 58 Vibra_Slap
+	 59 Med_Crash
 	 60 E_Bongo_Rim_1
-	 80 TriangleWave_Db5
-	 81 TriangleWave_Db5
-	 34 Carillon_C6
-	 69 Cabasa
-	 70 Maracas
-	 82 Shaker
-	 39 Clap
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
 	 64 Low_Tumba
 	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 84 Bell_tree
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
 	 66 Timbale_Low
 	 67 Agogo_High
 	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
 	 71 Whistle_Short
 	 72 Whistle_Long
 	 73 Guiro_Short
 	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Wood_Block_High
 	 77 Wood_Block_Low
 	 78 Cuica_Mute
 	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
 	 83 Jingle_Bell
+	 84 Bell_tree
 	 85 Castanets1
 	 86 Surdo_Mute
 	 87 Surdo_Open
-	 38 Snare_Drum_1_[Stan1]
-	 40 Snare_Drum_2_[Stan1]
-	 41 Tom_Mid_1_[Stan1]
-	 43 Tom_Mid_1_[Stan1]
-	 45 Tom_Mid_1_[Stan1]
-	 47 Tom_Mid_1_[Stan1]
-	 48 Tom_Mid_1_[Stan1]
-	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
+	 88 Applause
 
-drumset 127 sbk		#CM-64/32_Set_[SC-55]
+drumset 56 sbk		#SFX_[SC-55]
+	 39 Filter_Snap
+	 40 Slap
+	 41 Scratch_Pull
+	 42 Scratch_Push
+	 43 Sticks
+	 44 Square_Click
+	 45 Click808
+	 46 Click808
+	 47 FretNoise
+	 48 GtrCutDwn1oct
+	 49 GtrCutUp1oct
+	 50 GtrSlap1oct
+	 51 GtrClick1oct
+	 52 Laughter1oct
+	 53 Scream_[Man]
+	 54 Punch
+	 55 Kick_2_[Stn]
+	 56 Step1oct
+	 57 Step1oct
+	 58 Applause
+	 59 DoorCreak1oct
+	 60 DoorSlam1oct
+	 61 Scratch_1
+	 62 Chimes1oct
+	 63 CarStart1oct
+	 64 Skid1oct
+	 65 RaceCar1oct
+	 66 CarCrash
+	 67 Siren1oct
+	 68 Train1oct
+	 69 PinkNoiseWave
+	 70 Helicopter
+	 71 ChinaCrashCymb
+	 72 Gun_Shot
+	 73 MachGun1oct
+	 74 Ride_Bell
+	 75 Explosion
+	 76 Dog1oct
+	 77 Horse1oct
+	 78 Bird
+	 79 Applause
+	 80 Gun_Shot
+	 81 PinkNoiseWave
+	 82 PinkNoiseWave
+	 83 Brook1oct
+	 84 Bubbles1oct
+
+drumset 57 sbk		#Rhythm_FX_[SC-88]
+	 39 Filter_Snap
+	 40 Slap
+	 41 Scratch_Pull
+	 42 Scratch_Push
+	 43 Sticks
+	 44 Square_Click
+	 45 Click808
+	 46 Click808
+	 47 FretNoise
+	 48 GtrCutDwn1oct
+	 49 GtrCutUp1oct
+	 50 GtrSlap1oct
+	 51 GtrClick1oct
+	 52 Laughter1oct
+	 53 Scream_[Man]
+	 54 Punch
+	 55 Kick_2_[Stn]
+	 56 Step1oct
+	 57 Step1oct
+	 58 Applause
+	 59 DoorCreak1oct
+	 60 DoorSlam1oct
+	 61 Scratch_1
+	 62 Chimes1oct
+	 63 CarStart1oct
+	 64 Skid1oct
+	 65 RaceCar1oct
+	 66 CarCrash
+	 67 Siren1oct
+	 68 Train1oct
+	 69 PinkNoiseWave
+	 70 Helicopter
+	 71 ChinaCrashCymb
+	 72 Gun_Shot
+	 73 MachGun1oct
+	 74 Ride_Bell
+	 75 Explosion
+	 76 Dog1oct
+	 77 Horse1oct
+	 78 Bird
+	 79 Applause
+	 80 Gun_Shot
+	 81 PinkNoiseWave
+	 82 PinkNoiseWave
+	 83 Brook1oct
+	 84 Bubbles1oct
+
+drumset 99 sbk		#Chaos_Standard_Drum
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
 	 33 Click808
 	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick
+	 37 Side_Stick_[Stn]
+	 38 Snare_Drum_1_[Stan1]
+	 39 Clap
+	 40 Snare_Drum_2_[Stan1]
+	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
+	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
+	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
+	 47 Tom_Mid_1_[Stan1]
+	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Tom_Mid_1_[Stan1]
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
 	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
 	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
+	 66 Timbale_Low
+	 67 Agogo_High
+	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
+	 71 Whistle_Short
+	 72 Whistle_Long
+	 73 Guiro_Short
+	 74 Guiro_Long
+	 75 Rosewood_Claves
+	 76 Wood_Block_High
+	 77 Wood_Block_Low
+	 78 Cuica_Mute
+	 79 Cuica_Open
+	 80 TriangleWave_Db5
+	 81 TriangleWave_Db5
+	 82 Shaker
+	 83 Jingle_Bell
+	 84 Bell_tree
+	 85 Castanets1
+	 86 Surdo_Mute
+	 87 Surdo_Open
+
+drumset 127 sbk		#CM-64/32_Set_[SC-55]
+	 27 Filter_Snap
+	 28 Slap
+	 29 Scratch_Pull
+	 30 Scratch_Push
+	 31 Sticks
+	 32 Square_Click
+	 33 Click808
+	 34 Click808
+	 35 Kick_2_[Stan1]
+	 36 Kick
+	 37 Side_Stick_[Stn]
+	 38 Snare_Drum_1_[Stan1]
+	 39 Clap
+	 40 Snare_Drum_2_[Stan1]
+	 41 Tom_Mid_1_[Stan1]
+	 42 Closed_HiHat_[Stan1]
+	 43 Tom_Mid_1_[Stan1]
+	 44 Pedal_HiHat_[Stan1]
+	 45 Tom_Mid_1_[Stan1]
+	 46 Open_HiHat_[Stan1]
+	 47 Tom_Mid_1_[Stan1]
+	 48 Tom_Mid_1_[Stan1]
+	 49 Crash_Cymbal_1_[Stn]
+	 50 Tom_Mid_1_[Stan1]
+	 51 Ride_Cymbal
+	 52 Chinese_Cymbal
+	 53 Ride_Bell_[Stn]
+	 54 Brass_Tambourine
+	 55 Splash_Cymbal
+	 56 Cowbell
+	 57 Crash_Cymbal_2_[Stn]
+	 58 Vibra_Slap
+	 59 Ride_Cymbal
+	 60 E_Bongo_Rim_1
+	 61 M_Bongo_Tone
+	 62 Closed_Slap
+	 63 Conga_High_Open
+	 64 Low_Tumba
+	 65 Timbale_Rim.
+	 66 Timbale_Low
+	 67 Agogo_High
+	 68 Agogo_Low
+	 69 Cabasa
+	 70 Maracas
+	 71 Whistle_Short
+	 72 Whistle_Long
+	 73 Guiro_Short
+	 74 Guiro_Long
+	 75 Rosewood_Claves
 	 76 Laughter1oct
+	 77 Scream_[Man]
+	 78 Punch
 	 79 Kick_2_[Stn]
 	 80 Step1oct
 	 81 Step1oct
+	 82 Applause
 	 83 DoorCreak1oct
 	 84 DoorSlam1oct
 	 85 Scratch_1
@@ -1388,65 +1360,15 @@ drumset 127 sbk		#CM-64/32_Set_[SC-55]
 	 96 Gun_Shot
 	 97 MachGun1oct
 	 98 PinkNoiseWave
+	 99 Explosion
 	100 Dog1oct
 	101 Horse1oct
+	102 Bird
 	103 Brook1oct
 	104 PinkNoiseWave
-	104 Gun_Shot
 	105 PinkNoiseWave
 	106 PinkNoiseWave
 	107 PinkNoiseWave
 	108 Bubbles1oct
-	 69 Cabasa
-	 70 Maracas
-	 39 Clap
-	 64 Low_Tumba
-	 65 Timbale_Rim.
-	 27 Filter_Snap
-	 36 Kick
-	 58 Vibra_Slap
-	 28 Slap
-	 30 Scratch_Push
-	 29 Scratch_Pull
-	 75 Rosewood_Claves
-	 62 Closed_Slap
-	 78 Punch
-	 77 Scream_[Man]
-	 99 Explosion
-	102 Bird
-	 82 Applause
-	 82 Applause
-	 37 Side_Stick_[Stn]
-	 49 Crash_Cymbal_1_[Stn]
-	 57 Crash_Cymbal_2_[Stn]
-	 53 Ride_Bell_[Stn]
-	 55 Splash_Cymbal
-	 61 M_Bongo_Tone
-	 31 Sticks
-	 32 Square_Click
-	 35 Kick_2_[Stan1]
-	 42 Closed_HiHat_[Stan1]
-	 44 Pedal_HiHat_[Stan1]
-	 46 Open_HiHat_[Stan1]
-	 52 Chinese_Cymbal
-	 56 Cowbell
-	 63 Conga_High_Open
-	 66 Timbale_Low
-	 67 Agogo_High
-	 68 Agogo_Low
-	 71 Whistle_Short
-	 72 Whistle_Long
-	 73 Guiro_Short
-	 74 Guiro_Long
-	 38 Snare_Drum_1_[Stan1]
-	 40 Snare_Drum_2_[Stan1]
-	 41 Tom_Mid_1_[Stan1]
-	 43 Tom_Mid_1_[Stan1]
-	 45 Tom_Mid_1_[Stan1]
-	 47 Tom_Mid_1_[Stan1]
-	 48 Tom_Mid_1_[Stan1]
-	 50 Tom_Mid_1_[Stan1]
-	 59 Ride_Cymbal
-	 51 Ride_Cymbal
 
 sbk chaos8m.sf2
