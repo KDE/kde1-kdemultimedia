@@ -1,12 +1,14 @@
 # KDE Config File
 [KDE Desktop Entry]
-Comment[C]=A midi / karaoke file player
 BinaryPattern=kmid;
 Name=KMid Midi/Karaoke Player
-Protocols=file;
 Name[C]=KMid
+Name[fi]=KMid Midi/Karaokesoittaja
+Protocols=file;
 MimeType=audio/x-karaoke;audio/x-midi;
 Comment=KMid a Midi/Karaoke file player
+Comment[C]=A midi / karaoke file player
+Comment[fi]=KMid Midi/Karaokesoittaja
 Exec=kmid %u
 Icon=kmid.xpm
 TerminalOptions=

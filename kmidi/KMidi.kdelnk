@@ -4,6 +4,7 @@ BinaryPattern=kmidi;
 Protocols=file;ftp;http;tar;cgi;
 MimeType=audio/x-midi;
 Comment=A Midi Player
+Comment[fi]=Midisoittaja
 DocPath=kmidi/kmidi.html
 Exec=kmidi
 Icon=kmidi.xpm
