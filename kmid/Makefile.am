@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-LDADD = player/libplayer.a   -lkfile -lkfm     $(LIB_KDEUI)
+LDADD = player/libplayer.a         $(LIB_KFILE)
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp \

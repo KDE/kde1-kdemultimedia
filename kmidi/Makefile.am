@@ -12,7 +12,7 @@ INCLUDES = $(all_includes)
 DEFS += -DDEFAULT_PATH=\"$(TIMID_DIR)\"  
 DEFS += -DKMIDI
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
-LDADD = -lkfm     $(LIB_KDEUI) $(LIBALIB) \
+LDADD =      $(LIB_KFM) $(LIB_KDEUI) $(LIBALIB) \
 	$(LIBAUDIO) $(LIBMME) 
 
 # Where to install the patches, config files, and MIDI files.
