@@ -95,6 +95,7 @@ struct configstruct{
   bool  autoplay;
   bool autodock;
   bool stopexit;
+  bool ejectonfinish;
 };
 
 struct mgconfigstruct{
@@ -279,6 +280,8 @@ private:
         bool            autoplay;
         bool autodock;
         bool stopexit;
+        bool ejectonfinish;
+        
 	bool 		cddb_inexact_sentinel;
         bool            updateDialog;
         bool ejectedBefore;

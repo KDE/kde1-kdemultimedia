@@ -1,1 +1,1 @@
-#define KSCDVERSION "1.2.4-112898"
+#define KSCDVERSION "1.2.4-120898"

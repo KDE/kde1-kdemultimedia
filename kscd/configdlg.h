@@ -70,6 +70,7 @@ private slots:
   void autoPlayClicked();
   void dockOnMinimizeClicked();
   void stopOnExitClicked();
+  void ejectOnFinishClicked();
   void device_changed(const char*);
   void mail_changed(const char*);
   void custombutton_clicked();
@@ -111,6 +112,7 @@ private:
   QCheckBox *cdAutoPlayCB;
   QCheckBox *dockOnMinimizeCB;
   QCheckBox *stopOnExitCB;
+  QCheckBox *ejectOnFinishCB;
   
   QLabel *label5;
   QLineEdit *cd_device_edit;

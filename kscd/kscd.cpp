@@ -62,6 +62,7 @@ DockWidget*     dock_widget;
 SMTP                *smtpMailer;
 bool dockinginprogress = 0;
 bool quitPending = 0;
+bool stoppedByUser = 1;
 
 bool            debugflag = false;
 char 		tmptime[100];
@@ -155,6 +156,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     autoplay = false;
     autodock = false;
     stopexit = true;
+    ejectonfinish = false;
     updateDialog          = false;
     ejectedBefore = false;
     currentlyejected = false;
@@ -695,6 +697,7 @@ void KSCD::stopClicked(){
 
     looping = FALSE;
     randomplay = FALSE;
+    stoppedByUser = TRUE;
     statuslabel->setText(klocale->translate("Stopped"));
     setLEDs("--:--");
     qApp->processEvents();
@@ -1053,6 +1056,7 @@ void KSCD::aboutClicked(){
     config.autoplay   = autoplay;
     config.autodock = autodock;
     config.stopexit = stopexit;
+    config.ejectonfinish = ejectonfinish;
 
     dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
@@ -1101,6 +1105,7 @@ void KSCD::aboutClicked(){
         autoplay = dlg->getData()->autoplay;
         autodock = dlg->getData()->autodock;
         stopexit = dlg->getData()->stopexit;
+        ejectonfinish = dlg->getData()->ejectonfinish;
 
         if( (QString)cd_device != dlg->getData()->cd_device){
             cd_device_str = dlg->getData()->cd_device;
@@ -1301,6 +1306,7 @@ void KSCD::cdMode(){
 
         setLEDs( tmptime );
         damn = TRUE;
+        stoppedByUser = false;
         break;
 
     case 2: /*FORWARD*/
@@ -1313,7 +1319,11 @@ void KSCD::cdMode(){
 
     case 4:         /* STOPPED */
         if (damn) {
-
+            if(ejectonfinish && !stoppedByUser){
+                stoppedByUser = true;
+                ejectClicked();
+                break;
+            }
             statuslabel->setText( klocale->translate("Ready") );
             setLEDs( "--:--" );
             songListCB->clear();
@@ -1341,7 +1351,6 @@ void KSCD::cdMode(){
                 titlelabel->setText(tracktitlelist.at( w ));
                 artistlabel->setText(tracktitlelist.at(0));
             }
-
         }
         damn = FALSE;
         if(have_new_cd){
@@ -1436,6 +1445,7 @@ void KSCD::readSettings()
     autoplay = (bool) config->readNumEntry("AUTOPLAY", 0);
     autodock = (bool) config->readNumEntry("AUTODOCK", 0);
     stopexit = (bool)config->readNumEntry("STOPEXIT", 1);
+    ejectonfinish = (bool)config->readNumEntry("EJECTONFINISH", 0);
     mailcmd    =        config->readEntry("UnixMailCommand","/bin/mail -s \"%s\"");
 
 #ifdef DEFAULT_CD_DEVICE
@@ -1548,6 +1558,7 @@ void KSCD::writeSettings(){
     config->writeEntry("AUTOPLAY", (int)autoplay);
     config->writeEntry("AUTODOCK", (int)autodock);
     config->writeEntry("STOPEXIT", (int)stopexit);
+    config->writeEntry("EJECTONFINISH", (int)ejectonfinish);
     config->writeEntry("CDDevice",cd_device);
     config->writeEntry("CustomBroserCmd",browsercmd);
     config->writeEntry("Volume", volume);
