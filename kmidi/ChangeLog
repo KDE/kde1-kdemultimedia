@@ -1,3 +1,7 @@
+1998-10-18  Cristian Tibirna  <ctibirna@gch.ulaval.ca>
+
+	* Fixed a display problem in playlist.cpp
+
 Wed Jun 10 03:51:29 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
 
 	* Work on the Info Window. Improved resonse time and got rid
