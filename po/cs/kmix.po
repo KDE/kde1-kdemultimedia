@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
 "POT-Creation-Date: 1998-05-22 01:10+0200\n"
-"PO-Revision-Date: 1998-05-19 15:24 MET DST\n"
+"PO-Revision-Date: 1998-05-26 08:28 MET DST\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -110,9 +110,8 @@ msgid "KMix Preferences"
 msgstr "Nastavení Kmixu"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Nastavení kanálù mixeru (je¹tì není ulo¾eno)"
+msgstr "Nastavení kanálù mixeru"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -123,6 +122,5 @@ msgid "Show"
 msgstr "Zobrazovat"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "&Rozdìlit"
+msgstr "Rozdìlit"
