@@ -3,6 +3,9 @@
 Exec=kscd
 Icon=kscd.xpm
 DocPath=kscd/kscd.html
-Info=A CD Player
+Comment=A CD Player
+Comment[pl]=Prosty odtwarzacz p³yt CD
 Terminal=0
 Type=Application
+Name=CD Player
+Name[pl]=Odtwarzacz CD

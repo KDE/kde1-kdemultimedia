@@ -14,5 +14,7 @@ MimeType=audio/x-wav
 Terminal=0
 Comment=Multimedia playing tool
 Comment[de]=Multimedia-Wiedergabe
+Comment[pl]=Narzêdzie do odtwarzania plików multimedialnych
 Name=Media Player
 Name[de]=Medienwiedergabe
+Name[pl]=Odtwarzacz
