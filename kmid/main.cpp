@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     printf("under certain conditions\n");
 
 /*
-    struct sigaction act; 
+    struct sigaction act;
     act.sa_handler = SIG_DFL;
     sigemptyset(&(act.sa_mask));
     act.sa_flags=0;
@@ -51,14 +51,13 @@ int main(int argc, char **argv)
 
     KApplication *app=new KApplication(argc,argv,"kmid");
 
-    app->enableSessionManagement(TRUE);
     kmidFrame *kmidframe=new kmidFrame("KMid");
 
     app->setMainWidget ( kmidframe );
 
     QObject::connect(app,SIGNAL(shutDown()),kmidframe,SLOT(shuttingDown()));
 
-    if (app->isRestored()) 
+    if (app->isRestored())
 	{
 	if (kmidframe->canBeRestored(1)) kmidframe->restore(1);
         }
@@ -66,7 +65,7 @@ int main(int argc, char **argv)
     kmidframe->show();
 
 /*
-    if (app->isRestored()) 
+    if (app->isRestored())
 	{
 	RESTORE(kmidFrame);
         }
@@ -77,7 +76,7 @@ int main(int argc, char **argv)
         };
 */
     int ret= app->exec();
-    
+
 //    delete kmidframe;
     delete app;
     return ret;
