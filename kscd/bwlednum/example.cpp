@@ -8,6 +8,9 @@
 //  $Id$
 //
 //  $Log$
+//  Revision 1.1.1.1  1997/07/04 21:23:49  kulow
+//  Coolo: added Bernd's kscd
+//
 //  Revision 1.1  1997/06/21 23:10:11  wuebben
 //  Initial revision
 //
@@ -130,13 +133,13 @@ void LEDDemo::run(){
   on = !on;
 
   if(on){
-    runButton->setText("Stop");
+    runButton->setText(i18n("Stop"));
 
     timer->start(100,FALSE);
   }
   else{
 
-    runButton->setText("Run");
+    runButton->setText(i18n("Run"));
     timer->stop();
 
   }

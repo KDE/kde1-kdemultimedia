@@ -363,27 +363,27 @@ void KMidi::drawPanel()
     iy = 0;
     ix = WIDTH + SBARWIDTH;
 
-    playPB = makeButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" );
+    playPB = makeButton( ix, iy, WIDTH, HEIGHT, i18n("Play/Pause") );
 
     iy += HEIGHT;
-    stopPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Stop" );
+    stopPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Stop") );
 
     ix += WIDTH/2 ;
-    replayPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Replay" );
+    replayPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Replay") );
 
     ix = WIDTH + SBARWIDTH;
     iy += HEIGHT;
-    bwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Bwd" );
+    bwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Bwd") );
 
     ix += WIDTH/2;
-    fwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Fwd" );
+    fwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Fwd") );
 
     ix = WIDTH + SBARWIDTH;
     iy += HEIGHT;
-    prevPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Prev" );
+    prevPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Prev") );
 
     ix += WIDTH/2 ;
-    nextPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Next" );
+    nextPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, i18n("Next") );
 
 }
 
@@ -552,7 +552,7 @@ void KMidi::playClicked()
   if(status == KPLAYING){
     status = KPAUSED;
     pipe_int_write(MOTIF_PAUSE);
-    statusLA->setText("Paused");
+    statusLA->setText(i18n("Paused"));
     return;
   }
 
