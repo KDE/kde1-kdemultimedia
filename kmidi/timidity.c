@@ -489,7 +489,7 @@ int read_config_file(char *name)
       /******* fff ********/
 		else if (!strcmp(w[0], "fff"))
 	{
-	  extern loadfff(char *, int, int);
+	  extern int loadfff(char *, int, int);
 	  if (words < 2)
 		 {
 	      fprintf(stderr, "%s: line %d: No fff filename given\n", 
@@ -970,7 +970,7 @@ int main(int argc, char **argv)
       
       output_device_open = 0;
 
-//      return 2;
+      /*      return 2; */
   }
       
   if (ctl->open(need_stdin, need_stdout)){
