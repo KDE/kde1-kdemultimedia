@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid 1.0pre2\n"
-"POT-Creation-Date: 1998-10-30 13:36+0100\n"
+"POT-Creation-Date: 1998-12-12 02:09+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -212,17 +212,17 @@ msgstr ""
 msgid "Tempo :"
 msgstr "Tempo:"
 
-#: kmidclient.cpp:267
+#: kmidclient.cpp:272
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "La dosiero %s ne ekzistas aý ne estas malfermebla"
 
-#: kmidclient.cpp:270
+#: kmidclient.cpp:275
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "La dosiero %s ne estas Midi-dosiero"
 
-#: kmidclient.cpp:272
+#: kmidclient.cpp:277
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -230,27 +230,27 @@ msgstr ""
 "Tikoj je kvaronnoto estas negativa, bonvolu sendi tiun dosieronal "
 "<antlarr@arrakis.es>"
 
-#: kmidclient.cpp:274
+#: kmidclient.cpp:279
 msgid "Not enough memory !!"
 msgstr "Ne sufiæas la memoro!!"
 
-#: kmidclient.cpp:276
+#: kmidclient.cpp:281
 msgid "This file is corrupted or not well built"
 msgstr "Tiu æi dosiero estas difektita aý ne bone formita"
 
-#: kmidclient.cpp:277
+#: kmidclient.cpp:282
 msgid "Unknown error message"
 msgstr "Nekonata erarmesaøo"
 
-#: kmidclient.cpp:461
+#: kmidclient.cpp:466
 msgid "You must load a file before playing it"
 msgstr "Vi devas malfermi dosieron antaý ekludi"
 
-#: kmidclient.cpp:467
+#: kmidclient.cpp:472
 msgid "A song is already being played"
 msgstr "Jam kanto ludiøas"
 
-#: kmidclient.cpp:473
+#: kmidclient.cpp:478
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
