@@ -74,7 +74,7 @@ channel4d.cpp:channel4d.moc
 
 channelcfgdlg.cpp:channelcfgdlg.moc
 
-instrname.i18n:
+instrname.i18n: instrname.cpp
 	echo "/* This is an automatically generated file" > instrname.i18n
 	echo " * DO NOT EDIT !!!" >> instrname.i18n
 	echo " * To create this file run : ""make instrname.i18n"" " >> instrname.i18n

@@ -80,7 +80,7 @@ char *instrumentName[128]={
     "Whistle",
     "Ocarina",
     "Lead 1 - Square Wave",
-    "Lead 2 - Saw Ttooth",
+    "Lead 2 - Saw Tooth",
     "Lead 3 - Calliope",
     "Lead 4 - Chiflead",
     "Lead 5 - Charang",

@@ -442,3 +442,8 @@ Thursday 17-12-98
 
 Friday 18-12-98
 - Fixed a geometry layout bug
+
+Sunday 20-12-98
+- Fixed a problem when [un]installing midi devices (not such a mad idea if you
+use kernel modules) that made kmid segfault because it couldn't found
+the device.

@@ -178,7 +178,7 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     QString qs=kconf->readEntry("Loadfile","gm.map");
     
 #ifdef KMidDEBUG
-    printf("Read Config file : %s\n",(const char *)qs);
+    printf("Read Config file : %s\n",qs.data());
 #endif
     tmp=new char[qs.length()+1];
     strcpy(tmp,qs);
