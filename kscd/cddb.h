@@ -36,6 +36,7 @@
 #include <ksock.h>
 
 #define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
+#define DEFAULT_CDDBHTTP_SERVER "cddb.moonsoft.com http 80 /~cddb/cddb.cgi"
 
 class CDDB:public QObject
 {
@@ -49,7 +50,8 @@ public:
 
    enum { INIT, ERROR_INIT, HELLO, ERROR_HELLO, READY, QUERY, ERROR_QUERY,
           CDDB_READ, CDDB_DONE, ERROR_CDDB_READ, CDDB_TIMEDOUT, INEX_READ,
-          SERVERLISTGET, REGULAR, REQUEST_SERVER_LIST, SERVER_LIST_WAIT};
+          SERVERLISTGET, REGULAR, REQUEST_SERVER_LIST, SERVER_LIST_WAIT,
+          HTTP_REQUEST };
 
    bool    	isConnected() {return connected;};
    void	        getData(
@@ -71,8 +73,8 @@ public:
    void 	cddbgetServerList(QString& server);
    void         close_connection();
 
-static void     sighandler(int sig);
-static void 	setalarm();
+   static void  sighandler(int sig);
+   static void 	setalarm();
 
    void         queryCD(unsigned long magicID,QStrList& querylist);
    int		getState();
@@ -89,11 +91,19 @@ static void 	setalarm();
 			    );
    void getCategoryFromPathName(char* pathname, QString& string);
 
-static bool normalize_server_list_entry(QString &entry);
+   static bool normalize_server_list_entry(QString &entry);
+
+   void setHTTPProxy(QString host, int port);
+   void useHTTPProxy(bool flag);
+
+   bool    useHTTPProxy();
+   QString getHTTPProxyHost();
+   int     getHTTPProxyPort();
    
 protected:
    void 	do_state_machine();
    void 	parse_serverlist();
+
 public slots:
 
    void		cddb_connect(QString& server);
@@ -113,7 +123,8 @@ signals:
    void 	cddb_no_info();
    void		get_server_list_done();
    void         get_server_list_failed();
-private:
+
+ private:
 
    QTimer 	starttimer;
    QTimer 	timeouttimer;
@@ -122,6 +133,13 @@ private:
    QStrList     pathlist;
    QString 	hostname;
 
+   QString      proxyhost;
+   int          proxyport;
+   bool         use_http_proxy;
+   
+   QString      cgi;
+   int          saved_state; // I was using stack here, but I guess it's overhead
+   
    QString      respbuffer;
    QString      tempbuffer;
    QString      lastline;
@@ -138,7 +156,10 @@ private:
    QStrList 	serverlist;
    unsigned long magicID;
 
+   typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
 
+   transport protocol;
+   transport decodeTransport(const char *);
 };
 
 #endif

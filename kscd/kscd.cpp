@@ -36,7 +36,6 @@ extern "C" {
 #include "mgconfdlg.h"
 #include "version.h"
 #include "config.h"
-#include "cddb.h"
 #include "inexact.h"
 #include "CDDialog.h"
 #include "CDDBSetup.h"
@@ -123,13 +122,13 @@ int mark_a, mark_b;
 KSCD::KSCD( QWidget *parent, const char *name ) :
   QWidget( parent, name ){
 
-  magicproc           = 0L;
+  magicproc             = 0L;
   cd_device_str        	= "";
   background_color 	= black;
   led_color 		= green;
   randomplay 		= false;
   looping 		= false;
-  cddrive_is_ok 		= true;
+  cddrive_is_ok 	= true;
   tooltips 		= true;
   magic_width           = 320;
   magic_height          = 200;
@@ -137,17 +136,14 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 
   cycle_flag		= false;
   cddb_remote_enabled   = true;
-  cddb_proxy_enabled    = false;
-  cddb_proxy_host       = 0L;
-  cddb_proxy_port       = 0;
-  cddb 			= 0L;
   setup 	       	= 0L;
   time_display_mode 	= TRACK_SEC;
-  cddb_inexact_sentinel =false;
+  cddb_inexact_sentinel = false;
   revision		= 1;
   use_kfm 		= true;
   docking 		= true;
   updateDialog          = false;
+
   drawPanel();
   loadBitmaps();
   setColors();
@@ -196,7 +192,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   setFocusPolicy ( QWidget::NoFocus );
   srandom(time(0L));
   initimer->start(500,TRUE);
-
+  
 }
 
 	
@@ -428,7 +424,8 @@ void KSCD::drawPanel()
   songListCB->setFont( QFont( "helvetica", 12 ) );
   songListCB->setFocusPolicy ( QWidget::NoFocus );
 
-printf("Width %d Height %d\n",WIDTH, HEIGHT);
+  if(debugflag)
+      printf("Width %d Height %d\n",WIDTH, HEIGHT);
 
   iy = 0;
   ix = WIDTH + SBARWIDTH;
@@ -976,9 +973,9 @@ void KSCD::aboutClicked(){
   setup->insertData(cddbserverlist,cddbbasedir,
 		    submitaddress,current_server,
 		    cddb_remote_enabled,
-		    cddb_proxy_enabled,
-		    cddb_proxy_host,
-		    cddb_proxy_port
+		    cddb.useHTTPProxy(),
+		    cddb.getHTTPProxyHost(),
+		    cddb.getHTTPProxyPort()
   );
 
   MGConfigDlg* mgdlg;
@@ -1017,6 +1014,10 @@ void KSCD::aboutClicked(){
     magic_width = mgdlg->getData()->width;
     magic_height = mgdlg->getData()->height;
     magic_brightness = mgdlg->getData()->brightness;
+    
+    bool cddb_proxy_enabled;
+    QString cddb_proxy_host;
+    int cddb_proxy_port;
 
     setup->getData(cddbserverlist,
 		   cddbbasedir,
@@ -1027,6 +1028,9 @@ void KSCD::aboutClicked(){
 		   cddb_proxy_host,
 		   cddb_proxy_port
     );
+    cddb.setHTTPProxy(cddb_proxy_host,cddb_proxy_port);
+    cddb.useHTTPProxy(cddb_proxy_enabled);
+   
     setColors();
     setToolTips();
 
@@ -1333,10 +1337,10 @@ void KSCD::readSettings(){
   cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
   cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
 						    (int)true);
-  cddb_proxy_enabled = (bool) config->readNumEntry("CDDBHTTPProxyEnabled",
-						   (int)false);
-  cddb_proxy_host = config->readEntry("HTTPProxyHost","");
-  cddb_proxy_port = config->readNumEntry("HTTPProxyPort",0);
+  cddb.useHTTPProxy((bool)config->readNumEntry("CDDBHTTPProxyEnabled",
+                                               (int)false));
+  cddb.setHTTPProxy(config->readEntry("HTTPProxyHost",""),
+                    config->readNumEntry("HTTPProxyPort",0));
   
   current_server = config->readEntry("CurrentServer",DEFAULT_CDDB_SERVER);
   //Let's check if it is in old format and if so, convert it to new one:
@@ -1407,9 +1411,9 @@ void KSCD::writeSettings(){
   config->writeEntry("SeverList",cddbserverlist);
   config->writeEntry("CDDBSubmitAddress",submitaddress);
   config->writeEntry("CurrentServer",current_server);
-  config->writeEntry("CDDBHTTPProxyEnabled",(int)cddb_proxy_enabled);
-  config->writeEntry("HTTPProxyHost",cddb_proxy_host);
-  config->writeEntry("HTTPProxyPort",cddb_proxy_port);
+  config->writeEntry("CDDBHTTPProxyEnabled",(int)cddb.useHTTPProxy());
+  config->writeEntry("HTTPProxyHost",cddb.getHTTPProxyHost());
+  config->writeEntry("HTTPProxyPort",cddb.getHTTPProxyPort());
 
   config->setGroup("MAGIC");
   config->writeEntry("magicwidth",magic_width);
@@ -1450,39 +1454,47 @@ void KSCD::CDDialogDone(){
 void KSCD::getCDDBservers(){
 
   led_on();
-  if(cddb == 0L)
-    cddb = new CDDB();
 
-  connect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
-  connect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
-
-  cddb->cddbgetServerList(current_server);
+  // Get current server and proxy settings from CDDB setup dialog befoe proceed
+  bool    cddb_proxy_enabled;
+  QString cddb_proxy_host;
+  int     cddb_proxy_port;
+  setup->getData(cddbserverlist,
+                 cddbbasedir,
+                 submitaddress,
+                 current_server,
+                 cddb_remote_enabled,
+                 cddb_proxy_enabled,
+                 cddb_proxy_host,
+                 cddb_proxy_port
+    );
+  cddb.setHTTPProxy(cddb_proxy_host,cddb_proxy_port);
+  cddb.useHTTPProxy(cddb_proxy_enabled);
   
+  connect(&cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+  connect(&cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
+  
+  cddb.cddbgetServerList(current_server);
 }
 
 void KSCD::getCDDBserversFailed(){
 
   led_off();
-  if(cddb){
-   disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
-   disconnect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
-  }
+  disconnect(&cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+  disconnect(&cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
   titlelabel->setText("Unable to get CDDB server list.");
   artistlabel->setText("");
   titlelabeltimer->start(10000,TRUE); // 10 secs
 }
 
 void KSCD::getCDDBserversDone(){
-
+    
   led_off();
-  if(cddb){
-   disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
-   disconnect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
-    cddb->serverList(cddbserverlist);
-    if(setup)
+  disconnect(&cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+  disconnect(&cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
+  cddb.serverList(cddbserverlist);
+  if(setup)
       setup->insertServerList(cddbserverlist);
-  }
-
 }
 
 void KSCD::get_cddb_info(bool _updateDialog){
@@ -1500,22 +1512,19 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
   totaltimelabel->setText(fmt.data());
 
-  if(cddb == 0L)
-    cddb = new CDDB();
-
   get_pathlist(pathlist);
-  cddb->setPathList(pathlist);
+  cddb.setPathList(pathlist);
 
-  connect(cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
-  connect(cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
-  connect(cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
-  connect(cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
-  connect(cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
-  connect(cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
+  connect(&cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
+  connect(&cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
+  connect(&cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
+  connect(&cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
+  connect(&cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
+  connect(&cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
 
   led_on();
 
-  bool res = cddb->local_query(
+  bool res = cddb.local_query(
 			       cd->magicID,
 			       xmcd_data,
 			       tracktitlelist,
@@ -1535,7 +1544,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
   if(!res){
 
     if (debugflag) printf("STARTING REMOTE QUERY\n");
-    cddb->cddb_connect(current_server);
+    cddb.cddb_connect(current_server);
   }
   else{
 
@@ -1573,8 +1582,8 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
 void KSCD::cddb_ready(){
 
-  if(!cddb || !cd)
-    return;
+    if(!cd)
+        return;
 
   querylist.clear();
   tracktitlelist.clear();
@@ -1589,7 +1598,7 @@ void KSCD::cddb_ready(){
 
   querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
   cddb_inexact_sentinel =false;  
-  cddb->queryCD(cd->magicID,querylist);
+  cddb.queryCD(cd->magicID,querylist);
 
 }
 
@@ -1667,14 +1676,14 @@ void KSCD::mycddb_inexact_read(){
 
   cddb_inexact_sentinel = true;
   QStrList inexact_list;
-  cddb->get_inexact_list(inexact_list);
+  cddb.get_inexact_list(inexact_list);
 
   InexactDialog *dialog;
   dialog = new InexactDialog(0,"inexactDialog",true);
   dialog->insertList(inexact_list);
 
   if(dialog->exec() != QDialog::Accepted){
-    cddb->close_connection();
+    cddb.close_connection();
     timer->start(1000);
     led_off();
     return;
@@ -1692,17 +1701,15 @@ void KSCD::mycddb_inexact_read(){
   }
 
   pick = "200 " + pick;
-  cddb->query_exact(pick);
+  cddb.query_exact(pick);
 
 }
 
 void KSCD::cddb_done(){
 
   cddb_inexact_sentinel =false;  
-  if(!cddb)
-    return;
 
- cddb->getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);
+ cddb.getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);
  playlistpointer = 0;
 
  if((int)tracktitlelist.count() != (cd->ntracks + 1)){
@@ -2146,7 +2153,7 @@ int main( int argc, char *argv[] ){
   k = new KSCD; 
 
   cur_track = 1;
-  debugflag = false;
+  debugflag = false; 
 
   for(int i = 0; i < argc; i++){
 

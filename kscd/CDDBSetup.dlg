@@ -71,12 +71,13 @@ LineEdit {
 		MaximumSize {32767 32767}
 }
 ListBox {
-		Item {cddb.cddb.com cddbp 8880 -}
+		Item {www.cddb.com cddbp 8880 -}
+		Item {wwcddb.moonsoft.com http 80 /~cddb/cddb.cgi}
 		DragSelect {TRUE}
 		AutoScroll {TRUE}
 		ScrollBar {FALSE}
 		AutoScrollBar {TRUE}
-		BottomScrollBar {FALSE}
+		BottomScrollBar {TRUE}
 		AutoBottomScrollBar {TRUE}
 		SmoothScrolling {TRUE}
 		MultiSelection {FALSE}

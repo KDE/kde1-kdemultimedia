@@ -73,6 +73,7 @@
 #define KSCDMAGIC 1
 #endif
 
+#include "cddb.h"
 #include "ledlamp.h"
 #include "CDDialog.h"
 #include "CDDBSetup.h"
@@ -98,8 +99,6 @@ struct mgconfigstruct{
   int brightness;
 };
 
-
-class CDDB;
 
 class KSCD : public QWidget {
 
@@ -244,7 +243,7 @@ private:
 	struct mntent 	*mnt;
 	FILE 		*fp;
 
-	CDDB 		*cddb;
+	CDDB 		cddb;
 	QStrList        querylist;
 	QStrList        pathlist;
 	QStrList        discidlist;
@@ -262,9 +261,6 @@ private:
 	QString  	submitaddress;
 	QString  	browsercmd;
 	bool		cddb_remote_enabled;
-	bool	        cddb_proxy_enabled;
-	QString         cddb_proxy_host;
-	int             cddb_proxy_port;
 	bool 		use_kfm;
 	bool            docking;
 	bool 		cddb_inexact_sentinel;

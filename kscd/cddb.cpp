@@ -51,9 +51,8 @@ bool cddb_playlist_decode(QStrList& playlist,QString&  value);
 void cddb_playlist_encode(QStrList& playlist,QString&  value);
 extern bool debugflag;
 
-CDDB::CDDB(char *host, int _port,int _timeout){
-
-
+CDDB::CDDB(char *host, int _port,int _timeout)
+{
   hostname  = host;
   port      = _port;
   connected = false;
@@ -67,6 +66,8 @@ CDDB::CDDB(char *host, int _port,int _timeout){
 
   sock = 0L;
   state = INIT;
+
+  use_http_proxy=false;
 
 }
 
@@ -125,6 +126,9 @@ void CDDB::cddbgetServerList(QString& _server){
   
   hostname  = ser;
   port      = atoi(por);
+  cgi       = extra;
+
+  protocol=decodeTransport(proto);
 
   starttimer.start(100,TRUE);
   mode = SERVERLISTGET;
@@ -143,18 +147,23 @@ void CDDB::cddb_connect(QString& _server){
   
   hostname  = ser;
   port      = atoi(por);
+  cgi       = extra;
 
-  starttimer.start(100,TRUE);
-  mode = REGULAR;
-
+  protocol=decodeTransport(proto);
+  
+  if(protocol==CDDBP)
+  {
+      starttimer.start(100,TRUE);
+      mode = REGULAR;
+  } 
+  // Do nothing otherwise. We do not connect immediately for HTTP
+  // We rather connect per request.
 }
 
 void CDDB::cddb_connect_internal(){
 
   starttimer.stop();
   timeouttimer.start(timeout*1000,TRUE);
-
-  if (debugflag) printf("CONNECTING ....\n");
 
    if(sock){
      delete sock;
@@ -164,8 +173,18 @@ void CDDB::cddb_connect_internal(){
    // signal( SIGALRM , CDDB::sighandler );
    // setalarm();
 
-  sock = new KSocket(hostname.data(),port);
-
+   //if(debugflag) printf("PROTOCOL %d\n",(int)protocol);
+   if(protocol==CDDBHTTP && use_http_proxy)
+   {
+       if(debugflag) printf("CONNECTING TO %s:%d ....\n",proxyhost.data(),proxyport);
+       sock = new KSocket(proxyhost.data(),proxyport);
+   }
+   else
+   {
+       if(debugflag) printf("CONNECTING TO %s:%d ....\n",hostname.data(),port);
+       sock = new KSocket(hostname.data(),port);
+   }
+   
   //signal( SIGALRM , SIG_DFL );
 
   if( sock == 0L || sock->socket() < 0){
@@ -185,15 +204,46 @@ void CDDB::cddb_connect_internal(){
 
   connected = true;
   respbuffer = "";
-  state = INIT;
 
   connect(sock,SIGNAL(readEvent(KSocket*)),this,SLOT(cddb_read(KSocket*)));
   connect(sock,SIGNAL(closeEvent(KSocket*)),this,SLOT(cddb_close(KSocket*)));
   sock->enableRead(true);
 
+  if(protocol==CDDBHTTP)
+  {
+      struct utsname uts;
+      uname(&uts);
+      
+      QString domainname;
+      domainname = uts.nodename;
+      domainname.detach();
+      
+      if(domainname.isEmpty())
+          domainname = "somemachine.nowhere.org";
+      
+      pw = getpwuid(getuid());
+      QString username;
+      if (pw)
+          username = pw->pw_name;
+      else
+          username = "anonymous";
+      
+      QString prt;
+      prt.setNum(port);
+      QString base  = "GET http://"+hostname+":"+prt+cgi;
+      QString param = "?cmd=sites&hello="+username+"+"+domainname+"+Kscd+"+KSCDVERSION+"&proto=3";
+      QString request=base+param+" HTTP/1.0\r\n\r\n";
+      //if(debugflag) fprintf(stderr,"HTTP request: %s",request.data());
+      
+      write(sock->socket(),request.data(),request.length());
+      saved_state=SERVER_LIST_WAIT;
+      state=HTTP_REQUEST;
+  } else
+  {
+      state = INIT;
+  }
+
   if (debugflag) printf("CONNECTED\n");
-
-
 }
 
 void CDDB::cddb_timed_out_slot(){
@@ -351,8 +401,30 @@ void CDDB::query_exact(QString line){
 
 void CDDB::do_state_machine(){
 
-  switch (state){
+  switch (state)
+  {
 
+  case HTTP_REQUEST:
+      //Parse responce and check numeric code.
+      char proto[1024];
+      char code[1024];
+      sscanf(lastline.data(),"%s %s",proto,code);
+      if(strcmp(code,"200")==0)
+      {
+          state=saved_state;
+          if(debugflag)
+              fprintf(stderr,"HTTP request is OK. Moving on.\n");
+      }
+      else {
+          if(debugflag)
+              fprintf(stderr,"HTTP error: %s\n",lastline.data());
+          if(saved_state==SERVER_LIST_WAIT)
+              emit get_server_list_failed();
+          
+          state=CDDB_DONE; //TODO: some error state
+      }
+      break;
+      
   case INIT:
     if((lastline.left(3) == QString("201")) ||(lastline.left(3) == QString("200")) ){
 
@@ -515,6 +587,12 @@ void CDDB::do_state_machine(){
     if(lastline.left(1) == QString(".")){
 
       respbuffer.detach();
+      if(protocol==CDDBHTTP)
+      {
+          // Let's strip HTTP header
+          int hl = respbuffer.find("\r\n\r\n",0,true);
+          respbuffer = respbuffer.right(respbuffer.length()-hl-4);
+      }
       // Let's strip the first line and the trainling \r.\n\r
       int nl = respbuffer.find("\n",0,true);
       respbuffer = respbuffer.mid(nl+1,respbuffer.length()- nl -4);
@@ -545,9 +623,11 @@ void CDDB::parse_serverlist(){
 
   
   int  pos1,pos2;
-  char serv [1024];
-  char po   [1024];
-
+  char serv  [1024];
+  char po    [1024];
+  char proto [1024];
+  char extra [1024];
+  
   serverlist.clear();
   // get rid of the first line
   respbuffer = respbuffer.replace( QRegExp("\r"), "" );
@@ -557,19 +637,31 @@ void CDDB::parse_serverlist(){
 
   pos1 = 0;
 
-  while((pos2 = respbuffer.find("\n",pos1  ,true)) != -1){
-    
-    if(pos2-pos1 > 0)
-    {
-      QString tempstr1;
-      QString tempstr2;
-      tempstr1 = respbuffer.mid(pos1 ,pos2-pos1  );
-      sscanf(tempstr1.data(),"%s %s",serv,po);
-      tempstr2 = tempstr2.sprintf("%s cddbp %s -",serv,po);
-      serverlist.append(tempstr2.data());
-    }
-
-    pos1 = pos2 + 1;
+  while((pos2 = respbuffer.find("\n",pos1  ,true)) != -1)
+  {
+      if(pos2-pos1 > 0)
+      {
+          QString tempstr1;
+          QString tempstr2;
+          tempstr1 = respbuffer.mid(pos1 ,pos2-pos1  );
+          if(protocol==CDDBP)
+          {
+              // for direct connections assuming CDDB protocol level 1
+              sscanf(tempstr1.data(),"%s %s",serv,po);
+              tempstr2 = tempstr2.sprintf("%s cddbp %s -",serv,po);
+              serverlist.append(tempstr2.data());
+          } else
+          {
+              // for http connections assuming CDDB protocol level 3
+              sscanf(tempstr1.data(),"%s %s %s %s",serv,proto,po,extra);
+              tempstr2 = tempstr2.sprintf("%s %s %s %s",serv,proto,po,extra);
+              transport tr=decodeTransport(proto);
+              if(tr==CDDBP || tr==CDDBHTTP)
+                  serverlist.append(tempstr2.data());
+              // ignore otherwsie - unksuported protocol.
+          }
+      }
+      pos1 = pos2 + 1;
   }
 
 }
@@ -1027,6 +1119,46 @@ bool CDDB::normalize_server_list_entry(QString &entry)
 	// Otherwise let us leave the item unchanged.
 	return false;
     }
+}
+
+void CDDB::setHTTPProxy(QString host, int port)
+{
+    proxyhost=host;
+    proxyport=port;
+}
+
+void CDDB::useHTTPProxy(bool flag)
+{
+    use_http_proxy=flag;
+}
+
+bool    CDDB::useHTTPProxy()
+{
+    return use_http_proxy;
+}
+
+int     CDDB::getHTTPProxyPort()
+{
+    return proxyport;
+}
+
+QString CDDB::getHTTPProxyHost()
+{
+    return proxyhost;
+}
+
+CDDB::transport CDDB::decodeTransport(const char *proto)
+{
+    if(strcasecmp(proto,"cddbp")==0)
+        return CDDBP;
+    else
+        if(strcasecmp(proto,"http")==0)
+            return CDDBHTTP;
+        else
+            if(strcasecmp(proto,"smtp")==0)
+                return SMTP;
+            else
+                return UNKNOWN;
 }
 
 #include "cddb.moc"

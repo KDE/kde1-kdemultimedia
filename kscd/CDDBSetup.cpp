@@ -140,6 +140,9 @@ void CDDBSetup::set_defaults()
   server_listbox->setAutoUpdate(false);
   server_listbox->clear();
   server_listbox->insertItem(DEFAULT_CDDB_SERVER, -1);
+  // We should provide at least one entry
+  // with HTTP protocol so people behind firewals can get servers list
+  server_listbox->insertItem(DEFAULT_CDDBHTTP_SERVER, -1); 
   server_listbox->setAutoUpdate(true);
   server_listbox->repaint();
 

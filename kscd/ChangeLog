@@ -1,3 +1,10 @@
+1998-04-15  Vadim Zaliva  <lord@crocodile.org>
+
+	* Added one more default server, with HTTP protocol
+	* Code for getting servers list via HTTP done and works.
+	* Changed 'cddb' object allocation.
+	* (this is intermediate commit, HTTP only partialy works)
+
 1998-04-14  Vadim Zaliva  <lord@crocodile.org>
 
 	* GUI added for setting HTTP proxy to access CDDB. 
