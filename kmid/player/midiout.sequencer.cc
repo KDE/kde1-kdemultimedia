@@ -1,7 +1,7 @@
 /**************************************************************************
 
     midiout.cc   - class midiOut which handles the /dev/sequencer device
-    Copyright (C) 1997,98  Antonio Larrosa Jimenez
+    Copyright (C) 1997  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,32 +29,18 @@
 #include <sys/ioctl.h>
 #include <errno.h>
 #include <string.h>
-#include <sys/param.h>
 
-#ifndef HZ
-#define HZ 100
-#endif
-#ifndef MIDI_TYPE_MPU401
-#define MIDI_TYPE_MPU401 0x401
-#endif
-
-//SEQ_DEFINEBUF (1024); 
-
-SEQ_USE_EXTBUF();
-//#define AT_HOME
-
+SEQ_DEFINEBUF (1024); 
 //#define MIDIOUTDEBUG
 
-midiOut::midiOut(int d)
+midiOut::midiOut(void)
 {
 seqfd = -1;
-device= d;
+device= -1;
 count=0.0;
 lastcount=0.0;
-Map=new MidiMapper(NULL);
+Map=new MidiMapper("yamaha790.map");
 rate=100;
-convertrate=10;
-ok=1;
 };
 
 midiOut::~midiOut()
@@ -63,90 +49,28 @@ delete Map;
 closeDev();
 };
 
-void midiOut::openDev (int sqfd)
+void midiOut::openDev (void)
 {
-ok=1;
-//seqfd = open("/dev/sequencer", O_WRONLY, 0);
-seqfd=sqfd;
+seqfd = open("/dev/sequencer", O_WRONLY, 0);
 if (seqfd==-1)
     {
     printf("ERROR: Could not open /dev/sequencer\n");
-    ok=0;
     return;
     };
 ioctl(seqfd,SNDCTL_SEQ_NRSYNTHS,&ndevs);
-ioctl(seqfd,SNDCTL_SEQ_NRMIDIS,&nmidiports);
-rate=0;
-int r=ioctl(seqfd,SNDCTL_SEQ_CTRLRATE,&rate);
-if ((r==-1)||(rate<=0)) rate=HZ;
-
-midi_info midiinfo;
-midiinfo.device=device;
-/*if (ioctl(seqfd,SNDCTL_MIDI_INFO,&midiinfo)!=-1)
-	{
-	if (strcmp(midiinfo.name,"GUS MIDI emulation")==0) 
-			rate=(int)(((double)rate)*2.5);
-	};
-*/
-convertrate=1000/rate;
-
-#ifdef MIDIOUTDEBUG
 printf("Number of synth devices : %d\n",ndevs);
+ioctl(seqfd,SNDCTL_SEQ_NRMIDIS,&nmidiports);
 printf("Number of midi ports : %d\n",nmidiports);
+ioctl(seqfd,SNDCTL_SEQ_CTRLRATE,&rate);
 printf("Rate : %d\n",rate);
+convertrate=1000/rate;
+int i=1;
+ioctl(seqfd,SNDCTL_SEQ_THRESHOLD,i);
+printf("Threshold : %d\n",i);
 
-int i;
-synth_info synthinfo;
-for (i=0;i<ndevs;i++)
-    {
-    synthinfo.device=i;
-    if (ioctl(seqfd,SNDCTL_SYNTH_INFO,&synthinfo)!=-1)
-	{
-	printf("----");
-        printf("Device : %d\n",i);
-	printf("Name : %s\n",synthinfo.name);
-	switch (synthinfo.synth_type)
-	    {
-	    case (SYNTH_TYPE_FM) : printf("FM\n");break;
-	    case (SYNTH_TYPE_SAMPLE) : printf("Sample\n");break;
-	    case (SYNTH_TYPE_MIDI) : printf("Midi\n");break;
-	    default : printf("default type\n");break;
-	    };
-	switch (synthinfo.synth_subtype)
-	    {
-	    case (FM_TYPE_ADLIB) : printf("Adlib\n");break;
-	    case (FM_TYPE_OPL3) : printf("Opl3\n");break;
-	    case (MIDI_TYPE_MPU401) : printf("Mpu-401\n");break;
-	    case (SAMPLE_TYPE_GUS) : printf("Gus\n");break;
-	    default : printf("default subtype\n");break;
-	    };
-	};
-    };
-
-for (i=0;i<nmidiports;i++)
-    {
-    midiinfo.device=i;
-    if (ioctl(seqfd,SNDCTL_MIDI_INFO,&midiinfo)!=-1)
-	{
-	printf("----");
-        printf("Device : %d\n",i);
-	printf("Name : %s\n",midiinfo.name);
-	printf("Device type : %d\n",midiinfo.dev_type);
-	};
-    };
-
-#endif
-
-
+device=0;
 count=0.0;
 lastcount=0.0;
-if (nmidiports<=0)
-    {
-    printf("ERROR: There is no midi port !!\n");
-    ok=0;
-    return;
-    };
-printf("aa\n");
 };
 
 void midiOut::closeDev (void)
@@ -154,10 +78,10 @@ void midiOut::closeDev (void)
 if (!OK()) return;
 SEQ_STOP_TIMER();
 SEQ_DUMPBUF();
-//if (seqfd>=0)
-//    close(seqfd);
+if (seqfd>=0)
+    close(seqfd);
 seqfd=-1;
-printf("Device %d closed\n",device);
+device=-1;
 };
 
 void midiOut::initDev (void)
@@ -180,7 +104,6 @@ for (chn=0;chn<16;chn++)
     chnController(chn, 0x4a, 127);
 
     };
-printf("Device %d initialized\n",device);
 };
 
 void midiOut::useMapper(MidiMapper *map)
@@ -197,6 +120,7 @@ if (vel==0)
     }
    else
     {
+    needbuf(12);
     SEQ_MIDIOUT(device, MIDI_NOTEON + Map->Channel(chn));
     SEQ_MIDIOUT(device, Map->Key(chn,chn_patch[chn],note));
     SEQ_MIDIOUT(device, vel);
@@ -208,6 +132,7 @@ printf("Note ON >\t chn : %d\tnote : %d\tvel: %d\n",chn,note,vel);
 
 void midiOut::noteOff (uchar chn, uchar note, uchar vel)
 {
+needbuf(12);
 SEQ_MIDIOUT(device, MIDI_NOTEOFF + Map->Channel(chn));
 SEQ_MIDIOUT(device, Map->Key(chn,chn_patch[chn],note));
 SEQ_MIDIOUT(device, vel);
@@ -218,6 +143,7 @@ printf("Note OFF >\t chn : %d\tnote : %d\tvel: %d\n",chn,note,vel);
 
 void midiOut::keyPressure (uchar chn, uchar note, uchar vel)
 {
+needbuf(12);
 SEQ_MIDIOUT(device, MIDI_KEY_PRESSURE + Map->Channel(chn));
 SEQ_MIDIOUT(device, Map->Key(chn,chn_patch[chn],note));
 SEQ_MIDIOUT(device, vel);
@@ -225,16 +151,16 @@ SEQ_MIDIOUT(device, vel);
 
 void midiOut::chnPatchChange (uchar chn, uchar patch)
 {
-#ifdef MIDIOUTDEBUG
-printf("PATCHCHANGE [%d->%d] %d -> %d\n",chn,Map->Channel(chn),patch,Map->Patch(chn,patch));
-#endif
+//printf("PATCHCHANGE [%d] %d -> %d",chn,patch,Map->Patch(patch));
+needbuf(8);
 SEQ_MIDIOUT(device, MIDI_PGM_CHANGE + Map->Channel(chn));
-SEQ_MIDIOUT(device, Map->Patch(chn,patch));
+SEQ_MIDIOUT(device, Map->Patch(patch));
 chn_patch[chn]=patch;
 };
 
 void midiOut::chnPressure (uchar chn, uchar vel)
 {
+needbuf(8);
 SEQ_MIDIOUT(device, MIDI_CHN_PRESSURE + Map->Channel(chn));
 SEQ_MIDIOUT(device, vel);
 
@@ -243,17 +169,8 @@ chn_pressure[chn]=vel;
 
 void midiOut::chnPitchBender(uchar chn,uchar lsb, uchar msb)
 {
+needbuf(12);
 SEQ_MIDIOUT(device, MIDI_PITCH_BEND + Map->Channel(chn));
-#ifdef AT_HOME
-short pbs=((short)msb<<7) | (lsb & 0x7F);
-pbs=pbs-0x2000;
-short pbs2=(((long)pbs*672)/4096);
-printf("Pitch Bender (%d): %d -> %d \n",chn,pbs,pbs2);
-pbs2=pbs2+0x2000;
-lsb=pbs2 & 0x7F;
-msb=(pbs2 >> 7)&0x7F;
-#endif
-Map->PitchBender(chn,lsb,msb);
 SEQ_MIDIOUT(device, lsb);
 SEQ_MIDIOUT(device, msb);
 chn_bender[chn]=(msb << 8) | (lsb & 0xFF);
@@ -261,11 +178,8 @@ chn_bender[chn]=(msb << 8) | (lsb & 0xFF);
 
 void midiOut::chnController (uchar chn, uchar ctl, uchar v) 
 {
+needbuf(12);
 SEQ_MIDIOUT(device, MIDI_CTL_CHANGE + Map->Channel(chn));
-#ifdef AT_HOME
-if (ctl==11) ctl=7;
-#endif
-Map->Controller(chn,ctl,v);
 SEQ_MIDIOUT(device, ctl);
 SEQ_MIDIOUT(device, v);
 
@@ -275,6 +189,7 @@ chn_controller[chn][ctl]=v;
 void midiOut::sysex(uchar *data, ulong size)
 {
 ulong i=0;
+needbuf((size+1)*4);
 SEQ_MIDIOUT(device, MIDI_SYSTEM_PREFIX);
 while (i<size)
     {
@@ -282,9 +197,7 @@ while (i<size)
     data++;
     i++;
     };
-#ifdef MIDIOUTDEBUG
 printf("sysex\n");
-#endif
 };
 
 void midiOut::channelSilence (uchar chn)
@@ -315,12 +228,28 @@ void midiOut::seqbuf_dump (void)
 {
     if (_seqbufptr)
         if (write (seqfd, _seqbuf, _seqbufptr) == -1)
+//        if (write (seqfd, _seqbuf, 32) == -1)
         {
             perror ("write /dev/sequencer");
             exit (-1);
         }
     _seqbufptr = 0;
+//    _seqbufptr -= 32;
+//    memmove(_seqbuf,_seqbuf+32,_seqbufptr);
 };
+
+void midiOut::needbuf(int i)
+{
+/*if ((_seqbufptr+i) > _seqbuflen)
+    {
+    if (i>_seqbufptr) i=_seqbufptr;
+    write(seqfd,_seqbuf,_seqbufptr);
+    memmove(_seqbuf,_seqbuf+i,i);
+    _seqbufptr-=i;
+   };*/
+//if (_seqbufptr>256) seqbuf_dump();
+};
+
 
 void midiOut::seqbuf_clean(void)
 {
@@ -329,7 +258,14 @@ _seqbufptr=0;
 
 void midiOut::wait(double ticks)
 {
+//count+=ticks;
+//printf("tick : %ld\n",cuenta);
+//SEQ_DELTA_TIME((uint)(count-lastcount));
+//SEQ_WAIT_TIME((int)count);
+needbuf(8);
 SEQ_WAIT_TIME(((int)(ticks/convertrate)));
+//lastcount=count;
+//SEQ_DUMPBUF();
 #ifdef MIDIOUTDEBUG
 printf("Wait  >\t ticks: %g\n",ticks);
 #endif
@@ -347,15 +283,15 @@ printf("SETTEMPO  >\t tempo: %d\n",v);
 
 void midiOut::sync(int i)
 {
-#ifdef MIDIOUTDEBUG
+//#ifdef MIDIOUTDEBUG
 printf("Sync %d\n",i);
-#endif
+//#endif
 if (i==1) 
     {    
     seqbuf_clean();
 /* If you have any problem, try removing the next 2 lines, 
 	I though they would be useful here, but I don't know
-	what they exactly do :-) */
+	what they do :-) */
     ioctl(seqfd,SNDCTL_SEQ_RESET);
     ioctl(seqfd,SNDCTL_SEQ_PANIC);
     };
@@ -380,7 +316,3 @@ SEQ_CONTINUE_TIMER();
 SEQ_DUMPBUF();
 };
 
-char *midiOut::getMidiMapFilename(void)
-{
-return (Map!=NULL) ? Map->getFilename() : (char *)"";
-};

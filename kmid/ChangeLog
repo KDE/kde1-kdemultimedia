@@ -23,3 +23,11 @@ Added support for AWE and GUS cards
 Can modify the midi device without recompiling.
 Can play gzipped files
 
+0.41   22-2-98
+-----  -------
+Fixed a problem with GUS cards
+Improved midi mapper
+Fixed a non-feature :-) related to FM
+New icon and toolbar pixmaps which use fewer colors
+
+

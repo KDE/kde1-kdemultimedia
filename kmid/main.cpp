@@ -1,7 +1,7 @@
 /**************************************************************************
 
     main.cpp  - The main function for KMid
-    Copyright (C) 1997  Antonio Larrosa Jimenez
+    Copyright (C) 1997,98  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@
 
 int main(int argc, char **argv)
 {
-    printf("KMid 0.4 Copyright (C) 1997 Antonio Larrosa Jimenez. Malaga (Spain)\n");
+    printf("KMid 0.4.1 Copyright (C) 1997,98 Antonio Larrosa Jimenez. Malaga (Spain)\n");
     printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 );
     printf("This is free software, and you are welcome to redistribute it\n");

@@ -1,7 +1,7 @@
 /**************************************************************************
 
     kmidclient.cpp  - The main client widget of KMid
-    Copyright (C) 1997  Antonio Larrosa Jimenez
+    Copyright (C) 1997,98  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -41,6 +41,8 @@
 #include "player/track.h"
 #include "player/midispec.h"
 #include "player/deviceman.h"
+
+//#define KURL_BROKEN
 
 kmidClient::kmidClient(QWidget *parent,const char *name)
 	:QWidget(parent,name)
@@ -117,7 +119,7 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
         QString qs=kconf->readEntry("Loadfile","gm.map");
 
         printf("Read Config file : %s\n",(const char *)qs);
-	char *tmp=new char[strlen(qs)+1];
+	char *tmp=new char[qs.length()+1];
 	strcpy(tmp,qs);
 	setMidiMapFilename(tmp);
 	delete tmp;
@@ -251,11 +253,18 @@ return 0;
 
 int kmidClient::openURL(char *s)
 {
+//#ifndef KURL_BROKEN
 KURL kurldropped(s);
-if (kurldropped.isMalformed()) return -1;
-if (strcmp(kurldropped.protocol(),"file")!=0) return -1;
+if (kurldropped.isMalformed()) {printf("Malformed URL\n");return -1;};
+if (strcmp(kurldropped.protocol(),"file")!=0) {printf("KMid only accepts local files\n");return -1;};
 
 char *filename=kurldropped.path();
+/*#else
+char *filename=new char[500];
+strcpy(filename,&s[5]);
+printf("%s\n",filename);
+#endif
+*/
 QString qsfilename(filename);
 KURL::decodeURL(qsfilename);
 filename=(char *)(const char *)qsfilename;
@@ -291,11 +300,11 @@ kappp->invokeHTMLHelp("kmid/kmid.html",NULL);
 
 void kmidClient::help_About()
 {
-printf("KMid 0.4 Copyright (C) 1997 Antonio Larrosa Jimenez. Malaga (Spain)\n");
+printf("KMid 0.4.1 Copyright (C) 1997,98 Antonio Larrosa Jimenez. Malaga (Spain)\n");
 printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n");
 printf("This is free software, and you are welcome to redistribute it\n");
 printf("under certain conditions");
-KMsgBox::message( 0, "About KMid", "KMid 0.4\n(C) 1997 by Antonio Larrosa Jimenez\n(antlarr@arrakis.es)\nMalaga (Spain)", KMsgBox::INFORMATION, "Close" );
+KMsgBox::message( 0, "About KMid", "KMid 0.4.1\n(C) 1997,98 by Antonio Larrosa Jimenez\n(antlarr@arrakis.es)\nMalaga (Spain)", KMsgBox::INFORMATION, "Close" );
 };
 
 

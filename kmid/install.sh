@@ -1,4 +1,9 @@
 #!/bin/sh
+# This script installs kmid just following some fixed steps,
+# the best (ideal) way to install kmid is by running 'su -c "make install"'
+# but anyway, here is a small script that may or may not work.
+# To use it, you have to first chmod this file to add execute permissions
+
 echo Installing kmid using $KDEDIR as kde top level directory
 echo Preparing Directories ...
 mkdir -p $KDEDIR/share/apps/kmid

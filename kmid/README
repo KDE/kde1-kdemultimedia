@@ -8,7 +8,7 @@
 				KMID
 
 
-	This info is up to date if you have KMid version 0.4
+	This info is up to date if you have KMid version 0.41
 		
 
 Index
@@ -172,6 +172,16 @@ DEFINE CHANNELMAP
 #  further mapping through PATCHMAP nor anything)
 END
 
+OPTIONS
+PitchBenderRatio = rrr
+# rrr is the constant ratio by which pitch bender events will be multiplied
+# In fact, it will be multiplied by (rrr/4096)
+
+MapExpressionToVolumeEvents
+# If you set this option, expression events will be mapped to volume events,
+# which aren't exactly the same but they are very similar, and so keyboards
+# with no support for exp. events will sound better. 
+END
 ---8<----8<----8<------
 
 If you want to define a new map for your midi keyboard, I recommend you to start
@@ -212,6 +222,6 @@ substitute /opt/kde for the value of the KDEDIR environment variable)
    Finish the KMidServer and make KMid use it.
 
 -------
-30-12-1997
+21-2-1998
 Antonio Larrosa Jimenez
 antlarr@arrakis.es

@@ -194,3 +194,27 @@ midi functions.
 30-12-97
 - KMid now can play gzipped midi files just as any other normal file. 
 
+.... **-1-98
+- I have improved the midi mapper by allowing to factor the pitch bender.
+   Now pitch benders works OK !! (at last I have improved the windows mapper :-)
+  I have also added support to convert expression events to volume events.
+* I have been doing the kfourier this month and studying (little time to do more)
+
+
+Thursday 5-2-98
+- After doing my first exam this year, I have decided to calm things a little
+ by programming something. I have made the options added to the mapper available
+through the config map file.
+
+Monday 9-2-98
+- 2nd exam done and a bug that I introduced last thrusday fixed.
+
+Friday 20-2-98
+- I've finished exams, have installed the yesterday snapshots and have 
+updated the configure scripts to add rpath and all that stuff to my copy
+of kmid (thanks to Kulow, who added it to kmid in kdemultimedia)
+
+Saturday 21-2-98
+- Fixed the not-a-feature problem with FM, next time I will not let the
+option for the user to select something that doesn't work.
+Final touches to release kmid 0.41 tomorrow morning.

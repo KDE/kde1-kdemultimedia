@@ -3,13 +3,15 @@
 BinaryPattern=kmid;
 Name=KMid Midi/Karaoke Player
 Name[C]=KMid
+Name[es]=KMid Reproductor de Midi/Karaoke
 Name[fi]=KMid Midi/Karaokesoittaja
 Name[hu]=KMid Midi/Karaoke lejátszó
-Name[pt]KMid Reprodutor de Midi/Karaoke
+Name[pt]=KMid Reprodutor de Midi/Karaoke
 Protocols=file;
 MimeType=audio/x-karaoke;audio/x-midi;
 Comment=KMid a Midi/Karaoke file player
 Comment[C]=A midi / karaoke file player
+Comment[es]=Un reproductor de ficheros Midi/Karaoke
 Comment[fi]=KMid Midi/Karaokesoittaja
 Comment[hu]=Egy Midi/Karaoke lejátszó
 Comment[pt]=Um reprodutor de ficheiros midi / karaoke

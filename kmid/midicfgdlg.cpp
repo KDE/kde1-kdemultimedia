@@ -1,9 +1,34 @@
+/**************************************************************************
+
+    midicfgdlg.cpp  - The midi config dialog  
+    Copyright (C) 1997,98  Antonio Larrosa Jimenez
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+    Send comments and bug fixes to antlarr@arrakis.es
+    or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
+
+***************************************************************************/
+
 #include "midicfgdlg.moc"
 #include <qpushbt.h>
 #include <qlistbox.h>
 #include <qlabel.h> 
 #include <qfiledlg.h>
 #include <kapp.h>
+#include <kmsgbox.h>
 #include "player/deviceman.h"
 
 MidiConfigDialog::MidiConfigDialog(DeviceManager *dm, QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
@@ -35,7 +60,8 @@ for (int i=0;i<devman->numberOfMidiPorts()+devman->numberOfSynthDevices();i++)
 
     mididevices->insertItem(temp,i);
     };
-mididevices->setCurrentItem(devman->getDefaultDevice());
+selecteddevice=devman->getDefaultDevice();
+mididevices->setCurrentItem(selecteddevice);
 
 label2=new QLabel("Use the midi map :",this);
 label2->adjustSize();
@@ -73,7 +99,16 @@ connect(mapnone,SIGNAL(clicked()),SLOT(noMap()) );
 
 void MidiConfigDialog::deviceselected(int idx)
 {
+if (strcmp(devman->type(idx),"FM")==0)
+    {
+    KMsgBox::message(this,"Warning","You cannot select an FM device because it is not yet supported (but it will be soon)");
+    mididevices->setCurrentItem(selecteddevice);
+    
+    return;
+    };
+
 selecteddevice=idx;
+
 };
 
 void MidiConfigDialog::browseMap()
