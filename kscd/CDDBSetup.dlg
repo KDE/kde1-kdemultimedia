@@ -20,7 +20,7 @@ GroupBox {
 		Title {}
 		Alignment {Left}
 		Style {49}
-		Rect {5 10 365 420}
+		Rect {10 10 365 420}
 		Name {GroupBox_1}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}

@@ -60,7 +60,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   setCaption(klocale->translate("Configure kscd"));
 
   box = new QGroupBox(this, "box");
-  box->setGeometry(10,10,365,360);
+  box->setGeometry(10,10,365,418);
 
 
   label1 = new QLabel(this);
@@ -92,7 +92,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
   button3 = new QPushButton(this);
-  button3->setGeometry(255,330,100,25);
+  button3->setGeometry(255,340,100,25);
   button3->setText(klocale->translate("Help"));
   connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 
@@ -124,7 +124,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 	  this,SLOT(mail_changed(const char*)));  
 
   browserbox = new  QButtonGroup(klocale->translate("WWW-Browser"),this,"wwwbox");
-  browserbox->setGeometry(20,190,338,120);
+  browserbox->setGeometry(20,190,338,130);
 
   kfmbutton = new QRadioButton(klocale->translate("Use kfm as Browser"),
 			       browserbox,"kfmbutton");
@@ -147,13 +147,13 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   ttcheckbox = new QCheckBox(klocale->translate("Show Tool Tips"), 
 			     this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30,315,135,20);
+  ttcheckbox->setGeometry(30,355,135,20);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
 
   dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
 			       this, "dockcheckbox");
-  dockcheckbox->setGeometry(30,340,160,20);
+  dockcheckbox->setGeometry(30,330,160,20);
   dockcheckbox->setChecked(configdata.docking);
   connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
   

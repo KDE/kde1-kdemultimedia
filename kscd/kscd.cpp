@@ -868,12 +868,14 @@ void KSCD::aboutClicked(){
 
     QGroupBox *box = new QGroupBox(about,"box");
     QLabel  *label = new QLabel(box,"label");
-    box->setGeometry(10,10,365,360);
+
+    box->setGeometry(10,10,365,418);
+
     label->setGeometry(160,30,195,300);
     label->setAlignment( AlignCenter);
     QString labelstring;
     labelstring = "kscd "KSCDVERSION"\n"\
-        "Copyright (c) 1997 \nBernd Johannes Wuebben\n"\
+        "Copyright (c) 1997-98 \nBernd Johannes Wuebben\n"\
         "wuebben@kde.org\n\n"\
         "kscd  contains code from:\n"
         "workman 1.4 beta 3\n"
