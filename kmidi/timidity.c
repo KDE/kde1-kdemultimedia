@@ -722,6 +722,11 @@ int read_config_file(char *name)
   close_file(fp);
   return 0;
 }
+
+#ifdef KMIDI	
+extern void createKApplication(int *argc, char **argv);
+#endif
+
 #ifdef __WIN32__
 int __cdecl main(int argc, char **argv)
 #else
@@ -761,6 +766,7 @@ int main(int argc, char **argv)
   char *KDEdir;
   char *kmidi_config;                                                          
 
+  createKApplication(&argc, argv);
   if ( ! (KDEdir = getenv("KDEDIR")))                                          
    {
      kmidi_config = DEFAULT_PATH;

@@ -1,11 +1,11 @@
-/*   
+/*
 
    kmidi - a midi to wav converter
-   
+
    $Id$
- 
+
    Copyright 1997, 1998 Bernd Johannes Wuebben math.cornell.edu
-  
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -20,7 +20,7 @@
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
- 
+
  */
 
 #include "kmidi.h"
@@ -41,7 +41,7 @@
 
 #include "filepic.h"
 #include "cduppic.h"
-#include "folderpic.h"        
+#include "folderpic.h"
 
 /*#include <qsocknot.h> */
 
@@ -69,13 +69,13 @@ extern int have_commandline_midis;
 extern int output_device_open;
 extern int32 control_ratio;
 
-enum midistatus{ KNONE, KPLAYING, KSTOPPED, KLOOPING, KFORWARD, 
+enum midistatus{ KNONE, KPLAYING, KSTOPPED, KLOOPING, KFORWARD,
 		 KBACKWARD, KNEXT, KPREVIOUS,KPAUSED};
 
 midistatus status;
 
 KApplication * thisapp;
-KMidi *kmidi;                                            
+KMidi *kmidi;
 int pipenumber;
 
 KMidi::KMidi( QWidget *parent, const char *name ) :
@@ -87,7 +87,7 @@ KMidi::KMidi( QWidget *parent, const char *name ) :
     looping = false;
     driver_error = false;
     status = KNONE;
-    song_number = 1;      
+    song_number = 1;
     starting_up = true;
 
     makedirs();
@@ -97,29 +97,29 @@ KMidi::KMidi( QWidget *parent, const char *name ) :
     setColors();
     setToolTips();
 
-    playlist = new QStrList(TRUE);  
- 
+    playlist = new QStrList(TRUE);
+
     if ( !folder_pixmap.loadFromData(folder_bmp_data, folder_bmp_len) ) {
 	QMessageBox::message( "Error", "Could not load folder.bmp" );
     }
-  
-  
+
+
     if ( !cdup_pixmap.loadFromData(cdup_bmp_data, cdup_bmp_len) ) {
 	QMessageBox::message( "Error", "Could not load cdup.bmp" );
     }
-  
+
     if ( !file_pixmap.loadFromData(file_bmp_data, file_bmp_len) ) {
 	QMessageBox::message( "Error", "Could not load file.bmp" );
     }
 
     timer = new QTimer( this );
     readtimer = new QTimer( this);
-  
+
     logwindow = new LogWindow(NULL,"logwindow");
     logwindow->hide();
 
     connect( timer, SIGNAL(timeout()),this, SLOT(PlayCommandlineMods()) );
-    timer->start( 100, FALSE );                 
+    timer->start( 100, FALSE );
 
     connect( playPB, SIGNAL(clicked()), SLOT(playClicked()) );
     connect( stopPB, SIGNAL(clicked()), SLOT(stopClicked()) );
@@ -142,7 +142,7 @@ KMidi::KMidi( QWidget *parent, const char *name ) :
     srandom(time(0L));
     adjustSize();
 
-    
+
     setFixedSize(this->width(),this->height());
 
 
@@ -153,7 +153,7 @@ KMidi::~KMidi(){
 
 }
 
-void KMidi::setToolTips() 
+void KMidi::setToolTips()
 {
     if(tooltips){
 	QToolTip::add( playPB, 		"Play/Pause" );
@@ -208,19 +208,19 @@ void KMidi::volChanged( int vol )
     pipe_int_write(  MOTIF_CHANGE_VOLUME);
     pipe_int_write(vol*255/100);
     //  mp_volume = vol*255/100;
-  
+
 }
 
 
 
-QPushButton *KMidi::makeButton( int x, int y, int w, int h, const char *n ) 
+QPushButton *KMidi::makeButton( int x, int y, int w, int h, const char *n )
 {
     QPushButton *pb = new QPushButton( n, this );
     pb->setGeometry( x, y, w, h );
     return pb;
 }
 	
-void KMidi::drawPanel() 
+void KMidi::drawPanel()
 {
     int ix = 0;
     int iy = 0;
@@ -253,7 +253,7 @@ void KMidi::drawPanel()
     ix = WIDTH + 4;
 
     for (int u = 0; u<=4;u++){
-	trackTimeLED[u] = new BW_LED_Number(this );	 
+	trackTimeLED[u] = new BW_LED_Number(this );	
 	trackTimeLED[u]->setGeometry( ix  + u*18, iy + D, 23 ,  30 );
     }
 	
@@ -296,10 +296,10 @@ void KMidi::drawPanel()
 
     ix += SBARWIDTH/2;
 
-    shufflebutton = makeButton( WIDTH + 2*SBARWIDTH/3 , 
+    shufflebutton = makeButton( WIDTH + 2*SBARWIDTH/3 ,
 				iy+ HEIGHT,SBARWIDTH/6 , HEIGHT, "F" );
 
-    configurebutton = makeButton( WIDTH + 5*SBARWIDTH/6 , 
+    configurebutton = makeButton( WIDTH + 5*SBARWIDTH/6 ,
 				  iy+HEIGHT, SBARWIDTH/6 , HEIGHT, "S" );
 
 
@@ -356,7 +356,7 @@ void KMidi::drawPanel()
 
     iy += HEIGHT / 2 ;
 	
-    volSB = new QSlider( 0, 100, 5,  volume, QSlider::Horizontal, 
+    volSB = new QSlider( 0, 100, 5,  volume, QSlider::Horizontal,
 			 this, "Slider" );
     volSB->setGeometry( WIDTH , 3*HEIGHT, 2*SBARWIDTH/3, HEIGHT /2 );
 
@@ -399,7 +399,7 @@ void KMidi::loadBitmaps() {
     QBitmap fwdBmp( ff_width, ff_height, ff_bits, TRUE );
     QBitmap bwdBmp( rew_width, rew_height, rew_bits, TRUE );
     QBitmap ejectBmp( eject_width, eject_height, eject_bits, TRUE );
-    QBitmap quitBmp( poweroff_width, poweroff_height, poweroff_bits, 
+    QBitmap quitBmp( poweroff_width, poweroff_height, poweroff_bits,
 		     TRUE );
     QBitmap aboutBmp( midilogo_width, midilogo_height, midilogo_bits, TRUE );
 
@@ -439,7 +439,7 @@ QString KMidi::getHomeDir() {
 
   if(pwd == NULL)
     return QString("/");
-  
+
   QString s = pwd->pw_dir;
   if(s.right(1) != "/")
     s += "/";
@@ -486,12 +486,12 @@ void KMidi::makedirs(){
     chown(d.data(),getuid(),getgid());
     chmod(d.data(),S_IRUSR | S_IWUSR | S_IXUSR);
   }
-  
+
 }
 int KMidi::randomSong(){
 
     int j;
-    j=1+(int) (((double)playlist->count()) *rand()/(RAND_MAX+1.0)); 
+    j=1+(int) (((double)playlist->count()) *rand()/(RAND_MAX+1.0));
     return j;
 }
 
@@ -515,7 +515,7 @@ void KMidi::randomClicked(){
     song_number = index + 1;
     pipe_int_write(MOTIF_PLAY_FILE);
     pipe_string_write(playlist->at(index));
-  
+
     status = KPLAYING;
 
 }
@@ -532,7 +532,7 @@ void KMidi::randomPlay(){
     song_number = index + 1;
     pipe_int_write(MOTIF_PLAY_FILE);
     pipe_string_write(playlist->at(index));
-  
+
     status = KPLAYING;
 
 }
@@ -546,7 +546,7 @@ void KMidi::playClicked()
 
   int index;
   index = song_number -1;
-  
+
   if(status == KPLAYING){
     status = KPAUSED;
     pipe_int_write(MOTIF_PAUSE);
@@ -564,13 +564,13 @@ void KMidi::playClicked()
   if(((int)playlist->count()  > index) && (index >= 0)){
     setLEDs("OO:OO");
     statusLA->setText("Playing");
-    
+
     pipe_int_write(MOTIF_PLAY_FILE);
     pipe_string_write(playlist->at(index));
-    
+
     status = KPLAYING;
   }
-  
+
 }
 
 
@@ -608,7 +608,7 @@ void KMidi::prevClicked(){
 	pipe_int_write(MOTIF_PLAY_FILE);
 	pipe_string_write(playlist->at(song_number - 1));
 	status = KPLAYING;
-    }   
+    }
 }
 
 void KMidi::slowdownslot(){
@@ -628,7 +628,7 @@ void KMidi::speedupslot(){
 	logwindow->show();
 
 }
- 
+
 void KMidi::nextClicked(){
 
 
@@ -637,7 +637,7 @@ void KMidi::nextClicked(){
 
     if (song_number == (int)playlist->count())
 	song_number = 0;
-  
+
     if(randomplay)
 	song_number = randomSong() -1;
 
@@ -703,7 +703,7 @@ void KMidi::replayClicked(){
     if(looping == false){
 	looping = true;
 	randomplay = false;
-	looplabel->setText("Looping");    
+	looplabel->setText("Looping");
     }
     else{
 	looping = false;
@@ -713,8 +713,8 @@ void KMidi::replayClicked(){
 }
 
 void KMidi::ejectClicked(){
-  
-    /*  if(driver_error){ // we couldn't initialize the driver 
+
+    /*  if(driver_error){ // we couldn't initialize the driver
 	return;         // this happens e.g. when I still have NAS running
 	}
 
@@ -725,10 +725,10 @@ void KMidi::ejectClicked(){
 	playlistdlg = new PlaylistDialog( NULL , "Compose Play List",playlist);
 
     if(playlistdlg->exec()){
-      
+
       updateUI();
       status = KSTOPPED;
-      timer->start( 200, TRUE );  // single shot                  
+      timer->start( 200, TRUE );  // single shot
     }
 
 
@@ -741,7 +741,7 @@ void KMidi::PlayMOD(){
     // before playing the mod
 
     if (!playlist->isEmpty())
-	playClicked(); 
+	playClicked();
 
 
 }
@@ -752,12 +752,12 @@ void KMidi::aboutClicked()
 {
 
   QTabDialog * tabdialog;
-  
+
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
   tabdialog->setCaption( "kmidi Configuraton" );
   tabdialog->resize( 350, 350 );
   tabdialog->setCancelButton( "Cancel" );
-    
+
   QWidget *about = new QWidget(tabdialog,"about");
 
   QGroupBox *box = new QGroupBox(about,"box");
@@ -780,8 +780,8 @@ void KMidi::aboutClicked()
 
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
-  
-  QString pixdir = thisapp->kde_datadir() + "/kmidi/pics/"; 
+
+  QString pixdir = thisapp->kde_datadir() + "/kmidi/pics/";
 
 
   QPixmap pm((pixdir + "kmidilogo.xpm").data());
@@ -794,21 +794,21 @@ void KMidi::aboutClicked()
   config.background_color = background_color;
   config.led_color = led_color;
   config.tooltips = tooltips;
-  
+
   dlg = new ConfigDlg(tabdialog,&config,"configdialg");
-  
+
   tabdialog->addTab(dlg,"Configure");
   tabdialog->addTab(about,"About");
-  
+
   if(tabdialog->exec() == QDialog::Accepted){
-    
+
     background_color = dlg->getData()->background_color;
     led_color = dlg->getData()->led_color;
     tooltips = dlg->getData()->tooltips;
     setColors();
     setToolTips();
   }
-  
+
   delete dlg;
   delete about;
   delete tabdialog;
@@ -819,26 +819,26 @@ void KMidi::PlayCommandlineMods(){
 
     // If all is O.K this method is called precisely once right after
     // start up when the timer fires. We check whether we have mods
-    // to play that were specified on the command line. 
-    // if  there was a driver error we well not stop the timer 
+    // to play that were specified on the command line.
+    // if  there was a driver error we well not stop the timer
     // and the timer will continue to call this routine. We check each
     // time whether the driver is finally ready. This is handy for people
-    // like me who usually use NAS but forgot to turn it off. 
+    // like me who usually use NAS but forgot to turn it off.
 
 
   timer->changeInterval(1000);
 
   connect(readtimer, SIGNAL(timeout()),this,SLOT(ReadPipe()));
-  readtimer->start(10);  
+  readtimer->start(10);
 
   if(!output_device_open){
-    
-    // we couldn't initialize the driver 
+
+    // we couldn't initialize the driver
     // this happens e.g. when I still have NAS running
     // let's blink a bit.
-    
-    pipe_int_write(TRY_OPEN_DEVICE);    
-      
+
+    pipe_int_write(TRY_OPEN_DEVICE);
+
     if (blink){
       blink = false;
       statusLA->setText("           ");
@@ -850,41 +850,41 @@ void KMidi::PlayCommandlineMods(){
       modlabel->setText("Can't open Output Device.");
       song_count_label->setText( "Song --/--" );
     }
-    
-    
-    return;    
+
+
+    return;
   }
-  
+
   modlabel->setText(""); // clear the error message
   song_count_label->setText( "Song --/--" );
 
   // O.K all clear -- the driver is ready.
-  
+
   timer->stop();
-  
+
   disconnect( timer, SIGNAL(timeout()),this, SLOT(PlayCommandlineMods()) );
   connect( timer, SIGNAL(timeout()),this, SLOT(PlayMOD()) );
   thisapp->processEvents();
   thisapp->flushX();
-  
+
   display_playmode();
-  
+
   thisapp->processEvents();
   thisapp->flushX();
-  
-  
+
+
   statusLA->setText("Ready");
 
-  //  readtimer->start(10);  
+  //  readtimer->start(10);
 
 }
 
 void KMidi::loadplaylist(){
 
-  
+
     QString home = QDir::homeDirPath();
     home = home + "/.kde/share/apps/kmidi";
-  
+
     QDir savedir(home.data());
 
     if(!savedir.exists()){
@@ -893,7 +893,7 @@ void KMidi::loadplaylist(){
 
     QString defaultlist;
     defaultlist = home + "/" + "default";
-  
+
     QFile f(defaultlist.data());
 
     f.open( IO_ReadWrite | IO_Translate);
@@ -903,10 +903,10 @@ void KMidi::loadplaylist(){
 
     while(!f.atEnd()){
       QFileInfo file;
-      
+
       buffer[0] = (char) 0;
       f.readLine(buffer,511);
-      
+
       tempstring = buffer;
       tempstring = tempstring.stripWhiteSpace();
 
@@ -916,7 +916,7 @@ void KMidi::loadplaylist(){
 	  playlist->append(tempstring.data());
 	}	
     }
- 
+
     f.close();
 
 }
@@ -947,13 +947,13 @@ void KMidi::ReadPipe(){
 		emit play();
 	      break;
 
-	    case TOTALTIME_MESSAGE : { 
+	    case TOTALTIME_MESSAGE : {
 		int cseconds;
 		int minutes,seconds;
 		char local_string[20];
 
 		pipe_int_read(&cseconds);
-	    
+	
 		seconds=cseconds/100;
 		minutes=seconds/60;
 		seconds-=minutes*60;
@@ -963,15 +963,15 @@ void KMidi::ReadPipe(){
 		max_sec=cseconds;
 	    }
 	    break;
-	    
-	    case MASTERVOL_MESSAGE: { 
+	
+	    case MASTERVOL_MESSAGE: {
 		int volume;
-	    
+	
 		pipe_int_read(&volume);
 
 	    }
 	    break;
-	    
+	
 	    case FILENAME_MESSAGE : {
 		char filename[255];
 		char *pc;
@@ -983,9 +983,9 @@ void KMidi::ReadPipe(){
 		pc=strrchr(filename,'/');
 		if (pc==NULL)
 		    pc=filename;
-		else 
+		else
 		    pc++;
-	    
+	
 		fileName = pc;
 		updateUI();
 	    }
@@ -995,16 +995,16 @@ void KMidi::ReadPipe(){
 		char filename[255];
 		int i, number_of_files;
 		/*		printf("RECEIVED: FILE_LIST_MESSAGE\n");*/
-	    
+	
 		/* reset the playing list : play from the start */
 		song_number = 1;
 
 		pipe_int_read(&number_of_files);
 
 		if(number_of_files > 0 )
-		    playlist->clear();	    
+		    playlist->clear();	
 
-		  
+		
 		QFileInfo file;
 		have_commandline_midis = false;
 
@@ -1020,7 +1020,7 @@ void KMidi::ReadPipe(){
 		      QString string;
 		      string.sprintf("%s\nis not readable or doesn't exist.",filename);
 		      KMsgBox::message(NULL, "KMidi Warning", string.data(),
-				       KMsgBox::EXCLAMATION);    
+				       KMsgBox::EXCLAMATION);
 
 		    }
 		  }	
@@ -1033,27 +1033,27 @@ void KMidi::ReadPipe(){
 
 
 		if(playlist->count() > 0){
-	      
+	
 		    fileName = playlist->at(0);
 		    int index = fileName.findRev('/',-1,TRUE);
 		    if(index != -1)
 			fileName = fileName.right(fileName.length() -index -1);
 		    if(output_device_open)
 		      updateUI();
-    
+
 		}
 		if(have_commandline_midis && output_device_open)
 		  emit play();
 
 	    }
 	    break;
-	    
+	
 	    case NEXT_FILE_MESSAGE :
-	    case PREV_FILE_MESSAGE : 
+	    case PREV_FILE_MESSAGE :
 	    case TUNE_END_MESSAGE :{
 
 	      /*		printf("RECEIVED: NEXT/PREV/TUNE_MESSAGE\n");*/
-	    
+	
 		/* When a file ends, launch next if auto_next toggle */
 		/*	    if ((message==TUNE_END_MESSAGE) &&
 			    !XmToggleButtonGetState(auto_next_option))
@@ -1065,7 +1065,7 @@ void KMidi::ReadPipe(){
 		    return;
 		}
 
-	    
+	
 
 		setLEDs("OO:OO");
 		if(randomplay){
@@ -1079,7 +1079,7 @@ void KMidi::ReadPipe(){
 		    return;
 		}
 
-		/* 
+		/*
 		if (message==PREV_FILE_MESSAGE)
 		    song_number--;
 		else {
@@ -1091,10 +1091,10 @@ void KMidi::ReadPipe(){
 		    {
 			song_number = 1;
 		    }
-	  
-	  
+	
+	
 		if (song_number > (int)playlist->count() )
-		    { 
+		    {
 			song_number = 1 ;
 			setLEDs("--:--");
 			looplabel->setText("");
@@ -1111,12 +1111,12 @@ void KMidi::ReadPipe(){
 		    status = KPLAYING;
 		    nextClicked();
 		}
-	  
+	
 
 	    }
 	    break;
 
-	    case CURTIME_MESSAGE : { 
+	    case CURTIME_MESSAGE : {
 		int cseconds;
 		int  sec,seconds, minutes;
 		int nbvoice;
@@ -1125,102 +1125,102 @@ void KMidi::ReadPipe(){
 		/*		printf("RECEIVED: CURTIME_MESSAGE\n");*/
 		pipe_int_read(&cseconds);
 		pipe_int_read(&nbvoice);
-	    
+	
 		sec=seconds=cseconds/100;
-	    
+	
 		/* To avoid blinking */
 		if (sec!=last_sec)
 		    {
 			minutes=seconds/60;
 			seconds-=minutes*60;
-		    
+		
 			sprintf(local_string,"%02d:%02d",
 				minutes, seconds);
 			//		    printf("GUI CURTIME %s\n",local_string);	
 			setLEDs(local_string);
-	    
+	
 		    }
 
 		last_sec=sec;
 
 	    }
 	    break;
-	    /*	    
+	    /*	
 	    case NOTE_MESSAGE : {
 		int channel;
 		int note;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&note);
 		printf("NOTE chn%i %i\n",channel,note);
 	    }
 	    break;
-	    
+	
 	    case    PROGRAM_MESSAGE :{
 		int channel;
 		int pgm;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&pgm);
 		printf("NOTE chn%i %i\n",channel,pgm);
 	    }
 	    break;
-	    
-	    case VOLUME_MESSAGE : { 
+	
+	    case VOLUME_MESSAGE : {
 		int channel;
 		int volume;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&volume);
 		printf("VOLUME= chn%i %i \n",channel, volume);
 	    }
 	    break;
-	    
-	    
-	    case EXPRESSION_MESSAGE : { 
+	
+	
+	    case EXPRESSION_MESSAGE : {
 		int channel;
 		int express;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&express);
 		printf("EXPRESSION= chn%i %i \n",channel, express);
 	    }
 	    break;
-	    
-	    case PANNING_MESSAGE : { 
+	
+	    case PANNING_MESSAGE : {
 		int channel;
 		int pan;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&pan);
 		printf("PANNING= chn%i %i \n",channel, pan);
 	    }
 	    break;
-	    
-	    case  SUSTAIN_MESSAGE : { 
+	
+	    case  SUSTAIN_MESSAGE : {
 		int channel;
 		int sust;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&sust);
 		printf("SUSTAIN= chn%i %i \n",channel, sust);
 	    }
 	    break;
-	    
-	    case  PITCH_MESSAGE : { 
+	
+	    case  PITCH_MESSAGE : {
 		int channel;
 		int bend;
-	    
+	
 		pipe_int_read(&channel);
 		pipe_int_read(&bend);
 		printf("PITCH BEND= chn%i %i \n",channel, bend);
 	    }
 	    break;
-	    
+	
 	    case RESET_MESSAGE : {
 		printf("RESET_MESSAGE\n");
 	    }
-	    break;   
+	    break;
 	    */
 
 	    case CLOSE_MESSAGE : {
@@ -1229,8 +1229,8 @@ void KMidi::ReadPipe(){
 		thisapp->quit();
 	    }
 	    break;
-	    
-	    case CMSG_MESSAGE : { 
+	
+	    case CMSG_MESSAGE : {
 		char strmessage[2024];
 		int type = 0;
 
@@ -1244,9 +1244,9 @@ void KMidi::ReadPipe(){
 	    }
 	    break;
 
-	      	case CMSG_ERROR : { 
+	      	case CMSG_ERROR : {
 		char strmessage[2024];
-	    
+	
 		pipe_string_read(strmessage);
 		logwindow->insertStr(strmessage);
 
@@ -1254,9 +1254,9 @@ void KMidi::ReadPipe(){
 		}
 
 	    break;
-	    default:    
+	    default:
 		fprintf(stderr,"Kmidi: unknown message %i\n",message);
-	  
+	
 	    }
     }
 }
@@ -1264,7 +1264,7 @@ void KMidi::ReadPipe(){
 
 void KMidi::readconfig(){
 
-    // let's set the defaults 
+    // let's set the defaults
 
     volume  = 40;
     randomplay = false;
@@ -1339,12 +1339,12 @@ void KMidi::writeconfig(){
 void KMidi::setColors(){
 
 
-  
+
     backdrop->setBackgroundColor(background_color);
-  
+
     QColorGroup colgrp( led_color, background_color, yellow,yellow , yellow,
                         led_color, white );
-  
+
     statusLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     looplabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
     //    titleLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
@@ -1376,7 +1376,7 @@ void KMidi::display_playmode(){
 		       play_mode->encoding & PE_16BIT ? 16:8,
 		       play_mode->encoding & PE_SIGNED ? "sig":"usig",
 		       play_mode->encoding &PE_ULAW ? "uLaw":"Linear");
-    
+
     properties2.sprintf("%d Hz %s",
 		       play_mode->rate,
 		       play_mode->encoding & PE_MONO ? "Mono":"Stereo");
@@ -1394,7 +1394,7 @@ void KMidi::updateUI(){
   filenamestr = filenamestr.replace(QRegExp("_"), " ");
 
   if(filenamestr.length() > 4){
-  if(filenamestr.right(4) == QString(".mid") ||filenamestr.right(4) == QString(".MID")) 
+  if(filenamestr.right(4) == QString(".mid") ||filenamestr.right(4) == QString(".MID"))
     filenamestr = filenamestr.left(filenamestr.length()-4);
   }
 
@@ -1418,7 +1418,7 @@ void KMidi::cdMode(){
 }
 
 void KMidi::playtime(){
-  
+
 
 }
 
@@ -1426,30 +1426,29 @@ void KMidi::playtime(){
 
 void KMidi::closeEvent( QCloseEvent *e ){
 
-    e->ignore();                            
-
+    e->ignore();
+    quitClicked();
 }
 
 #include "kmidi.moc"
 
 extern "C" {
 
+    void createKApplication(int *argc, char **argv){
+	thisapp = new KApplication(*argc, argv, "kmidi");
+    }
+    
     int Launch_KMidi_Process(int _pipenumber){
-  
+
 	pipenumber = _pipenumber;
 
-	int narg = 1;
-	char* argv[] = {""};
-
-	KApplication kmidiapp( (int &) narg,argv ,"kmidi");
-	thisapp = &kmidiapp;
-  
 	kmidi = new KMidi;
        	thisapp->enableSessionManagement(true);
-	thisapp->setWmCommand("kmidi");      
+	thisapp->setWmCommand("kmidi");
 	thisapp->setTopWidget(kmidi);
+	kmidi->setCaption(kapp->getCaption());
 	kmidi->show();
-	kmidiapp.exec();
+	thisapp->exec();
 
 	return 0;
     }
@@ -1466,7 +1465,7 @@ static void cleanup( int sig ){
 
 void catchSignals()
 {
-signal(SIGHUP, cleanup);	       
+signal(SIGHUP, cleanup);	
 signal(SIGINT, cleanup);		
 signal(SIGTERM, cleanup);		
 //	signal(SIGCHLD, cleanup);
