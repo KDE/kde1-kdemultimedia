@@ -385,3 +385,6 @@ Tuesday 15-9-98
 
 Wednesday 16-9-98
 - It's possible now to change the tempo of a song.
+
+Thursday 1-10-98
+- Fixed some problems

@@ -58,12 +58,13 @@ int main(int argc, char **argv)
 
     QObject::connect(app,SIGNAL(shutDown()),kmidframe,SLOT(shuttingDown()));
 
-    kmidframe->show();
-
     if (app->isRestored()) 
 	{
 	if (kmidframe->canBeRestored(1)) kmidframe->restore(1);
         }
+
+    kmidframe->show();
+
 /*
     if (app->isRestored()) 
 	{

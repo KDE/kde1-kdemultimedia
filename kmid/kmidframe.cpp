@@ -94,17 +94,19 @@ kmidFrame::kmidFrame(const char *name)
     m_file->insertItem( i18n("&Quit"), qApp, SLOT(quit()), CTRL+Key_Q );
     m_song = new QPopupMenu;
     m_song->setCheckable(TRUE);
-    m_song->insertItem( i18n("&Play"), kmidclient, 
-                        SLOT(song_Play()) /*, Key_Space*/ );
+    m_song->insertItem( i18n("&Play"), kmidclient, SLOT(song_Play()) );
     kKeysAccel->changeMenuAccel(m_song,0,"Play/Pause");
     m_song->insertItem( i18n("P&ause"), this, SLOT(song_Pause()) );
-    m_song->insertItem( i18n("&Stop"), kmidclient, SLOT(song_Stop()) ,
-                        kKeysAccel->currentKey("Stop"));
+    m_song->insertItem( i18n("&Stop"), kmidclient, SLOT(song_Stop()));
+    m_song->setId(2,2);
+    kKeysAccel->changeMenuAccel(m_song,2,"Stop");
     m_song->insertSeparator();
-    m_song->insertItem( i18n("P&revious Song"), kmidclient, 
-                        SLOT(song_PlayPrevSong()) , kKeysAccel->currentKey("Previous Song"));
-    m_song->insertItem( i18n("&Next Song"), kmidclient, 
-                        SLOT(song_PlayNextSong()) , kKeysAccel->currentKey("Next Song"));
+    m_song->insertItem( i18n("P&revious Song"), kmidclient, SLOT(song_PlayPrevSong()) );
+    m_song->setId(4,4);
+    kKeysAccel->changeMenuAccel(m_song,4,"Previous Song");
+    m_song->insertItem( i18n("&Next Song"), kmidclient, SLOT(song_PlayNextSong()) );
+    m_song->setId(5,5);
+    kKeysAccel->changeMenuAccel(m_song,5,"Next Song");
     m_song->insertSeparator();
     m_song->insertItem( i18n("&Loop"), this, SLOT(song_Loop()) );
     m_song->setId(7,7);
@@ -138,13 +140,13 @@ kmidFrame::kmidFrame(const char *name)
     m_options->setItemChecked(1,FALSE);
     m_options->insertSeparator();
     m_options->insertItem( i18n("See &Text events"), this, 
-                           SLOT(options_Text()),kKeysAccel->currentKey("See Text Events") );
+                           SLOT(options_Text()) );
     m_options->setId(3,3);
     m_options->setItemChecked(3,TRUE);
     kKeysAccel->changeMenuAccel(m_options,3,"See Text events");
 
     m_options->insertItem( i18n("See &Lyrics events"), this, 
-                           SLOT(options_Lyrics()),kKeysAccel->currentKey("See Lyrics Events") );
+                           SLOT(options_Lyrics()) );
     m_options->setId(4,4);
     m_options->setItemChecked(4,FALSE);
     kKeysAccel->changeMenuAccel(m_options,4,"See Lyrics events");
@@ -180,9 +182,11 @@ kmidFrame::kmidFrame(const char *name)
     char aboutstring[500];
     sprintf(aboutstring,
             i18n("%s\n\n" \
-                 "(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n" \
+                 "(C) 1997,98 Antonio Larrosa Jimenez\n" \
+		 "larrosa@kde.org\t\tantlarr@arrakis.es\n" \
                  "Malaga (Spain)\n\n" \
-                 "Midi/Karaoke file player\n\n" \
+                 "Midi/Karaoke file player\n" \
+		 "KMid's homepage is at : http://www.arrakis.es/~rlarrosa/kmid.html\n\n" \
                  "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n" \
                  "This is free software, and you are welcome to redistribute it\n" \
                  "under certain conditions\n"), VERSION_TXT );
@@ -731,5 +735,13 @@ void kmidFrame::options_ChannelViewOptions()
 
 void kmidFrame::options_KeyConfig()
 {
-    KKeyDialog::configureKeys( kKeysAccel );
+    if ( KKeyDialog::configureKeys( kKeysAccel ) )
+    {
+	kKeysAccel->changeMenuAccel(m_song,0,"Play/Pause");
+    	kKeysAccel->changeMenuAccel(m_song,2,"Stop");
+	kKeysAccel->changeMenuAccel(m_song,4,"Previous Song");
+	kKeysAccel->changeMenuAccel(m_song,5,"Next Song");
+	kKeysAccel->changeMenuAccel(m_options,3,"See Text events");
+	kKeysAccel->changeMenuAccel(m_options,4,"See Lyrics events");
+    };
 };
