@@ -85,16 +85,10 @@ distclean: clean
 	rm -f Makefile
 
 install: all
-	strip kscd
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET1) $(BINDIR)
 	$(INSTALL) $(TARGET2) $(BINDIR)
-	$(INSTALL_DIR) $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-1.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-2.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-3.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd-4.html $(DOCSDIR)
+	(cd docs && $(MAKE) install)
 	$(INSTALL_DIR) $(PIXDIR)
 	$(INSTALL_DATA) kscd.xpm $(PIXDIR)
 	$(INSTALL_DIR) $(APPSDIR)
@@ -103,6 +97,9 @@ install: all
 uninstall:
 	rm -f $(BINDIR)/$(TARGET1)
 	rm -f $(BINDIR)/$(TARGET2)
+	(cd docs && $(MAKE) uninstall)
+	rm -f $(APPSDIR)/kscd.kdelnk
+	rm -f $(PIXDIR)/kscd.xpm
 
 ####### Explicit dependencies
 
