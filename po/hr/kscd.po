@@ -242,9 +242,8 @@ msgid "Stop Playing on Exit"
 msgstr ""
 
 #: configdlg.cpp:184
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Izbacujem"
+msgstr "Izbaci nakon zavr¹etka"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -291,18 +290,16 @@ msgid "Record submitted successfully"
 msgstr ""
 
 #: kscd.cpp:236
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Gre¹ka prilikom dobivanja CDDB podataka."
+msgstr "Gre¹ka prilikom spajanja na poslu¾itelj."
 
 #: kscd.cpp:239
 msgid "Not connected."
 msgstr ""
 
 #: kscd.cpp:242
-#, fuzzy
 msgid "Connection timed out."
-msgstr "Istek vremena za CDDB upit."
+msgstr "Istek vremena za upit."
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
@@ -314,6 +311,8 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
+"Poslu¾itelj je rekao:\n"
+"\"%s\""
 
 #: kscd.cpp:250
 #, c-format
@@ -322,6 +321,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Gre¹ka #%d prilikom slanja poruke pomoæu SMTPa.\n"
+"\n"
+"%s"
 
 #: kscd.cpp:378
 msgid "Vol: --"
@@ -364,9 +366,8 @@ msgid "Previous Track"
 msgstr "Prethodna pjesma"
 
 #: kscd.cpp:570
-#, fuzzy
 msgid "Quit Kscd"
-msgstr "Magic Kscd"
+msgstr "Zatvori Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
@@ -403,7 +404,7 @@ msgstr "Sviram"
 #: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: <Nepoznat>"
 
 #: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
@@ -450,13 +451,11 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
-"Odr¾ava:\n"
-"     Sam Maloney <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) sadr¾i kod iz:\n"
-"\n"
-"kscd 1.2.0 (odvojeno od)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"Odr¾ava:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
 "\n"
 "kscd sadr¾i kod iz:\n"
 "workman 1.4 beta 3\n"
@@ -565,9 +564,8 @@ msgstr ""
 "Da li ste sigurni da je kscdmagic instaliran?"
 
 #: kscd.cpp:2368
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "CDDB poèetni direktorij"
+msgstr "Unesi CDDB poèetni direktorij"
 
 #: kscd.cpp:2422
 msgid "-h: display commandline options\n"
