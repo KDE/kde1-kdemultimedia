@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd.po\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1999-03-12 15:55+0100\n"
 "Last-Translator: Romuald Texier <texierr@worldnet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -568,11 +568,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Roit renkell an diaz lec'hel CDDB"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: diskouez arventennoù al linenn urzhiañ\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: bevaat an diskas dizraenañ\n"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt\n"
@@ -564,11 +564,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Insira a Directoria da base de dados CDBD local"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opções da linha de comandos\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: activar depuração.\n"
 

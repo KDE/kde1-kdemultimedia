@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1999-02-10 21:42+0100\n"
 "Last-Translator: Sebastià Pla <sastia@redestb.es>\n"
 "Language-Team: CATALAN <LL@li.org>\n"
@@ -568,11 +568,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Introduïu el directori de la base de dades local CDDB"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: mostra les opcions de la línia de comanda\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: habilita la sortida d'errors.\n"
 

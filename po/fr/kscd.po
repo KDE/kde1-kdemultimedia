@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1999-03-04 23:30+0100\n"
 "Last-Translator: Francois-Xavier DURANCEAU "
 "<Francois-Xavier.Duranceau@loria.fr>\n"
@@ -570,11 +570,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Entrez le répertoire de base de la CDDB locale"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h : affiche les options de la ligne de commande\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d : active la sortie de déboguage.\n"
 

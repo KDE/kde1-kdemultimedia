@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1998-12-28 15:43+0200\n"
 "Last-Translator: Marcos Nieto <mnieto@arrakis.es>\n"
 "Language-Team: Spanish <kde-es@kyb.ml.org>\n"
@@ -570,11 +570,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Entre el directorio raíz de la CDDB local"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opciones en línea de comandos\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: permitir salida de depuración.\n"
 

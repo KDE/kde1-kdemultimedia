@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.0pre2\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -568,11 +568,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "KDDB-Bazodosierujo"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: montru komandliniajn opciojn\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: enþaltu malcimigajn mesaøojn.\n"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-12-23 02:19+0100\n"
+"POT-Creation-Date: 1999-03-18 02:52+0100\n"
 "PO-Revision-Date: 1999-03-10 11:15+MET\n"
 "Last-Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
 "Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
@@ -562,11 +562,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Geben Sie das lokale CDDB Basisverzeichnis ein"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2425
 msgid "-h: display commandline options\n"
 msgstr "-h: Kommandozeilenparameter anzeigen\n"
 
-#: kscd.cpp:2423
+#: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
 msgstr "-d: Debug-Ausgaben anzeigen.\n"
 
