@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-05-15 18:50+0100\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 
@@ -565,11 +565,16 @@ msgstr ""
 "KSCD Magic skonèil s chybou.\n"
 "Ste si istý, ¾e ho máte správne nain¹talovaný?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "Hlavný prieèinok CDDB"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: vypí¹ parametre príkazovej riadky\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povoµ ladiaci výstup (anglicky).\n"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -567,11 +567,16 @@ msgstr ""
 "KSCD Magic이 비정상적으로 종료됐읍니다.\n"
 "분명히 kscdmagic을 설치했읍니까?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB 기본 디렉토리"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: 명령행 옵션을 보여줌\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 디버깅 출력을 가능하게 함\n"
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kscd\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -574,11 +574,16 @@ msgstr ""
 "Kscd Magic avsluttet unormalt.\n"
 "Er du sikker på at Kscd Magic er installert?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB-basekatalog"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: vis kommandolinje-valg\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: gjør mulig debugging av utdata.\n"
 

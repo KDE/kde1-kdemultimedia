@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -562,11 +562,16 @@ msgstr ""
 "KSCD Magic 不正常退出.\n"
 "你确定安装了 kscdmagic ?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB 数据目录"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: 显示命令行选项\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 允许调试信息输出.\n"
 

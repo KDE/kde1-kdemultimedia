@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscs revision 1.4\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-08-26 16:53+SET\n"
 "Last-Translator: Christer Gustavsson <f93-cgn@sm.luth.se>\n"
 "Language-Team: Swedish <LL@li.org>\n"
@@ -661,13 +661,19 @@ msgstr ""
 "KSCD Magic avslutades onormalt.\n"
 "Är du säker på att kscdmagic är installerad?"
 
+# CDDBSetupData.cpp:44
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB Baskatalog"
+
 # kscd.cpp:2131
-#: kscd.cpp:2376
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: visar kommandoprompts val\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: möjliggör debuggning av utdata.\n"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -663,13 +663,17 @@ msgstr ""
 "KSCD Magic is abnormaal geeindigd.\n"
 "Weet je zeker dat kscdmagic is geinstalleerd?"
 
+#: kscd.cpp:2352
+msgid "Enter the local CDDB base Directory"
+msgstr ""
+
 # kscd.cpp:2131
-#: kscd.cpp:2376
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: toon commandorgel opties\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debugging output aanzetten.\n"
 

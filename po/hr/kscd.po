@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-10-15 15:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -566,11 +566,16 @@ msgstr ""
 "KSCD Magic je neoèekivano zavr¹io.\n"
 "Da li ste sigurni da je kscdmagic instaliran?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB poèetni direktorij"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: prika¾i opcije na komandnoj liniji\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: ukljuèi debug ispis\n"
 

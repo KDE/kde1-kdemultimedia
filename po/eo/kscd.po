@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.0pre2\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -567,11 +567,16 @@ msgstr ""
 "KSCD Magic nenormale finiøis.\n"
 "Æu vi estas certa, ke vi øuste instalis kscdmagic?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "KDDB-Bazodosierujo"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: montru komandliniajn opciojn\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: enþaltu malcimigajn mesaøojn.\n"
 

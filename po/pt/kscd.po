@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 
@@ -559,11 +559,16 @@ msgstr ""
 "KSCD Mágico saiu anormalmente.\n"
 "Tem a certeza que ele está instalado?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "Directory do CDDB"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opções da linha de comandos\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: activar depuração.\n"
 

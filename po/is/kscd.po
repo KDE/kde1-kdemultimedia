@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: 1998-10-20 00:20+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@hi.is>\n"
 "Language-Team: is\n"
@@ -553,11 +553,16 @@ msgstr ""
 "Keyrslu KSCD Galdra lauk óeðlilega.\n"
 "Ertu viss um að KSCD sé uppsett?"
 
-#: kscd.cpp:2376
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "Grunnmappa fyrir CDDB"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr "-h: sýna möguleg viðföng\n"
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr "-d: sýna upplýsingar til villuleitar\n"
 

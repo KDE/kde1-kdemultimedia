@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-12 02:21+0100\n"
+"POT-Creation-Date: 1998-11-21 02:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yu-Ting Kuo <Beta2000@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -662,11 +662,17 @@ msgid ""
 "Are you sure kscdmagic is installed?"
 msgstr ""
 
-#: kscd.cpp:2376
+# CDDBSetupData.cpp:44
+#: kscd.cpp:2352
+#, fuzzy
+msgid "Enter the local CDDB base Directory"
+msgstr "CDDB ¥D¥Ø¿ý"
+
+#: kscd.cpp:2392
 msgid "-h: display commandline options\n"
 msgstr ""
 
-#: kscd.cpp:2377
+#: kscd.cpp:2393
 msgid "-d: enable debugging output.\n"
 msgstr ""
 
