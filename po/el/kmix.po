@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1999-02-10 18:00+0200\n"
 "Last-Translator: Yiannis Belias <orion@hellug.gr>\n"
 "Language-Team: Greek <linux-howto@hellug.gr>\n"
@@ -80,47 +80,47 @@ msgstr "'&Ενωση"
 msgid "&RecSource"
 msgstr ""
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Γενικά"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Κανάλια"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Ρυθμίσεις Εκκίνησης"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Γραμμή Επιλογών"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Κλίμακα"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Ενεργοποίηση ενσωμάτωσης"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "Προτιμήσεις KMix"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Γενικά"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Κανάλια"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Ρυθμίσεις Εκκίνησης"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Γραμμή Επιλογών"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Κλίμακα"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Ενεργοποίηση ενσωμάτωσης"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Ρυθμίσεις καναλιών μείκτη"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Συσκευή"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Εμφάνιση"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Διαχωρισμός"
 
