@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
 "POT-Creation-Date: 1998-12-23 02:19+0100\n"
-"PO-Revision-Date: 1999-01-10 11:15+MET\n"
-"Last-Translator: Thomas Diehl <th_diehl@csi.com>\n"
+"PO-Revision-Date: 1999-03-10 11:15+MET\n"
+"Last-Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
 "Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
 #: CDDBSetupData.cpp:44
@@ -66,7 +66,7 @@ msgstr "Benutzen Sie diesen Editor, um Anmerkungen zum Titel zu machen"
 
 #: CDDialog.cpp:430 CDDialog.cpp:589
 msgid "Please select a Category or press Cancel"
-msgstr "Bitten wählen Sie eine Kategorie oder wählen Sie Abbrechen"
+msgstr "Bitten wählen Sie eine Kategorie oder drücken Sie Abbrechen"
 
 #: CDDialog.cpp:431
 msgid "To which category does the CD belong?"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: CDDialog.cpp:590
 msgid "Under which category would you like to store this CDDB entry?"
-msgstr "In welcher Kategorie möchten Sie diesen CDDB-Eintrag speichern?"
+msgstr "In welcher Kategorie möchten Sie diesen CDDB-Eintrag ablegen?"
 
 #: CDDialog.cpp:641
 #, c-format
@@ -115,7 +115,7 @@ msgid ""
 "Please correct the entry and try again."
 msgstr ""
 "Das Künstler / Titel Feld ist nicht ausgefüllt.\n"
-"Bitte verbessern Sie den Eintrag und versuchen Sie es erneut."
+"Bitte tragen Sie etwas ein und versuchen es danach erneut."
 
 #: CDDialog.cpp:831
 msgid ""
@@ -132,8 +132,8 @@ msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
 msgstr ""
-"Nicht alle Track-Titel können leer sein.\n"
-"Bitte verbessern Sie den Eintrag und versuchen Sie es erneut."
+"Es dürfen nicht alle Track-Titel leer sein.\n"
+"Bitte tragen Sie etwas ein und versuchen es danach erneut."
 
 #: CDDialog.cpp:877
 msgid "Internal Error"
@@ -173,7 +173,7 @@ msgstr "Track / Zeit / Titel"
 
 #: CDDialogData.cpp:111 CDDialogData.cpp:117
 msgid "Ext Info"
-msgstr "Weitere Informationen"
+msgstr "Zusatz"
 
 #: CDDialogData.cpp:133
 msgid "Disc ID"
@@ -225,7 +225,7 @@ msgstr "An KPanel andocken"
 
 #: configdlg.cpp:165
 msgid "Play on Tray Close"
-msgstr "Abspielen beim Schließen des Trays"
+msgstr "Abspielen beim Schließen der Schublade"
 
 #: configdlg.cpp:171
 msgid "AutoDock on Minimize"
@@ -237,7 +237,7 @@ msgstr "Abspielen beim Verlassen beenden"
 
 #: configdlg.cpp:184
 msgid "Eject on Finish"
-msgstr "Bei Beenden auswerfen"
+msgstr "Beim Beenden auswerfen"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -253,11 +253,11 @@ msgstr "Zurück"
 
 #: docking.cpp:77
 msgid "Next"
-msgstr "Nächster"
+msgstr "Nächstes Stück"
 
 #: docking.cpp:78
 msgid "Previous"
-msgstr "Vorheriger"
+msgstr "Vorheriges Stück"
 
 #: docking.cpp:79
 msgid "Eject"
@@ -272,12 +272,12 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Es konnte kein genauer Treffer gefunden werden. Bitte wählen Sie die "
+"Mehrere Treffer wurden gefunden. Bitte wählen Sie die "
 "richtige CD aus der untenstehenden Liste"
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
-msgstr "Bitte wählen Sie einen CD-Titel, oder wählen Sie Abbrechen"
+msgstr "Bitte wählen Sie einen CD-Titel, oder drücken Sie Abbrechen"
 
 #: kscd.cpp:226
 msgid "Record submitted successfully"
@@ -337,7 +337,7 @@ msgstr "KSCD Magic"
 
 #: kscd.cpp:564
 msgid "Loop CD"
-msgstr "Wiederholen"
+msgstr "CD Dauerwiederholung"
 
 #: kscd.cpp:565
 msgid "Track Selection"
@@ -345,11 +345,11 @@ msgstr "Track-Auswahl"
 
 #: kscd.cpp:566
 msgid "30 Secs Forward"
-msgstr "30 sec vorwärts"
+msgstr "30 Sekunden vorwärts"
 
 #: kscd.cpp:567
 msgid "30 Secs Backward"
-msgstr "30 sec zurück"
+msgstr "30 Sekunden zurück"
 
 #: kscd.cpp:568
 msgid "Next Track"
@@ -418,7 +418,7 @@ msgstr "Angehalten"
 
 #: kscd.cpp:904 kscd.cpp:1277
 msgid "Loop"
-msgstr "Schleife"
+msgstr "Dauerwiederholung"
 
 #: kscd.cpp:916
 msgid "Ejecting"
@@ -536,7 +536,7 @@ msgstr "Tra Übr"
 
 #: kscd.cpp:2064
 msgid "Tot Sec"
-msgstr "Ges sec"
+msgstr "Ges Sek"
 
 #: kscd.cpp:2068
 msgid "Tot Rem"
@@ -544,7 +544,7 @@ msgstr "Ges Übr"
 
 #: kscd.cpp:2073
 msgid "Tra Sec"
-msgstr "Tra sec"
+msgstr "Tra Sek"
 
 #: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
@@ -555,7 +555,7 @@ msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
 msgstr ""
-"KSCD Magic abnormal beendet.\n"
+"KSCD Magic mit Fehler beendet.\n"
 "Sind Sie sicher, daß kscdmagic installiert ist?"
 
 #: kscd.cpp:2368

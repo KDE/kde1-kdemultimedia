@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 1998-04-21 19:55+0100\n"
-"Last-Translator: Thomas Diehl <th_diehl@csi.com>\n"
+"PO-Revision-Date: 1999-03-10 19:55+0100\n"
+"Last-Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
 "Language-Team: German <kde-i18n@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-1\n"
@@ -23,7 +23,7 @@ msgstr "Vorheriger Titel"
 
 #: kmediawin.cpp:178
 msgid "Backward"
-msgstr "Zurück"
+msgstr "Zurückspulen"
 
 #: kmediawin.cpp:191
 msgid "Play/Pause"
@@ -89,7 +89,7 @@ msgstr "Undefiniert"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr "Interpreten"
+msgstr "Hilfsprogramme"
 
 #: prefs.cpp:44
 msgid "Mixer"
