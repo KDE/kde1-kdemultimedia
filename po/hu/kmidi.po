@@ -1,0 +1,199 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmidi VERSION\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"PO-Revision-Date: 1999-01-22 23:30+0100\n"
+"Last-Translator: Merényi Miklós <mermik@medgyaszay-veszprem.sulinet.hu>\n"
+"Language-Team: Hungarian <kde@sophia.jpte.hu>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+msgid "%d Hz %s"
+msgstr "%d Hz %s"
+
+msgid "%d bit %s %s"
+msgstr "%d bit %s %s"
+
+msgid ""
+"%s\n"
+"is not readable or doesn't exist."
+msgstr ""
+"%s\n"
+"nem olvasható, vagy nem létezik."
+
+msgid "15 Secs Backward"
+msgstr "15 másodpercet vissza"
+
+msgid "15 Secs Forward"
+msgstr "15 másodpercet elõre"
+
+msgid "Background Color:"
+msgstr "Háttérszín:"
+
+msgid "Bwd"
+msgstr "Vissza"
+
+msgid "Can not enter directory: %s\n"
+msgstr "Nem lehet a %s könyvtárba belépni.\n"
+
+msgid "Can't open Output Device."
+msgstr "A kimeneti eszköz nem nyitható meg."
+
+msgid "Cannot open or read directory."
+msgstr "A könyvtárat nem lehet megnyitni vagy olvasni"
+
+msgid "Compose Play List"
+msgstr "Válogatás Összeállítása"
+
+msgid "Configure"
+msgstr "Konfigurálás"
+
+msgid "Configure Kmidi"
+msgstr "Kmidi konfigurálása"
+
+msgid "Could not load cdup.bmp"
+msgstr "Nem lehet cdup.bmp-t megnyitni"
+
+msgid "Could not load file.bmp"
+msgstr "file.bmp nem nyitható meg."
+
+msgid "Could not load folder.bmp"
+msgstr "folder.bmp nem nyitható meg."
+
+msgid "Dismiss"
+msgstr "Mégse"
+
+msgid "ERROR"
+msgstr "HIBA"
+
+msgid "Exit Kmidi"
+msgstr "Kilépés"
+
+msgid "Fwd"
+msgstr "Elõre"
+
+msgid "Info Window"
+msgstr "Információk"
+
+msgid ""
+"KMidi %s\n"
+"Copyright (c) 1997-98\n"
+"Bernd Johannes Wuebben\n"
+"wuebben@kde.org\n"
+"\n"
+"KMidi contains code from:\n"
+"TiMidity version 0.2.i\n"
+"Copyright (c) \n"
+"Tuukka Toivonen\n"
+"toivonen@clinet.fi\n"
+msgstr ""
+"KMidi %s\n"
+"Copyright (C) 1998-98\n"
+"Bernd Johannes Wuebben\n"
+"wuebben@kde.org\n"
+"\n"
+"A KMidi alapja a\n"
+"TiMidity 0.2.i verziója volt.\n"
+"Copyright (C) \n"
+"Tuukka Toivonen\n"
+"toivonen@clinet.fi\n"
+
+msgid "KMidi Warning"
+msgstr "KMidi Figyelmeztetés"
+
+msgid "LED Color:"
+msgstr "LED színe:"
+
+msgid "Linear"
+msgstr "Lineáris"
+
+msgid "Loop Song"
+msgstr "Dal Végtelenítése"
+
+msgid "Looping"
+msgstr "Végtelenítés"
+
+msgid "Mono"
+msgstr "Mono"
+
+msgid "Next"
+msgstr "Következõ"
+
+msgid "Next Midi"
+msgstr "Következõ Midi"
+
+msgid "Open Playlist"
+msgstr "Válogatás megnyitása"
+
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+msgid "Play/Pause"
+msgstr "Lejátszás/Szünet"
+
+msgid "Playing"
+msgstr "Lejátszás"
+
+msgid "Prev"
+msgstr "Elõre"
+
+msgid "Previous Midi"
+msgstr "Elõzõ Midi"
+
+msgid "Random"
+msgstr "Véletlen"
+
+msgid "Random Play"
+msgstr "Lejátszás véletlen sorrendben"
+
+msgid "Ready"
+msgstr "Kész"
+
+msgid "Replay"
+msgstr "Újra"
+
+msgid "Show Info Window"
+msgstr "Információk megjelenítése"
+
+msgid "Show Tool Tips"
+msgstr "Tippek megjelenítése"
+
+msgid "Song --/--"
+msgstr "Dal --/--"
+
+msgid "Song: %02d/%02d"
+msgstr "Dal: %02d/%02d"
+
+msgid "Song: --/%02d"
+msgstr "Dal: --/%02d"
+
+msgid "Song: --/--"
+msgstr "Dal: --/--"
+
+msgid "Stereo"
+msgstr "Sztereo"
+
+msgid "Vol:%02d%%"
+msgstr "Vol:%02d%%"
+
+msgid "Vol:%03d%%"
+msgstr "Vol:%03d%%"
+
+msgid "Volume Control"
+msgstr "Hangerõszabályozó"
+
+msgid "kmidi"
+msgstr "kmidi"
+
+msgid "kmidi Configuraton"
+msgstr "kmidi Konfiguráció"
+
+msgid "sig"
+msgstr "sig"
+
+msgid "uLaw"
+msgstr "uLaw"
+
+msgid "usig"
+msgstr "usig"
