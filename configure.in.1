@@ -37,6 +37,12 @@ AM_KDE_WITH_NLS
 dnl I need to check for libsocket before testing X
 AC_CHECK_LIB(socket, socket, [LIBSOCKET="-lsocket -lnsl"]) dnl for Solaris
 AC_SUBST(LIBSOCKET)
+AC_CHECK_LIB(cdaudio, main, [LIBCDAUDIO="-lcdaudio -lmediad -lds"],[],[-lmedia -lds]) dnl for Irix
+AC_SUBST(LIBCDAUDIO)
+AC_CHECK_LIB(fpe, main, [LIBFPE="-lfpe"]) dnl for Irix CDDA
+AC_SUBST(LIBFPE) dnl for Irix CDDA
+
+
 AC_PATH_KDE
 
 AC_LANG_CPLUSPLUS
