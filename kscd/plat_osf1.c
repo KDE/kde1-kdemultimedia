@@ -303,6 +303,13 @@ dopos:
 	case AS_NO_STATUS:
 		*mode = STOPPED;
 		break;
+	   
+	case AS_AUDIO_INVALID:
+	   /* bdwheele:  audio status isn't supported
+	    * this seems to happen on the Alpha PWS 500a */
+                *mode = STOPPED;
+                break;
+	   
 	default:
 	    abort();
 	}
