@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-06-18 23:29+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr "π›¥Î∑Œ"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "ø¨¡÷/¿·Ω√∏ÿ√„"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr ""
 
 #: kmediawin.cpp:200
 msgid "Next track"
