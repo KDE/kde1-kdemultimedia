@@ -22,7 +22,7 @@ msgstr "Fyrri upptaka"
 
 #: kmediawin.cpp:178
 msgid "Backward"
-msgstr "Afturábak"
+msgstr "Aftur"
 
 #: kmediawin.cpp:191
 msgid "Play/Pause"
@@ -30,7 +30,7 @@ msgstr "Spila/Bíða"
 
 #: kmediawin.cpp:196
 msgid "Forward"
-msgstr "Áfram"
+msgstr "Fram"
 
 #: kmediawin.cpp:201
 msgid "Next track"
@@ -41,9 +41,8 @@ msgid "&Mixer"
 msgstr "&Hljóðblandari"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "&Stillingar"
+msgstr "&Stillingar..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -89,26 +88,24 @@ msgstr "Óskilgreint"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Spilarar"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
-msgstr "&Hljóðblandari"
+msgstr "Hljóðblandari"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "Nota hljóðtæki"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Tæki 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Tæki 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "&Stillingar"
+msgstr "KMedia Stillingar"
