@@ -24,7 +24,7 @@
 
 #include "config.h"
 
-#if defined(__FreeBSD__) || defined(__NetBSD__)
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
 
 static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 
@@ -213,12 +213,10 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 	}
 
 	if (ioctl(d->fd, CDIOCREADSUBCHANNEL, &sc)) {
-#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	    /* we need to release the device so the kernel will notice
 	       reloaded media */
 	    (void) close(d->fd);
 	    d->fd = -1;
-#endif
 		return (0);	/* ejected */
 	}
 
@@ -398,15 +396,11 @@ gen_eject(d)
 	if (fstatfs(stbuf.st_rdev, &buf) == 0)
 		return (-3);
 
-#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	rval = ioctl(d->fd, CDIOCALLOW);
 	if (rval == 0)
-#endif
 	    rval = ioctl(d->fd, CDIOCEJECT);
-#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	if (rval == 0)
 	    rval = ioctl(d->fd, CDIOCPREVENT);
-#endif
 	return rval;
 }
 
