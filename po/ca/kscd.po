@@ -279,8 +279,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"No s'ha pogut casar. Seleccioneu el CD apropiat de la llista per "
-"triar que es presenta a sota."
+"No s'ha pogut casar. Seleccioneu el CD apropiat de la llista per triar que "
+"es presenta a sota."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
