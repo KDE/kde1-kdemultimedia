@@ -16,7 +16,7 @@ msgstr ""
 
 #: kmediawin.cpp:126
 msgid "Playback position"
-msgstr ""
+msgstr "Aktuelle Position"
 
 #: kmediawin.cpp:132
 msgid "Eject medium"
