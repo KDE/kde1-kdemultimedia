@@ -10,9 +10,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Pauza"
+msgstr "Hra»/Zastavi»"
 
 #: kmidframe.cpp:68 kmidframe.cpp:205
 msgid "Previous Song"
@@ -32,19 +31,19 @@ msgstr "Udalosti v slovách"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr ""
+msgstr "Ís» ni¾¹ie v karaoke"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr ""
+msgstr "Ís» vy¹¹ie v karaoke"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr ""
+msgstr "Ís» o stranu ni¾¹ie v karaoke"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr ""
+msgstr "Ís» o stranu vy¹¹ie v karaoke"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -121,7 +120,7 @@ msgstr "&Zmena písma ..."
 
 #: kmidframe.cpp:174
 msgid "Configure &Keys ..."
-msgstr ""
+msgstr "Nastavi» &klávesy ..."
 
 #: kmidframe.cpp:177
 msgid "Midi &Setup ..."
