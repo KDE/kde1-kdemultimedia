@@ -1,7 +1,12 @@
 1998-04-16  Vadim Zaliva  <lord@crocodile.org>
 
+	* State automata and parsing reimplemented
+	* Works over HTTP with and without HTTP proxy.
+	* Tested with M>Wall HTTP proxy
+	
 	* Implemented more sophisticated HTTP encoding for parameters.
 	* kscd.cpp reformated.
+
 	* CDDB over HTTP works, w/o proxy now. Proxy support to be implemeted to-morrow.
 
 1998-04-15  Vadim Zaliva  <lord@crocodile.org>

@@ -1652,8 +1652,8 @@ void KSCD::mycddb_inexact_read(){
 
 }
 
-void KSCD::cddb_done(){
-
+void KSCD::cddb_done()
+{
     cddb_inexact_sentinel =false;  
 
     cddb.getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);

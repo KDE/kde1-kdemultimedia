@@ -37,6 +37,9 @@
 #define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
 #define DEFAULT_CDDBHTTP_SERVER "cddb.moonsoft.com http 80 /~cddb/cddb.cgi"
 
+#define CDDB_READ_BUFFER_LEN  2024
+#define CDDB_FIELD_BUFFER_LEN 256
+
 class CDDB:public QObject
 {
 
@@ -47,10 +50,18 @@ class CDDB:public QObject
     CDDB(char *hostname=0, int port = 0, int timeout = 60);
     ~CDDB();
 
-    enum { INIT, ERROR_INIT, HELLO, ERROR_HELLO, READY, QUERY, ERROR_QUERY,
-	   CDDB_READ, CDDB_DONE, ERROR_CDDB_READ, CDDB_TIMEDOUT, INEX_READ,
-	   SERVERLISTGET, REGULAR, REQUEST_SERVER_LIST, SERVER_LIST_WAIT,
-	   HTTP_REQUEST };
+    typedef enum { INIT=0, ERROR_INIT=1,
+                   HELLO=2, ERROR_HELLO=3,
+                   READY=4,
+                   QUERY=5, ERROR_QUERY=6,
+                   CDDB_READ=7,CDDB_READING=70,ERROR_CDDB_READ=8, 
+                   CDDB_DONE=9, CDDB_TIMEDOUT=10,
+                   INEX_READ=11,
+                   REQUEST_SERVER_LIST=12, SERVER_LIST_WAIT=13, GETTING_SERVER_LIST=14,
+                   HTTP_REQUEST=15, HTTP_HEADER=16
+    } CDDBState;
+    
+    typedef enum { REGULAR=100, SERVER_LIST_GET=101 } CDDBMode;
 
     bool  isConnected() {return connected;};
 
@@ -78,7 +89,6 @@ class CDDB:public QObject
     static void  cddb_http_xlat(QString &s);
 
     void        queryCD(unsigned long magicID,QStrList& querylist);
-    int		getState();
 
     bool local_query(
 	unsigned long magicID,
@@ -102,10 +112,11 @@ class CDDB:public QObject
     int     getHTTPProxyPort();
    
  protected:
+    
     void 	do_state_machine();
-    void 	parse_serverlist();
+    void 	parse_serverlist_entry();
     void        send_http_command(QString &command);
-    void        strip_HTTP_header();
+    bool        next_token();
     
     typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
     transport protocol;
@@ -119,7 +130,6 @@ class CDDB:public QObject
     void         cddb_read(KSocket* sock);
     void         cddb_close(KSocket* sock);
     void         cddb_timed_out_slot();
-    void	 isolate_lastline();
 
  signals:
 
@@ -134,6 +144,7 @@ class CDDB:public QObject
 
  private:
 
+    QStrList    inexact_list;
     QTimer 	starttimer;
     QTimer 	timeouttimer;
     QTimer      expecttimer;
@@ -144,9 +155,7 @@ class CDDB:public QObject
     QString     proxyhost;
     int         proxyport;
     bool        use_http_proxy;
-   
     QString     cgi;
-    int         saved_state; // I was using stack here, but I guess it's overhead
    
     QString     respbuffer;
     QString     tempbuffer;
@@ -156,8 +165,11 @@ class CDDB:public QObject
     bool    	connected;
     bool	readonly;
     KSocket	*sock;
-    int	        state;
-    int		mode;
+
+    CDDBState	state;
+    CDDBMode    mode;
+    CDDBState   saved_state; // I was using stack here, but I guess it's overhead
+
     struct passwd* pw;     
     QString     category;
     QString	title;

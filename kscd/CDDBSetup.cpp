@@ -136,7 +136,6 @@ void CDDBSetup::insertData(const QStrList& _serverlist,
 
 void CDDBSetup::set_defaults()
 {
-
   server_listbox->setAutoUpdate(false);
   server_listbox->clear();
   server_listbox->insertItem(DEFAULT_CDDB_SERVER, -1);
@@ -156,8 +155,9 @@ void CDDBSetup::set_defaults()
   current_server_label->setText(current_server_string.data());
   remote_cddb_cb->setChecked(true);
   cddb_http_cb->setChecked(false);
-  proxy_host_ef->setText("");
-  proxy_port_ef->setText("0");
+// Leave proxy host and port values unchanged, just disable them
+  //  proxy_host_ef->setText("");
+  //  proxy_port_ef->setText("0");
   emit updateCurrentServer();
 
 }
