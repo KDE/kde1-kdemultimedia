@@ -181,7 +181,7 @@ void DockWidget::mousePressEvent(QMouseEvent *e) {
   }
 
 }
-
+extern dockinginprogress;
 void DockWidget::toggle_window_state() {
 
   // restore/hide connect-window
@@ -207,6 +207,7 @@ void DockWidget::toggle_window_state() {
 
       toggled = false;
       k->show();
+	dockinginprogress = false;
     }
   }
 }

@@ -1,3 +1,11 @@
+1998-11-04  Sam Maloney  <thufir@illogic.ml.org>
+
+	* Fixed problem with 'dock' button, when AutoDock is turned on.
+	* Implimented SMTP code, so Kscd no longer requires sendmail/unix
+	  mail program(s) to submit CDDB records.
+	* Added VERY requested feature, of having it retract the tray if
+	  its ejected, when one hits the eject button.
+
 1998-10-14 Alexei Dets   <dets@services.ru>
 
        * Fixed CD Database Editor close handling.

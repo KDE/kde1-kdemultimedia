@@ -15,14 +15,16 @@ LINK    = $(CXXLINK)
 
 noinst_HEADERS = kscd.h struct.h bwlednum.h ledlamp.h inexact.h \
 	CDDialog.h CDDialogData.h CDDBSetup.h CDDBSetupData.h mgconfdlg.h \
-	configdlg.h cddb.h version.h docking.h wmcdda.h
+	configdlg.h cddb.h version.h docking.h wmcdda.h smtpconfig.h \
+	smtp.h
 
 kscd_SOURCES = kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp \
 	CDDialogData.cpp CDDBSetup.cpp CDDBSetupData.cpp docking.cpp \
 	inexact.cpp cdinfo.c mgconfdlg.cpp \
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
-	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp
+	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp \
+	smtpconfig.cpp smtp.cpp
 
 cddaslave_SOURCES = plat_sun_audio.c plat_sun_cdda.c cddaslave.c  
 
@@ -34,7 +36,7 @@ OBJECTS3=kscdmagic/bitmap.o  kscdmagic/core.o kscdmagic/main.o \
 
 DISTCLEANFILES = kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc \
 	 inexact.moc CDDialog.moc CDDialogData.moc CDDBSetup.moc \
-	CDDBSetupData.moc docking.moc mgconfdlg.moc
+	CDDBSetupData.moc docking.moc mgconfdlg.moc smtpconfig.moc
 
 bin_PROGRAMS = kscd cddaslave 
 TARGET3 = kscdmagic
@@ -96,6 +98,8 @@ inexact.cpp: inexact.moc
 kscd.cpp: kscd.moc config.h version.h
 ledlamp.cpp: ledlamp.moc
 mgconfdlg.cpp: mgconfdlg.moc
+smtpconfig.cpp: smtpconfig.moc
+smtp.cpp: smtp.moc
 
 ####### Meta objects
 
@@ -110,6 +114,12 @@ configdlg.moc: configdlg.h
 
 cddb.moc: cddb.h
 	$(MOC) cddb.h -o cddb.moc
+
+smtpconfig.moc: smtpconfig.h
+	$(MOC) smtpconfig.h -o smtpconfig.moc
+
+smtp.moc: smtp.h
+	$(MOC) smtp.h -o smtp.moc
 
 ledlamp.moc: ledlamp.h
 	$(MOC) ledlamp.h -o ledlamp.moc

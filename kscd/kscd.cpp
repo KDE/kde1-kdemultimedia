@@ -142,6 +142,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     cycle_flag		= false;
     cddb_remote_enabled   = false;
     setup 	       	= 0L;
+    smtpconfig          = 0L;
     time_display_mode 	= TRACK_SEC;
     cddb_inexact_sentinel = false;
     revision		= 1;
@@ -152,7 +153,8 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     stopexit = true;
     updateDialog          = false;
     ejectedBefore = false;
-
+    currentlyejected = false;
+    
     drawPanel();
     loadBitmaps();
     setColors();
@@ -773,10 +775,10 @@ void KSCD::dockClicked()
 {
 
     if(docking){
+        dockinginprogress = true;
         if(dock_widget)
             dock_widget->SaveKscdPosition();
         this->hide();
-        dockinginprogress = true;
     }
     
 
@@ -827,7 +829,7 @@ void KSCD::focusOutEvent(QFocusEvent *e)
                    docking, autodock, e->lostFocus(), this->isVisible(),
                    dock_widget->isToggled());
         }
-    dockinginprogress = false;
+//    dockinginprogress = false;
 }
 
 void KSCD::loopClicked(){
@@ -849,21 +851,24 @@ void KSCD::ejectClicked(){
 
     if(!cddrive_is_ok)
         return;
+    if(!currentlyejected){
+        looping = FALSE;
+        randomplay = FALSE;
+        statuslabel->setText(klocale->translate("Ejecting"));
+        qApp->processEvents();
+        qApp->flushX();
+        artistlabel->setText("");
+        titlelabel->setText("");
+        tracktitlelist.clear();
+        extlist.clear();
 
-    looping = FALSE;
-    randomplay = FALSE;
-    statuslabel->setText(klocale->translate("Ejecting"));
-    qApp->processEvents();
-    qApp->flushX();
-    artistlabel->setText("");
-    titlelabel->setText("");
-    tracktitlelist.clear();
-    extlist.clear();
-
-    stop_cd();
-    //  timer->stop();
-    eject_cd(1);
-
+        stop_cd();
+        //  timer->stop();
+        eject_cd(1);
+    }else{
+        cd_close();
+        cd_status();
+    }
 }
 
 void KSCD::randomSelected(){
@@ -1016,7 +1021,10 @@ void KSCD::aboutClicked(){
     mgconfig.brightness = magic_brightness;
     mgdlg = new MGConfigDlg(tabdialog,&mgconfig,"mgconfigdialg");
 
+    smtpconfig = new SMTPConfig(tabdialog, "smtpconfig", &smtpConfigData);
+    
     tabdialog->addTab(setup,"CDDB");
+    tabdialog->addTab(smtpconfig, klocale->translate("SMTP Setup"));
     tabdialog->addTab(dlg,klocale->translate("Kscd Options"));
     tabdialog->addTab(mgdlg,klocale->translate("Kscd Magic"));
     tabdialog->addTab(about,klocale->translate("About"));
@@ -1024,7 +1032,8 @@ void KSCD::aboutClicked(){
 
 
     if(tabdialog->exec() == QDialog::Accepted){
-
+        smtpconfig->commitData();
+        
         background_color = dlg->getData()->background_color;
         led_color = dlg->getData()->led_color;
         tooltips = dlg->getData()->tooltips;
@@ -1084,6 +1093,8 @@ void KSCD::aboutClicked(){
     dlg = 0L;
     delete setup;
     setup = 0L;
+    delete smtpconfig;
+    smtpconfig = 0L;
     delete about;
     delete tabdialog;
 
@@ -1149,6 +1160,11 @@ void KSCD::cdMode(){
     }
     cddrive_is_ok = true; // cd drive ok
 
+    if(cur_cdmode == 5)
+        currentlyejected = true;
+    else
+        currentlyejected = false;
+    
     switch (cur_cdmode) {
     case -1:         /* UNKNOWN */
         cur_track = save_track = 1;
@@ -1390,6 +1406,12 @@ void KSCD::readSettings()
     magic_height     = config->readNumEntry("magicheight",200);
     magic_brightness = config->readNumEntry("magicbrightness", 3);
 
+    config->setGroup("SMTP");
+    smtpConfigData.enabled = (bool)config->readNumEntry("enabled", 1);
+    smtpConfigData.serverHost = config->readEntry("serverHost", "localhost");
+    smtpConfigData.serverPort = config->readEntry("serverPort", "25");
+    smtpConfigData.senderAddress = config->readEntry("senderAddress", "someone@somewhere.org");
+
     config->setGroup("CDDB");
     QString basedirdefault;
     basedirdefault = mykapp->kde_datadir().copy();
@@ -1477,7 +1499,12 @@ void KSCD::writeSettings(){
     config->writeEntry("LEDColor",led_color);
     config->writeEntry("UnixMailCommand",mailcmd);
 
-
+    config->setGroup("SMTP");
+    config->writeEntry("enabled", smtpConfigData.enabled);
+    config->writeEntry("serverHost", smtpConfigData.serverHost);
+    config->writeEntry("serverPort", smtpConfigData.serverPort);
+    config->writeEntry("senderAddress", smtpConfigData.senderAddress);
+    
     config->setGroup("CDDB");
     config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
     config->writeEntry("LocalBaseDir",cddbbasedir);
@@ -1506,7 +1533,7 @@ void KSCD::CDDialogSelected(){
     cddialog = new CDDialog();
 
     cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-                      revision,playlist,pathlist,mailcmd,submitaddress);
+                      revision,playlist,pathlist,mailcmd,submitaddress, &smtpConfigData);
 
     connect(cddialog,SIGNAL(cddb_query_signal(bool)),this,SLOT(get_cddb_info(bool)));
     connect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
@@ -1660,7 +1687,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
         if(cddialog && updateDialog)
             cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-                              revision,playlist,pathlist,mailcmd,submitaddress);
+                              revision,playlist,pathlist,mailcmd,submitaddress, &smtpConfigData);
         playlistpointer = 0;
     }
 
@@ -1839,7 +1866,7 @@ void KSCD::cddb_done()
 
     if(cddialog && updateDialog)
         cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-                          revision,playlist,pathlist,mailcmd,submitaddress);
+                          revision,playlist,pathlist,mailcmd,submitaddress, &smtpConfigData);
 
     int i = 0;
     songListCB->clear();
@@ -2389,4 +2416,3 @@ void KSCD::checkMount(){
 
 #endif
 */
-

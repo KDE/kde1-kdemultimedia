@@ -13,6 +13,7 @@
 #include "CDDialogData.h"
 #include <qstrlist.h>
 #include <qdatetm.h>
+#include <smtpconfig.h>
 
 
 extern "C" {
@@ -61,7 +62,8 @@ public:
 		 QStrList& playlist,
 		 QStrList& pathlist,
 		 QString& _mailcmd,
-		 QString& _submitaddress
+                 QString& _submitaddress,
+                 SMTPConfig::SMTPConfigData *_smtpConfigData
 		 );
 
     bool checkit();
@@ -73,6 +75,7 @@ protected:
     void keyPressEvent(QKeyEvent* e);
 public slots:
 
+    void messageSent(void);
     void titleselected(int);
     void titlechanged(const char*);
     void trackchanged();
@@ -92,6 +95,7 @@ signals:
 
 private:
 
+    SMTPConfig::SMTPConfigData *smtpConfigData;
     QStrList 	ext_list;
     QStrList 	track_list;
     QStrList 	pathlist;
@@ -104,6 +108,7 @@ private:
     QString	mailcmd;
     QString     playorder;
     struct dialogcdinfo cdinfo;
+    bool            messageNotSent;
     
 };
 #endif // CDDialog_included

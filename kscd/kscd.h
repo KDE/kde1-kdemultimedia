@@ -74,6 +74,7 @@
 #endif
 
 #include "cddb.h"
+#include "smtpconfig.h"
 #include "ledlamp.h"
 #include "CDDialog.h"
 #include "CDDBSetup.h"
@@ -159,80 +160,84 @@ public slots:
         void dockClicked();
 
 private:
-	CDDBSetup* 	setup;
-	CDDialog* 	cddialog;
-	QPushButton	*playPB;
-	QPushButton	*stopPB;
-	QPushButton	*prevPB;
-	QPushButton	*nextPB;
-	QPushButton	*fwdPB;
-	QPushButton	*bwdPB;
-	QPushButton	*dockPB;
-	QPushButton	*replayPB;
-	QPushButton	*ejectPB;
-	QPushButton	*aboutPB;
-	QPushButton	*infoPB;
-	QPopupMenu	*mainPopup;
-	QPopupMenu	*perfPopup;
-	QPopupMenu	*purchPopup;
-	QPopupMenu	*infoPopup;
+    CDDBSetup       *setup;
+    
+    SMTPConfig      *smtpconfig;
+    SMTPConfig::SMTPConfigData  smtpConfigData;
+    
+    CDDialog        *cddialog;
+    QPushButton	    *playPB;
+    QPushButton	    *stopPB;
+    QPushButton	    *prevPB;
+    QPushButton	    *nextPB;
+    QPushButton	    *fwdPB;
+    QPushButton	    *bwdPB;
+    QPushButton	    *dockPB;
+    QPushButton	    *replayPB;
+    QPushButton	    *ejectPB;
+    QPushButton	    *aboutPB;
+    QPushButton	    *infoPB;
+    QPopupMenu	    *mainPopup;
+    QPopupMenu	    *perfPopup;
+    QPopupMenu	    *purchPopup;
+    QPopupMenu	    *infoPopup;
 
-	QColor 		background_color;
-	QColor 		led_color;
-	BW_LED_Number	*trackTimeLED[6];
-	QLabel 		*statuslabel;
-	QLabel 		*titlelabel;
-	QLabel 		*artistlabel;
-	QLabel 		*volumelabel;
-	QLabel 		*tracklabel;
-	QLabel 		*totaltimelabel;
-	QLabel		*nLEDs;
-	QPushButton 	*optionsbutton;
-	QPushButton 	*shufflebutton;
-	QPushButton 	*cddbbutton;
-	QPushButton	*volLA;
-	QTimer		*timer;
-	QTimer		*titlelabeltimer;
-	QTimer		*queryledtimer;
-	QTimer		*initimer;
-	QTimer		*cycletimer;
-	QComboBox	*songListCB;
-	QSlider		*volSB;
+    QColor 		background_color;
+    QColor 		led_color;
+    BW_LED_Number	*trackTimeLED[6];
+    QLabel 		*statuslabel;
+    QLabel 		*titlelabel;
+    QLabel 		*artistlabel;
+    QLabel 		*volumelabel;
+    QLabel 		*tracklabel;
+    QLabel 		*totaltimelabel;
+    QLabel		*nLEDs;
+    QPushButton 	*optionsbutton;
+    QPushButton 	*shufflebutton;
+    QPushButton 	*cddbbutton;
+    QPushButton	*volLA;
+    QTimer		*timer;
+    QTimer		*titlelabeltimer;
+    QTimer		*queryledtimer;
+    QTimer		*initimer;
+    QTimer		*cycletimer;
+    QComboBox	*songListCB;
+    QSlider		*volSB;
 
-	KProcess*             magicproc;
-	int		volChnl;
-	int		mixerFd;
-	int 	        volume;
-	int magic_width;
-	int magic_height;
-	int magic_brightness;
-	QFrame 		*backdrop;
-	LedLamp        *queryled;
-	KConfig 	*config;
-	bool 		tooltips;
-	bool 		randomplay ;
-	bool 		looping;
-	bool		cycle_flag;
-	QString		cycle_str;
-	bool 		volstartup;
-	bool 		cddrive_is_ok;
-	int 		time_display_mode;
-	QString cd_device_str;
+    KProcess*             magicproc;
+    int		volChnl;
+    int		mixerFd;
+    int 	        volume;
+    int magic_width;
+    int magic_height;
+    int magic_brightness;
+    QFrame 		*backdrop;
+    LedLamp        *queryled;
+    KConfig 	*config;
+    bool 		tooltips;
+    bool 		randomplay ;
+    bool 		looping;
+    bool		cycle_flag;
+    QString		cycle_str;
+    bool 		volstartup;
+    bool 		cddrive_is_ok;
+    int 		time_display_mode;
+    QString cd_device_str;
 
-	QPushButton     *makeButton( int, int, int, int, const char * );
+    QPushButton     *makeButton( int, int, int, int, const char * );
 
-	void		initWorkMan();
-//	void		checkMount();
+    void		initWorkMan();
+    //	void		checkMount();
 
-	void		drawPanel();
-	void		cleanUp();
-	void		loadBitmaps();
-	void 	 	setLEDs(QString symbols);
-	int 	        randomtrack();
+    void		drawPanel();
+    void		cleanUp();
+    void		loadBitmaps();
+    void 	 	setLEDs(QString symbols);
+    int 	        randomtrack();
 
 //TODO get rid of the mixe stuff
 
-	void		initMixer( const char *mixer = "/dev/mixer" );
+    void		initMixer( const char *mixer = "/dev/mixer" );
 
 // These are the variables from workbone
 
@@ -274,6 +279,7 @@ private:
 	bool 		cddb_inexact_sentinel;
         bool            updateDialog;
         bool ejectedBefore;
+        bool currentlyejected;
 public:
 
 	KSCD( QWidget *parent = 0, const char *name = 0 );

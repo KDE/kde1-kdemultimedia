@@ -12,6 +12,8 @@
 #include "CDDialogData.moc"
 #include "inexact.h"
 #include "version.h"
+#include "smtp.h"
+#include "smtpconfig.h"
 
 #include <unistd.h>
 #include <klocale.h>
@@ -110,20 +112,21 @@ void CDDialog::play(int i){
 }
 
 
-void CDDialog::setData( 
-		       struct cdinfo_wm *cd, 
-		       QStrList& tracktitlelist,
-		       QStrList& extlist, 
-		       QStrList& discidl, 
-		       QString& _xmcd_data, 
-		       QString& cat,
-		       int& rev,
-		       QStrList& _playlist,
-		       QStrList& _pathlist,
-		       QString& _mailcmd,
-		       QString& _submitaddress
-		       ){
-
+void CDDialog::setData(
+                       struct cdinfo_wm *cd,
+                       QStrList& tracktitlelist,
+                       QStrList& extlist,
+                       QStrList& discidl,
+                       QString& _xmcd_data,
+                       QString& cat,
+                       int& rev,
+                       QStrList& _playlist,
+                       QStrList& _pathlist,
+                       QString& _mailcmd,
+                        QString& _submitaddress,
+                       SMTPConfig::SMTPConfigData *_smtpConfigData
+                      )
+{
     int ntr, etr;
 
     ext_list 	= extlist;
@@ -136,7 +139,8 @@ void CDDialog::setData(
     pathlist    = _pathlist;
     mailcmd	= _mailcmd.copy();
     submitaddress = _submitaddress.copy();
-
+    smtpConfigData = _smtpConfigData;
+    
     ntr = track_list.count();
     etr = ext_list.count();
 
@@ -448,8 +452,56 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   formatstr = mailcmd;
   formatstr += " ";
   formatstr += submitaddress;
-*/
+  */
+  if(smtpConfigData->enabled){
+      if(debugflag)
+          printf("Submitting cddb entry via SMTP...\n");
+      QFile file(tempfile);
 
+      file.open(IO_ReadOnly);
+      QTextStream ti(&file);
+
+      QString s;
+      QString subject;
+      
+      while (!ti.eof()){
+          s += ti.readLine() + "\n";
+//          if(!ti.eof()){
+              //  mimetranslate(s);
+//              to << s.data() << '\n';
+ //         }
+      }
+
+      SMTP mailer;
+
+      mailer.setServerHost(smtpConfigData->serverHost.data());
+      mailer.setPort(smtpConfigData->serverPort.toInt());
+      
+      mailer.setSenderAddress(smtpConfigData->senderAddress.data());
+      mailer.setRecipientAddress(submitaddress.data());
+      subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
+      mailer.setMessageSubject(subject.data());
+      mailer.setMessageBody(s.data());
+
+      connect(&mailer, SIGNAL(messageSent()), this, SLOT(messageSent()));
+      messageNotSent = true;
+      mailer.sendMessage();
+
+      while(messageNotSent){
+          mykapp->processEvents();
+          mykapp->flushX();
+      }
+      disconnect(&mailer, SIGNAL(messageSent()), this, SLOT(messageSent()));
+
+      file.close();
+      unlink(tempfile.data());
+  
+      if(debugflag)
+          printf("DONE SENDING\n");
+      return;
+  }
+
+      
   QString cmd;
   //  cmd = cmd.sprintf("mail -s \"%s\" cddb-test@cddb.cddb.com",subject.data());
   //  cmd = cmd.sprintf("sendmail wuebben@math.cornell.edu");
@@ -489,14 +541,13 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
   //to << "Content-Transfer-Encoding: quoted-printable\n";
 
-
   while ( !ti.eof() ) {
-    s = ti.readLine();
-    if(!ti.eof()){
-      //  mimetranslate(s);
-      to << s.data() << '\n';
-    }
-  }	  
+      s = ti.readLine();
+      if(!ti.eof()){
+          //  mimetranslate(s);
+          to << s.data() << '\n';
+      }
+  }
 
   pclose(mailpipe);
 
@@ -507,6 +558,10 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   if ( debugflag ) printf("DONE SENDING\n");
 }
 
+void CDDialog::messageSent(void)
+{
+    messageNotSent = false;
+}
 
 void CDDialog::getCategoryFromPathName(char* pathname, QString& _category){
   
@@ -616,7 +671,8 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   QString tmp;
   QTextStream t(&file);
 
-  if(upload){
+
+  if(upload && !smtpConfigData->enabled){
       QString subject;
       subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
 
