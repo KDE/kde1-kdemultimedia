@@ -1,3 +1,14 @@
+1998-11-20 Sam Maloney <thufir@illogic.ml.org>
+
+	* Fixed bug/"missing thing" were it would just crash when loading
+	  up if it couldn't find the cddb base dir. Now it will use
+	  InexactDialog to prompt the user for the directory. (cancel button
+	  will force it to get from remote). 
+	* NOTE: Im just going fix the inexact dialog box so it can be
+	  single line input, (for the cddb dialog), then ill probably
+	  release 1.2.4, unless anyone has any objections. (to lazy to fix
+	  tonite)
+
 1998-11-11 Sam Maloney <thufir@illogic.ml.org>
 
 	* Fixed bug with debug flag being messed up when docking

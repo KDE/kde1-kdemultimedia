@@ -2340,10 +2340,26 @@ void KSCD::get_pathlist(QStrList& _pathlist){
 
     QDir d;
     QStrList list;
+    InexactDialog *dialog;
 
     d.setFilter( QDir::Dirs);
     d.setSorting( QDir::Size);
     d.setPath(cddbbasedir.data());
+    if(!d.exists()){
+        
+        dialog = new InexactDialog(0, "dialog", false);
+        dialog->insertText(cddbbasedir.data());
+        dialog->setTitle((char *)klocale->translate("Enter the local CDDB base Directory"));
+
+        if(dialog->exec() != QDialog::Accepted){
+            delete dialog;
+            return;
+        }
+
+        dialog->getSelection(cddbbasedir);
+        d.setPath(cddbbasedir.data());
+        delete dialog;
+    }
 
     _pathlist.clear();
     list = *d.entryList();

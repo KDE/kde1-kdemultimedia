@@ -61,23 +61,19 @@ private slots:
   void checkit();
 
 private:
-
-  void resizeEvent(QResizeEvent *e);
+    void resizeEvent(QResizeEvent *e);
 
 private:
-
-  bool 		 listbox;
-  QPushButton 	 *ok_button;
-  QPushButton 	 *cancel_button;
-  QListBox 	 *list_box;
-  QMultiLineEdit *edit;
-  QLabel 	 *statuslabel;
-  QLabel 	 *text;
-  QString 	 returnstring;
-  QString 	 titlestring;
-  QString	 errorstring;
-  
+    bool            listbox;
+    QPushButton     *ok_button;
+    QPushButton     *cancel_button;
+    QListBox 	    *list_box;
+    QMultiLineEdit  *edit;
+    QLabel 	    *statuslabel;
+    QLabel 	    *text;
+    QString 	    returnstring;
+    QString 	    titlestring;
+    QString	    errorstring;
 };
-
 
 #endif
