@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-12-17 02:06+0100\n"
+"POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1998-01-24 18:50+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
@@ -228,11 +228,11 @@ msgstr ""
 msgid "AutoDock on Minimize"
 msgstr ""
 
-#: configdlg.cpp:177
+#: configdlg.cpp:178
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: configdlg.cpp:183
+#: configdlg.cpp:184
 #, fuzzy
 msgid "Eject on Finish"
 msgstr "Werfe aus"
@@ -262,7 +262,7 @@ msgstr "Vorheriger"
 msgid "Eject"
 msgstr "Auswerfen"
 
-#: docking.cpp:169
+#: docking.cpp:174
 msgid "Minimize"
 msgstr "Minimieren"
 
@@ -388,20 +388,20 @@ msgstr "CDDB-Dialog"
 msgid "CD Volume Control"
 msgstr "Lautstärkeregler"
 
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1279
 msgid "Playing"
 msgstr "Spiele"
 
-#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
+#: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:671 kscd.cpp:1308
+#: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
 msgstr ""
 
-#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
+#: kscd.cpp:676 kscd.cpp:941 kscd.cpp:1275
 msgid "Random"
 msgstr "Zufall"
 
@@ -413,19 +413,19 @@ msgstr "Merkwürdig..."
 msgid "Stopped"
 msgstr "Angehalten"
 
-#: kscd.cpp:902 kscd.cpp:1262
+#: kscd.cpp:904 kscd.cpp:1277
 msgid "Loop"
 msgstr "Schleife"
 
-#: kscd.cpp:914
+#: kscd.cpp:916
 msgid "Ejecting"
 msgstr "Werfe aus"
 
-#: kscd.cpp:990
+#: kscd.cpp:992
 msgid "kscd Configuraton"
 msgstr "Kscd konfiguration"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1008
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -442,37 +442,37 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kscd.cpp:1019
+#: kscd.cpp:1021
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 msgstr ""
 
-#: kscd.cpp:1023
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 "\n"
 msgstr ""
 
-#: kscd.cpp:1079
+#: kscd.cpp:1080
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1080
+#: kscd.cpp:1081
 msgid "Kscd Options"
 msgstr "Kscd Optionen"
 
-#: kscd.cpp:1081
+#: kscd.cpp:1082
 msgid "Kscd Magic"
 msgstr ""
 
-#: kscd.cpp:1170 kscd.cpp:2070
+#: kscd.cpp:1185 kscd.cpp:2085
 msgid "Vol: %02d%%"
 msgstr ""
 
-#: kscd.cpp:1208
+#: kscd.cpp:1223
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -483,52 +483,52 @@ msgstr ""
 "Bitte stellen Sie sicher, daß Sie Zugriffsberechtigung haben auf:\n"
 "%s"
 
-#: kscd.cpp:1319
+#: kscd.cpp:1334
 msgid "Ready"
 msgstr "Bereit"
 
-#: kscd.cpp:1362
+#: kscd.cpp:1377
 msgid "Ejected"
 msgstr "Ausgeworfen"
 
-#: kscd.cpp:1646
+#: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
 msgstr "Kann die CDDB-Serverliste nicht bekommen."
 
-#: kscd.cpp:1790 kscd.cpp:1795
+#: kscd.cpp:1805 kscd.cpp:1810
 msgid "No matching CDDB entry found."
 msgstr "Kein passender CDDB-Eintrag gefunden."
 
-#: kscd.cpp:1819 kscd.cpp:1829
+#: kscd.cpp:1834 kscd.cpp:1844
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Kein passender CDDB-Eintrag gefunden."
 
-#: kscd.cpp:1845 kscd.cpp:1855
+#: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
 msgstr "CDDB-Abfrage: Zeitüberschreitung."
 
-#: kscd.cpp:2045
+#: kscd.cpp:2060
 msgid "Tra Rem"
 msgstr "Tra Übr"
 
-#: kscd.cpp:2049
+#: kscd.cpp:2064
 msgid "Tot Sec"
 msgstr "Ges Sek"
 
-#: kscd.cpp:2053
+#: kscd.cpp:2068
 msgid "Tot Rem"
 msgstr "Ges Übr"
 
-#: kscd.cpp:2058
+#: kscd.cpp:2073
 msgid "Tra Sec"
 msgstr "Tra Sek"
 
-#: kscd.cpp:2183
+#: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
 msgstr "Kann kscdmagic nicht starten."
 
-#: kscd.cpp:2198
+#: kscd.cpp:2213
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -536,16 +536,16 @@ msgstr ""
 "KSCD Magic abnormal beendet.\n"
 "Sind Sie sicher, daß kscdmagic installiert ist?"
 
-#: kscd.cpp:2353
+#: kscd.cpp:2368
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB Basisverzeichnis"
 
-#: kscd.cpp:2407
+#: kscd.cpp:2422
 msgid "-h: display commandline options\n"
 msgstr "-h: Kommandozeilenparameter anzeigen\n"
 
-#: kscd.cpp:2408
+#: kscd.cpp:2423
 msgid "-d: enable debugging output.\n"
 msgstr "-d: Debug-Ausgaben anzeigen.\n"
 

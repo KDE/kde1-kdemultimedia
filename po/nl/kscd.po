@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-17 02:06+0100\n"
+"POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -281,11 +281,11 @@ msgstr ""
 msgid "AutoDock on Minimize"
 msgstr ""
 
-#: configdlg.cpp:177
+#: configdlg.cpp:178
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: configdlg.cpp:183
+#: configdlg.cpp:184
 msgid "Eject on Finish"
 msgstr ""
 
@@ -321,7 +321,7 @@ msgid "Eject"
 msgstr "Eject"
 
 # docking.cpp:175
-#: docking.cpp:169
+#: docking.cpp:174
 msgid "Minimize"
 msgstr "Minimaliseren"
 
@@ -470,22 +470,22 @@ msgid "CD Volume Control"
 msgstr "CD Volume Control"
 
 # kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1279
 msgid "Playing"
 msgstr "Bezig met spelen"
 
-#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
+#: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
 # kscd.cpp:602 kscd.cpp:1151
-#: kscd.cpp:671 kscd.cpp:1308
+#: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
 msgstr ""
 
 # kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
+#: kscd.cpp:676 kscd.cpp:941 kscd.cpp:1275
 msgid "Random"
 msgstr "Willekeurig"
 
@@ -500,22 +500,22 @@ msgid "Stopped"
 msgstr "Gestopt"
 
 # kscd.cpp:784 kscd.cpp:1116
-#: kscd.cpp:902 kscd.cpp:1262
+#: kscd.cpp:904 kscd.cpp:1277
 msgid "Loop"
 msgstr ""
 
 # kscd.cpp:796
-#: kscd.cpp:914
+#: kscd.cpp:916
 msgid "Ejecting"
 msgstr ""
 
 # kscd.cpp:869
-#: kscd.cpp:990
+#: kscd.cpp:992
 msgid "kscd Configuraton"
 msgstr "kscd Instellingen"
 
 # kscd.cpp:885
-#: kscd.cpp:1006
+#: kscd.cpp:1008
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -544,7 +544,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:897
-#: kscd.cpp:1019
+#: kscd.cpp:1021
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -555,7 +555,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:901
-#: kscd.cpp:1023
+#: kscd.cpp:1025
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -565,27 +565,27 @@ msgstr ""
 "Dank aan Vadim Zaliva <lord@crocodile.org>\n"
 "voor zijn werk aan de http proxy code.\n"
 
-#: kscd.cpp:1079
+#: kscd.cpp:1080
 msgid "SMTP Setup"
 msgstr ""
 
 # kscd.cpp:947
-#: kscd.cpp:1080
+#: kscd.cpp:1081
 msgid "Kscd Options"
 msgstr "Kscd Opties"
 
 # kscd.cpp:948
-#: kscd.cpp:1081
+#: kscd.cpp:1082
 msgid "Kscd Magic"
 msgstr ""
 
 # kscd.cpp:1029 kscd.cpp:1822
-#: kscd.cpp:1170 kscd.cpp:2070
+#: kscd.cpp:1185 kscd.cpp:2085
 msgid "Vol: %02d%%"
 msgstr ""
 
 # kscd.cpp:1067
-#: kscd.cpp:1208
+#: kscd.cpp:1223
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -597,62 +597,62 @@ msgstr ""
 "%s"
 
 # kscd.cpp:1159
-#: kscd.cpp:1319
+#: kscd.cpp:1334
 msgid "Ready"
 msgstr "Klaar"
 
 # kscd.cpp:1191
-#: kscd.cpp:1362
+#: kscd.cpp:1377
 msgid "Ejected"
 msgstr ""
 
 # kscd.cpp:1447
-#: kscd.cpp:1646
+#: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
 msgstr "Kan de CDDB server lijst niet krijgen."
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1790 kscd.cpp:1795
+#: kscd.cpp:1805 kscd.cpp:1810
 msgid "No matching CDDB entry found."
 msgstr "Geen overeenkomende CDDB entry gevonden"
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1819 kscd.cpp:1829
+#: kscd.cpp:1834 kscd.cpp:1844
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Geen overeenkomende CDDB entry gevonden"
 
 # kscd.cpp:1625
-#: kscd.cpp:1845 kscd.cpp:1855
+#: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
 msgstr "CDDB zoekopdracht timed out."
 
-#: kscd.cpp:2045
+#: kscd.cpp:2060
 msgid "Tra Rem"
 msgstr ""
 
 # kscd.cpp:1801
-#: kscd.cpp:2049
+#: kscd.cpp:2064
 msgid "Tot Sec"
 msgstr ""
 
 # kscd.cpp:1805
-#: kscd.cpp:2053
+#: kscd.cpp:2068
 msgid "Tot Rem"
 msgstr ""
 
 # kscd.cpp:1810
-#: kscd.cpp:2058
+#: kscd.cpp:2073
 msgid "Tra Sec"
 msgstr ""
 
 # kscd.cpp:1935
-#: kscd.cpp:2183
+#: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
 msgstr "Kan kscdmagic niet starten."
 
 # kscd.cpp:1950
-#: kscd.cpp:2198
+#: kscd.cpp:2213
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -660,17 +660,17 @@ msgstr ""
 "KSCD Magic is abnormaal geeindigd.\n"
 "Weet je zeker dat kscdmagic is geinstalleerd?"
 
-#: kscd.cpp:2353
+#: kscd.cpp:2368
 msgid "Enter the local CDDB base Directory"
 msgstr ""
 
 # kscd.cpp:2131
-#: kscd.cpp:2407
+#: kscd.cpp:2422
 msgid "-h: display commandline options\n"
 msgstr "-h: toon commandorgel opties\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2408
+#: kscd.cpp:2423
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debugging output aanzetten.\n"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-12-17 02:06+0100\n"
+"POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1998-05-15 18:50+0100\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 
@@ -230,11 +230,11 @@ msgstr "Hra» pri zavretí dvierok"
 msgid "AutoDock on Minimize"
 msgstr "Do panelu pri ikoniz."
 
-#: configdlg.cpp:177
+#: configdlg.cpp:178
 msgid "Stop Playing on Exit"
 msgstr "Presta» hra» pri ukonè."
 
-#: configdlg.cpp:183
+#: configdlg.cpp:184
 #, fuzzy
 msgid "Eject on Finish"
 msgstr "Vysúvam"
@@ -263,7 +263,7 @@ msgstr "Predchádzajúca"
 msgid "Eject"
 msgstr "Vysunú»"
 
-#: docking.cpp:169
+#: docking.cpp:174
 msgid "Minimize"
 msgstr "Minimalizova»"
 
@@ -392,20 +392,20 @@ msgstr "CDDB okno"
 msgid "CD Volume Control"
 msgstr "Kontrola hlasitosti CD"
 
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1279
 msgid "Playing"
 msgstr "Hrám"
 
-#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
+#: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: <Neznámy>"
 
-#: kscd.cpp:671 kscd.cpp:1308
+#: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
+#: kscd.cpp:676 kscd.cpp:941 kscd.cpp:1275
 msgid "Random"
 msgstr "Náhod."
 
@@ -417,19 +417,19 @@ msgstr "Stra¹né..."
 msgid "Stopped"
 msgstr "Zastavené"
 
-#: kscd.cpp:902 kscd.cpp:1262
+#: kscd.cpp:904 kscd.cpp:1277
 msgid "Loop"
 msgstr "Dookola"
 
-#: kscd.cpp:914
+#: kscd.cpp:916
 msgid "Ejecting"
 msgstr "Vysúvam"
 
-#: kscd.cpp:990
+#: kscd.cpp:992
 msgid "kscd Configuraton"
 msgstr "Nastavenie kscd"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1008
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -461,7 +461,7 @@ msgstr ""
 "konceptu CDDB. Pre viac informácií nav¹tívte http://www.cddb.com.\n"
 "\n"
 
-#: kscd.cpp:1019
+#: kscd.cpp:1021
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -471,7 +471,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1023
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -481,23 +481,23 @@ msgstr ""
 "za jeho prácu na http proxy kóde.\n"
 "\n"
 
-#: kscd.cpp:1079
+#: kscd.cpp:1080
 msgid "SMTP Setup"
 msgstr "Nastavenie SMTP"
 
-#: kscd.cpp:1080
+#: kscd.cpp:1081
 msgid "Kscd Options"
 msgstr "Mo¾nosti Kscd"
 
-#: kscd.cpp:1081
+#: kscd.cpp:1082
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1170 kscd.cpp:2070
+#: kscd.cpp:1185 kscd.cpp:2085
 msgid "Vol: %02d%%"
 msgstr "Hla: %02d%%"
 
-#: kscd.cpp:1208
+#: kscd.cpp:1223
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -508,51 +508,51 @@ msgstr ""
 "Prosím, uistite sa, ¾e máte práva na:\n"
 "%s"
 
-#: kscd.cpp:1319
+#: kscd.cpp:1334
 msgid "Ready"
 msgstr "Pripr."
 
-#: kscd.cpp:1362
+#: kscd.cpp:1377
 msgid "Ejected"
 msgstr "Vysunuté"
 
-#: kscd.cpp:1646
+#: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
 msgstr "Nemô¾em získa» zoznam CDDB serverov."
 
-#: kscd.cpp:1790 kscd.cpp:1795
+#: kscd.cpp:1805 kscd.cpp:1810
 msgid "No matching CDDB entry found."
 msgstr "Nemô¾em nájs» CDDB polo¾ku."
 
-#: kscd.cpp:1819 kscd.cpp:1829
+#: kscd.cpp:1834 kscd.cpp:1844
 msgid "Error getting CDDB entry."
 msgstr "Chyba pri získavaní CDDB polo¾ky."
 
-#: kscd.cpp:1845 kscd.cpp:1855
+#: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
 msgstr "CDDB otázke vypr¹al èas."
 
-#: kscd.cpp:2045
+#: kscd.cpp:2060
 msgid "Tra Rem"
 msgstr "Sto Zos"
 
-#: kscd.cpp:2049
+#: kscd.cpp:2064
 msgid "Tot Sec"
 msgstr "CD  Sek"
 
-#: kscd.cpp:2053
+#: kscd.cpp:2068
 msgid "Tot Rem"
 msgstr "CD  Zos"
 
-#: kscd.cpp:2058
+#: kscd.cpp:2073
 msgid "Tra Sec"
 msgstr "Sto Sek"
 
-#: kscd.cpp:2183
+#: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
 msgstr "Nemô¾em spusti» kscdmagic."
 
-#: kscd.cpp:2198
+#: kscd.cpp:2213
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -560,15 +560,15 @@ msgstr ""
 "KSCD Magic skonèil s chybou.\n"
 "Ste si istý, ¾e ho máte správne nain¹talovaný?"
 
-#: kscd.cpp:2353
+#: kscd.cpp:2368
 msgid "Enter the local CDDB base Directory"
 msgstr "Zadajte hlavný lokálny prieèinok CDDB"
 
-#: kscd.cpp:2407
+#: kscd.cpp:2422
 msgid "-h: display commandline options\n"
 msgstr "-h: vypí¹ parametre príkazovej riadky\n"
 
-#: kscd.cpp:2408
+#: kscd.cpp:2423
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povoµ ladiaci výstup (anglicky).\n"
 
