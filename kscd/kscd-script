@@ -214,6 +214,13 @@ fi
 echo "Your choice was: $device"
 echo "#define DEFAULT_CD_DEVICE   \"$device\"  " >> $config_file
 
+echo -n "Enable CDDA? (y/n) [y]:"
+
+read curved
+
+case "$curved" in
+    "yes" | "y" | "Yes" | "Y" | "") echo "#define CDDA " >> $config_file ;;
+esac
 echo ""
 echo "That's all for sgi ..."
 

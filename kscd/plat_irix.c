@@ -1,17 +1,30 @@
 /*
- * @(#)plat_svr4.c	1.1	1/2/94
+ * @(#)plat_irix.c	1.2	26/9/97
  *
- * SVR4 specific.  Much of this is similar to plat_hpux.c.
+ * IRIX specific.
+ * If you want audio to come out of your SGI, define CDDA.
+ * You must have a CD drive capable of doing CDDA as well.
+ *
+ * If you turn off the CDDA define, you can connect your
+ * CD headphone to the line-in jack and turn on the rec
+ * monitor to listen to the music. You will have to set the
+ * input rate to 44100 Hz.  The volume control will work from
+ * kscd.
+ *
+ * Paul Kendall
+ * paul@orion.co.nz, or
+ * paul@kcbbs.gen.nz
  */
-static char *ident = "@(#)plat_svr4.c	1.1\t1/2/94";
+static char *ident = "@(#)plat_irix.c	1.1	26/9/97";
 
 
 #include "config.h"
 
-#if defined(sgi)
-
+#ifdef sgi
+/*#define CDDA*/
 
 #include <sys/types.h>
+#include <sys/time.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
@@ -19,7 +32,9 @@ static char *ident = "@(#)plat_svr4.c	1.1\t1/2/94";
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
+#include <sigfpe.h>
 #include <dmedia/cdaudio.h>
+#include <dmedia/audio.h>
 #include <errno.h>
 
 #include "struct.h"
@@ -33,6 +48,54 @@ int	max_volume = 255;
 
 extern char	*cd_device;
 
+#ifdef CDDA
+static int playing = STOPPED;
+static CDPLAYER *icd;
+static CDPARSER *icdp;
+static CDFRAME cdbuf[12];
+static ALport audioport;
+static ALconfig aconfig;
+static struct itimerval audiotimer = { {0,0}, {0,25000} };
+static int cdtrack=0;
+static int cdframe=0;
+static int cdstopframe=0;
+
+cbprognum(void *arg, CDDATATYPES type, CDPROGNUM* prognum)
+{
+	cdtrack = prognum->value;
+}
+
+cbabstime(void *arg, CDDATATYPES type, struct cdtimecode* atime)
+{
+	cdframe = CDtctoframe(atime);
+	if( cdframe == cdstopframe )
+		playing = STOPPED;
+}
+
+cbplayaudio(void *arg, CDDATATYPES type, short* audio)
+{
+	if(playing != PLAYING) return;
+	ALwritesamps(audioport, audio, CDDA_NUMSAMPLES);
+}
+
+static void alarmsignal()
+{
+	int n, i;
+	if(playing != PLAYING) return;
+	if( ALgetfilled(audioport) < CDDA_NUMSAMPLES*8 ) {
+		/* Only get more samples and play them if we're getting low
+		 * this ensures that the CD stays close to the sound
+		 */
+		n = CDreadda(icd, cdbuf, 12);
+		if( n == 0 ) return;
+		for( i=0 ; i<12 ; i++ )
+			CDparseframe(icdp, &cdbuf[i]);
+	}
+	signal(SIGALRM, alarmsignal);
+	setitimer(ITIMER_REAL, &audiotimer, NULL);
+}
+#endif
+
 /*
  * Initialize the drive.  A no-op for the generic driver.
  */
@@ -40,6 +103,28 @@ int
 gen_init(d)
 	struct wm_drive	*d;
 {
+#ifdef CDDA
+	long Param[4];
+	/* Set the audio rate to 44100Hz 16bit 2s-comp stereo */
+	aconfig = ALnewconfig();
+	ALsetwidth(aconfig, AL_SAMPLE_16);
+	ALsetsampfmt(aconfig, AL_SAMPFMT_TWOSCOMP);
+	ALsetchannels(aconfig, 2);
+	Param[0] = AL_OUTPUT_RATE;      Param[1] = AL_RATE_44100;
+	Param[2] = AL_CHANNEL_MODE;     Param[3] = AL_STEREO;
+	ALsetparams(AL_DEFAULT_DEVICE, Param, 4);
+	audioport = ALopenport("KDE KSCD Audio", "w", aconfig);
+
+	/* setup cdparser */
+	icdp = CDcreateparser();
+	CDaddcallback(icdp, cd_audio, (CDCALLBACKFUNC)cbplayaudio, 0);
+	CDaddcallback(icdp, cd_pnum, (CDCALLBACKFUNC)cbprognum, 0);
+	CDaddcallback(icdp, cd_atime, (CDCALLBACKFUNC)cbabstime, 0);
+
+	/* Lets handle those floating point exceptions expeditiously. */
+	sigfpe_[_UNDERFL].repls = _ZERO;
+	handle_sigfpes(_ON, _EN_UNDERFL, NULL, _ABORT_ON_ERROR, NULL);
+#endif
 	return 0;
 }
 
@@ -101,10 +186,16 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 	enum cd_modes	oldmode, *mode;
 	int		*pos, *track, *index;
 {
+#ifdef CDDA
+	*mode = playing;
+	*track = cdtrack;
+	*pos = cdframe;
+	*index = 0;
+#else
 	CDSTATUS s;
 	if( CDgetstatus(d->daux, &s)==0 )
 		return -1;
-	*pos = CDmsftoframe(s.abs_min,s.abs_sec,s.abs_frame);
+	*pos = CDmsftoframe(s.min,s.sec,s.frame);
 	*track = s.track;
 	*index = 0;
 	switch( s.state )
@@ -118,6 +209,7 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 						break;
 		default:		*mode = UNKNOWN;
 	}
+#endif
 	return 0;
 }
 
@@ -130,8 +222,11 @@ gen_set_volume(d, left, right)
 	struct wm_drive	*d;
 	int		left, right;
 {
-	/* We should set the volume of the audio port */
-	return -1;
+	long Param[4];
+	Param[0] = AL_LEFT_SPEAKER_GAIN;      Param[1] = left*255/100;
+	Param[2] = AL_RIGHT_SPEAKER_GAIN;     Param[3] = right*255/100;
+	ALsetparams(AL_DEFAULT_DEVICE, Param, 4);
+	return 0;
 }
 
 /*
@@ -143,8 +238,13 @@ gen_get_volume(d, left, right)
 	struct wm_drive	*d;
 	int		*left, *right;
 {
-	/* We should get the volume of the audio port */
-	return -1;
+	long Param[4];
+	Param[0] = AL_LEFT_SPEAKER_GAIN;      Param[1] = 0;
+	Param[2] = AL_RIGHT_SPEAKER_GAIN;     Param[3] = 0;
+	ALgetparams(AL_DEFAULT_DEVICE, Param, 4);
+	*left = Param[1] * 100 / 255;
+	*right = Param[3] * 100 / 255;
+	return 0;
 }
 
 /*
@@ -154,11 +254,15 @@ int
 gen_pause(d)
 	struct wm_drive	*d;
 {
+#ifdef CDDA
+	playing = PAUSED;
+#else
     CDSTATUS s;
     if( CDgetstatus(d->daux, &s)==0 )
         return -1;
     if(s.state == CD_PLAYING)
 	    CDtogglepause(d->daux);
+#endif
 	return 0;
 }
 
@@ -169,11 +273,17 @@ int
 gen_resume(d)
 	struct wm_drive	*d;
 {
+#ifdef CDDA
+	playing = PLAYING;
+	signal(SIGALRM, alarmsignal);
+	setitimer(ITIMER_REAL, &audiotimer, NULL);
+#else
     CDSTATUS s;
     if( CDgetstatus(d->daux, &s)==0 )
         return -1;
     if(s.state == CD_PAUSED)
 	    CDtogglepause(d->daux);
+#endif
 	return 0;
 }
 
@@ -184,7 +294,11 @@ int
 gen_stop(d)
 	struct wm_drive	*d;
 {
+#ifdef CDDA
+	playing = STOPPED;
+#else
 	CDstop(d->daux);
+#endif
 	return 0;
 }
 
@@ -196,10 +310,20 @@ gen_play(d, start, end)
 	struct wm_drive	*d;
 	int		start, end;
 {
+#ifdef CDDA
+	int m, s, f;
+	CDframetomsf(start, &m, &s, &f);
+	CDseek(icd, m, s, f);
+	cdstopframe = end;
+	playing = PLAYING;
+	signal(SIGALRM, alarmsignal);
+	setitimer(ITIMER_REAL, &audiotimer, NULL);
+#else
 	int m, s, f;
 	CDframetomsf(start, &m, &s, &f);
 	CDplayabs(d->daux, m, s, f, 1);
-	return (wm_scsi2_play(d, start, end));
+#endif
+	return 0;
 }
 
 /*
@@ -209,6 +333,9 @@ int
 gen_eject(d)
 	struct wm_drive	*d;
 {
+#ifdef CDDA
+	playing = STOPPED;
+#endif
 	CDeject(d->daux);
 	return 0;
 }
@@ -242,6 +369,9 @@ wmcd_open(d)
 			perror(cd_device);
 			exit(1);
 		}
+#ifdef CDDA
+		icd = d->daux;
+#endif
 	}
 
 	CDgetstatus(d->daux, &s);
@@ -270,3 +400,4 @@ wm_scsi(d, xcdb, cdblen, retbuf, retbuflen, getreply)
 }
 
 #endif
+
