@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -15,6 +15,11 @@ msgstr "隐藏菜单条[&H]"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "刻度显示[&T] 开/关"
+
+#: kmix.cpp:524 kmix.cpp:642
+#, fuzzy
+msgid "&Options..."
+msgstr "选项[&O]"
 
 #: kmix.cpp:533
 msgid ""
@@ -115,9 +120,6 @@ msgstr "分割"
 #: docking.cpp:154
 msgid "Minimize"
 msgstr "最小化"
-
-#~ msgid "&Options"
-#~ msgstr "选项[&O]"
 
 #~ msgid "&Quit"
 #~ msgstr "离开[&Q]"

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-10-18 15:43+0200\n"
 "Last-Translator: Alonso Lara <jlaram@nexo.es>\n"
 
@@ -11,6 +11,10 @@ msgstr "Ocultar Barra de &Menús"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Si/No"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 msgid ""

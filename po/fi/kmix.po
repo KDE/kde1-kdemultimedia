@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KMIX\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,6 +21,10 @@ msgstr "&Piilota valikkorivi"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Merkit On/Off"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 msgid ""

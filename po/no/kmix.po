@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmix\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-05-22 21:53+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -20,6 +20,10 @@ msgstr "&Skjul menylinje"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Målestreker på/av"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 msgid ""

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr "&Esconder Barra de Menu"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Tiques Liga/Desliga"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 msgid ""

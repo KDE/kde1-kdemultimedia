@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix 1.0pre2\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -21,6 +21,10 @@ msgstr "&Kaþu menulistelon"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Tikmarkoj jes/ne"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 #, fuzzy

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-05-25 17:57:11+0800\n"
 "Last-Translator: Karl Backström <karl_b@geocities.com>\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,10 @@ msgstr "&Göm menyfält"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "&Bokmärken På/Av"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 #, fuzzy

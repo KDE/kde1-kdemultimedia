@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-13 02:22+0100\n"
+"POT-Creation-Date: 1998-11-17 15:24+0100\n"
 "PO-Revision-Date: 1998-01-27 14:41 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -20,6 +20,10 @@ msgstr "&Skry» menu"
 #: kmix.cpp:521
 msgid "&Tickmarks On/Off"
 msgstr "Zapnú»/vypnú» z&naèkovanie"
+
+#: kmix.cpp:524 kmix.cpp:642
+msgid "&Options..."
+msgstr ""
 
 #: kmix.cpp:533
 msgid ""
