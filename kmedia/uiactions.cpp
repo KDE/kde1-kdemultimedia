@@ -20,6 +20,7 @@
 */
 
 #include <unistd.h>
+#include <kmisc.h>
 #include "kmedia.h"
 
 extern KApplication	*globalKapp;
