@@ -24,7 +24,7 @@ msgstr "&Oznake uklj/isklj"
 
 #: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
-msgstr ""
+msgstr "&Postavke..."
 
 #: kmix.cpp:545
 msgid ""
@@ -60,10 +60,9 @@ msgstr "&Centar"
 msgid "&Right"
 msgstr "&Desno"
 
-# , fuzzy
 #: kmix.cpp:649
 msgid "&Show Menubar"
-msgstr "Izbornik"
+msgstr "Prika¾i &traku izbornika"
 
 #: kmix.cpp:694
 msgid "Un&mute"

@@ -15,9 +15,8 @@ msgstr ""
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Pauziraj"
+msgstr "Sviraj/Pauza"
 
 #: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
@@ -309,7 +308,6 @@ msgid "Change Collection Name"
 msgstr "Promijenite ime kolekcije"
 
 #: channelview.cpp:33
-#, fuzzy
 msgid "ChannelView"
 msgstr "Prika¾i kanale"
 
@@ -567,7 +565,7 @@ msgstr "Trombone"
 
 #: instrname.i18n:64
 msgid "Tuba"
-msgstr ""
+msgstr "Bastuba"
 
 #: instrname.i18n:65
 msgid "Muted Trumpet"
