@@ -749,8 +749,8 @@ void KSCD::bwdClicked(){
   cdMode();
 }
 
-void KSCD::quitClicked()
-{
+void KSCD::quitClicked(){
+
   randomplay = FALSE;
   statuslabel->setText("");
   setLEDs( "--:--" );
@@ -759,10 +759,10 @@ void KSCD::quitClicked()
   qApp->flushX();
   
   stop_cd ();
-  // calling cd_status() after stop_cd() before exiting
-  //  keeps my cd_drive from locking up !!!
+
   cd_status();
   cd_status();
+
   cleanUp();
   writeSettings();
   qApp->quit();
@@ -1631,7 +1631,6 @@ void KSCD::playtime()
 }
 
 void KSCD::cycleplaytimemode(){
-
 
   cycletimer->stop();
 

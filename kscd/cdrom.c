@@ -187,7 +187,7 @@ read_toc()
 
 	thiscd.cddbtoc = malloc((thiscd.ntracks + 2) * sizeof(struct toc));
 
-	if (thiscd.trk == NULL)
+	if (thiscd.trk == NULL  || thiscd.cddbtoc == NULL)
 	{
 		perror("malloc");
 		return (NULL);

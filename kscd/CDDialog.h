@@ -19,6 +19,22 @@ extern "C" {
 #include "struct.h"
 }
 
+struct mytoc {
+	int	min;
+	int	sec;
+	int	frame;
+        int     absframe;
+};
+
+
+struct dialogcdinfo {
+
+  unsigned long magicID;	/*cddb magic disk id BERND*/
+	int	ntracks;	/* Number of tracks on the disc */
+	int	length;		/* Total running time in seconds */
+        struct mytoc *cddbtoc;
+};
+
 class CDDialog : public CDDialogData
 {
     Q_OBJECT
@@ -84,7 +100,7 @@ private:
     QString 	category;
     QString	mailcmd;
     QString     playorder;
-    struct cdinfo_wm *cdinfo;
+    struct dialogcdinfo cdinfo;
     
 };
 #endif // CDDialog_included

@@ -49,6 +49,11 @@ CDDialog::CDDialog
 {
 	setCaption( "CD Database Editor" );
 
+	cdinfo.magicID = 0;	/*cddb magic disk id BERND*/
+	cdinfo.ntracks = 0;	/* Number of tracks on the disc */
+	cdinfo.length  = 0;	/* Total running time in seconds */
+	cdinfo.cddbtoc = 0L;
+
 	connect(listbox,     SIGNAL(highlighted(int)),this,SLOT(titleselected(int)));
 	connect(listbox,     SIGNAL(selected(int)),this,SLOT(play(int)));
 	connect(trackedit,   SIGNAL(returnPressed()) ,this,SLOT(trackchanged()));
@@ -63,12 +68,15 @@ CDDialog::CDDialog
 	ext_info_button->setEnabled(false);
 
         setFixedSize(width(),height());
+
 	
 }
 
 
-CDDialog::~CDDialog()
-{
+CDDialog::~CDDialog(){
+
+    if(cdinfo.cddbtoc)
+      delete [] cdinfo.cddbtoc;
 }
 
 
@@ -109,73 +117,109 @@ void CDDialog::setData(
     ext_list 	= extlist;
     track_list 	= tracktitlelist;
     xmcd_data   = _xmcd_data.copy();
-    cdinfo 	= cd;
     category 	= cat.copy(); 
     discidlist  = discidl;
     revision    = rev;
     playlist	= _playlist;
     pathlist    = _pathlist;
-    mailcmd	= _mailcmd;
+    mailcmd	= _mailcmd.copy();
 
-    ntr = tracktitlelist.count();
-    etr = extlist.count();
-    if( ntr > 0 )
-      titleedit->setText(tracktitlelist.at(0));
-    else{
-      if(cdinfo->ntracks > 0){
-	titleedit->setText("Unknown");
-      }
-      else {
-	titleedit->setText("");
+    ntr = track_list.count();
+    etr = ext_list.count();
+
+    // Let's make a deep copy of the cd struct info so that the data won't
+    // change the cd changes while we are playing with the dialog.
+
+    // put one of these into the destructor too..
+    if(cdinfo.cddbtoc)
+      delete [] cdinfo.cddbtoc;
+
+    
+    cdinfo.cddbtoc =  new (struct mytoc) [cd->ntracks + 2];
+
+    cdinfo.magicID = cd->magicID;	/* cddb magic disk id            */
+    cdinfo.ntracks = cd->ntracks;	/* Number of tracks on the disc  */
+    cdinfo.length  = cd->length;	/* Total running time in seconds */
+
+
+    for( int i = 0; i < cd->ntracks  ; i++){
+      cdinfo.cddbtoc[i].min = cd->cddbtoc[i].min;
+      cdinfo.cddbtoc[i].sec = cd->cddbtoc[i].sec;
+      cdinfo.cddbtoc[i].frame = cd->cddbtoc[i].frame;
+      cdinfo.cddbtoc[i].absframe = cd->cddbtoc[i].absframe;
+    }
+    
+    // some sanity provisions
+
+    if((int)track_list.count() < cdinfo.ntracks + 1){
+
+      for(int i = 0 ; i < (int)( cdinfo.ntracks + 1 - track_list.count()) ; i ++){
+	track_list.append("");
       }
     }
 
-   QString idstr;
+    if((int)ext_list.count() < cdinfo.ntracks + 1){
 
-   idstr.sprintf("%08x",cd->magicID);
-   idstr = category + (QString("\n") + idstr);
+      for(int i = 0 ; i < (int) ( cdinfo.ntracks + 1 - ext_list.count()) ; i ++){
+	ext_list.append("");
+      }
+    }
 
-   if(cdinfo->ntracks > 0)
-     disc_id_label->setText(idstr);
-   else
-     disc_id_label->setText("");
+    while((int)track_list.count() > cdinfo.ntracks + 1)
+      track_list.remove(track_list.count() - 1);
 
-   QTime   dl;
-   dl 	=  dl.addSecs(cdinfo->length);
+    while((int)ext_list.count() > cdinfo.ntracks + 1)
+      ext_list.remove(ext_list.count() - 1);
+    
 
-   QString temp2;
-   if(dl.hour() > 0)
-     temp2.sprintf("Total Time:\n%02d:%02d:%02d",dl.hour(),dl.minute(),dl.second());
-   else
-     temp2.sprintf("Total Time:\n %02d:%02d",dl.minute(),dl.second());
-   total_time_label->setText(temp2);
+    titleedit->setText(track_list.at(0));
 
-   QString 	fmt;
-   QTime 	dml;
+    QString idstr;
+    idstr.sprintf("%08x",cd->magicID);
+    idstr = category + (QString("\n") + idstr);
 
-   listbox->setAutoUpdate(false);
-   listbox->clear();
-   for(int i = 1; i <= cdinfo->ntracks; i++){
+    if(cdinfo.ntracks > 0)
+      disc_id_label->setText(idstr);
+    else
+      disc_id_label->setText("");
 
-     dml = framestoTime(cdinfo->cddbtoc[i].absframe - cdinfo->cddbtoc[i-1].absframe);
+    QTime   dl;
+    dl 	=  dl.addSecs(cdinfo.length);
 
-     if((ntr >=  i) && (ntr > 0)){
-       fmt.sprintf("%02d   %02d:%02d   %s",i,
-		   dml.minute(),dml.second(),tracktitlelist.at(i));
-     }
-     else
-       fmt.sprintf("%02d   %02d:%02d",i,dml.minute(),dml.second());
+    QString temp2;
+    if(dl.hour() > 0)
+      temp2.sprintf("Total Time:\n%02d:%02d:%02d",dl.hour(),dl.minute(),dl.second());
+    else
+      temp2.sprintf("Total Time:\n %02d:%02d",dl.minute(),dl.second());
+    total_time_label->setText(temp2);
+
+    QString 	fmt;
+    QTime 	dml;
+
+    listbox->setAutoUpdate(false);
+    listbox->clear();
+
+    for(int i = 1; i <= cdinfo.ntracks; i++){
+
+      dml = framestoTime(cdinfo.cddbtoc[i].absframe - cdinfo.cddbtoc[i-1].absframe);
+
+      if((ntr >=  i) && (ntr > 0)){
+	fmt.sprintf("%02d   %02d:%02d   %s",i,
+		   dml.minute(),dml.second(),track_list.at(i));
+      }
+      else
+	fmt.sprintf("%02d   %02d:%02d",i,dml.minute(),dml.second());
      
-     listbox->insertItem(fmt.data(),-1);
+      listbox->insertItem(fmt.data(),-1);
 
-   }
+    }
 
-   listbox->setAutoUpdate(true);
-   listbox->repaint();
+    listbox->setAutoUpdate(true);
+    listbox->repaint();
 
-   QString str;
-   cddb_playlist_encode(playlist,str);
-   progseq_edit->setText(str.data());
+    QString str;
+    cddb_playlist_encode(playlist,str);
+    progseq_edit->setText(str.data());
 
 }
 
@@ -247,7 +291,7 @@ void CDDialog::trackchanged(){
   if (i == -1)
     return;
   
-  QTime dml = framestoTime(cdinfo->cddbtoc[i+1].absframe - cdinfo->cddbtoc[i].absframe);
+  QTime dml = framestoTime(cdinfo.cddbtoc[i+1].absframe - cdinfo.cddbtoc[i].absframe);
 
   QString fmt;
 
@@ -372,7 +416,7 @@ void CDDialog::upload(){
 
 
   QString subject;
-  subject.sprintf("cddb %s %08x",submitcat.data(),cdinfo->magicID);
+  subject.sprintf("cddb %s %08x",submitcat.data(),cdinfo.magicID);
 
   FILE* mailpipe;
 
@@ -466,7 +510,7 @@ void CDDialog::save(){
 
   dialog->getSelection(path);
   QString mag;
-  mag.sprintf("%s/%08x",path.data(),cdinfo->magicID);
+  mag.sprintf("%s/%08x",path.data(),cdinfo.magicID);
 
   save_cddb_entry(mag,false);
   load();
@@ -478,7 +522,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
 
 
   QString magic;
-  magic.sprintf("%08x",cdinfo->magicID);
+  magic.sprintf("%08x",cdinfo.magicID);
   bool have_magic_already = false;
 
   // Steve and Ti contacted me and sait they have changed the cddb upload specs
@@ -532,13 +576,13 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   t << "# \n";
   t << "# Track frame offsets:\n";
 
-  for(int i = 0 ; i < cdinfo->ntracks;i ++){
-    tmp = tmp.sprintf("#       %d\n",cdinfo->cddbtoc[i].absframe);
+  for(int i = 0 ; i < cdinfo.ntracks;i ++){
+    tmp = tmp.sprintf("#       %d\n",cdinfo.cddbtoc[i].absframe);
     t << tmp.data();
   }
 
   t << "#\n";
-  tmp = tmp.sprintf("# Disc length: %d seconds\n",cdinfo->length);
+  tmp = tmp.sprintf("# Disc length: %d seconds\n",cdinfo.length);
   t << tmp.data();
   t << "#\n";
   if(upload)
@@ -576,28 +620,49 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   tmp2 = track_list.at(0);
   cddb_encode(tmp2,returnlist);  
 
-  for(int i = 0; i < (int) returnlist.count();i++){
-    tmp = tmp.sprintf("DTITLE=%s\n",returnlist.at(i));
+  if(returnlist.count() == 0){
+    // sanity provision
+    tmp = tmp.sprintf("DTITLE=%s\n","");
     t << tmp.data();
+  }
+  else{
+    for(int i = 0; i < (int) returnlist.count();i++){
+      tmp = tmp.sprintf("DTITLE=%s\n",returnlist.at(i));
+      t << tmp.data();
+    }
   }
 
   for(int i = 1 ; i < (int)track_list.count();i ++){
 
     tmp2 = track_list.at(i);
     cddb_encode(tmp2,returnlist);  
-
-    for(int j = 0; j < (int) returnlist.count();j++){
-      tmp = tmp.sprintf("TTITLE%d=%s\n",i-1,returnlist.at(j));
+    
+    if(returnlist.count() == 0){
+      // sanity provision
+      tmp = tmp.sprintf("TTITLE%d=%s\n",i-1,"");
       t << tmp.data();
+    }
+    else{
+      for(int j = 0; j < (int) returnlist.count();j++){
+	tmp = tmp.sprintf("TTITLE%d=%s\n",i-1,returnlist.at(j));
+	t << tmp.data();
+      }
     }
   }
 
   tmp2 = ext_list.at(0);
   cddb_encode(tmp2,returnlist);  
 
-  for(int i = 0; i < (int) returnlist.count();i++){
-    tmp = tmp.sprintf("EXTD=%s\n",returnlist.at(i));
+  if(returnlist.count() == 0){
+    // sanity provision
+    tmp = tmp.sprintf("EXTD=%s\n","");
     t << tmp.data();
+  }
+  else{
+    for(int i = 0; i < (int) returnlist.count();i++){
+      tmp = tmp.sprintf("EXTD=%s\n",returnlist.at(i));
+      t << tmp.data();
+    }
   }
 
   for(int i = 1 ; i < (int)ext_list.count();i ++){
@@ -605,9 +670,16 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
     tmp2 = ext_list.at(i);
     cddb_encode(tmp2,returnlist);  
 
-    for(int j = 0; j < (int) returnlist.count();j++){
-      tmp = tmp.sprintf("EXTT%d=%s\n",i-1,returnlist.at(j));
+    if(returnlist.count() == 0){
+      // sanity provision
+      tmp = tmp.sprintf("EXTT%d=%s\n",i-1,"");
       t << tmp.data();
+    }
+    else{
+      for(int j = 0; j < (int) returnlist.count();j++){
+	tmp = tmp.sprintf("EXTT%d=%s\n",i-1,returnlist.at(j));
+	t << tmp.data();
+      }
     }
   }
 
@@ -684,11 +756,11 @@ bool CDDialog::checkit(){
 
   }
 
-  if(cdinfo->ntracks +1 != (int)track_list.count() ){
+  if(cdinfo.ntracks +1 != (int)track_list.count() ){
 
     QMessageBox::critical(this,
 			 "Internal Error",
-			 "cdinfo->ntracks != title_list->count() + 1\n"
+			 "cdinfo.ntracks != title_list->count() + 1\n"
 			 "Please email the author."
 			 );
      return false;
@@ -710,7 +782,7 @@ bool CDDialog::checkit(){
     teststr = strlist.at(i);
     num = teststr.toInt(&ok);
 
-    if( num > cdinfo->ntracks || !ok)
+    if( num > cdinfo.ntracks || !ok)
       ret = false;
   }
 
