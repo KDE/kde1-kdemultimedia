@@ -87,7 +87,7 @@ static int open_output(void)
       return -1;
     }
 
-  fcntl(fd, F_SETFL, O_NDELAY);
+  fcntl(fd, F_SETFL, fcntl(fd, F_GETFL, 0) & ~O_NDELAY);
 
 
   /* They can't mean these */
@@ -158,9 +158,9 @@ static int open_output(void)
     }
   if (tmp != dpm.rate)
     {
-      dpm.rate=tmp;
       ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-	   "Output rate adjusted to %d Hz", dpm.rate);
+	   "Output rate adjusted to %d Hz (requested %d Hz)", tmp, dpm.rate);
+      dpm.rate=tmp;
       warnings=1;
     }
 
