@@ -391,7 +391,7 @@ void CDDB::queryCD(unsigned long _magicID,QStrList& querylist)
     category = "";
     magicID = _magicID;
 
-    str = str.sprintf("cddb query %08x %d ",magicID,querylist.count()-1);
+    str = str.sprintf("cddb query %08lx %u ",magicID,querylist.count()-1);
     for(int i = 0; i <(int) querylist.count(); i++) 
     {
 	str += querylist.at(i);
@@ -789,7 +789,7 @@ bool CDDB::local_query(
 bool CDDB::checkDir(unsigned long magicID, char* dir)
 {
     QString mag;
-    mag.sprintf("%s/%08x",dir,magicID);
+    mag.sprintf("%s/%08lx",dir,magicID);
 
     QFileInfo info(mag.data());
     if(!info.isReadable())

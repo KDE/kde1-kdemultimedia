@@ -195,7 +195,7 @@ void CDDialog::setData(
     titleedit->setText(track_list.at(0));
 
     QString idstr;
-    idstr.sprintf("%08x",cd->magicID);
+    idstr.sprintf("%08lx",cd->magicID);
     idstr = category + (QString("\n") + idstr);
 
     if(cdinfo.ntracks > 0)
@@ -447,7 +447,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
 
 /*  QString subject;
-  subject.sprintf("cddb %s %08x",submitcat.data(),cdinfo.magicID);
+  subject.sprintf("cddb %s %08lx",submitcat.data(),cdinfo.magicID);
 
   QString formatstr;
   //  formatstr = mailcmd + " cddb-test@cddb.cddb.com";
@@ -482,7 +482,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
       smtpMailer->setSenderAddress(smtpConfigData->senderAddress.data());
       smtpMailer->setRecipientAddress(submitaddress.data());
       
-      subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
+      subject.sprintf("cddb %s %08lx", submitcat.data(), cdinfo.magicID);
       smtpMailer->setMessageSubject(subject.data());
       smtpMailer->setMessageBody(s.data());
 
@@ -596,7 +596,7 @@ void CDDialog::save(){
 
   dialog->getSelection(path);
   QString mag;
-  mag.sprintf("%s/%08x",path.data(),cdinfo.magicID);
+  mag.sprintf("%s/%08lx",path.data(),cdinfo.magicID);
 
   save_cddb_entry(mag,false);
   load();
@@ -608,7 +608,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
 
 
   QString magic;
-  magic.sprintf("%08x",cdinfo.magicID);
+  magic.sprintf("%08lx",cdinfo.magicID);
   bool have_magic_already = false;
 
   if(debugflag) printf("::save_cddb_entry(): path: %s upload = %d\n", path.data(), upload);
@@ -655,7 +655,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
 
   if(upload && !smtpConfigData->enabled){
       QString subject;
-      subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
+      subject.sprintf("cddb %s %08lx", submitcat.data(), cdinfo.magicID);
 
       t << "To: " + submitaddress + "\n";
       tmp = tmp.sprintf("Subject: %s\n", subject.data());

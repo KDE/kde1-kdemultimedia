@@ -428,10 +428,10 @@ xdisplay *xalloc_display(char *s, int xHint, int yHint, int x, int y, xlibparam 
     XMapWindow(newd->display, newd->window);
 #if 1
     XSelectInput(newd->display, newd->window, 
-                 //ExposureMask | KeyPress |
-		 //KeyRelease | 
-                 //ConfigureRequest | 
-		 //FocusChangeMask | 
+                 /* ExposureMask | KeyPress |
+		   KeyRelease | 
+                   ConfigureRequest | 
+                   FocusChangeMask | */
 		 StructureNotifyMask |
                  ButtonPressMask | ButtonReleaseMask);
 #endif
