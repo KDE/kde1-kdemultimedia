@@ -5,30 +5,30 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kmix 0.60\n"
 "POT-Creation-Date: 1998-05-22 01:10+0200\n"
-"PO-Revision-Date: 1998-05-22 21:53+0100\n"
-"Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
-"Language-Team: no\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Antonio Juan Alcaraz <alcaraz@bestia.xpress.es>\n"
+"Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8-bit\n"
 
 #: docking.cpp:70 docking.cpp:168
 msgid "Restore"
-msgstr "Gjenopprett"
+msgstr "Recuperar"
 
 #: docking.cpp:166
 msgid "Minimize"
-msgstr "Minimer"
+msgstr "Minimizar"
 
 #: kmix.cpp:425
 msgid "&Hide Menubar"
-msgstr "&Skjul menylinje"
+msgstr "Ocultar Barra de &Menús"
 
 #: kmix.cpp:428
 msgid "&Tickmarks On/Off"
-msgstr "&Bokmerker På/Av"
+msgstr "&Marcas Si/No"
 
 #: kmix.cpp:442
 msgid ""
@@ -42,65 +42,65 @@ msgid ""
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
 "\n"
-"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"(C) 1997 por Christian Esken (esken@kde.org).\n"
 "\n"
-"Lyd mikser panel for KDE Desktop Enviroment.\n"
-"Dette program er inkludert i GPL.\n"
-"SGI Port utført av Paul Kendall (paul@orion.co.nz).\n"
-"*BSD fikset av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"og Lennart Augustsson (augustss@cs.chalmers.se)."
+"Control de sonido para el KDE Desktop Environment.\n"
+"Programa bajo licencia de GPL.\n"
+"Conversión para SGI por Paul Kendall (paul@orion.co.nz).\n"
+"*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"y Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:461
 msgid "&Left"
-msgstr "&Venstre"
+msgstr "&Izquierda"
 
 #: kmix.cpp:462
 msgid "&Center"
-msgstr "&Senter"
+msgstr "&Centrar"
 
 #: kmix.cpp:463
 msgid "&Right"
-msgstr "&Høyre"
+msgstr "&Derecha"
 
 #: kmix.cpp:553
 msgid "Un&mute"
-msgstr "Mute &av"
+msgstr "&Activar"
 
 #: kmix.cpp:555
 msgid "&Mute"
-msgstr "&Mute"
+msgstr "&Silencio"
 
 #: kmix.cpp:558
 msgid "&Split"
-msgstr "&Splitt"
+msgstr "&Doble"
 
 #: kmix.cpp:560
 msgid "Un&split"
-msgstr "S&lutt på splitt"
+msgstr "S&encillo"
 
 #: kmix.cpp:562
 msgid "&RecSource"
-msgstr "Mottaker &kilde"
+msgstr "&Fuente de Grabación"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "Generelt"
+msgstr "General"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "Kanaler"
+msgstr "Canales"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Oppstart innstillinger"
+msgstr "Configuración de Inicio"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "Menylinje"
+msgstr "Barra de Menús"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Bokmerker"
+msgstr "Marcas"
 
 #: prefs.cpp:61
 msgid "Allow docking"
@@ -108,22 +108,22 @@ msgstr ""
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix valg"
+msgstr "Preferencias"
 
 #: prefs.cpp:96
 #, fuzzy
 msgid "Mixer channel setup"
-msgstr "Mikser kanal oppsett (ennå ikke lagret)"
+msgstr "Configuracion canales (no salva aún)"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Enhet"
+msgstr "Dispositivo"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Vis"
+msgstr "Mostrar"
 
 #: prefs.cpp:115
 #, fuzzy
 msgid "Split"
-msgstr "&Splitt"
+msgstr "&Doble"
