@@ -317,3 +317,15 @@ Friday 24-4-98
 	moving the slider, but no if playing from the beginning
  That's all for now :-) , there have been so many changes that I've call
   this version 0.5.3
+
+Thursday 7-5-98
+- Released version 0.6 to update my homepage which was getting very outdated
+
+Saturday 9-5-98
+- After fixing my midi cable, I've noticed that fm is (as Gyula Kerekes
+ reported), playing in mono, and I've fixed it.
+
+Sunday 10-5-98
+- I've fixed a small bug with which midi files without text events (nor lyrics)
+got the time slider very desynchronized after pausing for a long time.
+ 

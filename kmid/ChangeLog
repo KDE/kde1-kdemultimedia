@@ -57,3 +57,8 @@ Some bug fixes:
   - There were some songs that played at a lower volume when moving the
 	slider, but not if playing from the beginning.
 Better support for shuffle mode (now it doesn't repeat songs :-))
+
+0.6    7-5-98
+-----  ------
+Just thought that everything worked fine and did a major release to 
+put it in my homepage 

@@ -124,8 +124,16 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
 
 
 	int sharedmemid=shmget(getpid(),sizeof(PlayerController),0666 | IPC_CREAT);
+	if (sharedmemid==-1)
+	    {
+	    printf("ERROR : Can't allocate shared memory !!! "
+			"Please report to antlarr@arrakis.es\n");
+	    };
 
 	pctl=(PlayerController *)shmat(sharedmemid,NULL,0);
+	if (pctl==NULL)
+	    printf("ERROR : Can't get shared memory !!! "
+			"Please report to antlarr@arrakis.es\n");
 	pctl->playing=0;
 	pctl->gm=1;
 
@@ -608,13 +616,13 @@ if (pctl->error==1) return;
     pctl->OK=0;
     pctl->paused=0;
 
+    beginmillisec=pctl->beginmillisec-pausedatmillisec;
     if ((spev!=NULL)&&(spev->type!=0))
         {
 //	  timeval tv;
 //        gettimeofday(&tv, NULL);
 //        ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
 //        beginmillisec=currentmillisec-pausedatmillisec;
-	beginmillisec=pctl->beginmillisec-pausedatmillisec;
 	ulong currentmillisec=pctl->beginmillisec;
         ulong delaymillisec=spev->absmilliseconds-(currentmillisec-beginmillisec);
         timer4events->start(delaymillisec,TRUE);
