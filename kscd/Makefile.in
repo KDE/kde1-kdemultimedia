@@ -6,7 +6,7 @@ BINDIR  = $(prefix)/bin
 LIBDIR  = $(prefix)/lib
 ICONDIR  = $(prefix)/share/icons
 PICSDIR  = $(prefix)/share/apps/kscd/pics/
-DOCSDIR = $(prefix)/share/doc/HTML/kscd
+DOCSDIR = $(prefix)/share/doc/HTML/default/kscd
 APPSDIR = $(prefix)/share/applnk/Multimedia
 
 install = @INSTALL@

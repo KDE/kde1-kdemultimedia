@@ -941,7 +941,7 @@ void KSCD::readSettings(){
 	  randomplay = FALSE;
 
 	QColor defaultback = black;
-	QColor defaultled = green;
+	QColor defaultled = QColor(226,224,255);
 
 
 	background_color = config->readColorEntry("BackColor",&defaultback);	
