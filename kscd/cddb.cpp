@@ -221,7 +221,7 @@ void CDDB::cddb_read(KSocket *socket){
   buffer[n] = '\0';
   tempbuffer += buffer;
 
-  //  printf("BUFFE:%s",buffer);
+  //  printf("BUFFER: %s",buffer);
 
   // let's only add responses one line at a time.
   int newlinepos = tempbuffer.findRev('\n',-1,true);
@@ -303,7 +303,7 @@ void CDDB::query_exact(QString line){
       }
 
       write(sock->socket(),readstring.data(),readstring.length());
-      //      printf("WROTE=%s\n",readstring.data());
+      //printf("WROTE=%s\n",readstring.data());
 
       state = CDDB_READ;
       respbuffer = "";
@@ -371,6 +371,7 @@ void CDDB::do_state_machine(){
     break;
 
   case HELLO:
+    //printf("HELLO\n");
     if(lastline.left(3) == QString("200")){
 
       state = READY;
@@ -393,16 +394,18 @@ void CDDB::do_state_machine(){
     break;
 
   case QUERY:
-
+    //printf("QUERY\n");
     if(respbuffer.left(3) == QString("200")){
       
       query_exact(lastline);
-
+      respbuffer = "";
     }
     else if(respbuffer.left(3) == QString("211")){
       if(lastline.left(1) == QString(".")){
 	state = CDDB_DONE;
 	respbuffer.detach();
+	//	printf("Bernd1\n");
+	//printf("EMITTING CDDB_INEXACT_READ()\n");
 	emit cddb_inexact_read();
       }
       else{
@@ -413,6 +416,7 @@ void CDDB::do_state_machine(){
     else if(respbuffer.left(3) == QString("202")){
 	state = CDDB_DONE;
 	respbuffer.detach();
+	respbuffer = "";
 	cddb_close(sock);
 	emit cddb_no_info();
     }
@@ -420,22 +424,27 @@ void CDDB::do_state_machine(){
       state = ERROR_QUERY;
       cddb_close(sock);
       emit cddb_failed();
+      respbuffer = "";
     }
 
-    respbuffer = "";
+
     break;
 
   case INEX_READ:
+    //printf("INEX_READ\n");
     if(lastline.left(1) == QString(".")){
       state = CDDB_DONE;
       respbuffer.detach();
+      //printf("Bernd2\n");
+      //printf("EMITTING CDDB_INEXACT_READ()2\n");
+      emit cddb_inexact_read();
       //      sock->enableRead(false);
 
     }
     break;
 
   case CDDB_READ:
-
+    //printf("CDDB_READ\n");
     if(lastline.left(1) == QString(".")){
 
       QString readstring;

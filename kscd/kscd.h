@@ -124,7 +124,7 @@ public slots:
 	void		trackSelected( int );
 	void		aboutClicked();
 	void		volChanged( int );
-	void 		cddb_inexact_read();
+	void 		mycddb_inexact_read();
 	void		cddb_no_info();
 	void 		led_on();
 	void 		led_off();
@@ -246,6 +246,7 @@ private:
 	QString  	browsercmd;
 	bool		cddb_remote_enabled;
 	bool 		use_kfm;
+	bool 		cddb_inexact_sentinel;
 
 public:
 

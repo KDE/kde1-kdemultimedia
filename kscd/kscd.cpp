@@ -126,6 +126,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   cddb 			= 0L;
   setup 	       	= 0L;
   time_display_mode 	= TRACK_SEC;
+  cddb_inexact_sentinel =false;
   revision		= 1;
   use_kfm 		= true;
   drawPanel();
@@ -1357,7 +1358,7 @@ void KSCD::get_cddb_info(){
   connect(cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
   connect(cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
   connect(cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
-  connect(cddb,SIGNAL(cddb_inexact_read()),this,SLOT(cddb_inexact_read()));
+  connect(cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
   connect(cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
 
   led_on();
@@ -1428,7 +1429,7 @@ void KSCD::cddb_ready(){
     querylist.append(num.sprintf("%d",cd->cddbtoc[i].absframe));
   }
   querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
-  
+  cddb_inexact_sentinel =false;  
   cddb->queryCD(cd->magicID,querylist);
 
 }
@@ -1448,7 +1449,7 @@ void KSCD::cddb_no_info(){
 
   timer->start(1000);
   led_off();
-
+  cddb_inexact_sentinel =false;
 }
 
 void KSCD::cddb_failed(){
@@ -1470,11 +1471,15 @@ void KSCD::cddb_failed(){
 
   timer->start(1000);
   led_off();
-
+  cddb_inexact_sentinel =false;
 }
 
-void KSCD::cddb_inexact_read(){
+void KSCD::mycddb_inexact_read(){
 
+  if(cddb_inexact_sentinel == true)
+    return;
+  cddb_inexact_sentinel =true;
+  //printf("+++++++++++++++++++++++++++cddb_inexact_read()\n");
   QStrList inexact_list;
   cddb->get_inexact_list(inexact_list);
 
@@ -1494,13 +1499,14 @@ void KSCD::cddb_inexact_read(){
   dialog->getSelection(pick);
   delete dialog;
 
-  printf("SELECTED=%s\n",pick.data());
+  //  printf("SELECTED=%s\n",pick.data());
 
   if(pick.isEmpty()){
     //delete cddb;
     //cddb = 0L;
     timer->start(1000);
     led_off();
+    return;
   }
 
   pick = "200 " + pick;
@@ -1510,6 +1516,7 @@ void KSCD::cddb_inexact_read(){
 
 void KSCD::cddb_done(){
 
+  cddb_inexact_sentinel =false;  
   if(!cddb)
     return;
 
