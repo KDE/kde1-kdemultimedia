@@ -33,9 +33,8 @@ KApplication	*globalKapp;
 
 
 /****************************************************************************
-	      W A R N I N G : THE CODE IS (STILL) SOMEWHAT UGLY
-         I guess this is due to the fact, that I cannot program C++.
-                     But I am currently learning fast. :-)
+             W A R N I N G : THE CODE IS (STILL) SOMEWHAT UGLY
+           But hell: It's the first C++ program I ever wrote :-)
  ****************************************************************************/
 
 void sigchld_handler(int /*signal*/)

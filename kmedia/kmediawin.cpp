@@ -181,6 +181,7 @@ void KMediaWin::createPanel()
   connect( bwdPB, 	SIGNAL(released()), 	SLOT(bwdReleased()) );
 
   pllPB = createButton (2000, iy,   2,      2, "Pll",                  ("KDE"));
+  pllPB->setFocusPolicy(QWidget::NoFocus);
   connect(  pllPB,      SIGNAL(clicked()),      SLOT(pllClicked()) );
 
   ix += WIDTH;
@@ -208,12 +209,9 @@ void KMediaWin::createPanel()
   Container->setMinimumSize(w       , iy);
   Container->setMaximumSize(9999    , iy);
   // Hehe. Now fooling around for de. fi is perhaps still messy ;-)
-  Container->resize        (w+WIDTH , iy );
+  Container->resize        (w+2*WIDTH , iy );
   setView(Container);
-
-  //setMinimumSize(w         , iy);
-  //setMaximumSize(2000      , iy);
-  resize        (w+WIDTH   , iy);
+  resize        (w+2*WIDTH   , iy);
 
   show();
 }
