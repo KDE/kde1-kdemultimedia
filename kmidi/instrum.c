@@ -49,10 +49,18 @@
 
 /* Some functions get aggravated if not even the standard banks are 
    available. */
+#ifndef ADAGIO
 static ToneBank standard_tonebank, standard_drumset;
+#else /* ADAGIO */
+static ToneBank standard_tonebank;
+#endif /* ADAGIO */
 ToneBank 
+#ifndef ADAGIO
   *tonebank[128]={&standard_tonebank},
   *drumset[128]={&standard_drumset};
+#else /* ADAGIO */
+  *tonebank[MAX_TONE_VOICES]={&standard_tonebank};
+#endif /* ADAGIO */
 
 /* This is a special instrument, used for all melodic programs */
 Instrument *default_instrument=0;
@@ -61,6 +69,7 @@ Instrument *default_instrument=0;
 int default_program=DEFAULT_PROGRAM;
 
 int antialiasing_allowed=0;
+
 #ifdef FAST_DECAY
 int fast_decay=1;
 #else
@@ -78,14 +87,32 @@ static void free_instrument(Instrument *ip)
       free(sp->data);
     }
   free(ip->sample);
+#ifdef ADAGIO
+  for (i=0; i<ip->right_samples; i++)
+    {
+      sp=&(ip->right_sample[i]);
+      free(sp->data);
+    }
+  if (ip->right_sample)
+  free(ip->right_sample);
+#endif
   free(ip);
 }
 
+#ifndef ADAGIO
 static void free_bank(int dr, int b)
+#else /* ADAGIO */
+static void free_bank(int b)
+#endif /* ADAGIO */
 {
   int i;
+#ifndef ADAGIO
   ToneBank *bank=((dr) ? drumset[b] : tonebank[b]);
   for (i=0; i<128; i++)
+#else /* ADAGIO */
+  ToneBank *bank= tonebank[b];
+  for (i=0; i<MAX_TONE_VOICES; i++)
+#endif /* ADAGIO */
     if (bank->tone[i].instrument)
       {
 	/* Not that this could ever happen, of course */
@@ -95,7 +122,23 @@ static void free_bank(int dr, int b)
       }
 }
 
-static int32 convert_envelope_rate(uint8 rate)
+int32 convert_envelope_rate_attack(uint8 rate, uint8 fastness)
+{
+  int32 r;
+
+  r=3-((rate>>6) & 0x3);
+  r*=3;
+  r = (int32)(rate & 0x3f) << r; /* 6.9 fixed point */
+
+  /* 15.15 fixed point. */
+  return (((r * 44100) / play_mode->rate) * control_ratio) 
+    << 10;
+#if 0
+    << fastness;
+#endif
+}
+
+int32 convert_envelope_rate(uint8 rate)
 {
   int32 r;
 
@@ -108,7 +151,7 @@ static int32 convert_envelope_rate(uint8 rate)
     << ((fast_decay) ? 10 : 9);
 }
 
-static int32 convert_envelope_offset(uint8 offset)
+int32 convert_envelope_offset(uint8 offset)
 {
   /* This is not too good... Can anyone tell me what these values mean?
      Are they GUS-style "exponential" volumes? And what does that mean? */
@@ -117,7 +160,7 @@ static int32 convert_envelope_offset(uint8 offset)
   return offset << (7+15);
 }
 
-static int32 convert_tremolo_sweep(uint8 sweep)
+ int32 convert_tremolo_sweep(uint8 sweep)
 {
   if (!sweep)
     return 0;
@@ -127,13 +170,13 @@ static int32 convert_tremolo_sweep(uint8 sweep)
       (play_mode->rate * sweep);
 }
 
-static int32 convert_vibrato_sweep(uint8 sweep, int32 vib_control_ratio)
+ int32 convert_vibrato_sweep(uint8 sweep, int32 vib_control_ratio)
 {
   if (!sweep)
     return 0;
 
   return
-    (int32) (FSCALE((double) (vib_control_ratio) * SWEEP_TUNING, SWEEP_SHIFT)
+    (int32) (FRSCALE((double) (vib_control_ratio) * SWEEP_TUNING, SWEEP_SHIFT)
 	     / (double)(play_mode->rate * sweep));
 
   /* this was overflowing with seashore.pat
@@ -142,14 +185,14 @@ static int32 convert_vibrato_sweep(uint8 sweep, int32 vib_control_ratio)
       (play_mode->rate * sweep); */
 }
 
-static int32 convert_tremolo_rate(uint8 rate)
+ int32 convert_tremolo_rate(uint8 rate)
 {
   return
     ((SINE_CYCLE_LENGTH * control_ratio * rate) << RATE_SHIFT) /
       (TREMOLO_RATE_TUNING * play_mode->rate);
 }
 
-static int32 convert_vibrato_rate(uint8 rate)
+ int32 convert_vibrato_rate(uint8 rate)
 {
   /* Return a suitable vibrato_control_ratio value */
   return
@@ -181,10 +224,15 @@ static void reverse_data(int16 *sp, int32 ls, int32 le)
    undefined.
 
    TODO: do reverse loops right */
-static Instrument *load_instrument(char *name, int percussion,
+static Instrument *load_instrument(char *name, int font_type, int percussion,
 				   int panning, int amp, int note_to_use,
 				   int strip_loop, int strip_envelope,
-				   int strip_tail)
+#ifndef ADAGIO
+				   int strip_tail, int bank, int gm_num)
+#else /* ADAGIO */
+				   int strip_tail,
+				   int gm_num, int tpgm, int reverb, int main_volume)
+#endif /* ADAGIO */
 {
   Instrument *ip;
   Sample *sp;
@@ -193,6 +241,35 @@ static Instrument *load_instrument(char *name, int percussion,
   int i,j,noluck=0;
 #ifdef PATCH_EXT_LIST
   static char *patch_ext[] = PATCH_EXT_LIST;
+#endif
+#ifdef ADAGIO
+  int newmode;
+  extern Instrument *load_fff_patch(int, int, int, int);
+  extern Instrument *load_sbk_patch(int, int, int, int, int);
+  extern int next_wave_prog;
+
+  if (gm_num >= 0) {
+  if ((ip = load_fff_patch(gm_num, tpgm, reverb, main_volume))) return(ip);
+  if ((ip = load_sbk_patch(0, gm_num, tpgm, reverb, main_volume))) return(ip);
+  }
+#else
+  extern Instrument *load_fff_patch(char *, int, int, int, int, int, int, int, int, int);
+  extern Instrument *load_sbk_patch(int, char *, int, int, int, int, int, int, int, int, int);
+
+  if (gm_num >= 0) {
+      if (font_type == FONT_FFF && (ip = load_fff_patch(name, gm_num, bank, percussion,
+			   panning, amp, note_to_use,
+			   strip_loop, strip_envelope,
+			   strip_tail))) return(ip);
+	/* Substitute next if sbk fonts are not to require bank and preset
+	   declarations -- also undefine STRICT_FONT_DECL in sndfont.c. --gl
+	 */
+      /*if ((!bank || font_type == FONT_SBK) && (ip = load_sbk_patch(0, name, gm_num, bank, percussion,*/
+      if (font_type == FONT_SBK && (ip = load_sbk_patch(0, name, gm_num, bank, percussion,
+			   panning, amp, note_to_use,
+			   strip_loop, strip_envelope,
+			   strip_tail))) return(ip);
+  }
 #endif
 
   if (!name) return 0;
@@ -221,13 +298,27 @@ static Instrument *load_instrument(char *name, int percussion,
   
   if (noluck)
     {
+      if (gm_num >= 0) {
+	#ifdef ADAGIO
+  	if ((ip = load_sbk_patch(1, gm_num, tpgm, reverb, main_volume))) return(ip);
+	#else
+  	if (font_type == FONT_SBK && (ip = load_sbk_patch(1, name, gm_num, bank, percussion,
+			   panning, amp, note_to_use,
+			   strip_loop, strip_envelope,
+			   strip_tail))) return(ip);
+	#endif
+      }
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
 		"Instrument `%s' can't be found.", name);
+    #ifdef ADAGIO
+      gus_voice[tpgm].volume = DOES_NOT_EXIST;
+    #endif
+  
       return 0;
     }
       
   ctl->cmsg(CMSG_INFO, VERB_NOISY, "Loading instrument %s", current_filename);
-  
+
   /* Read some headers and do cursory sanity checks. There are loads
      of magic offsets. This could be rewritten... */
 
@@ -254,11 +345,22 @@ static Instrument *load_instrument(char *name, int percussion,
 	   "Can't handle instruments with %d layers", tmp[151]);
       return 0;
     }
+
+#ifdef ADAGIO
+  gus_voice[tpgm].loaded |= DSP_MASK;
+  gus_voice[tpgm].prog = next_wave_prog++;
+  newmode = gus_voice[tpgm].modes;
+#endif
   
   ip=safe_malloc(sizeof(Instrument));
   ip->type = INST_GUS;
   ip->samples = tmp[198];
   ip->sample = safe_malloc(sizeof(Sample) * ip->samples);
+  ip->left_samples = ip->samples;
+  ip->left_sample = ip->sample;
+  ip->right_samples = 0;
+  ip->right_sample = 0;
+
   for (i=0; i<ip->samples; i++)
     {
 
@@ -328,7 +430,11 @@ static Instrument *load_instrument(char *name, int percussion,
 	       sp->tremolo_depth);
 	}
 
+#ifdef ADAGIO
+      if (1)
+#else
       if (!tmp[16] || !tmp[17])
+#endif
 	{
 	  sp->vibrato_sweep_increment=
 	    sp->vibrato_control_ratio=sp->vibrato_depth=0;
@@ -348,9 +454,43 @@ static Instrument *load_instrument(char *name, int percussion,
 	}
 
       READ_CHAR(sp->modes);
-
+      READ_SHORT(sp->freq_center);
+      READ_SHORT(sp->freq_scale);
+      skip(fp, 36);
+#if 0
       skip(fp, 40); /* skip the useless scale frequency, scale factor
 		       (what's it mean?), and reserved space */
+#endif
+
+#ifdef ADAGIO
+      if (sp->freq_scale == 1024) sp->freq_center = 60;
+#ifndef STRIP_PERCUSSION
+      strip_loop = strip_envelope = strip_tail = 0;
+#endif
+
+      if (!i) {
+        gus_voice[tpgm].vibrato_sweep = tmp[15];
+        gus_voice[tpgm].vibrato_rate = tmp[16];
+        gus_voice[tpgm].vibrato_depth = sp->vibrato_depth;
+        if (!newmode) gus_voice[tpgm].modes = sp->modes;
+      }
+      if (newmode) sp->modes = newmode;
+
+      amp = gus_voice[tpgm].volume;
+
+      if (gm_num > 127 && gus_voice[tpgm].fix_key) {
+	sp->freq_scale = 0;
+	note_to_use = sp->freq_center = gus_voice[tpgm].fix_key;
+      }
+      else if (!sp->freq_scale) gus_voice[tpgm].fix_key = sp->freq_center;
+
+      if (gus_voice[tpgm].strip & LOOPS_FLAG) strip_loop = 1;
+      if (gus_voice[tpgm].strip & ENVELOPE_FLAG) strip_envelope = 1;
+      if (gus_voice[tpgm].strip & TAIL_FLAG) strip_tail = 1;
+      if (gus_voice[tpgm].keep & LOOPS_FLAG) strip_loop = 0;
+      if (gus_voice[tpgm].keep & ENVELOPE_FLAG) strip_envelope = 0;
+      if (gus_voice[tpgm].keep & TAIL_FLAG) strip_tail = 0;
+#endif /* ADAGIO */
 
       /* Mark this as a fixed-pitch instrument if such a deed is desired. */
       if (note_to_use!=-1)
@@ -401,6 +541,7 @@ static Instrument *load_instrument(char *name, int percussion,
 	      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 			" - Weirdness, removing envelope");
 	    }
+#ifndef ADAGIO
 	  else if (!(sp->modes & MODES_SUSTAIN))
 	    {
 	      /* No sustain? Then no envelope.  I don't know if this is
@@ -411,12 +552,59 @@ static Instrument *load_instrument(char *name, int percussion,
 	      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 			" - No sustain, removing envelope");
 	    }
+#endif
 	}
+
+	sp->attenuation = 0;
+#ifdef ADAGIO
+
+        for (j = 0; j < 6; j++) {
+	    if (gus_voice[tpgm].keep & USEENV_FLAG) {
+		tmp[6+j] = gus_voice[tpgm].envelope_offset[j];
+		tmp[j] = gus_voice[tpgm].envelope_rate[j];
+	    } else if (!i) {
+		gus_voice[tpgm].envelope_offset[j] = tmp[6+j];
+		gus_voice[tpgm].envelope_rate[j] = tmp[j];
+	    }
+	}
+
+#ifdef REV_E_ADJUST
+        if (reverb) {
+	    int r = reverb;
+	    int dec = tmp[2];
+	    r = (127 - r) / 6;
+	    if (r < 0) r = 0;
+	    if (r > 28) r = 28;
+	    r += dec & 0x3f;
+	    if (r > 63) r = 63;
+	    dec = (dec & 0xc0) | r;
+	    tmp[2] = dec;
+	    r = reverb;
+	    if (r > 127) r = 127;
+	    if (gm_num < 120) tmp[3] = (2<<6) | (12 - (r>>4));
+	    else if (gm_num > 127) tmp[1] = (3<<6) | (63 - (r>>1));
+        }
+#endif
+
+#ifdef VOL_E_ADJUST
+#define VR_NUM 2
+#define VR_DEN 3
+      {
+        unsigned voff, poff;
+        for (j = 0; j < 6; j++) {
+            voff = tmp[6+j];
+            poff = 2 + main_volume + 63 + gus_voice[tpgm].volume / 2;
+            voff = ((poff + VR_NUM*256) * voff + VR_DEN*128) / (VR_DEN*256);
+            tmp[6+j] = voff;
+        }
+      }
+#endif
+#endif
 
       for (j=0; j<6; j++)
 	{
 	  sp->envelope_rate[j]=
-	    convert_envelope_rate(tmp[j]);
+	    (j<3)? convert_envelope_rate_attack(tmp[j], 11) : convert_envelope_rate(tmp[j]);
 	  sp->envelope_offset[j]= 
 	    convert_envelope_offset(tmp[6+j]);
 	}
@@ -562,20 +750,40 @@ static Instrument *load_instrument(char *name, int percussion,
   return ip;
 }
 
-
+#ifndef ADAGIO
 static int fill_bank(int dr, int b)
+#else /* ADAGIO */
+static int fill_bank(int b)
+#endif /* ADAGIO */
 {
+#ifndef ADAGIO
   int i, errors=0;
   ToneBank *bank=((dr) ? drumset[b] : tonebank[b]);
+#else /* ADAGIO */
+  int i, errors=0, dr;
+  ToneBank *bank=tonebank[b];
+#endif /* ADAGIO */
   if (!bank)
     {
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
+	#ifndef ADAGIO
 	   "Huh. Tried to load instruments in non-existent %s %d",
 	   (dr) ? "drumset" : "tone bank", b);
+	#else /* ADAGIO */
+	   "Huh. Tried to load instruments in non-existent tone bank %d", b);
+	#endif /* ADAGIO */
       return 0;
     }
+  #ifndef ADAGIO
   for (i=0; i<128; i++)
+  #else /* ADAGIO */
+  for (i=0; i<MAX_TONE_VOICES; i++)
+  #endif /* ADAGIO */
     {
+      #ifdef ADAGIO
+      dr = (bank->tone[i].gm_num - 128);
+      if (dr < 0) dr = 0;
+      #endif /* ADAGIO */
       if (bank->tone[i].instrument==MAGIC_LOAD_INSTRUMENT)
 	{
 	  if (!(bank->tone[i].name))
@@ -588,11 +796,14 @@ static int fill_bank(int dr, int b)
 		{
 		  /* Mark the corresponding instrument in the default
 		     bank / drumset for loading (if it isn't already) */
+		#ifndef ADAGIO
 		  if (!dr)
 		    {
+		#endif /* not ADAGIO */
 		      if (!(standard_tonebank.tone[i].instrument))
 			standard_tonebank.tone[i].instrument=
 			  MAGIC_LOAD_INSTRUMENT;
+		#ifndef ADAGIO
 		    }
 		  else
 		    {
@@ -600,56 +811,59 @@ static int fill_bank(int dr, int b)
 			standard_drumset.tone[i].instrument=
 			  MAGIC_LOAD_INSTRUMENT;
 		    }
+		#endif /* not ADAGIO */
 		}
 	      bank->tone[i].instrument=0;
 	      errors++;
 	    }
-	  else {
-	    /* preload soundfont */
-	    if (dr)
-		    bank->tone[i].instrument = load_soundfont(0, 128, b, i);
-	    else
-		    bank->tone[i].instrument = load_soundfont(0, b, i, -1);
-	    /* load patch file */
-	    if (!bank->tone[i].instrument) {
-		  if (!(bank->tone[i].instrument=
+	  else if (!(bank->tone[i].instrument=
 		     load_instrument(bank->tone[i].name, 
+				     bank->tone[i].font_type,
 				     (dr) ? 1 : 0,
 				     bank->tone[i].pan,
 				     bank->tone[i].amp,
 				     (bank->tone[i].note!=-1) ? 
 				     bank->tone[i].note :
+				#ifndef ADAGIO
 				     ((dr) ? i : -1),
+				#else /* ADAGIO */
+				     ((dr) ? dr : -1),
+				#endif /* ADAGIO */
 				     (bank->tone[i].strip_loop!=-1) ?
 				     bank->tone[i].strip_loop :
 				     ((dr) ? 1 : -1),
 				     (bank->tone[i].strip_envelope != -1) ? 
 				     bank->tone[i].strip_envelope :
 				     ((dr) ? 1 : -1),
-				     bank->tone[i].strip_tail )))
-		    {
-		      /* no patch; search soundfont again */
-		      if (dr)
-			      bank->tone[i].instrument = load_soundfont(1, 128, b, i);
-		      else
-			      bank->tone[i].instrument = load_soundfont(1, b, i, -1);
-		      if (!bank->tone[i].instrument) {
-		      ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
-				"Couldn't load instrument %s (%s %d, program %d)",
-				bank->tone[i].name,
-				(dr)? "drum set" : "tone bank", b, i);
-		      errors++;
-		      }
-		    }
+				#ifndef ADAGIO
+				     bank->tone[i].strip_tail,
+				     b,
+				     ((dr) ? i + 128 : i) )))
+				#else /* ADAGIO */
+				     bank->tone[i].strip_tail,
+				     bank->tone[i].gm_num,
+				     bank->tone[i].tpgm,
+				     bank->tone[i].reverb,
+				     bank->tone[i].main_volume )))
+				#endif /* ADAGIO */
+	    {
+	      ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
+		   "Couldn't load instrument %s (%s %d, program %d)",
+		   bank->tone[i].name,
+		   (dr)? "drum set" : "tone bank", b, i);
+	      errors++;
 	    }
 	}
-      }
     }
   return errors;
 }
 
 int load_missing_instruments(void)
 {
+#ifdef ADAGIO
+  int errors=0;
+  errors+=fill_bank(0);
+#else
   int i=128,errors=0;
   while (i--)
     {
@@ -658,6 +872,7 @@ int load_missing_instruments(void)
       if (drumset[i])
 	errors+=fill_bank(1,i);
     }
+#endif
   return errors;
 }
 
@@ -667,16 +882,24 @@ void free_instruments(void)
   while(i--)
     {
       if (tonebank[i])
+    #ifndef ADAGIO
 	free_bank(0,i);
       if (drumset[i])
 	free_bank(1,i);
+    #else /* ADAGIO */
+	free_bank(i);
+    #endif /* ADAGIO */
     }
 }
 
 int set_default_instrument(char *name)
 {
   Instrument *ip;
-  if (!(ip=load_instrument(name, 0, -1, -1, -1, 0, 0, 0)))
+#ifndef ADAGIO
+  if (!(ip=load_instrument(name, FONT_NORMAL, 0, -1, -1, -1, 0, 0, 0, 0, -1)))
+#else /* ADAGIO */
+  if (!(ip=load_instrument(name, FONT_NORMAL, 0, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0)))
+#endif /* ADAGIO */
     return -1;
   if (default_instrument)
     free_instrument(default_instrument);

@@ -54,21 +54,25 @@ extern PlayMode win32_play_mode;
 #endif
 
 /* These are always compiled in. */
+#ifndef ADAGIO
 extern PlayMode raw_play_mode, wave_play_mode;
+#endif
 
 PlayMode *play_mode_list[] = {
 #ifdef DEFAULT_PLAY_MODE
   DEFAULT_PLAY_MODE,
 #endif
+#ifndef ADAGIO
   &wave_play_mode,
   &raw_play_mode,
+#endif
   0
 };
 
 #ifdef DEFAULT_PLAY_MODE
   PlayMode *play_mode=DEFAULT_PLAY_MODE;
 #else
- PlayMode *play_mode=&wave_play_mode;
+  PlayMode *play_mode=&wave_play_mode;
 #endif
 
 /*****************************************************************/

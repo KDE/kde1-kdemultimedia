@@ -95,6 +95,9 @@ static int ctl_read(int32 *valp)
 static int cmsg(int type, int verbosity_level, char *fmt, ...)
 {
   va_list ap;
+#ifdef ADAGIO
+  if (interactive) return 0;
+#endif
   if ((type==CMSG_TEXT || type==CMSG_INFO || type==CMSG_WARNING) &&
       ctl.verbosity<verbosity_level)
     return 0;

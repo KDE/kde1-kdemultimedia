@@ -44,6 +44,10 @@ typedef struct {
     panning, note_to_use;
   int16
     scale_tuning;
+  uint8
+    attenuation, freq_center;
+  int32
+    freq_scale;
 } Sample;
 
 /* Bits in modes: */
@@ -54,6 +58,7 @@ typedef struct {
 #define MODES_REVERSE	(1<<4)
 #define MODES_SUSTAIN	(1<<5)
 #define MODES_ENVELOPE	(1<<6)
+#define MODES_FAST_RELEASE	(1<<7)
 
 #define INST_GUS	0
 #define INST_SF2	1
@@ -62,12 +67,26 @@ typedef struct {
   int type;
   int samples;
   Sample *sample;
+  int left_samples;
+  Sample *left_sample;
+  int right_samples;
+  Sample *right_sample;
 } Instrument;
+
+#define FONT_NORMAL 0
+#define FONT_FFF    1
+#define FONT_SBK    2
 
 typedef struct {
   char *name;
   Instrument *instrument;
+  int font_type;
+#ifndef ADAGIO
   int note, amp, pan, strip_loop, strip_envelope, strip_tail;
+#else /* ADAGIO */
+  int note, amp, pan, strip_loop, strip_envelope, strip_tail,
+	 gm_num, tpgm, reverb, main_volume;
+#endif /* ADAGIO */
 } ToneBankElement;
 
 /* A hack to delay instrument loading until after reading the
@@ -75,11 +94,19 @@ typedef struct {
 #define MAGIC_LOAD_INSTRUMENT ((Instrument *)(-1))
 
 typedef struct {
+#ifndef ADAGIO
   ToneBankElement tone[128];
+#else /* ADAGIO */
+  ToneBankElement tone[MAX_TONE_VOICES];
+#endif /* ADAGIO */
 } ToneBank;
 
 extern char *sf_file;
+#ifndef ADAGIO
 extern ToneBank *tonebank[], *drumset[];
+#else /* ADAGIO */
+extern ToneBank *tonebank[];
+#endif /* ADAGIO */
 
 extern Instrument *default_instrument;
 extern int default_program;

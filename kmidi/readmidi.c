@@ -24,7 +24,7 @@
 #include <errno.h>
 
 #if (defined(SUN) && defined(SYSV)) | defined(__WIN32__)
-#include <string.h>
+# include <string.h>
 #else
 #include <strings.h>
 #endif
@@ -211,13 +211,16 @@ static MidiEventList *read_midi_event(void)
 		       Also, some MIDI files use 0 as some sort of
 		       continuous controller. This will cause lots of
 		       warnings about undefined tone banks. */
-		  case 0: control=ME_TONE_BANK; break;
+		  case 0: control=ME_TONE_BANK;
+		    break;
 		  case 32: 
+		/***  This is MSB for bank change --gl
 		    if (b!=0)
 		      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 				"(Strange: tone bank change 0x20%02x)", b);
 		    else
 		      control=ME_TONE_BANK;
+		***/
 		    break;
 
 		  case 100: nrpn=0; rpn_msb[lastchan]=b; break;

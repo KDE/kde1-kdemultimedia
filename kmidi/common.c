@@ -24,7 +24,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 #if (defined(SUN) && defined(SYSV)) || defined(__WIN32__)
 #include <string.h>
 #else
@@ -128,8 +127,6 @@ FILE *open_file(char *name, int decompress, int noise_mode)
   strncpy(current_filename, name, 1023);
   current_filename[1023]='\0';
 
-
-
   ctl->cmsg(CMSG_INFO, VERB_DEBUG, "Trying to open %s", current_filename);
   if ((fp=try_to_open(current_filename, decompress, noise_mode)))
     return fp;
@@ -154,7 +151,6 @@ FILE *open_file(char *name, int decompress, int noise_mode)
 	  }
 	strcat(current_filename, name);
 	ctl->cmsg(CMSG_INFO, VERB_DEBUG, "Trying to open %s", current_filename);
-
 	if ((fp=try_to_open(current_filename, decompress, noise_mode)))
 	  return fp;
 	if (noise_mode && (errno != ENOENT))
@@ -219,13 +215,16 @@ void *safe_malloc(size_t count)
   ctl->close();
   play_mode->purge_output();
   play_mode->close_output();
-  exit(10);
+    #ifdef ADAGIO
+    X_EXIT
+    #else
+    exit(10);
+    #endif
 }
 
 /* This adds a directory to the path list */
 void add_to_pathlist(char *s)
 {
-
   PathList *plp=safe_malloc(sizeof(PathList));
   strcpy((plp->path=safe_malloc(strlen(s)+1)),s);
   plp->next=pathlist;

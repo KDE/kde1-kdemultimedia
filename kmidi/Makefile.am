@@ -10,6 +10,7 @@ VERSION = 0.2i
 
 INCLUDES = $(all_includes)
 DEFS += -DDEFAULT_PATH=\"$(TIMID_DIR)\"  
+DEFS += -DKMIDI
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
 LDADD = -lkfm -lkdecore -lkdeui -lqt -lXext -lX11 $(LIBALIB) \
 	$(LIBAUDIO) $(LIBMME) $(LIBSOCKET)
@@ -25,7 +26,8 @@ bin_PROGRAMS = kmidi
 kmidi_SOURCES = kmidi.cpp  playlist.cpp bwlednum.cpp configdlg.cpp log.cpp\
 	timidity.c common.c readmidi.c playmidi.c resample.c mix.c instrum.c \
 	tables.c controls.c output.c filter.c wave_a.c raw_a.c dumb_c.c \
-	sndfont.c readsbk.c linux_a.c ctl.c dec_a.c sun_a.c hpux_a.c
+	sndfont.c readsbk.c linux_a.c ctl.c dec_a.c sun_a.c hpux_a.c \
+	b_out.c fffload.c
 
 noinst_HEADERS = kmidi.h  playlist.h bwlednum.h configdlg.h\
 	config.h common.h readmidi.h playmidi.h resample.h mix.h instrum.h \

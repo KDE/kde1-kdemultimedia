@@ -27,25 +27,28 @@
 
 */
 
-
-
 #if defined(sun)
-     
+
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
 
 #include <sys/ioctl.h> 
 
-#ifdef (SYSV) /* Solaris */
+#ifdef (SYSV)
  #include <sys/audioio.h>
 #else
  #include <sun/audioio.h>
+#endif
+#ifdef ADAGIO
+#include <malloc.h>
 #endif
 
 #include "config.h"
 #include "output.h"
 #include "controls.h"
+
+extern void b_out(int fd, int *buf, int ocount);
 
 static int open_output(void); /* 0=success, 1=warning, -1=fatal error */
 static void close_output(void);
@@ -81,14 +84,15 @@ static audio_info_t auinfo;
 
 static int open_output(void)
 {
-  int fd, tmp, i, warnings=0;
-  
+  int fd, warnings=0;
+  extern int ioctl();
+
   /* Open the audio device */
 
 #ifdef (SYSV)
-  fd=open(dpm.name, O_RDWR );
+  fd=open(dpm.name, O_WRONLY );
 #else
-  fd=open(dpm.name, O_RDWR | O_NDELAY);
+  fd=open(dpm.name, O_WRONLY | O_NDELAY);
 #endif
 
   if (fd<0)
@@ -97,6 +101,8 @@ static int open_output(void)
 	   dpm.name, sys_errlist[errno]);
       return -1;
     }
+
+  fcntl(fd, F_SETFL, O_NDELAY);
 
 
   /* Does any device need byte-swapped data? Turn the bit off here. */
@@ -202,11 +208,17 @@ static int open_output(void)
       auinfo.play.sample_rate=dpm.rate;
       if (ioctl(fd, AUDIO_SETINFO,&auinfo)<0)
 	{
-	  ctl->cmsg(CMSG_ERROR, VERB_NORMAL,
+	  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
 		    "%s doesn't support a %d Hz sample rate",
 		    dpm.name, dpm.rate);
-	  close(fd);
-	  return -1;
+  	  if (ioctl(fd, AUDIO_GETINFO, &auinfo)<0)
+	  {
+	    ctl->cmsg(CMSG_ERROR, VERB_NORMAL,
+		    "Can't output: %s doesn't support a %d Hz sample rate",
+		    dpm.name, dpm.rate);
+	    close(fd);
+	    return -1;
+	  }
 	}
       /* This may be pointless -- do the Sun devices give an error if
          the sampling rate can't be produced exactly? */
@@ -233,6 +245,40 @@ static int open_output(void)
   return warnings;
 }
 
+#ifdef ADAGIO
+int current_sample_count()
+{
+  extern int ioctl();
+  if (ioctl(dpm.fd, AUDIO_GETINFO, &auinfo)<0) return -1;
+  return auinfo.play.samples;
+}
+#endif
+
+static void output_data(int32 *buf, int32 count)
+{
+  int ocount;
+
+  if (!(dpm.encoding & PE_MONO)) count*=2; /* Stereo samples */
+  ocount = count;
+
+  if (ocount) {
+    if (dpm.encoding & PE_ULAW)
+      {
+        /* Convert to 8-bit uLaw and write out. */
+        s32toulaw(buf, count);
+      }
+    else
+      {
+        /* Convert data to signed 16-bit PCM */
+        s32tos16(buf, count);
+        ocount *= 2;
+      }
+  }
+
+  b_out(dpm.fd, (int *)buf, ocount);
+}
+
+#if 0
 static void output_data(int32 *buf, int32 count)
 {
   if (!(dpm.encoding & PE_MONO)) count*=2; /* Stereo samples */
@@ -254,6 +300,7 @@ static void output_data(int32 *buf, int32 count)
 	;
     }
 }
+#endif
 
 static void close_output(void)
 {
@@ -262,10 +309,10 @@ static void close_output(void)
 
 static void flush_output(void)
 {
+  output_data(0, 0);
 }
 
 static void purge_output(void)
 {
 }
-
-#endif /*SUN*/
+#endif /* SUN */

@@ -67,6 +67,11 @@ typedef struct {
   uint8
     status, channel, note, velocity;
   Sample *sample;
+/** #ifdef ADAGIO **/
+  Sample *left_sample;
+  Sample *right_sample;
+  int32 clone_voice;
+/** #endif **/
   int32
     orig_frequency, frequency,
     sample_offset, sample_increment,
@@ -101,7 +106,11 @@ typedef struct {
 #define PANNED_CENTER 3
 /* Anything but PANNED_MYSTERY only uses the left volume */
 
+#ifndef ADAGIO
 extern Channel channel[16];
+#else /* ADAGIO */
+extern Channel channel[MAX_TONE_VOICES];
+#endif /* ADAGIO */
 extern Voice voice[MAX_VOICES];
 
 extern int32 control_ratio, amp_with_poly, amplification;
@@ -111,6 +120,11 @@ extern int voices;
 
 #define ISDRUMCHANNEL(c) ((drumchannels & (1<<(c))))
 
+#ifndef ADAGIO
 extern int play_midi(MidiEvent *el, int32 events, int32 samples);
 extern int play_midi_file(char *fn);
+#endif
 extern void dumb_pass_playing_list(int number_of_files, char *list_of_files[]);
+#ifdef ADAGIO
+extern int play_midi(unsigned char *, unsigned char *, int);
+#endif /* ADAGIO */

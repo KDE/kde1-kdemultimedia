@@ -37,7 +37,11 @@
 #include "common.h"
 #include "instrum.h"
 #include "playmidi.h"
+#ifndef ADAGIO
 #include "readmidi.h"
+#else
+#include <memory.h>
+#endif /* ADAGIO */
 #include "output.h"
 #include "mix.h"
 #include "controls.h"
@@ -48,7 +52,30 @@
 extern int intr;
 #endif
 
+#ifdef ADAGIO
+
+/* Minimal control mode */
+extern ControlMode dumb_control_mode;
+#define DEFAULT_CONTROL_MODE &dumb_control_mode
+
+ControlMode *ctl_list[]={
+  &dumb_control_mode,
+  0
+};
+ControlMode *ctl=DEFAULT_CONTROL_MODE;
+
+int free_instruments_afterwards=0;
+
+/**static char def_instr_name[256]="";**/
+static unsigned max_polyphony = 0;
+#endif
+
+#ifndef ADAGIO
 Channel channel[16];
+#else /* ADAGIO */
+static void read_seq(unsigned char *from, unsigned char *to);
+Channel channel[MAX_VOICES];
+#endif /* ADAGIO */
 Voice voice[MAX_VOICES];
 
 int
@@ -105,7 +132,11 @@ static void redraw_controllers(int c)
 static void reset_midi(void)
 {
   int i;
+#ifndef ADAGIO
   for (i=0; i<16; i++)
+#else /* ADAGIO */
+  for (i=0; i<MAX_VOICES; i++)
+#endif /* ADAGIO */
     {
       reset_controllers(i);
       /* The rest of these are unaffected by the Reset All Controllers event */
@@ -115,6 +146,70 @@ static void reset_midi(void)
       channel[i].bank=0; /* tone bank or drum set */
     }
   reset_voices();
+}
+
+static void select_sample(int v, Instrument *ip)
+{
+  int32 f, cdiff, diff;
+  int s,i;
+  Sample *sp, *closest;
+
+  s=ip->samples;
+  sp=ip->sample;
+
+  if (s==1)
+    {
+      voice[v].sample=sp;
+      return;
+    }
+
+  f=voice[v].orig_frequency;
+  for (i=0; i<s; i++)
+    {
+      if (sp->low_freq <= f && sp->high_freq >= f)
+	{
+	  voice[v].sample=sp;
+	  return;
+	}
+      sp++;
+    }
+
+  /* 
+     No suitable sample found! We'll select the sample whose root
+     frequency is closest to the one we want. (Actually we should
+     probably convert the low, high, and root frequencies to MIDI note
+     values and compare those.) */
+
+  cdiff=0x7FFFFFFF;
+  closest=sp=ip->sample;
+  for(i=0; i<s; i++)
+    {
+      diff=sp->root_freq - f;
+      if (diff<0) diff=-diff;
+      if (diff<cdiff)
+	{
+	  cdiff=diff;
+	  closest=sp;
+	}
+      sp++;
+    }
+  voice[v].sample=closest;
+  return;
+}
+
+static void select_stereo_samples(int v, Instrument *ip)
+{
+  if (ip->right_sample) {
+    ip->sample = ip->right_sample;
+    ip->samples = ip->right_samples;
+    select_sample(v, ip);
+    voice[v].right_sample = voice[v].sample;
+  }
+  else voice[v].right_sample = 0;
+
+  ip->sample = ip->left_sample;
+  ip->samples = ip->left_samples;
+  select_sample(v, ip);
 }
 
 static void recompute_freq(int v)
@@ -161,7 +256,7 @@ static void recompute_freq(int v)
 		  channel[voice[v].channel].pitchfactor);
     }
 
-  a = FSCALE(((double)(voice[v].sample->sample_rate) *
+  a = FRSCALE(((double)(voice[v].sample->sample_rate) *
 	      (double)(voice[v].frequency)) /
 	     ((double)(voice[v].sample->root_freq) *
 	      (double)(play_mode->rate)),
@@ -190,7 +285,7 @@ static void recompute_amp(int v)
 	  voice[v].panned=PANNED_CENTER;
 
 	  voice[v].left_amp=
-	    FSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
+	    FRSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
 		      21);
 	}
       else if (voice[v].panning<5)
@@ -198,7 +293,7 @@ static void recompute_amp(int v)
 	  voice[v].panned = PANNED_LEFT;
 
 	  voice[v].left_amp=
-	    FSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
+	    FRSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
 		      20);
 	}
       else if (voice[v].panning>123)
@@ -206,7 +301,7 @@ static void recompute_amp(int v)
 	  voice[v].panned = PANNED_RIGHT;
 
 	  voice[v].left_amp= /* left_amp will be used */
-	    FSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
+	    FRSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
 		      20);
 	}
       else
@@ -214,7 +309,7 @@ static void recompute_amp(int v)
 	  voice[v].panned = PANNED_MYSTERY;
 
 	  voice[v].left_amp=
-	    FSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
+	    FRSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
 		      27);
 	  voice[v].right_amp=voice[v].left_amp * (voice[v].panning);
 	  voice[v].left_amp *= (double)(127-voice[v].panning);
@@ -225,145 +320,43 @@ static void recompute_amp(int v)
       voice[v].panned=PANNED_CENTER;
 
       voice[v].left_amp=
-	FSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
+	FRSCALENEG((double)(tempamp) * voice[v].sample->volume * master_volume,
 		  21);
     }
 }
 
-static int find_voice(MidiEvent *e);
 
-static int find_samples(MidiEvent *e, int *vlist)
-{
-	Instrument *ip;
-	Sample *sp, *closest;
-	int32 f, cdiff, diff;
-	int i, nv, note;
-
-	if (ISDRUMCHANNEL(e->channel)) {
-		if (!(ip=drumset[channel[e->channel].bank]->tone[e->a].instrument)) {
-			if (!(ip=drumset[0]->tone[e->a].instrument))
-				return 0; /* No instrument? Then we can't play. */
-		}
-		if (ip->type == INST_GUS && ip->samples != 1) {
-			ctl->cmsg(CMSG_WARNING, VERB_VERBOSE, 
-				  "Strange: percussion instrument with %d samples!", ip->samples);
-			return 0;
-		}
-	} else {
-		if (channel[e->channel].program==SPECIAL_PROGRAM)
-			ip=default_instrument;
-		else if (!(ip=tonebank[channel[e->channel].bank]->
-			   tone[channel[e->channel].program].instrument)) {
-			if (!(ip=tonebank[0]->tone[channel[e->channel].program].instrument))
-				return 0; /* No instrument? Then we can't play. */
-		}
-	}
-
-	if (ip->sample->note_to_use)
-		note = ip->sample->note_to_use;
-	else
-		note = e->a & 0x7f;
-	f = freq_table[note];
-
-	nv = 0;
-	for (i = 0, sp = ip->sample; i < ip->samples; i++, sp++) {
-		if (sp->low_freq <= f && sp->high_freq >= f) {
-			vlist[nv] = find_voice(e);
-			voice[vlist[nv]].orig_frequency = f;
-			voice[vlist[nv]].sample = sp;
-			nv++;
-		}
-	}
-
-	if (nv == 0) {
-		cdiff = 0x7FFFFFFF;
-		closest = sp = ip->sample;
-		for (i = 0; i < ip->samples; i++, sp++) {
-			diff = sp->root_freq - f;
-			if (diff < 0) diff = -diff;
-			if (diff < cdiff) {
-				cdiff = diff;
-				closest = sp;
-			}
-		}
-		vlist[nv] = find_voice(e);
-		voice[vlist[nv]].orig_frequency = f;
-		voice[vlist[nv]].sample = closest;
-		nv++;
-	}
-
-	return nv;
-}
-
-static void start_note(MidiEvent *e, int i)
-{
-  int j;
-
-  voice[i].status=VOICE_ON;
-  voice[i].channel=e->channel;
-  voice[i].note=e->a;
-  voice[i].velocity=e->b;
-  voice[i].sample_offset=0;
-  voice[i].sample_increment=0; /* make sure it isn't negative */
-
-  voice[i].tremolo_phase=0;
-  voice[i].tremolo_phase_increment=voice[i].sample->tremolo_phase_increment;
-  voice[i].tremolo_sweep=voice[i].sample->tremolo_sweep_increment;
-  voice[i].tremolo_sweep_position=0;
-
-  voice[i].vibrato_sweep=voice[i].sample->vibrato_sweep_increment;
-  voice[i].vibrato_sweep_position=0;
-  voice[i].vibrato_control_ratio=voice[i].sample->vibrato_control_ratio;
-  voice[i].vibrato_control_counter=voice[i].vibrato_phase=0;
-  for (j=0; j<VIBRATO_SAMPLE_INCREMENTS; j++)
-    voice[i].vibrato_sample_increment[j]=0;
-
-  if (channel[e->channel].panning != NO_PANNING)
-    voice[i].panning=channel[e->channel].panning;
-  else
-    voice[i].panning=voice[i].sample->panning;
-
-  recompute_freq(i);
-  recompute_amp(i);
-  if (voice[i].sample->modes & MODES_ENVELOPE)
-    {
-      /* Ramp up from 0 */
-      voice[i].envelope_stage=0;
-      voice[i].envelope_volume=0;
-      voice[i].control_counter=0;
-      recompute_envelope(i);
-      apply_envelope_to_amp(i);
-    }
-  else
-    {
-      voice[i].envelope_increment=0;
-      apply_envelope_to_amp(i);
-    }
-  ctl->note(i);
-}
-
-static void kill_note(int i)
-{
-  voice[i].status=VOICE_DIE;
-  ctl->note(i);
-}
-
-/* Only one instance of a note can be playing on a single channel. */
-static int find_voice(MidiEvent *e)
+/** #ifdef ADAGIO **/
+/* just a variant of note_on() */
+static int vc_alloc(int j)
 {
   int i=voices, lowest=-1; 
   int32 lv=0x7FFFFFFF, v;
+  static void kill_note(int);
+#ifdef ADAGIO
+  int current_polyphony = 0;
+#endif
 
   while (i--)
     {
+      if (i == j) continue;
       if (voice[i].status == VOICE_FREE)
 	lowest=i; /* Can't get a lower volume than silence */
-      else if (voice[i].channel==e->channel && 
-	       (voice[i].note==e->a || channel[voice[i].channel].mono))
+/**
+      else if (voice[i].channel==voice[j].channel && 
+	       (voice[i].note==voice[j].note || channel[voice[i].channel].mono))
 	kill_note(i);
+**/
+#ifdef ADAGIO
+      else current_polyphony++;
+#endif
     }
 
+#ifdef ADAGIO
+  if (current_polyphony < max_polyphony && lowest != -1)
+#else
   if (lowest != -1)
+#endif
     {
       /* Found a free voice. */
       return lowest;
@@ -373,7 +366,9 @@ static int find_voice(MidiEvent *e)
   i=voices;
   while (i--)
     {
+      if (i == j) continue;
       if ((voice[i].status!=VOICE_ON) &&
+      	(voice[i].status != VOICE_FREE) &&
 	  (voice[i].status!=VOICE_DIE))
 	{
 	  v=voice[i].left_mix;
@@ -395,34 +390,304 @@ static int find_voice(MidiEvent *e)
 	 we could use a reserve of voices to play dying notes only. */
       
       cut_notes++;
-      /*fprintf(stderr, "cuts\n");*/
       voice[lowest].status=VOICE_FREE;
-      ctl->note(lowest);
-      return lowest;
+      if (voice[lowest].clone_voice >= 0)
+	voice[ voice[lowest].clone_voice ].status=VOICE_FREE;
     }
-  else {
-    lost_notes++;
-    /*fprintf(stderr, "losts\n");*/
-  }
-  return 0;
+#ifdef ADAGIO
+  if (current_polyphony <= max_polyphony) return lowest;
+  else return -1;
+#else
+  return lowest;
+#endif
 }
 
+static void clone_voice(int v, MidiEvent *e)
+{
+  int w, k, played_note;
+  voice[v].clone_voice = -1;
+  if (!voice[v].right_sample) return;
+  if ( (w = vc_alloc(v)) < 0 ) return;
+
+  voice[v].clone_voice = w;
+  voice[w].clone_voice = -1;
+  voice[w].status = voice[v].status;
+  voice[w].channel = voice[v].channel;
+  voice[w].note = voice[v].note;
+  voice[w].sample = voice[v].right_sample;
+  voice[w].velocity= (e->b * (127 - voice[w].sample->attenuation)) / 127;
+  voice[w].left_sample = voice[v].left_sample;
+  voice[w].right_sample = voice[v].right_sample;
+  voice[w].orig_frequency = voice[v].orig_frequency;
+  voice[w].frequency = voice[v].frequency;
+  voice[w].sample_offset = voice[v].sample_offset;
+  voice[w].sample_increment = voice[v].sample_increment;
+  voice[w].envelope_volume = voice[v].envelope_volume;
+  voice[w].envelope_target = voice[v].envelope_target;
+  voice[w].envelope_increment = voice[v].envelope_increment;
+  voice[w].tremolo_sweep = voice[v].tremolo_sweep;
+  voice[w].tremolo_sweep_position = voice[v].tremolo_sweep_position;
+  voice[w].tremolo_phase = voice[v].tremolo_phase;
+  voice[w].tremolo_phase_increment = voice[v].tremolo_phase_increment;
+  voice[w].vibrato_sweep = voice[v].vibrato_sweep;
+  voice[w].vibrato_sweep_position = voice[v].vibrato_sweep_position;
+  voice[w].left_mix = voice[v].left_mix;
+  voice[w].right_mix = voice[v].right_mix;
+  voice[w].left_amp = voice[v].left_amp;
+  voice[w].right_amp = voice[v].right_amp;
+  voice[w].tremolo_volume = voice[v].tremolo_volume;
+  for (k = 0; k < VIBRATO_SAMPLE_INCREMENTS; k++)
+    voice[w].vibrato_sample_increment[k] =
+      voice[v].vibrato_sample_increment[k];
+  voice[w].vibrato_phase = voice[v].vibrato_phase;
+  voice[w].vibrato_control_ratio = voice[v].vibrato_control_ratio;
+  voice[w].vibrato_control_counter = voice[v].vibrato_control_counter;
+  voice[w].envelope_stage = voice[v].envelope_stage;
+  voice[w].control_counter = voice[v].control_counter;
+  /*voice[w].panned = voice[v].panned;*/
+  voice[w].panned = PANNED_RIGHT;
+  /*voice[w].panning = 127;*/
+  voice[w].panning = voice[w].sample->panning;
+
+  played_note = voice[w].sample->note_to_use;
+  if (!played_note) played_note = e->a & 0x7f;
+#ifdef ADAGIO
+  if (voice[w].sample->freq_scale == 1024)
+	played_note = played_note + voice[w].sample->freq_center - 60;
+  else if (voice[w].sample->freq_scale)
+#endif
+    played_note = ( (played_note - voice[w].sample->freq_center) * voice[w].sample->freq_scale ) / 1024 +
+		voice[w].sample->freq_center;
+  voice[w].orig_frequency = freq_table[played_note];
+  recompute_freq(w);
+  recompute_amp(w);
+  recompute_envelope(w);
+  apply_envelope_to_amp(w);
+}
+/** #endif **/
+
+static void start_note(MidiEvent *e, int i)
+{
+  Instrument *ip;
+  int j;
+/** #ifdef ADAGIO **/
+  int played_note;
+/** #endif **/
+
+#ifndef ADAGIO
+  if (ISDRUMCHANNEL(e->channel))
+    {
+      if (!(ip=drumset[channel[e->channel].bank]->tone[e->a].instrument))
+	{
+	  if (!(ip=drumset[0]->tone[e->a].instrument))
+	    return; /* No instrument? Then we can't play. */
+	}
+      if (ip->type == INST_GUS && ip->samples != 1)
+	{
+	  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE, 
+	       "Strange: percussion instrument with %d samples!", ip->samples);
+	  return;
+	}
+
+      if (ip->sample->note_to_use) /* Do we have a fixed pitch? */
+	voice[i].orig_frequency=freq_table[(int)(ip->sample->note_to_use)];
+      else
+	voice[i].orig_frequency=freq_table[e->a & 0x7F];
+      
+      /* drums are supposed to have only one sample */
+      voice[i].sample=ip->sample;
+      voice[i].right_sample = ip->right_sample;
+    }
+  else
+    {
+#endif
+      if (channel[e->channel].program==SPECIAL_PROGRAM)
+	ip=default_instrument;
+      else if (!(ip=tonebank[channel[e->channel].bank]->
+		 tone[channel[e->channel].program].instrument))
+	{
+	  if (!(ip=tonebank[0]->tone[channel[e->channel].program].instrument))
+	    return; /* No instrument? Then we can't play. */
+	}
+
+      if (ip->sample->note_to_use) /* Fixed-pitch instrument? */
+	voice[i].orig_frequency=freq_table[(int)(ip->sample->note_to_use)];
+      else
+	voice[i].orig_frequency=freq_table[e->a & 0x7F];
+#ifdef ADAGIO
+      select_stereo_samples(i, ip);
+#else
+if (ip->sample->note_to_use) fprintf(stderr,"Uh oh!\n");
+      /**select_sample(i, ip);**/
+      select_stereo_samples(i, ip);
+    }
+#endif
+
+/** #ifdef ADAGIO **/
+    played_note = voice[i].sample->note_to_use;
+    if (!played_note) played_note = e->a & 0x7f;
+#ifdef ADAGIO
+    if (voice[i].sample->freq_scale == 1024)
+	played_note = played_note + voice[i].sample->freq_center - 60;
+    else if (voice[i].sample->freq_scale)
+#endif
+    played_note = ( (played_note - voice[i].sample->freq_center) * voice[i].sample->freq_scale ) / 1024 +
+		voice[i].sample->freq_center;
+    voice[i].orig_frequency = freq_table[played_note];
+/** #endif **/
+  if (voice[i].sample->modes & MODES_FAST_RELEASE) voice[i].status=VOICE_OFF;
+  else
+  voice[i].status=VOICE_ON;
+  voice[i].channel=e->channel;
+  voice[i].note=e->a;
+/** #ifdef ADAGIO **/
+  voice[i].velocity= (e->b * (127 - voice[i].sample->attenuation)) / 127;
+#if 0
+  voice[i].velocity=e->b;
+#endif
+  voice[i].sample_offset=0;
+  voice[i].sample_increment=0; /* make sure it isn't negative */
+
+  voice[i].tremolo_phase=0;
+  voice[i].tremolo_phase_increment=voice[i].sample->tremolo_phase_increment;
+  voice[i].tremolo_sweep=voice[i].sample->tremolo_sweep_increment;
+  voice[i].tremolo_sweep_position=0;
+
+  voice[i].vibrato_sweep=voice[i].sample->vibrato_sweep_increment;
+  voice[i].vibrato_sweep_position=0;
+  voice[i].vibrato_control_ratio=voice[i].sample->vibrato_control_ratio;
+  voice[i].vibrato_control_counter=voice[i].vibrato_phase=0;
+  for (j=0; j<VIBRATO_SAMPLE_INCREMENTS; j++)
+    voice[i].vibrato_sample_increment[j]=0;
+
+  if (channel[e->channel].panning != NO_PANNING)
+    voice[i].panning=channel[e->channel].panning;
+  else
+    voice[i].panning=voice[i].sample->panning;
+/** #ifdef ADAGIO **/
+/* for now, ... */
+  /*if (voice[i].right_sample) voice[i].panning = 0;*/
+  if (voice[i].right_sample) voice[i].panning = voice[i].sample->panning;
+/** #endif **/
+
+  recompute_freq(i);
+  recompute_amp(i);
+  if (voice[i].sample->modes & MODES_ENVELOPE)
+    {
+      /* Ramp up from 0 */
+      voice[i].envelope_stage=0;
+      voice[i].envelope_volume=0;
+      voice[i].control_counter=0;
+      recompute_envelope(i);
+      apply_envelope_to_amp(i);
+    }
+  else
+    {
+      voice[i].envelope_increment=0;
+      apply_envelope_to_amp(i);
+    }
+  ctl->note(i);
+/** #ifdef ADAGIO **/
+  clone_voice(i, e);
+/** #endif **/
+}
+
+static void kill_note(int i)
+{
+  voice[i].status=VOICE_DIE;
+  if (voice[i].clone_voice >= 0)
+	voice[ voice[i].clone_voice ].status=VOICE_DIE;
+  ctl->note(i);
+}
+
+/* Only one instance of a note can be playing on a single channel. */
 static void note_on(MidiEvent *e)
 {
-	int i, nv;
-	int vlist[32];
+  int i=voices, lowest=-1; 
+  int32 lv=0x7FFFFFFF, v;
+#ifdef ADAGIO
+  int current_polyphony = 0;
+#endif
 
-	nv = find_samples(e, vlist);
-	for (i = 0; i < nv; i++) {
-		start_note(e, vlist[i]);
+  while (i--)
+    {
+      if (voice[i].status == VOICE_FREE)
+	lowest=i; /* Can't get a lower volume than silence */
+/**
+      else if (voice[i].channel==e->channel && 
+	       (voice[i].note==e->a || channel[voice[i].channel].mono))
+	kill_note(i);
+**/
+#ifdef ADAGIO
+	else current_polyphony++;
+#endif
+    }
+
+#ifdef ADAGIO
+  if (current_polyphony <= max_polyphony)
+#endif
+  if (lowest != -1)
+    {
+      /* Found a free voice. */
+      start_note(e,lowest);
+      return;
+    }
+  
+  /* Look for the decaying note with the lowest volume */
+  i=voices;
+  while (i--)
+    {
+      if ((voice[i].status!=VOICE_ON) &&
+/** #ifdef ADAGIO **/
+      	(voice[i].status != VOICE_FREE) &&
+/** #endif **/
+	  (voice[i].status!=VOICE_DIE))
+	{
+	  v=voice[i].left_mix;
+	  if ((voice[i].panned==PANNED_MYSTERY) && (voice[i].right_mix>v))
+	    v=voice[i].right_mix;
+	  if (v<lv)
+	    {
+	      lv=v;
+	      lowest=i;
+	    }
 	}
+    }
+
+  if (lowest != -1)
+    {
+      /* This can still cause a click, but if we had a free voice to
+	 spare for ramping down this note, we wouldn't need to kill it
+	 in the first place... Still, this needs to be fixed. Perhaps
+	 we could use a reserve of voices to play dying notes only. */
+      
+      cut_notes++;
+      voice[lowest].status=VOICE_FREE;
+     /** #ifdef ADAGIO **/
+      if (voice[lowest].clone_voice >= 0)
+	voice[ voice[lowest].clone_voice ].status=VOICE_FREE;
+     /** #endif **/
+      ctl->note(lowest);
+#ifdef ADAGIO
+  if (current_polyphony <= max_polyphony)
+#endif
+      start_note(e,lowest);
+#ifdef ADAGIO
+      else cut_notes++;
+#endif
+    }
+  else
+    lost_notes++;
 }
 
 static void finish_note(int i)
 {
+  if (voice[i].sample->modes & MODES_FAST_RELEASE) return;
   if (voice[i].sample->modes & MODES_ENVELOPE)
+  /**if ((voice[i].sample->modes & MODES_ENVELOPE) && !(voice[i].sample->modes & MODES_FAST_RELEASE)) **/
     {
       /* We need to get the envelope out of Sustain stage */
+     if (voice[i].envelope_stage < 3)
       voice[i].envelope_stage=3;
       voice[i].status=VOICE_OFF;
       recompute_envelope(i);
@@ -436,6 +701,15 @@ static void finish_note(int i)
          hits the end of its data (ofs>=data_length). */
       voice[i].status=VOICE_OFF;
     }
+/** #ifdef ADAGIO **/
+  { int v;
+    if ( (v=voice[i].clone_voice) >= 0)
+      {
+        finish_note(v);
+	voice[i].clone_voice = -1;
+      }
+  }
+/** #endif **/
 }
 
 static void note_off(MidiEvent *e)
@@ -453,9 +727,13 @@ static void note_off(MidiEvent *e)
 	  }
 	else
 	  finish_note(i);
+/** #ifndef ADAGIO
+	return; **/
+/** #endif **/
       }
 }
 
+#ifndef ADAGIO
 /* Process the All Notes Off event */
 static void all_notes_off(int c)
 {
@@ -474,7 +752,9 @@ static void all_notes_off(int c)
 	  finish_note(i);
       }
 }
+#endif /* ADAGIO */
 
+#ifndef ADAGIO
 /* Process the All Sounds Off event */
 static void all_sounds_off(int c)
 {
@@ -487,6 +767,7 @@ static void all_sounds_off(int c)
 	kill_note(i);
       }
 }
+#endif
 
 static void adjust_pressure(MidiEvent *e)
 {
@@ -499,7 +780,7 @@ static void adjust_pressure(MidiEvent *e)
 	voice[i].velocity=e->b;
 	recompute_amp(i);
 	apply_envelope_to_amp(i);
-	return;
+	/** return; **/
       }
 }
 
@@ -510,12 +791,14 @@ static void adjust_panning(int c)
     if ((voice[i].channel==c) &&
 	(voice[i].status==VOICE_ON || voice[i].status==VOICE_SUSTAINED))
       {
+	if (voice[i].right_sample) continue;
 	voice[i].panning=channel[c].panning;
 	recompute_amp(i);
 	apply_envelope_to_amp(i);
       }
 }
 
+#ifndef ADAGIO
 static void drop_sustain(int c)
 {
   int i=voices;
@@ -523,6 +806,7 @@ static void drop_sustain(int c)
     if (voice[i].status==VOICE_SUSTAINED && voice[i].channel==c)
       finish_note(i);
 }
+#endif /* ADAGIO */
 
 static void adjust_pitchbend(int c)
 {
@@ -546,6 +830,7 @@ static void adjust_volume(int c)
       }
 }
 
+#ifndef ADAGIO
 static void seek_forward(int32 until_time)
 {
   reset_voices();
@@ -610,6 +895,7 @@ static void seek_forward(int32 until_time)
     current_event--;
   current_sample=until_time;
 }
+#endif /* ADAGIO */
 
 static void skip_to(int32 until_time)
 {
@@ -621,11 +907,30 @@ static void skip_to(int32 until_time)
   buffer_pointer=common_buffer;
   current_event=event_list;
   
+#ifndef ADAGIO
   if (until_time)
     seek_forward(until_time);
   ctl->reset();
+#endif /* ADAGIO */
 }
 
+#ifdef ADAGIO
+/* excerpted from below */
+void change_amplification(int val)
+{ int i;
+  amplification = val;
+  if (amplification > MAX_AMPLIFICATION)
+    amplification=MAX_AMPLIFICATION;
+  adjust_amplification();
+  for (i=0; i<voices; i++)
+    if (voice[i].status != VOICE_FREE) {
+      recompute_amp(i);
+      apply_envelope_to_amp(i);
+  }
+}
+#endif
+
+#ifndef ADAGIO
 static int apply_controls(void)
 {
   int rc, i, did_skip=0;
@@ -702,10 +1007,12 @@ static int apply_controls(void)
   else
     return rc;
 }
+#endif /* ADAGIO */
 
 static void do_compute_data(int32 count)
 {
   int i;
+  if (!count) return; /* (gl) */
   memset(buffer_pointer, 0, 
 	 (play_mode->encoding & PE_MONO) ? (count * 4) : (count * 8));
   for (i=0; i<voices; i++)
@@ -720,8 +1027,9 @@ static void do_compute_data(int32 count)
    flush the device itself */
 static int compute_data(int32 count)
 {
+#ifndef ADAGIO
   int rc;
-
+#endif /* not ADAGIO */
   if (!count)
     {
       if (buffered_count)
@@ -739,10 +1047,12 @@ static int compute_data(int32 count)
       play_mode->output_data(common_buffer, AUDIO_BUFFER_SIZE);
       buffer_pointer=common_buffer;
       buffered_count=0;
+      
       ctl->current_time(current_sample);
-
+#ifndef ADAGIO
       if ((rc=apply_controls())!=RC_NONE)
 	return rc;
+#endif /* not ADAGIO */
     }
   if (count>0)
     {
@@ -753,6 +1063,7 @@ static int compute_data(int32 count)
   return RC_NONE;
 }
 
+#ifndef ADAGIO
 int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 {
   int rc;
@@ -772,7 +1083,6 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 		if (intr)
 			return RC_QUIT;
 #endif
-
       /* Handle all events that should happen at this time */
       while (current_event->time <= current_sample)
 	{
@@ -872,7 +1182,6 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 
 	    case ME_EOT:
 	      /* Give the last notes a couple of seconds to decay  */
-
 	      compute_data(play_mode->rate * 2);
 	      compute_data(0); /* flush buffer to device */
 	      ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
@@ -894,8 +1203,421 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	  return rc;
     }
 }
+#endif
+
+#ifdef ADAGIO
+static int i_am_open = 0;
+static int i_have_done_it = 0;
+static int tim_init();
+
+int load_gm(char *name, int gm_num, int prog, int tpgm, int reverb, int main_volume)
+{
+  ToneBank *bank=0;
+
+  if (!i_have_done_it) {
+    add_to_pathlist(GUSPATDIR);
+    tonebank[0]=safe_malloc(sizeof(ToneBank));
+    memset(tonebank[0], 0, sizeof(ToneBank));
+    if (tracing) ctl->verbosity += 2;
+    else if (very_verbose) {
+	ctl->verbosity++;
+    } else if (!verbose) ctl->verbosity--;
+    i_have_done_it = 1;
+    tim_init();
+  }
+  else if (gm_num < 0) {
+    free_instruments();
+    if (!tonebank[0]) tonebank[0]=safe_malloc(sizeof(ToneBank));
+    memset(tonebank[0], 0, sizeof(ToneBank));
+  }
+
+  if (gm_num < 0) return 0;
+
+/* why is this 0? */
+  bank=tonebank[0];
+
+  bank->tone[prog].name=
+	strcpy((bank->tone[prog].name=safe_malloc(strlen(name)+1)),name);
+  bank->tone[prog].note=bank->tone[prog].amp=bank->tone[prog].pan=
+	  bank->tone[prog].strip_loop=bank->tone[prog].strip_envelope=
+	    bank->tone[prog].strip_tail=-1;
+/* initialize font_type? */
+  bank->tone[prog].gm_num = gm_num;
+  bank->tone[prog].tpgm = tpgm;
+  bank->tone[prog].reverb = reverb;
+  bank->tone[prog].main_volume = main_volume;
+  bank->tone[prog].instrument=MAGIC_LOAD_INSTRUMENT;
+  load_missing_instruments();
+  return 0;
+}
+#endif /* ADAGIO */
 
 
+#ifdef ADAGIO
+static int p_rate;
+
+static int tim_init()
+{
+
+  ctl->open(0,0);
+
+  /* Set play mode parameters */
+  play_mode->rate = setting_dsp_rate;  /*output_rate;*/
+  if (setting_dsp_channels == 1) play_mode->encoding |= PE_MONO;
+
+  init_tables();
+
+/* for some reason, have to do this before loading instruments */
+  if (!control_ratio)
+	{
+	  control_ratio = play_mode->rate / CONTROLS_PER_SECOND;
+	  if(control_ratio<1)
+		 control_ratio=1;
+	  else if (control_ratio > MAX_CONTROL_RATIO)
+		 control_ratio=MAX_CONTROL_RATIO;
+	}
+/**
+  if (*def_instr_name)
+	set_default_instrument(def_instr_name);
+**/
+  if (play_mode->open_output()<0) {
+	fprintf(stderr, "Couldn't open %s\n", play_mode->id_name);
+	dsp_dev = -2;
+  }
+  if (play_mode->encoding & PE_MONO) setting_dsp_channels = 1;
+  p_rate = setting_dsp_rate = play_mode->rate;  /*output_rate;*/
+  return 0;
+}
+
+int play_midi(unsigned char *from, unsigned char *to, int vrbose)
+{
+  if (from >= to)
+  {
+    if (i_am_open) {
+	if (from == to) {
+	  compute_data(play_mode->rate/* * 2*/);
+	}
+	compute_data(0); /* flush buffer to device */
+	if (interactive) {
+	    if (from > to) {
+		sample_count=0; /* unknown */
+		lost_notes=cut_notes=0;
+		skip_to(0); /* sets current_sample to 0 */
+		channel[0].program = 0;
+		current_event->channel = 0;
+	    }
+	    return(0);
+	}
+	free(event_list);
+	free_instruments();
+	play_mode->close_output();
+        ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
+		   "Playing time: ~%d seconds",
+		   current_sample/play_mode->rate+2);
+        ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
+		   "Notes cut: %d", cut_notes);
+        ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
+		   "Notes lost totally: %d", lost_notes);
+	i_am_open = 0;
+    }
+    return 0;
+  }
+  if (!i_am_open) {
+	voices = setting_dsp_voices;
+	max_polyphony = voices;
+	voices += 8;
+	if (voices >= MAX_VOICES) voices = MAX_VOICES - 1;
+	amplification = setting_dsp_volume;
+        adjust_amplification();
+        /** if (!i_have_done_it) load_gm("acpiano", 0, 0, 0, 0, 0); **/
+	event_list = safe_malloc(sizeof(MidiEvent));
+	sample_count=0; /* unknown */
+	lost_notes=cut_notes=0;
+	skip_to(0); /* sets current_sample to 0 */
+	channel[0].program = 0;
+	current_event->channel = 0;
+	i_am_open = 1;
+	if (from >= to) return 0;
+  }
+  read_seq(from, to);
+  return 0;
+}
+
+static void read_seq(unsigned char *from, unsigned char *to)
+{
+  static uint32 ptime = 0, stime = 0, posttime = 8;
+  static int lastbehind = 0;
+  int temp, behind, ahead, rtime = 0;
+  unsigned char type, vc, arg, vel;
+  short p1, p2;
+  unsigned char *next;
+  extern current_sample_count();
+  extern time_expired;
+
+  if (!current_sample) ptime = stime = posttime = lastbehind = 0;
+
+  for ( ; from < to; from = next ) {
+
+    type = from[0];
+    next = from + 4;
+
+
+    if (type == SEQ_WAIT) {
+	ptime = from[1]|(from[2]<<8)|(from[3]<<16);
+	#ifdef DEBUG_SEQ
+	printf("\nt=%d\t", ptime);
+	#endif
+	stime = (ptime * p_rate)/100; /* ptime is in centisec. */
+
+#if 0
+#if defined(AU_LINUX) || defined(AU_SUN)
+#define POST_V 50
+#define MIN_POLYPHONY 8
+#define T_BEHIND -10
+      if (gus_dev >= 0 || sb_dev >= 0)
+	if (!interactive && stime > current_sample && ptime > posttime * POST_V) {
+		posttime = 1 + ptime/POST_V;
+		rtime = ( 100 * current_sample_count() ) / p_rate;
+		if (!(play_mode->encoding & PE_MONO)) rtime /= 2;
+		if (play_mode->encoding & PE_16BIT) rtime /= 2;
+		behind = time_expired - rtime;
+		lastbehind = (9*lastbehind + behind)/10;
+		ahead = ptime - rtime;
+		if (very_verbose && !(posttime % 4))
+		    printf("behind %d; ahead %d; rate %d; poly %d; lag %d\n",
+			 behind, ahead, p_rate, max_polyphony, dev_sequencer_lag);
+		if (behind > T_BEHIND + 5) {
+			p_rate -= 1;
+			dev_sequencer_lag++;
+			posttime += 2;
+		}
+		else if (behind < T_BEHIND - 5) {
+			p_rate += 1;
+			dev_sequencer_lag--;
+			posttime += 2;
+		}
+		if ( max_polyphony > MIN_POLYPHONY && ahead < 150 ) {
+			max_polyphony -= 2;
+			posttime += 2;
+		}
+		if (ahead > 200 && max_polyphony < voices)
+			max_polyphony++;
+		if (very_verbose && !(posttime % 4))
+		    printf("behind %d; ahead %d; poly %d\n", behind, ahead, max_polyphony);
+		if ( max_polyphony > MIN_POLYPHONY &&
+		   (ahead < 150 || (behind > 20 && behind - lastbehind > 2))) {
+			max_polyphony -= 2;
+			posttime += 2;
+		}
+		if (ahead > 200 && behind < 6 && max_polyphony < voices)
+			max_polyphony++;
+		if (behind + lastbehind > 5) {
+			/** dev_sequencer_lag += (behind + lastbehind)/8; **/
+			dev_sequencer_lag++;
+			/** lastbehind -= 10; **/
+			posttime += 1;
+		}
+		else if (behind + lastbehind < -5 && dev_sequencer_lag) {
+			dev_sequencer_lag--;
+			/** lastbehind += 10; **/
+			posttime += 2;
+		}
+		lastbehind = (2*lastbehind + behind)/3;
+	}
+#endif
+#endif
+
+	if (stime > current_sample) compute_data(stime - current_sample);
+		/* now current_sample == stime */
+	current_event->time = stime;
+	continue;
+    }
+#ifdef DEBUG_SEQ
+    else printf("\n");
+#endif
+
+    if (type & 0x80) {
+	next += 4;
+	if (type == SEQ_EXTENDED) {
+	    type = from[1];
+	    /* dev in from[2] should be 0 */
+	}
+	else if (type == SEQ_PRIVATE) {
+	    /* dev in from[1] should be 0 */
+            type = from[2];
+	    vc = from[3];
+	    p1 = (short)from[4]|(from[5]<<8);
+	    p2 = (short)from[6]|(from[7]<<8);
+	    switch (type) {
+		case _GUS_NUMVOICES:
+			#ifdef DEBUG_SEQ
+			printf("_GUS_NUMVOICES,");
+			#endif
+			break;
+		case _GUS_VOICEBALA:
+			#ifdef DEBUG_SEQ
+			printf("_GUS_VOICEBALA,");
+			#endif
+	  		channel[vc].panning = (p1 + 1)*8 - 4;
+			adjust_panning(vc);
+			break;
+		case _GUS_VOICEVOL:
+			#ifdef DEBUG_SEQ
+			printf("_GUS_VOICEVOL,");
+			#endif
+			break;
+		case _GUS_VOICEVOL2:
+			#ifdef DEBUG_SEQ
+			printf("_GUS_VOICEVOL2,");
+			#endif
+			break;
+		default: /* not known */ break;
+            }
+	    #ifdef DEBUG_SEQ
+	    printf("vc=%d p1=%d p2=%d ",vc,p1,p2);
+	    #endif
+	    continue;
+	} else {
+	  fprintf(stderr,"bad sequencer event\n");
+	  continue;
+	}
+	from += 2;
+    }
+
+	/* interpret both 4 and 8 byte SEQ events */
+
+    if ((vc=from[1]) >= MAX_VOICES) {
+	  fprintf(stderr,"warning bad voice\n");
+	  vc = MAX_VOICES - 1;
+    }
+    #ifdef DEBUG_SEQ
+    printf("vc=%d ",vc);
+    #endif
+    current_event->type = type;
+    current_event->channel = vc;
+    channel[vc].bank = 0; /* necessary ?? */
+    current_event->a = arg = from[2];
+    current_event->b = vel = from[3];
+
+    switch (type) {
+      case SEQ_NOTEOFF:
+	#ifdef DEBUG_SEQ
+	printf("SEQ_NOTEOFF,");
+	#endif
+	note_off(current_event);
+	break;
+      case SEQ_NOTEON:
+	#ifdef DEBUG_SEQ
+	printf("SEQ_NOTEON,");
+	#endif
+	note_on(current_event);
+	break;
+      case SEQ_PGMCHANGE:
+	#ifdef DEBUG_SEQ
+	printf("SEQ_PGMCHANGE,");
+	#endif
+	channel[vc].program = arg;
+	break;
+      case SEQ_AFTERTOUCH:
+	#ifdef DEBUG_SEQ
+	printf("SEQ_AFTERTOUCH,");
+	#endif
+	/* arg is amount of touch: changes vibrato on fm in HS driver */
+	adjust_pressure(current_event);
+	break;
+      case SEQ_CONTROLLER:
+	p1 = (short)from[3]|(from[4]<<8);
+	#ifdef DEBUG_SEQ
+	printf("param=%d ",p1);
+	#endif
+	switch (arg) {
+	    case CTL_BANK_SELECT:
+		#ifdef DEBUG_SEQ
+		printf("CTL_BANK_SELECT,");
+		#endif
+		break;
+	    case CTL_MODWHEEL:
+		#ifdef DEBUG_SEQ
+		printf("CTL_MODWHEEL,");
+		#endif
+		break;
+	    case CTL_BREATH:
+		#ifdef DEBUG_SEQ
+		printf("CTL_BREATH,");
+		#endif
+		break;
+	    case CTL_FOOT:
+		#ifdef DEBUG_SEQ
+		printf("CTL_FOOT,");
+		#endif
+		break;
+	    case CTL_MAIN_VOLUME:
+		#ifdef DEBUG_SEQ
+		printf("CTL_MAIN_VOLUME,");
+		#endif
+		break;
+	    case CTL_PAN:
+		#ifdef DEBUG_SEQ
+		printf("CTL_PAN,");break;
+		#endif
+	    case CTL_EXPRESSION:
+		#ifdef DEBUG_SEQ
+		printf("CTL_EXPRESSION,");
+		#endif
+		break;
+		/* I don't use the above; for the rest, p1 is the amount.*/
+	    case CTRL_PITCH_BENDER:
+		#ifdef DEBUG_SEQ
+		printf("CTRL_PITCH_BENDER,");
+		#endif
+		temp = p1 + 0x2000;
+		if (temp < 0) temp = 0;
+		if (temp > 0x3FFF) temp = 0x3FFF;
+		channel[vc].pitchbend = temp;
+		channel[vc].pitchfactor = 0;
+		adjust_pitchbend(vc);
+		break;
+	    case CTRL_PITCH_BENDER_RANGE:
+		#ifdef DEBUG_SEQ
+		printf("CTRL_PITCH_BENDER_RANGE,");
+		#endif
+		break;
+	    case CTRL_EXPRESSION:
+		#ifdef DEBUG_SEQ
+		printf("CTRL_EXPRESSION,");
+		#endif
+		channel[vc].expression = p1;
+		adjust_volume(vc);
+		break;
+	    case CTRL_MAIN_VOLUME:
+		#ifdef DEBUG_SEQ
+		printf("CTRL_MAIN_VOLUME,");
+		#endif
+		channel[vc].volume = p1;
+		adjust_volume(vc);
+		break;
+	    default:
+		#ifdef DEBUG_SEQ
+		printf("CTL_??, ");
+		#endif
+		break;
+	  } /* switch */
+	#ifdef DEBUG_SEQ
+	printf("param=%d ",p1);
+	#endif
+	break;
+      default:fprintf(stderr,"?0x%x", type);break;
+    } /* switch */
+    #ifdef DEBUG_SEQ
+    if (type != SEQ_CONTROLLER) printf("note %d vel %d",arg,vel);
+    #endif
+  } /* for */
+
+}
+#endif ADAGIO
+
+
+#ifndef ADAGIO
 int play_midi_file(char *fn)
 {
   MidiEvent *event;
@@ -930,19 +1652,24 @@ int play_midi_file(char *fn)
   ctl->master_volume(amplification);
 
   load_missing_instruments();
-
   rc=play_midi(event, events, samples);
-
   if (free_instruments_afterwards)
       free_instruments();
   
   free(event);
   return rc;
 }
+#endif
 
 void dumb_pass_playing_list(int number_of_files, char *list_of_files[])
 {
+#ifndef ADAGIO
     int i=0;
+
+/* on linux this segfaults, looking for too many files, so ... (gl) */
+#ifdef linux
+number_of_files --;
+#endif
 
     for (;;)
 	{
@@ -968,4 +1695,5 @@ void dumb_pass_playing_list(int number_of_files, char *list_of_files[])
 		return;
 	    }
 	}
+#endif /* not ADAGIO */
 }

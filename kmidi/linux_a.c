@@ -24,7 +24,6 @@
 */
 
 #if defined(linux) || defined(__FreeBSD__)
-
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -42,6 +41,8 @@
 #include "config.h"
 #include "output.h"
 #include "controls.h"
+
+extern void b_out(int fd, int *buf, int ocount);
 
 static int open_output(void); /* 0=success, 1=warning, -1=fatal error */
 static void close_output(void);
@@ -76,8 +77,7 @@ PlayMode dpm = {
 static int open_output(void)
 {
   int fd, tmp, i, warnings=0;
-
-
+  
   /* Open the audio device */
   fd=open(dpm.name, O_RDWR | O_NDELAY);
   if (fd<0)
@@ -87,9 +87,9 @@ static int open_output(void)
       return -1;
     }
 
+  fcntl(fd, F_SETFL, O_NDELAY);
 
-  fcntl(fd,F_SETFD,1);
-   
+
   /* They can't mean these */
   dpm.encoding &= ~(PE_ULAW|PE_BYTESWAP);
 
@@ -189,44 +189,78 @@ static int open_output(void)
       warnings=1;
     }
 #endif
-
-
+/**
+#ifdef ADAGIO
+#ifndef NO_DEV_SEQUENCER
+#ifdef SNDCTL_DSP_SETSYNCRO
+  if (!no_dev_sequencer) ioctl(fd, SNDCTL_DSP_SETSYNCRO, 0);
+#endif
+#endif
+#endif
+**/
   dpm.fd=fd;
-
-
+  
   return warnings;
 }
+#ifdef ADAGIO
+int current_sample_count()
+{
+  count_info auinfo;
+
+  if (ioctl(dpm.fd, SNDCTL_DSP_GETOPTR, &auinfo)<0) return -1;
+  return auinfo.bytes;
+}
+#endif
 
 static void output_data(int32 *buf, int32 count)
 {
-
-  int out;
-
+  int ocount;
 
   if (!(dpm.encoding & PE_MONO)) count*=2; /* Stereo samples */
+  ocount = count;
 
+  if (ocount) {
+    if (dpm.encoding & PE_16BIT)
+      {
+        /* Convert data to signed 16-bit PCM */
+        s32tos16(buf, count);
+        ocount *= 2;
+      }
+    else
+      {
+        /* Convert to 8-bit unsigned and write out. */
+        s32tou8(buf, count);
+      }
+  }
+
+  b_out(dpm.fd, (int *)buf, ocount);
+}
+
+#if 0
+static void output_data(int32 *buf, int32 count)
+{
+  if (!(dpm.encoding & PE_MONO)) count*=2; /* Stereo samples */
+  
   if (dpm.encoding & PE_16BIT)
     {
       /* Convert data to signed 16-bit PCM */
       s32tos16(buf, count);
-
+      
       /* Write the data out. Linux likes to give an EINTR if you suspend
 	 a program while waiting on a write, so we may need to retry. */
-      while ((-1==(out = write(dpm.fd, buf, count * 2))) && errno==EINTR){
-//	printf("%d\n",out);
-      };
+      while ((-1==write(dpm.fd, buf, count * 2)) && errno==EINTR)
+	;
     }
   else
     {
       /* Convert to 8-bit unsigned and write out. */
       s32tou8(buf, count);
-
-      while ((-1==(out = write(dpm.fd, buf, count))) && errno==EINTR){
-	//printf("%d\n",out);
-      }
+      
+      while ((-1==write(dpm.fd, buf, count)) && errno==EINTR)
 	;
     }
 }
+#endif
 
 static void close_output(void)
 {
@@ -235,6 +269,7 @@ static void close_output(void)
 
 static void flush_output(void)
 {
+  output_data(0, 0);
   ioctl(dpm.fd, SNDCTL_DSP_SYNC);
 }
 

@@ -17,8 +17,18 @@
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
+#ifdef ADAGIO
+#include "adagio.h"
+#include "allphase.h"
+#endif /* ADAGIO */
 
-#define KMIDI
+#ifndef TIMID_DIR
+#ifdef DEFAULT_PATH
+#define TIMID_DIR  DEFAULT_PATH
+#else
+#define TIMID_DIR  "/usr/local/lib/timidity"
+#endif
+#endif
 
 /* Filename extension, followed by command to run decompressor so that
    output is written to stdout. Terminate the list with a 0. 
@@ -68,13 +78,36 @@
 #define MAX_OUTPUT_RATE 	65000
 
 /* In percent. */
+#ifndef DEFAULT_AMPLIFICATION
 #define DEFAULT_AMPLIFICATION 	70
+#endif
 
 /* Default sampling rate, default polyphony, and maximum polyphony.
    All but the last can be overridden from the command line. */
+#ifndef DEFAULT_RATE
 #define DEFAULT_RATE	32000
+#endif
+
+#ifndef DEFAULT_VOICES
+#ifdef ADAGIO
+#define DEFAULT_VOICES	DEFAULT_DSPVOICES
+#else
 #define DEFAULT_VOICES	32
+#endif
+#endif
+
+#ifndef MAX_VOICES
+#ifdef ADAGIO
+/* Should check this.  MAX_DSPVOICES should be the
+   number of Timidity "channels", but the maximum number
+   of polyphonic voices playing simultaneously should be
+   larger.  Now the two maxima are treated the same.
+*/
+#define MAX_VOICES	MAX_DSPVOICES
+#else
 #define MAX_VOICES	48
+#endif
+#endif
 
 /* The size of the internal buffer is 2^AUDIO_BUFFER_BITS samples.
    This determines maximum number of samples ever computed in a row.
@@ -124,7 +157,7 @@
 /* Make envelopes twice as fast. Saves ~20% CPU time (notes decay
    faster) and sounds more like a GUS. There is now a command line
    option to toggle this as well. */
-#define FAST_DECAY
+/*#define FAST_DECAY*/
 
 /* How many bits to use for the fractional part of sample positions.
    This affects tonal accuracy. The entire position counter must fit
@@ -189,7 +222,6 @@
 #define AUDIO_BUFFER_SIZE (1<<AUDIO_BUFFER_BITS)
 
 /* Byte order, defined in <machine/endian.h> for FreeBSD and DEC OSF/1 */
-
 #ifdef __osf__
 #include <machine/endian.h>
 #endif
@@ -304,7 +336,7 @@ typedef char int8;
 
 /* You could specify a complete path, e.g. "/etc/timidity.cfg", and
    then specify the library directory in the configuration file. */
-#define CONFIG_FILE	"timidity.cfg"
+#define CONFIG_FILE	TIMID_DIR##"/timidity.cfg"
 
 /* These affect general volume */
 #define GUARD_BITS 3
@@ -324,11 +356,11 @@ typedef char int8;
 #endif
 
 #ifdef USE_LDEXP
-#  define FSCALE(a,b) ldexp((a),(b))
-#  define FSCALENEG(a,b) ldexp((a),-(b))
+#  define FRSCALE(a,b) ldexp((a),(b))
+#  define FRSCALENEG(a,b) ldexp((a),-(b))
 #else
-#  define FSCALE(a,b) ((a) * (double)(1<<(b)))
-#  define FSCALENEG(a,b) ((a) * (1.0L / (double)(1<<(b))))
+#  define FRSCALE(a,b) ((a) * (double)(1<<(b)))
+#  define FRSCALENEG(a,b) ((a) * (1.0L / (double)(1<<(b))))
 #endif
 
 /* Vibrato and tremolo Choices of the Day */
@@ -390,5 +422,3 @@ typedef char int8;
 #define PI M_PI
 #endif
 #endif
-
-/* $Id$ */

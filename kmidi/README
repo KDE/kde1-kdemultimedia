@@ -1,3 +1,18 @@
+
+This is Tuukka Toivonen's program TiMidity for playing midi files on a pcm
+device such as Linux /dev/dsp0 or Sun's /dev/audio (see README.tim).  You need
+patch files to use it (see below).  There are several user interfaces provided
+for, including a "dumb" command line version and a KDE version, done by Bernd
+Wuebben (see README.kmidi).  The patches can be GUS, i.e. Gravis/Forte, type
+files, Gravis InterWave sound fonts, or AWE sbk/sf2 sound fonts.  The InterWave
+font support was done by me (Greg Lee) and the AWE support was done by Takashi Iwai (see
+README.sf2).
+
+
+KMidi 0.4
+
+(to be filled in)
+
 KMidi 0.3
 =========
 
@@ -77,3 +92,107 @@ Bernd
 wuebben@kde.org
 wuebben@math.cornell.edu
 
+
+---------------------------------------------------------------
+further notes (where to put them?) --gl
+---------------------------------------------------------------
+
+Compiling the command line version of TiMidity can be done, probably, by
+saying:
+
+	% ln -s Makefile.tim Makefile
+	% make
+
+The executable will be "timidity". This should work on Linux or Sunos.  I
+haven't tried other systems.  For details, see INSTALL.tim and Makefile.tim.
+
+Compiling and installing the KDE version, "kmidi", can be done for KDE Beta4 by
+replacing the .../kdemultimedia/kmidi directory with this one (i.e.,
+./timidity), then going through the normal installation process.  E.g.,
+
+	% cd <KDE source dir>/kdemultimedia
+	% mv kmidi kmidi.save
+	% cp -a <where you unpacked timidity>/timidity kmidi
+	% ./configure
+	% cd kmidi	# optional
+	% make
+	% make install
+
+See INSTALL.kmidi.
+
+----------------------------------------------------------------
+
+Obtaining patch files:
+
+     A. GUS .pat files.  See the FAQ.  Sets of GUS patches that were mainly
+	derived from the commercial Gravis/Forte ones have become hard to
+	find.
+
+     B. IW sound fonts.  There was a free trial version of the Utopia font
+	available for a while (with some stereo patches), but the trial
+	version has been withdrawn and now one has to pay $33 for a cd.
+	(See http://sdc.wtm.tudelft.nl/utopia/)  If I had them anymore, the
+	trial version files would be (after unpacking):
+
+-rw-r--r--   1 root     root        50631 Mar 31 17:08 utop_dm.fff
+-rw-r--r--   1 root     root        44295 Mar 31 17:08 utop_ds.fff
+-rw-r--r--   1 root     root     41685764 Mar 31 18:37 utop_im.dat
+-rw-r--r--   1 root     root        42407 Mar 31 17:08 utop_im.fff
+-rw-r--r--   1 root     root      9679116 Mar 25 14:11 utop_is.dat
+-rw-r--r--   1 root     root         7501 Mar 31 17:08 utop_is.fff
+-rw-r--r--   1 root     root     17368442 Mar 31 17:43 utopia_d.dat
+
+	A sort of precursor to Utopia done by Kevin Boyle was still freely
+	available, last time I checked, on various ftp sites:
+
+-rw-r--r--   1 root     root      9727328 Apr  2 18:25 megadrum.dat
+-rw-r--r--   1 root     root        32296 Apr  2 17:34 megadrum.fff
+-rw-r--r--   1 root     root     18834162 Apr  3 04:13 megainst.dat
+-rw-r--r--   1 root     root        39438 Apr  2 17:34 megainst.fff
+
+     C. AWE sound fonts.  At http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm
+	you can get (as self-unpacking .exe's):
+
+-rw-r--r--   1 root     root     12323512 May 19 01:30 chaos12m.sf2
+-rw-r--r--   1 root     root      8624378 May 19 01:32 chaos8m.sf2
+
+	There are others at ftp://lysator.liu.se/pub/awe32/soundfonts .
+
+-------------------------------------------------------------------
+
+Using patch files requires setting up .cfg files:
+
+     A. See the other docs for GUS .pat files -- there are example .cfg files.
+     B. IW sound fonts need .cfg setups just like GUS patches, except that
+	 i. drum/bank statements must be followed by "fff" (e.g., bank 0 fff),
+	ii. after the various patches are named, say: fff <basename of font>
+	    (e.g., fff megainst).  This loads the font.
+	See the example files megainst and megadrum.  You can use several
+	IW fonts.
+     C. AWE sound fonts are similar to IW fonts, except use the keyword "sbk"
+	instead of "fff".  After the patches have been named, say:
+	sbk <filename of sf2/sbk font>.  Alternatively, say:
+	soundfont <filename>.
+
+The banks/drumsets and names of patches must be given, since those that are not
+declared will not be loaded from files (GUS patch files or sound fonts) even
+though the patches are available.  This way it's easy to exclude certain
+patches from a sound font so as to load better ones from a subseqently loaded
+font.  Just don't declare them before you've asked to load the font.
+
+When the same patch of the same bank or drumset is declared more than once,
+only the first declaration counts.  So put your best fonts first.
+
+There is a utility sbk2cfg to construct a cfg file for a sbk/sf2 sound font,
+which spits out all the patches that are present in the font.  Also, I've
+included sample cfg files for chaos8m.sf2 and chaos12m.sf2.
+
+----------------------------------------------
+
+I'm sorry this document isn't more coherent and comprehensive.  For more
+information you'll just have to browse through the various other files here, or
+even read the source.  If I were to list known bugs and deficiences of this
+version, it would just tire you out reading through it all.
+
+						Greg Lee, lee@hawaii.edu
+						May 25, 1998

@@ -27,6 +27,7 @@
 #else
 #include <malloc.h>
 #endif
+
 #include "config.h"
 #include "common.h"
 #include "instrum.h"
@@ -212,7 +213,7 @@ static sample_t *rs_bidir(Voice *vp, int32 count)
 	  count = 0;
 	} 
       else count -= i;
-      while (i--) 
+      while (i--)
 	{
 	  RESAMPLATION;
 	  ofs += incr;
@@ -337,7 +338,7 @@ static int32 update_vibrato(Voice *vp, int sign)
 	}
     }
 
-  a = FSCALE(((double)(vp->sample->sample_rate) *
+  a = FRSCALE(((double)(vp->sample->sample_rate) *
 	      (double)(vp->frequency)) /
 	     ((double)(vp->sample->root_freq) *
 	      (double)(play_mode->rate)),
@@ -691,7 +692,7 @@ void pre_resample(Sample * sp)
     "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
   };
 
-  ctl->cmsg(CMSG_INFO, VERB_NOISY, " * pre-resampling for note %d (%s%d)",
+  ctl->cmsg(CMSG_INFO, VERB_DEBUG, " * pre-resampling for note %d (%s%d)",
 	    sp->note_to_use,
 	    note_name[sp->note_to_use % 12], (sp->note_to_use & 0x7F) / 12);
 
@@ -715,7 +716,7 @@ void pre_resample(Sample * sp)
       v2 = *vptr;
       v3 = *(vptr + 1);
       v4 = *(vptr + 2);
-      xdiff = FSCALENEG(ofs & FRACTION_MASK, FRACTION_BITS);
+      xdiff = FRSCALENEG(ofs & FRACTION_MASK, FRACTION_BITS);
       *dest++ = v2 + (xdiff / 6.0) * (-2 * v1 - 3 * v2 + 6 * v3 - v4 +
       xdiff * (3 * (v1 - 2 * v2 + v3) + xdiff * (-v1 + 3 * (v2 - v3) + v4)));
       ofs += incr;
