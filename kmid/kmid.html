@@ -1,0 +1,58 @@
+<HTML>
+<TITLE>KMid help</TITLE>
+<BODY>
+<P><CENTER><H1><STRONG>KMid Help</STRONG></H1></CENTER></P>
+<P><H2>What's KMid</H2></P>
+<P>KMid is a midi/karaoke player, that uses /dev/sequencer to play a midi file
+through an external synth (I hope to include FM, GUS, and AWE support in the
+near future). At the same time that the song is played, lyrics are displayed
+in a beautiful window so that the user can sing or just follow the letter :-).
+It has a powerful midi mapper that will make people with no general midi
+synths happier than ever :-).
+<BR>It supports drag & drop so you can drop in kmid any midi file from a kfm
+window. You can also customize the font in which the karaoke text is displayed.
+</P>
+<P><H2>How can I open a song?</H2></P>
+<P>Hey that's easy, let's go to more difficult questions ! :-) ...</P>
+<P><H2>I am sure that this song has lyrics, but they aren't showed.<CR>
+What happens?</H2></P>
+<P>There are two methods to include lyrics in a song, by using "Text events"
+or "lyrics events", some songs use the first, some the second, some use both
+of them, and some  don't include lyrics :-). There's no method to know which
+of them is using a song, so you must try both of them in the Options menu.</P>
+<P><H2>What's a Midi Mapper?</H2></P>
+<P>If you have a synthesizer that doesn't complain with the General Midi standard,
+and you play a midi file with it, you will hear a piano playing the track that
+should be played by a flute and a drum playing the track that should be played by
+a piano. So you need some method to map sounds to different ones, this is what
+a Midi Mapper does.
+<P><H2>How do I play a song from a specified second?</H2></P>
+<P>Start playing it and then press with the middle button of your mouse
+on the slider</P>
+<P><H2>How can I use a mapper with my synthesizer?</H2></P>
+There isn't a graphical tool to configure it (yet) so you should
+edit the config file by hand :-(, open the ~/.kde/share/config/kmidrc file
+and add two lines like these :</P>
+<BR>[Midimapper]
+<BR>Loadfile=**absolute path to map file**
+<P>In my case I have :
+<BR>[Midimapper]
+<BR>Loadfile=/home/Antonio/prg/kmid/kmid/maps/yamaha790.map
+<P>So if you, like me, have a yamaha790 you are of luck, just use the included file.
+But if you have a different synthesizer that isn't General Midi compliant, then you will
+have to make your own mapper</P>
+<P>To do so, you should copy the file yamaha790.map to work on it, without changing the
+original. Suppose that it is mysynth.map (though it should be "model of your synth".map)
+Then you should edit the kmidrc file as above, pointing Loadfile to this copy on which you 
+will work. Now you are ready to start.</P>
+<P>... but I'm not, this version is not finished so I don't think that
+anybody will notice a small lack of help ;-) So please, follow your instinct and if you have any question, send it to me at : antlarr@arrakis.es
+</P><P>
+And remember two things :
+<BR>1.- You should encourage the author to continue working on kmid,
+because he's a good person, but he will stop programming kmid if nobody uses
+it :-)
+<BR>2.- You can download the latest version at :
+<BR>http://www.arrakis.es/~rlarrosa/kmid.html</P>
+
+</BODY></HTML>

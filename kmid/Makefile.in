@@ -1,0 +1,81 @@
+# This is a sample Makefile.in 
+
+# @CXXFLAGS@     : is set to -g -Wall (when debuging) or -O2 -Wall (when not)
+# @all_includes@ : is set to all needed include paths for QT, KDE and X11
+# -I.. 	         : needed for config.h
+CXXFLAGS= @CXXFLAGS@ @all_includes@ -DHAVE_CONFIG_H -I..
+
+# @LDFLAGS@    : is set to -s (when not debuging) for stripping
+# @all_libra.@ : is set to all needed libraries paths for QT, KDE and X11
+# you need also @LIBSOCKET@, if you link with -lkfm
+LDFLAGS	= @LDFLAGS@ @all_libraries@ -lkdecore -lkdeui -lqt -lXext -lX11 
+
+# both are clear, I think
+CXX     = @CXX@
+MOC   	= @MOC@
+
+############# INSTALL #################
+
+install = @INSTALL@
+INSTALL = $(install) -m 0755
+INSTALL_DATA = $(install) -m 0644
+INSTALL_DIR = $(install) -d -m 0755
+INSTALL_DIR_PRIVATE = $(install) -d -m 0700
+
+prefix = @prefix@
+KDEINC = $(prefix)/include
+BINDIR = $(prefix)/bin
+LIBDIR = $(prefix)/lib
+PICSDIR = $(LIBDIR)/pics
+
+########### File Formats ###########
+
+.SUFFIXES: .cpp
+
+.cpp.o:
+	$(CXX) -c $(CXXFLAGS) $<
+
+%.moc: %.h
+	$(MOC) $< -o $@
+
+########## Files #####################
+
+OBJECTS =	kmidframe.o kmidclient.o kdisptext.o kslidertime.o main.o
+PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o
+SRCMETA =	kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc
+TARGET	=	kmid 
+
+######### build rules ################
+
+all: Makefile $(TARGET)
+
+Makefile: Makefile.in
+	cd .. && CONFIG_FILES=kmid/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+$(TARGET): $(SRCMETA) $(OBJECTS) $(PLAYEROBJECTS)
+	$(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS)
+
+$(PLAYEROBJECTS):
+	(cd player && make all_copy && cd ..)
+
+install:
+	install.sh	
+#cd toolbarxpm && $(install) *.xpm $(prefix)/share/apps/kmid/toolbar && cd .. && cp kmid $(prefix)/bin )
+
+clean:
+	echo "Exiting directory ..."
+	(cd player && make clean && cd ..)
+	rm -f *.o *.bak *~ *% #*
+	rm -f $(SRCMETA) $(TARGET)
+
+distclean: clean
+	rm -f Makefile
+
+#install:
+#	$(INSTALL_DIR) $(BINDIR)
+#	$(INSTALL) $(TARGET) $(BINDIR)
+
+uninstall:
+	rm -f $(BINDIR)/$(TARGET)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.

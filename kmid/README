@@ -1,0 +1,168 @@
+**********************************************************************
+		KKK  KK  MMM    MMM  IIIIII  DDDDD
+		KKK KK   MMMMMMMMMM   IIII   DDDDDDD
+		KKKKK    MMMMMMMMMM    II    DDD  DD
+		KKKKKK   MMM MM MMM   IIII   DDDDDDD
+		KKK KKK  MMM    MMM  IIIIII  DDDDD
+
+				KMID
+
+
+	This info is up to date if you have KMid version 0.2
+		
+
+Index
+-------
+ 1. What is KMid ?
+ 2. Requirements
+ 3. Quickstart
+ 4. Installing
+ 5. Running
+ 6. Uninstalling
+ 7. How do I use a Midi Mapper ?
+ 8. What is ConsoleKMid ?
+ 9. Where can I download KMid from ?
+ 10. To do list
+
+1. What is KMid
+---------------
+
+   KMid is a midi/karaoke player for X11, it uses the KDE environment and libs
+   along with Qt libs
+   It can play midi and karaoke files through the sequencer device, and it
+   tries to play even broken midis which other programs can't !!
+
+
+2. Requirements
+---------------
+
+   A UNIX machine with X11, KDE, Qt libs, a /dev/sequencer device and an external
+   synth (future versions will work with GUS,FM and AWEs ... I hope :-) 
+   I have only tested kmid in Linux so I don't know if it will work with
+   FreeBSD or other unices, but it should (why not ? :-). 
+
+3. Quickstart
+-----------------
+   Read the Installing section (it's a quite quick start :-)
+   Then just type "kmid" and it runs.
+
+4. Installing 
+-----------------
+   Go to the parent directory (../.) and type "./configure" then come back to
+   this directory and do a "make", now you should have compiled the kmid
+   executable.
+   If you want to compile also the consolekmid program, do a "make" in the
+   player directory.
+
+   To install the binary, toolbar pictures,icon and the help file do also a 
+   "make install" in this directory 
+   Be aware that by default the files are installed in /opt/kde, if you
+   have another value in the KDEDIR environment variable, please, change in
+   the install.sh script the value of the PREFIX variable to the correct value.
+
+5. Running
+--------------
+   Well, it's quite easy, just type "kmid" and it should run :-)
+   If you have made a "make install" you will be able to run kmid from any
+   directory, but if haven't, then you will have to go to this directory
+   to execute it.
+
+6. Uninstalling
+------------------
+   Erase the kmid_*.xpm files in the /opt/kde/share/toolbar directory and
+   the file kmid in /opt/kde/bin, also erase the file ~/.kde/share/config/kmidrc
+   that should have been created in each user's home directory.
+   Go to /opt/kde/share/doc/HTML/default and erase the file kmid.html also, if you
+   want to delete the help.
+   Now that you have deleted the binary you will not need the icon, so you
+   can delete it, it should be in $PREFIX/share/icons/kmid.xpm
+
+7. How do I use a Midi Mapper ?
+-------------------------------
+   Insert two lines like these at ~/kde/share/config/kmidrc :
+
+[Midimapper]
+Loadfile=<absolute path to map file>
+
+   yamaha790.map is included as an example map (look in the maps directory).
+
+   The map file must have the following structure and everything is 0 based:
+---8<----8<----8<------
+
+<patchmap definition>
+<keymap definition>
+<...>
+<keymap definition>
+<channelmap definition>
+
+You can define as many keymaps as you like but patchs and channels map MUST only
+appear once.
+The structure of each definition is the following :
+
+
+# Line beggining with # are comments
+DEFINE PATCHMAP
+<Name of patch>=<Number of patch in your keyboard> [AllKeysTo <Number>]
+...
+#Must have 128 lines, and the name of patch is ignored, so the mapped number is
+# assigned based in the order
+#AllKeysTo <Number>
+#     Number is the key number to which all keys will be mapped, when this 
+#     sound is used
+#
+#
+
+...
+END
+
+DEFINE KEYMAP "Name"
+<Name of Key>=<Mapped Key>
+...
+#Must have 128 keys (and again, the name is ignored)
+END
+
+DEFINE CHANNELMAP
+<Number of channel> = <Mapped channel> [Keymap "Name"] 
+...
+#Keymap "<Name>"
+#  The Keymap PREVIOUSLY DEFINED with name "Name" will be used in this channel
+#Must have 16 channels
+END
+
+---8<----8<----8<------
+
+If you plan to define a new map for your keyboard, I recommend you to start
+by copying the file yamaha790.map and modifying it. And remember to send
+it to me so that it will be included in future revisions and other people
+can use it !
+
+
+8. What is ConsoleKMid ? 
+------------------------
+   ConsoleKMid is a small program for Linux in console mode, which uses the same
+   player engine of KMid. Of course it doesn't have the same friendly
+   interface of KMid but it works to play midi files.
+   If you want it to use a mapper you will have to change the definition at
+   the beginning of the file main.cc (you'll see a commentary there) and
+   then compile it again.
+
+9. Where can I download KMid from ?
+-----------------------------------
+
+   You can download KMid from :
+   www.arrakis.es/~rlarrosa/kmid.html
+ 
+10. To do list
+-------------
+   Write better documentation (meanwhile I will answer any of your question by email)
+   GUS, FM, and AWE support
+   Do the play lists
+   Learn how the mediatool protocol works
+   Translation to other languages
+   Improve the lyrics/text handler
+
+
+-------
+8-11-1997
+Antonio Larrosa Jimenez
+antlarr@arrakis.es

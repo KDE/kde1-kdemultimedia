@@ -1,0 +1,146 @@
+Thursday 11-9-97
+- I have started with some tries to make the midi work and due to the
+  success I have even made an object to manage the midi : midiOut
+
+Friday 12-9-97
+- Waking up at 7:00am, working from 8:20 to 11:20 and doing some fixes
+  at 14:20, I have been able to play a midi file through the /dev/sequencer
+  using the class midiOut and writing some new classes like : midfile
+  track and some more. 
+
+Saturday 13-9-97
+- Today I have made a midi mapper (object mapper) which read a map config file
+  and is used to support older synths without general midi compliance.
+
+Sunday 14-9-97 
+- I have made a window, with a KMenuBar, and a KSilder, which reads a mid file
+  and play it (using a fork)
+
+Monday 15-9-97
+- fork copy the memory and thus, I cannot tell the player to pause, I have read
+  much about the subject, and about threads
+
+Tuesday 16-9-97
+- I have made a small program to test the threads and forks, threads apparently
+are faster, but it seems to have a problem with libqt or anyone, and I get
+core dumpes what I run kmid even if I only link libpthread but don't use it.
+So I've decided to make a fork, in the other way, I've learned to share memory
+
+Wednesday 17-9-97
+- C. E. has told me to use mediatool, but I don't have the documentation, so
+I cannot continue work until I get it.
+
+Thursday 18-9-97
+- Well, I'll continue even without the docs, and when I have them, I will
+make the neccesary changes to the code. I have made a few details in windows
+
+Friday 19-9-97
+- Today I have made the Pause and Stop buttons work. Also, I have made the
+slide bar move. And also, I have made a parser of the midi file, which tells
+how long the song is, in seconds. If this was little, I have made the interface
+between the ui and the player.
+
+Saturday 20-9-97
+- The interface between the ui and the player doesn't work well, I have to
+redesign it because it's difficult to be accurate writing the karaoke at the same that the note plays
+
+Sunday 21-9-97
+- I have redesigned twice the interface between ui and player and it still
+doesn't work well, the first method was creating a list of the karaoke events
+and using a timer to process the next event at the right time, but that doesn't
+work perfectly, because the text appears a moment after or before the note is
+played. The second method is a while loop, which calls processEvents, but
+that isn't a very good option, because, though text appears just at the same
+time of the note is played, top tells me that kmid is consuming up to 98% of
+CPU time, and I don't want to make such a monster.
+
+Monday 22-9-97
+- Another failed method, and another passed day
+
+Tuesday 23-9-97
+- Some small changes beautifying the monster to send it to C. E.
+
+Wednesday 24-9-97
+- More debugging and no result. I have uploaded current version to arrakis for
+C. to see it.
+
+Thursday 25-9-97
+- Eureka ! , at last, I have made the player and the ui run at the same time
+with PERFECT syncronisation :-) (at 10:30 pm)
+
+Friday,Saturday,Sunday 26,27,28-9-97
+- I've been looking at the birds flying freely from tree to tree in all this
+weekend, also, I've studied for the test drive.
+
+Monday 29-9-97
+- I have passed the exam and also, I have (almost) done the karaoke widget
+and it works very well !
+
+Tuesday 30-9-97
+- The karaoke widget is finished, it also have a scrollbar to see all the
+lyrics. By the way, StarTrek : First Contact is a very recommended film 
+
+Wednesday 1-10-97
+- I have fixed pause and stop, which were broken during the karaoke syncro
+By the way, kmid consumes 0.0% CPU and 00:00 time while playing a 6 minute song
+(and I think that even in longer songs !)
+
+Thursday 2-10-97
+- I have started classes, so I think I will have less time :-(
+
+Wednesday 8-10-97
+- The player now recognizes the SETPOS message, but the ui is not syncronized
+yet
+
+Thursday 9-10-97
+- S. R. has "show"ed me the way to initialize the menu, toolbar and client of a
+KTopLevelWidget, without the need to resize the window.
+
+Sunday 12-10-97
+- I have made that all time variables are expressed in milliseconds, so no
+more change units !!
+
+Sunday 19-10-97
+- I have programmed very little this week, but today I have kill a big bug,
+now all the songs play well. Some songs were played with some parts faster and
+some parts slower than they should (thanks to C. E. for reporting the bug!)
+
+Tuesday 21-10-97
+- WOE, KDE-Beta-ONE is even better than before. But now kmid doesn't compile (?)
+
+Wednesday 22-10-97
+- After compiling the kde libs, kmid compiles ok. KSlider has changed and its
+behaviour (Arrrgh!), so I have trickered a little the code.
+
+Thursday 23-10-97
+- I have cleaned a little the code.
+
+Friday 24-10-97
+- I started to "rewrite"  the track class to make the slider work well
+
+Saturday 25-10-97
+- I have passed the day working in the time. 
+
+Sunday 26-10-97
+- Eureka !!!, KMid works great! with good timings and syncronization between
+         O ~                     music and lyrics.
+          U
+         \_/
+
+Monday 27-10-97
+- After 10 hours in the university, I have made the final touches to send
+kmid 0.1 to the internet.
+
+??? 7-11-97
+- Finally, there's an impossible-better syncro between the program
+and the user !!!. I mean, that when you press the pause button, the music
+is inmediatly paused !!!
+
+Saturday 8-11-97
+- So I suppose yesterday was Friday, but I should demostrate it :-)
+I have added drag & drop support in kmid to load files by dropping them from kfm
+Also made the slider show the time played at resizeable steps
+
+Sunday 9-11-97
+- Today I have made possible to change the font and I have made an icon.
+Prepare a version to upload tomorrow to the internet.
