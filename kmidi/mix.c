@@ -437,7 +437,8 @@ static void ramp_out(sample_t *sp, int32 *lp, int v, int32 c)
   sample_t s=0; /* silly warning about uninitialized s */
 
   left=voice[v].left_mix;
-  li=-(left/c);
+  if (c < 1) return;
+  li=-(left/c); /*NB: c can be 0 here */
   if (!li) li=-1;
 
   /* printf("Ramping out: left=%d, c=%d, li=%d\n", left, c, li); */
