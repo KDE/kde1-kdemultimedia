@@ -46,13 +46,14 @@ typedef struct {
 #define ME_TONE_BANK	15
 
 #define ME_LYRIC	16
+#define ME_TONE_KIT	17
 #define ME_REVERBERATION	91
 #define ME_CHORUSDEPTH		93
 #define ME_EOT		99
 
 typedef struct {
   int
-    bank, program, volume, sustain, panning, pitchbend, expression, 
+    bank, kit, program, volume, sustain, panning, pitchbend, expression, 
     mono, /* one note only on this channel -- not implemented yet */
     reverberation, chorusdepth,
     pitchsens;
