@@ -42,9 +42,10 @@ make install
 /opt/kde/share/apps/kmid/maps/gm.map
 /opt/kde/share/apps/kmid/maps/YamahaPSS790.map
 /opt/kde/share/apps/kmid/maps/YamahaPSR500.map
-/opt/kde/share/apps/kmid/IfICantHaveYou.kar
-/opt/kde/share/apps/kmid/SinDocumentos.kar
-/opt/kde/share/apps/kmid/Waterloo.kar
+/opt/kde/share/apps/kmid/OFortuna.kar
+/opt/kde/share/apps/kmid/StopInTheNameOfLove.kar
+/opt/kde/share/apps/kmid/TheGirlFromIpanema.kar
+/opt/kde/share/apps/kmid/AnotherGlitchInTheCall.kar
 /opt/kde/share/locale/es/LC_MESSAGES/kmid.mo
 /opt/kde/share/locale/cs/LC_MESSAGES/kmid.mo
 /opt/kde/share/locale/de/LC_MESSAGES/kmid.mo
