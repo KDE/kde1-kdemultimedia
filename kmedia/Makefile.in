@@ -39,15 +39,15 @@ APPDIR = $(prefix)/share/apps/kmedia
 .cpp.o:
 	$(CXX) -c $(CXXFLAGS) $<
 
-%.moc: %.h
-	$(MOC) $< -o $@
-
-%.mo: %.po
-	$(MSGFMT) -o $@ $<
-
-.po.gmo:
-	file=$(srcdir)/echo $* | sed 's,.*/,,'.gmo \
-	&& rm -f $$file && $(GMSGFMT) -o $$file $<
+#%.moc: %.h
+#	$(MOC) $< -o $@
+#
+#%.mo: %.po
+#	$(MSGFMT) -o $@ $<
+#
+#.po.gmo:
+#	file=$(srcdir)/echo $* | sed 's,.*/,,'.gmo \
+#	&& rm -f $$file && $(GMSGFMT) -o $$file $<
 
 
 ########## Files #####################
@@ -98,10 +98,18 @@ install-icons:
 	$(INSTALL_DIR) $(APPDIR)/pics
 	cd pics; $(INSTALL_DATA) media.xpm playpause.xbm playpause_both.xpm playpause_play.xpm $(APPDIR)/pics
 
-install-nls:
-	for i in $(SRCNLS); do $(INSTALL_DIR) $(prefix)/share/locale/$$i/LC_MESSAGES; $(INSTALL_DATA) $$i.mo $(prefix)/share/locale/$$i/LC_MESSAGES/kmedia.mo; done
+#install-nls:
+#	for i in $(SRCNLS); do $(INSTALL_DIR) $(prefix)/share/locale/$$i/LC_MESSAGES; $(INSTALL_DATA) $$i.mo $(prefix)/share/locale/$$i/LC_MESSAGES/kmedia.mo; done
 
 uninstall:
 	rm -f $(BINDIR)/$(TARGET)
 
+kmedia.moc: kmedia.h
+	$(MOC) kmedia.h -o kmedia.moc
+
+kmediawin.moc: kmediawin.h
+	$(MOC) kmediawin.h -o kmediawin.moc
+
+prefs.moc: prefs.h
+	$(MOC) prefs.h -o prefs.moc
 # DO NOT DELETE THIS LINE -- make depend depends on it.
