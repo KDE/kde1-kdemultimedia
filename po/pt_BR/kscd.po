@@ -160,7 +160,7 @@ msgstr "Carregar"
 
 #: CDDialogData.cpp:87
 msgid "Play List Editor"
-msgstr "Editor de PlayList"
+msgstr "Editor de lista de reprodução"
 
 #: CDDialogData.cpp:93
 msgid "Edit Track Title"
@@ -184,7 +184,7 @@ msgstr "ID do Disco"
 
 #: CDDialogData.cpp:145
 msgid "Upload"
-msgstr "Buscar"
+msgstr "Submeter"
 
 #: configdlg.cpp:65
 msgid "Configure kscd"
