@@ -22,6 +22,7 @@
  */
 
 #include <stdio.h>
+#include <kapp.h>
 #include "log.moc"
 
 
@@ -50,7 +51,7 @@ bool  myMultiEdit::rowYPos(int row, int& yPos){
 LogWindow::LogWindow(QWidget *parent, const char *name)
   : QDialog(parent, name, FALSE)
 {
-  setCaption("Info Window");
+  setCaption(i18n("Info Window"));
 
 
   text_window = new myMultiEdit(this,"logwindow");
@@ -60,7 +61,7 @@ LogWindow::LogWindow(QWidget *parent, const char *name)
 
   dismiss = new QPushButton(this,"dismissbutton");
   dismiss->setGeometry(330,340,70,30);
-  dismiss->setText("Dismiss");
+  dismiss->setText(i18n("Dismiss"));
 
   connect(dismiss,SIGNAL(clicked()),SLOT(hideit()));
  

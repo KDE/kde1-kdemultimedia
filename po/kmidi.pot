@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1999-01-13 21:40+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmidi.cpp:103
+msgid "Could not load folder.bmp"
+msgstr ""
+
+#: kmidi.cpp:108
+msgid "Could not load cdup.bmp"
+msgstr ""
+
+#: kmidi.cpp:112
+msgid "Could not load file.bmp"
+msgstr ""
+
+#: kmidi.cpp:159
+msgid "Play/Pause"
+msgstr ""
+
+#: kmidi.cpp:161
+msgid "Loop Song"
+msgstr ""
+
+#: kmidi.cpp:163
+msgid "15 Secs Forward"
+msgstr ""
+
+#: kmidi.cpp:164
+msgid "15 Secs Backward"
+msgstr ""
+
+#: kmidi.cpp:165
+msgid "Next Midi"
+msgstr ""
+
+#: kmidi.cpp:166
+msgid "Previous Midi"
+msgstr ""
+
+#: kmidi.cpp:167
+msgid "Exit Kmidi"
+msgstr ""
+
+#: kmidi.cpp:168 kmidi.cpp:172
+msgid "Random Play"
+msgstr ""
+
+#: kmidi.cpp:169
+msgid "Configure Kmidi"
+msgstr ""
+
+#: kmidi.cpp:170
+msgid "Open Playlist"
+msgstr ""
+
+#: kmidi.cpp:171
+msgid "Show Info Window"
+msgstr ""
+
+#: kmidi.cpp:173
+msgid "Volume Control"
+msgstr ""
+
+#: kmidi.cpp:201
+msgid "Vol:%03d%%"
+msgstr ""
+
+#: kmidi.cpp:204 kmidi.cpp:321
+msgid "Vol:%02d%%"
+msgstr ""
+
+#: kmidi.cpp:234
+msgid "kmidi"
+msgstr ""
+
+#: kmidi.cpp:354 kmidi.cpp:854 kmidi.cpp:862
+msgid "Song --/--"
+msgstr ""
+
+#: kmidi.cpp:511 kmidi.cpp:529 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
+#: kmidi.cpp:653
+msgid "Playing"
+msgstr ""
+
+#: kmidi.cpp:512 kmidi.cpp:530
+msgid "Random"
+msgstr ""
+
+#: kmidi.cpp:585 kmidi.cpp:879 kmidi.cpp:1104
+msgid "Ready"
+msgstr ""
+
+#: kmidi.cpp:708
+msgid "Looping"
+msgstr ""
+
+#: kmidi.cpp:759
+msgid "kmidi Configuraton"
+msgstr ""
+
+#: kmidi.cpp:776
+#, c-format
+msgid ""
+"KMidi %s\n"
+"Copyright (c) 1997-98\n"
+"Bernd Johannes Wuebben\n"
+"wuebben@kde.org\n"
+"\n"
+"KMidi contains code from:\n"
+"TiMidity version 0.2.i\n"
+"Copyright (c) \n"
+"Tuukka Toivonen\n"
+"toivonen@clinet.fi\n"
+msgstr ""
+
+#: kmidi.cpp:803
+msgid "Configure"
+msgstr ""
+
+#: kmidi.cpp:852
+msgid "ERROR"
+msgstr ""
+
+#: kmidi.cpp:853
+msgid "Can't open Output Device."
+msgstr ""
+
+#: kmidi.cpp:1024
+#, c-format
+msgid ""
+"%s\n"
+"is not readable or doesn't exist."
+msgstr ""
+
+#: kmidi.cpp:1025
+msgid "KMidi Warning"
+msgstr ""
+
+#: kmidi.cpp:1106
+#, c-format
+msgid "Song: --/%02d"
+msgstr ""
+
+#: kmidi.cpp:1378
+#, c-format
+msgid "%d bit %s %s"
+msgstr ""
+
+#: kmidi.cpp:1380
+msgid "sig"
+msgstr ""
+
+#: kmidi.cpp:1380
+msgid "usig"
+msgstr ""
+
+#: kmidi.cpp:1381
+msgid "uLaw"
+msgstr ""
+
+#: kmidi.cpp:1381
+msgid "Linear"
+msgstr ""
+
+#: kmidi.cpp:1383
+#, c-format
+msgid "%d Hz %s"
+msgstr ""
+
+#: kmidi.cpp:1385
+msgid "Mono"
+msgstr ""
+
+#: kmidi.cpp:1385
+msgid "Stereo"
+msgstr ""
+
+#: kmidi.cpp:1409
+#, c-format
+msgid "Song: %02d/%02d"
+msgstr ""
+
+#: kmidi.cpp:1411
+msgid "Song: --/--"
+msgstr ""
+
+#: playlist.cpp:47
+msgid "Compose Play List"
+msgstr ""
+
+#: playlist.cpp:215
+#, c-format
+msgid "Can not enter directory: %s\n"
+msgstr ""
+
+#: playlist.cpp:284
+msgid "Cannot open or read directory."
+msgstr ""
+
+#: configdlg.cpp:60
+msgid "LED Color:"
+msgstr ""
+
+#: configdlg.cpp:74
+msgid "Background Color:"
+msgstr ""
+
+#: configdlg.cpp:91
+msgid "Show Tool Tips"
+msgstr ""
+
+#: log.cpp:54
+msgid "Info Window"
+msgstr ""
+
+#: log.cpp:64
+msgid "Dismiss"
+msgstr ""

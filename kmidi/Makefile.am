@@ -102,5 +102,5 @@ uninstall:
 
 
 messages:
-	
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kmidi_SOURCES) && mv messages.po ../po/kmidi.pot
 

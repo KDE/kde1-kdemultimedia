@@ -100,16 +100,16 @@ KMidi::KMidi( QWidget *parent, const char *name ) :
     playlist = new QStrList(TRUE);
 
     if ( !folder_pixmap.loadFromData(folder_bmp_data, folder_bmp_len) ) {
-	QMessageBox::message( "Error", "Could not load folder.bmp" );
+	QMessageBox::message( i18n("Error"), i18n("Could not load folder.bmp") );
     }
 
 
     if ( !cdup_pixmap.loadFromData(cdup_bmp_data, cdup_bmp_len) ) {
-	QMessageBox::message( "Error", "Could not load cdup.bmp" );
+	QMessageBox::message( i18n("Error"), i18n("Could not load cdup.bmp") );
     }
 
     if ( !file_pixmap.loadFromData(file_bmp_data, file_bmp_len) ) {
-	QMessageBox::message( "Error", "Could not load file.bmp" );
+	QMessageBox::message( i18n("Error"), i18n("Could not load file.bmp") );
     }
 
     timer = new QTimer( this );
@@ -156,21 +156,21 @@ KMidi::~KMidi(){
 void KMidi::setToolTips()
 {
     if(tooltips){
-	QToolTip::add( playPB, 		"Play/Pause" );
-	QToolTip::add( stopPB, 		"Stop" );
-	QToolTip::add( replayPB, 	"Loop Song" );
-	//	QToolTip::add( songListCB, 	"Track Selection" );
-	QToolTip::add( fwdPB, 		"15 Secs Forward" );
-	QToolTip::add( bwdPB, 		"15 Secs Backward" );
-	QToolTip::add( nextPB, 		"Next Midi" );
-	QToolTip::add( prevPB, 		"Previous Midi" );
-	QToolTip::add( quitPB, 		"Exit Kmidi" );
-	QToolTip::add( shufflebutton, 	"Random Play" );
-        QToolTip::add( configurebutton, 	"Configure Kmidi" );
-	QToolTip::add( ejectPB, 	"Open Playlist" );
-	QToolTip::add( infobutton, 	"Show Info Window" );
-	QToolTip::add( shufflebutton, 	"Random Play" );
-	QToolTip::add( volSB, 		"Volume Control" );
+	QToolTip::add( playPB, 		i18n("Play/Pause") );
+	QToolTip::add( stopPB, 		i18n("Stop") );
+	QToolTip::add( replayPB, 	i18n("Loop Song") );
+	//	QToolTip::add( songListCB, 	i18n("Track Selection") );
+	QToolTip::add( fwdPB, 		i18n("15 Secs Forward") );
+	QToolTip::add( bwdPB, 		i18n("15 Secs Backward") );
+	QToolTip::add( nextPB, 		i18n("Next Midi") );
+	QToolTip::add( prevPB, 		i18n("Previous Midi") );
+	QToolTip::add( quitPB, 		i18n("Exit Kmidi") );
+	QToolTip::add( shufflebutton, 	i18n("Random Play") );
+        QToolTip::add( configurebutton, i18n("Configure Kmidi") );
+	QToolTip::add( ejectPB, 	i18n("Open Playlist") );
+	QToolTip::add( infobutton, 	i18n("Show Info Window") );
+	QToolTip::add( shufflebutton, 	i18n("Random Play") );
+	QToolTip::add( volSB, 		i18n("Volume Control") );
     }
     else{
 	QToolTip::remove( playPB);
@@ -198,10 +198,10 @@ void KMidi::volChanged( int vol )
 	
     QString volumetext;
     if (vol == 100){
-	volumetext.sprintf("Vol:%03d%%",vol);
+	volumetext.sprintf(i18n("Vol:%03d%%"),vol);
     }
     else{
-	volumetext.sprintf("Vol:%02d%%",vol);
+	volumetext.sprintf(i18n("Vol:%02d%%"),vol);
     }
     volLA->setText( volumetext );
 
@@ -231,7 +231,7 @@ void KMidi::drawPanel()
     //    int SBARWIDTH = 230;
     int SBARWIDTH = 220; //140
 
-    setCaption( "kmidi" );
+    setCaption( i18n("kmidi") );
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, "About" );
 
     ix = 0;
@@ -318,7 +318,7 @@ void KMidi::drawPanel()
 
 
     QString volumetext;
-    volumetext.sprintf("Vol:%02d%%",volume);
+    volumetext.sprintf(i18n("Vol:%02d%%"),volume);
     volLA->setText( volumetext );
 
 
@@ -329,7 +329,7 @@ void KMidi::drawPanel()
     */
 
     /*    QString speedtext;
-    speedtext.sprintf("Spd:%3.0f%%",100.0);
+    speedtext.sprintf(i18n("Spd:%3.0f%%"),100.0);
     speedLA->setText( speedtext );
     */
 
@@ -351,7 +351,7 @@ void KMidi::drawPanel()
     song_count_label->setGeometry( WIDTH + 9, HEIGHT + 20, 60, 15 );
     song_count_label->setFont( QFont( "helvetica", 10, QFont::Bold) );
 
-    song_count_label->setText( "Song --/--" );
+    song_count_label->setText( i18n("Song --/--") );
 
 
     iy += HEIGHT / 2 ;
@@ -497,6 +497,8 @@ int KMidi::randomSong(){
 
 
 void KMidi::randomClicked(){
+    if(playlist->count() == 0)
+        return;
 
     looping = FALSE;
     if(randomplay == TRUE){
@@ -508,8 +510,8 @@ void KMidi::randomClicked(){
     randomplay = TRUE;
     updateUI();
     setLEDs("OO:OO");
-    statusLA->setText("Playing");
-    looplabel->setText("Random");
+    statusLA->setText(i18n("Playing"));
+    looplabel->setText(i18n("Random"));
 
     int index = randomSong() - 1;
     song_number = index + 1;
@@ -525,8 +527,8 @@ void KMidi::randomPlay(){
     randomplay = TRUE;
     updateUI();
     setLEDs("OO:OO");
-    statusLA->setText("Playing");
-    looplabel->setText("Random");
+    statusLA->setText(i18n("Playing"));
+    looplabel->setText(i18n("Random"));
 
     int index = randomSong() - 1;
     song_number = index + 1;
@@ -557,13 +559,13 @@ void KMidi::playClicked()
   if(status == KPAUSED){
     status = KPLAYING;
     pipe_int_write(MOTIF_PAUSE);
-    statusLA->setText("Playing");
+    statusLA->setText(i18n("Playing"));
     return;
   }
 
   if(((int)playlist->count()  > index) && (index >= 0)){
     setLEDs("OO:OO");
-    statusLA->setText("Playing");
+    statusLA->setText(i18n("Playing"));
 
     pipe_int_write(MOTIF_PLAY_FILE);
     pipe_string_write(playlist->at(index));
@@ -580,7 +582,7 @@ void KMidi::stopClicked()
      randomplay = false;
      pipe_int_write(MOTIF_PAUSE);
      status = KSTOPPED;
-     statusLA->setText("Ready");
+     statusLA->setText(i18n("Ready"));
      looplabel->setText("");
      setLEDs("00:00");
 }
@@ -603,10 +605,10 @@ void KMidi::prevClicked(){
 	if(status == KPLAYING)
 	    setLEDs("OO:OO");
 
-	statusLA->setText("Playing");
+	statusLA->setText(i18n("Playing"));
 
 	pipe_int_write(MOTIF_PLAY_FILE);
-	pipe_string_write(playlist->at(song_number - 1));
+        pipe_string_write(playlist->at(song_number));
 	status = KPLAYING;
     }
 }
@@ -648,10 +650,10 @@ void KMidi::nextClicked(){
 	if(status == KPLAYING)
 	    setLEDs("OO:OO");
 
-	statusLA->setText("Playing");
+	statusLA->setText(i18n("Playing"));
 
 	pipe_int_write(MOTIF_PLAY_FILE);
-	pipe_string_write(playlist->at(song_number - 1));
+        pipe_string_write(playlist->at(song_number));
 	status = KPLAYING;
     }
 
@@ -703,7 +705,7 @@ void KMidi::replayClicked(){
     if(looping == false){
 	looping = true;
 	randomplay = false;
-	looplabel->setText("Looping");
+	looplabel->setText(i18n("Looping"));
     }
     else{
 	looping = false;
@@ -754,9 +756,9 @@ void KMidi::aboutClicked()
   QTabDialog * tabdialog;
 
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
-  tabdialog->setCaption( "kmidi Configuraton" );
+  tabdialog->setCaption( i18n("kmidi Configuraton") );
   tabdialog->resize( 350, 350 );
-  tabdialog->setCancelButton( "Cancel" );
+  tabdialog->setCancelButton( i18n("Cancel") );
 
   QWidget *about = new QWidget(tabdialog,"about");
 
@@ -765,18 +767,19 @@ void KMidi::aboutClicked()
   QLabel  *label = new QLabel(box,"label");
   box->setGeometry(10,10,320,260);
 
-  box->setTitle("About");
+  box->setTitle(i18n("About"));
 
 
   label->setGeometry(140,40,160,170);
 
-  QString labelstring = "KMidi "KMIDIVERSION"\n"\
+  QString labelstring;
+  labelstring.sprintf(i18n("KMidi %s\n"\
 		   "Copyright (c) 1997-98\nBernd Johannes Wuebben\n"\
 		   "wuebben@kde.org\n\n"\
 		   "KMidi contains code from:\n"
 		   "TiMidity version 0.2.i\n"
 		   "Copyright (c) \nTuukka Toivonen\n"\
-		   "toivonen@clinet.fi\n";
+		   "toivonen@clinet.fi\n"), KMIDIVERSION);
 
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
@@ -797,8 +800,8 @@ void KMidi::aboutClicked()
 
   dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
-  tabdialog->addTab(dlg,"Configure");
-  tabdialog->addTab(about,"About");
+  tabdialog->addTab(dlg,i18n("Configure"));
+  tabdialog->addTab(about,i18n("About"));
 
   if(tabdialog->exec() == QDialog::Accepted){
 
@@ -846,9 +849,9 @@ void KMidi::PlayCommandlineMods(){
 	}
     else{
       blink = true;
-      statusLA->setText("ERROR");
-      modlabel->setText("Can't open Output Device.");
-      song_count_label->setText( "Song --/--" );
+      statusLA->setText(i18n("ERROR"));
+      modlabel->setText(i18n("Can't open Output Device."));
+      song_count_label->setText( i18n("Song --/--") );
     }
 
 
@@ -856,7 +859,7 @@ void KMidi::PlayCommandlineMods(){
   }
 
   modlabel->setText(""); // clear the error message
-  song_count_label->setText( "Song --/--" );
+  song_count_label->setText( i18n("Song --/--") );
 
   // O.K all clear -- the driver is ready.
 
@@ -873,7 +876,7 @@ void KMidi::PlayCommandlineMods(){
   thisapp->flushX();
 
 
-  statusLA->setText("Ready");
+  statusLA->setText(i18n("Ready"));
 
   //  readtimer->start(10);
 
@@ -1018,8 +1021,8 @@ void KMidi::ReadPipe(){
 		    }
 		    else{
 		      QString string;
-		      string.sprintf("%s\nis not readable or doesn't exist.",filename);
-		      KMsgBox::message(NULL, "KMidi Warning", string.data(),
+		      string.sprintf(i18n("%s\nis not readable or doesn't exist."),filename);
+		      KMsgBox::message(NULL, i18n("KMidi Warning"), string.data(),
 				       KMsgBox::EXCLAMATION);
 
 		    }
@@ -1098,9 +1101,9 @@ void KMidi::ReadPipe(){
 			song_number = 1 ;
 			setLEDs("--:--");
 			looplabel->setText("");
-			statusLA->setText("Ready");
+			statusLA->setText(i18n("Ready"));
 			QString str;
-			str.sprintf("Song: --/%02d",playlist->count());
+			str.sprintf(i18n("Song: --/%02d"),playlist->count());
 			song_count_label->setText(str.data() );
 			modlabel->setText("");
 			totaltimelabel->setText("--:--");
@@ -1372,14 +1375,14 @@ void KMidi::display_playmode(){
     QString properties;
     QString properties2;
 
-    properties.sprintf("%d bit %s %s",
+    properties.sprintf(i18n("%d bit %s %s"),
 		       play_mode->encoding & PE_16BIT ? 16:8,
-		       play_mode->encoding & PE_SIGNED ? "sig":"usig",
-		       play_mode->encoding &PE_ULAW ? "uLaw":"Linear");
+		       play_mode->encoding & PE_SIGNED ? i18n("sig"):i18n("usig"),
+		       play_mode->encoding &PE_ULAW ? i18n("uLaw"):i18n("Linear"));
 
-    properties2.sprintf("%d Hz %s",
+    properties2.sprintf(i18n("%d Hz %s"),
 		       play_mode->rate,
-		       play_mode->encoding & PE_MONO ? "Mono":"Stereo");
+		       play_mode->encoding & PE_MONO ? i18n("Mono"):i18n("Stereo"));
 
     propertiesLA->setText(properties);
     properties2LA->setText(properties2);
@@ -1403,9 +1406,9 @@ void KMidi::updateUI(){
     QString songstr;
 
     if(playlist->count() >0)
-	songstr.sprintf("Song: %02d/%02d",song_number,playlist->count());
+	songstr.sprintf(i18n("Song: %02d/%02d"),song_number,playlist->count());
     else
-	songstr ="Song: --/--";
+	songstr = i18n("Song: --/--");
 
     song_count_label->setText( songstr.data() );
 

@@ -44,29 +44,29 @@ extern KMidi *kmidi;
 PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playlist)
   : QDialog(parent, name,TRUE){
 
-  setCaption("Compose Play List");
+  setCaption(i18n("Compose Play List"));
 
   starting_up = true;
   QPopupMenu *file = new QPopupMenu;
   CHECK_PTR( file );
 
-  file->insertItem( "Quit", this, SLOT(reject()));
+  file->insertItem( i18n("Quit"), this, SLOT(reject()));
   
   QPopupMenu *edit = new QPopupMenu;
   CHECK_PTR( edit );
-  edit->insertItem( "Add", this, SLOT(addEntry()) );
-  edit->insertItem( "Remove", this, SLOT(removeEntry()) );
+  edit->insertItem( i18n("Add"), this, SLOT(addEntry()) );
+  edit->insertItem( i18n("Remove"), this, SLOT(removeEntry()) );
   
   QPopupMenu *help = new QPopupMenu;
   CHECK_PTR( help );
-  help->insertItem( "Help", this, SLOT(help()));
+  help->insertItem( i18n("Help"), this, SLOT(help()));
 
   menu = new QMenuBar( this );
   CHECK_PTR( menu );
-  menu->insertItem( "&File", file );
-  menu->insertItem( "&Edit", edit );
+  menu->insertItem( i18n("&File"), file );
+  menu->insertItem( i18n("&Edit"), edit );
   menu->insertSeparator();
-  menu->insertItem( "&Help", help );
+  menu->insertItem( i18n("&Help"), help );
   
   panner = new KPanner(this, "_panner", KPanner::O_VERTICAL, 30);
 
@@ -77,19 +77,19 @@ PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playl
 	    SLOT(removeEntry()));
 
   addButton = new QPushButton(this,"addButton");
-  addButton->setText("Add");
+  addButton->setText(i18n("Add"));
   connect(addButton,SIGNAL(clicked()),this,SLOT(addEntry()));
 
   removeButton = new QPushButton(this,"removeButton");
-  removeButton->setText("Remove");
+  removeButton->setText(i18n("Remove"));
   connect(removeButton,SIGNAL(clicked()),this,SLOT(removeEntry()));
 
   cancelButton = new QPushButton(this,"cancelButton");
-  cancelButton->setText("Cancel");
+  cancelButton->setText(i18n(i18n("Cancel")));
   connect(cancelButton,SIGNAL(clicked()),this,SLOT(reject()));
 
   okButton = new QPushButton(this,"okButton");
-  okButton->setText("OK");
+  okButton->setText(i18n("OK"));
   connect(okButton,SIGNAL(clicked()),this,SLOT(checkList()));
 
   local_list = new QListBox(panner->child0(), "local_list",0);
@@ -212,8 +212,8 @@ void PlaylistDialog::set_local_dir(QString dir){
   if (!dir.isEmpty()){
     if ( !cur_local_dir.setCurrent(dir.data())){
       QString str;
-      str.sprintf("Can not enter directory: %s\n",dir.data());
-      QMessageBox::message("Sorry",str.data(),"OK");
+      str.sprintf(i18n("Can not enter directory: %s\n"),dir.data());
+      QMessageBox::message(i18n("Sorry"),str.data(),i18n("OK"));
       return;
     }
   }
@@ -281,7 +281,7 @@ void PlaylistDialog::set_local_dir(QString dir){
     }
   } else {
     qApp->restoreOverrideCursor();
-    QMessageBox::message( "Sorry", "Cannot open or read directory." );
+    QMessageBox::message( i18n("Sorry"), i18n("Cannot open or read directory.") );
     qApp ->setOverrideCursor( waitCursor );
   }
   local_list->setAutoUpdate( TRUE );

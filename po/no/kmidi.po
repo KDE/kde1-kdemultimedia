@@ -1,0 +1,242 @@
+# Norwegian translations for KDE Multimedia/kmidi
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Hans Petter Bieker <zerium@webindex.no>, 1999.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE MULTIMEDIA/kmidi\n"
+"POT-Creation-Date: 1999-01-13 21:40+0100\n"
+"PO-Revision-Date: 1999-01-13 20:20+0100\n"
+"Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
+"Language-Team: no <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO_8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: kmidi.cpp:103
+msgid "Could not load folder.bmp"
+msgstr "Kunne ikke laste folder.bmp"
+
+#: kmidi.cpp:108
+msgid "Could not load cdup.bmp"
+msgstr "Kunne ikke laste cdup.bmp"
+
+#: kmidi.cpp:112
+msgid "Could not load file.bmp"
+msgstr "Kunne ikke laste file.bmp"
+
+#: kmidi.cpp:159
+msgid "Play/Pause"
+msgstr "Spill/pause"
+
+#: kmidi.cpp:161
+msgid "Loop Song"
+msgstr "La sangen gå i løkke"
+
+#: kmidi.cpp:163
+msgid "15 Secs Forward"
+msgstr "15 sek forover"
+
+#: kmidi.cpp:164
+msgid "15 Secs Backward"
+msgstr "15 sek bakover"
+
+#: kmidi.cpp:165
+msgid "Next Midi"
+msgstr "Neste midi"
+
+#: kmidi.cpp:166
+msgid "Previous Midi"
+msgstr "Forrige midi"
+
+#: kmidi.cpp:167
+msgid "Exit Kmidi"
+msgstr "Avslutt kmidi"
+
+#: kmidi.cpp:168 kmidi.cpp:172
+msgid "Random Play"
+msgstr "Spill tilfeldig"
+
+#: kmidi.cpp:169
+msgid "Configure Kmidi"
+msgstr "Konfigurer kmidi"
+
+#: kmidi.cpp:170
+msgid "Open Playlist"
+msgstr "Åpne spilleliste"
+
+#: kmidi.cpp:171
+msgid "Show Info Window"
+msgstr "Vis informasjonsvindu"
+
+#: kmidi.cpp:173
+msgid "Volume Control"
+msgstr "Volumkontroll"
+
+#: kmidi.cpp:201
+msgid "Vol:%03d%%"
+msgstr "Vol:%03d%%"
+
+#: kmidi.cpp:204 kmidi.cpp:321
+msgid "Vol:%02d%%"
+msgstr "Vol:%02d%%"
+
+#: kmidi.cpp:234
+msgid "kmidi"
+msgstr "kmidi"
+
+#: kmidi.cpp:354 kmidi.cpp:854 kmidi.cpp:862
+msgid "Song --/--"
+msgstr "Sang --/--"
+
+#: kmidi.cpp:511 kmidi.cpp:529 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
+#: kmidi.cpp:653
+msgid "Playing"
+msgstr "Spiller"
+
+#: kmidi.cpp:512 kmidi.cpp:530
+msgid "Random"
+msgstr "Tilfeldig"
+
+#: kmidi.cpp:585 kmidi.cpp:879 kmidi.cpp:1104
+msgid "Ready"
+msgstr "Klar"
+
+#: kmidi.cpp:708
+msgid "Looping"
+msgstr "I løkke"
+
+#: kmidi.cpp:759
+msgid "kmidi Configuraton"
+msgstr "kmidi-konfigurasjon"
+
+#: kmidi.cpp:776
+#, c-format
+msgid ""
+"KMidi %s\n"
+"Copyright (c) 1997-98\n"
+"Bernd Johannes Wuebben\n"
+"wuebben@kde.org\n"
+"\n"
+"KMidi contains code from:\n"
+"TiMidity version 0.2.i\n"
+"Copyright (c) \n"
+"Tuukka Toivonen\n"
+"toivonen@clinet.fi\n"
+msgstr ""
+"KMidi %s\n"
+"Copyright (c) 1997-98\n"
+"Bernd Johannes Wuebben\n"
+"wuebben@kde.org\n"
+"\n"
+"KMidi inneholder kode fra:\n"
+"TiMidity versjon 0.2.i\n"
+"Copyright (c) \n"
+"Tuukka Toivonen\n"
+"toivonen@clinet.fi\n"
+
+#: kmidi.cpp:803
+msgid "Configure"
+msgstr "Konfigurer"
+
+#: kmidi.cpp:852
+msgid "ERROR"
+msgstr "FEIL"
+
+#: kmidi.cpp:853
+msgid "Can't open Output Device."
+msgstr "Kan ikke åpne utenhet"
+
+#: kmidi.cpp:1024
+#, c-format
+msgid ""
+"%s\n"
+"is not readable or doesn't exist."
+msgstr ""
+"%s\n"
+"er ikke lesbar eller eksisterer ikke."
+
+#: kmidi.cpp:1025
+msgid "KMidi Warning"
+msgstr "KMidi-advarsel"
+
+#: kmidi.cpp:1106
+#, c-format
+msgid "Song: --/%02d"
+msgstr "Sang --/%02d"
+
+#: kmidi.cpp:1378
+#, c-format
+msgid "%d bit %s %s"
+msgstr "%d bit %s %s"
+
+#: kmidi.cpp:1380
+msgid "sig"
+msgstr "sig"
+
+#: kmidi.cpp:1380
+msgid "usig"
+msgstr "usig"
+
+#: kmidi.cpp:1381
+msgid "uLaw"
+msgstr "uLaw"
+
+#: kmidi.cpp:1381
+msgid "Linear"
+msgstr "linjær"
+
+#: kmidi.cpp:1383
+#, c-format
+msgid "%d Hz %s"
+msgstr "%d Hz %s"
+
+#: kmidi.cpp:1385
+msgid "Mono"
+msgstr "Mono"
+
+#: kmidi.cpp:1385
+msgid "Stereo"
+msgstr "Stereo"
+
+#: kmidi.cpp:1409
+#, c-format
+msgid "Song: %02d/%02d"
+msgstr "Sang: %02d/%02d"
+
+#: kmidi.cpp:1411
+msgid "Song: --/--"
+msgstr "Sang --/--"
+
+#: playlist.cpp:47
+msgid "Compose Play List"
+msgstr "Sett sammen spilleliste"
+
+#: playlist.cpp:215
+#, c-format
+msgid "Can not enter directory: %s\n"
+msgstr "kan ikke gå inn i katalog: %s\n"
+
+#: playlist.cpp:284
+msgid "Cannot open or read directory."
+msgstr "Kan ikek åpne eller lese katalog."
+
+#: configdlg.cpp:60
+msgid "LED Color:"
+msgstr "LED-farge:"
+
+#: configdlg.cpp:74
+msgid "Background Color:"
+msgstr "Bakgrunnsfarge:"
+
+#: configdlg.cpp:91
+msgid "Show Tool Tips"
+msgstr "Vis verktøytips"
+
+#: log.cpp:54
+msgid "Info Window"
+msgstr "Informasjonsvindu"
+
+#: log.cpp:64
+msgid "Dismiss"
+msgstr "Forkast"
