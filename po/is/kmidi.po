@@ -156,6 +156,9 @@ msgstr ""
 "Höfundaréttur (c) \n"
 "Tuukka Toivonen\n"
 "toivonen@clinet.fi\n"
+"\n"
+"Þýðing: Guðmundur E.\n"
+"<gerl@vortex.is>"
 
 #: kmidi.cpp:786
 msgid "Configure"

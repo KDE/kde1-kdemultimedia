@@ -155,6 +155,8 @@ msgstr ""
 "KMid er ÁN ÁBYRGÐAR; nánari upplýsingar eru að finna i skránni\n"
 "COPYING.  Þetta er frjáls hugbúnaður og þú mátt dreifa honum samkvæmt\n"
 "skilmálum GNU GPL-leyfisins.\n"
+"\n"
+"Þýðing: Guðmundur Erlingsson <gerl@vortex.is>\n"
 
 #: kmidframe.cpp:197
 msgid "&Song"

@@ -40,7 +40,9 @@ msgstr ""
 "Paul Kendall (paul@orion.co.nz) færði á SGI.\n"
 "Sebestyen Zoltan (szoli@digo.inf.elte.hu) lagaði BSD útgáfuna ásamt\n"
 "Lennart Augustsson (augustss@cs.chalmers.se).\n"
-"Nick Lopez (kimo_sabe@usa.net) flutti á ALSA."
+"Nick Lopez (kimo_sabe@usa.net) flutti á ALSA.\n"
+"\n"
+"Þýðing: Logi Ragnarsson <logir@hi.is>"
 
 #: kmix.cpp:565
 msgid "&Left"
