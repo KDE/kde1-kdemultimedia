@@ -415,3 +415,6 @@ Sunday 25-10-98
 
 Monday 2-11-98
 - Fixed some problems
+
+Sunday 8-11-98
+- Some small changes 
