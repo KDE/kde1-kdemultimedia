@@ -48,6 +48,7 @@ public:
     
     bool isConnected(){return connected;};
     bool isFinished(){return finished;};
+    char *getLastLine(){return lastLine.data();};
     
     void setSenderAddress(char *sender);
     void setRecipientAddress(char *recipient);
@@ -81,6 +82,8 @@ public:
         NOERROR = 0,
         CONNECTERROR = 10,
         NOTCONNECTED = 11,
+        CONNECTTIMEOUT = 15,
+        INTERACTTIMEOUT = 16,
         UNKNOWNRESPONSE = 20,
         UNKNOWNUSER = 30,
         COMMAND = 40
@@ -96,6 +99,7 @@ public slots:
 
     void connectTimerTick();
     void connectTimedOut();
+    void interactTimedOut();
 
     void socketRead(KSocket *);
     void socketClose(KSocket *);
@@ -103,7 +107,7 @@ public slots:
 signals:
     void connectionClosed();
     void messageSent();
-    void error(SMTPError);
+    void error(int);
 
 private:
     QString serverHost;
@@ -127,6 +131,7 @@ private:
     KSocket *sock;
     QTimer connectTimer;
     QTimer timeOutTimer;
+    QTimer interactTimer;
 
     char readBuffer[SMTP_READ_BUFFER_SIZE];
     QString lineBuffer;

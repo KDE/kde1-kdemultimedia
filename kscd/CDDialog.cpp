@@ -45,6 +45,7 @@ extern void cddb_playlist_encode(QStrList& list,QString& playstr);
 extern bool cddb_playlist_decode(QStrList& list, QString& str);
 extern bool debugflag;
 
+extern SMTP *smtpMailer;
 extern KApplication 	*mykapp;
 
 CDDialog::CDDialog
@@ -472,32 +473,20 @@ I would like you ask you to upload as many test submissions as possible.\n"\
  //         }
       }
 
-      SMTP mailer;
+//      smtpMailer = new SMTP;
 
-      mailer.setServerHost(smtpConfigData->serverHost.data());
-      mailer.setPort(smtpConfigData->serverPort.toInt());
+      smtpMailer->setServerHost(smtpConfigData->serverHost.data());
+      smtpMailer->setPort(smtpConfigData->serverPort.toInt());
       
-      mailer.setSenderAddress(smtpConfigData->senderAddress.data());
-      mailer.setRecipientAddress(submitaddress.data());
+      smtpMailer->setSenderAddress(smtpConfigData->senderAddress.data());
+      smtpMailer->setRecipientAddress(submitaddress.data());
+      
       subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
-      mailer.setMessageSubject(subject.data());
-      mailer.setMessageBody(s.data());
+      smtpMailer->setMessageSubject(subject.data());
+      smtpMailer->setMessageBody(s.data());
 
-      connect(&mailer, SIGNAL(messageSent()), this, SLOT(messageSent()));
-      messageNotSent = true;
-      mailer.sendMessage();
-
-      while(messageNotSent){
-          mykapp->processEvents();
-          mykapp->flushX();
-      }
-      disconnect(&mailer, SIGNAL(messageSent()), this, SLOT(messageSent()));
-
-      file.close();
-      unlink(tempfile.data());
-  
-      if(debugflag)
-          printf("DONE SENDING\n");
+      smtpMailer->sendMessage();
+      
       return;
   }
 
@@ -517,11 +506,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
     QString str;
     str.sprintf(klocale->translate("Could not pipe contents into:\n %s"),cmd.data());
 
-    QMessageBox::critical(
-			  this,
-			  "Kscd",
-			  str.data()
-			  );
+    QMessageBox::critical(this, "Kscd", str.data());
     pclose(mailpipe);
     return;
     
@@ -556,11 +541,6 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
   unlink(tempfile.data());
   if ( debugflag ) printf("DONE SENDING\n");
-}
-
-void CDDialog::messageSent(void)
-{
-    messageNotSent = false;
 }
 
 void CDDialog::getCategoryFromPathName(char* pathname, QString& _category){

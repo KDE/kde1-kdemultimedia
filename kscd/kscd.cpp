@@ -57,6 +57,7 @@ extern "C" {
 KApplication 	*mykapp;
 KSCD 	         *k;
 DockWidget*     dock_widget;
+SMTP                *smtpMailer;
 bool dockinginprogress = 0;
 
 bool             debugflag = true;
@@ -199,15 +200,49 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     volSB->setValue(volume);
 
     dock_widget = new DockWidget("dockw");
-
-    if(docking){
+        if(docking){
         dock_widget->dock();
     }
+
+    smtpMailer = new SMTP;
+    connect(smtpMailer, SIGNAL(messageSent()), this, SLOT(smtpMessageSent()));
+    connect(smtpMailer, SIGNAL(error(int)), this, SLOT(smtpError(int)));
 
     setFocusPolicy ( QWidget::NoFocus );
     srandom(time(0L));
     initimer->start(500,TRUE);
 
+}
+
+void KSCD::smtpMessageSent(void)
+{
+    QMessageBox::information(this, "Record Submission",
+                             klocale->translate("Record submitted successfully"));
+}
+
+void KSCD::smtpError(int errornum)
+{
+    QString str, lstr;
+
+//    if(errornum == 10)
+    switch(errornum){
+    case 10:
+        lstr.sprintf(klocale->translate("Error connecting to server."));
+        break;
+    case 11:
+        lstr.sprintf(klocale->translate("Not connected."));
+        break;
+    case 15:
+        lstr.sprintf(klocale->translate("Connection timed out."));
+        break;
+    case 16:
+        lstr.sprintf(klocale->translate("Time out waiting for server interaction."));
+        break;
+    default:
+        lstr.sprintf(klocale->translate("Server said:\n\"%s\""), smtpMailer->getLastLine());
+    }
+    str.sprintf(klocale->translate("Error #%d sending message via SMTP.\n\n%s"), errornum, lstr.data());
+    QMessageBox::critical(this, "Record Submission", str.data());
 }
 
 	

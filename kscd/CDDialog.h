@@ -74,8 +74,6 @@ protected:
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);
 public slots:
-
-    void messageSent(void);
     void titleselected(int);
     void titlechanged(const char*);
     void trackchanged();
@@ -94,7 +92,6 @@ signals:
     void play_signal(int i);
 
 private:
-
     SMTPConfig::SMTPConfigData *smtpConfigData;
     QStrList 	ext_list;
     QStrList 	track_list;
@@ -109,6 +106,5 @@ private:
     QString     playorder;
     struct dialogcdinfo cdinfo;
     bool            messageNotSent;
-    
 };
 #endif // CDDialog_included

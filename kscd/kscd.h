@@ -75,6 +75,7 @@
 
 #include "cddb.h"
 #include "smtpconfig.h"
+#include "smtp.h"
 #include "ledlamp.h"
 #include "CDDialog.h"
 #include "CDDBSetup.h"
@@ -113,51 +114,53 @@ class KSCD : public QWidget {
 
 public slots:
 
-	  void          magicdone(KProcess*);
-	void            magicslot(int);
-	void		togglequeryled();
-	void		cddb_done();
-	void		cddb_timed_out();
-	void	        cddb_ready();
-        void	        cddb_failed();
-	void 	        setToolTips();
-	void 	        randomSelected();
-	void 	        readSettings();
-        void            writeSettings();
-	void 		setColors();
-	void		playClicked();
-	void		initCDROM();
-	void		stopClicked();
-	void		prevClicked();
-	void		nextClicked();
-	void		fwdClicked();
-	void		bwdClicked();
-	void		quitClicked();
-	void		loopClicked();
-	void 		cdMode();
-	void		ejectClicked();
-	void		trackSelected( int );
-	void		aboutClicked();
-	void		volChanged( int );
-	void 		mycddb_inexact_read();
-	void		cddb_no_info();
-	void 		led_on();
-	void 		led_off();
-	void		titlelabeltimeout();
-	void            CDDialogSelected();
-	void 		cycleplaytimemode();
-	void 		cycletimeout();
-	void 		get_cddb_info(bool);
-	void 		CDDialogDone();
-	void		getCDDBservers();
-	void		getCDDBserversDone();
-	void            getCDDBserversFailed();
-	void 		updateCurrentCDDBServer();
-	void 		performances(int);
-	void		purchases(int);
-	void		information(int);
-        void		showPopup();
-        void dockClicked();
+    void smtpMessageSent(void);
+    void smtpError(int);
+    void magicdone(KProcess*);
+    void magicslot(int);
+    void togglequeryled();
+    void cddb_done();
+    void cddb_timed_out();
+    void cddb_ready();
+    void cddb_failed();
+    void setToolTips();
+    void randomSelected();
+    void readSettings();
+    void writeSettings();
+    void setColors();
+    void playClicked();
+    void initCDROM();
+    void stopClicked();
+    void prevClicked();
+    void nextClicked();
+    void fwdClicked();
+    void bwdClicked();
+    void quitClicked();
+    void loopClicked();
+    void cdMode();
+    void ejectClicked();
+    void trackSelected( int );
+    void aboutClicked();
+    void volChanged( int );
+    void mycddb_inexact_read();
+    void cddb_no_info();
+    void led_on();
+    void led_off();
+    void titlelabeltimeout();
+    void CDDialogSelected();
+    void cycleplaytimemode();
+    void cycletimeout();
+    void get_cddb_info(bool);
+    void CDDialogDone();
+    void getCDDBservers();
+    void getCDDBserversDone();
+    void getCDDBserversFailed();
+    void updateCurrentCDDBServer();
+    void performances(int);
+    void purchases(int);
+    void information(int);
+    void showPopup();
+    void dockClicked();
 
 private:
     CDDBSetup       *setup;

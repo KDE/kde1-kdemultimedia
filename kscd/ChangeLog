@@ -1,3 +1,15 @@
+1998-11-06  Sam Maloney  <thufir@illogic.ml.org>
+
+	* Made smtpMailer a global widget, so it could mail in background.
+	* Fixed problem were after submitting a record via SMTP, and 
+	  having an error, if one tried to exit Kscd, it would close all 
+	  widgets, but be stuck in while loop.
+	* Added error/success reporting of SMTP submissions.
+	* Fixed problem with Local Cache, where it would ignore leading
+	  0's in record file names, thus not finding them when looking for 
+	  that record.
+	* Added a timeout when waiting for server interaction.
+
 1998-11-04  Sam Maloney  <thufir@illogic.ml.org>
 
 	* Fixed problem with 'dock' button, when AutoDock is turned on.

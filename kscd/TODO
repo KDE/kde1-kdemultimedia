@@ -1,6 +1,3 @@
-* add SMTP support, as so it does not require sendmail or any external
-  programs to submit records.
-* connect->isConnected() and consequences
 * fix html encoding
 * make cddb timeout configurable
 * allow to choose email submisson address from server list entries with protocol SMTP

@@ -38,6 +38,7 @@ SMTP::SMTP(char *serverhost, int port, int timeout)
     
     connect(&connectTimer, SIGNAL(timeout()), this, SLOT(connectTimerTick()));
     connect(&timeOutTimer, SIGNAL(timeout()), this, SLOT(connectTimedOut()));
+    connect(&interactTimer, SIGNAL(timeout()), this, SLOT(interactTimedOut()));
 
     // some sendmail will give 'duplicate helo' error, quick fix for now
     connect(this, SIGNAL(messageSent()), SLOT(closeConnection()));
@@ -104,7 +105,7 @@ void SMTP::sendMessage(void)
 {
     if(!connected)
         connectTimerTick();
-    if(state == FINISHED){
+    if(state == FINISHED && connected){
         if(debugflag)
             printf("state was == FINISHED\n");
         finished = false;
@@ -115,6 +116,7 @@ void SMTP::sendMessage(void)
     if(connected){
         if(debugflag)
             printf("enabling read on sock...\n");
+        interactTimer.start(timeOut, TRUE);
         sock->enableRead(true);
     }
 }
@@ -123,7 +125,7 @@ void SMTP::sendMessage(void)
 void SMTP::connectTimerTick(void)
 {
     connectTimer.stop();
-    timeOutTimer.start(timeOut, TRUE);
+//    timeOutTimer.start(timeOut, TRUE);
 
     if(debugflag)
         printf("connectTimerTick called...\n");
@@ -152,7 +154,8 @@ void SMTP::connectTimerTick(void)
 
     connect(sock, SIGNAL(readEvent(KSocket *)), this, SLOT(socketRead(KSocket *)));
     connect(sock, SIGNAL(closeEvent(KSocket *)), this, SLOT(socketClose(KSocket *)));
-//    sock->enableRead(true);
+    //    sock->enableRead(true);
+    timeOutTimer.stop();
     if(debugflag)
         printf("connected\n");
 }
@@ -166,7 +169,19 @@ void SMTP::connectTimedOut(void)
     if (debugflag)
         printf("socket connection timed out\n");
     socketClose(sock);
-    emit error(CONNECTERROR);
+    emit error(CONNECTTIMEOUT);
+}
+
+void SMTP::interactTimedOut(void)
+{
+    interactTimer.stop();
+
+    if(sock)
+        sock->enableRead(false);
+    if(debugflag)
+        printf("time out waiting for server interaction");
+    socketClose(sock);
+    emit error(INTERACTTIMEOUT);
 }
 
 void SMTP::socketRead(KSocket *socket)
@@ -175,6 +190,7 @@ void SMTP::socketRead(KSocket *socket)
 
     if(debugflag)
         printf("socketRead() called...\n");
+    interactTimer.stop();
 
     if(socket == 0L || socket->socket() < 0)
         return;
@@ -187,6 +203,8 @@ void SMTP::socketRead(KSocket *socket)
     lastLine = lineBuffer.left(nl);
     lineBuffer = lineBuffer.right(lineBuffer.length() - nl - 1);
     processLine(&lastLine);
+    if(connected)
+        interactTimer.start(timeOut, TRUE);
 }
 
 void SMTP::socketClose(KSocket *socket)
@@ -296,5 +314,4 @@ void SMTP::processLine(QString *line)
         emit error(UNKNOWNRESPONSE);
     }
 }
-
 #include "smtp.moc"

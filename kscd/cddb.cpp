@@ -648,7 +648,7 @@ void CDDB::do_state_machine()
 	    emit cddb_done();
 	} else {
             if(!cddbfh){
-                snprintf(tbuf, 4096, "%s/%s/%x", cddbbasedirtext, category.data(), magicID);
+                snprintf(tbuf, 4096, "%s/%s/%08x", cddbbasedirtext, category.data(), magicID);
                 if(debugflag)
                     fprintf(stderr, "dir/file path: %s\n", tbuf);
                 cddbfh = open(tbuf, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
