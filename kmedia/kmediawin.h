@@ -116,6 +116,7 @@ public slots:
   void		aboutClicked();
   void		aboutqt();
   void		newviewClicked();
+  void          openClicked();
   void		showOpts();
   void		SlaveStatusQuery();
 

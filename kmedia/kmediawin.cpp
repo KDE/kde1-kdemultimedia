@@ -47,7 +47,6 @@ KMediaWin::~KMediaWin()
 {
   timer->stop();
   allMediaWins.removeRef(this);
-  //  cerr << "Deleting win " << this << "\n";
 
   bool exitOK = removePlayer();
   if (!exitOK)
@@ -58,7 +57,7 @@ KMediaWin::~KMediaWin()
 }
 
 
-KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(parent,name)
+KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/)
 {
   TimerAction = NOP;
   MaudioLaunched= false;
@@ -92,7 +91,6 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
 
   timer->start( 50 );
   timerFn->start( 100 );
-//  globalKapp->setMainWidget( this );
 
   allMediaWins.setAutoDelete(FALSE);
   allMediaWins.append(this);
@@ -118,7 +116,6 @@ QPushButton *KMediaWin::createButton( int x, int y, int w, int h, const char *na
 {
   QPushButton *pb = new QPushButton( Container,name );
   pb->setGeometry( x, y, w, h );
-  //pb->setLineWidth( 1 );
   if (TT)
     QToolTip::add( pb, TT );
   return pb;
@@ -222,6 +219,8 @@ void KMediaWin::createMenu()
 
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
+  Mfile->insertItem( i18n("&Open"),  this, SLOT(openClicked()), CTRL+Key_O );
+
   Mfile->insertItem( i18n("&New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
   Mfile->insertItem( i18n("E&xit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
 

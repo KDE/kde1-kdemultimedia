@@ -24,6 +24,7 @@
 #include <unistd.h>
 #include <kmisc.h>
 #include <klocale.h>
+#include <kfiledialog.h>
 #include "kmediaui.h"
 #include "kmediawin.h"
 #include "version.h"
@@ -180,9 +181,8 @@ void KMediaWin::TimerFunctions()
   /* Default repeat speed */
   RepeatSpeed = 1;
 
-  switch (TimerAction)
-    {
-    case FF:
+  switch (TimerAction) {
+    case FF:	
       EventCounterRaise(&(KeysChunk->forward),1);
       break;
     case REW:
@@ -199,7 +199,6 @@ void KMediaWin::TimerFunctions()
     default:
       break;
     }
-
 }
 
 
@@ -211,7 +210,6 @@ void KMediaWin::pllClicked()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  //cerr << "Called PosChanged(" << new_pos << ")\n";
   // Remember new position, in case it's a a user initiated position change.
   if (newPosValid)
   {
@@ -238,6 +236,22 @@ void KMediaWin::newviewClicked()
   newkmedia->show();
 }
 
+void KMediaWin::openClicked()
+{
+  QString fname( KFileDialog::getOpenFileURL(0, "*.wav") );
+  if (fname.isNull() )
+    return;
+
+  KURL *url = new KURL( fname );
+  QString urlQstr  = url->path();
+  QString &urlQref = urlQstr;
+  KURL::decodeURL(urlQref);
+
+  FileNameSet( FnamChunk, urlQstr.data());
+  launchPlayer(urlQstr.data());
+
+  delete url;
+}
 
 
 

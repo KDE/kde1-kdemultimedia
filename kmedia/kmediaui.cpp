@@ -33,8 +33,8 @@ KApplication	*globalKapp;
 
 
 /****************************************************************************
-             W A R N I N G : THE CODE IS (STILL) SOMEWHAT UGLY
-           But hell: It's the first C++ program I ever wrote :-)
+  Take care: THE CODE IS (STILL) SOMEWHAT UGLY
+  But hell: It's the first C++ program I ever wrote :-)
  ****************************************************************************/
 
 void sigchld_handler(int /*signal*/)
@@ -67,7 +67,7 @@ int main ( int argc, char *argv[] )
       */
       KURL *url = new KURL( argv[i] );
       kmediaui->kmw->launchPlayer(url->path()); // Will be launched only one time
-      // OK, this cast is umh ... not-so-good. But it is the low-level
+      // OK, this cast is ... not-so-good. But it is the low-level
       // protocol, only kmediaui and the media players speak lowlevel protocol.
       FileNameSet( kmediaui->kmw->FnamChunk, (char*)url->path());
       delete url;
@@ -92,10 +92,9 @@ KMediaUI::KMediaUI( QWidget *parent, const char *name ) :  QWidget(parent,name)
 void KMediaWin::baseinitMediatool()
 {
   static bool InitDone=false;
-  if (!InitDone)
-  {
-     MdConnectInit();
-     InitDone=true;
+  if (!InitDone) {
+    MdConnectInit();
+    InitDone=true;
   }
 }
 
@@ -108,7 +107,7 @@ void KMediaWin::initMediatool()
   if ( m.shm_adr == NULL )
     dtfatal("Failed creating media connection.\n");
 
-//  printf("The media id (talk id) for today is %i.\n", m.talkid);
+  // printf("The media id (talk id) for today is %i.\n", m.talkid);
 
   Playlist = PlaylistNew();
   if ( !Playlist )
