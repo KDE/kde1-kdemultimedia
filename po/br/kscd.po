@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso8859-1\n"
 "Content-Transfer-Encoding: 8 bit\n"
-"X-Generator: KTranslator v 0.4.0"
+"X-Generator: KTranslator v 0.4.0\n"
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
@@ -464,8 +464,8 @@ msgstr ""
 "Gwirioù eilañ (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Trugarez da Ti Kan ha Steve Scherf, ijinerien meizad an diaz CDDB.\n"
-"Gweladennit http://www.cddb.com evit kaout muioc'h a ditouroù diwar-benn CDDB.\n"
-""
+"Gweladennit http://www.cddb.com evit kaout muioc'h a ditouroù diwar-benn "
+"CDDB.\n"
 
 #: kscd.cpp:1021
 msgid ""
@@ -475,7 +475,6 @@ msgid ""
 msgstr ""
 "KSCD Hud diazezet war Synaesthesia gant Paul Harrison \n"
 "<pfh@yoyo.cc.monash.edu.au>\n"
-""
 
 #: kscd.cpp:1025
 msgid ""
@@ -485,7 +484,6 @@ msgid ""
 msgstr ""
 "Trugarez da Vadim Zaliva <lord@crocodile.org>\n"
 "evit e labour war god ar proksi http.\n"
-""
 
 #: kscd.cpp:1080
 msgid "SMTP Setup"
