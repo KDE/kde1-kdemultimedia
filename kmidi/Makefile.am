@@ -53,7 +53,9 @@ install-data-local:
 	if [ ! -f $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) $(srcdir)/patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
 
 	$(mkinstalldirs) $(kde_minidir)
+	$(mkinstalldirs) $(kde_minidir)/../large
 	$(INSTALL_DATA) $(srcdir)/kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
+	$(INSTALL_DATA) $(srcdir)/large-kmidi.xpm $(kde_minidir)/../large/kmidi.xpm
 
 	@echo ""
 	@echo "Important:"

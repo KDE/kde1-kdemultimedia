@@ -66,7 +66,9 @@ install-data-local:
 	$(INSTALL_DATA) $(srcdir)/kscd.xpm $(kde_icondir)
 	$(INSTALL_DATA) $(srcdir)/bitmaps/cd.xpm $(kde_icondir)
 	$(mkinstalldirs) $(kde_minidir)
+	$(mkinstalldirs) $(kde_minidir)/../large
 	$(INSTALL_DATA) $(srcdir)/mini-kscd.xpm $(kde_minidir)/kscd.xpm
+	$(INSTALL_DATA) $(srcdir)/large-kscd.xpm $(kde_minidir)/../large/kscd.xpm
 	$(mkinstalldirs) $(PICSDIR)
 	$(INSTALL_DATA) $(srcdir)/kscdlogo.xpm $(PICSDIR)
 	$(INSTALL_DATA) $(srcdir)/bitmaps/cdsmall.xpm $(PICSDIR)
