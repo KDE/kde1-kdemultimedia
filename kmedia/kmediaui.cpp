@@ -69,7 +69,6 @@ int main ( int argc, char *argv[] )
 	PlaylistAdd(kmediaui->Playlist, argv[i],-1);
       */
       KURL *url = 0L;
-      debug("*argv[i] is %c",*argv[i]);
       if ((strchr(argv[i],':') == 0) && (*argv[i] != '/')) {
 	getcwd(pbuf, sizeof(pbuf));
 	strcat(pbuf, "/");
