@@ -866,9 +866,7 @@ bool KSCD::event( QEvent *e ){
         }
         // a trick to remove the window from the taskbar (Matthias)
         recreate(0, 0, geometry().topLeft(), FALSE);
-        // set the icons again
-        KWM::setIcon(winId(), kapp->getIcon());
-        KWM::setMiniIcon(winId(), kapp->getMiniIcon());
+        kapp->setTopWidget( this );
         return TRUE;
     }
     return QWidget::event(e);
@@ -2409,7 +2407,7 @@ int main( int argc, char *argv[] )
     }
 
     mykapp->enableSessionManagement(true);
-    mykapp->setWmCommand(argv[0]);
+    mykapp->setWmCommand(QString(argv[0])+" -caption \""+kapp->getCaption()+"\"");
     mykapp->setTopWidget(k);
     mykapp->setMainWidget( k );
     k->setCaption(mykapp->getCaption());
