@@ -162,11 +162,13 @@ public slots:
 
     void channelViewDestroyed();
 
+    void communicationFromChannelView(int *);
+
 signals:
     void mustRechooseTextEvent();
     void song_stopPause();
     void channelView_Destroyed();
-    
+
 public:
     void saveLyrics(FILE *fh);
 

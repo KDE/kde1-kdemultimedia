@@ -51,6 +51,7 @@
 #include "player/mt32togm.h"
 #include "randomlist.h"
 #include "channelview.h"
+#include "channel.h"
 #include "version.h"
 
 
@@ -151,6 +152,12 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
 			"Please report to antlarr@arrakis.es\n");
 	pctl->playing=0;
 	pctl->gm=1;
+        pctl->volumepercentage=100;
+        for (int i=0;i<16;i++)
+        {
+            pctl->forcepgm[i]=0;
+            pctl->pgm[i]=0;
+        };
 
         
         kconf->setGroup("KMid"); 
@@ -181,159 +188,160 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
 
 void kmidClient::resizeEvent(QResizeEvent *) 
 {
-//timebar->resize(width()-5,timebar->height());
-timebar->setGeometry(5,10,width()-5,timebar->height());
-timetags->setGeometry(5,10+timebar->height(),width()-5,timetags->getFontHeight());
-comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
-volumebar->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,15,height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+15));
-kdispt->setGeometry(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,width()-(5+((visiblevolumebar)?25:5)),height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+10));
+    //timebar->resize(width()-5,timebar->height());
+    timebar->setGeometry(5,10,width()-5,timebar->height());
+    timetags->setGeometry(5,10+timebar->height(),width()-5,timetags->getFontHeight());
+    comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
+    volumebar->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,15,height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+15));
+    kdispt->setGeometry(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,width()-(5+((visiblevolumebar)?25:5)),height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+10));
 };
 
 kmidClient::~kmidClient()
 {
-if (pctl->playing==1)
+    if (pctl->playing==1)
     {
-    song_Stop();
-//    sleep(1);
+        song_Stop();
+        //    sleep(1);
     }; 
-
-if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-waitpid(playerProcessID, NULL, 0);
-playerProcessID=0;
-
-kdispt->PreDestroyer();
-delete kdispt;
-
-if (midifile_opened!=NULL) delete midifile_opened;
-delete timer4timebar;
-delete timer4events;
-delete tempoLCD;
-delete Player;
-delete Midi;
-if (collectionplaylist!=NULL) delete collectionplaylist;
-
-saveCollections();
-delete slman;
+    
+    if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
+    waitpid(playerProcessID, NULL, 0);
+    playerProcessID=0;
+    
+    kdispt->PreDestroyer();
+    delete kdispt;
+    
+    if (midifile_opened!=NULL) delete midifile_opened;
+    delete timer4timebar;
+    delete timer4events;
+    delete tempoLCD;
+    delete Player;
+    delete Midi;
+    if (collectionplaylist!=NULL) delete collectionplaylist;
+    
+    saveCollections();
+    delete slman;
 };
 
 char *extractFilename(const char *in,char *out)
 {
-char *p=(char *)in;
-char *result=out;
-char *filename=(char *)in;
-while (*p!=0)
+    char *p=(char *)in;
+    char *result=out;
+    char *filename=(char *)in;
+    while (*p!=0)
     {
-    if (*p=='/') filename=p+1;
-    p++;
+        if (*p=='/') filename=p+1;
+        p++;
     };
-while (*filename!=0)
+    while (*filename!=0)
     {
-    *out=*filename;
-    out++;
-    filename++;
+        *out=*filename;
+        out++;
+        filename++;
     };
-*out=0;
-return result;
+    *out=0;
+    return result;
 };
 
 int kmidClient::openFile(char *filename)
 {
-pctl->message|=PLAYER_HALT;
-song_Stop();
-int r;
-if ((r=Player->loadSong(filename))!=0)
-	{
-	char errormsg[200];
-	switch (r)
-	    {
-	    case (-1) : sprintf(errormsg,
-			i18n("The file %s doesn't exist or can't be opened"),filename);
-			break;
-	    case (-2) : sprintf(errormsg,
-			i18n("The file %s is not a midi file"),filename);break;
-	    case (-3) : sprintf(errormsg,
-			i18n("Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"));break;
-	    case (-4) : sprintf(errormsg,
-			i18n("Not enough memory !!"));break;
-	    case (-5) : sprintf(errormsg,
-			i18n("This file is corrupted or not well built"));break;
-	    default : sprintf(errormsg,i18n("Unknown error message"));break;
-	    };
-        KMsgBox::message(this,i18n("Error"),errormsg);
-//	Player->loadSong(midifile_opened);
-	if (midifile_opened!=NULL) delete midifile_opened;
-	midifile_opened=NULL;
-	timebar->setRange(0,240000);
-	timebar->setValue(0);
-	timetags->repaint(TRUE);
-	kdispt->ClearEv();
-	kdispt->repaint(TRUE);
-	topLevelWidget()->setCaption("KMid");
-	return -1; 
-	};
-
-if (midifile_opened!=NULL) delete midifile_opened;
-midifile_opened=new char[strlen(filename)+1];
-strcpy(midifile_opened,filename);
-#ifdef KMidDEBUG
-printf("TOTAL TIME : %g milliseconds\n",Player->Info()->millisecsTotal);
-#endif
-noteArray=Player->parseNotes();
-timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
-timetags->repaint(TRUE);
-kdispt->ClearEv();
-spev=Player->takeSpecialEvents();
-while (spev!=NULL)
+    pctl->message|=PLAYER_HALT;
+    song_Stop();
+    int r;
+    if ((r=Player->loadSong(filename))!=0)
     {
-    if ((spev->type==1) || (spev->type==5)) 
-	{
-	kdispt->AddEv(spev);
-	};
-    spev=spev->next;
+        char errormsg[200];
+        switch (r)
+        {
+        case (-1) : sprintf(errormsg,
+                            i18n("The file %s doesn't exist or can't be opened"),filename);
+        break;
+        case (-2) : sprintf(errormsg,
+                            i18n("The file %s is not a midi file"),filename);break;
+        case (-3) : sprintf(errormsg,
+                            i18n("Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"));break;
+        case (-4) : sprintf(errormsg,
+                            i18n("Not enough memory !!"));break;
+        case (-5) : sprintf(errormsg,
+                            i18n("This file is corrupted or not well built"));break;
+        default : sprintf(errormsg,i18n("Unknown error message"));break;
+        };
+        KMsgBox::message(this,i18n("Error"),errormsg);
+        //	Player->loadSong(midifile_opened);
+        if (midifile_opened!=NULL) delete midifile_opened;
+        midifile_opened=NULL;
+        timebar->setRange(0,240000);
+        timebar->setValue(0);
+        timetags->repaint(TRUE);
+        kdispt->ClearEv();
+        kdispt->repaint(TRUE);
+        topLevelWidget()->setCaption("KMid");
+
+        return -1; 
     };
-
-kdispt->calculatePositions();
-kdispt->CursorToHome();
-kdispt->repaint(TRUE);
-emit mustRechooseTextEvent();
-
-char *fn=new char[strlen(filename)+20];
-extractFilename(filename,fn);
-char *capt=new char[strlen(fn)+20];
-sprintf(capt,"KMid - %s",fn);
-delete fn;
-topLevelWidget()->setCaption(capt);
-delete capt;
-
-timebar->setValue(0);
-return 0;
+    
+    if (midifile_opened!=NULL) delete midifile_opened;
+    midifile_opened=new char[strlen(filename)+1];
+    strcpy(midifile_opened,filename);
+#ifdef KMidDEBUG
+    printf("TOTAL TIME : %g milliseconds\n",Player->Info()->millisecsTotal);
+#endif
+    noteArray=Player->parseNotes();
+    timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
+    timetags->repaint(TRUE);
+    kdispt->ClearEv();
+    spev=Player->takeSpecialEvents();
+    while (spev!=NULL)
+    {
+        if ((spev->type==1) || (spev->type==5)) 
+        {
+            kdispt->AddEv(spev);
+        };
+        spev=spev->next;
+    };
+    
+    kdispt->calculatePositions();
+    kdispt->CursorToHome();
+    kdispt->repaint(TRUE);
+    emit mustRechooseTextEvent();
+    
+    char *fn=new char[strlen(filename)+20];
+    extractFilename(filename,fn);
+    char *capt=new char[strlen(fn)+20];
+    sprintf(capt,"KMid - %s",fn);
+    delete fn;
+    topLevelWidget()->setCaption(capt);
+    delete capt;
+    
+    timebar->setValue(0);
+    return 0;
 };
 
 int kmidClient::openURL(char *s)
 {
-if (s==NULL) {printf("s == NULL!!! \n");return -1;};
-KURL kurldropped(s);
-if (kurldropped.isMalformed()) {printf("Malformed URL\n");return -1;};
-if (strcmp(kurldropped.protocol(),"file")!=0) {printf("KMid only accepts local files\n");return -1;};
-
-char *filename=(char *)kurldropped.path();
-QString qsfilename(filename);
-KURL::decodeURL(qsfilename);
-filename=(char *)(const char *)qsfilename;
-int r=-1;
-if (filename!=NULL) 
-	{
-	r=openFile(filename);
-	}
-return r;
+    if (s==NULL) {printf("s == NULL!!! \n");return -1;};
+    KURL kurldropped(s);
+    if (kurldropped.isMalformed()) {printf("Malformed URL\n");return -1;};
+    if (strcmp(kurldropped.protocol(),"file")!=0) {printf("KMid only accepts local files\n");return -1;};
+    
+    char *filename=(char *)kurldropped.path();
+    QString qsfilename(filename);
+    KURL::decodeURL(qsfilename);
+    filename=(char *)(const char *)qsfilename;
+    int r=-1;
+    if (filename!=NULL) 
+    {
+        r=openFile(filename);
+    }
+    return r;
 };
 
 ulong kmidClient::timeOfNextEvent(int *type)
 {
     int t=0;
     ulong x=0;
-
-
+    
+    
     if (channelView==NULL)
     {
         if ((spev!=NULL)&&(spev->type!=0))
@@ -382,8 +390,8 @@ ulong kmidClient::timeOfNextEvent(int *type)
 
     if (type!=NULL) *type=t;
     return x;
-
     /*
+
     if (type!=NULL) *type=0;
     if (channelView==NULL)
     {
@@ -425,10 +433,10 @@ ulong kmidClient::timeOfNextEvent(int *type)
                 if (type!=NULL) *type=2;
                 return ncmd->ms;
             };
-
+            
         };
     };
-*/
+    */
 };
 
 void kmidClient::song_Play()
@@ -515,125 +523,141 @@ void kmidClient::song_Play()
 
 void kmidClient::timebarUpdate()
 {
-itsme=1;
+    itsme=1;
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->playing==0)
+    if (pctl->playing==0)
     {
-    timer4timebar->stop();
+        timer4timebar->stop();
     };
 #endif
-timeval tv;
-gettimeofday(&tv, NULL);
-ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
-pctl->millisecsPlayed=(currentmillisec-beginmillisec);
-
-timebar->setValue((int)(pctl->millisecsPlayed));
-itsme=0;
-if ((pctl->playing==0)&&(pctl->finished==1))
+    timeval tv;
+    gettimeofday(&tv, NULL);
+    ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
+    pctl->millisecsPlayed=(currentmillisec-beginmillisec);
+    
+    timebar->setValue((int)(pctl->millisecsPlayed));
+    itsme=0;
+    if ((pctl->playing==0)&&(pctl->finished==1))
     {
-    if (loopsong)
+        if (loopsong)
         {
-        song_Play();
-        return;
+            song_Play();
+            return;
         }
- 	else
-	song_PlayNextSong();
+        else
+            song_PlayNextSong();
     };
 };
 
 void kmidClient::timebarChange(int i)
 {
-if (itsme==1) return;
-//if (timebar->draggingSlider()==TRUE) return;
+    if (itsme==1) return;
+    //if (timebar->draggingSlider()==TRUE) return;
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->playing==0) 
-	{
-	itsme=1;
-	timebar->setValue(0);
-	itsme=0;
-	return;
-	};
+    if (pctl->playing==0) 
+    {
+        itsme=1;
+        timebar->setValue(0);
+        itsme=0;
+        return;
+    };
 #endif
-if (pctl->paused) return;
-if (playerProcessID!=0) 
-	{
-	kill(playerProcessID,SIGTERM);
-    	waitpid(playerProcessID, NULL, 0);
-	playerProcessID=0;
-	};
 
+    if (pctl->paused) return;
 
+    if (playerProcessID!=0)
+    {
+        kill(playerProcessID,SIGTERM);
 #ifdef KMidDEBUG
-printf("change Time : %d\n",i);
+        printf("Waiting for Process %d to be killed\n",playerProcessID);
+#endif
+        waitpid(playerProcessID, NULL, 0);
+        playerProcessID=0;
+    };
+    
+    
+#ifdef KMidDEBUG
+    printf("change Time : %d\n",i);
 #endif
 
-timer4events->stop();
-if (channelView!=NULL) channelView->reset();
-
-moveEventPointersTo((ulong)i);
-
-pctl->playing=0;
-pctl->OK=0;
-pctl->error=0;
-pctl->gotomsec=i;
-pctl->message|=PLAYER_SETPOS;
-
-if ((playerProcessID=fork())==0)
+    timer4events->stop();
+    if (channelView!=NULL) channelView->reset(0);
+    
+    moveEventPointersTo((ulong)i);
+    
+    pctl->playing=0;
+    pctl->OK=0;
+    pctl->error=0;
+    pctl->gotomsec=i;
+    pctl->message|=PLAYER_SETPOS;
+    
+    if ((playerProcessID=fork())==0)
     {
 #ifdef KMidDEBUG
-    printf("Player_ProcessID : %d\n",getpid());
+        printf("Player_ProcessID : %d\n",getpid());
 #endif
-    
-    Player->play(0,(void (*)(void))kmidOutput);
-    
+        
+        Player->play(0,(void (*)(void))kmidOutput);
+        
 #ifdef KMidDEBUG
-    printf("End of child process\n");
+        printf("End of child process\n");
 #endif
-    _exit(0);
+        _exit(0);
     };
-
-while ((pctl->playing==0)&&(pctl->error==0)) ;
- 
+    
+    while ((pctl->playing==0)&&(pctl->error==0)) ;
+    
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->error==1) return;
-beginmillisec=pctl->beginmillisec-i;
-//timeval tv;
-//gettimeofday(&tv, NULL);
-//ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000; 
-ulong currentmillisec=pctl->beginmillisec;
+    if (pctl->error==1) return;
+    beginmillisec=pctl->beginmillisec-i;
+    //timeval tv;
+    //gettimeofday(&tv, NULL);
+    //ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000; 
+    ulong currentmillisec=pctl->beginmillisec;
 #else
-timeval tv;
-gettimeofday(&tv, NULL);
-ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
-beginmillisec=currentmillisec-i;
+    timeval tv;
+    gettimeofday(&tv, NULL);
+    ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
+    beginmillisec=currentmillisec-i;
 #endif
     int type;
     ulong x=timeOfNextEvent(&type);
     if (type!=0)
         timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
-
-/*
-if (spev==NULL) return;
-ulong delaymillisec=spev->absmilliseconds-(currentmillisec-beginmillisec);
-timer4events->start(delaymillisec,TRUE);
-*/
     
-pctl->OK=0;
-tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
-
+    /*
+     if (spev==NULL) return;
+     ulong delaymillisec=spev->absmilliseconds-(currentmillisec-beginmillisec);
+     timer4events->start(delaymillisec,TRUE);
+     */
+    
+    pctl->OK=0;
+    tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
+    
 };
 
 void kmidClient::moveEventPointersTo(ulong ms)
 {
-    
+    printf("Move To : %lu\n",ms);
     spev=Player->takeSpecialEvents();
     while ((spev!=NULL)&&(spev->absmilliseconds<ms))
     {
         spev=spev->next;
     };
     kdispt->gotomsec(ms);
-    if (noteArray!=NULL) noteArray->moveIteratorTo(ms);
-
+//    if (noteArray!=NULL) noteArray->moveIteratorTo(ms);
+    if (noteArray!=NULL)
+    {
+        int pgm[16];
+        noteArray->moveIteratorTo(ms,pgm);
+        for (int j=0;j<16;j++)
+        {
+            if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+            else channelView->changeInstrument(j,(pctl->pgm[j]));
+        };
+        
+    };
+    
     /*
      if (noteArray!=NULL)
      {
@@ -653,237 +677,242 @@ void kmidClient::volumebarChange(int i)
 {
     int autochangemap=0;
     if ((pctl->playing==1)&&(pctl->paused==0)) autochangemap=1;
-
+    
     int tmppid=0;	
     if (autochangemap)
-	{
-	tmppid=playerProcessID; 
-	song_Pause();
-	};
+    {
+        tmppid=playerProcessID; 
+        song_Pause();
+    };
     i=200-i;
-    Midi->setVolumePercentage(i);
-
+    pctl->volumepercentage=i;
+    
     if (autochangemap)
-	{
+    {
         waitpid(tmppid, NULL, 0);
-	song_Pause(); 
-	};
+        song_Pause(); 
+    };
 }
 
 
 void kmidClient::song_PlayPrevSong()
 {
-if (currentsl==NULL) return;
-if (collectionplaylist==NULL) generateCPL();
-if (collectionplaylist==NULL) return;
-/*
-if (collectionplaymode==0)
+    if (currentsl==NULL) return;
+    if (collectionplaylist==NULL) generateCPL();
+    if (collectionplaylist==NULL) return;
+    /*
+     if (collectionplaymode==0)
+     {
+     if (currentsl->getActiveSongID()==1) return;
+     currentsl->previous();
+     }
+     else
+     {
+     int r;
+     while ((r=1+(int) ((double)(currentsl->NumberOfSongs())*rand()/(RAND_MAX+1.0)))==currentsl->getActiveSongID()) ;
+     
+     currentsl->setActiveSong(r);
+     };
+     */
+    int idx=searchInCPL(currentsl->getActiveSongID());
+    if (idx==0) return;
+    idx--;
+    currentsl->setActiveSong(collectionplaylist[idx]);
+    
+    if (currentsl->getActiveSongID()==-1)
     {
-    if (currentsl->getActiveSongID()==1) return;
-    currentsl->previous();
-    }
-   else
-    {
-    int r;
-    while ((r=1+(int) ((double)(currentsl->NumberOfSongs())*rand()/(RAND_MAX+1.0)))==currentsl->getActiveSongID()) ;
-
-    currentsl->setActiveSong(r);
+        //    comboSongs->setCurrentItem(0);
+        //    currentsl->setActiveSong(1);
+        return;
     };
-*/
-int idx=searchInCPL(currentsl->getActiveSongID());
-if (idx==0) return;
-idx--;
-currentsl->setActiveSong(collectionplaylist[idx]);
-
-if (currentsl->getActiveSongID()==-1)
-    {
-//    comboSongs->setCurrentItem(0);
-//    currentsl->setActiveSong(1);
-    return;
-    };
-
-if (pctl->paused) emit song_stopPause();
-comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
-if (openURL(currentsl->getActiveSongName())==-1) return;
-song_Play();
-
+    
+    if (pctl->paused) emit song_stopPause();
+    comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
+    if (openURL(currentsl->getActiveSongName())==-1) return;
+    song_Play();
+    
 };
 
 void kmidClient::song_PlayNextSong()
 {
-if (currentsl==NULL) return;
-if (collectionplaylist==NULL) generateCPL();
-if (collectionplaylist==NULL) return;
-
-/*if (collectionplaymode==0)
+    if (currentsl==NULL) return;
+    if (collectionplaylist==NULL) generateCPL();
+    if (collectionplaylist==NULL) return;
+    
+    /*if (collectionplaymode==0)
+     {
+     if (currentsl->getActiveSongID()==currentsl->NumberOfSongs()) return;
+     currentsl->next();
+     }
+     else
+     {
+     int r;
+     while ((r=1+(int) ((double)(currentsl->NumberOfSongs())*rand()/(RAND_MAX+1.0)))==currentsl->getActiveSongID()) ;
+     
+     #ifdef KMidDEBUG
+     printf("random number :%d\n",r);
+     #endif
+     currentsl->setActiveSong(r);
+     };
+     */
+    int idx=searchInCPL(currentsl->getActiveSongID());
+    idx++;
+    if (idx==currentsl->NumberOfSongs()) return;
+    currentsl->setActiveSong(collectionplaylist[idx]);
+    if (currentsl->getActiveSongID()==-1)
     {
-    if (currentsl->getActiveSongID()==currentsl->NumberOfSongs()) return;
-    currentsl->next();
-    }
-   else
-    {
-    int r;
-    while ((r=1+(int) ((double)(currentsl->NumberOfSongs())*rand()/(RAND_MAX+1.0)))==currentsl->getActiveSongID()) ;
-
-#ifdef KMidDEBUG
-    printf("random number :%d\n",r);
-#endif
-    currentsl->setActiveSong(r);
+        ////    comboSongs->setCurrentItem(0);
+        //    currentsl->setActiveSong(1);
+        return;
     };
-*/
-int idx=searchInCPL(currentsl->getActiveSongID());
-idx++;
-if (idx==currentsl->NumberOfSongs()) return;
-currentsl->setActiveSong(collectionplaylist[idx]);
-if (currentsl->getActiveSongID()==-1)
-    {
-////    comboSongs->setCurrentItem(0);
-//    currentsl->setActiveSong(1);
-    return;
-    };
-
-if (pctl->paused) emit song_stopPause();
-comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
-if (openURL(currentsl->getActiveSongName())==-1) return;
-song_Play();
+    
+    if (pctl->paused) emit song_stopPause();
+    comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
+    if (openURL(currentsl->getActiveSongName())==-1) return;
+    song_Play();
 };
 
 void kmidClient::song_Pause()
 {
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->playing==0) return;
+    if (pctl->playing==0) return;
 #endif
 #ifdef KMidDEBUG
-printf("song Pause\n");
+    printf("song Pause\n");
 #endif
-if (pctl->paused==0)
+    if (pctl->paused==0)
     {
-    if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-    playerProcessID=0;
-    pausedatmillisec=(ulong)pctl->millisecsPlayed;
-    pctl->paused=1;
-    timer4timebar->stop(); 
-    timer4events->stop();
-//    kill(playerProcessID,SIGSTOP);
-//   The previous line doesn't work because it stops the two processes (!?)
+        if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
+        playerProcessID=0;
+        pausedatmillisec=(ulong)pctl->millisecsPlayed;
+        pctl->paused=1;
+        timer4timebar->stop(); 
+        timer4events->stop();
+        //    kill(playerProcessID,SIGSTOP);
+        //   The previous line doesn't work because it stops the two processes (!?)
     }
-  else
+    else
     {
-    pctl->playing=0;
-    pctl->OK=0;
-    pctl->error=0;
-    pctl->gotomsec=pausedatmillisec;
-    pctl->message|=PLAYER_SETPOS;
-    if ((playerProcessID=fork())==0)
+        pctl->playing=0;
+        pctl->OK=0;
+        pctl->error=0;
+        pctl->gotomsec=pausedatmillisec;
+        pctl->message|=PLAYER_SETPOS;
+        if ((playerProcessID=fork())==0)
         {
 #ifdef KMidDEBUG
-        printf("PlayerProcessID : %d\n",getpid());
+            printf("PlayerProcessID : %d\n",getpid());
 #endif
-    
-        Player->play(0,(void (*)(void))kmidOutput);
-    
+            Player->play(0,(void (*)(void))kmidOutput);
 #ifdef KMidDEBUG
-        printf("End of child process\n");
+            printf("End of child process\n");
 #endif
-        _exit(0);
+            _exit(0);
         };
-
-    while ((pctl->playing==0)&&(pctl->error==0)) ;
-
+        
+        while ((pctl->playing==0)&&(pctl->error==0)) ;
+        
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->error==1) return;
+        if (pctl->error==1) return;
 #endif
-    pctl->OK=0;
-    pctl->paused=0;
+        pctl->OK=0;
+        pctl->paused=0;
+        
+        beginmillisec=pctl->beginmillisec-pausedatmillisec;
+        ulong currentmillisec=pctl->beginmillisec;
+        
+        int type;
+        ulong x=timeOfNextEvent(&type);
+        if (type!=0)
+            timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
+        timer4timebar->start(1000);
+        
+        if ((noteArray!=NULL)&&(channelView!=NULL))
+        {
+            int pgm[16];
+            noteArray->moveIteratorTo(pausedatmillisec,pgm);
+            for (int j=0;j<16;j++)
+            {
+                if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+                else channelView->changeInstrument(j,(pctl->pgm[j]));
+            };
 
-    beginmillisec=pctl->beginmillisec-pausedatmillisec;
-    ulong currentmillisec=pctl->beginmillisec;
-    
-    int type;
-    ulong x=timeOfNextEvent(&type);
-    if (type!=0)
-        timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
-    timer4timebar->start(1000);
-
-    if ((noteArray!=NULL)&&(channelView!=NULL))
-    {
-        int pgm[16];
-        noteArray->moveIteratorTo(pausedatmillisec,pgm);
-        for (int j=0;j<16;j++) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
-    };
-
+        };
+        
     };
 };
 
 
 void kmidClient::song_Stop()
 {
+    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
+    if (channelView!=NULL) channelView->reset();
+
 #ifndef MODE_DEMO_ONLYVISUAL
-if (pctl->playing==0) return;
+    if (pctl->playing==0) return;
 #endif
-if (pctl->paused) return;
+    if (pctl->paused) return;
 #ifdef KMidDEBUG
-printf("song Stop\n");
+    printf("song Stop\n");
 #endif
-if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
-playerProcessID=0;
-pctl->playing=0;
-////////pctl->OK=0;
-////////pctl->message|=PLAYER_HALT;
-timer4timebar->stop();
-timer4events->stop();
-if (channelView!=NULL) channelView->reset();
-//pctl->playing=0;
-//pctl->paused=0;
-////////while (pctl->OK==0) ;
+    if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
+    playerProcessID=0;
+    pctl->playing=0;
+    ////////pctl->OK=0;
+    ////////pctl->message|=PLAYER_HALT;
+    timer4timebar->stop();
+    timer4events->stop();
+    //pctl->playing=0;
+    //pctl->paused=0;
+    ////////while (pctl->OK==0) ;
 };
 
 void kmidClient::song_Rewind()
 {
-if ((pctl->playing)&&(!pctl->paused))
-	{
-	timebar->subtractPage();
-	timebarChange(timebar->value());
-	};
+    if ((pctl->playing)&&(!pctl->paused))
+    {
+        timebar->subtractPage();
+        timebarChange(timebar->value());
+    };
 };
 
 void kmidClient::song_Forward()
 {
-if ((pctl->playing)&&(!pctl->paused))
-	{
-	timebar->addPage();
-	timebarChange(timebar->value());
-	};
+    if ((pctl->playing)&&(!pctl->paused))
+    {
+        timebar->addPage();
+        timebarChange(timebar->value());
+    };
 };
 
 
 void kmidClient::kmidOutput(void)
 {
 // Should do nothing
-/*
-Midi_event *ev=pctl->ev;
-
-timeval tv;
-gettimeofday(&tv, NULL);
-ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
-
-if ((ev->command==MIDI_SYSTEM_PREFIX)&&((ev->command|ev->chn)==META_EVENT))
+    /*
+    Midi_event *ev=pctl->ev;
+    
+    timeval tv;
+    gettimeofday(&tv, NULL);
+    ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
+    
+    if ((ev->command==MIDI_SYSTEM_PREFIX)&&((ev->command|ev->chn)==META_EVENT))
     {
-    if ((ev->d1==5)||(ev->d1==1))
-	{
-	char *text=new char[ev->length+1];
-	strncpy(text,(char *)ev->data,ev->length);
-	text[ev->length]=0;
-	printf("%s , played at : %ld\n",text,currentmillisec-beginmillisec);
+        if ((ev->d1==5)||(ev->d1==1))
+        {
+            char *text=new char[ev->length+1];
+            strncpy(text,(char *)ev->data,ev->length);
+            text[ev->length]=0;
+            printf("%s , played at : %ld\n",text,currentmillisec-beginmillisec);
         }
-       else if (ev->d1==ME_SET_TEMPO)
-	    {
-	    int tempo=(ev->data[0]<<16)|(ev->data[1]<<8)|(ev->data[2]);
-//	    printf("Change tempo : %d , %g, played at :%ld\n",tempo,tempoToMetronomeTempo(tempo),currentmillisec-beginmillisec);
-	    };
-
+        else if (ev->d1==ME_SET_TEMPO)
+        {
+            int tempo=(ev->data[0]<<16)|(ev->data[1]<<8)|(ev->data[2]);
+            //	    printf("Change tempo : %d , %g, played at :%ld\n",tempo,tempoToMetronomeTempo(tempo),currentmillisec-beginmillisec);
+        };
+        
     }; 
-*/
+     */
 };
 
 
@@ -941,7 +970,10 @@ void kmidClient::processSpecialEvent()
             {
                 if (ncmd->cmd==1) channelView->noteOn(ncmd->chn,ncmd->note);
                 else if (ncmd->cmd==0) channelView->noteOff(ncmd->chn,ncmd->note);
-                else if (ncmd->cmd==2) channelView->changeInstrument(ncmd->chn,(pctl->gm==1)?(ncmd->note):(MT32toGM[ncmd->note]));
+                else if (ncmd->cmd==2)
+                    if (!pctl->forcepgm[ncmd->chn]) channelView->changeInstrument(ncmd->chn,(pctl->gm==1)?(ncmd->note):(MT32toGM[ncmd->note]));
+                    else channelView->changeInstrument(ncmd->chn,(pctl->pgm[ncmd->chn]));
+
                 noteArray->next();
             };
         };
@@ -1211,8 +1243,14 @@ void kmidClient::visibleChannelView(int i)
         {
             int pgm[16],j;
             noteArray->moveIteratorTo((ulong)pctl->millisecsPlayed,pgm);
-            for (j=0;j<16;j++) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+            for (j=0;j<16;j++)
+            {
+                if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+                else channelView->changeInstrument(j,(pctl->pgm[j]));
+                channelView->changeForceState(j,pctl->forcepgm[j]);
+            };
         };
+        connect(channelView,SIGNAL(signalToKMidClient(int *)),this,SLOT(communicationFromChannelView(int *)));
     }
     else
     {
@@ -1248,4 +1286,37 @@ void kmidClient::rethinkNextEvent(void)
     delaymillisec=x-(currentmillisec-beginmillisec);
 
     timer4events->start(delaymillisec,TRUE);
+};
+
+void kmidClient::communicationFromChannelView(int *i)
+{
+    if (i==NULL) return;
+    int autocontplaying=0;
+    int tmppid=0;
+    if ((i[0]==CHN_CHANGE_PGM)||((i[0]==CHN_CHANGE_FORCED_STATE)&&(i[3]==1)))
+    {
+        if ((pctl->playing==1)&&(pctl->paused==0)) autocontplaying=1;
+        
+        if (autocontplaying)
+        {
+            tmppid=playerProcessID;
+            song_Pause();
+        };
+    };
+    if (i[0]==CHN_CHANGE_PGM)
+        pctl->pgm[i[1]-1]=i[2];
+    else if (i[0]==CHN_CHANGE_FORCED_STATE)
+        pctl->forcepgm[i[1]-1]=i[2];
+/*    for (int j=0;j<16;j++) { printf("%d ",pctl->forcepgm[j]);};
+    printf("\n");
+*/
+    if ((i[0]==CHN_CHANGE_PGM)||((i[0]==CHN_CHANGE_FORCED_STATE)&&(i[3]==1)))
+    {
+        if (autocontplaying)
+        {
+            waitpid(tmppid, NULL, 0);
+            song_Pause();
+        };
+    };
+    
 };

@@ -35,7 +35,7 @@ icondir = $(kde_icondir)
 fmpatches_DATA = std.sb drums.sb std.o3 drums.o3
 fmpatchesdir = $(kde_datadir)/kmid/fm
 
-pics_DATA = keyboard.xpm
+pics_DATA = keyboard.xpm button1.xpm button2.xpm
 picsdir = $(kde_datadir)/kmid/pics
 
 EXTRA_DIST = $(applnk_DATA) $(mime_DATA) $(icon_DATA) $(fmpatches_DATA) mini-kmid.xpm $(pics_DATA)

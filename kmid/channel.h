@@ -30,21 +30,32 @@
 #define CHANNELHEIGHT 71
 #define KEYBOARDY CHANNELHEIGHT-46
 
+#define CHN_CHANGE_PGM 1
+#define CHN_CHANGE_FORCED_STATE 2
+
 class QFont;
 class KCombo;
+class KMidButton;
 class KMidChannel : public QWidget
 {
+    Q_OBJECT
+
 private:
     bool pressed[128]; // The 128 keys
     int channel;
-
+    bool replay; // Indicates if music should restart playing after
+    // changing the force state
+    
 protected:
     QPixmap *keyboard;
+    QPixmap *button1;
+    QPixmap *button2;
 
     KCombo *instrumentCombo;
 
+    KMidButton *forcepgm;
     QFont *qcvfont;
-    
+
     QPen *penB; // Black
     QPen *penW; // White
     QPen *penT; // "Transparent" for Background
@@ -74,11 +85,19 @@ public:
     void noteOn(int key);
     void noteOff(int key);
     void changeInstrument(int pgm);
+    void changeForceState(bool i);
     
-    void reset(void);
+    void reset(int level=1); // 0 only release notes, 1 also set instr to 0 ...
 
     void saveState(bool *p,int *pgm);
     void loadState(bool *p,int *pgm);
+    
+public slots:
+    void pgmChanged(int i);
+    void changeForcedState(bool);
+
+signals:
+    void signalToKMidClient(int *data);
     
 };
 

@@ -36,6 +36,7 @@ ChannelView::ChannelView(void) : QWidget(NULL,"channels")
             Channel[i]=new KMidChannel3D(i+1,this);
         else
             Channel[i]=new KMidChannel4D(i+1,this);
+        connect(Channel[i],SIGNAL(signalToKMidClient(int *)),this,SLOT(slottokmidclient(int *)));
         Channel[i]->setGeometry(5,5+i*CHANNELHEIGHT,width()-20,CHANNELHEIGHT);
         Channel[i]->show();
     };
@@ -99,13 +100,17 @@ void ChannelView::changeInstrument(int chn,int pgm)
     Channel[chn]->changeInstrument(pgm);
 };
 
+void ChannelView::changeForceState(int chn,bool i)
+{
+    Channel[chn]->changeForceState(i);
+};
 
 
-void ChannelView::reset(void)
+void ChannelView::reset(int level)
 {
     for (int i=0;i<16;i++)
     {
-        Channel[i]->reset();
+        Channel[i]->reset(level);
     };
 };
 
@@ -142,9 +147,15 @@ void ChannelView::lookMode(int i)
         else
             Channel[i]=new KMidChannel4D(i+1,this);
 
+        connect(Channel[i],SIGNAL(signalToKMidClient(int *)),this,SLOT(slottokmidclient(int *)));
         Channel[i]->setGeometry(5,5+(i-(scrollbar->value()-1))*CHANNELHEIGHT,width()-20,CHANNELHEIGHT);
         Channel[i]->loadState(tmp,&pgm);
         Channel[i]->show();
     };
 
+};
+
+void ChannelView::slottokmidclient(int *data)
+{
+    emit signalToKMidClient(data);
 };

@@ -22,16 +22,18 @@
 
 ***************************************************************************/
 
-#include "channel.h"
+#include "channel.moc"
 #include <qpainter.h>
 #include <stdlib.h>
 #include <kapp.h>
 #include <kcombo.h>
+#include <kmidbutton.h>
 #include "instrname.h"
 
 KMidChannel::KMidChannel(int chn,QWidget *parent) : QWidget (parent)
 {
     channel=chn;
+    replay=TRUE;
     int i;
     for (i=0;i<128;i++) pressed[i]=0;
     KApplication *kappl;
@@ -54,15 +56,28 @@ KMidChannel::KMidChannel(int chn,QWidget *parent) : QWidget (parent)
 
     for (i=0;i<128;i++)
         instrumentCombo->insertItem(i18n(instrumentName[i]),i);
-    
-    
+
+    connect(instrumentCombo,SIGNAL(activated(int)),this,SLOT(pgmChanged(int)));
+
+    forcepgm=new KMidButton(this,"forcepgm");
+    forcepgm->setGeometry(135,4,16,16);
+    forcepgm->setToggleButton(TRUE);
+    button1=new QPixmap((const char *)(kapp->kde_datadir()+"/kmid/pics/button1.xpm"));
+    button2=new QPixmap((const char *)(kapp->kde_datadir()+"/kmid/pics/button2.xpm"));
+    forcepgm->setPixmaps(button1,button2);
+    forcepgm->show();
+    connect(forcepgm,SIGNAL(toggled(bool)),this,SLOT(changeForcedState(bool)));
+
 };
 
 KMidChannel::~KMidChannel()
 {
     delete keyboard;
+    delete button1;
+    delete button2;
     delete penB;
     delete penW;
+    delete penT;
 };
 
 void KMidChannel::paintEvent( QPaintEvent * )
@@ -70,13 +85,12 @@ void KMidChannel::paintEvent( QPaintEvent * )
 
     QPainter *qpaint=new QPainter(this);
 
-
     char tmp[110];
     sprintf(tmp,"%s %d",i18n("Channel"),channel);
     qpaint->setFont(*qcvfont);
-    qpaint->setPen(QColor(00,00,00));
+    qpaint->setPen(*penB);
     qpaint->drawText(2,20,tmp);
-    qpaint->setPen(QColor(255,255,255));
+    qpaint->setPen(*penW);
     qpaint->drawText(0,18,tmp);
 
     drawKeyboard(qpaint);
@@ -152,11 +166,24 @@ void KMidChannel::changeInstrument(int pgm)
     instrumentCombo->setCurrentItem(pgm);
 };
 
+void KMidChannel::changeForceState(bool i)
+{
+        replay=FALSE;
+        forcepgm->setOn(i);
+        replay=TRUE;
+};
 
-void KMidChannel::reset(void)
+void KMidChannel::reset(int level)
 {
     for (int i=0;i<128;i++) pressed[i]=0;
-    instrumentCombo->setCurrentItem(0);
+    if (level>=1)
+    {
+        instrumentCombo->setCurrentItem(0);
+        replay=FALSE;
+        forcepgm->setOn(FALSE);
+        replay=TRUE;
+    };
+    
     repaint(FALSE);
 };
 
@@ -171,4 +198,34 @@ void KMidChannel::loadState(bool *p,int *pgm)
     for (int i=0;i<128;i++) pressed[i]=p[i];
     instrumentCombo->setCurrentItem(*pgm);
     repaint(FALSE);
+};
+
+void KMidChannel::pgmChanged(int i)
+{
+    int data[4];
+    data[0]=CHN_CHANGE_PGM;
+    data[1]=channel;
+    data[2]=i;
+    data[3]=0;
+
+    replay=FALSE;
+    forcepgm->setOn(TRUE);
+    replay=TRUE;
+
+    emit signalToKMidClient(data);
+
+    
+};
+
+
+void KMidChannel::changeForcedState(bool i)
+{
+    int data[4];
+    data[0]=CHN_CHANGE_FORCED_STATE;
+    data[1]=channel;
+    data[2]=i;
+    data[3]=(replay)? 1 : 0;
+
+    emit signalToKMidClient(data);
+    
 };

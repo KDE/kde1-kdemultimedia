@@ -29,17 +29,17 @@
 
 // And now, DEBUG messages :
 #ifdef WORKING
-//#define KMidDEBUG
+#define KMidDEBUG
 //#define KDISPTEXTDEBUG
 //#define COLLECTDLGDEBUG
-#define DEVICEMANDEBUG
-#define FMOUTDEBUG
-#define GUSOUTDEBUG
+//#define DEVICEMANDEBUG
+//#define FMOUTDEBUG
+//#define GUSOUTDEBUG
 //#define MIDFILEDEBUG
-#define MIDIOUTDEBUG
+//#define MIDIOUTDEBUG
 //#define MIDISTATDEBUG
-#define MIDIMAPPERDEBUG
-#define SYNTHOUTDEBUG
+//#define MIDIMAPPERDEBUG
+//#define SYNTHOUTDEBUG
 //#define VOICEMANDEBUG
 #define PLAYERDEBUG
 #endif

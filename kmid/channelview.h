@@ -49,8 +49,9 @@ public:
         void noteOn(int chn,int note);
         void noteOff(int chn,int note);
         void changeInstrument(int chn,int pgm);
+        void changeForceState(int chn,bool i);
 
-        void reset(void);
+        void reset(int level=1);
 
         static int lookMode(void);
 
@@ -58,9 +59,11 @@ public:
 
 public slots:
     void ScrollChn(int i);
+    void slottokmidclient(int *data);
 
 signals:
     void destroyMe();
+    void signalToKMidClient(int *data);
 
 private:
     QScrollBar *scrollbar;
