@@ -361,6 +361,7 @@ void KMediaWin::SlaveStatusQuery()
       PosSB->setRange(0,(int)((float)StatChunk->pos_max*mult));
       PosSB->setValue((int)((float)StatChunk->pos_current*mult));
 #endif
+      newPosValid = false;
       PosSB->setRange(0,StatChunk->pos_max);
       PosSB->setValue(StatChunk->pos_current);
 

@@ -211,20 +211,23 @@ void KMediaWin::pllClicked()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  cerr << "Called PosChanged()\n";
+  cerr << "Called PosChanged(" << new_pos << ")\n";
   // Remember new position, in case it's a a user initiated position change.
-  newPosValid = true;
-  newPos = new_pos;
+  if (newPosValid)
+  {
+    newPos = new_pos;
+    cerr << "Changing to new position\n";
+    (KeysChunk->pos_new) = newPos;
+    EventCounterRaise(&(KeysChunk->posnew),1);
+  }
+  else {
+    newPosValid = true;
+    cerr << "Ignoring changedPosition()\n";
+  }
 }
 
 void KMediaWin::endSelMediapos()
 {
-  if (newPosValid) {
-    cerr << "Changing to new psoition\n";
-    newPosValid=false;
-    (KeysChunk->pos_new) = newPos;
-    EventCounterRaise(&(KeysChunk->posnew),1);
-  }
 }
 
 
@@ -319,7 +322,7 @@ void KMediaWin::launchPlayer(const char *filename)
 
 void KMediaWin::launchHelp()
 {
-  globalKapp->invokeHTMLHelp("kmedia/kmedia.html", "");
+  globalKapp->invokeHTMLHelp("", "");
 }
 
 void KMediaWin::launchMixer()
