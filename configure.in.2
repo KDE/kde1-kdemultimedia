@@ -39,4 +39,4 @@ AC_SUBST(TOPSUBDIRS)
 
 ac_output=`find $TOPSUBDIRS -name Makefile.in -print | sed -e 's/.in$//;' | sort`
 AC_OUTPUT($ac_output Makefile)
-
+AC_OUTPUT_COMMANDS(KDE_COPY_KSCD_DEFAULTS)
