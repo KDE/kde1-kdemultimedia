@@ -6,14 +6,30 @@
  * $Id$
  * 
  * $Log$
- * Revision 1.1  1997/07/06 04:22:24  wuebben
+ * Revision 1.5  1998/01/02 00:47:17  wuebben
+ * Bernd: Monster Commit !! Finished CDDB support and Web intergration
+ * Let the games begin
+ *
+ * Revision 1.4  1997/10/25 15:15:34  wuebben
+ * Bernd: fixed the segfault error if you had no permiision to access the cdrom
+ * drive
+ *
+ * Revision 1.2  1997/08/15 22:51:25  wuebben
+ * *** empty log message ***
+ *
+ * Revision 1.2  1997/08/15 22:42:54  wuebben
+ * Bernd -- Version 0.4
+ * o Support for cdda on Solaris
+ * o Support for Irix
+ * o New interactive configuration script
+ * o  lot of header, define and configuration changes. -- Keep your
+ *   fingers crossed .... ;-)
+ *
+ * Revision 1.1  1997/08/14 23:51:07  wuebben
  * Initial revision
  *
- * Revision 1.1  1997/06/29 22:49:12  wuebben
- * *** empty log message ***
- *
- * Revision 1.1  1997/03/24 12:38:45  wuebben
- * *** empty log message ***
+ * Revision 1.1  1997/06/21 23:09:10  wuebben
+ * Initial revision
  *
  * Revision 1.2  1997/03/22 22:09:37  wuebben
  * Added support for visibe non-illuminated Segments
@@ -31,6 +47,7 @@
 #include "qbitarry.h"
 #include "qpainter.h"
 #include <stdio.h>
+
 #include "bwlednum.moc"
 
 #define NUM_OF_SEGMENTS 8
@@ -187,6 +204,8 @@ void BW_LED_Number::drawSymbol( QPainter *p,char s,bool repaint ){
   
   //  printf("drawSymbol repaint = %d\n",repaint);
 
+ s = s;
+
  QPoint  pos;
   
  int xSegment_Length, ySegment_Length, Segment_Length, xAdvance;   
@@ -194,11 +213,16 @@ void BW_LED_Number::drawSymbol( QPainter *p,char s,bool repaint ){
 
  space = 1;
 
- xSegment_Length  = width()*5/((5 + space) + space);
+ xSegment_Length  = width()*5/((5 + space) + space) ;
+
  ySegment_Length   = height()*5/12;
+
  Segment_Length   = ySegment_Length > xSegment_Length ? xSegment_Length : ySegment_Length;
- xAdvance = Segment_Length*( 5 + space )/5 +1 ; 
- Xoffset  = ( width() - xAdvance + Segment_Length/5 )/2;
+
+ xAdvance = Segment_Length*( 5 + space )/5 +1  ;  
+
+ // Xoffset  = ( width() - xAdvance + Segment_Length/5 )/2; // origininal
+ Xoffset  = ( width() - xAdvance + Segment_Length/4 )/2;
  Yoffset  = ( height() - Segment_Length*2 )/2;
   
  pos = QPoint( Xoffset , Yoffset );	
@@ -298,8 +322,10 @@ void BW_LED_Number::drawSegment( const QPoint &pos, char seg_number, QPainter &p
     lightColor = g.light();
     darkColor  = g.dark();
   }
-  int Width = (int) Segment_Length/5;
-  
+
+  //  int Width = (int) Segment_Length/5 ; // original
+  int Width = (int) Segment_Length/4;
+
   
   QBrush brush(g.light()); 
   QPointArray pts;

@@ -4,7 +4,7 @@
    
    $Id$
  
-   Copyright 1997 Bernd Johannes Wuebben math.cornell.edu
+   Copyright 1997, 1998 Bernd Johannes Wuebben math.cornell.edu
   
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -224,9 +224,12 @@ void KMidi::drawPanel()
 {
     int ix = 0;
     int iy = 0;
-    int WIDTH = 100;
-    int HEIGHT = 30;
-    int SBARWIDTH = 230; //140
+    //    int WIDTH = 100;
+    int WIDTH = 90;
+    //    int HEIGHT = 30;
+    int HEIGHT = 27;
+    //    int SBARWIDTH = 230;
+    int SBARWIDTH = 220; //140
 
     setCaption( "kmidi" );
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, "About" );
@@ -246,12 +249,12 @@ void KMidi::drawPanel()
     backdrop = new QWidget(this,"mybackdrop");
     backdrop->setGeometry(ix,iy,SBARWIDTH, 3* HEIGHT - 1);
 
-
-    ix = WIDTH;
+    int D = 10;
+    ix = WIDTH + 4;
 
     for (int u = 0; u<=4;u++){
 	trackTimeLED[u] = new BW_LED_Number(this );	 
-	trackTimeLED[u]->setGeometry( ix +10 + u*20, iy+12, 23 ,  6*HEIGHT/5 );
+	trackTimeLED[u]->setGeometry( ix  + u*18, iy + D, 23 ,  30 );
     }
 	
     QString zeros("--:--");
@@ -260,40 +263,36 @@ void KMidi::drawPanel()
     ix = WIDTH;
     iy += 2 * HEIGHT;
     statusLA = new QLabel( this );
-    statusLA->setGeometry( WIDTH -25 +2*SBARWIDTH/3, 10, 44, 15 );
+    statusLA->setGeometry( WIDTH -25 +2*SBARWIDTH/3, 6, 44, 15 );
     statusLA->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
     statusLA->setAlignment( AlignLeft );
-    statusLA->setText("   ");
+    statusLA->setText("    ");
+
 
 	
     looplabel = new QLabel( this );
-    looplabel->setGeometry( WIDTH -25 +2*SBARWIDTH/3 +45, 10, 60, 15 );
+    looplabel->setGeometry( WIDTH -25 +2*SBARWIDTH/3 +45, 6, 60, 13 );
     looplabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
     looplabel->setAlignment( AlignLeft );
     looplabel->setText("");
 
 
-    // this is unused at the moment
-    titleLA = new QLabel( this );
-    titleLA->setGeometry( WIDTH +10 , HEIGHT +20, 150, 12 );
-    titleLA->setFont( QFont( "Helvetica", 12, QFont::Bold ) );
-    titleLA->setAlignment( AlignLeft );
-    titleLA->setText("");
 
-    titleLA->hide();
 
-    propertiesLA = new QLabel( this );
-    propertiesLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 ,  38, 100, 15 );
-    propertiesLA->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
-    propertiesLA->setAlignment( AlignLeft );
-    propertiesLA->setText("");
 
     properties2LA = new QLabel( this );
-    properties2LA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 ,  53, 100, 15 );
+
+    properties2LA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 , HEIGHT + 20, 100, 13 );
     properties2LA->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
     properties2LA->setAlignment( AlignLeft );
     properties2LA->setText("");
 
+    propertiesLA = new QLabel( this );
+
+    propertiesLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 ,  33, 100, 13 );
+    propertiesLA->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+    propertiesLA->setAlignment( AlignLeft );
+    propertiesLA->setText("");
 
     ix += SBARWIDTH/2;
 
@@ -306,14 +305,14 @@ void KMidi::drawPanel()
 
     lowerBar = new QPushButton(this);
     lowerBar->setGeometry( WIDTH ,
-			   7*HEIGHT/2, 2*SBARWIDTH/3 -1, HEIGHT/2  );
+			   7*HEIGHT/2, 2*SBARWIDTH/3 -1, HEIGHT/2 +1 );
 
     ix = WIDTH ;
     iy += HEIGHT;
 
     volLA = new QLabel( this );
     volLA->setAlignment( AlignLeft );
-    volLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 , 24, 60, 15 );
+    volLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 , 20, 60, 13 );
 
     volLA->setFont( QFont( "helvetica", 10, QFont::Bold) );
 
@@ -323,10 +322,11 @@ void KMidi::drawPanel()
     volLA->setText( volumetext );
 
 
-    speedLA = new QLabel( this );
-    speedLA->setAlignment( AlignLeft );
-    speedLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 +45, 24, 80, 15 );
+    /*speedLA = new QLabel( this );
+      speedLA->setAlignment( AlignLeft );
+    speedLA->setGeometry( WIDTH -25 + 2*SBARWIDTH/3 +45, 24, 80, 13 );
     speedLA->setFont( QFont( "helvetica", 10, QFont::Bold) );
+    */
 
     /*    QString speedtext;
     speedtext.sprintf("Spd:%3.0f%%",100.0);
@@ -335,20 +335,20 @@ void KMidi::drawPanel()
 
     modlabel = new QLabel( this );
     modlabel->setAlignment( AlignLeft );
-    modlabel->setGeometry( WIDTH + 13, HEIGHT + 24 + 15, SBARWIDTH - 26, 14 );
+    modlabel->setGeometry( WIDTH + 9, HEIGHT + 24 + 10, SBARWIDTH - 26, 12 );
     modlabel->setFont( QFont( "helvetica", 10, QFont::Bold) );
     modlabel->setText( "" );
 
     totaltimelabel = new QLabel( this );
     totaltimelabel->setAlignment( AlignLeft );
-    totaltimelabel->setGeometry( WIDTH + 83, HEIGHT + 23, 30, 14 );
+    totaltimelabel->setGeometry( WIDTH + 80, HEIGHT + 20, 30, 14 );
     totaltimelabel->setFont( QFont( "helvetica", 10, QFont::Bold) );
     totaltimelabel->setText( "--:--" );
 
 
     song_count_label = new QLabel( this );
     song_count_label->setAlignment( AlignLeft );
-    song_count_label->setGeometry( WIDTH + 13, HEIGHT + 23, 60, 15 );
+    song_count_label->setGeometry( WIDTH + 9, HEIGHT + 20, 60, 15 );
     song_count_label->setFont( QFont( "helvetica", 10, QFont::Bold) );
 
     song_count_label->setText( "Song --/--" );
@@ -363,29 +363,27 @@ void KMidi::drawPanel()
     iy = 0;
     ix = WIDTH + SBARWIDTH;
 
-    int MWIDTH = 50;
-
-    playPB = makeButton( ix, iy, 2*MWIDTH, HEIGHT, "Play/Pause" );
+    playPB = makeButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" );
 
     iy += HEIGHT;
-    stopPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Stop" );
+    stopPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Stop" );
 
-    ix += MWIDTH ;
-    replayPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Replay" );
+    ix += WIDTH/2 ;
+    replayPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Replay" );
 
     ix = WIDTH + SBARWIDTH;
     iy += HEIGHT;
-    bwdPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Bwd" );
+    bwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Bwd" );
 
-    ix += MWIDTH ;
-    fwdPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Fwd" );
+    ix += WIDTH/2;
+    fwdPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Fwd" );
 
     ix = WIDTH + SBARWIDTH;
     iy += HEIGHT;
-    prevPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Prev" );
+    prevPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Prev" );
 
-    ix += MWIDTH ;
-    nextPB = makeButton( ix, iy, MWIDTH , HEIGHT, "Next" );
+    ix += WIDTH/2 ;
+    nextPB = makeButton( ix, iy, WIDTH/2 , HEIGHT, "Next" );
 
 }
 
@@ -1101,7 +1099,7 @@ void KMidi::ReadPipe(){
 			looplabel->setText("");
 			statusLA->setText("Ready");
 			QString str;
-			str.sprintf("Song:--/%02d",playlist->count());
+			str.sprintf("Song: --/%02d",playlist->count());
 			song_count_label->setText(str.data() );
 			modlabel->setText("");
 			totaltimelabel->setText("--:--");
@@ -1348,11 +1346,11 @@ void KMidi::setColors(){
   
     statusLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     looplabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
-    titleLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
+    //    titleLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     propertiesLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     properties2LA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     volLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
-    speedLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
+    //    speedLA->setPalette( QPalette(colgrp,colgrp,colgrp) );
     totaltimelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
     modlabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
     song_count_label->setPalette( QPalette(colgrp,colgrp,colgrp) );
@@ -1404,9 +1402,9 @@ void KMidi::updateUI(){
     QString songstr;
 
     if(playlist->count() >0)
-	songstr.sprintf("Song:%02d/%02d",song_number,playlist->count());
+	songstr.sprintf("Song: %02d/%02d",song_number,playlist->count());
     else
-	songstr ="Song:--/--";
+	songstr ="Song: --/--";
 
     song_count_label->setText( songstr.data() );
 
