@@ -811,8 +811,8 @@ msgstr "Lead 1 - Square Wave"
 
 # instrname.i18n:87
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
-msgstr "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
+msgstr "Lead 2 - Saw Tooth"
 
 # instrname.i18n:88
 #: instrname.i18n:88

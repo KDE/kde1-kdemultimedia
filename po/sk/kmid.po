@@ -673,7 +673,7 @@ msgid "Lead 1 - Square Wave"
 msgstr "Tón 1 - Pravouhlý signál"
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr "Tón 2 - Trojuholníkový signál"
 
 #: instrname.i18n:88

@@ -112,11 +112,11 @@ msgstr "&Opciones de Vista de Canales"
 
 #: kmidframe.cpp:174
 msgid "&Font Change ..."
-msgstr "Cambiar &fuente ..."
+msgstr "Cambiar &Fuente ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr "Configurar &Teclas"
+msgstr "Configurar &Teclas ..."
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
@@ -659,8 +659,7 @@ msgid "Lead 1 - Square Wave"
 msgstr "Melodía 1 - Onda Cuadrada"
 
 #: instrname.i18n:87
-#, fuzzy
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr "Melodía 2 - Onda Dentada"
 
 #: instrname.i18n:88

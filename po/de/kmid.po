@@ -662,7 +662,7 @@ msgid "Lead 1 - Square Wave"
 msgstr "Führungspart 1 - Square Wave"
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr "Führungspart 2 - Sägezahn"
 
 #: instrname.i18n:88

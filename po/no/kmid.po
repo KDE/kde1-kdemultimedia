@@ -667,7 +667,7 @@ msgid "Lead 1 - Square Wave"
 msgstr "Råk 1 - Square-bølge"
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr "Råk 2 - sauetunge"
 
 #: instrname.i18n:88

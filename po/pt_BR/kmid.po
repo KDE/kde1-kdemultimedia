@@ -663,7 +663,7 @@ msgid "Lead 1 - Square Wave"
 msgstr "Onda Quadrada"
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr "Onda dente-de-serra"
 
 #: instrname.i18n:88
