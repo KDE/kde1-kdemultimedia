@@ -125,9 +125,10 @@ static void print_sbk(SFInfo *sf, FILE *fout)
 		}
 	    }
 	    else {
-		int keynote, c;
+		int keynote, c, dpreset;
 		fprintf(fout, "\ndrumset %d sbk\t\t#%s\n", ip[i].preset, getname(ip[i].name));
 
+		for (dpreset = 0; dpreset < 128; dpreset++)
 	        for (c = ip[i].bagNdx; c < ip[i+1].bagNdx; c++) {
 		  inst = -1;
 		  for (g = sf->presetbag[c]; g < sf->presetbag[c+1]; g++)
@@ -142,6 +143,7 @@ static void print_sbk(SFInfo *sf, FILE *fout)
 			else if (sf->instgen[g].oper == SF_keyRange) keynote = sf->instgen[g].amount & 0xff;
 		    }
 		    if (sf->sampleinfo[sm_idx].sampletype >= 0x8000) continue;
+		    if (keynote != dpreset) continue;
 		    if (sm_idx >= 0 && keynote >= 0 && keynote != lastpatch) {
 			   fprintf(fout, "\t%3d %s\n", keynote, getname( sf->samplenames[sm_idx].name ));
 			   lastpatch = keynote;
