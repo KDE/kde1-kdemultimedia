@@ -24,7 +24,11 @@ New:
      o use patches in bank 8, etc. (bugfix)
      o buffered output to /dev/dsp0 (Linux/FreeBSD) or /dev/audio (Sun)
      o select patch set from command line with "-#<n>"
-     o use experimental cutoff filters with "-q"
+     o use experimental cutoff filters, AWE fonts only ("-q" disables this)
+     o lyrics displayed in time (timidity "dumb" interface only)
+     o primitive chorus depth and reverberation
+     o vibrato works better for AWE soundfonts
+     o set polyphony in cfg file
 
 Greg Lee
 lee@hawaii.edu
@@ -119,6 +123,7 @@ saying:
 	% make clean
 	% make -f Makefile.tim
 	% make -f Makefile.tim install.lib
+	% make -f Makefile.tim install.bin
 
 The executable will be "timidity". This should also work on Sunos.  I
 haven't tried other systems.  For details, see INSTALL.tim and Makefile.tim.
@@ -141,32 +146,49 @@ Obtaining patch files:
 	(See http://sdc.wtm.tudelft.nl/utopia/)  If I had them anymore, the
 	trial version files would be (after unpacking):
 
--rw-r--r--   1 root     root        50631 Mar 31 17:08 utop_dm.fff
--rw-r--r--   1 root     root        44295 Mar 31 17:08 utop_ds.fff
--rw-r--r--   1 root     root     41685764 Mar 31 18:37 utop_im.dat
--rw-r--r--   1 root     root        42407 Mar 31 17:08 utop_im.fff
--rw-r--r--   1 root     root      9679116 Mar 25 14:11 utop_is.dat
--rw-r--r--   1 root     root         7501 Mar 31 17:08 utop_is.fff
--rw-r--r--   1 root     root     17368442 Mar 31 17:43 utopia_d.dat
+		      50631 Mar 31 17:08 utop_dm.fff
+		      44295 Mar 31 17:08 utop_ds.fff
+		   41685764 Mar 31 18:37 utop_im.dat
+		      42407 Mar 31 17:08 utop_im.fff
+		    9679116 Mar 25 14:11 utop_is.dat
+		       7501 Mar 31 17:08 utop_is.fff
+		   17368442 Mar 31 17:43 utopia_d.dat
 
-	A sort of precursor to Utopia done by Kevin Boyle was still freely
-	available, last time I checked, on various ftp sites:
+	A sort of precursor to Utopia done by Kevin Boyle is still freely
+	available on various ftp sites:
 
--rw-r--r--   1 root     root      9727328 Apr  2 18:25 megadrum.dat
--rw-r--r--   1 root     root        32296 Apr  2 17:34 megadrum.fff
--rw-r--r--   1 root     root     18834162 Apr  3 04:13 megainst.dat
--rw-r--r--   1 root     root        39438 Apr  2 17:34 megainst.fff
+		    9727328 Apr  2 18:25 megadrum.dat
+		      32296 Apr  2 17:34 megadrum.fff
+		   18834162 Apr  3 04:13 megainst.dat
+		      39438 Apr  2 17:34 megainst.fff
 
 	(For a time, at least, I'll keep copies of Megainst on my system:
-	ftp://moore5651.lll.hawaii.edu/pub/music .)
+	ftp://moore5651.lll.hawaii.edu/pub/music .)  Megainst, "Pilabank",
+	and SoundCanvas drumsets are available at
+	ftp://sdc.wtm.tudelft.nl/pub/music/soundbank/
+
+		      45411 Aug  1  1987 pilabank.fff
+		   10146046 Aug  1  1987 pilabank.dat
+		        663 Apr 16  1996 brush.fff
+		     152686 Apr 16  1996 brush.dat
+		       2013 Apr 16  1996 elec.fff
+		     781724 Apr 16  1996 elec.dat
+		       1626 Apr 16  1996 pwr.fff
+		     537454 Apr 16  1996 pwr.dat
+		       1241 Apr 16  1996 room.fff
+		     352346 Apr 16  1996 room.dat
+		      11662 Apr 16  1996 std.fff
+		    5730160 Apr 16  1996 std.dat
 
      C. AWE sound fonts.  At http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm
 	you can get (as self-unpacking .exe's):
 
--rw-r--r--   1 root     root     12323512 May 19 01:30 chaos12m.sf2
--rw-r--r--   1 root     root      8624378 May 19 01:32 chaos8m.sf2
+		   12323512 May 19 01:30 chaos12m.sf2
+		    8624378 May 19 01:32 chaos8m.sf2
 
-	There are others at ftp://lysator.liu.se/pub/awe32/soundfonts .
+	There are others at ftp://lysator.liu.se/pub/awe32/soundfonts, e.g.:
+
+		    2090170 May 18 15:37 2mbgmgs.sf2
 
 -------------------------------------------------------------------
 
@@ -175,20 +197,22 @@ Using patch files requires setting up .cfg files:
      A. See the other docs for GUS .pat files -- there are example .cfg files.
      B. IW sound fonts need .cfg setups just like GUS patches, except that
 	 i. drum/bank statements must be followed by "fff" (e.g., bank 0 fff),
-	ii. after the various patches are named, say: fff <basename of font>
-	    (e.g., fff megainst).  This loads the font.
+	ii. after the various patches are named, put: "fff <basename of font>"
+	    (e.g., "fff megainst").  This loads the font.
 	See the example files megainst and megadrum.  You can use several
 	IW fonts.
      C. AWE sound fonts are similar to IW fonts, except use the keyword "sbk"
 	instead of "fff".  After the patches have been named, say:
-	sbk <filename of sf2/sbk font>.  Alternatively, say:
-	soundfont <filename>.
+	"sbk <filename of sf2/sbk font>".  Alternatively, say:
+	"soundfont <filename>".
 
 The banks/drumsets and names of patches must be given, since those that are not
 declared will not be loaded from files (GUS patch files or sound fonts) even
 though the patches are available.  This way it's easy to exclude certain
 patches from a sound font so as to load better ones from a subseqently loaded
-font.  Just don't declare them before you've asked to load the font.
+font.  Just don't declare them before you've asked to load the font.  It is,
+thus, unnecessary to use the "font" and "order" statements implemented by
+Takashi Iwai and described in README.sf.
 
 When the same patch of the same bank or drumset is declared more than once,
 only the first declaration counts.  So put your best fonts first.
@@ -204,6 +228,10 @@ statement in a cfg file is preceded, e.g., by a line "if 2", then the
 command line.  A line "else" will cause the next "source" statement to
 be skipped if any non-zero n was requested by "-#<n>".
 
+Instead of using the command line "-p" to raise or lower the number of
+simultaneously playing notes, you can do in a cfg file, e.g., put: "voices 48"
+in timidity.cfg.
+
 ----------------------------------------------
 
 I'm sorry my part of this document isn't more coherent and comprehensive.  For
@@ -213,3 +241,4 @@ this version, it would just tire you out reading through it all.
 
 						Greg Lee, lee@hawaii.edu
 						May 25, 1998
+
