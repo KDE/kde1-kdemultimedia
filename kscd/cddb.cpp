@@ -298,8 +298,8 @@ void CDDB::close_connection()
 	cddb_close(sock);
     sock = 0L;
 }
-void CDDB::cddb_close(KSocket *socket){
-
+void CDDB::cddb_close(KSocket *socket)
+{
     timeouttimer.stop();
     disconnect(socket,SIGNAL(readEvent(KSocket*)),this,SLOT(cddb_read(KSocket*)));
     disconnect(socket,SIGNAL(closeEvent(KSocket*)),this,SLOT(cddb_close(KSocket*)));
@@ -326,7 +326,8 @@ void CDDB::cddb_read(KSocket *socket)
     buffer[n] = '\0';
     tempbuffer += buffer;
 
-    // if(debugflag) fprintf(stderr,"BUFFER: %s",buffer);
+//     if(debugflag) 
+// 	fprintf(stderr,"BUFFER: '%s'",buffer);
 
     while(next_token())
         do_state_machine();
@@ -339,9 +340,9 @@ bool CDDB::next_token()
     {
 	lastline    = tempbuffer.left(newlinepos);
 	tempbuffer  = tempbuffer.right(tempbuffer.length() - newlinepos -1);
-    }
-    
-    return !(lastline.isEmpty());
+	return true;
+    } else 
+	return false;
 }
 
 void CDDB::queryCD(unsigned long _magicID,QStrList& querylist)

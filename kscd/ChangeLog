@@ -1,5 +1,9 @@
 1998-04-16  Vadim Zaliva  <lord@crocodile.org>
 
+	* Tested with Squid-1.1.18 HTTP proxy
+	* Tested with HTTP proxy, w/o HTTP proxy, using CDDBP and HTTP.
+	* Small bug in parsing corrected.
+
 	* State automata and parsing reimplemented
 	* Works over HTTP with and without HTTP proxy.
 	* Tested with M>Wall HTTP proxy
