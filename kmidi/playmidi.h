@@ -47,6 +47,7 @@ typedef struct {
 #define ME_TONE_BANK	15
 #define ME_LYRIC	16
 #define ME_TONE_KIT	17
+#define ME_MASTERVOLUME	18
 
 #define ME_HARMONICCONTENT	71
 #define ME_RELEASETIME		72
@@ -67,6 +68,8 @@ typedef struct {
      processor near you */
   float
     pitchfactor; /* precomputed pitch bend factor to save some fdiv's */
+  char
+    transpose;
 } Channel;
 
 /* Causes the instrument's default panning to be used. */
@@ -135,6 +138,10 @@ extern int voices;
 extern int GM_System_On;
 extern int XG_System_On;
 extern int GS_System_On;
+
+extern int XG_System_reverb_type;
+extern int XG_System_chorus_type;
+extern int XG_System_variation_type;
 
 #define ISDRUMCHANNEL(c) ((drumchannels & (1<<(c))))
 
