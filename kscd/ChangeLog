@@ -1,5 +1,9 @@
 1998-04-15  Vadim Zaliva  <lord@crocodile.org>
 
+	* cddb.h, cddb.cpp reformated
+	* tested to work with and without HTTP proxy
+	* tested with squid 1.1.18
+	
 	* Added one more default server, with HTTP protocol
 	* Code for getting servers list via HTTP done and works.
 	* Changed 'cddb' object allocation.

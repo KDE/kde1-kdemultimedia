@@ -2149,11 +2149,12 @@ void KSCD::get_pathlist(QStrList& _pathlist){
 
 int main( int argc, char *argv[] ){
 
+    debugflag = false; 
+
   mykapp = new KApplication( argc, argv,"kscd" );
-  k = new KSCD; 
+  k = new KSCD(); 
 
   cur_track = 1;
-  debugflag = false; 
 
   for(int i = 0; i < argc; i++){
 
