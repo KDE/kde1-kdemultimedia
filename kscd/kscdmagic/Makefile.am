@@ -30,7 +30,7 @@ kscdmagic_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 # the libraries to link against. Be aware of the order. First the libraries,
 # that depend on the following ones.
-kscdmagic_LDADD   = -lkdeui -lkdecore -lqt -lXext -lX11 -lm $(LIBSOCKET)
+kscdmagic_LDADD   = -lkdeui -lkdecore  -lXext  -lm $(LIB_QT)
 
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = bitmap.h    symbol.h    syna.h      xlib.h magicconf.h

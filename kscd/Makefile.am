@@ -7,7 +7,7 @@ CDDBDIR = $(kde_datadir)/kscd/cddb/
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
 kscd_LDADD   = $(LIBCDROM) $(LIBCDAUDIO) $(LIBFPE) -lkfm -lkdeui \
-	-lkdecore -lqt  -lX11 -lXext $(LIBSOCKET)
+	-lkdecore    -lXext $(LIB_QT)
 INCLUDES= $(all_includes)
 LINK    = $(CXXLINK)
 

@@ -12,8 +12,8 @@ INCLUDES = $(all_includes)
 DEFS += -DDEFAULT_PATH=\"$(TIMID_DIR)\"  
 DEFS += -DKMIDI
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
-LDADD = -lkfm -lkdecore -lkdeui -lqt -lXext -lX11 $(LIBALIB) \
-	$(LIBAUDIO) $(LIBMME) $(LIBSOCKET)
+LDADD = -lkfm -lkdecore -lkdeui -lXext $(LIB_QT) $(LIBALIB) \
+	$(LIBAUDIO) $(LIBMME) 
 
 # Where to install the patches, config files, and MIDI files.
 # If you change this, it's a good idea to recompile the binary,
