@@ -32,7 +32,7 @@ static char*mid[]={
 "......#ccggba##b##bgbgbaaaaaaaa#",
 "......#bbccggbbbbgbg##baaaaaaaa#",
 "......#b#abccggbbg##bgbaaaaaaaa#",
-"......#b###abccggbbgbgbaaaaaag#h",
+"......#b###abccggbbgbgbaaaaaag#.",
 "......#b###d#abccggbbgbaaaaggbb#",
 "......#b#f#e###bbccggbbaaggbbaa#",
 "......#ba##f###b#bbccggggbbaaaa#",
