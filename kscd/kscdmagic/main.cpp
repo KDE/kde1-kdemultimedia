@@ -29,9 +29,10 @@
 
 */
 
+#include <stdlib.h>
+
 #ifdef __linux__
 
-#include <stdlib.h>      
 #include <signal.h>
 #include <stdio.h>
 #include <time.h>
