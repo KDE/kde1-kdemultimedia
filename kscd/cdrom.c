@@ -39,7 +39,6 @@ struct drivelist {
 };
 
 void *malloc();
-char *strchr();
 void strmcpy(char **t, char *s);
 int susleep(int usec);
 

@@ -12,7 +12,7 @@
 #include <string.h>
 
 void *calloc(), *malloc(), *realloc(), print_cdinfo(), wipe_cdinfo();
-char *strchr(), *getenv();
+char *getenv();
 
 void play_cd(int start, int pos, int end);
 void stop_cd();

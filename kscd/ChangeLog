@@ -1,6 +1,9 @@
 1999-02-18  Harri Porten  <porten@kde.org>
 
 	* cddb.cpp: work around snprintf() for non-GNUish systems
+	* cdrom.c, cdinfo.c, plat_linux.c: removed forward declaration of
+	strchr(). It broke compilation with recent glibc and wasn't used
+	anyway (bug #666 and #671). 
 
 1998-12-22  Sam Maloney <thufir@illogic.ml.org>
 
