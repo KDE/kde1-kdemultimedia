@@ -1,18 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# kmid.po
+# Copyright (C) 1999 Free Software Foundation, Inc.
+# Francois-Xavier Duranceau <Francois-Xavier.Duranceau@loria.fr>, 1999.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kmid\n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 1999-02-03 22:00+0100\n"
+"PO-Revision-Date: 1999-03-16 14:20+0100\n"
 "Last-Translator: Francois-Xavier Duranceau "
 "<Francois-Xavier.Duranceau@loria.fr>\n"
 "Language-Team: Français <fr@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Transfer-Encoding: MIME\n"
+"Next-Translator: Philippe Thomin "
+"<Philippe.Thomin@univ-valenciennes.fr>\n"
 
 #: kmidframe.cpp:64
 msgid "Play/Pause"
@@ -36,19 +38,19 @@ msgstr "Afficher les &paroles"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr "Karaoké défilement bas"
+msgstr "Karaoké : avance"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr "Karaoké défilement haut"
+msgstr "Karaoké : retour arriere"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr "Karaoké page bas"
+msgstr "karaoké : avance rapide"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr "Karaoké page haut"
+msgstr "Karaoké : retour arriere rapide"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -197,7 +199,7 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"Impossible d'ouvrir /dev/sequencer pour obtenir quelques informations\n"
+"Impossible d'ouvrir /dev/sequencer pour obtenir certaines informations\n"
 "Un autre programme est probablement en train de l'utiliser"
 
 #: kmidframe.cpp:681 kmidframe.cpp:682
@@ -228,14 +230,16 @@ msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
+"Le rythme de la noire est negatif, s.v.p., envoyez ce fichier a "
+"antlarr@arrakis.es"
 
 #: kmidclient.cpp:279
 msgid "Not enough memory !!"
-msgstr "Pas assez de mémoire !!"
+msgstr "Pas assez de mémoire !"
 
 #: kmidclient.cpp:281
 msgid "This file is corrupted or not well built"
-msgstr "Ce fichier est corrompu ou a été mal construit"
+msgstr "Ce fichier est abimé ou a été mal construit"
 
 #: kmidclient.cpp:282
 msgid "Unknown error message"
@@ -336,7 +340,7 @@ msgstr "Apparence"
 
 #: channelcfgdlg.cpp:27
 msgid "3D look"
-msgstr "Effet 3D"
+msgstr "Aspect 3D"
 
 #: channelcfgdlg.cpp:28
 msgid "3D - filled"
@@ -344,19 +348,19 @@ msgstr "3D - plein"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
-msgstr "Grand piano acoustique"
+msgstr "Piano à queue"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
-msgstr "Piano acoustique brillant"
+msgstr "Piano droit"
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
-msgstr "Grand piano électrique"
+msgstr "Piano de concert élec."
 
 #: instrname.i18n:9
 msgid "Honky-Tonk"
-msgstr "Piano Honky-Tonk"
+msgstr "Piano bastringue"
 
 #: instrname.i18n:10
 msgid "Rhodes Piano"
@@ -364,7 +368,7 @@ msgstr "Piano Rhodes"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
-msgstr ""
+msgstr "Piano - chorus"
 
 #: instrname.i18n:12
 msgid "Harpsichord"
@@ -372,7 +376,7 @@ msgstr "Clavecin"
 
 #: instrname.i18n:13
 msgid "Clavinet"
-msgstr ""
+msgstr "Clavinet"
 
 #: instrname.i18n:14
 msgid "Celesta"
@@ -404,7 +408,7 @@ msgstr "Cloches"
 
 #: instrname.i18n:21
 msgid "Dulcimer"
-msgstr "Tympanon"
+msgstr "Tympanon (Dulcimer)"
 
 #: instrname.i18n:22
 msgid "Hammond Organ"
@@ -412,7 +416,7 @@ msgstr "Orgue Hammond"
 
 #: instrname.i18n:23
 msgid "Percussive Organ"
-msgstr ""
+msgstr "Orgue de Jazz"
 
 #: instrname.i18n:24
 msgid "Rock Organ"
@@ -424,7 +428,7 @@ msgstr "Orgue d'église"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
-msgstr ""
+msgstr "Harmonium"
 
 #: instrname.i18n:27
 msgid "Accordion"
@@ -436,35 +440,35 @@ msgstr "Harmonica"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
-msgstr "Accordéon de tango"
+msgstr "Bandoléon"
 
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
-msgstr "Guitare acoustique (Nylon)"
+msgstr "Guitare sèche nylon"
 
 #: instrname.i18n:31
 msgid "Acoustic Guitar (Steel)"
-msgstr "Guitare acoustique (Métal)"
+msgstr "Guitare sèche acier"
 
 #: instrname.i18n:32
 msgid "Electric Guitar (Jazz)"
-msgstr "Guitare électrique (Jazz)"
+msgstr "Guitare élec. jazz"
 
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
-msgstr "Guitare électrique (Clean)"
+msgstr "Guitare élec. nette"
 
 #: instrname.i18n:34
 msgid "Electric Guitar (Muted)"
-msgstr "Guitare électrique (Muted)"
+msgstr "Guitare élec. sourde"
 
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
-msgstr ""
+msgstr "Guitare élec. - saturation"
 
 #: instrname.i18n:36
 msgid "Distortion Guitar"
-msgstr "Guitare distorsion"
+msgstr "Guitare élec. - distorsion"
 
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
@@ -476,31 +480,31 @@ msgstr "Basse acoustique"
 
 #: instrname.i18n:39
 msgid "Electric Bass (Finger)"
-msgstr "Basse électrique (Finger)"
+msgstr "Basse élec. - Doigt"
 
 #: instrname.i18n:40
 msgid "Electric Bass (Pick)"
-msgstr "Basse électrique (Pick)"
+msgstr "Basse élec. - Mediator"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
-msgstr ""
+msgstr "Basse élec. sans barette"
 
 #: instrname.i18n:42
 msgid "Slap Bass 1"
-msgstr ""
+msgstr "Basse Frappée 1"
 
 #: instrname.i18n:43
 msgid "Slap Bass 2"
-msgstr ""
+msgstr "Basse Frappée 2"
 
 #: instrname.i18n:44
 msgid "Synth Bass 1"
-msgstr "Basse synthé 1"
+msgstr "Basse électron. 1"
 
 #: instrname.i18n:45
 msgid "Synth Bass 2"
-msgstr "Basse synthé 2"
+msgstr "Basse électron. 2"
 
 #: instrname.i18n:46
 msgid "Violin"
@@ -544,11 +548,11 @@ msgstr "Ensemble à cordes 2"
 
 #: instrname.i18n:56
 msgid "Synth Strings 1"
-msgstr "Cordes synthé 1"
+msgstr "Cordes électron. 1"
 
 #: instrname.i18n:57
 msgid "Synth Strings 2"
-msgstr "Cordes synthé 2"
+msgstr "Cordes électron. 2"
 
 #: instrname.i18n:58
 msgid "Choir Aahs"
@@ -560,11 +564,11 @@ msgstr "Voix Ooh"
 
 #: instrname.i18n:60
 msgid "Synth Voice"
-msgstr "Voix synthé"
+msgstr "Voix électron."
 
 #: instrname.i18n:61
 msgid "Orchestra Hit"
-msgstr ""
+msgstr "Tutti"
 
 #: instrname.i18n:62
 msgid "Trumpet"
@@ -580,7 +584,7 @@ msgstr "Tuba"
 
 #: instrname.i18n:65
 msgid "Muted Trumpet"
-msgstr "Trompette sourdine"
+msgstr "Trompette bouchée"
 
 #: instrname.i18n:66
 msgid "French Horn"
@@ -592,11 +596,11 @@ msgstr "Ensemble de cuivres"
 
 #: instrname.i18n:68
 msgid "Synth Brass 1"
-msgstr "Cuivres synthé 1"
+msgstr "Cuivres électron. 1"
 
 #: instrname.i18n:69
 msgid "Synth Brass 2"
-msgstr "Cuivres synthé 2"
+msgstr "Cuivres électron. 2"
 
 #: instrname.i18n:70
 msgid "Soprano Sax"
@@ -648,7 +652,7 @@ msgstr "Flute de pan"
 
 #: instrname.i18n:82
 msgid "Blown Bottle"
-msgstr ""
+msgstr "Col de bouteille"
 
 #: instrname.i18n:83
 msgid "Shakuhachi"
@@ -656,7 +660,7 @@ msgstr "Shakuhachi"
 
 #: instrname.i18n:84
 msgid "Whistle"
-msgstr "Sifflement"
+msgstr "Sifflet"
 
 #: instrname.i18n:85
 msgid "Ocarina"
@@ -664,99 +668,99 @@ msgstr "Ocarina"
 
 #: instrname.i18n:86
 msgid "Lead 1 - Square Wave"
-msgstr ""
+msgstr "Fondamental 1 : Rectangle"
 
 #: instrname.i18n:87
 msgid "Lead 2 - Saw Tooth"
-msgstr ""
+msgstr "Fondamental 2 : Dent de scie"
 
 #: instrname.i18n:88
 msgid "Lead 3 - Calliope"
-msgstr ""
+msgstr "Fondamental 3 : Orgue de barbarie"
 
 #: instrname.i18n:89
 msgid "Lead 4 - Chiflead"
-msgstr ""
+msgstr "Fondamental 4 : Chiflead"
 
 #: instrname.i18n:90
 msgid "Lead 5 - Charang"
-msgstr ""
+msgstr "Fondamental 5 : Vielle"
 
 #: instrname.i18n:91
 msgid "Lead 6 - Voice"
-msgstr ""
+msgstr "Fondamental 6 : Voix"
 
 #: instrname.i18n:92
 msgid "Lead 7 - Fifths"
-msgstr ""
+msgstr "Fondamental 7 : Quintes"
 
 #: instrname.i18n:93
 msgid "Lead 8 - Bass+Lead"
-msgstr ""
+msgstr "Fondamental 8 : Basse solo"
 
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
-msgstr ""
+msgstr "Bloc 1 : New age"
 
 #: instrname.i18n:95
 msgid "Pad 2 - Warm"
-msgstr ""
+msgstr "Bloc 2 : Chaud"
 
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
-msgstr ""
+msgstr "Bloc 3 : Synthé polyphonique"
 
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
-msgstr ""
+msgstr "Bloc 4 : Chorale"
 
 #: instrname.i18n:98
 msgid "Pad 5 - Bow"
-msgstr ""
+msgstr "Bloc 5 : Coup d'archet"
 
 #: instrname.i18n:99
 msgid "Pad 6 - Metallic"
-msgstr ""
+msgstr "Bloc 6 : Metallique"
 
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
-msgstr ""
+msgstr "Bloc 7 : Auréole"
 
 #: instrname.i18n:101
 msgid "Pad 8 - Sweep"
-msgstr ""
+msgstr "Bloc 8 : Glissade"
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
-msgstr ""
+msgstr "Effet 1 : Pluie"
 
 #: instrname.i18n:103
 msgid "FX 2 - Soundtrack"
-msgstr ""
+msgstr "Effet 2 : Savon"
 
 #: instrname.i18n:104
 msgid "FX 3 - Crystal"
-msgstr "FX 3 - Crystal"
+msgstr "Effet 3 : Cristal"
 
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
-msgstr "FX 4 - Atmosphère"
+msgstr "Effet 4 : Planant"
 
 #: instrname.i18n:106
 msgid "FX 5 - Brightness"
-msgstr ""
+msgstr "Effet 5 : Clair"
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
-msgstr ""
+msgstr "Effet 6 : Lutins"
 
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
-msgstr "FX 7 - Echos"
+msgstr "Effet 7 : Echos"
 
 #: instrname.i18n:109
 msgid "FX 8 - Sci-fi"
-msgstr "FX 8 - Sci-fi"
+msgstr "Effet 8 : Science-fiction"
 
 #: instrname.i18n:110
 msgid "Sitar"
@@ -780,11 +784,11 @@ msgstr "Kalimba"
 
 #: instrname.i18n:115
 msgid "Bagpipe"
-msgstr "Corne de muse"
+msgstr "Cornemuse"
 
 #: instrname.i18n:116
 msgid "Fiddle"
-msgstr ""
+msgstr "crincrin"
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -792,39 +796,39 @@ msgstr "Shannai"
 
 #: instrname.i18n:118
 msgid "Tinkle Bell"
-msgstr "Cloche Tinkle"
+msgstr "Clochette"
 
 #: instrname.i18n:119
 msgid "Agogo"
-msgstr ""
+msgstr "Agogo"
 
 #: instrname.i18n:120
 msgid "Steel Drum"
-msgstr "Caisse claire"
+msgstr "Bidon (Steel drum)"
 
 #: instrname.i18n:121
 msgid "Wook Block"
-msgstr "Wook Block"
+msgstr "Batons (Wood Block)"
 
 #: instrname.i18n:122
 msgid "Taiko Drum"
-msgstr ""
+msgstr "Taiko"
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
-msgstr "Tom mélodique"
+msgstr "Tom acoustique"
 
 #: instrname.i18n:124
 msgid "Synth Drum"
-msgstr ""
+msgstr "Tambour électron."
 
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
-msgstr "Cymbale reverse"
+msgstr "Cymbale - reverse"
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
-msgstr ""
+msgstr "Bruit de barette (Fret)"
 
 #: instrname.i18n:127
 msgid "Breath Noise"
@@ -832,7 +836,7 @@ msgstr "Souffle"
 
 #: instrname.i18n:128
 msgid "Seashore"
-msgstr "Vague"
+msgstr "Ressac"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
@@ -852,4 +856,4 @@ msgstr "Applaudissements"
 
 #: instrname.i18n:133
 msgid "Gunshot"
-msgstr "Mitraillette"
+msgstr "Coup de feu"
