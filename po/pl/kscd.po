@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd \n"
-"POT-Creation-Date: 1998-11-30 02:03+0100\n"
+"POT-Creation-Date: 1998-12-11 02:05+0100\n"
 "PO-Revision-Date: 1998-07-05 23:05+0200\n"
 "Last-Translator: Piotr Roszatycki <dexter@fnet.com.pl>\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
@@ -183,59 +183,64 @@ msgstr "ID dysku"
 msgid "Upload"
 msgstr "Wprowad¼"
 
-#: configdlg.cpp:69
+#: configdlg.cpp:71
 msgid "Configure kscd"
 msgstr "Konfiguruj kscd"
 
-#: configdlg.cpp:76
+#: configdlg.cpp:78
 msgid "LED Color:"
 msgstr "Kolor LED:"
 
-#: configdlg.cpp:90
+#: configdlg.cpp:92
 msgid "Background Color:"
 msgstr "Kolor t³a:"
 
-#: configdlg.cpp:104
+#: configdlg.cpp:106
 msgid "CDROM Device:"
 msgstr "Urz±dzenie CDROM:"
 
-#: configdlg.cpp:121
+#: configdlg.cpp:123
 msgid "Unix mail command:"
 msgstr "Polecenie dla poczty:"
 
-#: configdlg.cpp:129
+#: configdlg.cpp:131
 msgid "WWW-Browser"
 msgstr "Przegl±darka WWW"
 
-#: configdlg.cpp:132
+#: configdlg.cpp:134
 msgid "Use kfm as Browser"
 msgstr "U¿yj kfm jako przegl±darki"
 
-#: configdlg.cpp:139
+#: configdlg.cpp:141
 msgid "Use Custom Browser:"
 msgstr "U¿yj dowolnej przegl±darki:"
 
-#: configdlg.cpp:151
+#: configdlg.cpp:153
 msgid "Show Tool Tips"
 msgstr "Pokazuj podpowiedzi"
 
-#: configdlg.cpp:157
+#: configdlg.cpp:159
 msgid "Enable KPanel Docking"
 msgstr "W³±cz dokowanie"
 
-#: configdlg.cpp:163
+#: configdlg.cpp:165
 msgid "Play on Tray Close"
 msgstr ""
 
-#: configdlg.cpp:169
+#: configdlg.cpp:171
 msgid "AutoDock on Minimize"
 msgstr ""
 
-#: configdlg.cpp:175
+#: configdlg.cpp:177
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:75 kscd.cpp:559
+#: configdlg.cpp:183
+#, fuzzy
+msgid "Eject on Finish"
+msgstr "Wyrzucanie"
+
+#: docking.cpp:75 kscd.cpp:561
 msgid "Play/Pause"
 msgstr "Odtwarzaj/Pauza"
 
@@ -275,36 +280,36 @@ msgstr ""
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Proszê wybraæ Tytu³ lub wcisn±æ Anuluj"
 
-#: kscd.cpp:223
+#: kscd.cpp:225
 msgid "Record submitted successfully"
 msgstr ""
 
-#: kscd.cpp:233
+#: kscd.cpp:235
 #, fuzzy
 msgid "Error connecting to server."
 msgstr "Brak wpisu do CDDB."
 
-#: kscd.cpp:236
+#: kscd.cpp:238
 msgid "Not connected."
 msgstr ""
 
-#: kscd.cpp:239
+#: kscd.cpp:241
 #, fuzzy
 msgid "Connection timed out."
 msgstr "CDDB timeout."
 
-#: kscd.cpp:242
+#: kscd.cpp:244
 msgid "Time out waiting for server interaction."
 msgstr ""
 
-#: kscd.cpp:245
+#: kscd.cpp:247
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
 
-#: kscd.cpp:247
+#: kscd.cpp:249
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -312,117 +317,117 @@ msgid ""
 "%s"
 msgstr ""
 
-#: kscd.cpp:375
+#: kscd.cpp:377
 msgid "Vol: --"
 msgstr "Vol: --"
 
-#: kscd.cpp:525
+#: kscd.cpp:527
 msgid "Performances"
 msgstr "Wiadomo¶ci"
 
-#: kscd.cpp:528
+#: kscd.cpp:530
 msgid "Purchases"
 msgstr "Zakupy"
 
-#: kscd.cpp:535
+#: kscd.cpp:537
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:561
+#: kscd.cpp:563
 msgid "Loop CD"
 msgstr "Powtarzaj CD"
 
-#: kscd.cpp:562
+#: kscd.cpp:564
 msgid "Track Selection"
 msgstr "Wybór ¶cie¿ek"
 
-#: kscd.cpp:563
+#: kscd.cpp:565
 msgid "30 Secs Forward"
 msgstr "30 sek do przodu"
 
-#: kscd.cpp:564
+#: kscd.cpp:566
 msgid "30 Secs Backward"
 msgstr "30 sek do ty³u"
 
-#: kscd.cpp:565
+#: kscd.cpp:567
 msgid "Next Track"
 msgstr "Nastêpna ¶cie¿ka"
 
-#: kscd.cpp:566
+#: kscd.cpp:568
 msgid "Previous Track"
 msgstr "Poprzednia ¶cie¿ka"
 
-#: kscd.cpp:567
+#: kscd.cpp:569
 #, fuzzy
 msgid "Quit Kscd"
 msgstr "Zakoñcz Kscd"
 
-#: kscd.cpp:568
+#: kscd.cpp:570
 msgid "Cycle Time Display"
 msgstr "Zegar"
 
-#: kscd.cpp:569
+#: kscd.cpp:571
 msgid "Configure Kscd"
 msgstr "Konfiguruj Kscd"
 
-#: kscd.cpp:570
+#: kscd.cpp:572
 msgid "Eject CD"
 msgstr "Wyrzuæ CD"
 
-#: kscd.cpp:571
+#: kscd.cpp:573
 msgid "The Artist on the Web"
 msgstr "Arty¶ci na WWW"
 
-#: kscd.cpp:572
+#: kscd.cpp:574
 msgid "Random Play"
 msgstr "Losowe odtwarzanie"
 
-#: kscd.cpp:573
+#: kscd.cpp:575
 msgid "CDDB Dialog"
 msgstr "CDDB"
 
-#: kscd.cpp:574
+#: kscd.cpp:576
 msgid "CD Volume Control"
 msgstr "CD g³o¶no¶æ"
 
-#: kscd.cpp:625 kscd.cpp:676 kscd.cpp:1267
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1272
 msgid "Playing"
 msgstr "Odtwarzanie"
 
-#: kscd.cpp:637 kscd.cpp:1281 kscd.cpp:1329 kscd.cpp:1737 kscd.cpp:1935
+#: kscd.cpp:639 kscd.cpp:1286 kscd.cpp:1339 kscd.cpp:1748 kscd.cpp:1946
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:668 kscd.cpp:1310
+#: kscd.cpp:670 kscd.cpp:1316
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:673 kscd.cpp:944 kscd.cpp:1263
+#: kscd.cpp:675 kscd.cpp:947 kscd.cpp:1268
 msgid "Random"
 msgstr "Losowo"
 
-#: kscd.cpp:681
+#: kscd.cpp:683
 msgid "Strange...."
 msgstr "Nietypowo..."
 
-#: kscd.cpp:698
+#: kscd.cpp:701
 msgid "Stopped"
 msgstr "Zatrzymany"
 
-#: kscd.cpp:907 kscd.cpp:1265
+#: kscd.cpp:910 kscd.cpp:1270
 msgid "Loop"
 msgstr "Powtarzanie"
 
-#: kscd.cpp:919
+#: kscd.cpp:922
 msgid "Ejecting"
 msgstr "Wyrzucanie"
 
-#: kscd.cpp:995
+#: kscd.cpp:998
 msgid "kscd Configuraton"
 msgstr "Konfiguracja kscd"
 
-#: kscd.cpp:1011
+#: kscd.cpp:1014
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -450,7 +455,7 @@ msgstr ""
 "Odwied¼ http://www.cddb.com po wiêcej informacji na temat CDDB.\n"
 "\n"
 
-#: kscd.cpp:1024
+#: kscd.cpp:1027
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -460,7 +465,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1028
+#: kscd.cpp:1031
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -470,23 +475,23 @@ msgstr ""
 "Podziêkowania dla Vadim Zaliva <lord@crocodile.org>\n"
 "za jego pracê nad obs³ug± http proxy.\n"
 
-#: kscd.cpp:1083
+#: kscd.cpp:1087
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1084
+#: kscd.cpp:1088
 msgid "Kscd Options"
 msgstr "Opcje Kscd"
 
-#: kscd.cpp:1085
+#: kscd.cpp:1089
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1173 kscd.cpp:2067
+#: kscd.cpp:1178 kscd.cpp:2078
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
-#: kscd.cpp:1211
+#: kscd.cpp:1216
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -497,52 +502,52 @@ msgstr ""
 "Proszê sprawdziæ prawa do:\n"
 "%s"
 
-#: kscd.cpp:1317
+#: kscd.cpp:1327
 msgid "Ready"
 msgstr "Gotowy"
 
-#: kscd.cpp:1361
+#: kscd.cpp:1370
 msgid "Ejected"
 msgstr "Wyrzucanie"
 
-#: kscd.cpp:1643
+#: kscd.cpp:1654
 msgid "Unable to get CDDB server list."
 msgstr "Nie mo¿na pobraæ listy CDDB."
 
-#: kscd.cpp:1787 kscd.cpp:1792
+#: kscd.cpp:1798 kscd.cpp:1803
 msgid "No matching CDDB entry found."
 msgstr "Brak wpisu do CDDB."
 
-#: kscd.cpp:1816 kscd.cpp:1826
+#: kscd.cpp:1827 kscd.cpp:1837
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Brak wpisu do CDDB."
 
-#: kscd.cpp:1842 kscd.cpp:1852
+#: kscd.cpp:1853 kscd.cpp:1863
 msgid "CDDB query timed out."
 msgstr "CDDB timeout."
 
-#: kscd.cpp:2042
+#: kscd.cpp:2053
 msgid "Tra Rem"
 msgstr "¦ci Zos"
 
-#: kscd.cpp:2046
+#: kscd.cpp:2057
 msgid "Tot Sec"
 msgstr "Ca³ Sek"
 
-#: kscd.cpp:2050
+#: kscd.cpp:2061
 msgid "Tot Rem"
 msgstr "Ca³ Zos"
 
-#: kscd.cpp:2055
+#: kscd.cpp:2066
 msgid "Tra Sec"
 msgstr "¦ci Sek"
 
-#: kscd.cpp:2180
+#: kscd.cpp:2191
 msgid "Cannot start kscdmagic."
 msgstr "Nie mo¿na uruchomiæ kscdmagic."
 
-#: kscd.cpp:2195
+#: kscd.cpp:2206
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -550,16 +555,16 @@ msgstr ""
 "KSCD Magic zakoñczy³ siê niespodziewanie.\n"
 "Czy kscdmagic jest na pewno zainstalowany?"
 
-#: kscd.cpp:2350
+#: kscd.cpp:2361
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "Katalog CDDB"
 
-#: kscd.cpp:2390
+#: kscd.cpp:2401
 msgid "-h: display commandline options\n"
 msgstr "-h: poka¿ opcje\n"
 
-#: kscd.cpp:2391
+#: kscd.cpp:2402
 msgid "-d: enable debugging output.\n"
 msgstr "-d: w³±cz tryb odpluskwiania\n"
 

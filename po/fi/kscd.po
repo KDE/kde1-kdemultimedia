@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-30 02:03+0100\n"
+"POT-Creation-Date: 1998-12-11 02:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -191,59 +191,64 @@ msgstr "Levyn ID"
 msgid "Upload"
 msgstr "Siirrä"
 
-#: configdlg.cpp:69
+#: configdlg.cpp:71
 msgid "Configure kscd"
 msgstr "Aseta kscd:tä"
 
-#: configdlg.cpp:76
+#: configdlg.cpp:78
 msgid "LED Color:"
 msgstr "LED:n väri:"
 
-#: configdlg.cpp:90
+#: configdlg.cpp:92
 msgid "Background Color:"
 msgstr "Taustaväri:"
 
-#: configdlg.cpp:104
+#: configdlg.cpp:106
 msgid "CDROM Device:"
 msgstr "CDROM Laite:"
 
-#: configdlg.cpp:121
+#: configdlg.cpp:123
 msgid "Unix mail command:"
 msgstr "Unix-postikomento:"
 
-#: configdlg.cpp:129
+#: configdlg.cpp:131
 msgid "WWW-Browser"
 msgstr "WWW-selain"
 
-#: configdlg.cpp:132
+#: configdlg.cpp:134
 msgid "Use kfm as Browser"
 msgstr "Käytä kfm:ää selaimena"
 
-#: configdlg.cpp:139
+#: configdlg.cpp:141
 msgid "Use Custom Browser:"
 msgstr "Käytä omaa selainta:"
 
-#: configdlg.cpp:151
+#: configdlg.cpp:153
 msgid "Show Tool Tips"
 msgstr "Näytä vihjeet"
 
-#: configdlg.cpp:157
+#: configdlg.cpp:159
 msgid "Enable KPanel Docking"
 msgstr "Käytä Kpaneliin upotusta"
 
-#: configdlg.cpp:163
+#: configdlg.cpp:165
 msgid "Play on Tray Close"
 msgstr "Soita kelkan sulkeuduttua"
 
-#: configdlg.cpp:169
+#: configdlg.cpp:171
 msgid "AutoDock on Minimize"
 msgstr "Nielaise pienennettäessä"
 
-#: configdlg.cpp:175
+#: configdlg.cpp:177
 msgid "Stop Playing on Exit"
 msgstr "Lopeta soitto lopetettaessa"
 
-#: docking.cpp:75 kscd.cpp:559
+#: configdlg.cpp:183
+#, fuzzy
+msgid "Eject on Finish"
+msgstr "Poistan levyä"
+
+#: docking.cpp:75 kscd.cpp:561
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
@@ -281,27 +286,27 @@ msgstr "Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevasta listasta."
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Valitse Levyn otsikko tai paina Peruuta"
 
-#: kscd.cpp:223
+#: kscd.cpp:225
 msgid "Record submitted successfully"
 msgstr "Tallenne siirretty"
 
-#: kscd.cpp:233
+#: kscd.cpp:235
 msgid "Error connecting to server."
 msgstr "Virhe palvelimeen yhdistettäessä."
 
-#: kscd.cpp:236
+#: kscd.cpp:238
 msgid "Not connected."
 msgstr "Ei yhteyttä."
 
-#: kscd.cpp:239
+#: kscd.cpp:241
 msgid "Connection timed out."
 msgstr "Yhteyden aikavalvonta laukesi."
 
-#: kscd.cpp:242
+#: kscd.cpp:244
 msgid "Time out waiting for server interaction."
 msgstr "Yhteyden aikavalvonta laukesi osotettaessa palvelinta."
 
-#: kscd.cpp:245
+#: kscd.cpp:247
 #, c-format
 msgid ""
 "Server said:\n"
@@ -310,7 +315,7 @@ msgstr ""
 "Palvelin sanoi:\n"
 "\"%s\""
 
-#: kscd.cpp:247
+#: kscd.cpp:249
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -321,117 +326,117 @@ msgstr ""
 "\n"
 "%s"
 
-#: kscd.cpp:375
+#: kscd.cpp:377
 msgid "Vol: --"
 msgstr "Ään: --"
 
-#: kscd.cpp:525
+#: kscd.cpp:527
 msgid "Performances"
 msgstr "Esitykset"
 
-#: kscd.cpp:528
+#: kscd.cpp:530
 msgid "Purchases"
 msgstr "Ostopaikat"
 
-#: kscd.cpp:535
+#: kscd.cpp:537
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:561
+#: kscd.cpp:563
 msgid "Loop CD"
 msgstr "Toista CD:tä"
 
-#: kscd.cpp:562
+#: kscd.cpp:564
 msgid "Track Selection"
 msgstr "Kappaleen valinta"
 
-#: kscd.cpp:563
+#: kscd.cpp:565
 msgid "30 Secs Forward"
 msgstr "30 sekuntia eteen"
 
-#: kscd.cpp:564
+#: kscd.cpp:566
 msgid "30 Secs Backward"
 msgstr "30 sekuntia taakse"
 
-#: kscd.cpp:565
+#: kscd.cpp:567
 msgid "Next Track"
 msgstr "Seuraava kappale"
 
-#: kscd.cpp:566
+#: kscd.cpp:568
 msgid "Previous Track"
 msgstr "Edellinen kappale"
 
-#: kscd.cpp:567
+#: kscd.cpp:569
 #, fuzzy
 msgid "Quit Kscd"
 msgstr "Magic Kscd"
 
-#: kscd.cpp:568
+#: kscd.cpp:570
 msgid "Cycle Time Display"
 msgstr "Aikanäyttö"
 
-#: kscd.cpp:569
+#: kscd.cpp:571
 msgid "Configure Kscd"
 msgstr "Aseta Kscd:tä"
 
-#: kscd.cpp:570
+#: kscd.cpp:572
 msgid "Eject CD"
 msgstr "Poista CD"
 
-#: kscd.cpp:571
+#: kscd.cpp:573
 msgid "The Artist on the Web"
 msgstr "Artisti verkossa"
 
-#: kscd.cpp:572
+#: kscd.cpp:574
 msgid "Random Play"
 msgstr "Satunnainen soitto"
 
-#: kscd.cpp:573
+#: kscd.cpp:575
 msgid "CDDB Dialog"
 msgstr "CDDB-Valintaikkuna"
 
-#: kscd.cpp:574
+#: kscd.cpp:576
 msgid "CD Volume Control"
 msgstr "CD äänenvoimakkuus"
 
-#: kscd.cpp:625 kscd.cpp:676 kscd.cpp:1267
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1272
 msgid "Playing"
 msgstr "Soitan"
 
-#: kscd.cpp:637 kscd.cpp:1281 kscd.cpp:1329 kscd.cpp:1737 kscd.cpp:1935
+#: kscd.cpp:639 kscd.cpp:1286 kscd.cpp:1339 kscd.cpp:1748 kscd.cpp:1946
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: <tuntematon>"
 
-#: kscd.cpp:668 kscd.cpp:1310
+#: kscd.cpp:670 kscd.cpp:1316
 msgid "Pause"
 msgstr "Paussi"
 
-#: kscd.cpp:673 kscd.cpp:944 kscd.cpp:1263
+#: kscd.cpp:675 kscd.cpp:947 kscd.cpp:1268
 msgid "Random"
 msgstr "Satunnainen"
 
-#: kscd.cpp:681
+#: kscd.cpp:683
 msgid "Strange...."
 msgstr "Outo..."
 
-#: kscd.cpp:698
+#: kscd.cpp:701
 msgid "Stopped"
 msgstr "Pysäytetty"
 
-#: kscd.cpp:907 kscd.cpp:1265
+#: kscd.cpp:910 kscd.cpp:1270
 msgid "Loop"
 msgstr "Silmukka"
 
-#: kscd.cpp:919
+#: kscd.cpp:922
 msgid "Ejecting"
 msgstr "Poistan levyä"
 
-#: kscd.cpp:995
+#: kscd.cpp:998
 msgid "kscd Configuraton"
 msgstr "kscd Asetukset"
 
-#: kscd.cpp:1011
+#: kscd.cpp:1014
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -464,7 +469,7 @@ msgstr ""
 "CDDB:tä.\n"
 "\n"
 
-#: kscd.cpp:1024
+#: kscd.cpp:1027
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -474,7 +479,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1028
+#: kscd.cpp:1031
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -483,23 +488,23 @@ msgstr ""
 "Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
 "hänen työstään http proxy-koodin kanssa.\n"
 
-#: kscd.cpp:1083
+#: kscd.cpp:1087
 msgid "SMTP Setup"
 msgstr "SMTP Asetukset"
 
-#: kscd.cpp:1084
+#: kscd.cpp:1088
 msgid "Kscd Options"
 msgstr "Kscd optiot"
 
-#: kscd.cpp:1085
+#: kscd.cpp:1089
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1173 kscd.cpp:2067
+#: kscd.cpp:1178 kscd.cpp:2078
 msgid "Vol: %02d%%"
 msgstr "Ään: %02d%%"
 
-#: kscd.cpp:1211
+#: kscd.cpp:1216
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -510,51 +515,51 @@ msgstr ""
 "Varmista että sinulla on käyttöoikeudet laitteeseen:\n"
 "%s"
 
-#: kscd.cpp:1317
+#: kscd.cpp:1327
 msgid "Ready"
 msgstr "Valmis"
 
-#: kscd.cpp:1361
+#: kscd.cpp:1370
 msgid "Ejected"
 msgstr "Ei levyä"
 
-#: kscd.cpp:1643
+#: kscd.cpp:1654
 msgid "Unable to get CDDB server list."
 msgstr "En saa CDDB-palvelinlistaa."
 
-#: kscd.cpp:1787 kscd.cpp:1792
+#: kscd.cpp:1798 kscd.cpp:1803
 msgid "No matching CDDB entry found."
 msgstr "Ei yhteensopivaa CDDB-tietuetta."
 
-#: kscd.cpp:1816 kscd.cpp:1826
+#: kscd.cpp:1827 kscd.cpp:1837
 msgid "Error getting CDDB entry."
 msgstr "Virhe haettaessa CDDB-tietuetta."
 
-#: kscd.cpp:1842 kscd.cpp:1852
+#: kscd.cpp:1853 kscd.cpp:1863
 msgid "CDDB query timed out."
 msgstr "CDDB-hakuaika loppui."
 
-#: kscd.cpp:2042
+#: kscd.cpp:2053
 msgid "Tra Rem"
 msgstr "Kap Jäl"
 
-#: kscd.cpp:2046
+#: kscd.cpp:2057
 msgid "Tot Sec"
 msgstr "Yht Sek"
 
-#: kscd.cpp:2050
+#: kscd.cpp:2061
 msgid "Tot Rem"
 msgstr "Yht Jäl"
 
-#: kscd.cpp:2055
+#: kscd.cpp:2066
 msgid "Tra Sec"
 msgstr "Kap Sek"
 
-#: kscd.cpp:2180
+#: kscd.cpp:2191
 msgid "Cannot start kscdmagic."
 msgstr "En saa käynnistettyä kscdmagic:a."
 
-#: kscd.cpp:2195
+#: kscd.cpp:2206
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -562,15 +567,15 @@ msgstr ""
 "KSCD Magic lopetti epänormaalisti.\n"
 "Oletko varma, että se on asennettu?"
 
-#: kscd.cpp:2350
+#: kscd.cpp:2361
 msgid "Enter the local CDDB base Directory"
 msgstr "Anna CDDB-juurihakemisto"
 
-#: kscd.cpp:2390
+#: kscd.cpp:2401
 msgid "-h: display commandline options\n"
 msgstr "-h: näytä komentorivioptiot\n"
 
-#: kscd.cpp:2391
+#: kscd.cpp:2402
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debuggaustiedot.\n"
 
