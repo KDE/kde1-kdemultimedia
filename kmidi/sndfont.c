@@ -31,7 +31,10 @@
 #ifdef ADAGIO
 #define SF_SUPPRESS_VIBRATO
 #endif
-#define SF_SUPPRESS_CUTOFF
+/*#define SF_SUPPRESS_CUTOFF*/
+
+/* sounds crappy -- 2mbgmgs.sf2 has them */
+/* #define DO_LINKED_WAVES */
 
 /* require cfg declarations of all banks and presets --gl */
 #define STRICT_VOICE_DECL
@@ -85,7 +88,8 @@ typedef struct _SFOrder {
 /*----------------------------------------------------------------*/
 
 /*static void free_sample(InstList *ip);*/
-static Instrument *load_from_file(SFInsts *rec, InstList *ip);
+static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp);
+static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp);
 static int is_excluded(int bank, int preset, int keynote);
 /*static void free_exclude(void);*/
 static int is_ordered(int bank, int preset, int keynote);
@@ -115,7 +119,7 @@ static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp);
 #ifndef SF_SUPPRESS_VIBRATO
 static void convert_vibrato(Layer *lay, SFInfo *sf, SampleList *sp);
 #endif
-/*static void do_lowpass(Sample *sp, int32 freq, float resonance);*/
+static void do_lowpass(Sample *sp, int32 freq, float resonance);
 static void calc_cutoff(Layer *lay, SFInfo *sf, SampleList *sp);
 static void calc_filterQ(Layer *lay, SFInfo *sf, SampleList *sp);
 
@@ -126,6 +130,7 @@ static SFExclude *sfexclude;
 static SFOrder *sforder;
 
 int cutoff_allowed = 0;
+int command_cutoff_allowed = 0;
 
 
 #ifdef GREGSTEST
@@ -139,9 +144,11 @@ static char *getname(p)
 }
 #endif
 
+static SFInfo sfinfo;
+
 void init_soundfont(char *fname, int order)
 {
-	static SFInfo sfinfo;
+	/*static SFInfo sfinfo;*/
 	int i;
 
 	ctl->cmsg(CMSG_INFO, VERB_NOISY, "init soundfonts `%s'", fname);
@@ -282,6 +289,11 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
     }
     else keynote = -1;
 
+    cutoff_allowed = command_cutoff_allowed;
+/*
+    if (command_cutoff_allowed) cutoff_allowed = !percussion;
+    else cutoff_allowed = 0;
+*/
 
 	for (ip = sfrec.instlist; ip; ip = ip->next) {
 		if (ip->bank == bank && ip->preset == preset &&
@@ -297,7 +309,7 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
 			(percussion)? keynote : preset, (percussion)? preset : bank, sfrec.fname);
 		sfrec.fd = ip->fd;
 		sfrec.fname = ip->fname;
-		inst = load_from_file(&sfrec, ip);
+		inst = load_from_file(&sfrec, ip, amp);
 	}
 	else if (order) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't find instrument %s[%d,%d] in %s.", name,
 			(percussion)? keynote : preset, (percussion)? preset : bank, sfrec.fname);
@@ -321,11 +333,9 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
 }
 
 
-static Instrument *load_from_file(SFInsts *rec, InstList *ip)
+static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp)
 {
-	SampleList *sp;
 	Instrument *inst;
-	int i;
 
 /*
 	ctl->cmsg(CMSG_INFO, VERB_NOISY, "Loading SF bank %d prg %d note %d from %s",
@@ -344,8 +354,25 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip)
 	if (ip->rsamples) inst->right_sample = safe_malloc(sizeof(Sample)*ip->rsamples);
 	else inst->right_sample = 0;
 
-	for (i = 0, sp = ip->slist; i < ip->samples && sp; i++, sp = sp->next) {
-		Sample *sample = inst->sample + i;
+	if (load_one_side(rec, ip->slist, ip->samples, inst->sample, amp) &&
+	    load_one_side(rec, ip->rslist, ip->rsamples, inst->right_sample, amp))
+		return inst;
+
+	if (inst->right_sample) free(inst->right_sample);
+	free(inst->sample);
+	free(inst);
+	return 0;
+}
+
+
+static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp)
+{
+	int i;
+
+	/*for (i = 0, sp = ip->slist; i < ip->samples && sp; i++, sp = sp->next) {*/
+	for (i = 0; i < sample_count && sp; i++, sp = sp->next) {
+		/*Sample *sample = inst->sample + i;*/
+		Sample *sample = base_sample + i;
 #ifndef LITTLE_ENDIAN
 		int32 j;
 		int16 *tmp, s;
@@ -354,16 +381,10 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip)
 		sample->data = safe_malloc(sp->endsample);
 		if (fseek(rec->fd, sp->startsample, SEEK_SET)) {
 			ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't find sample in file!\n");
-			if (inst->right_sample) free(inst->right_sample);
-			free(inst->sample);
-			free(inst);
 			return 0;
 		}
 		if (!fread(sample->data, sp->endsample, 1, rec->fd)) {
 			ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't read sample from file!\n");
-			if (inst->right_sample) free(inst->right_sample);
-			free(inst->sample);
-			free(inst);
 			return 0;
 		}
 #ifndef LITTLE_ENDIAN
@@ -379,13 +400,46 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip)
 		if (sp->cutoff_freq > 0 && cutoff_allowed) {
 			/* restore the normal value */
 			sample->data_length >>= FRACTION_BITS;
-			fprintf(stderr, "bank=%d, preset=%d, keynote=%d / cutoff = %d / resonance = %g\n",
+/**
+    		ctl->cmsg(CMSG_INFO, VERB_NOISY, "bank=%d, preset=%d, keynote=%d / cutoff = %ld / resonance = %g",
 				ip->bank, ip->preset, ip->keynote, sp->cutoff_freq, sp->resonance);
+**/
 			do_lowpass(sample, sp->cutoff_freq, sp->resonance);
 			/* convert again to the fractional value */
 			sample->data_length <<= FRACTION_BITS;
 		}
 #endif
+/********/
+
+#ifdef ADJUST_SAMPLE_VOLUMES
+      if (amp!=-1)
+	sample->volume=(double)(amp) / 100.0;
+      else
+	{
+	  /* Try to determine a volume scaling factor for the sample.
+	     This is a very crude adjustment, but things sound more
+	     balanced with it. Still, this should be a runtime option. */
+	  int32 i=sp->endsample/2;
+	  int16 maxamp=0,a;
+	  int16 *tmp=(int16 *)sample->data;
+	  while (i--)
+	    {
+	      a=*tmp++;
+	      if (a<0) a=-a;
+	      if (a>maxamp)
+		maxamp=a;
+	    }
+	  sample->volume=32768.0 / (double)(maxamp);
+	  ctl->cmsg(CMSG_INFO, VERB_DEBUG, " * volume comp: %f", sample->volume);
+	}
+#else
+      if (amp!=-1)
+	sample->volume=(double)(amp) / 100.0;
+      else
+	sample->volume=1.0;
+#endif
+
+/********/
 
 		if (antialiasing_allowed) {
 			/* restore the normal value */
@@ -415,69 +469,7 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip)
 		}
 #endif
 	}
-
-
-	for (i = 0, sp = ip->rslist; i < ip->rsamples && sp; i++, sp = sp->next) {
-		Sample *sample = inst->right_sample + i;
-#ifndef LITTLE_ENDIAN
-		int32 j;
-		int16 *tmp, s;
-#endif
-		memcpy(sample, &sp->v, sizeof(Sample));
-		sample->data = safe_malloc(sp->endsample);
-		fseek(rec->fd, sp->startsample, SEEK_SET);
-		fread(sample->data, sp->endsample, 1, rec->fd);
-#ifndef LITTLE_ENDIAN
-		tmp = (int16*)sample->data;
-		for (j = 0; j < sp->endsample/2; j++) {
-			s = LE_SHORT(*tmp);
-			*tmp++ = s;
-		}
-#endif
-
-		/* do some filtering if necessary */
-#ifndef SF_SUPPRESS_CUTOFF
-		if (sp->cutoff_freq > 0 && cutoff_allowed) {
-			/* restore the normal value */
-			sample->data_length >>= FRACTION_BITS;
-			fprintf(stderr, "bank=%d, preset=%d, keynote=%d / cutoff = %d / resonance = %g\n",
-				ip->bank, ip->preset, ip->keynote, sp->cutoff_freq, sp->resonance);
-			do_lowpass(sample, sp->cutoff_freq, sp->resonance);
-			/* convert again to the fractional value */
-			sample->data_length <<= FRACTION_BITS;
-		}
-#endif
-
-		if (antialiasing_allowed) {
-			/* restore the normal value */
-			sample->data_length >>= FRACTION_BITS;
-			antialiasing(sample, play_mode->rate);
-			/* convert again to the fractional value */
-			sample->data_length <<= FRACTION_BITS;
-		}
-
-		/* resample it if possible */
-		if (sample->note_to_use && !(sample->modes & MODES_LOOPING))
-			pre_resample(sample);
-
-/*fprintf(stderr,"sample %d, note_to_use %d\n", i, sample->note_to_use);*/
-#ifdef LOOKUP_HACK
-		/* squash the 16-bit data into 8 bits. */
-		{
-			uint8 *gulp,*ulp;
-			int16 *swp;
-			int l = sample->data_length >> FRACTION_BITS;
-			gulp = ulp = safe_malloc(l + 1);
-			swp = (int16 *)sample->data;
-			while (l--)
-				*ulp++ = (*swp++ >> 8) & 0xFF;
-			free(sample->data);
-			sample->data=(sample_t *)gulp;
-		}
-#endif
-	}
-
-	return inst;
+	return 1;
 }
 
 
@@ -713,7 +705,7 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 	int banknum = sf->presethdr[pr_idx].bank;
 	int preset = sf->presethdr[pr_idx].preset;
 	int keynote, n_order, program, truebank;
-	int strip_loop = -1;
+	int strip_loop = 0, strip_envelope = 0, strip_tail = 0, panning = 0, amp = 0;
 #ifndef ADAGIO
 	ToneBank *bank=0;
 	char **namep;
@@ -721,8 +713,21 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 	InstList *ip;
 	tsampleinfo *sample;
 	SampleList *sp;
+#ifdef DO_LINKED_WAVES
+	int linked_wave;
+#endif
+
+	/* more than 2 notes in chord?  sorry -- no can do */
+	if (which > 1) return;
 
 	sample = &sf->sampleinfo[lay->val[SF_sampleId]];
+#ifdef DO_LINKED_WAVES
+	linked_wave = sample->samplelink;
+	if (linked_wave && linked_wave < sfinfo.nrinfos) {
+		if (which == -1) sample = &sf->sampleinfo[linked_wave - 1];
+		else make_inst(rec, lay, sf, pr_idx, in_idx, order, -1);
+	}
+#endif
 	if (sample->sampletype & 0x8000) /* is ROM sample? */
 		return;
 
@@ -794,6 +799,12 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 #else
 	if (truebank && bank->tone[program].font_type != FONT_SBK) return;
 #endif
+	panning = bank->tone[program].pan;
+	amp = bank->tone[program].amp;
+	strip_loop = bank->tone[program].strip_loop;
+	strip_envelope = bank->tone[program].strip_envelope;
+	strip_tail = bank->tone[program].strip_tail;
+	if (!strip_envelope) strip_envelope = (banknum == 128);
 #endif
 
 	if (is_excluded(banknum, preset, keynote))
@@ -853,11 +864,11 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 /** something is wrong here
  Try casting the layer offset to signed ints?
 **/
-	sp->startsample = (lay->val[SF_startAddrsHi] << 15)
-		+ lay->val[SF_startAddrs]
+	sp->startsample = ((short)lay->val[SF_startAddrsHi] * 32768)
+		+ (short)lay->val[SF_startAddrs]
 		+ sample->startsample;
-	sp->endsample = (lay->val[SF_endAddrsHi] << 15)
-		+ lay->val[SF_endAddrs]
+	sp->endsample = ((short)lay->val[SF_endAddrsHi] * 32768)
+		+ (short)lay->val[SF_endAddrs]
 		+ sample->endsample - sp->startsample;
 
 /* TODO: Substitute values given in config file, assessed by, e.g.:
@@ -865,11 +876,11 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 */
 
 	/* set loop position */
-	sp->v.loop_start = (lay->val[SF_startloopAddrsHi] << 15)
-		+ lay->val[SF_startloopAddrs]
+	sp->v.loop_start = ((short)lay->val[SF_startloopAddrsHi] * 32768)
+		+ (short)lay->val[SF_startloopAddrs]
 		+ sample->startloop - sp->startsample;
-	sp->v.loop_end = (lay->val[SF_endloopAddrsHi] << 15)
-		+ lay->val[SF_endloopAddrs]
+	sp->v.loop_end = ((short)lay->val[SF_endloopAddrsHi] * 32768)
+		+ (short)lay->val[SF_endloopAddrs]
 		+ sample->endloop - sp->startsample;
 	sp->v.data_length = sp->endsample;
 #if 0
@@ -911,34 +922,33 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 #endif
 
 	if (sp->v.loop_start < 0) {
-		fprintf(stderr, "negative loop pointer: stripping loop\n");
+		ctl->cmsg(CMSG_INFO, VERB_DEBUG, " - Negative loop pointer: removing loop");
 		strip_loop = 1;
 	}
 	if (sp->v.loop_start > sp->v.loop_end) {
-		fprintf(stderr, "illegal loop position: stripping loop\n");
+		ctl->cmsg(CMSG_INFO, VERB_DEBUG, " - Illegal loop position: removing loop");
 		strip_loop = 1;
 	}
 	if (sp->v.loop_end > sp->v.data_length) {
-		/* this happens a lot with chaos12m --gl */
-		/*fprintf(stderr, "illegal loop end or data size\n");*/
-		/*strip_loop = 1;*/
-		if (sp->v.loop_end - sp->v.loop_start > 4)
-			sp->v.loop_end -= 4;
+		ctl->cmsg(CMSG_INFO, VERB_DEBUG, " - Illegal loop end or data size: adjusting loop");
+		if (sp->v.loop_end - sp->v.data_length > 4)
+			sp->v.loop_end = sp->v.data_length - 4;
 		else sp->v.loop_end = sp->v.data_length;
 	}
+#if 0
 if (strip_loop == 1) {
 	fprintf(stderr, "orig start sample %lu, endsample %lu\n", sample->startsample, sample->endsample);
 	fprintf(stderr, "SF_startAddr %d, SF_endAddr %d\n",
-		(lay->val[SF_startAddrsHi] << 16) + lay->val[SF_startAddrs],
-		(lay->val[SF_endAddrsHi] << 16) + lay->val[SF_endAddrs] );
+		((short)lay->val[SF_startAddrsHi] * 32768) + (short)lay->val[SF_startAddrs],
+		((short)lay->val[SF_endAddrsHi] * 32768) + (short)lay->val[SF_endAddrs] );
 	fprintf(stderr, "start sample %lu, length %lu\n", sp->startsample, sp->endsample);
 	fprintf(stderr, "orig loop start %lu, loop end %lu\n", sample->startloop, sample->endloop);
 	fprintf(stderr, "SF_startloopAddr %d, SF_endloopAddr %d\n",
-		(lay->val[SF_startloopAddrsHi] << 16) + lay->val[SF_startloopAddrs],
-		(lay->val[SF_endloopAddrsHi] << 16) + lay->val[SF_endloopAddrs] );
+		((short)lay->val[SF_startloopAddrsHi] * 32768) + (short)lay->val[SF_startloopAddrs],
+		((short)lay->val[SF_endloopAddrsHi] * 32768) + (short)lay->val[SF_endloopAddrs] );
 	fprintf(stderr, "loop start %lu, loop end %lu\n", sp->v.loop_start, sp->v.loop_end);
 }
-/*#endif*/
+#endif
 
 	sp->v.sample_rate = sample->samplerate;
 	if (lay->set[SF_keyRange]) {
@@ -989,6 +999,12 @@ if (strip_loop == 1) {
 	  ctl->cmsg(CMSG_INFO, VERB_DEBUG, " - Removing loop and/or sustain");
 	  sp->v.modes &=~(MODES_SUSTAIN | MODES_LOOPING | 
 			MODES_PINGPONG | MODES_REVERSE);
+	}
+      if (strip_envelope==1)
+	{
+	  if (sp->v.modes & MODES_ENVELOPE)
+	    ctl->cmsg(CMSG_INFO, VERB_DEBUG, " - Removing envelope");
+	  sp->v.modes &= ~MODES_ENVELOPE;
 	}
 
 
@@ -1374,11 +1390,13 @@ static void do_lowpass(Sample *sp, int32 freq, float resonance)
 	}
 	A = 2.0 * M_PI * freq * 2.5 / sp->sample_rate;
 	B = exp(-A / sp->sample_rate);
+/*
 	A *= 0.8;
 	B *= 0.8;
+*/
 	C = 0;
 
-	/*
+	/* */
 	if (resonance) {
 		double a, b, c;
 		int32 width;
@@ -1392,7 +1410,11 @@ static void do_lowpass(Sample *sp, int32 freq, float resonance)
 		B += b;
 		C = c;
 	}
-	*/
+	/* */
+
+	A *= 0.30;
+	B *= 0.30;
+	C *= 0.30;
 
 	pv1 = 0;
 	pv2 = 0;
