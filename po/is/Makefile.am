@@ -1,6 +1,6 @@
 
 # This has to be set. The rest should be reusable
-GMOFILES = kmix.gmo kscd.gmo
+GMOFILES = kmix.gmo kscd.gmo kmedia.gmo kmid.gmo
 
 POFILES = $(GMOFILES:.gmo=.po)
 
