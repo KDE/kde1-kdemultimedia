@@ -57,11 +57,11 @@ msgstr ""
 
 #: CDDialog.cpp:244
 msgid "Use this Editor to annotate this track"
-msgstr "Utilizar este Editor para anotar esta faixa"
+msgstr "Utilize este Editor para anotar esta faixa"
 
 #: CDDialog.cpp:269
 msgid "Use this Editor to annotate the title"
-msgstr "Utilizar este Editor para anotar o título"
+msgstr "Utilize este Editor para anotar o título"
 
 #: CDDialog.cpp:415 CDDialog.cpp:544
 msgid "Please select a Category or press Cancel"
