@@ -121,9 +121,6 @@ private:
   QPushButton	*quitPB;	// Quit button
   QPushButton	*ejectPB;	// Eject button
 
-  //	QPushButton	*aboutPB;	// about button
-  //	QComboBox	*songListCB;	// Track listing
-
   QPopupMenu	*Mfile;
   QPopupMenu	*Moptions;
   QPopupMenu	*Mhelp;

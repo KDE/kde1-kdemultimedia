@@ -218,9 +218,9 @@ void KMediaWin::TimerFunctions()
 
 
 
-void KMediaWin::PosChanged( int /*new_pos*/ )
+void KMediaWin::PosChanged( int new_pos )
 {
-  //  fprintf(stderr,"New Position is %i.\n", new_pos);
+  fprintf(stderr,"New Position is %i.\n", new_pos);
 }
 
 
