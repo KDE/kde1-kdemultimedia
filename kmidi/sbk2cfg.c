@@ -79,7 +79,7 @@ static char *getname(p)
 
 static void print_sbk(SFInfo *sf, FILE *fout)
 {
-    int i, bank, preset;
+    int i, bank, preset, lastpatch;
     int lastbank = -1;
     tpresethdr *ip;
     tinsthdr *tp;
@@ -91,6 +91,7 @@ static void print_sbk(SFInfo *sf, FILE *fout)
 
     for (bank = 0; bank <= 128; bank++) {
       for (preset = 0; preset <= 128; preset++) {
+      lastpatch = -1;
 	for (i = 0, ip = sf->presethdr; i < sf->nrpresets-1; i++) {
 	    int b, g, inst, sm_idx;
 	    if (ip[i].bank != bank) continue;
@@ -118,21 +119,36 @@ static void print_sbk(SFInfo *sf, FILE *fout)
 		    }
 		    if (sm_idx >= 0 && sf->sampleinfo[sm_idx].sampletype < 0x8000) realwaves++;
 		}
-		if (realwaves) fprintf(fout, "\t%3d %s\n", ip[i].preset, getname(ip[i].name));
+		if (realwaves && ip[i].preset != lastpatch) {
+		    fprintf(fout, "\t%3d %s\n", ip[i].preset, getname(ip[i].name));
+		    lastpatch = ip[i].preset;
+		}
 	    }
 	    else {
-		int keynote;
+		int keynote, c;
 		fprintf(fout, "\ndrumset %d sbk\t\t#%s\n", ip[i].preset, getname(ip[i].name));
-		for (b = tp[inst].bagNdx; b < tp[inst+1].bagNdx; b++) {
+
+	        for (c = ip[i].bagNdx; c < ip[i+1].bagNdx; c++) {
+		  inst = -1;
+		  for (g = sf->presetbag[c]; g < sf->presetbag[c+1]; g++)
+		   if (sf->presetgen[g].oper == SF_instrument) {
+			inst = sf->presetgen[g].amount;
+			break;
+		   }
+		  if (inst >= 0) for (b = tp[inst].bagNdx; b < tp[inst+1].bagNdx; b++) {
 		    sm_idx = keynote = -1;
 		    for (g = sf->instbag[b]; g < sf->instbag[b+1]; g++) {
 			if (sf->instgen[g].oper == SF_sampleId) sm_idx = sf->instgen[g].amount;
 			else if (sf->instgen[g].oper == SF_keyRange) keynote = sf->instgen[g].amount & 0xff;
 		    }
 		    if (sf->sampleinfo[sm_idx].sampletype >= 0x8000) continue;
-		    if (sm_idx >= 0 && keynote >= 0)
+		    if (sm_idx >= 0 && keynote >= 0 && keynote != lastpatch) {
 			   fprintf(fout, "\t%3d %s\n", keynote, getname( sf->samplenames[sm_idx].name ));
-		}
+			   lastpatch = keynote;
+		    }
+		  }
+	        }
+
 	    }
 	}
       }
