@@ -1,0 +1,16 @@
+kdemultimedia (2:980311-2) frozen; urgency=low
+
+  * new compile cycle with qt-1.33 and libstdc++-2.8
+
+ -- Stephan Kulow <coolo@kde.org>  Tue, 24 Mar 1998 21:55:40 +0100
+
+kdemultimedia (2:980311-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Stephan Kulow <coolo@kde.org>  Tue, 12 Mar 1998 21:43:02 +0100
+
+Local variables:
+mode: debian-changelog
+add-log-mailing-address: "coolo@kde.org"
+End:
