@@ -94,6 +94,10 @@ msgstr ""
 msgid "Tickmarks"
 msgstr ""
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr ""

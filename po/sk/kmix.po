@@ -67,7 +67,7 @@ msgstr "Vypnú» tl&menie"
 
 #: kmix.cpp:582
 msgid "&Mute"
-msgstr "Stl&mit"
+msgstr "Stl&mi»"
 
 #: kmix.cpp:585
 msgid "&Split"
@@ -101,13 +101,17 @@ msgstr "Menu"
 msgid "Tickmarks"
 msgstr "Stupnica"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr "Povoli» vsúvanie"
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "Nastavenie Kmixu"
 
 #: prefs.cpp:87
 msgid "Mixer channel setup (not saved yet)"
-msgstr "Nastavenie kanálov mixéru (e¹te nie je ulo¾ené)"
+msgstr "Nastavenie kanálov mixéru"
 
 #: prefs.cpp:94
 msgid "Device"
@@ -117,23 +121,3 @@ msgstr "Zariadenie"
 msgid "Show"
 msgstr "Zobrazova»"
 
-#~ msgid "&Options"
-#~ msgstr "&Mo¾nosti"
-
-#~ msgid "&Quit"
-#~ msgstr "&Ukonèi»"
-
-#~ msgid "&Contents"
-#~ msgstr "&Obsah"
-
-#~ msgid "&About"
-#~ msgstr "&Informácie"
-
-#~ msgid "&About Qt..."
-#~ msgstr "Informácie o &Qt"
-
-#~ msgid "&File"
-#~ msgstr "&Súbor"
-
-#~ msgid "&Help"
-#~ msgstr "&Pomocník"
