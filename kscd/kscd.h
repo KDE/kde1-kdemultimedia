@@ -1,10 +1,10 @@
-/*   
+/*
    Kscd - A simple cd player for the KDE Project
 
    $Id$
- 
+
    Copyright (c) 1997 Bernd Johannes Wuebben math.cornell.edu
-   
+
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation; either version 2, or (at your option)
@@ -40,8 +40,8 @@
 #include <qscrbar.h>
 #include <qslider.h>
 #include <qtabdlg.h>
-#include <qtooltip.h> 
-#include <qpopmenu.h> 
+#include <qtooltip.h>
+#include <qpopmenu.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -226,7 +226,7 @@ private:
 	void 	 	setLEDs(QString symbols);
 	int 	        randomtrack();
 
-//TODO get rid of the mixe stuff 
+//TODO get rid of the mixe stuff
 
 	void		initMixer( const char *mixer = "/dev/mixer" );
 
@@ -271,8 +271,7 @@ public:
 
 
 protected:
-
-	void closeEvent( QCloseEvent *e );
+     bool event( QEvent* e);
 	void playtime();
 	void setupPopups();
 	void startBrowser(char* querystring);
