@@ -2,17 +2,17 @@
 [KDE Desktop Entry]
 Comment=CD Database File
 Comment[de]=CD-Datenbank-Datei
-Comment[fr]=Banque de données pour CD
-Comment[sv]=Cd databas fil
 Comment[es]=Archivo de datos de CDs
 Comment[fi]=CD Tietokantatiedosto
-Comment[pt]=Ficheiro de Dados de CDs
+Comment[fr]=Banque de données pour CD
 Comment[hr]=CD baza datoteka
-Comment[ro]=Fiºier de bazã de date pentru sidiuri audio
-Comment[no]=CD-databasefil
-Comment[sk]=Databázový súbor CD
-Comment[pt_BR]=Arquivo de Dados de CDs
 Comment[is]=CD gagnasafnsskrá
+Comment[no]=CD-databasefil
+Comment[pt]=Ficheiro de Dados de CDs
+Comment[pt_BR]=Arquivo de Dados de CDs
+Comment[ro]=Fiºier de bazã de date pentru sidiuri audio
+Comment[sk]=Databázový súbor CD
+Comment[sv]=Cd databas fil
 DefaultApp=kedit
 Icon=cd.xpm
 Type=MimeType
