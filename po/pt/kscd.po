@@ -312,7 +312,7 @@ msgstr "Sair do Kscd"
 
 #: kscd.cpp:516
 msgid "Cycle Time Display"
-msgstr ""
+msgstr "Mostrador de Tempo Circular"
 
 #: kscd.cpp:517
 msgid "Configure Kscd"
