@@ -48,7 +48,7 @@ class Preferences : public QDialog
       QLineEdit		*mixerLE;
       QString	 	mixerCommand;
       KConfig		*kcfg;
-
+      int useDevice();
 signals:
 	void optionsApply();
 	
@@ -57,6 +57,10 @@ signals:
       void slotOk();
       void slotApply();
       void slotCancel();
+
+private:
+      int  devNum;
+      QRadioButton *rb2_4,*rb2_5;
 };
 
 

@@ -27,7 +27,8 @@
 Preferences::Preferences( QWidget *parent ) :
    QDialog( parent )
 {
-  int tabwidth = 300, tabheight = 200;
+   int tabwidth = 300, tabheight = 200;
+   int devNum = 0;  // Default
 
    tabctl = new KTabCtl( this );
    
@@ -52,9 +53,10 @@ Preferences::Preferences( QWidget *parent ) :
    grpbox2->setGeometry( 10, 10, tabctl->width()-20, 100 );
    QRadioButton *rb2_3 = new QRadioButton( "Default ", grpbox2 );
    rb2_3->move( 10, 15 );   
-   QRadioButton *rb2_4 = new QRadioButton( "Device 1", grpbox2 );
+   rb2_3->setChecked(true);
+   rb2_4 = new QRadioButton( "Device 1", grpbox2 );
    rb2_4->move( 10, 40 );
-   QRadioButton *rb2_5 = new QRadioButton( "Device 2", grpbox2 );
+   rb2_5 = new QRadioButton( "Device 2", grpbox2 );
    rb2_5->move( 10, 65 );
    QLabel *lbl2_1 = new QLabel( "NOT IMPLEMENTED YET!!!",
 				page2 );
@@ -92,6 +94,9 @@ void Preferences::slotOk()
 
 void Preferences::slotApply()
 {
+  devNum = 0;
+  if ( rb2_4->isChecked() ) devNum = 1;
+  if ( rb2_5->isChecked() ) devNum = 2;
   mixerCommand = mixerLE->text();
   kcfg->writeEntry( "MixerCommand", mixerCommand, true );
   kcfg->sync();
@@ -101,4 +106,9 @@ void Preferences::slotApply()
 void Preferences::slotCancel()
 {
   hide();
+}
+
+int Preferences::useDevice()
+{
+  return devNum;
 }

@@ -234,9 +234,11 @@ void KMediaWin::launchPlayer(const char *filename)
   char MaudioText[]  ="maudio";
   char MmidiText[]   ="mplaymidi";
   char MtrackerText[]="mtracker";
+  char DeviceText[]  ="-devnum";
   char MediaText[]   ="-media";
   char MediaText2[]  ="-m";
   char TempString[256];
+  char TempString2[10];
 
   enum {myAudio,myMidi,myTracker,myOther};
   int  ftype=myAudio;
@@ -283,8 +285,14 @@ void KMediaWin::launchPlayer(const char *filename)
 	case myAudio:	Opts[0]=MaudioText  ; Opts[1]=MediaText ; break;
 	default:	KMsgBox::message(0, "Kmedia", "Unknown media type", KMsgBox::INFORMATION, "OK" );
 	}
-      Opts[2]=TempString;
-      Opts[3]=NULL;
+      int arg=2;
+      Opts[arg++]=TempString;
+      if ( ftype == myAudio ) {
+        sprintf(TempString2, "%i", prefDL->useDevice());
+        Opts[arg++]=DeviceText;
+        Opts[arg++]=TempString2;
+      }
+      Opts[arg++]=NULL;
       execvp( Opts[0], /*(char *const )*/ Opts);
 
       fprintf(stderr,"Could not start maudio!\n");
