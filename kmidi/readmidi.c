@@ -293,17 +293,8 @@ static MidiEventList *read_midi_event(void)
 		       Also, some MIDI files use 0 as some sort of
 		       continuous controller. This will cause lots of
 		       warnings about undefined tone banks. */
-		  case 0: control=ME_TONE_BANK;
-		    break;
-		  case 32: 
-		/***  This is MSB for bank change --gl
-		    if (b!=0)
-		      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
-				"(Strange: tone bank change 0x20%02x)", b);
-		    else
-		      control=ME_TONE_BANK;
-		***/
-		    break;
+		  case 0: control=ME_TONE_KIT; break;
+		  case 32: control=ME_TONE_BANK; break;
 
 		  case 100: nrpn=0; rpn_msb[lastchan]=b; break;
 		  case 101: nrpn=0; rpn_lsb[lastchan]=b; break;
@@ -558,6 +549,37 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 		  ->tone[current_program[meep->event.channel]].instrument=
 		    MAGIC_LOAD_INSTRUMENT;
 	    }
+	  break;
+
+	case ME_TONE_KIT:
+	  if (meep->event.a == 127)
+	    {
+	      if (drumset[0]) /* Is this a defined drumset? */
+		new_value=0;
+	      else
+		{
+		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		       "Drum set 0 is undefined");
+		  new_value=meep->event.a=0;
+		}
+	      if (current_set[meep->event.channel] != new_value)
+		current_set[meep->event.channel]=new_value;
+	      else 
+		skip_this_event=1;
+	      break;
+	    }
+	  if (drumset[meep->event.a]) /* Is this a defined tone bank? */
+	    new_value=meep->event.a;
+	  else 
+	    {
+	      ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		   "Drumset %d is undefined", meep->event.a);
+	      new_value=meep->event.a=0;
+	    }
+	  if (current_set[meep->event.channel]!=new_value)
+	    current_set[meep->event.channel]=new_value;
+	  else
+	    skip_this_event=1;
 	  break;
 
 	case ME_TONE_BANK:
