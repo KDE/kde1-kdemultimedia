@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-09 02:36+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: 1998-01-27 14:41 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -13,15 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:513 kmix.cpp:613
+#: kmix.cpp:516 kmix.cpp:616
 msgid "&Hide Menubar"
 msgstr "&Skry» menu"
 
-#: kmix.cpp:516
+#: kmix.cpp:519
 msgid "&Tickmarks On/Off"
 msgstr "Zapnú»/vypnú» z&naèkovanie"
 
-#: kmix.cpp:528
+#: kmix.cpp:531
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -43,40 +43,40 @@ msgstr ""
 "a Lennart Augustsson (augustss@cs.chalmers.se).ALSA port spravil Nick Lopez "
 "(kimo_sabe@usa.net)."
 
-#: kmix.cpp:548
+#: kmix.cpp:551
 msgid "&Left"
 msgstr "&Vµavo"
 
-#: kmix.cpp:549
+#: kmix.cpp:552
 msgid "&Center"
 msgstr "Vy&centrova»"
 
-#: kmix.cpp:550
+#: kmix.cpp:553
 msgid "&Right"
 msgstr "Vp&ravo"
 
-#: kmix.cpp:615
+#: kmix.cpp:618
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Menu"
 
-#: kmix.cpp:660
+#: kmix.cpp:663
 msgid "Un&mute"
 msgstr "Zapnú» zv&uk"
 
-#: kmix.cpp:662
+#: kmix.cpp:665
 msgid "&Mute"
 msgstr "&Vypnú» zvuk"
 
-#: kmix.cpp:665
+#: kmix.cpp:668
 msgid "&Split"
 msgstr "&Rozdeli»"
 
-#: kmix.cpp:667
+#: kmix.cpp:670
 msgid "Un&split"
 msgstr "&Zdru¾i»"
 
-#: kmix.cpp:670
+#: kmix.cpp:673
 msgid "&RecSource"
 msgstr "Zd&roj nahrávania"
 

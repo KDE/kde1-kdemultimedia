@@ -1,18 +1,18 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-09 02:36+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: 1998-10-18 15:43+0200\n"
 "Last-Translator: Alonso Lara <jlaram@nexo.es>\n"
 
-#: kmix.cpp:513 kmix.cpp:613
+#: kmix.cpp:516 kmix.cpp:616
 msgid "&Hide Menubar"
 msgstr "Ocultar Barra de &Menús"
 
-#: kmix.cpp:516
+#: kmix.cpp:519
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Si/No"
 
-#: kmix.cpp:528
+#: kmix.cpp:531
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -34,40 +34,40 @@ msgstr ""
 "y Lennart Augustsson (augustss@cs.chalmers.se).Porte ALSA por Nick Lopez "
 "(kimo_sabe@usa.net)."
 
-#: kmix.cpp:548
+#: kmix.cpp:551
 msgid "&Left"
 msgstr "&Izquierda"
 
-#: kmix.cpp:549
+#: kmix.cpp:552
 msgid "&Center"
 msgstr "&Centrar"
 
-#: kmix.cpp:550
+#: kmix.cpp:553
 msgid "&Right"
 msgstr "&Derecha"
 
-#: kmix.cpp:615
+#: kmix.cpp:618
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Barra de Menús"
 
-#: kmix.cpp:660
+#: kmix.cpp:663
 msgid "Un&mute"
 msgstr "&Activar"
 
-#: kmix.cpp:662
+#: kmix.cpp:665
 msgid "&Mute"
 msgstr "&Silencio"
 
-#: kmix.cpp:665
+#: kmix.cpp:668
 msgid "&Split"
 msgstr "&Doble"
 
-#: kmix.cpp:667
+#: kmix.cpp:670
 msgid "Un&split"
 msgstr "S&encillo"
 
-#: kmix.cpp:670
+#: kmix.cpp:673
 msgid "&RecSource"
 msgstr "&Fuente de Grabación"
 

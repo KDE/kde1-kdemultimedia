@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-09 02:36+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: 1998-05-11 13:50+0100\n"
 "Last-Translator: Christian Esken <esken@kde.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -10,15 +10,15 @@ msgstr ""
 "Content-Transfer-Encoding: ISO-8859-1\n"
 "Translator: Christian Esken <esken@kde.org>\n"
 
-#: kmix.cpp:513 kmix.cpp:613
+#: kmix.cpp:516 kmix.cpp:616
 msgid "&Hide Menubar"
 msgstr "&Menü verstecken"
 
-#: kmix.cpp:516
+#: kmix.cpp:519
 msgid "&Tickmarks On/Off"
 msgstr "&Skalen An/Aus"
 
-#: kmix.cpp:528
+#: kmix.cpp:531
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -40,40 +40,40 @@ msgstr ""
 "und Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 
-#: kmix.cpp:548
+#: kmix.cpp:551
 msgid "&Left"
 msgstr "&Links"
 
-#: kmix.cpp:549
+#: kmix.cpp:552
 msgid "&Center"
 msgstr "&Mitte"
 
-#: kmix.cpp:550
+#: kmix.cpp:553
 msgid "&Right"
 msgstr "&Rechts"
 
-#: kmix.cpp:615
+#: kmix.cpp:618
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Menü"
 
-#: kmix.cpp:660
+#: kmix.cpp:663
 msgid "Un&mute"
 msgstr "M&ute aus"
 
-#: kmix.cpp:662
+#: kmix.cpp:665
 msgid "&Mute"
 msgstr "&Mute an"
 
-#: kmix.cpp:665
+#: kmix.cpp:668
 msgid "&Split"
 msgstr "&Trennen"
 
-#: kmix.cpp:667
+#: kmix.cpp:670
 msgid "Un&split"
 msgstr "&Verbinden"
 
-#: kmix.cpp:670
+#: kmix.cpp:673
 msgid "&RecSource"
 msgstr "&Aufnahme-Quelle"
 

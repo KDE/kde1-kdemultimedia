@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-09 02:36+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: 8BIT\n"
 
-#: kmix.cpp:513 kmix.cpp:613
+#: kmix.cpp:516 kmix.cpp:616
 msgid "&Hide Menubar"
 msgstr "메뉴바 숨기기(&H)"
 
-#: kmix.cpp:516
+#: kmix.cpp:519
 msgid "&Tickmarks On/Off"
 msgstr "눈금 보이기/감추기(&T)"
 
-#: kmix.cpp:528
+#: kmix.cpp:531
 #, fuzzy
 msgid ""
 "\n"
@@ -44,40 +44,40 @@ msgstr ""
 "*BSD 포팅 : Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 " 그리고 Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:548
+#: kmix.cpp:551
 msgid "&Left"
 msgstr "왼쪽(&L)"
 
-#: kmix.cpp:549
+#: kmix.cpp:552
 msgid "&Center"
 msgstr "중앙(&C)"
 
-#: kmix.cpp:550
+#: kmix.cpp:553
 msgid "&Right"
 msgstr "오른쪽(&R)"
 
-#: kmix.cpp:615
+#: kmix.cpp:618
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "메뉴바"
 
-#: kmix.cpp:660
+#: kmix.cpp:663
 msgid "Un&mute"
 msgstr "소리냄(&m)"
 
-#: kmix.cpp:662
+#: kmix.cpp:665
 msgid "&Mute"
 msgstr "조용히(&M)"
 
-#: kmix.cpp:665
+#: kmix.cpp:668
 msgid "&Split"
 msgstr "좌우나눔(&S)"
 
-#: kmix.cpp:667
+#: kmix.cpp:670
 msgid "Un&split"
 msgstr "좌우합침(&s)"
 
-#: kmix.cpp:670
+#: kmix.cpp:673
 msgid "&RecSource"
 msgstr "녹음소스"
 

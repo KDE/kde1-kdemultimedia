@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-08 02:42+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -80,28 +80,28 @@ msgid "Use this Editor to annotate this track"
 msgstr "Gebruik deze Editor om deze trak te noteren"
 
 # CDDialog.cpp:269
-#: CDDialog.cpp:280
+#: CDDialog.cpp:281
 msgid "Use this Editor to annotate the title"
 msgstr "Gebruik deze Editor om te titel te noteren"
 
 # CDDialog.cpp:415 CDDialog.cpp:544
-#: CDDialog.cpp:429 CDDialog.cpp:588
+#: CDDialog.cpp:430 CDDialog.cpp:589
 msgid "Please select a Category or press Cancel"
 msgstr "Selecteer een categorie of druk op Cancel"
 
 # CDDialog.cpp:416
-#: CDDialog.cpp:430
+#: CDDialog.cpp:431
 msgid "To which category does the CD belong?"
 msgstr "Tot welke categorie behoort deze CD?"
 
 # CDDialog.cpp:445
-#: CDDialog.cpp:500
+#: CDDialog.cpp:501
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr ""
 
 # CDDialog.cpp:457
-#: CDDialog.cpp:507
+#: CDDialog.cpp:508
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -109,12 +109,12 @@ msgid ""
 msgstr ""
 
 # CDDialog.cpp:545
-#: CDDialog.cpp:589
+#: CDDialog.cpp:590
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "Onder welke categorie wil je deze CDDB entrie bewaren?"
 
 # CDDialog.cpp:595
-#: CDDialog.cpp:640
+#: CDDialog.cpp:641
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -126,17 +126,17 @@ msgstr ""
 "Controleer je permissies en zorg ervoor dat je categorie directories bestaan."
 
 # CDDialog.cpp:600
-#: CDDialog.cpp:645
+#: CDDialog.cpp:646
 msgid "Kscd Error"
 msgstr "Kscd fout"
 
 # CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
-#: CDDialog.cpp:814 CDDialog.cpp:829 CDDialog.cpp:843 CDDialog.cpp:865
+#: CDDialog.cpp:815 CDDialog.cpp:830 CDDialog.cpp:844 CDDialog.cpp:866
 msgid "Invalid Database Entry"
 msgstr "Ongeldige databse entry"
 
 # CDDialog.cpp:760
-#: CDDialog.cpp:815
+#: CDDialog.cpp:816
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -145,7 +145,7 @@ msgstr ""
 "Verbeter de entry en probeer opnieuw."
 
 # CDDialog.cpp:775
-#: CDDialog.cpp:830
+#: CDDialog.cpp:831
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -156,7 +156,7 @@ msgstr ""
 "gescheiden zijn, bv.: Peter Gabriel / Greatest Hits\n"
 
 # CDDialog.cpp:789 CDDialog.cpp:811
-#: CDDialog.cpp:844 CDDialog.cpp:866
+#: CDDialog.cpp:845 CDDialog.cpp:867
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -165,12 +165,12 @@ msgstr ""
 "Vebeter de entry's en probeer opniew."
 
 # CDDialog.cpp:821
-#: CDDialog.cpp:876
+#: CDDialog.cpp:877
 msgid "Internal Error"
 msgstr "Interne fout"
 
 # CDDialog.cpp:822
-#: CDDialog.cpp:877
+#: CDDialog.cpp:878
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -179,7 +179,7 @@ msgstr ""
 "Stuur email naar de autheur."
 
 # CDDialog.cpp:851
-#: CDDialog.cpp:906
+#: CDDialog.cpp:907
 msgid "Invalid Playlist\n"
 msgstr "Ongeldige afspeellijst\n"
 
@@ -286,7 +286,7 @@ msgid "Stop Playing on Exit"
 msgstr ""
 
 # docking.cpp:72 kscd.cpp:507
-#: docking.cpp:72 kscd.cpp:554
+#: docking.cpp:72 kscd.cpp:556
 msgid "Play/Pause"
 msgstr "Spelen / Pause"
 
@@ -335,38 +335,38 @@ msgstr ""
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Selecteer een Disc Titel of druk op Annuleren"
 
-#: kscd.cpp:220
+#: kscd.cpp:222
 msgid "Record submitted successfully"
 msgstr ""
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:230
+#: kscd.cpp:232
 #, fuzzy
 msgid "Error connecting to server."
 msgstr "Geen overeenkomende CDDB entry gevonden"
 
-#: kscd.cpp:233
+#: kscd.cpp:235
 msgid "Not connected."
 msgstr ""
 
 # kscd.cpp:1625
-#: kscd.cpp:236
+#: kscd.cpp:238
 #, fuzzy
 msgid "Connection timed out."
 msgstr "CDDB zoekopdracht timed out."
 
-#: kscd.cpp:239
+#: kscd.cpp:241
 msgid "Time out waiting for server interaction."
 msgstr ""
 
-#: kscd.cpp:242
+#: kscd.cpp:244
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
 
-#: kscd.cpp:244
+#: kscd.cpp:246
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -375,141 +375,141 @@ msgid ""
 msgstr ""
 
 # kscd.cpp:328
-#: kscd.cpp:373
+#: kscd.cpp:375
 msgid "Vol: --"
 msgstr "Vol: --"
 
 # kscd.cpp:473
-#: kscd.cpp:520
+#: kscd.cpp:522
 msgid "Performances"
 msgstr ""
 
 # kscd.cpp:476
-#: kscd.cpp:523
+#: kscd.cpp:525
 msgid "Purchases"
 msgstr ""
 
 # kscd.cpp:483
-#: kscd.cpp:530
+#: kscd.cpp:532
 msgid "KSCD Magic"
 msgstr ""
 
 # kscd.cpp:509
-#: kscd.cpp:556
+#: kscd.cpp:558
 msgid "Loop CD"
 msgstr "CD Herhaald afspelen"
 
 # kscd.cpp:510
-#: kscd.cpp:557
+#: kscd.cpp:559
 msgid "Track Selection"
 msgstr ""
 
 # kscd.cpp:511
-#: kscd.cpp:558
+#: kscd.cpp:560
 msgid "30 Secs Forward"
 msgstr "30 seconden voorwaarts"
 
 # kscd.cpp:512
-#: kscd.cpp:559
+#: kscd.cpp:561
 msgid "30 Secs Backward"
 msgstr "30 seconden terug"
 
 # kscd.cpp:513
-#: kscd.cpp:560
+#: kscd.cpp:562
 msgid "Next Track"
 msgstr "Volgende track"
 
 # kscd.cpp:514
-#: kscd.cpp:561
+#: kscd.cpp:563
 msgid "Previous Track"
 msgstr "Vorige track"
 
-#: kscd.cpp:562
+#: kscd.cpp:564
 msgid "Dock Kscd"
 msgstr ""
 
 # kscd.cpp:516
-#: kscd.cpp:563
+#: kscd.cpp:565
 msgid "Cycle Time Display"
 msgstr ""
 
 # kscd.cpp:517
-#: kscd.cpp:564
+#: kscd.cpp:566
 msgid "Configure Kscd"
 msgstr "Kscd instellen"
 
 # kscd.cpp:518
-#: kscd.cpp:565
+#: kscd.cpp:567
 msgid "Eject CD"
 msgstr "Eject CD "
 
 # kscd.cpp:519
-#: kscd.cpp:566
+#: kscd.cpp:568
 msgid "The Artist on the Web"
 msgstr ""
 
 # kscd.cpp:520
-#: kscd.cpp:567
+#: kscd.cpp:569
 msgid "Random Play"
 msgstr "Willekeurige volgorde"
 
 # kscd.cpp:521
-#: kscd.cpp:568
+#: kscd.cpp:570
 msgid "CDDB Dialog"
 msgstr "CDDB Dialoog"
 
 # kscd.cpp:522
-#: kscd.cpp:569
+#: kscd.cpp:571
 msgid "CD Volume Control"
 msgstr "CD Volume Control"
 
 # kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-#: kscd.cpp:620 kscd.cpp:671 kscd.cpp:1246
+#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1265
 msgid "Playing"
 msgstr "Bezig met spelen"
 
-#: kscd.cpp:632 kscd.cpp:1260 kscd.cpp:1308 kscd.cpp:1716 kscd.cpp:1914
+#: kscd.cpp:634 kscd.cpp:1279 kscd.cpp:1327 kscd.cpp:1735 kscd.cpp:1933
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
 # kscd.cpp:602 kscd.cpp:1151
-#: kscd.cpp:663 kscd.cpp:1289
+#: kscd.cpp:665 kscd.cpp:1308
 msgid "Pause"
 msgstr ""
 
 # kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-#: kscd.cpp:668 kscd.cpp:917 kscd.cpp:1242
+#: kscd.cpp:670 kscd.cpp:936 kscd.cpp:1261
 msgid "Random"
 msgstr "Willekeurig"
 
 # kscd.cpp:615
-#: kscd.cpp:676
+#: kscd.cpp:678
 msgid "Strange...."
 msgstr "Vreemd...."
 
 # kscd.cpp:632
-#: kscd.cpp:693
+#: kscd.cpp:695
 msgid "Stopped"
 msgstr "Gestopt"
 
 # kscd.cpp:784 kscd.cpp:1116
-#: kscd.cpp:880 kscd.cpp:1244
+#: kscd.cpp:899 kscd.cpp:1263
 msgid "Loop"
 msgstr ""
 
 # kscd.cpp:796
-#: kscd.cpp:892
+#: kscd.cpp:911
 msgid "Ejecting"
 msgstr ""
 
 # kscd.cpp:869
-#: kscd.cpp:968
+#: kscd.cpp:987
 msgid "kscd Configuraton"
 msgstr "kscd Instellingen"
 
 # kscd.cpp:885
-#: kscd.cpp:984
+#: kscd.cpp:1003
 #, fuzzy
 msgid ""
 "Maintained by:\n"
@@ -539,7 +539,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:897
-#: kscd.cpp:999
+#: kscd.cpp:1018
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -550,7 +550,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:901
-#: kscd.cpp:1003
+#: kscd.cpp:1022
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -560,7 +560,7 @@ msgstr ""
 "Dank aan Vadim Zaliva <lord@crocodile.org>\n"
 "voor zijn werk aan de http proxy code.\n"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
 "For the many CDDB code bug fixes, local CDDB record caching, and track "
@@ -568,27 +568,27 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kscd.cpp:1062
+#: kscd.cpp:1081
 msgid "SMTP Setup"
 msgstr ""
 
 # kscd.cpp:947
-#: kscd.cpp:1063
+#: kscd.cpp:1082
 msgid "Kscd Options"
 msgstr "Kscd Opties"
 
 # kscd.cpp:948
-#: kscd.cpp:1064
+#: kscd.cpp:1083
 msgid "Kscd Magic"
 msgstr ""
 
 # kscd.cpp:1029 kscd.cpp:1822
-#: kscd.cpp:1152 kscd.cpp:2046
+#: kscd.cpp:1171 kscd.cpp:2065
 msgid "Vol: %02d%%"
 msgstr ""
 
 # kscd.cpp:1067
-#: kscd.cpp:1190
+#: kscd.cpp:1209
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -600,62 +600,62 @@ msgstr ""
 "%s"
 
 # kscd.cpp:1159
-#: kscd.cpp:1296
+#: kscd.cpp:1315
 msgid "Ready"
 msgstr "Klaar"
 
 # kscd.cpp:1191
-#: kscd.cpp:1340
+#: kscd.cpp:1359
 msgid "Ejected"
 msgstr ""
 
 # kscd.cpp:1447
-#: kscd.cpp:1622
+#: kscd.cpp:1641
 msgid "Unable to get CDDB server list."
 msgstr "Kan de CDDB server lijst niet krijgen."
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1766 kscd.cpp:1771
+#: kscd.cpp:1785 kscd.cpp:1790
 msgid "No matching CDDB entry found."
 msgstr "Geen overeenkomende CDDB entry gevonden"
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1795 kscd.cpp:1805
+#: kscd.cpp:1814 kscd.cpp:1824
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Geen overeenkomende CDDB entry gevonden"
 
 # kscd.cpp:1625
-#: kscd.cpp:1821 kscd.cpp:1831
+#: kscd.cpp:1840 kscd.cpp:1850
 msgid "CDDB query timed out."
 msgstr "CDDB zoekopdracht timed out."
 
-#: kscd.cpp:2021
+#: kscd.cpp:2040
 msgid "Tra Rem"
 msgstr ""
 
 # kscd.cpp:1801
-#: kscd.cpp:2025
+#: kscd.cpp:2044
 msgid "Tot Sec"
 msgstr ""
 
 # kscd.cpp:1805
-#: kscd.cpp:2029
+#: kscd.cpp:2048
 msgid "Tot Rem"
 msgstr ""
 
 # kscd.cpp:1810
-#: kscd.cpp:2034
+#: kscd.cpp:2053
 msgid "Tra Sec"
 msgstr ""
 
 # kscd.cpp:1935
-#: kscd.cpp:2159
+#: kscd.cpp:2178
 msgid "Cannot start kscdmagic."
 msgstr "Kan kscdmagic niet starten."
 
 # kscd.cpp:1950
-#: kscd.cpp:2174
+#: kscd.cpp:2193
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -664,12 +664,12 @@ msgstr ""
 "Weet je zeker dat kscdmagic is geinstalleerd?"
 
 # kscd.cpp:2131
-#: kscd.cpp:2355
+#: kscd.cpp:2374
 msgid "-h: display commandline options\n"
 msgstr "-h: toon commandorgel opties\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2356
+#: kscd.cpp:2375
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debugging output aanzetten.\n"
 
@@ -697,11 +697,11 @@ msgstr "MAGIC Helderheid:"
 msgid "Enable submission via SMTP"
 msgstr ""
 
-#: smtpconfig.cpp:20
+#: smtpconfig.cpp:21
 msgid "SMTP Address:Port"
 msgstr ""
 
-#: smtpconfig.cpp:36
+#: smtpconfig.cpp:39
 msgid "Your Email Address"
 msgstr ""
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-08 02:42+0100\n"
+"POT-Creation-Date: 1998-11-10 02:47+0100\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -64,24 +64,24 @@ msgstr ""
 msgid "Use this Editor to annotate this track"
 msgstr "使用这个编辑器给本音轨作注释"
 
-#: CDDialog.cpp:280
+#: CDDialog.cpp:281
 msgid "Use this Editor to annotate the title"
 msgstr "使用这个编辑器注释标题"
 
-#: CDDialog.cpp:429 CDDialog.cpp:588
+#: CDDialog.cpp:430 CDDialog.cpp:589
 msgid "Please select a Category or press Cancel"
 msgstr "请选择一个类别或按'取消'"
 
-#: CDDialog.cpp:430
+#: CDDialog.cpp:431
 msgid "To which category does the CD belong?"
 msgstr "本 CD 属于哪一类?"
 
-#: CDDialog.cpp:500
+#: CDDialog.cpp:501
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "提交 cddb 条目: %s\n"
 
-#: CDDialog.cpp:507
+#: CDDialog.cpp:508
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -90,11 +90,11 @@ msgstr ""
 "不能将内容传送到:\n"
 " %s"
 
-#: CDDialog.cpp:589
+#: CDDialog.cpp:590
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "你要把这个 CDDB 条目放在哪一类别中?"
 
-#: CDDialog.cpp:640
+#: CDDialog.cpp:641
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -105,15 +105,15 @@ msgstr ""
 "%s\n"
 "请检查你的权限,并且确保类别目录存在."
 
-#: CDDialog.cpp:645
+#: CDDialog.cpp:646
 msgid "Kscd Error"
 msgstr "Kscd 错误"
 
-#: CDDialog.cpp:814 CDDialog.cpp:829 CDDialog.cpp:843 CDDialog.cpp:865
+#: CDDialog.cpp:815 CDDialog.cpp:830 CDDialog.cpp:844 CDDialog.cpp:866
 msgid "Invalid Database Entry"
 msgstr "无效的数据库条目"
 
-#: CDDialog.cpp:815
+#: CDDialog.cpp:816
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -121,7 +121,7 @@ msgstr ""
 "光盘的 艺术家/标题 域没有填写.\n"
 "请更正条目后重试."
 
-#: CDDialog.cpp:830
+#: CDDialog.cpp:831
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -131,7 +131,7 @@ msgstr ""
 "请用'/'分隔艺术家和标题 , 如:\n"
 "Peter Gabriel / Greatest Hits\n"
 
-#: CDDialog.cpp:844 CDDialog.cpp:866
+#: CDDialog.cpp:845 CDDialog.cpp:867
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -139,11 +139,11 @@ msgstr ""
 "不能所有的音轨标题都是空的.\n"
 "请更正条目后重试."
 
-#: CDDialog.cpp:876
+#: CDDialog.cpp:877
 msgid "Internal Error"
 msgstr "内部错误"
 
-#: CDDialog.cpp:877
+#: CDDialog.cpp:878
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -151,7 +151,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
 
-#: CDDialog.cpp:906
+#: CDDialog.cpp:907
 msgid "Invalid Playlist\n"
 msgstr "无效的播放列表\n"
 
@@ -239,7 +239,7 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:72 kscd.cpp:554
+#: docking.cpp:72 kscd.cpp:556
 msgid "Play/Pause"
 msgstr "播放/暂停"
 
@@ -278,36 +278,36 @@ msgstr "没有找到完全匹配的.请从以下的选择中找出合适的 CD"
 msgid "Please select a Disk Title or press Cancel"
 msgstr "请选择一个 CD 标题或按 '取消' "
 
-#: kscd.cpp:220
+#: kscd.cpp:222
 msgid "Record submitted successfully"
 msgstr ""
 
-#: kscd.cpp:230
+#: kscd.cpp:232
 #, fuzzy
 msgid "Error connecting to server."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:233
+#: kscd.cpp:235
 msgid "Not connected."
 msgstr ""
 
-#: kscd.cpp:236
+#: kscd.cpp:238
 #, fuzzy
 msgid "Connection timed out."
 msgstr "CDDB 查询超时."
 
-#: kscd.cpp:239
+#: kscd.cpp:241
 msgid "Time out waiting for server interaction."
 msgstr ""
 
-#: kscd.cpp:242
+#: kscd.cpp:244
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
 
-#: kscd.cpp:244
+#: kscd.cpp:246
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -315,117 +315,117 @@ msgid ""
 "%s"
 msgstr ""
 
-#: kscd.cpp:373
+#: kscd.cpp:375
 msgid "Vol: --"
 msgstr "Vol: --"
 
-#: kscd.cpp:520
+#: kscd.cpp:522
 msgid "Performances"
 msgstr "演出"
 
-#: kscd.cpp:523
+#: kscd.cpp:525
 msgid "Purchases"
 msgstr "购买"
 
-#: kscd.cpp:530
+#: kscd.cpp:532
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:556
+#: kscd.cpp:558
 msgid "Loop CD"
 msgstr "循环播放"
 
-#: kscd.cpp:557
+#: kscd.cpp:559
 msgid "Track Selection"
 msgstr "选择音轨"
 
-#: kscd.cpp:558
+#: kscd.cpp:560
 msgid "30 Secs Forward"
 msgstr "前进 30 秒"
 
-#: kscd.cpp:559
+#: kscd.cpp:561
 msgid "30 Secs Backward"
 msgstr "倒后 30 秒"
 
-#: kscd.cpp:560
+#: kscd.cpp:562
 msgid "Next Track"
 msgstr "下一轨"
 
-#: kscd.cpp:561
+#: kscd.cpp:563
 msgid "Previous Track"
 msgstr "前一轨"
 
-#: kscd.cpp:562
+#: kscd.cpp:564
 #, fuzzy
 msgid "Dock Kscd"
 msgstr "Magic Kscd"
 
-#: kscd.cpp:563
+#: kscd.cpp:565
 msgid "Cycle Time Display"
 msgstr "循环时间显示"
 
-#: kscd.cpp:564
+#: kscd.cpp:566
 msgid "Configure Kscd"
 msgstr "配置 Kscd"
 
-#: kscd.cpp:565
+#: kscd.cpp:567
 msgid "Eject CD"
 msgstr "弹出 CD"
 
-#: kscd.cpp:566
+#: kscd.cpp:568
 msgid "The Artist on the Web"
 msgstr "在 Web 上的艺术家"
 
-#: kscd.cpp:567
+#: kscd.cpp:569
 msgid "Random Play"
 msgstr "随机播放"
 
-#: kscd.cpp:568
+#: kscd.cpp:570
 msgid "CDDB Dialog"
 msgstr "CDDB 对话"
 
-#: kscd.cpp:569
+#: kscd.cpp:571
 msgid "CD Volume Control"
 msgstr "CD 音量控制"
 
-#: kscd.cpp:620 kscd.cpp:671 kscd.cpp:1246
+#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1265
 msgid "Playing"
 msgstr "Playing"
 
-#: kscd.cpp:632 kscd.cpp:1260 kscd.cpp:1308 kscd.cpp:1716 kscd.cpp:1914
+#: kscd.cpp:634 kscd.cpp:1279 kscd.cpp:1327 kscd.cpp:1735 kscd.cpp:1933
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:663 kscd.cpp:1289
+#: kscd.cpp:665 kscd.cpp:1308
 msgid "Pause"
 msgstr "Pause"
 
-#: kscd.cpp:668 kscd.cpp:917 kscd.cpp:1242
+#: kscd.cpp:670 kscd.cpp:936 kscd.cpp:1261
 msgid "Random"
 msgstr "Random"
 
-#: kscd.cpp:676
+#: kscd.cpp:678
 msgid "Strange...."
 msgstr "Strange...."
 
-#: kscd.cpp:693
+#: kscd.cpp:695
 msgid "Stopped"
 msgstr "Stopped"
 
-#: kscd.cpp:880 kscd.cpp:1244
+#: kscd.cpp:899 kscd.cpp:1263
 msgid "Loop"
 msgstr "Loop"
 
-#: kscd.cpp:892
+#: kscd.cpp:911
 msgid "Ejecting"
 msgstr "Ejecting"
 
-#: kscd.cpp:968
+#: kscd.cpp:987
 msgid "kscd Configuraton"
 msgstr "Kscd 配置"
 
-#: kscd.cpp:984
+#: kscd.cpp:1003
 #, fuzzy
 msgid ""
 "Maintained by:\n"
@@ -454,7 +454,7 @@ msgstr ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 
-#: kscd.cpp:999
+#: kscd.cpp:1018
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -464,7 +464,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1003
+#: kscd.cpp:1022
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -474,7 +474,7 @@ msgstr ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
 "For the many CDDB code bug fixes, local CDDB record caching, and track "
@@ -482,23 +482,23 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kscd.cpp:1062
+#: kscd.cpp:1081
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1063
+#: kscd.cpp:1082
 msgid "Kscd Options"
 msgstr "Kscd 选项"
 
-#: kscd.cpp:1064
+#: kscd.cpp:1083
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1152 kscd.cpp:2046
+#: kscd.cpp:1171 kscd.cpp:2065
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
-#: kscd.cpp:1190
+#: kscd.cpp:1209
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -509,52 +509,52 @@ msgstr ""
 "请确定你有对 %s\n"
 "的访问权限"
 
-#: kscd.cpp:1296
+#: kscd.cpp:1315
 msgid "Ready"
 msgstr "Ready"
 
-#: kscd.cpp:1340
+#: kscd.cpp:1359
 msgid "Ejected"
 msgstr "Ejected"
 
-#: kscd.cpp:1622
+#: kscd.cpp:1641
 msgid "Unable to get CDDB server list."
 msgstr "不能得到 CDDB 服务器列表."
 
-#: kscd.cpp:1766 kscd.cpp:1771
+#: kscd.cpp:1785 kscd.cpp:1790
 msgid "No matching CDDB entry found."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:1795 kscd.cpp:1805
+#: kscd.cpp:1814 kscd.cpp:1824
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:1821 kscd.cpp:1831
+#: kscd.cpp:1840 kscd.cpp:1850
 msgid "CDDB query timed out."
 msgstr "CDDB 查询超时."
 
-#: kscd.cpp:2021
+#: kscd.cpp:2040
 msgid "Tra Rem"
 msgstr "Tra Rem"
 
-#: kscd.cpp:2025
+#: kscd.cpp:2044
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2029
+#: kscd.cpp:2048
 msgid "Tot Rem"
 msgstr "Tot Rem"
 
-#: kscd.cpp:2034
+#: kscd.cpp:2053
 msgid "Tra Sec"
 msgstr "Tra Sec"
 
-#: kscd.cpp:2159
+#: kscd.cpp:2178
 msgid "Cannot start kscdmagic."
 msgstr "不能启动 kscdmagic."
 
-#: kscd.cpp:2174
+#: kscd.cpp:2193
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -562,11 +562,11 @@ msgstr ""
 "KSCD Magic 不正常退出.\n"
 "你确定安装了 kscdmagic ?"
 
-#: kscd.cpp:2355
+#: kscd.cpp:2374
 msgid "-h: display commandline options\n"
 msgstr "-h: 显示命令行选项\n"
 
-#: kscd.cpp:2356
+#: kscd.cpp:2375
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 允许调试信息输出.\n"
 
@@ -590,11 +590,11 @@ msgstr "MAGIC 亮度:"
 msgid "Enable submission via SMTP"
 msgstr ""
 
-#: smtpconfig.cpp:20
+#: smtpconfig.cpp:21
 msgid "SMTP Address:Port"
 msgstr ""
 
-#: smtpconfig.cpp:36
+#: smtpconfig.cpp:39
 msgid "Your Email Address"
 msgstr ""
 
