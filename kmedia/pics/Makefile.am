@@ -1,7 +1,16 @@
 
-docs_DATA = eject.xbm ff.xbm kmedia.xpm kmedia_mini.xpm lock.xbm \
-	logo.xbm media.xpm nexttrk.xbm playpause.xbm playpause_both.xpm \
+pics_DATA = eject.xbm ff.xbm kmedia.xpm kmedia_mini.xpm lock.xbm \
+	logo.xbm nexttrk.xbm playpause.xbm playpause_both.xpm \
 	playpause_play.xpm poweroff.xbm prevtrk.xbm rew.xbm stop.xbm
 
-docsdir = $(kde_datadir)/kmedia/pics
+picsdir = $(kde_datadir)/kmedia/pics
 
+install-data-local:
+	$(mkinstalldirs) $(kde_minidir)
+	$(INSTALL_DATA) kmedia_mini.xpm $(kde_minidir)/kmedia.xpm
+
+uninstall-local:
+	-rm -f $(kde_minidir)/kmedia.xpm
+
+icon_DATA = kmedia.xpm
+icondir = $(kde_icondir)
