@@ -595,16 +595,3 @@ msgstr "SMTP adresa:port"
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr "Va¹a email adresa"
-
-#~ msgid "Dock Kscd"
-#~ msgstr "Kscd do panelu"
-
-#~ msgid ""
-#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
-#~ "tweek, and configuration fixes.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Poïakovanie pre Sama Maloneyho <thufir@illogic.ml.org>\n"
-#~ "za mnoho opráv v CDDB kóde, ke¹ovanie CDDB záznamov a konfiguraèných opráv.\n"
-#~ "\n"

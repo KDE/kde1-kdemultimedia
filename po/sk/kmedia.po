@@ -46,9 +46,8 @@ msgid "&Mixer"
 msgstr "&Mixér"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "&Nastavenie"
+msgstr "&Nastavenie..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -94,53 +93,24 @@ msgstr "Nedefinovaný"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Prehrávaèe"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
-msgstr "&Mixér"
+msgstr "Mixér"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "Zvuk. zariadenie"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Zariadenie 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Zariadenie 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "&Nastavenie"
-
-#~ msgid "About KMedia "
-#~ msgstr "O KMedia "
-
-#~ msgid "Stop"
-#~ msgstr "Stop"
-
-#~ msgid "New view"
-#~ msgstr "Nový prehrávaè"
-
-#~ msgid "Exit"
-#~ msgstr "Ukonèi»"
-
-#~ msgid "&Contents"
-#~ msgstr "Obsah"
-
-#~ msgid "&About"
-#~ msgstr "&Informácie"
-
-#~ msgid "&File"
-#~ msgstr "&Súbor"
-
-#~ msgid "&Options"
-#~ msgstr "&Mo¾nosti"
-
-#~ msgid "&Help"
-#~ msgstr "&Pomocník"
+msgstr "&Nastavenie KMedia"
