@@ -100,14 +100,15 @@ void KMediaWin::trackSelected( int /*trk*/ )
 void KMediaWin::onDrop( KDNDDropZone* _zone )
 {
   QStrList strlist;
-  KURL *url;
 
   strlist = _zone->getURLList();
-
-  url = new KURL( strlist.first() );
-  FileNameSet( FnamChunk, url->path());
-
-  launchPlayer(url->path());
+  KURL *url = new KURL( strlist.first() );
+  QString urlQstr  = url->path();
+  QString &urlQref = urlQstr;
+  KURL::decodeURL(urlQref);
+  
+  FileNameSet( FnamChunk, urlQstr.data());
+  launchPlayer(urlQstr.data());
 
   delete url;
 }
