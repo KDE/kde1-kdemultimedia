@@ -69,6 +69,7 @@ public slots:
 
 public:
   const bool isDocked();
+  void SaveKscdPosition();
 
 private:
   bool docked;
@@ -76,7 +77,7 @@ private:
   int pos_x;
   int pos_y;
   QPopupMenu *popup_m;
-
+  bool have_kscd_position;
   QPixmap cdsmall_pixmap;
 
 };

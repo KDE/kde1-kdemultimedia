@@ -28,7 +28,8 @@
 
 
 #include "configdlg.h"
-
+#define XOFF 75
+#define YOFF 30
 
 extern KApplication *mykapp;
 
@@ -63,44 +64,44 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   box->setGeometry(10,10,520,420);
 
   label1 = new QLabel(this);
-  label1->setGeometry(20,25,135,25);
+  label1->setGeometry(20+XOFF,25+YOFF,135,25);
   label1->setText("LED Color:");
 
   qframe1 = new QFrame(this);
-  qframe1->setGeometry(155,25,30,25);	
+  qframe1->setGeometry(155+XOFF,25+YOFF,30,25);	
   qframe1->setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   qframe1->setBackgroundColor(configdata.led_color);
 
   button1 = new QPushButton(this);
-  button1->setGeometry(255,25,100,25);
+  button1->setGeometry(255+XOFF,25+YOFF,100,25);
   button1->setText(klocale->translate("Change"));
   connect(button1,SIGNAL(clicked()),this,SLOT(set_led_color()));
 
   label2 = new QLabel(this);
-  label2->setGeometry(20,65,135,25);
+  label2->setGeometry(20+XOFF,65+YOFF,135,25);
   label2->setText(klocale->translate("Background Color:"));
 
   qframe2 = new QFrame(this);
-  qframe2->setGeometry(155,65,30,25);	
+  qframe2->setGeometry(155+XOFF,65+YOFF,30,25);	
   qframe2->setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   qframe2->setBackgroundColor(configdata.background_color);
 
   button2 = new QPushButton(this);
-  button2->setGeometry(255,65,100,25);
+  button2->setGeometry(255+XOFF,65+YOFF,100,25);
   button2->setText(klocale->translate("Change"));
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
   button3 = new QPushButton(this);
-  button3->setGeometry(255,340,100,25);
+  button3->setGeometry(255+XOFF,340+YOFF,100,25);
   button3->setText(klocale->translate("Help"));
   connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 
   label5 = new QLabel(this);
-  label5->setGeometry(20,110,135,25);
+  label5->setGeometry(20+XOFF,110+YOFF,135,25);
   label5->setText(klocale->translate("CDROM Device:"));
 
   cd_device_edit = new QLineEdit(this);
-  cd_device_edit->setGeometry(155,110,200,25);
+  cd_device_edit->setGeometry(155+XOFF,110+YOFF,200,25);
   cd_device_edit->setText(configdata.cd_device);
   connect(cd_device_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(device_changed(const char*)));  
@@ -113,17 +114,17 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 #endif
 
   label6 = new QLabel(this);
-  label6->setGeometry(20,150,135,25);
+  label6->setGeometry(20+XOFF,150+YOFF,135,25);
   label6->setText(klocale->translate("Unix mail command:"));
 
   mail_edit = new QLineEdit(this);
-  mail_edit->setGeometry(155,150,200,25);
+  mail_edit->setGeometry(155+XOFF,150+YOFF,200,25);
   mail_edit->setText(configdata.mailcmd);
   connect(mail_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(mail_changed(const char*)));  
 
   browserbox = new  QButtonGroup(klocale->translate("WWW-Browser"),this,"wwwbox");
-  browserbox->setGeometry(20,190,338,130);
+  browserbox->setGeometry(20+XOFF,190+YOFF,338,130);
 
   kfmbutton = new QRadioButton(klocale->translate("Use kfm as Browser"),
 			       browserbox,"kfmbutton");
@@ -142,17 +143,17 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   custom_edit = new QLineEdit(browserbox,"customedit");
   custom_edit->setText(data->browsercmd);
   custom_edit->setEnabled(!configdata.use_kfm);
-  custom_edit->setGeometry(30,80,198,28);
+  custom_edit->setGeometry(30,80,198+70,28);
 
   ttcheckbox = new QCheckBox(klocale->translate("Show Tool Tips"), 
 			     this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30,355,135,20);
+  ttcheckbox->setGeometry(30+XOFF,355+YOFF,135,20);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
 
   dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
 			       this, "dockcheckbox");
-  dockcheckbox->setGeometry(30,330,160,20);
+  dockcheckbox->setGeometry(30+XOFF,330+YOFF,160,20);
   dockcheckbox->setChecked(configdata.docking);
   connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
   

@@ -189,6 +189,10 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 
     dock_widget = new DockWidget("dockw");  
 
+    if(docking){
+        dock_widget->dock();
+    }
+
     setFocusPolicy ( QWidget::NoFocus );
     srandom(time(0L));
     initimer->start(500,TRUE);
@@ -754,14 +758,13 @@ void KSCD::quitClicked(){
 
 void KSCD::closeEvent( QCloseEvent *e ){
 
-
     if(docking){
-        dock_widget->dock();
-        this->hide();
+      if(dock_widget)
+	dock_widget->SaveKscdPosition();
+      this->hide();
     }
-    else{
-        e->ignore();
-    }
+    e->ignore();
+
 
 };
 
@@ -886,8 +889,12 @@ void KSCD::aboutClicked(){
         "more information on CDDB.\n\n"
 #ifdef KSCDMAGIC
         "KSCD Magic based on Synaesthesia by "\
-        "Paul Harrison <pfh@yoyo.cc.monash.edu.au>"
+        "Paul Harrison <pfh@yoyo.cc.monash.edu.au>\n\n"
 #endif
+        "Thanks to Vadim Zaliva <lord@crocodile.org>\n"\
+        "for his work on the http proxy code.\n"
+      
+
         ;
 
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);

@@ -39,7 +39,7 @@ DockWidget::DockWidget(const char *name)
   docked = false;
 
   pos_x = pos_y = 0;
-
+  have_kscd_position = false;
   QString pixdir = mykapp->kde_datadir() + "/kscd/pics/";
   QString tmp;
 
@@ -195,18 +195,29 @@ void DockWidget::toggle_window_state() {
      k->hide();
     }
     else {
-     k->setGeometry(
-		 pos_x, 
-		 pos_y,
-		 k->width(),
-		 k->height());
 
+      if(!have_kscd_position)
+	SaveKscdPosition();
+
+      k->setGeometry(
+		     pos_x, 
+		     pos_y,
+		     k->width(),
+		     k->height());
+      
       k->show();
     }
   }
 }
 
+void DockWidget::SaveKscdPosition(){
 
+     QPoint point = k->mapToGlobal (QPoint (0,0));
+     pos_x = point.x();
+     pos_y = point.y();
+     have_kscd_position = true;
+
+}
 void DockWidget::eject() {
 
   k->ejectClicked();

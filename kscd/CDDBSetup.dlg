@@ -41,7 +41,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {32767}
 		FrameShown {TRUE}
-		Rect {20 140 495 28}
+		Rect {20 143 495 25}
 		Name {LineEdit_4}
 		Variable {basedir_edit}
 		LayoutStatus {NoLayout}
@@ -173,7 +173,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {5}
 		FrameShown {TRUE}
-		Rect {470 75 45 30}
+		Rect {470 80 45 25}
 		Name {LineEdit_6}
 		Variable {proxy_port_ef}
 		LayoutStatus {NoLayout}
@@ -185,7 +185,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {32767}
 		FrameShown {TRUE}
-		Rect {70 75 385 30}
+		Rect {70 80 385 25}
 		Name {LineEdit_7}
 		Variable {proxy_host_ef}
 		LayoutStatus {NoLayout}
