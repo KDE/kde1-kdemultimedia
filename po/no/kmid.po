@@ -488,11 +488,11 @@ msgstr ""
 
 #: instrname.i18n:42
 msgid "Slap Bass 1"
-msgstr ""
+msgstr "Hul bass 1"
 
 #: instrname.i18n:43
 msgid "Slap Bass 2"
-msgstr ""
+msgstr "Hul bass 2"
 
 #: instrname.i18n:44
 msgid "Synth Bass 1"
@@ -704,7 +704,7 @@ msgstr "Blokk 2 - Ivrig"
 
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
-msgstr ""
+msgstr "Blokk 3 - "
 
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
@@ -720,11 +720,11 @@ msgstr "Blokk 6 - metallisk"
 
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
-msgstr ""
+msgstr "Blokk 7 - Halo"
 
 #: instrname.i18n:101
 msgid "Pad 8 - Sweep"
-msgstr ""
+msgstr "Blokk 8 - Feiing"
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
@@ -812,7 +812,7 @@ msgstr ""
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
-msgstr ""
+msgstr "Melodisk hankatt"
 
 #: instrname.i18n:124
 msgid "Synth Drum"
@@ -824,11 +824,11 @@ msgstr "Omvendt cymbal"
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
-msgstr ""
+msgstr "Gripebrettlyd"
 
 #: instrname.i18n:127
 msgid "Breath Noise"
-msgstr ""
+msgstr "Pustelyd"
 
 #: instrname.i18n:128
 msgid "Seashore"
@@ -836,7 +836,7 @@ msgstr "Strand"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
-msgstr ""
+msgstr "Fuglekvitring"
 
 #: instrname.i18n:130
 msgid "Telephone"
