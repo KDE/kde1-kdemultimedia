@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
 "POT-Creation-Date: 1999-01-18 02:16+0100\n"
-"PO-Revision-Date: 1998-10-24 23:55 CEST\n"
+"PO-Revision-Date: 1999-01-18 08:43+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -46,9 +46,8 @@ msgid "&Mixer"
 msgstr "&Mixer"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "&Preference"
+msgstr "&Preference..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -94,26 +93,24 @@ msgstr "Nedefinován"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Pøehrávaèe"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
-msgstr "&Mixer"
+msgstr "Mixér"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "Pou¾ívat zvukové zaøízení"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Zaøízení 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Zaøízení 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "&Preference"
+msgstr "KMedia - Preference"
