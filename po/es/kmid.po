@@ -7,12 +7,12 @@ msgstr ""
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:61
-msgid "&Open"
-msgstr "&Abrir"
+msgid "&Open ..."
+msgstr "&Abrir ..."
 
 #: kmidframe.cpp:64
-msgid "&Save Lyrics"
-msgstr "&Guardar Letra"
+msgid "&Save Lyrics ..."
+msgstr "&Guardar Letra ..."
 
 #: kmidframe.cpp:67
 msgid "&Quit"

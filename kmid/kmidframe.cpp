@@ -58,10 +58,10 @@ kmidFrame::kmidFrame(const char *name)
 	setView(kmidclient,FALSE);
 
 	m_file = new QPopupMenu;
-	m_file->insertItem( i18n("&Open"), this, 
+	m_file->insertItem( i18n("&Open ..."), this, 
 						SLOT(file_Open()), CTRL+Key_O );
 	m_file->insertSeparator();
-	m_file->insertItem( i18n("&Save Lyrics"), this, 
+	m_file->insertItem( i18n("&Save Lyrics ..."), this, 
 						SLOT(file_SaveLyrics()) );
 	m_file->insertSeparator();
 	m_file->insertItem( i18n("&Quit"), qApp, SLOT(quit()), CTRL+Key_Q );
@@ -274,14 +274,14 @@ void kmidFrame::file_Open()
 char name[200];
 name[0]=0;
 QString filename;
-//filename=QFileDialog::getOpenFileName(0,"*.*",this,name);
 filename=KFileDialog::getOpenFileName(0,"*.*",this,name);
 if (!filename.isNull())
         {
 	char *s=new char[filename.length()+10];
 	sprintf(s,"file:%s",(const char *)filename);
-
+	printf("s %s\n",s);
 	int c=autoAddSongToCollection(s,1);
+	delete s;
 	kmidclient->setActiveCollection(c);
 	};
 };

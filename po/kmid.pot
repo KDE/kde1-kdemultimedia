@@ -1,17 +1,17 @@
 msgid ""
 msgstr ""
-"Date: 1998-04-03 19:18:58+0000\n"
+"Date: 1998-04-13 18:42:57+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
 "Content-Type: text/plain; charset=\n"
 "Xgettext-Options: -C -ki18n\n"
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:61
-msgid "&Open"
+msgid "&Open ..."
 msgstr ""
 
 #: kmidframe.cpp:64
-msgid "&Save Lyrics"
+msgid "&Save Lyrics ..."
 msgstr ""
 
 #: kmidframe.cpp:67
@@ -120,51 +120,51 @@ msgstr ""
 msgid "&Help"
 msgstr ""
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:160
 msgid "Previous Song"
 msgstr ""
 
-#: kmidframe.cpp:165
+#: kmidframe.cpp:163
 msgid "Rewind"
 msgstr ""
 
-#: kmidframe.cpp:168
+#: kmidframe.cpp:166
 msgid "Stop"
 msgstr ""
 
-#: kmidframe.cpp:171
+#: kmidframe.cpp:169
 msgid "Pause"
 msgstr ""
 
-#: kmidframe.cpp:175
+#: kmidframe.cpp:173
 msgid "Play"
 msgstr ""
 
-#: kmidframe.cpp:178
+#: kmidframe.cpp:176
 msgid "Forward"
 msgstr ""
 
-#: kmidframe.cpp:181
+#: kmidframe.cpp:179
 msgid "Next Song"
 msgstr ""
 
-#: kmidclient.cpp:231 kmidclient.cpp:314 kmidframe.cpp:501
+#: kmidclient.cpp:231 kmidclient.cpp:315 kmidframe.cpp:499
 msgid "Error"
 msgstr ""
 
-#: kmidframe.cpp:501
+#: kmidframe.cpp:499
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
 
-#: kmidframe.cpp:617 kmidframe.cpp:618
+#: kmidframe.cpp:615 kmidframe.cpp:616
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
 msgstr ""
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:302 kmidclient.cpp:308 kmidframe.cpp:619
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:303 kmidclient.cpp:309 kmidframe.cpp:617
 msgid "Warning"
 msgstr ""
 
@@ -196,15 +196,15 @@ msgstr ""
 msgid "Unknown error message"
 msgstr ""
 
-#: kmidclient.cpp:303
+#: kmidclient.cpp:304
 msgid "You must load a file before playing it"
 msgstr ""
 
-#: kmidclient.cpp:309
+#: kmidclient.cpp:310
 msgid "A song is already being played"
 msgstr ""
 
-#: kmidclient.cpp:314
+#: kmidclient.cpp:315
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

@@ -302,3 +302,6 @@ Tuesday 7-4-98
 - Aaaargh !, I have to remove the changes that I did last tuesday because it
 seems that the changes in the kdelibs have been removed.
 
+Monday 13-4-98
+- Added support for midi files with strange headers not related to midi files.
+ (suggested by Adrian Knoth, thanks !)

@@ -6,7 +6,7 @@
 #define VERSION_TXT "KMid 0.5.2" 
 
 // Undefine WORKING for release versions
-#define WORKING
+//#define WORKING
 
 // I want to keep some special variables defined at home for personal 
 // adjustments
@@ -30,14 +30,15 @@
 //#define KMidDEBUG
 //#define KDISPTEXTDEBUG
 //#define COLLECTDLGDEBUG
-//#define DEVICEMANDEBUG
+#define DEVICEMANDEBUG
 //#define FMOUTDEBUG
 //#define MIDFILEDEBUG
-//#define MIDIOUTDEBUG
+#define MIDIOUTDEBUG
 //#define MIDISTATDEBUG
-//#define MIDIMAPPERDEBUG
-//#define SYNTHOUTDEBUG
+#define MIDIMAPPERDEBUG
+#define SYNTHOUTDEBUG
 //#define VOICEMANDEBUG
+#define PLAYERDEBUG
 #endif
 
 #endif

@@ -33,6 +33,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include "player/slman.h"
+#include "version.h"
 
 class DeviceManager;
 
