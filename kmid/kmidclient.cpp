@@ -143,14 +143,15 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
                                  (kapp->kde_datadir()+"/kmid/fm"));
     
     
-    int sharedmemid=shmget(getpid(),sizeof(PlayerController),0666 | IPC_CREAT);
-    if (sharedmemid==-1)
+    sharedMemID=shmget(getpid(),sizeof(PlayerController),0666 | IPC_CREAT);
+    if (sharedMemID==-1)
     {
-        printf("ERROR : Can't allocate shared memory !!! "
+        printf("ERROR : Can't allocate shared memory !!!\n"
                "Please report to antlarr@arrakis.es\n");
+	exit(1);
     };
     
-    pctl=(PlayerController *)shmat(sharedmemid,NULL,0);
+    pctl=(PlayerController *)shmat(sharedMemID,NULL,0);
     if (pctl==NULL)
         printf("ERROR : Can't get shared memory !!! "
                "Please report to antlarr@arrakis.es\n");
@@ -231,6 +232,10 @@ kmidClient::~kmidClient()
     
     saveCollections();
     delete slman;
+
+// Let's detach and delete shared memory
+    shmdt((char *)pctl);
+    shmctl(sharedMemID, IPC_RMID, 0L);
 };
 
 char *extractFilename(const char *in,char *out)

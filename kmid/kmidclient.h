@@ -59,6 +59,7 @@ private:
     player *Player;
 
     int playerProcessID;
+    int sharedMemID;
     PlayerController *pctl;
 
     QTimer *timer4timebar;

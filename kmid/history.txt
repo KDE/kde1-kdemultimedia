@@ -429,3 +429,10 @@ This deserves a new 2.0 version, probably next week.
 Friday 27-11-98
 - Fixed a broken link in the .kdelnk file (DocPath) and raised version
 number to 1.6
+
+Thursday 10-12-98
+- Added new sgml documentation, updated up to KMid 1.6
+
+Friday 11-12-98
+- Fixed a shared memory leackage bug (hopefully the last bug in KMid :) ).
+
