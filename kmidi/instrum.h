@@ -39,6 +39,7 @@ typedef struct {
     vibrato_sweep_increment, vibrato_control_ratio,
     cutoff_freq;
   uint8
+    reverberation, chorusdepth,
     tremolo_depth, vibrato_depth,
     modes;
   int8
