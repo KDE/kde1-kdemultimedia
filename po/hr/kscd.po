@@ -450,7 +450,7 @@ msgstr ""
 
 #: kscd.cpp:2132
 msgid "-d: enable debugging output.\n"
-msgstr "-d: uklju"
+msgstr "-d: uklju\n"
 
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"
