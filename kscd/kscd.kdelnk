@@ -3,6 +3,7 @@
 Comment=A CD Player
 Comment[fr]=Lecteur de CD audio
 Comment[de]=Ein CD-Spieler
+Comment[no]=En CD-spiller
 Comment[pl]=Prosty odtwarzacz p³yt CD
 Comment[fi]=CD Soitin
 Comment[hu]=CD lejátszó
@@ -16,6 +17,7 @@ Protocols=
 Name=CD Player
 Name[fr]=Lecteur de CD
 Name[de]=CD-Spieler
+Name[no]=CD-spiller
 Name[pl]=Odtwarzacz CD
 Name[fi]=CD Soitin
 Name[hu]=CD lejátszó

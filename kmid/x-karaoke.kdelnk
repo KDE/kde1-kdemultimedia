@@ -7,6 +7,7 @@ Patterns=*.kar;*.KAR;
 Comment=Karaoke file
 Comment[fr]=Fichier pour karaoké
 Comment[de]=Karaoke Dokument
+Comment[no]=Karaokefil
 Comment[nl]=Karaoke bestand
 Comment[pt]=Ficheiro Karaoke
 Comment[hr]=Karaoke datoteka
