@@ -74,7 +74,7 @@ static unsigned max_polyphony = 0;
 Channel channel[16];
 #else /* ADAGIO */
 static void read_seq(unsigned char *from, unsigned char *to);
-Channel channel[MAX_VOICES];
+Channel channel[MAX_TONE_VOICES];
 #endif /* ADAGIO */
 Voice voice[MAX_VOICES];
 
@@ -121,6 +121,7 @@ static void reset_controllers(int c)
   channel[c].pitchfactor=0; /* to be computed */
 }
 
+#ifndef ADAGIO
 static void redraw_controllers(int c)
 {
   ctl->volume(c, channel[c].volume);
@@ -128,6 +129,7 @@ static void redraw_controllers(int c)
   ctl->sustain(c, channel[c].sustain);
   ctl->pitch_bend(c, channel[c].pitchbend);
 }
+#endif
 
 static void reset_midi(void)
 {
@@ -1665,11 +1667,6 @@ void dumb_pass_playing_list(int number_of_files, char *list_of_files[])
 {
 #ifndef ADAGIO
     int i=0;
-
-/* on linux this segfaults, looking for too many files, so ... (gl) */
-#ifdef linux
-number_of_files --;
-#endif
 
     for (;;)
 	{
