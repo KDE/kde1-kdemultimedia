@@ -1,3 +1,17 @@
+Wed Jun  3 22:13:05 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* AWE vibrato
+	* chorus depth and reverberation
+	* lyrics
+
+Mon Jun  1 19:20:00 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* AWE filters
+
+Fri May 29 15:12:00 HST 1998  Greg Lee <lee@hawaii.edu>
+
+	* merged in my version of TiMidity -- many changes
+
 Sun Jan 18 08:39:01 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
 
 	* kmidi.cpp: various internal fixes and improvments
