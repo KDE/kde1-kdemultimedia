@@ -51,7 +51,6 @@ protected:
   void paintEvent(QPaintEvent *e);
 
 private slots:
-    void toggle_window_state();
     void timeclick();
     void play_pause();
     void forward();
@@ -66,10 +65,13 @@ public slots:
     void dock();
     void undock();
     void paintIcon();
+    void toggle_window_state();
 
 public:
     const bool isDocked();
     const bool isToggled();
+    const bool setToggled(int);
+    
 
 private:
   bool docked;

@@ -1,3 +1,18 @@
+1998-12-22  Sam Maloney <thufir@illogic.ml.org>
+
+	* Added to last commit, as so the 'autodock' checkbox would be
+	disabled when 'docking' was unchecked, and vice versa.
+
+1998-12-20  Sam Maloney <thufir@illogic.ml.org>
+
+	* Just simple bugfixes to make more stable like...:
+	* Fixed so that when one turns on or off 'enable docking' it
+	adds/removes the dockwidget in the panel (instead of before one
+	would have to restart kscd).
+	* Fixed so that if one turned off 'enable docking' but still had
+	'autodock enabled' on, then it would NOT dock (and remove the
+	widget).
+
 1998-12-12  Christian Esken  <esken@kde.org>
 
 	* Tweaked docking a bit more. Under certain circumstances,

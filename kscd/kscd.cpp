@@ -838,9 +838,10 @@ void KSCD::dockClicked()
 
     if(docking){
         dockinginprogress = true;
-        if(dock_widget) {
-            dock_widget->dock();
-        }
+//        if(dock_widget) {
+//            dock_widget->dock();      // i think this is wrong
+//        }
+        dock_widget->setToggled(true);  // << better :)
         this->hide();
     }
 
@@ -872,15 +873,16 @@ void KSCD::closeEvent( QCloseEvent *e ){
 }
 
 bool KSCD::event( QEvent *e ){
-    if(e->type() == Event_Hide && autodock){
+    if(e->type() == Event_Hide && autodock && docking){
         if(dockinginprogress || quitPending)
             return(FALSE);
         sleep(1); // give kwm some time..... ugly I know.
         if (!KWM::isIconified(winId())) // maybe we are just on another desktop
             return FALSE;
-        if(dock_widget) {
-            dock_widget->dock();
-        }
+//        if(dock_widget) {
+//            dock_widget->dock();      // this was not needed/bad
+//        }
+        dock_widget->setToggled(true);
         // a trick to remove the window from the taskbar (Matthias)
         recreate(0, 0, QPoint(x(), y()), FALSE);
         kapp->setTopWidget( this );
@@ -1034,7 +1036,6 @@ void KSCD::aboutClicked(){
     logo->setPixmap(pm);
     logo->setGeometry(40, 50, pm.width(), pm.height());
 
-
     ConfigDlg* dlg;
     struct configstruct config;
     config.background_color = background_color;
@@ -1130,6 +1131,20 @@ void KSCD::aboutClicked(){
 
         setColors();
         setToolTips();
+
+        if(docking){
+            if(!dock_widget->isDocked()){
+                delete dock_widget;
+                dock_widget = new DockWidget("dockw");
+                dock_widget->dock();
+            }
+        }else{
+            if(dock_widget->isDocked()){
+                if(dock_widget->isToggled())
+                    dock_widget->toggle_window_state();
+                dock_widget->undock();
+            }
+        }
 
     }
     else{

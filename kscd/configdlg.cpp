@@ -173,6 +173,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   dockOnMinimizeCB->setGeometry(30+XOFF, 305+YOFF, 200, 15);
   dockOnMinimizeCB->setChecked(configdata.autodock);
   connect(dockOnMinimizeCB, SIGNAL(clicked()), this, SLOT(dockOnMinimizeClicked()));
+  dockOnMinimizeCB->setEnabled(configdata.docking);
 
   stopOnExitCB = new QCheckBox(klocale->translate("Stop Playing on Exit"),
                                this, "stopOnExitCB");
@@ -236,11 +237,13 @@ void ConfigDlg::ttclicked(){
 
 void ConfigDlg::dockclicked(){
 
-  if(dockcheckbox->isChecked())
-    configdata.docking = TRUE;
-  else
-    configdata.docking = FALSE;
-
+    if(dockcheckbox->isChecked()){
+        dockOnMinimizeCB->setEnabled(true);
+        configdata.docking = TRUE;
+    }else{
+        dockOnMinimizeCB->setEnabled(false);
+        configdata.docking = FALSE;
+    }
 }
 
 void ConfigDlg::autoPlayClicked(){

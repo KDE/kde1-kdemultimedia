@@ -107,20 +107,25 @@ void DockWidget::dock() {
   }
 }
 
-void DockWidget::undock() {
+void DockWidget::undock()
+{
+    if(docked){
+        // the widget's window has to be destroyed in order
+        // to undock from the panel. Simply using hide() is
+        // not enough.
+        this->destroy(true, true);
 
-  if (docked) {
+        // recreate window for further dockings
+        this->create(0, false, false);
 
-    // the widget's window has to be destroyed in order
-    // to undock from the panel. Simply using hide() is
-    // not enough.
-    this->destroy(true, true);
-
-    // recreate window for further dockings
-    this->create(0, true, false);
-
-    docked = false;
-  }
+        docked = false;
+    }
+    /*
+     allthough this un-docks the applet from the panel, it seems to stop
+     the applet from being able to re-dock with a call to this->dock(),
+     which docks it fine when newly created
+                    -- thuf
+     */
 }
 
 const bool DockWidget::isDocked() {
@@ -195,6 +200,11 @@ void DockWidget::toggle_window_state() {
             KWM::activate(k->winId());
         }
     }
+}
+
+const bool DockWidget::setToggled(int totoggle)
+{
+    toggled = totoggle;
 }
 
 const bool DockWidget::isToggled()
