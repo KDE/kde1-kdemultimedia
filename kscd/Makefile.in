@@ -5,6 +5,7 @@ prefix  = @prefix@
 BINDIR  = $(prefix)/bin
 LIBDIR  = $(prefix)/lib
 ICONDIR  = $(prefix)/share/icons
+MINIDIR  = $(prefix)/share/icons/mini
 PICSDIR  = $(prefix)/share/apps/kscd/pics/
 APPSDIR = $(prefix)/share/applnk/Multimedia
 
