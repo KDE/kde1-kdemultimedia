@@ -34,8 +34,9 @@
 #include <errno.h>
 
 #include <sys/ioctl.h> 
+#include "../config.h"
 
-#ifdef (SYSV)
+#ifdef HAVE_SYS_AUDIOIO_H
  #include <sys/audioio.h>
 #else
  #include <sun/audioio.h>
@@ -89,7 +90,7 @@ static int open_output(void)
 
   /* Open the audio device */
 
-#ifdef (SYSV)
+#ifdef SYSV
   fd=open(dpm.name, O_WRONLY );
 #else
   fd=open(dpm.name, O_WRONLY | O_NDELAY);

@@ -17,6 +17,8 @@
     Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 */
 
+#include "../config.h"
+
 #ifdef ADAGIO
 #include "adagio.h"
 #include "allphase.h"
@@ -393,7 +395,7 @@ typedef char int8;
 #endif
 
 #ifdef sun
-  #ifndef SYSV
+  #ifdef HAVE_SYS_STDTYPES_H
     #include <sys/stdtypes.h>
   #endif
   #include <errno.h>

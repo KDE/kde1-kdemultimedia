@@ -34,6 +34,12 @@
 #include <sys/shm.h>
 #include <errno.h>
 
+#include "../config.h"
+
+#ifdef HAVE_SYS_FILIO_H
+#include <sys/filio.h>
+#endif
+
 #include "config.h"
 #include "common.h"
 #include "instrum.h"
