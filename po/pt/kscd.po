@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1999-04-03 02:43+0200\n"
+"POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt\n"
@@ -13,27 +13,27 @@ msgstr ""
 msgid "CDDB Base Directory"
 msgstr "Directory do CDDB"
 
-#: CDDBSetupData.cpp:63
+#: CDDBSetupData.cpp:62
 msgid "Send CDDB submissions to:"
 msgstr "Enviar entradas CDDB para:"
 
-#: CDDBSetupData.cpp:84
+#: CDDBSetupData.cpp:82
 msgid "CDDB server:"
 msgstr "Servidor CDDB:"
 
-#: CDDBSetupData.cpp:93
+#: CDDBSetupData.cpp:90
 msgid "Update"
 msgstr "Actualizar"
 
-#: CDDBSetupData.cpp:115
+#: CDDBSetupData.cpp:112
 msgid "Enable Remote CDDB"
 msgstr "Activar CDDB Remoto"
 
-#: CDDBSetupData.cpp:124
+#: CDDBSetupData.cpp:120
 msgid "Defaults"
 msgstr "Por Omissão"
 
-#: CDDBSetupData.cpp:141
+#: CDDBSetupData.cpp:137
 msgid "Use HTTP proxy to access CDDB"
 msgstr "Utilizar proxy HTTP para aceder CDDB"
 
@@ -194,51 +194,51 @@ msgstr "Configurar kscd"
 msgid "LED Color:"
 msgstr "Cor do LED:"
 
-#: configdlg.cpp:93
+#: configdlg.cpp:92
 msgid "Background Color:"
 msgstr "Cor de Fundo:"
 
-#: configdlg.cpp:107
+#: configdlg.cpp:106
 msgid "CDROM Device:"
 msgstr "Dispositivo do CDROM:"
 
-#: configdlg.cpp:124
+#: configdlg.cpp:123
 msgid "Unix mail command:"
 msgstr "Comando de mail:"
 
-#: configdlg.cpp:132
+#: configdlg.cpp:131
 msgid "WWW-Browser"
 msgstr "Browser da WWW"
 
-#: configdlg.cpp:135
+#: configdlg.cpp:134
 msgid "Use kfm as Browser"
 msgstr "Utilizar kfm"
 
-#: configdlg.cpp:142
+#: configdlg.cpp:141
 msgid "Use Custom Browser:"
 msgstr "Utilizar Outro Browser:"
 
-#: configdlg.cpp:154
+#: configdlg.cpp:153
 msgid "Show Tool Tips"
 msgstr "Mostrar Tool Tips"
 
-#: configdlg.cpp:161
+#: configdlg.cpp:159
 msgid "Enable KPanel Docking"
 msgstr "Activar Atracagem no Painel"
 
-#: configdlg.cpp:168
+#: configdlg.cpp:165
 msgid "Play on Tray Close"
 msgstr "Tocar ao Fechar Gaveta"
 
-#: configdlg.cpp:175
+#: configdlg.cpp:171
 msgid "AutoDock on Minimize"
 msgstr "Atracar ao Minimizar"
 
-#: configdlg.cpp:183
+#: configdlg.cpp:178
 msgid "Stop Playing on Exit"
 msgstr "Parar Reprodução ao Sair"
 
-#: configdlg.cpp:190
+#: configdlg.cpp:184
 msgid "Eject on Finish"
 msgstr "Ejectar ao Sair"
 
@@ -564,11 +564,11 @@ msgstr ""
 msgid "Enter the local CDDB base Directory"
 msgstr "Insira a Directoria da base de dados CDBD local"
 
-#: kscd.cpp:2425
+#: kscd.cpp:2422
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opções da linha de comandos\n"
 
-#: kscd.cpp:2426
+#: kscd.cpp:2423
 msgid "-d: enable debugging output.\n"
 msgstr "-d: activar depuração.\n"
 
