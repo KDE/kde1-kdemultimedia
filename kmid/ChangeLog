@@ -68,3 +68,9 @@ put it in my homepage
 Well, I should be studying, but KDE 1.0 good deserves a few minutes
 to change the version number everywhere, remove debug printfs, and
 clean the latest bugs, isn't it ? :-)
+
+1.2    14-9-98
+-----  -------
+This version includes a new ChannelView to see notes played by each 
+instrument and a volume bar.
+It also has some bug fixes and support for really broken midi files.

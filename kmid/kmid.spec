@@ -1,10 +1,10 @@
 Summary: Play midi/karaoke files and show lyrics. Support External synths, AWE, GUS, and FM devices. For X11/KDE
 Name: kmid
-Version: 1.0
+Version: 1.2
 Release: 1
 Copyright: GPL
 Group: X11/K Desktop Environment/Multimedia
-Source: kmid-1.0.tgz
+Source: kmid-1.2.tar.gz
 Requires: qt >= 1.3 , kdelibs
 
 %description
@@ -13,6 +13,7 @@ real Session Management, drag & drop, customizable fonts, etc.
 It has a very nice interface which let you easily follow the tune while
 changing the color of the lyrics.
 It supports output through external synthesizers, AWE, FM and GUS cards.
+It also has a keyboard view to see the notes played by each instrument
 
 %prep
 %setup
@@ -41,7 +42,20 @@ make install
 /opt/kde/share/apps/kmid/maps/gm.map
 /opt/kde/share/apps/kmid/maps/YamahaPSS790.map
 /opt/kde/share/apps/kmid/maps/YamahaPSR500.map
-/opt/kde/share/apps/kmid/TakingCareOfBusiness.kar
-/opt/kde/share/apps/kmid/AlwaysLookOnTheBrightSideOfLife.kar
-/opt/kde/share/apps/kmid/UnVeleroLlamadoLibertad.kar
-
+/opt/kde/share/apps/kmid/IfICantHaveYou.kar
+/opt/kde/share/apps/kmid/SinDocumentos.kar
+/opt/kde/share/apps/kmid/Waterloo.kar
+/opt/kde/share/locale/es/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/cs/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/de/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/fi/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/hr/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/pl/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/pt/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/sk/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/eo/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/no/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/sv/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/pt_BR/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/zh_CN.GB2312/LC_MESSAGES/kmid.mo
+/opt/kde/share/locale/zh_TW.Big5/LC_MESSAGES/kmid.mo

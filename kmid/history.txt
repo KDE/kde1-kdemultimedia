@@ -374,3 +374,9 @@ Monday 31-8-98
  because 1.0 has a "feature" for large como boxes (as this one) 
  
 
+Wednesday 9-9-98
+- Fixed the last bug for leaving zombies around.
+
+Monday 14-9-98
+- Released Version 1.2
+

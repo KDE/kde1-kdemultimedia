@@ -1,9 +1,9 @@
 #ifndef _VERSION_H
 
 
-#define VERSION_NUM 1.0
-#define VERSION_SHORTTXT "1.0"
-#define VERSION_TXT "KMid 1.0" 
+#define VERSION_NUM 1.2
+#define VERSION_SHORTTXT "1.2"
+#define VERSION_TXT "KMid 1.2" 
 
 // Undefine WORKING for release versions
 //#define WORKING
