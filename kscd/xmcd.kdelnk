@@ -1,6 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Comment=CD Database File
+Comment[br]=Restr Stlennvon CD
 Comment[ca]=Fitxer de base de dades de CD
 Comment[da]=CD databasefil
 Comment[de]=CD-Datenbank-Datei
@@ -8,6 +9,7 @@ Comment[es]=Archivo de datos de CDs
 Comment[fi]=CD Tietokantatiedosto
 Comment[fr]=Banque de données pour CD
 Comment[hr]=CD baza datoteka
+Comment[hu]=CD adatbázis fájl
 Comment[is]=CD gagnasafnsskrá
 Comment[it]=File di database CD
 Comment[no]=CD-databasefil
