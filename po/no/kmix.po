@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmix\n"
-"POT-Creation-Date: 1998-11-17 15:24+0100\n"
+"POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-05-22 21:53+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -13,19 +13,19 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO_8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:518 kmix.cpp:639
+#: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
 msgstr "&Skjul menylinje"
 
-#: kmix.cpp:521
+#: kmix.cpp:523
 msgid "&Tickmarks On/Off"
 msgstr "&Målestreker på/av"
 
-#: kmix.cpp:524 kmix.cpp:642
+#: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr "&Valg..."
 
-#: kmix.cpp:533
+#: kmix.cpp:535
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -47,39 +47,39 @@ msgstr ""
 "og Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port av Nick Lopez (kimo_sabe@usa.net)."
 
-#: kmix.cpp:553
+#: kmix.cpp:555
 msgid "&Left"
 msgstr "&Venstre"
 
-#: kmix.cpp:554
+#: kmix.cpp:556
 msgid "&Center"
 msgstr "&Senter"
 
-#: kmix.cpp:555
+#: kmix.cpp:557
 msgid "&Right"
 msgstr "&Høyre"
 
-#: kmix.cpp:641
+#: kmix.cpp:643
 msgid "&Show Menubar"
 msgstr "&Vis menylinje"
 
-#: kmix.cpp:686
+#: kmix.cpp:688
 msgid "Un&mute"
 msgstr "Ingen &demping"
 
-#: kmix.cpp:688
+#: kmix.cpp:690
 msgid "&Mute"
 msgstr "&Demping"
 
-#: kmix.cpp:691
+#: kmix.cpp:693
 msgid "&Split"
 msgstr "&Splitt"
 
-#: kmix.cpp:693
+#: kmix.cpp:695
 msgid "Un&split"
 msgstr "S&lutt på splitt"
 
-#: kmix.cpp:696
+#: kmix.cpp:698
 msgid "&RecSource"
 msgstr "Mottager&kilde"
 
@@ -127,6 +127,6 @@ msgstr "Vis"
 msgid "Split"
 msgstr "Splitt"
 
-#: docking.cpp:154
+#: docking.cpp:155
 msgid "Minimize"
 msgstr "Minimer"

@@ -3,24 +3,24 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-17 15:24+0100\n"
+"POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-10-05 01:30+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@imf.au.dk>\n"
 "Language-Team: is\n"
 
-#: kmix.cpp:518 kmix.cpp:639
+#: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
 msgstr "Fela &valmyndastiku"
 
-#: kmix.cpp:521
+#: kmix.cpp:523
 msgid "&Tickmarks On/Off"
 msgstr "&Kvarði af/á"
 
-#: kmix.cpp:524 kmix.cpp:642
+#: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr ""
 
-#: kmix.cpp:533
+#: kmix.cpp:535
 #, fuzzy
 msgid ""
 "\n"
@@ -43,40 +43,40 @@ msgstr ""
 "Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "Nick Lopez (kimo_sabe@usa.net) flutti á ALSA."
 
-#: kmix.cpp:553
+#: kmix.cpp:555
 msgid "&Left"
 msgstr "&Vinstri"
 
-#: kmix.cpp:554
+#: kmix.cpp:556
 msgid "&Center"
 msgstr "&Miðja"
 
-#: kmix.cpp:555
+#: kmix.cpp:557
 msgid "&Right"
 msgstr "&Hægri"
 
-#: kmix.cpp:641
+#: kmix.cpp:643
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Valmyndarstika"
 
-#: kmix.cpp:686
+#: kmix.cpp:688
 msgid "Un&mute"
 msgstr "&Heyrast"
 
-#: kmix.cpp:688
+#: kmix.cpp:690
 msgid "&Mute"
 msgstr "Þ&agna"
 
-#: kmix.cpp:691
+#: kmix.cpp:693
 msgid "&Split"
 msgstr "&Kljúfa"
 
-#: kmix.cpp:693
+#: kmix.cpp:695
 msgid "Un&split"
 msgstr "&Sameina"
 
-#: kmix.cpp:696
+#: kmix.cpp:698
 msgid "&RecSource"
 msgstr "Stilla &upptöku"
 
@@ -124,6 +124,6 @@ msgstr "Sýna"
 msgid "Split"
 msgstr "Kjúfa"
 
-#: docking.cpp:154
+#: docking.cpp:155
 msgid "Minimize"
 msgstr "Lágmarka"

@@ -1,23 +1,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-17 15:24+0100\n"
+"POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-01-26 20:00+0000\n"
 "Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
 
-#: kmix.cpp:518 kmix.cpp:639
+#: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:521
+#: kmix.cpp:523
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Ligado/Desligado"
 
-#: kmix.cpp:524 kmix.cpp:642
+#: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr ""
 
-#: kmix.cpp:533
+#: kmix.cpp:535
 #, fuzzy
 msgid ""
 "\n"
@@ -39,40 +39,40 @@ msgstr ""
 "Modificações *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "e Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:553
+#: kmix.cpp:555
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:554
+#: kmix.cpp:556
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:555
+#: kmix.cpp:557
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:641
+#: kmix.cpp:643
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Barra de menu"
 
-#: kmix.cpp:686
+#: kmix.cpp:688
 msgid "Un&mute"
 msgstr "&Com som"
 
-#: kmix.cpp:688
+#: kmix.cpp:690
 msgid "&Mute"
 msgstr "Se&m som"
 
-#: kmix.cpp:691
+#: kmix.cpp:693
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:693
+#: kmix.cpp:695
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:696
+#: kmix.cpp:698
 msgid "&RecSource"
 msgstr "Fonte de G&ravação"
 
@@ -120,6 +120,6 @@ msgstr "Mostrar"
 msgid "Split"
 msgstr "Dividir"
 
-#: docking.cpp:154
+#: docking.cpp:155
 msgid "Minimize"
 msgstr "Minimizar"
