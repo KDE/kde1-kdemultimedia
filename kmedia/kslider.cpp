@@ -17,10 +17,8 @@
 
 #include <qpainter.h>
 #include <qdrawutl.h>
-#include <qevent.h>
 
 #include "kslider.h"
-
 #include "kslider.moc"
 
 #define ARROW_LENGTH	13
@@ -28,15 +26,15 @@
 KSlider::KSlider( QWidget *parent, const char *name )
   : QSlider( parent, name )
 {
-  cur_slider_pos=-1;
-  //  setSteps(1,1);
+  setBackgroundMode(PaletteBackground);
+  //setSteps(1,1);
 }
 
 KSlider::KSlider( Orientation o, QWidget *parent, const char *name )
   : QSlider( (QSlider::Orientation)o, parent, name )
 {
-  cur_slider_pos=-1;
-  // setSteps(1,1);
+  setBackgroundMode(PaletteBackground);
+  //setSteps(1,1);
 }
 
 KSlider::KSlider( int _minValue, int _maxValue, int _Step, int _value,
@@ -44,66 +42,55 @@ KSlider::KSlider( int _minValue, int _maxValue, int _Step, int _value,
   : QSlider( _minValue, _maxValue, _Step, _value, (QSlider::Orientation)o,
              parent, name )
 {
-  cur_slider_pos=-1;
-  setSteps(1,_Step);
+  setBackgroundMode(PaletteBackground);
+  setSteps(_Step,_Step); // !!!
 }
 
-void KSlider::rangeChange()
+
+
+void KSlider::drawShadeLine( QPainter *painter )
 {
-  // Necessary for range changes after creation time
-  valueChange();
-  repaint();
+  if ( orientation() == Vertical )
+    qDrawShadeLine(painter, 5, 3, 5, height()-3, colorGroup(), true, 1, 2);
+  else
+    qDrawShadeLine(painter, 3, 5, width()-3, 5, colorGroup(), true, 1, 2);
 }
 
-void KSlider::valueChange()
+
+void KSlider::paintSlider(QPainter *painter, const QRect &rect )
 {
-  QPainter painter;
   QPoint pos;
 
-  painter.begin( this );
-
   pos = calcArrowPos( prevValue() );
-  drawArrow( painter, FALSE, pos );
+  drawArrow( painter, false, pos );
 
-  if ( orientation() == Vertical )
-    {
-      qDrawShadeLine(&painter, 5, 3, 5, height()-3, colorGroup(), TRUE, 1, 2);
-    }
-  else
-    {
-      qDrawShadeLine(&painter, 3, 5, width()-3, 5, colorGroup(), TRUE, 1, 2);
-    }
+  drawShadeLine(painter);
+  drawTickMarks(painter);
 
   pos = calcArrowPos( value() );
-  drawArrow( painter, TRUE, pos );
-
-  painter.end();
+  drawArrow( painter, true, pos );
 }
 
-
-void KSlider::drawArrow( QPainter &painter, bool show, const QPoint &pos )
+void KSlider::drawArrow( QPainter *painter, bool show, const QPoint &pos )
 {
   QPen        arrowPen;
   QPointArray array(5);
 
   // Select Horizontal or Vertical Polygon Array
-  if ( orientation() == Vertical )
-    {
-      array.setPoint( 0, pos.x()+0, pos.y()+0 );
-      array.setPoint( 1, pos.x()-4, pos.y()+4 );
-      array.setPoint( 2, pos.x()-ARROW_LENGTH, pos.y()+4 );
-      array.setPoint( 3, pos.x()-ARROW_LENGTH, pos.y()-4 );
-      array.setPoint( 4, pos.x()-4, pos.y()-4 );
-    }
-  else
-    {
-      array.setPoint( 0, pos.x()+0, pos.y()+0 );
-      array.setPoint( 1, pos.x()+4, pos.y()-4 );
-      array.setPoint( 2, pos.x()+4, pos.y()-ARROW_LENGTH );
-      array.setPoint( 3, pos.x()-4, pos.y()-ARROW_LENGTH );
-      array.setPoint( 4, pos.x()-4, pos.y()-4 );
-    }
-	
+  if ( orientation() == Vertical ) {
+    array.setPoint( 0, pos.x()+0, pos.y()+0 );
+    array.setPoint( 1, pos.x()-4, pos.y()+4 );
+    array.setPoint( 2, pos.x()-ARROW_LENGTH, pos.y()+4 );
+    array.setPoint( 3, pos.x()-ARROW_LENGTH, pos.y()-4 );
+    array.setPoint( 4, pos.x()-4, pos.y()-4 );
+  }
+  else {
+    array.setPoint( 0, pos.x()+0, pos.y()+0 );
+    array.setPoint( 1, pos.x()+4, pos.y()-4 );
+    array.setPoint( 2, pos.x()+4, pos.y()-ARROW_LENGTH );
+    array.setPoint( 3, pos.x()-4, pos.y()-ARROW_LENGTH );
+    array.setPoint( 4, pos.x()-4, pos.y()-4 );
+  }
 
   // Select a base pen, then change parameters
   if ( show )
@@ -112,18 +99,18 @@ void KSlider::drawArrow( QPainter &painter, bool show, const QPoint &pos )
     arrowPen = QPen( backgroundColor() );
 
   arrowPen.setWidth(1);		// Yup, we REALLY want width 1, not 0 here !!
-  painter.setPen(arrowPen);
-  painter.setBrush( backgroundColor() );
-  painter.setRasterOp ( CopyROP );
+  painter->setPen(arrowPen);
+  painter->setBrush( backgroundColor() );
+  // painter->setRasterOp ( CopyROP );
 
-  painter.drawPolygon( array );
+  painter->drawPolygon( array );
 
   if ( show )
     {
       arrowPen = QPen( colorGroup().dark() );
       arrowPen.setWidth(1);	// Yup, we REALLY want width 1, not 0, here !!
-      painter.setPen(arrowPen);
-      painter.drawPolyline( array, 0, 3);
+      painter->setPen(arrowPen);
+      painter->drawPolyline( array, 0, 3);
 
       // !!! This fixes a problem with a missing point! Qt Bug?
       // !!! I will wait for Qt1.3 to see the results
@@ -136,146 +123,94 @@ QSize KSlider::sizeHint() const
 {
   QSize size;
 
-  if ( orientation() == Vertical )
-    {
-      size.setWidth( ARROW_LENGTH + 5 + 1 );
-      size.setHeight( 50 );
-    }
-  else
-    {
-      size.setWidth( 50 );
-      size.setHeight( ARROW_LENGTH + 5 + 1 );
-    }
-
+  if ( orientation() == Vertical ) {
+    size.setWidth( ARROW_LENGTH + 5 + 1 );
+    size.setHeight( -1 );
+  }
+  else {
+    size.setWidth( -1 );
+    size.setHeight( ARROW_LENGTH + 5 + 1 );
+  }
   return size;
 }
+
+
 
 QPoint KSlider::calcArrowPos( int val )
 {
   QPoint p;
   int diffMaxMin = checkWidth();	// sanity check, Christian Esken
 
-  if ( orientation() == Vertical )
-    {
-      cur_slider_pos = height() - ( (height()-10) * ( val - minValue() )
-			   / diffMaxMin + 5 );
-      p.setY( cur_slider_pos );
-      p.setX( ARROW_LENGTH );
-    }
-  else
-    {
-      p.setX( ( (width()-10) * ( val - minValue() )
-		/ diffMaxMin + 5 ) );
-      p.setY( ARROW_LENGTH );
-    }
-
+  if ( orientation() == Vertical ) {
+    p.setY( height() - ( (height()-10) * ( val - minValue() )
+				  / diffMaxMin + 5 ) );
+    p.setX( ARROW_LENGTH );
+  }
+  else {
+    p.setX( ( (width()-10) * ( val - minValue() )
+	      / diffMaxMin + 5 ) );
+    p.setY( ARROW_LENGTH );
+  }
   return p;
 }
 
-void KSlider::moveArrow( const QPoint &pos )
+
+void KSlider::drawTickMarks(QPainter *painter)
 {
-  int val;
+  QPen tickPen = QPen( colorGroup().dark() );
+  tickPen.setWidth(1);	// Yup, we REALLY want width 1, not 0 here !!
+  painter->setPen(tickPen);
 
-  if ( orientation() == Vertical )
-    val = ( maxValue() - minValue() ) * (height()-pos.y()-3)
-      / (height()-10) + minValue();
-  else
-    val = ( maxValue() - minValue() ) * (pos.x()-3)
-      / (width()-10) + minValue();
+  int i;
+  int diffMaxMin = checkWidth();	// sanity check, Christian Esken
+  if ( orientation() == Vertical ) {
+    // first clear the tickmark area
+    painter->fillRect(ARROW_LENGTH+1,0, ARROW_LENGTH + 6, height()-1, colorGroup().background()  );
 
-  if ( val > maxValue() )
-    val = maxValue();
-  if ( val < minValue() )
-    val = minValue();
-
-  emit valueChanged( val );
-  setValue( val );
+    // draw ruler marks
+    for ( i = 0; i <= maxValue() - minValue(); i += lineStep() ) {
+      int pos = (height()-10) * i / diffMaxMin + 5;
+      painter->drawLine( ARROW_LENGTH+1, pos, ARROW_LENGTH + 4, pos );
+    }
+    for ( i = 0; i <= maxValue() - minValue(); i += pageStep() ) {
+      int pos = (height()-10) * i / diffMaxMin + 5;
+      painter->drawLine( ARROW_LENGTH+1, pos, ARROW_LENGTH + 6, pos );
+    }
+  }
+  else {
+    // first clear the tickmark area
+    painter->fillRect(0, ARROW_LENGTH+1, width()-1, ARROW_LENGTH + 6, colorGroup().background() );
+    // draw ruler marks
+    for ( i = 0; i <= maxValue() - minValue(); i += lineStep() ) {
+      int pos = (width()-10) * i / diffMaxMin + 5;
+      painter->drawLine( pos, ARROW_LENGTH+1, pos, ARROW_LENGTH + 4 );
+    }
+    for ( i = 0; i <= maxValue() - minValue(); i += pageStep() ) {
+      int pos = (width()-10) * i / diffMaxMin + 5;
+      painter->drawLine( pos, ARROW_LENGTH+1, pos, ARROW_LENGTH + 6 );
+    }
+  }
 }
 
 void KSlider::paintEvent( QPaintEvent * )
 {
   QPainter painter;
 
-  int i;
-  int diffMaxMin = checkWidth();	// sanity check, Christian Esken
   painter.begin( this );
-
-  if ( orientation() == Vertical )
-    {
-      qDrawShadeLine(&painter, 5, 3, 5, height()-3, colorGroup(), TRUE, 1, 2);
-
-      // draw ruler marks
-      for ( i = 0; i <= maxValue() - minValue(); i += lineStep() )
-	{
-	  int pos = (height()-10) * i / diffMaxMin + 5;
-	  painter.drawLine( ARROW_LENGTH+1, pos, ARROW_LENGTH + 4, pos );
-	}
-
-      for ( i = 0; i <= maxValue() - minValue(); i += pageStep() )
-	{
-	  int pos = (height()-10) * i / diffMaxMin + 5;
-	  painter.drawLine( ARROW_LENGTH+1, pos, ARROW_LENGTH + 6, pos );
-	}
-    }
-  else
-    {
-      qDrawShadeLine(&painter, 3, 5, width()-3, 5, colorGroup(), TRUE, 1, 2);
-
-      // draw ruler marks
-      for ( i = 0; i <= maxValue() - minValue(); i += lineStep() )
-	{
-	  int pos = (width()-10) * i / diffMaxMin + 5;
-	  painter.drawLine( pos, ARROW_LENGTH+1, pos, ARROW_LENGTH + 4 );
-	}
-
-      for ( i = 0; i <= maxValue() - minValue(); i += pageStep() )
-	{
-	  int pos = (width()-10) * i / diffMaxMin + 5;
-	  painter.drawLine( pos, ARROW_LENGTH+1, pos, ARROW_LENGTH + 6 );
-	}
-    }
-
-  drawArrow( painter, TRUE, calcArrowPos( value() ) );
-
-
+  QRect rect(x(),y(),width(),height());
+  paintSlider(&painter, rect);
   painter.end();
 }
 
-
-void KSlider::mousePressEvent( QMouseEvent *e )
+void KSlider::rangeChange()
 {
-  int MousePos;
-  int new_val;
- 
-  if ( orientation() == Vertical ) {
-    MousePos = e->pos().y();
-    if ( MousePos < cur_slider_pos )
-      new_val = value() - pageStep();
-    else
-      new_val = value() + pageStep();
-  }
-  else {
-    MousePos = e->pos().x();
-    if ( MousePos < cur_slider_pos )
-      new_val = value() - pageStep();
-    else
-      new_val = value() + pageStep();
-  }
+  QSlider::rangeChange();
 
-  if ( new_val > maxValue() )
-    new_val = maxValue();
-  if ( new_val < minValue() )
-    new_val = minValue();
-
-  emit valueChanged( new_val );
-  setValue( new_val );
-
-//  moveArrow( p );
-}
-
-void KSlider::mouseMoveEvent( QMouseEvent *e )
-{
-  moveArrow( e->pos() );
+  //QPainter painter;
+  //painter.begin( this );
+  //drawTickMarks(&painter);  // when range changes, only tickmarks must be repainted  
+  //painter.end();
+  paintEvent(NULL);
 }
 
 int KSlider::checkWidth()

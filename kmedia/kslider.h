@@ -52,21 +52,23 @@ signals:
   void sliderReleased();
 
 protected:
-  virtual void valueChange();
+  //  virtual void valueChange();
   virtual void rangeChange();
-  virtual void drawArrow( QPainter &painter, bool show, const QPoint &pos );
-
+  virtual void paintSlider(QPainter *painter, const QRect &rect );
 private:
   QPoint calcArrowPos( int val );
   void moveArrow( const QPoint &pos );
+  void drawArrow( QPainter *painter, bool show, const QPoint &pos );
+  void drawShadeLine( QPainter *painter );
+  void drawTickMarks( QPainter *painter );
 
   virtual void paintEvent( QPaintEvent * );
 
-  virtual void mousePressEvent( QMouseEvent *e );
-  virtual void mouseMoveEvent( QMouseEvent *e );
+//  virtual void mousePressEvent( QMouseEvent *e );
+//  virtual void mouseMoveEvent( QMouseEvent *e );
 
   int checkWidth();
-  int cur_slider_pos;
+//  int cur_slider_pos;
 };
 
 //-----------------------------------------------------------------------------
