@@ -61,8 +61,8 @@ msgstr ""
 "\n"
 "(C) 1996-1998 Christian Esken (esken@kde.org).\n"
 "\n"
-"Mediasoitin KDE Desktop -ymp\344rist\366\366n.\n"
-"t\344m\344 ohjelma on GPL lisenssin alla.\n"
+"Mediasoitin KDE Desktop -ympäristöön.\n"
+"tämä ohjelma on GPL lisenssin alla.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
@@ -86,7 +86,7 @@ msgstr "Soitan"
 
 #: kmediawin.cpp:312
 msgid "Paused"
-msgstr "Pys\344ytetty"
+msgstr "Pysäytetty"
 
 #: kmediawin.cpp:313
 msgid "Ready"
@@ -94,4 +94,4 @@ msgstr "Valmis"
 
 #: kmediawin.cpp:314
 msgid "Undefined"
-msgstr "M\344\344rittelem\344t\366n"
+msgstr "Määrittelemätön"

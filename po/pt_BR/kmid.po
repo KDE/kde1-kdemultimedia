@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-10-30 13:36+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -126,6 +126,7 @@ msgid "Midi &Setup ..."
 msgstr "Config &Midi ..."
 
 #: kmidframe.cpp:184
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -185,7 +186,7 @@ msgstr "Mostra visão de Canais"
 msgid "Show Volume Bar"
 msgstr "Mostra barra de Volume"
 
-#: kmidframe.cpp:559
+#: kmidframe.cpp:563
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -193,7 +194,7 @@ msgstr ""
 "Não foi possível abrir /dev/sequencer.\n"
 "Deve haver outro programa usando-o"
 
-#: kmidframe.cpp:678 kmidframe.cpp:679
+#: kmidframe.cpp:682 kmidframe.cpp:683
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -202,21 +203,21 @@ msgstr ""
 "Arquivo %s já existe\n"
 "Deseja sobreescrevê-lo ?"
 
-#: kmidclient.cpp:94
+#: kmidclient.cpp:96
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:258
+#: kmidclient.cpp:267
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "O arquivo %s não existe ou não pode ser aberto"
 
-#: kmidclient.cpp:261
+#: kmidclient.cpp:270
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "O arquivo %s não é um arquivo midi"
 
-#: kmidclient.cpp:263
+#: kmidclient.cpp:272
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -224,27 +225,27 @@ msgstr ""
 "Passos por semínima é negativo, por favor mande essearquivo para "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:265
+#: kmidclient.cpp:274
 msgid "Not enough memory !!"
 msgstr "Memória insuficiente !!"
 
-#: kmidclient.cpp:267
+#: kmidclient.cpp:276
 msgid "This file is corrupted or not well built"
 msgstr "Este arquivo está corrompido ou não foi bem formado"
 
-#: kmidclient.cpp:268
+#: kmidclient.cpp:277
 msgid "Unknown error message"
 msgstr "Mensagem de erro desconhecida"
 
-#: kmidclient.cpp:452
+#: kmidclient.cpp:461
 msgid "You must load a file before playing it"
 msgstr "Você precisa carregar um arquivo antes de tocá-lo"
 
-#: kmidclient.cpp:458
+#: kmidclient.cpp:467
 msgid "A song is already being played"
 msgstr "Já está sendo executada uma música"
 
-#: kmidclient.cpp:464
+#: kmidclient.cpp:473
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -313,7 +314,12 @@ msgstr "Digite o novo nome da coleção selecionada"
 msgid "Change Collection Name"
 msgstr "Mudar nome da coleção"
 
-#: channel.cpp:89
+#: channelview.cpp:33
+#, fuzzy
+msgid "ChannelView"
+msgstr "Mostra visão de Canais"
+
+#: channel.cpp:87
 msgid "Channel"
 msgstr "Canal"
 

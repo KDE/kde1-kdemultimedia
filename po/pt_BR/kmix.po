@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-10-30 13:36+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,15 +9,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:506
+#: kmix.cpp:507
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:509
+#: kmix.cpp:510
 msgid "&Tickmarks On/Off"
 msgstr "&Tiques Liga/Desliga"
 
-#: kmix.cpp:523
+#: kmix.cpp:524
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -39,35 +39,35 @@ msgstr ""
 "e Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 
-#: kmix.cpp:543
+#: kmix.cpp:544
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:544
+#: kmix.cpp:545
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:545
+#: kmix.cpp:546
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:632
+#: kmix.cpp:633
 msgid "Un&mute"
 msgstr "&Ligar"
 
-#: kmix.cpp:634
+#: kmix.cpp:635
 msgid "&Mute"
 msgstr "&Desligar"
 
-#: kmix.cpp:637
+#: kmix.cpp:638
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:639
+#: kmix.cpp:640
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:641
+#: kmix.cpp:642
 msgid "&RecSource"
 msgstr "&Fonte de Som"
 

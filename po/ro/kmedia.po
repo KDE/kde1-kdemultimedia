@@ -16,7 +16,7 @@ msgstr ""
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Pozi\376ia de pleibec"
+msgstr "Poziþia de pleibec"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
@@ -24,23 +24,23 @@ msgstr "Scoate sidiul"
 
 #: kmediawin.cpp:172
 msgid "Previous track"
-msgstr "Pista anterioar\343"
+msgstr "Pista anterioarã"
 
 #: kmediawin.cpp:177
 msgid "Backward"
-msgstr "\316napoi"
+msgstr "Înapoi"
 
 #: kmediawin.cpp:190
 msgid "Play/Pause"
-msgstr "C\342nt\343/Pauz\343"
+msgstr "Cântã/Pauzã"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr "\316nainte"
+msgstr "Înainte"
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "Pista urm\343toare"
+msgstr "Pista urmãtoare"
 
 # , fuzzy
 #: kmediawin.cpp:231
@@ -50,7 +50,7 @@ msgstr "Mixer"
 # , fuzzy
 #: kmediawin.cpp:233
 msgid "&Preferences"
-msgstr "Preferin\376e"
+msgstr "Preferinþe"
 
 #: kmediawin.cpp:241
 msgid ""
@@ -67,11 +67,11 @@ msgstr ""
 
 #: kmediawin.cpp:308
 msgid "Exited"
-msgstr "Ie\272it"
+msgstr "Ieºit"
 
 #: kmediawin.cpp:309
 msgid "Init"
-msgstr "Ini\376ializat"
+msgstr "Iniþializat"
 
 #: kmediawin.cpp:310
 msgid "Busy"
@@ -79,15 +79,15 @@ msgstr "Ocupat"
 
 #: kmediawin.cpp:311
 msgid "Playing"
-msgstr "C\342nt"
+msgstr "Cânt"
 
 #: kmediawin.cpp:312
 msgid "Paused"
-msgstr "\316n pauz\343"
+msgstr "În pauzã"
 
 #: kmediawin.cpp:313
 msgid "Ready"
-msgstr "Opera\376ional"
+msgstr "Operaþional"
 
 #: kmediawin.cpp:314
 msgid "Undefined"

@@ -12,15 +12,15 @@ msgstr "Pozycja odtwarzania"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
-msgstr "Wyrzu\346 no\266nik"
+msgstr "Wyrzuæ no¶nik"
 
 #: kmediawin.cpp:172
 msgid "Previous track"
-msgstr "Poprzednia \266cie\277ka"
+msgstr "Poprzednia ¶cie¿ka"
 
 #: kmediawin.cpp:177
 msgid "Backward"
-msgstr "W ty\263"
+msgstr "W ty³"
 
 #: kmediawin.cpp:190
 msgid "Play/Pause"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "Nast\352pna \266cie\277ka"
+msgstr "Nastêpna ¶cie¿ka"
 
 #: kmediawin.cpp:231
 msgid "&Mixer"
@@ -40,7 +40,7 @@ msgstr "&Mikser"
 
 #: kmediawin.cpp:233
 msgid "&Preferences"
-msgstr "&W\263a\266ciwo\266ci"
+msgstr "&W³a¶ciwo¶ci"
 
 #: kmediawin.cpp:241
 msgid ""
@@ -53,8 +53,8 @@ msgstr ""
 "\n"
 "(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
 "\n"
-"Odtwarzacz dla \266rodowiska KDE.\n"
-"Ten program jest obj\352ty licencj\261 GPL.\n"
+"Odtwarzacz dla ¶rodowiska KDE.\n"
+"Ten program jest objêty licencj± GPL.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
@@ -62,7 +62,7 @@ msgstr "Informacje o KMedia "
 
 #: kmediawin.cpp:308
 msgid "Exited"
-msgstr "Zako\361czony"
+msgstr "Zakoñczony"
 
 #: kmediawin.cpp:309
 msgid "Init"
@@ -70,7 +70,7 @@ msgstr "Inicjacja"
 
 #: kmediawin.cpp:310
 msgid "Busy"
-msgstr "Zaj\352ty"
+msgstr "Zajêty"
 
 #: kmediawin.cpp:311
 msgid "Playing"

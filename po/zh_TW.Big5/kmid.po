@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-10-30 13:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:559
+#: kmidframe.cpp:563
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -198,7 +198,7 @@ msgstr ""
 "無法開啟 /dev/sequencer 來取得資料\n"
 "可能有其它程式正在使用它"
 
-#: kmidframe.cpp:678 kmidframe.cpp:679
+#: kmidframe.cpp:682 kmidframe.cpp:683
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -207,47 +207,47 @@ msgstr ""
 "檔案 %s 已經存在\n"
 "您要覆蓋\這個檔案嗎?"
 
-#: kmidclient.cpp:94
+#: kmidclient.cpp:96
 msgid "Tempo :"
 msgstr "速度 :"
 
-#: kmidclient.cpp:258
+#: kmidclient.cpp:267
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "無法開啟檔案 %s 或該檔不存在"
 
-#: kmidclient.cpp:261
+#: kmidclient.cpp:270
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "檔案 %s 不是一個 MIDI 檔"
 
-#: kmidclient.cpp:263
+#: kmidclient.cpp:272
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr "這個檔案的四分音符“滴答”數為負數，請將此檔傳到 antlarr@arrakis.es"
 
-#: kmidclient.cpp:265
+#: kmidclient.cpp:274
 msgid "Not enough memory !!"
 msgstr "記憶體不足 !!"
 
-#: kmidclient.cpp:267
+#: kmidclient.cpp:276
 msgid "This file is corrupted or not well built"
 msgstr "這個檔案已經損壞或是沒有建立好"
 
-#: kmidclient.cpp:268
+#: kmidclient.cpp:277
 msgid "Unknown error message"
 msgstr "未知的錯誤"
 
-#: kmidclient.cpp:452
+#: kmidclient.cpp:461
 msgid "You must load a file before playing it"
 msgstr "在播放之前請先載入一個檔案"
 
-#: kmidclient.cpp:458
+#: kmidclient.cpp:467
 msgid "A song is already being played"
 msgstr "一首曲子已經在播放中"
 
-#: kmidclient.cpp:464
+#: kmidclient.cpp:473
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -316,7 +316,12 @@ msgstr "請輸入一個新的名稱給這個收集"
 msgid "Change Collection Name"
 msgstr "更改收集的名稱"
 
-#: channel.cpp:89
+#: channelview.cpp:33
+#, fuzzy
+msgid "ChannelView"
+msgstr "取消"
+
+#: channel.cpp:87
 #, fuzzy
 msgid "Channel"
 msgstr "取消"

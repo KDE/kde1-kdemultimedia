@@ -1,10 +1,18 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Date: 1998-10-16 23:08:11+0000\n"
-"From: antonio <antonio@jupiter.arrakis.es>\n"
-"Content-Type: text/plain; charset=\n"
-"Xgettext-Options: -C -ki18n -x /opt/kde/include/kde.pot\n"
-"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp randomlist.cpp channelview.cpp channel.cpp channel3d.cpp channel4d.cpp channelcfgdlg.cpp instrname.cpp main.cpp instrname.i18n\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-10-30 13:36+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
 
 #: kmidframe.cpp:64
 msgid "Play/Pause"
@@ -123,6 +131,7 @@ msgid "Midi &Setup ..."
 msgstr ""
 
 #: kmidframe.cpp:184
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -177,48 +186,53 @@ msgid ""
 msgstr ""
 
 #: kmidframe.cpp:682 kmidframe.cpp:683
+#, c-format
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
 msgstr ""
 
-#: kmidclient.cpp:95
+#: kmidclient.cpp:96
 msgid "Tempo :"
 msgstr ""
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:267
+#, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr ""
 
-#: kmidclient.cpp:263
+#: kmidclient.cpp:270
+#, c-format
 msgid "The file %s is not a midi file"
 msgstr ""
 
-#: kmidclient.cpp:265
-msgid "Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"
+#: kmidclient.cpp:272
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:267
+#: kmidclient.cpp:274
 msgid "Not enough memory !!"
 msgstr ""
 
-#: kmidclient.cpp:269
+#: kmidclient.cpp:276
 msgid "This file is corrupted or not well built"
 msgstr ""
 
-#: kmidclient.cpp:270
+#: kmidclient.cpp:277
 msgid "Unknown error message"
 msgstr ""
 
-#: kmidclient.cpp:454
+#: kmidclient.cpp:461
 msgid "You must load a file before playing it"
 msgstr ""
 
-#: kmidclient.cpp:460
+#: kmidclient.cpp:467
 msgid "A song is already being played"
 msgstr ""
 
-#: kmidclient.cpp:466
+#: kmidclient.cpp:473
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -265,6 +279,7 @@ msgid "New Collection"
 msgstr ""
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
 msgid "The name '%s' is already used"
 msgstr ""
 

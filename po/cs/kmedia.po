@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kmedia\n"
 "POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-10-24 23:55 CEST\n"
-"Last-Translator: Miroslav Fl\355dr <flidr@kky.zcu.cz>\n"
+"Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
@@ -15,31 +15,31 @@ msgstr ""
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Pozice v p\370ehr\341van\351m z\341znamu"
+msgstr "Pozice v pøehrávaném záznamu"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
-msgstr "Vysu\362 medium"
+msgstr "Vysuò medium"
 
 #: kmediawin.cpp:172
 msgid "Previous track"
-msgstr "P\370edch\341zej\355c\355 stopa"
+msgstr "Pøedcházející stopa"
 
 #: kmediawin.cpp:177
 msgid "Backward"
-msgstr "Zp\354t"
+msgstr "Zpìt"
 
 #: kmediawin.cpp:190
 msgid "Play/Pause"
-msgstr "P\370ehr\341t/Pauza"
+msgstr "Pøehrát/Pauza"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr "Vp\370ed"
+msgstr "Vpøed"
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "N\341sleduj\355c\355 stopa"
+msgstr "Následující stopa"
 
 # , fuzzy
 #: kmediawin.cpp:231
@@ -71,7 +71,7 @@ msgstr "Informace o aplikaci kmedia"
 
 #: kmediawin.cpp:308
 msgid "Exited"
-msgstr "Ukon\350eno"
+msgstr "Ukonèeno"
 
 #: kmediawin.cpp:309
 msgid "Init"
@@ -79,7 +79,7 @@ msgstr "Init"
 
 #: kmediawin.cpp:310
 msgid "Busy"
-msgstr "Zanepr\341zdn\354n\375"
+msgstr "Zaneprázdnìný"
 
 #: kmediawin.cpp:311
 msgid "Playing"
@@ -91,8 +91,8 @@ msgstr "Zastaveno"
 
 #: kmediawin.cpp:313
 msgid "Ready"
-msgstr "P\370ipraven"
+msgstr "Pøipraven"
 
 #: kmediawin.cpp:314
 msgid "Undefined"
-msgstr "Nedefinov\341n"
+msgstr "Nedefinován"

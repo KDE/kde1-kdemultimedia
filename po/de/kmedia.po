@@ -19,7 +19,7 @@ msgstr "Vorheriger Titel"
 
 #: kmediawin.cpp:177
 msgid "Backward"
-msgstr "Zur\374ck"
+msgstr "Zurück"
 
 #: kmediawin.cpp:190
 msgid "Play/Pause"
@@ -31,7 +31,7 @@ msgstr "Vorspulen"
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "N\344chster Titel"
+msgstr "Nächster Titel"
 
 # , fuzzy
 #: kmediawin.cpp:231
@@ -54,7 +54,7 @@ msgstr ""
 "\n"
 "(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
 "\n"
-"Medienwiedergabe f\374r das K Desktop Environment.\n"
+"Medienwiedergabe für das K Desktop Environment.\n"
 "Dieses Programm steht unter GPL.\n"
 
 #: kmediawin.cpp:245

@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-10-30 13:36+0100\n"
 "PO-Revision-Date: 1998-05-14 20:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -180,7 +180,7 @@ msgstr "Prika¾i kanale"
 msgid "Show Volume Bar"
 msgstr "Prika¾i jaèinu zvuka"
 
-#: kmidframe.cpp:559
+#: kmidframe.cpp:563
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -188,7 +188,7 @@ msgstr ""
 "Ne mogu otvoriti /dev/sequencer kako bih dobio informacij\n"
 "Najvjerojatnije ga koristi neki drugi program"
 
-#: kmidframe.cpp:678 kmidframe.cpp:679
+#: kmidframe.cpp:682 kmidframe.cpp:683
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -197,21 +197,21 @@ msgstr ""
 "Datoteka %s veæ postoji\n"
 "®elite li zbilja spremiti preko nje ?"
 
-#: kmidclient.cpp:94
+#: kmidclient.cpp:96
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:258
+#: kmidclient.cpp:267
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Datoteka %s ne postoji ili je ne mogu otvoriti"
 
-#: kmidclient.cpp:261
+#: kmidclient.cpp:270
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Datoteka %s nije midi datoteka"
 
-#: kmidclient.cpp:263
+#: kmidclient.cpp:272
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -219,27 +219,27 @@ msgstr ""
 "Broj tikova po èetvrtinki je negativan, molim po¹aljite datoteku na "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:265
+#: kmidclient.cpp:274
 msgid "Not enough memory !!"
 msgstr "Nema dovoljno memorije !!"
 
-#: kmidclient.cpp:267
+#: kmidclient.cpp:276
 msgid "This file is corrupted or not well built"
 msgstr "Ova datoteka je o¹teæena ili nije ispravno "
 
-#: kmidclient.cpp:268
+#: kmidclient.cpp:277
 msgid "Unknown error message"
 msgstr "Nepoznata poruka o gre¹ci"
 
-#: kmidclient.cpp:452
+#: kmidclient.cpp:461
 msgid "You must load a file before playing it"
 msgstr "Morate prvo uèitati datoteku prije nego je odsvirate"
 
-#: kmidclient.cpp:458
+#: kmidclient.cpp:467
 msgid "A song is already being played"
 msgstr "Pjesma veæ svira"
 
-#: kmidclient.cpp:464
+#: kmidclient.cpp:473
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -308,7 +308,12 @@ msgstr "Unesite novo ime za izabranu kolekciju"
 msgid "Change Collection Name"
 msgstr "Promijenite ime kolekcije"
 
-#: channel.cpp:89
+#: channelview.cpp:33
+#, fuzzy
+msgid "ChannelView"
+msgstr "Prika¾i kanale"
+
+#: channel.cpp:87
 msgid "Channel"
 msgstr "Kanal"
 
