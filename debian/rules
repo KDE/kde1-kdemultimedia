@@ -2,31 +2,33 @@
 # Made with the aid of debmake, by Christoph Lameter,
 # based on the sample debian/rules file for GNU hello by Ian Jackson.
 
-BUILDDIR = ../build_kdemultimedia
+BUILDDIR = ./build
 
-build: $(BUILDDIR)/build
+build: $(BUILDDIR)/build-stamp
 
-$(BUILDDIR)/build:
+$(BUILDDIR)/build-stamp:
 	dh_testdir
 	if test ! -f configure; then \
 	  $(MAKE) -f admin/Makefile.common ;\
 	fi 
-	pwd=`pwd` ;\
 	test -d $(BUILDDIR) || mkdir $(BUILDDIR) ;\
 	cd $(BUILDDIR) ;\
 	CFLAGS="-O2 -g -Wall" \
 	CXXFLAGS="-O2 -g -Wall" \
-	$$pwd/configure --enable-debug --with-install-root=`pwd`/debian/tmp \
-	--disable-rpath && make
+	../configure --enable-debug --with-install-root=`pwd`/../debian/tmp \
+	--disable-rpath 
 
-	touch $(BUILDDIR)/build
+	make -C $(BUILDDIR)
+
+	touch $(BUILDDIR)/build-stamp
 
 clean: debian-clean
 	-rm -rf $(BUILDDIR)
+	dh_clean -k
 
 debian-clean:
 	dh_testdir
-	-rm -f $(BUILDDIR)/build
+	-rm -f $(BUILDDIR)/build-stamp
 
 binary-indep:	build
 	dh_testdir
@@ -38,12 +40,7 @@ binary-arch:	build
 	dh_testroot
 	dh_testdir
 	dh_clean -k
-	rm -rf $(BUILDDIR)/debian
-	cp -ra debian $(BUILDDIR)/debian
-	(cd $(BUILDDIR) && $(MAKE) -f debian/rules binary-arch2)
-
-binary-arch2:
-	make install 
+	make -C $(BUILDDIR) install 
 	rm -rf debian/tmp/usr/share/apps/kscd/cddb/
 	mkdir -p debian/tmp/etc/kde
 	echo "[CDDB]" > debian/tmp/etc/kde/kscdrc
