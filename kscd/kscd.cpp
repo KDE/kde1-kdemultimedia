@@ -837,8 +837,10 @@ void KSCD::dockClicked()
 
     if(docking){
         dockinginprogress = true;
-        if(dock_widget)
+        if(dock_widget) {
+            dock_widget->dock();
             dock_widget->SaveKscdPosition();
+        }
         this->hide();
     }
 
@@ -858,8 +860,10 @@ bool KSCD::event( QEvent *e ){
         sleep(1); // give kwm some time..... ugly I know.
         if (!KWM::isIconified(winId())) // maybe we are just on another desktop
             return FALSE;
-        if(dock_widget)
+        if(dock_widget) {
             dock_widget->SaveKscdPosition();
+            dock_widget->dock();
+        }
         // a trick to remove the window from the taskbar (Matthias)
         recreate(0, 0, geometry().topLeft(), FALSE);
         // set the icons again

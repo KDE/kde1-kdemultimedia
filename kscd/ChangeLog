@@ -1,3 +1,10 @@
+1998-12-12  Christian Esken  <esken@kde.org>
+
+	* Tweaked docking a bit more. Under certain circumstances,
+	dock_widget->dock() correctly does not get called at the start
+	of the program. So if you docked, the window just vanished.	
+	I added a call to dock_widget->dock()  at "appropiate" places.
+
 1998-11-28  Bernd Wuebben  <wuebben@petit.cornell.edu>
 
 	* kscd.cpp: resinstated old look and behavior
