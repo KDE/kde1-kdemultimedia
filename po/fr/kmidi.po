@@ -252,7 +252,7 @@ msgstr "Couleur des LED :"
 
 #: configdlg.cpp:74
 msgid "Background Color:"
-msgstr "Couleur de fond :"
+msgstr "Couleur du fond :"
 
 #: configdlg.cpp:91
 msgid "Show Tool Tips"
