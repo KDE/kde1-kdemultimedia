@@ -6,6 +6,14 @@
  * $Id$
  * 
  * $Log$
+ *
+ * Revision 1.2  1997/08/15 22:51:25  wuebben
+ * *** empty log message ***
+ *
+ * Revision 1.2  1997/08/15 22:42:54  wuebben
+ * Bernd -- Version 0.4
+ * o Support for cdda on Solaris
+ * o Support for Irix
  * o New interactive configuration script
  * o  lot of header, define and configuration changes. -- Keep your
  *   fingers crossed .... ;-)
@@ -181,7 +189,7 @@ void BW_LED_Number::display(char s ){
 void BW_LED_Number::setSmallLED(bool a_boolean){
 
  smallLED = a_boolean;
-void BW_LED_Number::drawSymbol( QPainter *p,char s,bool repaint ){
+void BW_LED_Number::drawSymbol( QPainter *p,char /*s*/,bool repaint ){
 }
 
 
