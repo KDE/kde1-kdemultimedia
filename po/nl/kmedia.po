@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: 1998-5-11 HO:MI+ZONE\n"
 "Last-Translator: Pieter Eendebaj <pte@ddsw.nl>\n"
 "Language-Team: Dutch <LL@li.org>\n"
@@ -14,45 +14,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmediawin.cpp:162
+#: kmediawin.cpp:163
 msgid "Playback position"
 msgstr "Terugspeel positie"
 
-#: kmediawin.cpp:168
+#: kmediawin.cpp:169
 msgid "Eject medium"
 msgstr ""
 
-#: kmediawin.cpp:172
+#: kmediawin.cpp:173
 msgid "Previous track"
 msgstr "Vorig nummer"
 
-#: kmediawin.cpp:177
+#: kmediawin.cpp:178
 msgid "Backward"
 msgstr "Terug"
 
-#: kmediawin.cpp:190
+#: kmediawin.cpp:191
 msgid "Play/Pause"
 msgstr "Spelen/Pauze"
 
-#: kmediawin.cpp:195
+#: kmediawin.cpp:196
 msgid "Forward"
 msgstr "Voorwaarts"
 
-#: kmediawin.cpp:200
+#: kmediawin.cpp:201
 msgid "Next track"
 msgstr "Volgende nummer"
 
-#: kmediawin.cpp:231
+#: kmediawin.cpp:232
 #, fuzzy
 msgid "&Mixer"
 msgstr "Mixer"
 
-#: kmediawin.cpp:233
+#: kmediawin.cpp:234
 #, fuzzy
 msgid "&Preferences"
 msgstr "Instellingen"
 
-#: kmediawin.cpp:241
+#: kmediawin.cpp:240
 msgid ""
 "\n"
 "(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
@@ -61,35 +61,31 @@ msgid ""
 "This program is in the GPL.\n"
 msgstr ""
 
-#: kmediawin.cpp:245
-msgid "About KMedia "
-msgstr ""
-
-#: kmediawin.cpp:308
+#: kmediawin.cpp:309
 msgid "Exited"
 msgstr "Afgesloten"
 
-#: kmediawin.cpp:309
+#: kmediawin.cpp:310
 msgid "Init"
 msgstr ""
 
-#: kmediawin.cpp:310
+#: kmediawin.cpp:311
 msgid "Busy"
 msgstr "Bezig"
 
-#: kmediawin.cpp:311
+#: kmediawin.cpp:312
 msgid "Playing"
 msgstr "Bezig met afspelen"
 
-#: kmediawin.cpp:312
+#: kmediawin.cpp:313
 msgid "Paused"
 msgstr "Gepauzeerd"
 
-#: kmediawin.cpp:313
+#: kmediawin.cpp:314
 msgid "Ready"
 msgstr "Klaar"
 
-#: kmediawin.cpp:314
+#: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Niet gedefinieerd"
 

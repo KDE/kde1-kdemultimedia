@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,43 +14,43 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-1\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmediawin.cpp:162
+#: kmediawin.cpp:163
 msgid "Playback position"
 msgstr "Soittopaikka"
 
-#: kmediawin.cpp:168
+#: kmediawin.cpp:169
 msgid "Eject medium"
 msgstr "Poista media"
 
-#: kmediawin.cpp:172
+#: kmediawin.cpp:173
 msgid "Previous track"
 msgstr "Edellinen kappale"
 
-#: kmediawin.cpp:177
+#: kmediawin.cpp:178
 msgid "Backward"
 msgstr "Taakse"
 
-#: kmediawin.cpp:190
+#: kmediawin.cpp:191
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
-#: kmediawin.cpp:195
+#: kmediawin.cpp:196
 msgid "Forward"
 msgstr "Eteen"
 
-#: kmediawin.cpp:200
+#: kmediawin.cpp:201
 msgid "Next track"
 msgstr "Seuraava kappale"
 
-#: kmediawin.cpp:231
+#: kmediawin.cpp:232
 msgid "&Mixer"
 msgstr "&Mikseri"
 
-#: kmediawin.cpp:233
+#: kmediawin.cpp:234
 msgid "&Preferences"
 msgstr "&Asetukset"
 
-#: kmediawin.cpp:241
+#: kmediawin.cpp:240
 msgid ""
 "\n"
 "(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
@@ -64,34 +64,33 @@ msgstr ""
 "Mediasoitin KDE Desktop -ympäristöön.\n"
 "tämä ohjelma on GPL lisenssin alla.\n"
 
-#: kmediawin.cpp:245
-msgid "About KMedia "
-msgstr "Tietoja KMedia:ta"
-
-#: kmediawin.cpp:308
+#: kmediawin.cpp:309
 msgid "Exited"
 msgstr "Lopetan"
 
-#: kmediawin.cpp:309
+#: kmediawin.cpp:310
 msgid "Init"
 msgstr "Asetan"
 
-#: kmediawin.cpp:310
+#: kmediawin.cpp:311
 msgid "Busy"
 msgstr "Varattu"
 
-#: kmediawin.cpp:311
+#: kmediawin.cpp:312
 msgid "Playing"
 msgstr "Soitan"
 
-#: kmediawin.cpp:312
+#: kmediawin.cpp:313
 msgid "Paused"
 msgstr "Pysäytetty"
 
-#: kmediawin.cpp:313
+#: kmediawin.cpp:314
 msgid "Ready"
 msgstr "Valmis"
 
-#: kmediawin.cpp:314
+#: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Määrittelemätön"
+
+#~ msgid "About KMedia "
+#~ msgstr "Tietoja KMedia:ta"

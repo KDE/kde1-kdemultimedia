@@ -43,14 +43,14 @@ msgstr ""
 "(C) 1997-1998 de Christian Esken (esken@kde.org).\n"
 "\n"
 "Mixer de sunet pentru KDE Desktop Environment.\n"
-"Acest program este \356nregistrat ca GPL.\n"
+"Acest program este înregistrat ca GPL.\n"
 "Modificare pt. SGI de Paul Kendall (paul@orion.co.nz).\n"
 "Corectare *BSD de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"\272i Lennart Augustsson (augustss@cs.chalmers.se)."
+"ºi Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "&St\342nga"
+msgstr "&Stânga"
 
 #: kmix.cpp:556
 msgid "&Center"
@@ -83,7 +83,7 @@ msgstr "&Unire"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Surs\343&Inreg"
+msgstr "Sursã&Inreg"
 
 #: prefs.cpp:42
 msgid "General"
@@ -95,7 +95,7 @@ msgstr "Canale"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Set\343ri ini\376iale"
+msgstr "Setãri iniþiale"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -111,7 +111,7 @@ msgstr "Permite docare"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "Preferin\376e KMix"
+msgstr "Preferinþe KMix"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
@@ -123,7 +123,7 @@ msgstr "Dispozitiv"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Arat\343"
+msgstr "Aratã"
 
 #: prefs.cpp:115
 msgid "Split"

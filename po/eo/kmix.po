@@ -16,7 +16,7 @@ msgstr ""
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "&Ka\376u menulistelon"
+msgstr "&Kaþu menulistelon"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
@@ -40,10 +40,10 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
-"(C) 1997-1998 \346e Christian Esken (esken@kde.org).\n"
+"(C) 1997-1998 æe Christian Esken (esken@kde.org).\n"
 "\n"
 "Sonromiksila panelo por la KDE-LAbortabula Medio.\n"
-"Tiu \346i programo estas sub GPL.\n"
+"Tiu æi programo estas sub GPL.\n"
 "SGI-porto farita de Paul Kendall (paul@oriaon.co.nz).\n"
 "*BSD-korektoj de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "kaj Lennart Augustsson (augustss@cs.chalmers.se)."
@@ -87,7 +87,7 @@ msgstr "&Fonto"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "\330enerale"
+msgstr "Øenerale"
 
 #: prefs.cpp:43
 msgid "Channels"

@@ -8,18 +8,18 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-05-25 17:57:11+0800\n"
-"Last-Translator: Karl Backstr\366m <karl_b@geocities.com>\n"
+"Last-Translator: Karl Backström <karl_b@geocities.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "&G\366m menyf\344lt"
+msgstr "&Göm menyfält"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "&Bokm\344rken P\345/Av"
+msgstr "&Bokmärken På/Av"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
@@ -41,15 +41,15 @@ msgstr ""
 "\n"
 "(C) 1997-1998 av Christian Esken (esken@kde.org).\n"
 "\n"
-"Ljud mixer panel f\366r KDE Desktop Enviroment.\n"
-"Detta program \344r skrivet med GPL.\n"
-"SGI Port utf\366rt av Paul Kendall (paul@orion.co.nz).\n"
+"Ljud mixer panel för KDE Desktop Enviroment.\n"
+"Detta program är skrivet med GPL.\n"
+"SGI Port utfört av Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fixar av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "och Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "&V\344nster"
+msgstr "&Vänster"
 
 #: kmix.cpp:556
 msgid "&Center"
@@ -57,12 +57,12 @@ msgstr "&Center"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "&H\366gre"
+msgstr "&Högre"
 
 # , fuzzy
 #: kmix.cpp:643
 msgid "&Show Menubar"
-msgstr "Menyf\344lt"
+msgstr "Menyfält"
 
 #: kmix.cpp:688
 msgid "Un&mute"
@@ -82,7 +82,7 @@ msgstr "&Sammanfoga"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Mottagar &k\344lla"
+msgstr "Mottagar &källa"
 
 #: prefs.cpp:42
 msgid "General"
@@ -94,15 +94,15 @@ msgstr "Kanaler"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Uppstarts inst\344llingar"
+msgstr "Uppstarts inställingar"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "Menyf\344lt"
+msgstr "Menyfält"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Bokm\344rken"
+msgstr "Bokmärken"
 
 #: prefs.cpp:61
 msgid "Allow docking"
@@ -110,12 +110,12 @@ msgstr ""
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix Inst\344llningar"
+msgstr "KMix Inställningar"
 
 # , fuzzy
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Mixer kanal inst\344llningar (ej sparat \344nnu)"
+msgstr "Mixer kanal inställningar (ej sparat ännu)"
 
 #: prefs.cpp:103
 msgid "Device"

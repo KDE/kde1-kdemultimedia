@@ -19,7 +19,7 @@ msgstr "&Skjul menylinje"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "&M\345lestreker p\345/av"
+msgstr "&Målestreker på/av"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
@@ -42,7 +42,7 @@ msgstr ""
 "\n"
 "Lydmikser for KDE Desktop Enviroment.\n"
 "Dette program er inkludert i GPL.\n"
-"SGI-port utf\370rt av Paul Kendall (paul@orion.co.nz).\n"
+"SGI-port utført av Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fikset av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "og Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port av Nick Lopez (kimo_sabe@usa.net)."
@@ -57,7 +57,7 @@ msgstr "&Senter"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "&H\370yre"
+msgstr "&Høyre"
 
 #: kmix.cpp:643
 msgid "&Show Menubar"
@@ -77,7 +77,7 @@ msgstr "&Splitt"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "S&lutt p\345 splitt"
+msgstr "S&lutt på splitt"
 
 #: kmix.cpp:698
 msgid "&RecSource"
@@ -101,7 +101,7 @@ msgstr "Menylinje"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "M\345lestreker"
+msgstr "Målestreker"
 
 #: prefs.cpp:61
 msgid "Allow docking"

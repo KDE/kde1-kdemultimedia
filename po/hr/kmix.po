@@ -41,11 +41,12 @@ msgstr ""
 "\n"
 "(C) 1997-1998 Christian Esken (esken@kde.org).\n"
 "\n"
-"Sound mixer plo\350a za KDE Desktop Environment.\n"
+"Sound mixer ploèa za KDE Desktop Environment.\n"
 "Ovaj program pokriven je GPL licencom.\n"
 "SGI Port napravio Paul Kendall (paul@orion.co.nz).\n"
 "*BSD popravke napravio Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"i Lennart Augustsson (augustss@cs.chalmers.se).ALSA port Nick Lopez (kimo_sabe@usa.net)."
+"i Lennart Augustsson (augustss@cs.chalmers.se).ALSA port Nick Lopez "
+"(kimo_sabe@usa.net)."
 
 #: kmix.cpp:555
 msgid "&Left"
@@ -70,7 +71,7 @@ msgstr "Zvu&k"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "&Ti\271ina"
+msgstr "&Ti¹ina"
 
 #: kmix.cpp:693
 msgid "&Split"
@@ -86,7 +87,7 @@ msgstr "&Izvor snimka"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "Op\346eniti"
+msgstr "Opæeniti"
 
 #: prefs.cpp:43
 msgid "Channels"
@@ -118,11 +119,11 @@ msgstr "Postavi mikser kanala"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Ure\360aj"
+msgstr "Ureðaj"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Prika\276i"
+msgstr "Prika¾i"
 
 #: prefs.cpp:115
 msgid "Split"

@@ -9,17 +9,17 @@ msgstr ""
 #
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "\322\376\262\330\262\313\265\245\314\365[&H]"
+msgstr "隐藏菜单条[&H]"
 
 #
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "\277\314\266\310\317\324\312\276[&T] \277\252/\271\330"
+msgstr "刻度显示[&T] 开/关"
 
 # , fuzzy
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
-msgstr "\321\241\317\356[&O]"
+msgstr "选项[&O]"
 
 #: kmix.cpp:535
 msgid ""
@@ -36,87 +36,87 @@ msgstr ""
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "\327\363\261\337[&L]"
+msgstr "左边[&L]"
 
 #: kmix.cpp:556
 msgid "&Center"
-msgstr "\326\320\274\344[&C]"
+msgstr "中间[&C]"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "\323\322\261\337[&R]"
+msgstr "右边[&R]"
 
 # , fuzzy
 #: kmix.cpp:643
 msgid "&Show Menubar"
-msgstr "\262\313\265\245"
+msgstr "菜单"
 
 #: kmix.cpp:688
 msgid "Un&mute"
-msgstr "\275\342\263\375\276\262\322\364[&M]"
+msgstr "解除静音[&M]"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "\276\262\322\364[&M]"
+msgstr "静音[&M]"
 
 #: kmix.cpp:693
 msgid "&Split"
-msgstr "\267\326\270\356[&S]"
+msgstr "分割[&S]"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "\275\342\263\375\267\326\270\356[&S]"
+msgstr "解除分割[&S]"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "\302\274\322\364\324\264[&R]"
+msgstr "录音源[&R]"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "\322\273\260\343"
+msgstr "一般"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "\306\265\265\300"
+msgstr "频道"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "\306\364\266\257\311\350\266\250"
+msgstr "启动设定"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "\262\313\265\245"
+msgstr "菜单"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "\277\314\266\310\317\324\312\276"
+msgstr "刻度显示"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr "\324\312\320\355\304\332\307\266"
+msgstr "允许内嵌"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix \306\253\272\303\311\350\266\250"
+msgstr "KMix 偏好设定"
 
 #
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "\273\354\322\364\306\367\315\250\265\300\311\350\266\250"
+msgstr "混音器通道设定"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "\311\350\261\270"
+msgstr "设备"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "\317\324\312\276"
+msgstr "显示"
 
 # , fuzzy
 #: prefs.cpp:115
 msgid "Split"
-msgstr "\267\326\270\356"
+msgstr "分割"
 
 #: docking.cpp:155
 msgid "Minimize"
-msgstr "\327\356\320\241\273\257"
+msgstr "最小化"

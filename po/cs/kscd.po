@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
-"POT-Creation-Date: 1998-12-11 02:05+0100\n"
+"POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: 1998-11-09 08:54+01:00\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -399,20 +399,20 @@ msgstr "Dialogové okno CDDB"
 msgid "CD Volume Control"
 msgstr "Nastavení hlasitosti CD"
 
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1272
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1276
 msgid "Playing"
 msgstr "Hraji"
 
-#: kscd.cpp:639 kscd.cpp:1286 kscd.cpp:1339 kscd.cpp:1748 kscd.cpp:1946
+#: kscd.cpp:639 kscd.cpp:1290 kscd.cpp:1343 kscd.cpp:1752 kscd.cpp:1950
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: (neznámý)"
 
-#: kscd.cpp:670 kscd.cpp:1316
+#: kscd.cpp:670 kscd.cpp:1320
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:675 kscd.cpp:947 kscd.cpp:1268
+#: kscd.cpp:675 kscd.cpp:951 kscd.cpp:1272
 msgid "Random"
 msgstr "Náhodnì"
 
@@ -424,19 +424,19 @@ msgstr "Divné...."
 msgid "Stopped"
 msgstr "Zastaven"
 
-#: kscd.cpp:910 kscd.cpp:1270
+#: kscd.cpp:914 kscd.cpp:1274
 msgid "Loop"
 msgstr "Dokola"
 
-#: kscd.cpp:922
+#: kscd.cpp:926
 msgid "Ejecting"
 msgstr "Vysouvám"
 
-#: kscd.cpp:998
+#: kscd.cpp:1002
 msgid "kscd Configuraton"
 msgstr "Nastavení kscd"
 
-#: kscd.cpp:1014
+#: kscd.cpp:1018
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -470,7 +470,7 @@ msgstr ""
 "databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
-#: kscd.cpp:1027
+#: kscd.cpp:1031
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -480,7 +480,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1031
+#: kscd.cpp:1035
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -490,23 +490,23 @@ msgstr ""
 "za práci na kódu pro http proxy.\n"
 "\n"
 
-#: kscd.cpp:1087
+#: kscd.cpp:1091
 msgid "SMTP Setup"
 msgstr "Nastavení SMTP"
 
-#: kscd.cpp:1088
+#: kscd.cpp:1092
 msgid "Kscd Options"
 msgstr "Volby Kscd"
 
-#: kscd.cpp:1089
+#: kscd.cpp:1093
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1178 kscd.cpp:2078
+#: kscd.cpp:1182 kscd.cpp:2082
 msgid "Vol: %02d%%"
 msgstr "Hlas: %02d%%"
 
-#: kscd.cpp:1216
+#: kscd.cpp:1220
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -517,51 +517,51 @@ msgstr ""
 "Ovìøte, prosím, svá pøístupová práva k:\n"
 "%s"
 
-#: kscd.cpp:1327
+#: kscd.cpp:1331
 msgid "Ready"
 msgstr "Pøipraven"
 
-#: kscd.cpp:1370
+#: kscd.cpp:1374
 msgid "Ejected"
 msgstr "Otevøen"
 
-#: kscd.cpp:1654
+#: kscd.cpp:1658
 msgid "Unable to get CDDB server list."
 msgstr "Nepovedlo se získat data z CDDB serveru."
 
-#: kscd.cpp:1798 kscd.cpp:1803
+#: kscd.cpp:1802 kscd.cpp:1807
 msgid "No matching CDDB entry found."
 msgstr "®ádná odpovídající polo¾ka CDDB."
 
-#: kscd.cpp:1827 kscd.cpp:1837
+#: kscd.cpp:1831 kscd.cpp:1841
 msgid "Error getting CDDB entry."
 msgstr "Chyba pøi získávání CDDB polo¾ky."
 
-#: kscd.cpp:1853 kscd.cpp:1863
+#: kscd.cpp:1857 kscd.cpp:1867
 msgid "CDDB query timed out."
 msgstr "CDDB timeout."
 
-#: kscd.cpp:2053
+#: kscd.cpp:2057
 msgid "Tra Rem"
 msgstr "Sto Zbyt"
 
-#: kscd.cpp:2057
+#: kscd.cpp:2061
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2061
+#: kscd.cpp:2065
 msgid "Tot Rem"
 msgstr "Tot Zbyt"
 
-#: kscd.cpp:2066
+#: kscd.cpp:2070
 msgid "Tra Sec"
 msgstr "Sto Sec"
 
-#: kscd.cpp:2191
+#: kscd.cpp:2195
 msgid "Cannot start kscdmagic."
 msgstr "Nepovedlo se spustit kscdmagic."
 
-#: kscd.cpp:2206
+#: kscd.cpp:2210
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -569,16 +569,16 @@ msgstr ""
 "KSCD Magic ukonèen s chybou.\n"
 "Máte KSCD Magic nainstalován?"
 
-#: kscd.cpp:2361
+#: kscd.cpp:2365
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "Výchozí adresáø CDDB:"
 
-#: kscd.cpp:2401
+#: kscd.cpp:2405
 msgid "-h: display commandline options\n"
 msgstr "-h: výpis voleb pøíkazové øádky\n"
 
-#: kscd.cpp:2402
+#: kscd.cpp:2406
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povolit výpis debug informací.\n"
 

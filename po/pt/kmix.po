@@ -34,9 +34,9 @@ msgstr ""
 "(C) 1997-1998 por Christian Esken (esken@kde.org).\n"
 "\n"
 "Mesa de mistura para o Ambiente de Trabalho KDE.\n"
-"Este programa est\341 sobre a GPL.\n"
+"Este programa está sobre a GPL.\n"
 "Portagem para SGI por Paul Kendall (paul@orion.co.nz).\n"
-"Modifica\347\365es *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"Modificações *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "e Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
@@ -74,7 +74,7 @@ msgstr "&Juntar"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Fonte de G&rava\347\343o"
+msgstr "Fonte de G&ravação"
 
 #: prefs.cpp:42
 msgid "General"
@@ -86,7 +86,7 @@ msgstr "Canais"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Configura\347\365es iniciais"
+msgstr "Configurações iniciais"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -102,11 +102,11 @@ msgstr "Permitir docking"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "Prefer\352ncias do KMix"
+msgstr "Preferências do KMix"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Configura\347\343o dos canais do mixer"
+msgstr "Configuração dos canais do mixer"
 
 #: prefs.cpp:103
 msgid "Device"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,45 +9,45 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmediawin.cpp:162
+#: kmediawin.cpp:163
 msgid "Playback position"
 msgstr "Posizione playback"
 
-#: kmediawin.cpp:168
+#: kmediawin.cpp:169
 msgid "Eject medium"
 msgstr "Espelli"
 
-#: kmediawin.cpp:172
+#: kmediawin.cpp:173
 msgid "Previous track"
 msgstr "Traccia precedente"
 
-#: kmediawin.cpp:177
+#: kmediawin.cpp:178
 msgid "Backward"
 msgstr "Indietro"
 
-#: kmediawin.cpp:190
+#: kmediawin.cpp:191
 msgid "Play/Pause"
 msgstr "Esegui/Pausa"
 
-#: kmediawin.cpp:195
+#: kmediawin.cpp:196
 msgid "Forward"
 msgstr "Avanti"
 
-#: kmediawin.cpp:200
+#: kmediawin.cpp:201
 msgid "Next track"
 msgstr "Prossima traccia"
 
 # , fuzzy
-#: kmediawin.cpp:231
+#: kmediawin.cpp:232
 msgid "&Mixer"
 msgstr "Mixer"
 
 # , fuzzy
-#: kmediawin.cpp:233
+#: kmediawin.cpp:234
 msgid "&Preferences"
 msgstr "Preferenze"
 
-#: kmediawin.cpp:241
+#: kmediawin.cpp:240
 msgid ""
 "\n"
 "(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
@@ -56,34 +56,30 @@ msgid ""
 "This program is in the GPL.\n"
 msgstr ""
 
-#: kmediawin.cpp:245
-msgid "About KMedia "
-msgstr ""
-
-#: kmediawin.cpp:308
+#: kmediawin.cpp:309
 msgid "Exited"
 msgstr "Uscito"
 
-#: kmediawin.cpp:309
+#: kmediawin.cpp:310
 msgid "Init"
 msgstr "Inizializza"
 
-#: kmediawin.cpp:310
+#: kmediawin.cpp:311
 msgid "Busy"
 msgstr "Occupato"
 
-#: kmediawin.cpp:311
+#: kmediawin.cpp:312
 msgid "Playing"
 msgstr "In riproduzione"
 
-#: kmediawin.cpp:312
+#: kmediawin.cpp:313
 msgid "Paused"
 msgstr "Pausa"
 
-#: kmediawin.cpp:313
+#: kmediawin.cpp:314
 msgid "Ready"
 msgstr "Pronto"
 
-#: kmediawin.cpp:314
+#: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Indefinito"

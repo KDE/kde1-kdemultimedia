@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-11 02:05+0100\n"
+"POT-Creation-Date: 1998-12-13 02:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -398,20 +398,20 @@ msgstr "CDDB 대화창"
 msgid "CD Volume Control"
 msgstr "CD 음량 조절"
 
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1272
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1276
 msgid "Playing"
 msgstr "연주중"
 
-#: kscd.cpp:639 kscd.cpp:1286 kscd.cpp:1339 kscd.cpp:1748 kscd.cpp:1946
+#: kscd.cpp:639 kscd.cpp:1290 kscd.cpp:1343 kscd.cpp:1752 kscd.cpp:1950
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:670 kscd.cpp:1316
+#: kscd.cpp:670 kscd.cpp:1320
 msgid "Pause"
 msgstr "잠시 멈춤"
 
-#: kscd.cpp:675 kscd.cpp:947 kscd.cpp:1268
+#: kscd.cpp:675 kscd.cpp:951 kscd.cpp:1272
 msgid "Random"
 msgstr "임의 연주"
 
@@ -423,19 +423,19 @@ msgstr "Strange...."
 msgid "Stopped"
 msgstr "멈춤"
 
-#: kscd.cpp:910 kscd.cpp:1270
+#: kscd.cpp:914 kscd.cpp:1274
 msgid "Loop"
 msgstr "반복"
 
-#: kscd.cpp:922
+#: kscd.cpp:926
 msgid "Ejecting"
 msgstr "꺼냄"
 
-#: kscd.cpp:998
+#: kscd.cpp:1002
 msgid "kscd Configuraton"
 msgstr "Kscd 설정사항"
 
-#: kscd.cpp:1014
+#: kscd.cpp:1018
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -463,7 +463,7 @@ msgstr ""
 "표합니다. CDDB의 상세정보는 http//www.cddb.com를 참조하기 바랍니다.\n"
 "\n"
 
-#: kscd.cpp:1027
+#: kscd.cpp:1031
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -473,7 +473,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1031
+#: kscd.cpp:1035
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -483,23 +483,23 @@ msgstr ""
 "http 프락시 코드 작업을 해준 Vadim Zaliva\n"
 "<lord@crocodile.org>에게 감사를 드립니다.\n"
 
-#: kscd.cpp:1087
+#: kscd.cpp:1091
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1088
+#: kscd.cpp:1092
 msgid "Kscd Options"
 msgstr "Kscd 옵션"
 
-#: kscd.cpp:1089
+#: kscd.cpp:1093
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1178 kscd.cpp:2078
+#: kscd.cpp:1182 kscd.cpp:2082
 msgid "Vol: %02d%%"
 msgstr "음량: %02d%%"
 
-#: kscd.cpp:1216
+#: kscd.cpp:1220
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -510,52 +510,52 @@ msgstr ""
 "다음에 대한 억세스 허가권이 있는지 확인하십시오:\n"
 "%s"
 
-#: kscd.cpp:1327
+#: kscd.cpp:1331
 msgid "Ready"
 msgstr "준비"
 
-#: kscd.cpp:1370
+#: kscd.cpp:1374
 msgid "Ejected"
 msgstr "열림"
 
-#: kscd.cpp:1654
+#: kscd.cpp:1658
 msgid "Unable to get CDDB server list."
 msgstr "CDDB 서버 목록을 얻을 수 없음"
 
-#: kscd.cpp:1798 kscd.cpp:1803
+#: kscd.cpp:1802 kscd.cpp:1807
 msgid "No matching CDDB entry found."
 msgstr "맞는 CDDB 항목을 찾을 수 없습니다"
 
-#: kscd.cpp:1827 kscd.cpp:1837
+#: kscd.cpp:1831 kscd.cpp:1841
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "맞는 CDDB 항목을 찾을 수 없습니다"
 
-#: kscd.cpp:1853 kscd.cpp:1863
+#: kscd.cpp:1857 kscd.cpp:1867
 msgid "CDDB query timed out."
 msgstr "CDDB 질의 시간 초과"
 
-#: kscd.cpp:2053
+#: kscd.cpp:2057
 msgid "Tra Rem"
 msgstr "Tra Rem"
 
-#: kscd.cpp:2057
+#: kscd.cpp:2061
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2061
+#: kscd.cpp:2065
 msgid "Tot Rem"
 msgstr "Tot Rem"
 
-#: kscd.cpp:2066
+#: kscd.cpp:2070
 msgid "Tra Sec"
 msgstr "Tra Sec"
 
-#: kscd.cpp:2191
+#: kscd.cpp:2195
 msgid "Cannot start kscdmagic."
 msgstr "kscdmagic을 실행할 수 없음"
 
-#: kscd.cpp:2206
+#: kscd.cpp:2210
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -563,16 +563,16 @@ msgstr ""
 "KSCD Magic이 비정상적으로 종료됐읍니다.\n"
 "분명히 kscdmagic을 설치했읍니까?"
 
-#: kscd.cpp:2361
+#: kscd.cpp:2365
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB 기본 디렉토리"
 
-#: kscd.cpp:2401
+#: kscd.cpp:2405
 msgid "-h: display commandline options\n"
 msgstr "-h: 명령행 옵션을 보여줌\n"
 
-#: kscd.cpp:2402
+#: kscd.cpp:2406
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 디버깅 출력을 가능하게 함\n"
 
