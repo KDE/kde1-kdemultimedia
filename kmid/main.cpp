@@ -28,31 +28,40 @@
 // Why can't I include qapp before kapp ?
 #include <kapp.h>
 #include <qwidget.h>
+#include <signal.h>
 
 int main(int argc, char **argv)
 {
-    printf("KMid 0.2 Copyright (C) 1997 Antonio Larrosa Jimenez. Malaga (Spain)\n");
+    printf("KMid 0.4 Copyright (C) 1997 Antonio Larrosa Jimenez. Malaga (Spain)\n");
     printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 );
     printf("This is free software, and you are welcome to redistribute it\n");
     printf("under certain conditions\n");
 
+/*
+    struct sigaction act; 
+    act.sa_handler = SIG_DFL;
+    sigemptyset(&(act.sa_mask));
+    act.sa_flags=0;
+
+    sigaction(SIGINT, &act, NULL);
+    sigaction(SIGTERM, &act, NULL);
+*/
+ 
+
     KApplication *app=new KApplication(argc,argv);
+
+    app->enableSessionManagement(TRUE);
     kmidFrame *kmidframe=new kmidFrame("KMid");
 
     app->setMainWidget ( kmidframe );
-//    KConfig *kconf=app->getConfig();
-//    kmidframe->readConfig(kconf);
-//    app->restoreTopLevelGeometry();
-// I have deleted provisionally this part, so you cannot pass a midi file in
-//  the command line, but it will be better implemented in a few days
-/*    if (argc>1) 
-	{
-	kmidframe->openFile(argv[1]);
-	kmidframe->song_Play();
-	};
-*/
+
     kmidframe->show();
+
+    if (app->isRestored()) 
+	{
+	if (kmidframe->canBeRestored(1)) kmidframe->restore(1);
+        }
 
     int ret= app->exec();
     delete kmidframe;

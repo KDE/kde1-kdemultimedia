@@ -26,15 +26,13 @@
 
 //#include <kapp.h>
 //#include <qwidget.h>
-#ifdef HAVE_CONFIG_H
-#include <config.h>
-#endif
 #include <ktopwidget.h>
 #include <kmenubar.h>
 #include <kslider.h>
 #include "player/midiout.h"
 #include "player/player.h"
 #include "player/track.h"
+//#include <pthread/mit/pthread.h>
 #include <qtimer.h>
 //#include "kdisptext.h"
 
@@ -66,6 +64,13 @@ private:
     QPopupMenu *m_options;
     QPopupMenu *m_help;
 
+protected:
+
+    virtual void saveProperties(KConfig *kcfg);
+    virtual void readProperties(KConfig *kcfg);
+
+
+//    virtual void closeEvent(QCloseEvent *e);
 public:
     kmidFrame(const char *name=0);
     ~kmidFrame();
@@ -75,13 +80,16 @@ public:
 public slots:
 
     void buttonClicked(int i);
+    void file_Open();
     void song_Pause();
 
     void options_GM();
     void options_MT32();
     void options_Text();
     void options_Lyrics();
+    void options_AutomaticText();
     void options_FontChange();
+    void options_MidiSetup();
 
     void slotDropEvent( KDNDDropZone * _dropZone );
  

@@ -144,3 +144,53 @@ Also made the slider show the time played at resizeable steps
 Sunday 9-11-97
 - Today I have made possible to change the font and I have made an icon.
 Prepare a version to upload tomorrow to the internet.
+
+Thursday 13-11-97
+- I have nearly rewritten (made lots of changes to) the lyrics display widget
+Also fixed that old "bug" that let in black the last word of a phrase in some
+songs.
+
+Friday 14-11-97
+- Automatic text event chooser is done ! 
+- Fixed a bug that could freeze kmid under very rare circunstances.
+- Added more support for incomplete/broken files
+
+Saturday 15-11-97
+- I have changed the exit-behaviour for a messagebox-behaviour
+- Fixed a bug that could leave the children running when closing kmid
+
+Sunday 16-11-97
+- KMid adds a mime entry for karaoke files in audio/x-karaoke
+- Real Session Management.
+- Made the first rpm of kmid.
+
+Monday 17-11-97
+- Release version 0.3 in tgz and rpm
+
+Friday 28-11-97
+- I've been quite busy this week, but I have had reports and patches :-) on
+how to make kmid to work with an AWE, a GUS, and in FreeBSD :-))))
+
+Monday 8-12-97
+- I have fixed a small bug with which the time that a song longs was not well
+reported.
+- Also a tiny bug in consolekmid
+
+Tuesday 9-12-97
+- I've made the first feature that I've been asked for. Another thing to map
+with the midi mapper for Dietmar's PSR500  
+
+Friday 12-12-97
+- Nearly done the map chooser so that there will no be needed to edit the kmidrc
+for anything.
+Now when you choose a new map or change GM/MT32 mode, the music is automatically
+changed while playing !.
+
+...... **-12-97
+- I have been the rest of the month implementing a midi server that I will 
+call KMidServer and that will provide any application with easy control over
+midi functions.
+
+30-12-97
+- KMid now can play gzipped midi files just as any other normal file. 
+

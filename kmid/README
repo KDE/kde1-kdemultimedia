@@ -8,7 +8,7 @@
 				KMID
 
 
-	This info is up to date if you have KMid version 0.2
+	This info is up to date if you have KMid version 0.4
 		
 
 Index
@@ -29,17 +29,31 @@ Index
 
    KMid is a midi/karaoke player for X11, it uses the KDE environment and libs
    along with Qt libs
+   KMid can use midi mappers to do some amazing (and powerful) things.
    It can play midi and karaoke files through the sequencer device, and it
-   tries to play even broken midis which other programs can't !!
+   plays even broken midis which other programs can't !!
+   KMid has a very beautiful user interface, which lets you customize the
+   fonts, use drag&drop thus allowing the user to drag a file from a kfm
+   window and drop it in a kmid window to play it, and other features ... 
+   Session Management is now also supported, thus if you logout of KDE while
+   a song is playing, the next time you log in, kmid will be restored and
+   the song will continue playing !.
+   As of version 0.4, AWE and GUS cards are also supported (primitively but
+   they make sound :-) ). KMid will also read any gzipped midi file just as
+   it reads a normal midi file.
 
 
 2. Requirements
 ---------------
 
-   A UNIX machine with X11, KDE, Qt libs, a /dev/sequencer device and an external
-   synth (future versions will work with GUS,FM and AWEs ... I hope :-) 
-   I have only tested kmid in Linux so I don't know if it will work with
-   FreeBSD or other unices, but it should (why not ? :-). 
+   A UNIX machine with X11, KDE, Qt libs, a /dev/sequencer device and an 
+   external synth or a GUS with a properly installed driver from the Linux 
+   Ultrasound Project, AWE cards are also supported from this release on 
+   (future versions will work with FM ... if I'm asked to do it, or someone 
+   send me a patch :-) 
+   I have only tested KMid in Linux, but I have had sucessful reports getting 
+   KMid to work on FreeBSD
+   If you sucessfully run KMid in other unices, please tell me !
 
 3. Quickstart
 -----------------
@@ -48,27 +62,39 @@ Index
 
 4. Installing 
 -----------------
+   To install the rpm version, just do "rpm -i kmid-0.4-1.rpm".
+
+   To install the tgz version, follow these steps:
+
    Go to the parent directory (../.) and type "./configure" then come back to
    this directory and do a "make", now you should have compiled the kmid
    executable.
    If you want to compile also the consolekmid program, do a "make" in the
    player directory.
 
-   To install the binary, toolbar pictures,icon and the help file do also a 
+   To install the binary, toolbar pictures, icon and the help file do also a 
    "make install" in this directory 
-   Be aware that by default the files are installed in /opt/kde, if you
-   have another value in the KDEDIR environment variable, please, change in
-   the install.sh script the value of the PREFIX variable to the correct value.
+   Be aware that by default the files are installed using as top level
+   directory the value of the environment variable, KDEDIR. So you need
+   to have KDEDIR pointing to the correct directory.
 
 5. Running
 --------------
    Well, it's quite easy, just type "kmid" and it should run :-)
    If you have made a "make install" you will be able to run kmid from any
-   directory, but if haven't, then you will have to go to this directory
+   directory, but if you haven't, then you will have to go to this directory
    to execute it.
+
+   If you want to use KMid with an AWE card or a GUS, you will have to open
+   the Options | Midi Setup ...  dialog and select the appropiate device.
+   By default it is set to external midi port. 
+
 
 6. Uninstalling
 ------------------
+   To uninstall the rpm version, type "rpm -e kmid"
+   To uninstall the tgz version, follow these steps:
+
    Erase the kmid_*.xpm files in the /opt/kde/share/toolbar directory and
    the file kmid in /opt/kde/bin, also erase the file ~/.kde/share/config/kmidrc
    that should have been created in each user's home directory.
@@ -79,12 +105,25 @@ Index
 
 7. How do I use a Midi Mapper ?
 -------------------------------
-   Insert two lines like these at ~/kde/share/config/kmidrc :
+   A Midi Mapper is the feature you have been waiting for in Linux for years,
+   (at least I have been :-) it makes a non General Midi synth, appear to the
+   computer as General Midi compliant. Thus, a GM synth is emulated with a
+   nonGM.
+   To use a midi mapper, insert two lines like these at 
+    ~/kde/share/config/kmidrc :
 
 [Midimapper]
-Loadfile=<absolute path to map file>
+Loadfile=<map file>
 
    yamaha790.map is included as an example map (look in the maps directory).
+
+   From version 0.4 you can easily select the map to use from 
+   Options | Midi Setup , then press on the Browse button and select the
+   appropiate map file for your synthesizer.
+
+   Note: I have had one report telling me that GM synths use inappropiate
+   patches and that a gm map must be used instead of no map at all.
+   Could someone with a GM synth verify this situation ?
 
    The map file must have the following structure and everything is 0 based:
 ---8<----8<----8<------
@@ -122,20 +161,25 @@ DEFINE KEYMAP "Name"
 END
 
 DEFINE CHANNELMAP
-<Number of channel> = <Mapped channel> [Keymap "Name"] 
+<Number of channel> = <Mapped channel> [Keymap "Name"] [ForcePatch patch] 
 ...
 #Keymap "<Name>"
 #  The Keymap PREVIOUSLY DEFINED with name "Name" will be used in this channel
 #Must have 16 channels
+#ForcePatch patch
+#  Requests to change the patch (voice) of a channel will be ignored and
+#  patch will be used instead (remember that 'patch' is sent directly without
+#  further mapping through PATCHMAP nor anything)
 END
 
 ---8<----8<----8<------
 
-If you plan to define a new map for your keyboard, I recommend you to start
+If you want to define a new map for your midi keyboard, I recommend you to start
 by copying the file yamaha790.map and modifying it. And remember to send
 it to me so that it will be included in future revisions and other people
 can use it !
-
+The map files are in /opt/kde/share/apps/kmid/maps (Some people should
+substitute /opt/kde for the value of the KDEDIR environment variable)
 
 8. What is ConsoleKMid ? 
 ------------------------
@@ -146,23 +190,28 @@ can use it !
    the beginning of the file main.cc (you'll see a commentary there) and
    then compile it again.
 
+   If you have the rpm distribution, you will not find the consolekmid program
+   unless you also have the src.rpm distribution
+
 9. Where can I download KMid from ?
 -----------------------------------
 
-   You can download KMid from :
+   KMid's homepage is at :
    www.arrakis.es/~rlarrosa/kmid.html
- 
+
+   From there you can download latest versions as well as know the latest
+   changes and improvements of KMid
+	 
 10. To do list
 -------------
-   Write better documentation (meanwhile I will answer any of your question by email)
-   GUS, FM, and AWE support
+   Write better documentation 
+	(meanwhile I will answer any question by email)
+   FM support
    Do the play lists
-   Learn how the mediatool protocol works
    Translation to other languages
-   Improve the lyrics/text handler
-
+   Finish the KMidServer and make KMid use it.
 
 -------
-8-11-1997
+30-12-1997
 Antonio Larrosa Jimenez
 antlarr@arrakis.es

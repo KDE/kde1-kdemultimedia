@@ -22,7 +22,6 @@
 
 ***************************************************************************/
 #include <qwidget.h>
-#include <sys/types.h>
 #include "player/player.h"
 
 struct kdispt_ev 
@@ -60,6 +59,12 @@ QPainter *qpaint;
 
 int typeoftextevents;
 
+kdispt_line *linked_list_[2];
+int nlines_[2];
+kdispt_line *first_line_[2];
+kdispt_line *cursor_line_[2];
+kdispt_ev *cursor_[2];
+
 kdispt_line *linked_list; 
 kdispt_line *cursor_line;
 kdispt_ev *cursor;
@@ -91,7 +96,9 @@ void calculatePositions(void);
 
 void CursorToHome(void);
 
-void PaintIn(void);
+void ChangeTypeOfTextEvents(int type); 
+int ChooseTypeOfTextEvents(void);
+void PaintIn(int type);
 void gotomsec(ulong i);
 
 QFont *getFont(void);

@@ -1,13 +1,5 @@
 # This is a sample Makefile.in 
 
-kde_libraries = @kde_libraries@
-qt_libraries = @qt_libraries@
-top_builddir = ..
-LIBTOOL = @LIBTOOL@
-KDE_RPATH = @KDE_RPATH@
-topdir = @topdir@
-SHELL = /bin/sh
-
 # @CXXFLAGS@     : is set to -g -Wall (when debuging) or -O2 -Wall (when not)
 # @all_includes@ : is set to all needed include paths for QT, KDE and X11
 # -I.. 	         : needed for config.h
@@ -48,9 +40,9 @@ PICSDIR = $(LIBDIR)/pics
 
 ########## Files #####################
 
-OBJECTS =	kmidframe.o kmidclient.o kdisptext.o kslidertime.o main.o
-PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o
-SRCMETA =	kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc
+OBJECTS =	kmidframe.o kmidclient.o kdisptext.o kslidertime.o midicfgdlg.o main.o
+PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
+SRCMETA =	kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc midicfgdlg.moc 
 TARGET	=	kmid 
 
 ######### build rules ################
@@ -61,18 +53,31 @@ Makefile: Makefile.in
 	cd .. && CONFIG_FILES=kmid/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
 $(TARGET): $(SRCMETA) $(OBJECTS) $(PLAYEROBJECTS)
-	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS) $(KDE_RPATH)
+	$(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS)
 
 $(PLAYEROBJECTS):
-	(cd player && $(MAKE) all_copy && cd ..)
+	(cd player && make all_copy && cd ..)
 
-install:
-	install.sh	
-#cd toolbarxpm && $(install) *.xpm $(prefix)/share/apps/kmid/toolbar && cd .. && cp kmid $(prefix)/bin )
+#install:
+#	./install.sh	
+
+install: $(TARGET)
+	$(INSTALL_DIR) $(prefix)/share/apps/kmid
+	$(INSTALL) $(TARGET) $(BINDIR)
+	$(INSTALL_DATA) kmid.kdelnk $(prefix)/share/applnk/Multimedia
+	$(INSTALL_DATA) x-karaoke.kdelnk $(prefix)/share/mimelnk/audio
+	$(INSTALL_DIR) $(prefix)/share/doc/HTML/en/kmid
+	$(INSTALL_DATA) kmid.html $(prefix)/share/doc/HTML/en/kmid
+	$(INSTALL_DIR) $(prefix)/share/apps/kmid/toolbar
+	$(INSTALL_DATA) toolbarxpm/*.xpm $(prefix)/share/apps/kmid/toolbar
+	$(INSTALL_DIR) $(prefix)/share/icons
+	$(INSTALL_DATA) kmid.xpm $(prefix)/share/icons
+	$(INSTALL_DIR) $(prefix)/share/apps/kmid/maps
+	$(INSTALL_DATA) maps/*.map $(prefix)/share/apps/kmid/maps
+	$(INSTALL_DATA) examples/* $(prefix)/share/apps/kmid
 
 clean:
-	echo "Exiting directory ..."
-	(cd player && $(MAKE) clean && cd ..)
+	(cd player && make clean && cd ..)
 	rm -f *.o *.bak *~ *% #*
 	rm -f $(SRCMETA) $(TARGET)
 

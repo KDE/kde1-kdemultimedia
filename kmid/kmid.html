@@ -2,42 +2,80 @@
 <TITLE>KMid help</TITLE>
 <BODY>
 <P><CENTER><H1><STRONG>KMid Help</STRONG></H1></CENTER></P>
-<P><H2>What's KMid</H2></P>
+<HR>
+<P><H5>KMid 0.4<BR>
+Antonio Larrosa Jimenez (antlarr@arrakis.es)<BR>
+30-12-97 . Malaga (Spain)</H5></P>
+<HR>
+<P><H2>What's KMid ?</H2></P>
 <P>KMid is a midi/karaoke player, that uses /dev/sequencer to play a midi file
-through an external synth (I hope to include FM, GUS, and AWE support in the
-near future). At the same time that the song is played, lyrics are displayed
-in a beautiful window so that the user can sing or just follow the letter :-).
-It has a powerful midi mapper that will make people with no general midi
+through an external synth, GUS card or AWE card. (I hope to include FM support 
+in the near future). At the same time that the song is played, lyrics are
+ displayed in a beautiful window so that the user can sing or just follow the letter :-).
+</P>
+<P><H2>Features</H2></P>
+<P>
+<LI>KMid has a nice interface to display karaoke text
+<LI>Powerful Midi Mapper that will make people with no general midi
 synths happier than ever :-).
-<BR>It supports drag & drop so you can drop in kmid any midi file from a kfm
-window. You can also customize the font in which the karaoke text is displayed.
+<LI>Drag & drop so you can drop in KMid any midi file from a kfm window.
+<LI>Customizable fonts for karaoke text to be displayed.
+<LI>Supports the two standards to introduce lyrics in midi files, that is, lyrics or text events (and guess which one a song uses automatically)
+<LI>Session Management. If a song is playing while you logout from KDE, the next
+time you login, the same song will start playing !
+<LI>Can play some broken midi files which make other players core dump !
+<LI>Can open gzipped files just as any other midi file.
+<LI>Consumes approximately 0.1% of my CPU (depends on the complexity of
+the song)
+<LI>Supports external midi synths, AWE cards, and GUS (needs the Linux Ultrasound Project driver and gusd installed).
+<LI>Runs on Linux and FreeBSD (perhaps also other unices ...)
 </P>
 <P><H2>How can I open a song?</H2></P>
-<P>Hey that's easy, let's go to more difficult questions ! :-) ...</P>
-<P><H2>I am sure that this song has lyrics, but they aren't showed.<CR>
-What happens?</H2></P>
-<P>There are two methods to include lyrics in a song, by using "Text events"
+<P>You can open a song by pressing File | Open ... , or by dragging the file from a kfm
+window and dropping it in the kmid window. You can also pass a song to kmid in the command line.<BR>
+Hey that's easy, let's go to more difficult questions ! :-) ...</P>
+<P><H2>How do I start playing a song?</H2></P>
+<P>You have three ways to start playing a song, by selecting it from the menu in
+Song|Play , by clicking on the play button of the toolbar, or by pressing the
+Space key of the keyboard. Songs will automatically start playing if you
+drop it in KMid's window</P>
+<P><H2>What's all that about text and lyrics events ?</H2></P>
+<P>There are two methods to store lyrics in a song, by using "Text events"
 or "lyrics events", some songs use the first, some the second, some use both
-of them, and some  don't include lyrics :-). There's no method to know which
-of them is using a song, so you must try both of them in the Options menu.</P>
+of them, and some  don't include lyrics :-) . KMid lets you choose which events
+to display, and even better, it has an option to automagically select the type of
+events that a song uses, so that you don't have to change the type manually.
+</P>
+<P><H2>How do I play a song from a specified second?</H2></P>
+<P>Start playing the song and then press with the middle button of your mouse
+on the slider</P>
+<P><H2>Where can I download more karaoke songs from?</H2></P>
+<P>These are two of my favourite sites:</P>
+<P>One with lots of very good files :</P>
+<A HREF="">Kenny Bellew's Midi/Karaoke Collection</A>
+<P>And the next is a very good site with karaoke files in Spanish, made by a friend of mine : </P>
+<A HREF="">Jhames Soft</A>
 <P><H2>What's a Midi Mapper?</H2></P>
 <P>If you have a synthesizer that doesn't complain with the General Midi standard,
 and you play a midi file with it, you will hear a piano playing the track that
 should be played by a flute and a drum playing the track that should be played by
 a piano. So you need some method to map sounds to different ones, this is what
-a Midi Mapper does.
-<P><H2>How do I play a song from a specified second?</H2></P>
-<P>Start playing it and then press with the middle button of your mouse
-on the slider</P>
+a Midi Mapper does. You can specify what values have to be passed to your synth
+so that it emulates a GM synth.</P>
 <P><H2>How can I use a mapper with my synthesizer?</H2></P>
-There isn't a graphical tool to configure it (yet) so you should
-edit the config file by hand :-(, open the ~/.kde/share/config/kmidrc file
-and add two lines like these :</P>
+<P>There isn't a graphical tool to configure it (yet) so you should
+edit the map file by hand :-(.
+<BR>Once you have done a map, select Options | Midi Setup ... and press on the
+Browse button to select the map file you have created.  
+<BR>Another method is to add two lines like these to ~/.kde/share/config/kmidrc :</P>
 <BR>[Midimapper]
-<BR>Loadfile=**absolute path to map file**
+<BR>Loadfile=**absolute path to map file** 
 <P>In my case I have :
 <BR>[Midimapper]
-<BR>Loadfile=/home/Antonio/prg/kmid/kmid/maps/yamaha790.map
+<BR>Loadfile=yamaha790.map
+</P>
+<P>That is because if you don't specify an absolute path, kmid will look in the
+standard place for map files, in /opt/kde/share/apps/kmid/maps</P>
 <P>So if you, like me, have a yamaha790 you are of luck, just use the included file.
 But if you have a different synthesizer that isn't General Midi compliant, then you will
 have to make your own mapper</P>
@@ -48,11 +86,18 @@ will work. Now you are ready to start.</P>
 <P>... but I'm not, this version is not finished so I don't think that
 anybody will notice a small lack of help ;-) So please, follow your instinct and if you have any question, send it to me at : antlarr@arrakis.es
 </P><P>
-And remember two things :
+And remember three things :
 <BR>1.- You should encourage the author to continue working on kmid,
-because he's a good person, but he will stop programming kmid if nobody uses
+because he has better things to do than programming kmid if nobody uses
 it :-)
 <BR>2.- You can download the latest version at :
 <BR>http://www.arrakis.es/~rlarrosa/kmid.html</P>
-
+<BR>3.- Please send me a postcard from where you live to :
+<BR>
+<BR>Antonio Larrosa
+<BR>Rio Arnoya. 10 5B
+<BR>29006 Malaga 
+<BR>(Spain)
+<BR> This would keep me happy and you will also enter in the postcard senders
+of the PEOPLE file
 </BODY></HTML>

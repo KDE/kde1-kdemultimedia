@@ -21,14 +21,14 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#include "kdisptext.moc"
 #include <qpainter.h>
 #include <qfont.h>
 #include <qfontmet.h>
 #include <qscrbar.h>
 #include <kapp.h>
 #include <kconfig.h>
-#include <kapp.h>
+
+#include "kdisptext.moc"
 
 #define NUMPREVLINES 2
 
@@ -36,6 +36,11 @@
 
 KDisplayText::KDisplayText(QWidget *parent,const char *name) : QWidget(parent,name)
 {
+first_line_[0]=first_line_[1]=NULL;
+linked_list_[0]=linked_list_[1]=NULL;
+cursor_line_[0]=cursor_line_[1]=NULL;
+cursor_[0]=cursor_[1]=NULL;
+nlines_[0]=nlines_[1]=0;
 linked_list=NULL;
 cursor_line=NULL;
 first_line=NULL;
@@ -85,15 +90,23 @@ void KDisplayText::RemoveLinkedList(void)
 cursor=NULL;
 cursor_line=NULL;
 first_line=NULL;
+linked_list=NULL;
 nlines=0;
+nlines_[0]=nlines_[1]=0;
+first_line_[0]=first_line_[1]=NULL;
+cursor_line_[0]=cursor_line_[1]=NULL;
+cursor_[0]=cursor_[1]=NULL;
 
 kdispt_line *tmpl;
-while (linked_list!=NULL)
+for (int i=0;i<2;i++)
     {
-    RemoveLine(linked_list);
-    tmpl=linked_list;
-    linked_list=linked_list->next;
-    delete tmpl;
+    while (linked_list_[i]!=NULL)
+	{
+	RemoveLine(linked_list_[i]);
+	tmpl=linked_list_[i];
+	linked_list_[i]=linked_list_[i]->next;
+	delete tmpl;
+	};
     };
 };
 
@@ -107,9 +120,9 @@ int KDisplayText::IsLineFeed(char c,int type)
 {
 switch (type)
     {
-    case (0) : if ((c==0)||(c==10)||(c==13)||(c=='\\')||(c=='/')||(c=='@')) return 1;break;
     case (1) : if (/*(c==0)||*/(c=='\\')||(c=='/')||(c=='@')) return 1;break;
     case (5) : if (/*(c==0)||*/(c==10)||(c==13)) return 1;break;
+    default :  if ((c==0)||(c==10)||(c==13)||(c=='\\')||(c=='/')||(c=='@')) return 1;break;
     };
 return 0;
 };
@@ -118,49 +131,51 @@ void KDisplayText::AddEv(SpecialEvent *ev)
 {
 if ((ev->type==1) || (ev->type==5))
     {
-    if (linked_list==NULL)
+    int idx=(ev->type==1)? 0 : 1;
+    if (linked_list_[idx]==NULL)
         {
-        linked_list=new kdispt_line;
-        linked_list->next=NULL;
-        linked_list->num=1;
-        linked_list->ypos=30;
-        linked_list->ev=new kdispt_ev;
-        cursor_line=linked_list;
-        cursor=cursor_line->ev;
-        cursor->spev=ev;
-        cursor->xpos=5;
+        linked_list_[idx]=new kdispt_line;
+        linked_list_[idx]->next=NULL;
+        linked_list_[idx]->num=1;
+        linked_list_[idx]->ypos=30;
+        linked_list_[idx]->ev=new kdispt_ev;
+        cursor_line_[idx]=linked_list_[idx];
+        cursor_[idx]=cursor_line_[idx]->ev;
+        cursor_[idx]->spev=ev;
+        cursor_[idx]->xpos=5;
         if (IsLineFeed(ev->text[0],ev->type))
-             cursor->width=qfmetr->width(&ev->text[1]);
+             cursor_[idx]->width=qfmetr->width(&ev->text[1]);
             else
-             cursor->width=qfmetr->width(ev->text);
-        cursor->next=NULL;    
-        first_line=linked_list;
-	nlines=1;
+             cursor_[idx]->width=qfmetr->width(ev->text);
+        cursor_[idx]->next=NULL;    
+	first_line_[idx]=linked_list_[idx];
+        first_line=first_line_[idx];
+	nlines_[idx]=1;
         }
        else
         {
         if (IsLineFeed(ev->text[0],ev->type))
             {
-	    nlines++;
-            cursor_line->next=new kdispt_line;
-	    cursor_line=cursor_line->next;
-	    cursor_line->num=nlines;
-	    cursor_line->ypos=cursor_line->num*30;
-	    cursor_line->ev=new kdispt_ev;
-	    cursor_line->next=NULL;
-	    cursor=cursor_line->ev;
-	    cursor->xpos=5;
-	    cursor->width=qfmetr->width(&ev->text[1]);
+	    nlines_[idx]++;
+            cursor_line_[idx]->next=new kdispt_line;
+	    cursor_line_[idx]=cursor_line_[idx]->next;
+	    cursor_line_[idx]->num=nlines_[idx];
+	    cursor_line_[idx]->ypos=cursor_line_[idx]->num*30;
+	    cursor_line_[idx]->ev=new kdispt_ev;
+	    cursor_line_[idx]->next=NULL;
+	    cursor_[idx]=cursor_line_[idx]->ev;
+	    cursor_[idx]->xpos=5;
+	    cursor_[idx]->width=qfmetr->width(&ev->text[1]);
             }
  	   else
 	    {
-	    cursor->next=new kdispt_ev;
-	    cursor->next->xpos=cursor->xpos+cursor->width;
-	    cursor=cursor->next;
-	    cursor->width=qfmetr->width(ev->text);
+	    cursor_[idx]->next=new kdispt_ev;
+	    cursor_[idx]->next->xpos=cursor_[idx]->xpos+cursor_[idx]->width;
+	    cursor_[idx]=cursor_[idx]->next;
+	    cursor_[idx]->width=qfmetr->width(ev->text);
 	    };
-	cursor->spev=ev;
-	cursor->next=NULL;
+	cursor_[idx]->spev=ev;
+	cursor_[idx]->next=NULL;
         };
     };
 };
@@ -175,7 +190,7 @@ int tmpx;
 int tmpy;
 while (!fin)
     {
-    tmpl=linked_list;
+    tmpl=linked_list_[(typeoftextevents==1)?0:1];
     tmpy=30;
     while (tmpl!=NULL)
 	{
@@ -221,7 +236,6 @@ if (nlines>nvisiblelines)
    else
     textscrollbar->setRange(1,1);
 
-//DebugText();
 if (qpaint==NULL)
     {
     qpaint=new QPainter(this);
@@ -235,7 +249,7 @@ kdispt_line *tmpl=first_line;
 kdispt_ev *tmp;
 KConfig *kcfg=KApplication::getKApplication()->getConfig();
 kcfg->setGroup("KMid");
-typeoftextevents=kcfg->readNumEntry("TypeOfTextEvents",5);
+typeoftextevents=kcfg->readNumEntry("TypeOfTextEvents",1);
 #ifdef KDISPTEXTDEBUG
 printf("events displayed %d\n",typeoftextevents);
 #endif
@@ -247,7 +261,8 @@ while ((i<nvisiblelines)&&(tmpl!=NULL))
     while (tmp!=NULL)
         {
 	if ( colorplayed && 
-	(tmp->spev->absmilliseconds>=cursor->spev->absmilliseconds))
+//	(tmp->spev->absmilliseconds>=cursor->spev->absmilliseconds))
+	(tmp->spev->id>=cursor->spev->id))
 		{
 		qpaint->setPen(QColor(0,0,0));
 		colorplayed=0;
@@ -276,6 +291,18 @@ textscrollbar->setGeometry(width()-16,0,16,height());
 
 void KDisplayText::CursorToHome(void)
 {
+KConfig *kcfg=KApplication::getKApplication()->getConfig();
+kcfg->setGroup("KMid");
+typeoftextevents=kcfg->readNumEntry("TypeOfTextEvents",1);
+linked_list=linked_list_[(typeoftextevents==1)? 0:1];
+nlines=nlines_[(typeoftextevents==1)? 0:1];
+cursor_line_[0]=linked_list_[0];
+first_line_[0]=cursor_line_[0];
+if (cursor_line_[0]!=NULL) cursor_[0]=cursor_line_[0]->ev;
+cursor_line_[1]=linked_list_[1];
+first_line_[1]=cursor_line_[1];
+if (cursor_line_[1]!=NULL) cursor_[1]=cursor_line_[1]->ev;
+
 if (linked_list==NULL)
     {
     cursor_line=NULL;
@@ -288,17 +315,38 @@ if (linked_list==NULL)
     cursor=cursor_line->ev;
     first_line=linked_list;
     };
+
 textscrollbar->setValue(1);
 
 }; 
 
-void KDisplayText::PaintIn(void)
+void KDisplayText::PaintIn(int type)
 {
+if (type!=typeoftextevents)
+    {
+    int idx=(type==1)?0:1;
+    if (cursor_[idx]==NULL) return;
+    cursor_[idx]=cursor_[idx]->next;
+    while ((cursor_[idx]==NULL)&&(cursor_line_[idx]!=NULL))
+        {
+        cursor_line_[idx]=cursor_line_[idx]->next;
+        if (cursor_line_[idx]!=NULL)
+            {
+            cursor_[idx]=cursor_line_[idx]->ev;
+            if ((cursor_line_[idx]->num>first_line_[idx]->num+NUMPREVLINES)
+	       &&(cursor_line_[idx]->num<first_line_[idx]->num+nvisiblelines+1))
+	            if ((first_line_[idx]!=NULL)&&(first_line_[idx]->num+nvisiblelines<=nlines_[idx])) first_line_[idx]=first_line_[idx]->next;
+            };
+        };
+    return;
+    };
+
 if ((cursor==NULL)||(cursor_line==NULL))
     {
     printf("KDispT : cursor == NULL !!!\n");
     return;
     };
+
 if ((cursor_line->num>=first_line->num)&&(cursor_line->num<first_line->num+nvisiblelines))
    { 
    if (cursor->spev->type==typeoftextevents)
@@ -331,30 +379,56 @@ repaint();
 
 void KDisplayText::gotomsec(ulong i)
 {
-if (linked_list==NULL) return;
-   else
+int notidx=(typeoftextevents==1)?1:0;
+
+if (linked_list_[notidx]!=NULL) 
+    {
+    cursor_line_[notidx]=linked_list_[notidx];
+    first_line_[notidx]=cursor_line_[notidx];
+    cursor_[notidx]=cursor_line_[notidx]->ev;
+    while ((cursor_line_[notidx]!=NULL)&&(cursor_[notidx]->spev->absmilliseconds<i))
+	{
+	cursor_[notidx]=cursor_[notidx]->next;
+	while ((cursor_[notidx]==NULL)&&(cursor_line_[notidx]!=NULL))
+	    {
+	    cursor_line_[notidx]=cursor_line_[notidx]->next;
+	    if (cursor_line_[notidx]!=NULL) 
+	        {
+	        cursor_[notidx]=cursor_line_[notidx]->ev;
+                if ((cursor_line_[notidx]->num>first_line_[notidx]->num+NUMPREVLINES)
+	           &&(cursor_line_[notidx]->num<first_line_[notidx]->num+nvisiblelines+1))
+	            if ((first_line_[notidx]!=NULL)&&(first_line_[notidx]->num+nvisiblelines<=nlines_[notidx])) first_line_[notidx]=first_line_[notidx]->next;
+	        };
+            };
+        };
+    };
+
+if (linked_list!=NULL) 
     {
     cursor_line=linked_list;
     cursor=cursor_line->ev;
     first_line=linked_list;
-    };
-while ((cursor_line!=NULL)&&(cursor->spev->absmilliseconds<i))
-    {
-    cursor=cursor->next;
-    while ((cursor==NULL)&&(cursor_line!=NULL))
+    while ((cursor_line!=NULL)&&(cursor->spev->absmilliseconds<i))
         {
-        cursor_line=cursor_line->next;
-        if (cursor_line!=NULL) 
-	    {
-	    cursor=cursor_line->ev;
-            if ((cursor_line->num>first_line->num+NUMPREVLINES)
-	       &&(cursor_line->num<first_line->num+nvisiblelines+1))
-	        if ((first_line!=NULL)&&(first_line->num+nvisiblelines<=nlines)) first_line=first_line->next;
-	    };
+        cursor=cursor->next;
+        while ((cursor==NULL)&&(cursor_line!=NULL))
+            {
+            cursor_line=cursor_line->next;
+            if (cursor_line!=NULL) 
+	        {
+	        cursor=cursor_line->ev;
+                if ((cursor_line->num>first_line->num+NUMPREVLINES)
+	           &&(cursor_line->num<first_line->num+nvisiblelines+1))
+	            if ((first_line!=NULL)&&(first_line->num+nvisiblelines<=nlines)) first_line=first_line->next;
+	        };
+            };
+
+
         };
+
+    textscrollbar->setValue(first_line->num);
+    repaint();
     };
-textscrollbar->setValue(first_line->num);
-repaint();
 };
 
 QFont *KDisplayText::getFont(void)
@@ -376,4 +450,32 @@ if (qpaint!=NULL) qpaint->setFont(*qtextfont);
 calculatePositions();
 nvisiblelines=height()/qfmetr->lineSpacing();
 repaint(TRUE);
+};
+
+void KDisplayText::ChangeTypeOfTextEvents(int type)
+{
+int idxold=(typeoftextevents==1)?0:1;
+int idxnew=(type==1)?0:1;
+cursor_line_[idxold]=cursor_line;
+first_line_[idxold]=first_line;
+cursor_[idxold]=cursor;
+linked_list=linked_list_[idxnew];
+cursor_line=cursor_line_[idxnew];
+first_line=first_line_[idxnew];
+cursor=cursor_[idxnew];
+nlines=nlines_[idxnew];
+typeoftextevents=type;
+if (first_line!=NULL) 
+    {
+    if (nlines>nvisiblelines)
+        textscrollbar->setRange(1,nlines-nvisiblelines+1);
+       else
+        textscrollbar->setRange(1,1);
+    textscrollbar->setValue(first_line->num);
+    };
+};
+
+int KDisplayText::ChooseTypeOfTextEvents(void)
+{
+return (nlines_[0]>nlines_[1])? 1 : 5;
 };

@@ -25,7 +25,6 @@
 #define _KMIDCLIENT_H
 
 #include "kslidertime.h"
-#include "player/midiout.h"
 #include "player/player.h"
 #include "player/track.h"
 #include <qtimer.h>
@@ -36,6 +35,9 @@
 
 // uncomment the next line to debug KMid
 //#define KMidDEBUG
+
+class DeviceManager;
+
 
 class KApplication;
 class KConfig;
@@ -50,7 +52,7 @@ private:
     long passcount;
 #endif
 
-    midiOut *Midi;
+    DeviceManager *Midi;
     player *Player;
 
     int playerProcessID;
@@ -66,6 +68,8 @@ private:
 
     int	itsme;
 
+    char *midifile_opened;
+
     int typeoftextevents;
 
     void extractFilename(const char *in,char *out);
@@ -73,14 +77,17 @@ public:
     kmidClient(QWidget *parent,const char *name=0);
     ~kmidClient();
 
-//    void readConfig(KConfig *kconf);
-    void openFile(char *filename);
-    void openURL(char *s);
+    char *midiFileName(void) {return midifile_opened;};
+    int isPlaying(void) {return pctl->playing;};
+
+    int openFile(char *filename);
+    int openURL(char *s);
 
     void repaintText(int typeoftextevents);
     void kmidOutput(void);
 
     void songType(int i);
+    int ChooseTypeOfTextEvents(void);
 
     QFont *getFont(void);
     void fontChanged(void); // The new font is already in KConfig
@@ -104,7 +111,9 @@ public slots:
 
     void processSpecialEvent();
 
-
+    DeviceManager *devman(void) {return Midi;};
+    void setMidiDevice(int i);
+    void setMidiMapFilename(char *mapfilename);
 private:
     KSlider *timebar;
     KSliderTime *timetags;

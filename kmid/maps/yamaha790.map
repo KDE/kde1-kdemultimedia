@@ -3,7 +3,7 @@
 # it can be used as a template to make any new map for any
 # other keyboard.
 # If you make a new map, please send it to me, so future releases
-# will include them.
+# will include it.
 #       Antonio Larrosa Jimenez,   antlarr@arrakis.es
 #       Rio Arnoya, 10 5B, Malaga , 29006, Spain 
 
@@ -270,7 +270,7 @@ E 10=124
 F 10=125
 F#10=126
 G 10=127
-#I hope this will be ignored
+# This line should be ignored
 END
 
 
@@ -284,7 +284,7 @@ DEFINE CHANNELMAP
 6 = 6
 7 = 7
 8 = 8
-9 = 15 Keymap "Drumset"
+9 = 15 Keymap "Drumset" ForcePatch 100
 10 = 10
 11 = 11
 12 = 12

@@ -1,15 +1,15 @@
 Begin
 Title:          kmid
-Version:        0.2
-Entered-date:   110997
+Version:        0.4
+Entered-date:   123197
 Description:    midi/karaoke file player using an external synth
 Keywords:       mid kar player midi karaoke KDE X11 Qt kmid
 Author:         Antonio Larrosa Jimenez <antlarr@arrakis.es>
 Maintained-by:  Antonio Larrosa Jimenez <antlarr@arrakis.es>
 Primary-site:   http://www.arrakis.es/~rlarrosa/kmid.html
-File1:	        kmid-0.2.tar.gz
+File1:	        kmid-0.4.tgz
 Home-page:      http://www.arrakis.es/~rlarrosa/kmid.html
 Original-site:  ???
-Platform:       Linux and others, needs Qt 1.3, X11 and kde libs (Beta1 or +)
+Platform:       Linux, BSD and others, needs Qt 1.3,X11 and kde libs(Beta1 or +)
 Copying-policy: GPL
 End

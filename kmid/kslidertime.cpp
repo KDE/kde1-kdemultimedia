@@ -28,11 +28,6 @@
 
 #define ARROW_LENGTH    13 
 
-
-KSliderTime::KSliderTime( QWidget *parent, const char *name)
-					: QWidget (parent,name)
-{
-};
 KSliderTime::KSliderTime( KSlider *ksl, QWidget *parent, const char *name)
 					: QWidget (parent,name)
 {
@@ -74,9 +69,7 @@ return t;
 
 void KSliderTime::drawTimeMarks(QPainter *painter)
 {
-//  QPen tickPen = QPen( colorGroup().dark() );
-//  tickPen.setWidth(1);  // Yup, we REALLY want width 1, not 0 here !!
-//  painter->setPen(tickPen);
+if (kslider==NULL) return;
   int i;
   int maxV = kslider->maxValue();
   QFontMetrics qfmt(painter->font());
@@ -87,27 +80,25 @@ void KSliderTime::drawTimeMarks(QPainter *painter)
   timestep = quantizeTimeStep(timestep);
   ntimetags = maxV/timestep;
  
+ // draw time tags (only in horizontal !!)
+  int posy=qfmt.height();
+  char *tmp=new char[100];    
+  int pos=0;
+  int deltapos=0;
+  formatMillisecs(0,tmp);
+  painter->drawText( 0, posy,tmp);
+  for ( i = timestep; i <= maxV - timestep; i += timestep )
+     {
+     pos = (width()-10) * i / maxV + 5;
+     formatMillisecs(i,tmp);
+     deltapos=qfmt.width(tmp)/2;
+     painter->drawText( pos-deltapos, posy,tmp);
+     }
 
-//   painter->fillRect(0, ARROW_LENGTH+1, width()-1, ARROW_LENGTH + 6, colorGroup().background() );
-
-    // draw time tags
-    int posy=qfmt.height();
-    char *tmp=new char[100];    
-    int pos=0;
-    int deltapos=0;
-    formatMillisecs(0,tmp);
-    painter->drawText( 0, posy,tmp);
-    for ( i = timestep; i <= maxV - timestep; i += timestep ) {
-      pos = (width()-10) * i / maxV + 5;
-      formatMillisecs(i,tmp);
-      deltapos=qfmt.width(tmp)/2;
-      painter->drawText( pos-deltapos, posy,tmp);
-    }
-
-    pos = width()- 5;
-    formatMillisecs(maxV,tmp);
-    deltapos=qfmt.width(tmp);
+  pos = width()- 5;
+  formatMillisecs(maxV,tmp);
+  deltapos=qfmt.width(tmp);
     
-    painter->drawText( pos-deltapos, posy,tmp);
+  painter->drawText( pos-deltapos, posy,tmp);
     
 }  

@@ -34,7 +34,6 @@
 //#include "player/midimapper.h"
 //#include "player/track.h"
 //#include "player/midispec.h"
-#include <sys/soundcard.h>
 #include <sys/shm.h>
 #include <sys/wait.h>
 #include <kmsgbox.h>
@@ -44,6 +43,7 @@
 #include <kurl.h>
 #include <drag.h>
 #include <kfontdialog.h>
+#include "midicfgdlg.h"
 
 kmidFrame::kmidFrame(const char *name)
 	:KTopLevelWidget(name)
@@ -53,17 +53,17 @@ kmidFrame::kmidFrame(const char *name)
 	kmidclient->show();
 	setView(kmidclient,FALSE);
 
-/*	QPopupMenu */m_file = new QPopupMenu;
-	m_file->insertItem( "&Open", kmidclient, SLOT(file_Open()), CTRL+Key_O );
+	m_file = new QPopupMenu;
+	m_file->insertItem( "&Open", this, SLOT(file_Open()), CTRL+Key_O );
 	m_file->insertSeparator();
 	m_file->insertItem( "&Quit", qApp, SLOT(quit()), CTRL+Key_Q );
-/*	QPopupMenu */m_song = new QPopupMenu;
+	m_song = new QPopupMenu;
 	m_song->insertItem( "&Play", kmidclient, SLOT(song_Play()) , Key_Space);
 	m_song->insertItem( "P&ause", this, SLOT(song_Pause()) );
 	m_song->insertSeparator();
 	m_song->insertItem( "&Stop", kmidclient, SLOT(song_Stop()) );
 
-/*	QPopupMenu */m_options = new QPopupMenu;
+	m_options = new QPopupMenu;
 	m_options->setCheckable(TRUE);
 	m_options->insertItem( "&General Midi file", this, SLOT(options_GM()) );
 	m_options->setId(0,0);
@@ -78,9 +78,17 @@ kmidFrame::kmidFrame(const char *name)
 	m_options->insertItem( "See &Lyrics events", this, SLOT(options_Lyrics()) );
 	m_options->setId(4,4);
 	m_options->setItemChecked(4,FALSE);
+
+	m_options->insertItem( "&Automatic Text chooser", this, SLOT(options_AutomaticText()) );
+	m_options->setId(5,5);
+	m_options->setItemChecked(5,TRUE);
 	m_options->insertSeparator();
 	m_options->insertItem( "&Font Change ...", this, SLOT(options_FontChange()));
-/*	QPopupMenu */m_help = new QPopupMenu;
+	m_options->insertSeparator();
+	m_options->insertItem( "&Midi Setup ...", this, SLOT(options_MidiSetup()));
+
+
+	m_help = new QPopupMenu;
 	m_help->insertItem( "Help", kmidclient, SLOT(help_Help()), Key_F1 );
 	m_help->insertSeparator();
 	m_help->insertItem( "About", kmidclient, SLOT(help_About()), CTRL+Key_H );
@@ -106,7 +114,6 @@ kmidFrame::kmidFrame(const char *name)
 	toolbar->insertButton(loader->loadIcon("kmid_fforward.xpm"),6,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Forward");
 	toolbar->insertButton(loader->loadIcon("kmid_next.xpm"),7,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Next song (Not Implemented)");
 
-//	toolbar->setFullWidth();
 	toolbar->setBarPos(KToolBar::Top);
 	toolbar->enable(KToolBar::Show);
 	addToolBar(toolbar);
@@ -121,30 +128,59 @@ kmidFrame::kmidFrame(const char *name)
 		options_GM();
 	    else
 		options_MT32();
-	
 
-//	updateRects();
+	m_options->setItemChecked(5,(kcfg->readNumEntry("AutomaticTextEventChooser",1)==1)?TRUE:FALSE);
+
 	KDNDDropZone * dropZone = new KDNDDropZone( this , DndURL);
 	connect( dropZone, SIGNAL( dropAction( KDNDDropZone *) ),
 		this, SLOT( slotDropEvent( KDNDDropZone *) ) );
+/*
+	if (kapp->isRestored())
+	    {
+	    if (KTopLevelWidget::canBeRestored(1)) restore(1);
+	    }
+*/
+
+        if ((kapp->argc()>1)&& (kapp->argv()[1][0]!='-') )
+            {
+	    kmidclient->openURL((kapp->argv())[1]);
+	    if ((kcfg->readNumEntry("AutomaticTextEventChooser",1))==1)
+	      {
+	      if (kmidclient->ChooseTypeOfTextEvents()==1)
+	            options_Text();
+	          else
+	            options_Lyrics();
+	      }
+            kmidclient->song_Play();
+            };
 };
 
 kmidFrame::~kmidFrame()
 {
+delete kmidclient;
 delete m_file;
 delete m_song;
 delete m_options;
 delete m_help;
-delete kmidclient;
 delete menu;
 delete toolbar;
 };
 
-/*void kmidFrame::readConfig(KConfig *kconf)
+void kmidFrame::file_Open()
 {
-kmidclient->readConfig(kconf);
+kmidclient->file_Open();
+
+KConfig *kcfg=KApplication::getKApplication()->getConfig();
+kcfg->setGroup("KMid");
+if ((kcfg->readNumEntry("AutomaticTextEventChooser",1))==1)
+    {
+    if (kmidclient->ChooseTypeOfTextEvents()==1)
+	  options_Text();
+	else
+	  options_Lyrics();  
+    }
 };
-*/
+
 void kmidFrame::song_Pause()
 {
 toolbar->toggleButton(4);
@@ -208,6 +244,18 @@ m_options->setItemChecked(3,FALSE);
 m_options->setItemChecked(4,TRUE);
 kmidclient->repaintText(5);
 };
+
+void kmidFrame::options_AutomaticText()
+{
+printf("Automatic Text chooser\n");
+KConfig *kcfg=KApplication::getKApplication()->getConfig();
+kcfg->setGroup("KMid");
+int automatic=kcfg->readNumEntry("AutomaticTextEventChooser",1);
+automatic=(automatic==1) ? 0 : 1; 
+kcfg->writeEntry("AutomaticTextEventChooser",automatic);
+m_options->setItemChecked(5,(automatic==1) ? TRUE : FALSE);
+};
+
 void kmidFrame::options_FontChange()
 {
 KFontDialog *kfd=new KFontDialog(this);
@@ -227,14 +275,79 @@ void kmidFrame::slotDropEvent( KDNDDropZone * _dropZone )
   QStrList & list = _dropZone->getURLList();
 
   char *s=list.first();
-  kmidclient->openURL(s);
-/*  KURL *kurldropped=new KURL(s);
-  if (kurldropped->isMalformed()) return;
-  if (strcmp(kurldropped->protocol(),"file")!=0) return;
- 
-  kmidclient->openFile(kurldropped->path()); 
-  delete kurldropped;*/
+  if (kmidclient->openURL(s)==-1)
+	{
+	return;
+	};
+  KConfig *kcfg=KApplication::getKApplication()->getConfig();
+  kcfg->setGroup("KMid");
+  if ((kcfg->readNumEntry("AutomaticTextEventChooser",1))==1)
+      {
+      if (kmidclient->ChooseTypeOfTextEvents()==1)
+            options_Text();
+          else
+            options_Lyrics();
+      }
+  kmidclient->song_Play();
 };  
 
+void kmidFrame::saveProperties(KConfig *kcfg)
+{
+int play;
+if ((play=kmidclient->isPlaying())==1) kmidclient->song_Stop();
+kcfg->writeEntry("File",kmidclient->midiFileName());
+kcfg->writeEntry("Playing",play);
+};
 
+void kmidFrame::readProperties(KConfig *kcfg)
+{
+char *c=new char [strlen((const char *)kcfg->readEntry("File",NULL))+1];
+strcpy(c,(const char *)kcfg->readEntry("File",NULL));
+kmidclient->openURL(c);
 
+KConfig *kconfig=KApplication::getKApplication()->getConfig();
+kconfig->setGroup("KMid");
+if ((kconfig->readNumEntry("AutomaticTextEventChooser",1))==1)
+    {
+    if (kmidclient->ChooseTypeOfTextEvents()==1)
+	  options_Text();
+	else
+	  options_Lyrics();  
+    }
+
+if (kcfg->readNumEntry("Playing",0)==1) kmidclient->song_Play();
+};
+
+void kmidFrame::options_MidiSetup()
+{
+printf("MidiSetup\n");
+if (kmidclient->devman()->checkInit()<0) return;
+MidiConfigDialog *dlg;
+
+dlg=new MidiConfigDialog(kmidclient->devman(),NULL,"MidiDialog");
+if (dlg->exec() == QDialog::Accepted) 
+    {
+    printf("Accept\n");
+    printf("Device selected : %d\n",MidiConfigDialog::selecteddevice);
+    KConfig *kcfg=KApplication::getKApplication()->getConfig();
+    kcfg->setGroup("KMid");
+    kcfg->writeEntry("MidiPortNumber",MidiConfigDialog::selecteddevice);
+    kmidclient->setMidiDevice(MidiConfigDialog::selecteddevice);
+//    if (MidiConfigDialog::selectedmap!=NULL)
+//	{
+	printf("Midi map : %s\n",MidiConfigDialog::selectedmap);
+	kcfg->setGroup("Midimapper"); 
+        kcfg->writeEntry("LoadFile",(const char*)
+	(MidiConfigDialog::selectedmap==NULL)? "":MidiConfigDialog::selectedmap);
+	kmidclient->setMidiMapFilename(MidiConfigDialog::selectedmap);
+//	};
+    }
+ else printf("Reject\n");
+};
+
+/*
+void kmidFrame::closeEvent(QCloseEvent *e)
+{
+e->accept();
+};
+*/

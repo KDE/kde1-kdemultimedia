@@ -25,6 +25,7 @@
 
 class QWidget;
 class KSlider;
+
 class KSliderTime : public QWidget
 {
   Q_OBJECT
@@ -34,7 +35,6 @@ KSlider *kslider;
 
 public:
 
-  KSliderTime( QWidget *parent = NULL, const char *name = NULL );
   KSliderTime( KSlider *ksl, QWidget *parent = NULL, const char *name = NULL );
 
 private:

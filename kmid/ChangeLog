@@ -1,0 +1,25 @@
+0.1	30-10-97
+-----	--------
+First version
+
+0.2 	9-11-97
+-----	-------
+Better syncronization between lyrics and music.
+Drag&Drop, better installation, icons, Customizable fonts.
+
+0.3 	16-11-97
+-----	--------
+The lyrics handler is very improved. 
+Option to automagically select lyrics or text.
+Better handling for broken files.
+Few bug fixes.
+Real Session Management.
+First rpm version.
+
+0.4	30-12-97 
+-----   --------
+Fixed the pthread bug (sorry to everyone that suffered it ;-))
+Added support for AWE and GUS cards
+Can modify the midi device without recompiling.
+Can play gzipped files
+
