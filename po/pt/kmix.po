@@ -71,7 +71,7 @@ msgstr "&Juntar"
 
 #: kmix.cpp:570
 msgid "&RecSource"
-msgstr "Fonte G&ravação"
+msgstr "Fonte de G&ravação"
 
 #: prefs.cpp:43
 msgid "General"
