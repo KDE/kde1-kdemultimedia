@@ -1,17 +1,20 @@
 msgid ""
 msgstr ""
+"Content-Type: text/plain; charset=\n"
 "Date: 1998-04-03 19:18:58+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
-"Content-Type: text/plain; charset=\n"
 "Xgettext-Options: -C -ki18n\n"
-"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
+"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
+"midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:61
-msgid "&Open"
+#, fuzzy
+msgid "&Open ..."
 msgstr "&Avaa"
 
 #: kmidframe.cpp:64
-msgid "&Save Lyrics"
+#, fuzzy
+msgid "&Save Lyrics ..."
 msgstr "&Tallenna sanat"
 
 #: kmidframe.cpp:67
@@ -130,39 +133,39 @@ msgstr "&Asetukset"
 msgid "&Help"
 msgstr "&Ohje"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:160
 msgid "Previous Song"
 msgstr "Edellinen kappale"
 
-#: kmidframe.cpp:165
+#: kmidframe.cpp:163
 msgid "Rewind"
 msgstr "Takaisin"
 
-#: kmidframe.cpp:168
+#: kmidframe.cpp:166
 msgid "Stop"
 msgstr "Pys‰yt‰"
 
-#: kmidframe.cpp:171
+#: kmidframe.cpp:169
 msgid "Pause"
 msgstr "Tauko"
 
-#: kmidframe.cpp:175
+#: kmidframe.cpp:173
 msgid "Play"
 msgstr "Soita"
 
-#: kmidframe.cpp:178
+#: kmidframe.cpp:176
 msgid "Forward"
 msgstr "Eteen"
 
-#: kmidframe.cpp:181
+#: kmidframe.cpp:179
 msgid "Next Song"
 msgstr "Seuraava kappale"
 
-#: kmidclient.cpp:231 kmidclient.cpp:314 kmidframe.cpp:501
+#: kmidclient.cpp:231 kmidclient.cpp:315 kmidframe.cpp:499
 msgid "Error"
 msgstr "Virhe"
 
-#: kmidframe.cpp:501
+#: kmidframe.cpp:499
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -170,7 +173,7 @@ msgstr ""
 "En saanut avattua /dev/sequencer tiedon saamiseksi.\n"
 "Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
 
-#: kmidframe.cpp:617 kmidframe.cpp:618
+#: kmidframe.cpp:615 kmidframe.cpp:616
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
@@ -178,7 +181,8 @@ msgstr ""
 "Tiedosto %s on jo olemassa\n"
 "Haluatko ylikirjoittaa sen ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:302 kmidclient.cpp:308 kmidframe.cpp:619
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:303
+#: kmidclient.cpp:309 kmidframe.cpp:617
 msgid "Warning"
 msgstr "Varoitus"
 
@@ -195,7 +199,9 @@ msgid "The file %s is not a midi file"
 msgstr "Tiedosto %s ei ole miditiedosto"
 
 #: kmidclient.cpp:224
-msgid "Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
 msgstr ""
 
 #: kmidclient.cpp:226
@@ -210,15 +216,15 @@ msgstr "T‰m‰ tiedosto on viallinen tai huonosti rakennettu"
 msgid "Unknown error message"
 msgstr "Tuntematon virhe"
 
-#: kmidclient.cpp:303
+#: kmidclient.cpp:304
 msgid "You must load a file before playing it"
 msgstr "Sinun on ladattava tiedosto ennen sen soittamista"
 
-#: kmidclient.cpp:309
+#: kmidclient.cpp:310
 msgid "A song is already being played"
 msgstr "Kappaletta soitetaan jo"
 
-#: kmidclient.cpp:314
+#: kmidclient.cpp:315
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

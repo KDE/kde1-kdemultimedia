@@ -116,4 +116,3 @@ msgstr "∏À∏m"
 #: prefs.cpp:98
 msgid "Show"
 msgstr "≈„•‹"
-

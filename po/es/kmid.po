@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: kdemultimedia\n"
 "POT-Creation-Date: 1997-10-07 22:20+0200\n"
 "PO-Revision-Date: 1998-04-18 12:02+0200\n"
-"First-Translator: <antonio@jupiter.arrakis.es>\n"
 "Last-Translator: Boris Wesslowski <bwess@gmx.net>\n"
+"First-Translator: <antonio@jupiter.arrakis.es>\n"
 
 #: kmidframe.cpp:61
 msgid "&Open ..."
@@ -106,10 +106,10 @@ msgstr ""
 "\n"
 "Reproductor de ficheros Midi/Karaoke\n"
 "\n"
-"KMid viene con ABSOLUTAMENTE NINGUNA GARANTIA; para detalles ver el fichero COPYING\n"
+"KMid viene con ABSOLUTAMENTE NINGUNA GARANTIA; para detalles ver el fichero "
+"COPYING\n"
 "Esto es software gratuito, y usted puede distribuirlo\n"
 "bajo ciertas condiciones\n"
- 
 
 #: kmidframe.cpp:146
 msgid "&File"
@@ -131,47 +131,47 @@ msgstr "&Opciones"
 msgid "&Help"
 msgstr "Ay&uda"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:160
 msgid "Previous Song"
 msgstr "Canción anterior"
 
-#: kmidframe.cpp:165
+#: kmidframe.cpp:163
 msgid "Rewind"
 msgstr "Rebobinar"
 
-#: kmidframe.cpp:168
+#: kmidframe.cpp:166
 msgid "Stop"
 msgstr "Parar"
 
-#: kmidframe.cpp:171
+#: kmidframe.cpp:169
 msgid "Pause"
 msgstr "Pausa"
 
-#: kmidframe.cpp:175
+#: kmidframe.cpp:173
 msgid "Play"
 msgstr "Reproducir"
 
-#: kmidframe.cpp:178
+#: kmidframe.cpp:176
 msgid "Forward"
 msgstr "Adelantar"
 
-#: kmidframe.cpp:181
+#: kmidframe.cpp:179
 msgid "Next Song"
 msgstr "Canción siguiente"
 
-#: kmidclient.cpp:231 kmidclient.cpp:314 kmidframe.cpp:501
+#: kmidclient.cpp:231 kmidclient.cpp:315 kmidframe.cpp:499
 msgid "Error"
 msgstr "Error"
 
-#: kmidframe.cpp:501
+#: kmidframe.cpp:499
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"No se pudo abrir /dev/sequencer para obtener información/n"
-"Probablemente hay otro programa usándolo"
- 
-#: kmidframe.cpp:617 kmidframe.cpp:618
+"No se pudo abrir /dev/sequencer para obtener información/nProbablemente hay "
+"otro programa usándolo"
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
@@ -179,7 +179,8 @@ msgstr ""
 "El fichero %s ya existe\n"
 "¿ Desea sobreescribirlo ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:302 kmidclient.cpp:308 kmidframe.cpp:619
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:303
+#: kmidclient.cpp:309 kmidframe.cpp:617
 msgid "Warning"
 msgstr "Atención"
 
@@ -196,8 +197,12 @@ msgid "The file %s is not a midi file"
 msgstr "El fichero %s no es un fichero midi"
 
 #: kmidclient.cpp:224
-msgid "Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"
-msgstr "El tick por cuarto de nota es negativo, por favor manda este fichero a antlarr@arrakis.es"
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+"El tick por cuarto de nota es negativo, por favor manda este fichero a "
+"antlarr@arrakis.es"
 
 #: kmidclient.cpp:226
 msgid "Not enough memory !!"
@@ -211,22 +216,21 @@ msgstr "El fichero esta corrupto o no esta bien construido"
 msgid "Unknown error message"
 msgstr "Mensaje de error desconocido"
 
-#: kmidclient.cpp:303
+#: kmidclient.cpp:304
 msgid "You must load a file before playing it"
 msgstr "Debes abrir una canción antes de tocarla"
 
-#: kmidclient.cpp:309
+#: kmidclient.cpp:310
 msgid "A song is already being played"
 msgstr "Ya se está tocando una canción"
 
-#: kmidclient.cpp:314
+#: kmidclient.cpp:315
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
 msgstr ""
-"No se ha podido abrir /dev/sequencer"
-"Probablemente hay otro programa usándolo"
- 
+"No se ha podido abrir /dev/sequencerProbablemente hay otro programa usándolo"
+
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"
 msgstr "Configurar dispositivos Midi"

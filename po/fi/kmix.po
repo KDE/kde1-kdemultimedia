@@ -15,11 +15,13 @@ msgstr ""
 "Content-Transfer-Encoding: ENCODING\n"
 
 #: kmix.cpp:411
-msgid "&Hide Menubar"
+#, fuzzy
+msgid "Hide Menubar"
 msgstr "&Piilota valikkorivi"
 
 #: kmix.cpp:414
-msgid "&Tickmarks On/Off"
+#, fuzzy
+msgid "Tickmarks On/Off"
 msgstr "&Merkit On/Off"
 
 #: kmix.cpp:417

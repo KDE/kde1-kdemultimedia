@@ -6,80 +6,106 @@ msgstr ""
 "Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
-msgid "&About"
-msgstr "有关[&A]"
-
-msgid "&About Qt..."
-msgstr "有关&Qt..."
-
-msgid "&Center"
-msgstr "中间[&C]"
-
-msgid "&Contents"
-msgstr "内容[&C]"
-
-msgid "&File"
-msgstr "文件[&F]"
-
-msgid "&Help"
-msgstr "帮助[&H]"
-
-msgid "&Left"
-msgstr "左边[&L]"
-
-msgid "&Mute"
-msgstr "静音[&M]"
-
-msgid "&Options"
-msgstr "选项[&O]"
-
-msgid "&Quit"
-msgstr "离开[&Q]"
-
-msgid "&RecSource"
-msgstr "录音源[&R]"
-
-msgid "&Right"
-msgstr "右边[&R]"
-
-msgid "&Split"
-msgstr "分割[&S]"
-
-msgid "Channels"
-msgstr "频道"
-
-msgid "Device"
-msgstr "设备"
-
-msgid "General"
-msgstr "一般"
-
+#: kmix.cpp:411
 msgid "Hide Menubar"
 msgstr "隐藏菜单条"
 
-msgid "KMix Preferences"
-msgstr "KMix 偏好设定"
-
-msgid "Menubar"
-msgstr "菜单"
-
-msgid "Mixer channel setup (not saved yet)"
-msgstr "混音器频道设定 (未保存)"
-
-msgid "Show"
-msgstr "显示"
-
-msgid "Startup settings"
-msgstr "启动设定"
-
-msgid "Tickmarks"
-msgstr "刻度显示"
-
+#: kmix.cpp:414
 msgid "Tickmarks On/Off"
 msgstr "刻度显示 开/关"
 
+#: kmix.cpp:417
+msgid "&Options"
+msgstr "选项[&O]"
+
+#: kmix.cpp:419
+msgid "&Quit"
+msgstr "离开[&Q]"
+
+#: kmix.cpp:423
+msgid "&Contents"
+msgstr "内容[&C]"
+
+#: kmix.cpp:426
+msgid "&About"
+msgstr "有关[&A]"
+
+#: kmix.cpp:427
+msgid "&About Qt..."
+msgstr "有关&Qt..."
+
+#: kmix.cpp:431
+msgid "&File"
+msgstr "文件[&F]"
+
+#: kmix.cpp:433
+msgid "&Help"
+msgstr "帮助[&H]"
+
+#: kmix.cpp:437
+msgid "&Left"
+msgstr "左边[&L]"
+
+#: kmix.cpp:438
+msgid "&Center"
+msgstr "中间[&C]"
+
+#: kmix.cpp:439
+msgid "&Right"
+msgstr "右边[&R]"
+
+#: kmix.cpp:561
 msgid "Un&mute"
 msgstr "解除静音[&M]"
 
+#: kmix.cpp:563
+msgid "&Mute"
+msgstr "静音[&M]"
+
+#: kmix.cpp:566
+msgid "&Split"
+msgstr "分割[&S]"
+
+#: kmix.cpp:568
 msgid "Un&split"
 msgstr "不分割[&S]"
+
+#: kmix.cpp:570
+msgid "&RecSource"
+msgstr "录音源[&R]"
+
+#: prefs.cpp:43
+msgid "General"
+msgstr "一般"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "频道"
+
+#: prefs.cpp:47
+msgid "Startup settings"
+msgstr "启动设定"
+
+#: prefs.cpp:52
+msgid "Menubar"
+msgstr "菜单"
+
+#: prefs.cpp:57
+msgid "Tickmarks"
+msgstr "刻度显示"
+
+#: prefs.cpp:82
+msgid "KMix Preferences"
+msgstr "KMix 偏好设定"
+
+#: prefs.cpp:88
+msgid "Mixer channel setup (not saved yet)"
+msgstr "混音器频道设定 (未保存)"
+
+#: prefs.cpp:95
+msgid "Device"
+msgstr "设备"
+
+#: prefs.cpp:98
+msgid "Show"
+msgstr "显示"

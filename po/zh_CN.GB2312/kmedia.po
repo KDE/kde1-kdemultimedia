@@ -6,74 +6,98 @@ msgstr ""
 "Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
-msgid "&About"
-msgstr "有关[&A]"
-
-msgid "&Contents"
-msgstr "内容[&C]"
-
-msgid "&File"
-msgstr "文件[&F]"
-
-msgid "&Help"
-msgstr "帮助[&H]"
-
-msgid "&Options"
-msgstr "选项[&O]"
-
-msgid "Backward"
-msgstr "回退"
-
-msgid "Busy"
-msgstr "忙"
-
-msgid "Eject medium"
-msgstr "退出媒体"
-
-msgid "Exit"
-msgstr "结束"
-
-msgid "Exited"
-msgstr "已退出"
-
-msgid "Forward"
-msgstr "往前"
-
-msgid "Init"
-msgstr "初始化"
-
-msgid "Mixer"
-msgstr "混音器"
-
-msgid "New view"
-msgstr "新窗口"
-
-msgid "Next track"
-msgstr "下一轨"
-
-msgid "Paused"
-msgstr "已暂停"
-
-msgid "Play/Pause"
-msgstr "播放/暂停"
-
+#: kmediawin.cpp:132
 msgid "Playback position"
 msgstr "播放位置"
 
-msgid "Playing"
-msgstr "播放中"
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "退出媒体"
 
-msgid "Preferences"
-msgstr "偏好设定"
-
+#: kmediawin.cpp:142
 msgid "Previous track"
 msgstr "前一轨"
 
-msgid "Ready"
-msgstr "准备好了"
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "回退"
 
+#: kmediawin.cpp:152
 msgid "Stop"
 msgstr "停止"
 
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "播放/暂停"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "往前"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "下一轨"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "新窗口"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "结束"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "混音器"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "偏好设定"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "内容[&C]"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "有关[&A]"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "文件[&F]"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "选项[&O]"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "帮助[&H]"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "已退出"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "初始化"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "忙"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "播放中"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "已暂停"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "准备好了"
+
+#: kmediawin.cpp:278
 msgid "Undefined"
 msgstr "没有定义"
