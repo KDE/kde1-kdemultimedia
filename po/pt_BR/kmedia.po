@@ -38,9 +38,8 @@ msgid "&Mixer"
 msgstr "Mixer"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "Preferências"
+msgstr "&Preferências..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -86,29 +85,24 @@ msgstr "Indefinido"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Reprodutores"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
 msgstr "Mixer"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "Usar dispositivo de som"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Dispositivo 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Dispositivo 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "Preferências"
-
-#~ msgid "About KMedia "
-#~ msgstr "Sobre o KMedia"
+msgstr "Preferências do KMedia"

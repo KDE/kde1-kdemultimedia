@@ -90,26 +90,24 @@ msgid "Song --/--"
 msgstr "Som --/--"
 
 #: kmidi.cpp:372
-#, fuzzy
 msgid "Replay"
-msgstr "Pronto"
+msgstr "Reiniciar"
 
 #: kmidi.cpp:376
 msgid "Bwd"
-msgstr ""
+msgstr "Trás"
 
 #: kmidi.cpp:379
 msgid "Fwd"
-msgstr ""
+msgstr "Frente"
 
 #: kmidi.cpp:383
 msgid "Prev"
-msgstr ""
+msgstr "Ant."
 
 #: kmidi.cpp:386
-#, fuzzy
 msgid "Next"
-msgstr "Próximo Midi"
+msgstr "Próx."
 
 #: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
 #: kmidi.cpp:653
@@ -121,9 +119,8 @@ msgid "Random"
 msgstr "Aleatório"
 
 #: kmidi.cpp:555
-#, fuzzy
 msgid "Paused"
-msgstr "Reproduzir/Pausar"
+msgstr "Pausado"
 
 #: kmidi.cpp:585 kmidi.cpp:879 kmidi.cpp:1104
 msgid "Ready"
