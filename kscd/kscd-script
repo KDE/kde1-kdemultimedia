@@ -56,8 +56,8 @@ read platform
 
 give_instructions(){
 
-echo "Please answer all questions. Simply hit [Enter] for he default"
-echo "values specified in square brackets."
+echo "Please answer all questions. Simply hit [Enter] to select the default"
+echo "values which are displayed in square brackets."
 echo
 
 }
@@ -100,9 +100,10 @@ echo "#define DEFAULT_CD_DEVICE   \"$device\"  " >> $config_file
 
 
 echo 
-echo "I have made modifications to the workman engine, which cause kscd to be"
+echo "I have made modifications to the workman engine which cause kscd to be"
 echo "a very fast and responsive cd player for an average IDE CDROM drive."
-echo "Answer NO to the next question unless you have problems with kscd."
+echo "Answer NO to the next question unless you have problems getting kscd"
+echo "to work."
 echo
 echo -n "Revert to original Workman behavior? (y/n) [n]:"
 
@@ -114,11 +115,12 @@ esac
 
 
 echo
-echo "I have incorporated a modifications from Dirk (milliByte@DeathsDoor.com)"
-echo "which will make the cd's play better on any drive using the sbpcd or"
-echo "mcdx drivers. If and only if you are using any of those you should try"
-echo "answering YES to the next question. For more info about these"
-echo "modifications read the docs in the spbcd directory of this distribution"
+echo "I have incorporated modifications from Dirk (milliByte@DeathsDoor.com)"
+echo "which will make kscd perform better on any drive using the sbpcd or"
+echo "mcdx drivers. If and only if your kernel uses one of these cd drivers you"
+echo "should try answering YES to the next question. Please peruse the "
+echo "documents in the spbcd directory of this distribution for more "
+echo "information about theses modifications."
 echo
 echo -n "Enable SBPCD_HACK? (y/n) [n]:"
 
@@ -171,10 +173,10 @@ echo "You entered $MAXVOLUME "
 echo "#define MAX_VOLUME $MAXVOLUME " >> $config_file 
 
 echo
-echo "If you own one of those weird cdrom player whose volume only works"
-echo "from 128 to 255 you might want to try answering YES to the next"
-echo "question. Enabling Curved Volume will give you a square root like"
-echo "volume behavior."
+echo "If you own one a cdrom player whose volume range is 128 to 255,"
+echo "you might want to try answering YES to the next question."
+echo "Enabling 'Curved Volume' will give you a square root like"
+echo "volume slider - volume curve."
 echo
 echo -n "Enable CURVED_VOLUME? (y/n) [n]:"
 
@@ -425,10 +427,10 @@ echo "You entered $MAXVOLUME "
 echo "#define MAX_VOLUME $MAXVOLUME " >> $config_file 
 
 echo
-echo "If you own one of those cdrom players whose volume only works"
-echo "from 128 to 255, you might want to try answering YES to the next"
-echo "question. Enabling Curved volume will give you a square root like"
-echo "volume curve."
+echo "If you own one a cdrom player whose volume range is 128 to 255,"
+echo "you might want to try answering YES to the next question."
+echo "Enabling 'Curved Volume' will give you a square root like"
+echo "volume slider - volume curve."
 echo
 echo -n "Enable CURVED_VOLUME? (y/n) [n]:"
 

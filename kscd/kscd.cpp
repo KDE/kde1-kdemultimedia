@@ -1388,7 +1388,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
   }
   else{
 
-    printf("LOCAL SUCESS\n");
+    printf("SUCCEEDED LOCALLY\n");
     if((int)tracktitlelist.count() != (cd->ntracks + 1)){
       printf("WARNING LOCAL QUERY tracktitleslist.count = %d != cd->ntracks +1 = %d\n",
 	     tracktitlelist.count(),cd->ntracks + 1);
@@ -1426,11 +1426,14 @@ void KSCD::cddb_ready(){
   querylist.clear();
   tracktitlelist.clear();
   extlist.clear();
+  discidlist.clear();
+
   QString num;
 
   for(int i = 0 ; i < cd->ntracks; i++){
     querylist.append(num.sprintf("%d",cd->cddbtoc[i].absframe));
   }
+
   querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
   cddb_inexact_sentinel =false;  
   cddb->queryCD(cd->magicID,querylist);
@@ -1451,16 +1454,18 @@ void KSCD::cddb_no_info(){
   for(int i = 0 ; i <= cd->ntracks; i++)
     extlist.append("");
 
+  discidlist.clear();
+
   timer->start(1000);
   led_off();
   cddb_inexact_sentinel =false;
+
 }
 
 void KSCD::cddb_failed(){
 
-
-  //  titlelabel->setText("CDDB Query failed.");
-  //  titlelabeltimer->start(5000,TRUE);
+  // TODO differentiate between those casees where the communcition really 
+  // failed and those where we just couldn't find anything
 
   tracktitlelist.clear();
   for(int i = 0 ; i <= cd->ntracks; i++)
@@ -1469,6 +1474,8 @@ void KSCD::cddb_failed(){
   extlist.clear();
   for(int i = 0 ; i <= cd->ntracks; i++)
     extlist.append("");
+
+  discidlist.clear();
 
   titlelabel->setText("No matching CDDB entry found.");
   artistlabel->setText("");
@@ -1483,8 +1490,8 @@ void KSCD::mycddb_inexact_read(){
 
   if(cddb_inexact_sentinel == true)
     return;
-  cddb_inexact_sentinel =true;
-  //printf("+++++++++++++++++++++++++++cddb_inexact_read()\n");
+
+  cddb_inexact_sentinel = true;
   QStrList inexact_list;
   cddb->get_inexact_list(inexact_list);
 
@@ -1493,8 +1500,6 @@ void KSCD::mycddb_inexact_read(){
   dialog->insertList(inexact_list);
 
   if(dialog->exec() != QDialog::Accepted){
-    //delete cddb;
-    //cddb = 0L;
     timer->start(1000);
     led_off();
     return;
@@ -1504,11 +1509,8 @@ void KSCD::mycddb_inexact_read(){
   dialog->getSelection(pick);
   delete dialog;
 
-  //  printf("SELECTED=%s\n",pick.data());
 
   if(pick.isEmpty()){
-    //delete cddb;
-    //cddb = 0L;
     timer->start(1000);
     led_off();
     return;
@@ -1891,8 +1893,8 @@ void KSCD::get_pathlist(QStrList& _pathlist){
    list = *d.entryList();
 
    for(uint i = 0; i < list.count(); i++){
-
-     _pathlist.append( QString (cddbbasedir + "/" +  list.at(i)));
+     if(QString(list.at(i)) != QString (".") && QString(list.at(i)) != QString (".."))
+       _pathlist.append( QString (cddbbasedir + "/" +  list.at(i)));
 
    }
 }

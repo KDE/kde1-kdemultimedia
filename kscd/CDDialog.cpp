@@ -14,6 +14,8 @@
 #include "version.h"
 
 #include <unistd.h>
+
+#include <qregexp.h> 
 #include <qdatetm.h> 
 #include <qtstream.h> 
 #include <qfile.h>
@@ -498,6 +500,16 @@ void CDDialog::save(){
   InexactDialog *dialog;
 
   dialog = new InexactDialog(0,"Dialog",true);
+
+  // Let's get rid of some ugly double slashes such as in 
+  // /usr/local/kde/share/apps/kscd/cddb//rock 
+  
+  for(int i = 0; i < (int)pathlist.count();i++){
+    QString temp = pathlist.at(i);
+    temp = temp.replace( QRegExp("//"), "/" );
+    pathlist.insert(i,temp);
+    pathlist.remove(i+1);
+  }
 
   dialog->insertList(pathlist);
   dialog->setErrorString("Please select a Category or press Cancel");
