@@ -306,7 +306,6 @@ static int set_ctl(char *cp)
   return 1;
 }
 
-int sf_order = 0;
 
 #define MAXWORDS 10
 
@@ -491,6 +490,10 @@ static int read_config_file(char *name)
       /******* sbk/soundfont ********/
 		else if (!strcmp(w[0], "soundfont") || !strcmp(w[0], "sbk"))
 	{
+	      int sf_order = 0;
+	      int sf_oldbank, sf_newbank = banknum;
+	      if (bank && bank == drumset[banknum]) sf_newbank += 128;
+	      sf_oldbank = sf_newbank;
 	      if (words < 2) {
 		      fprintf(stderr, "%s: line %d: No soundfont file given\n", 
 			      name, line);
@@ -512,9 +515,18 @@ static int read_config_file(char *name)
 			      }
 			      sf_order = k;
 		      }
+		      else if (!strcmp(w[j], "oldbank")) {
+			      k = atoi(cp);
+			      if (k < 0 || (*cp < '0' || *cp > '9')) {
+				      fprintf(stderr,
+					      "%s: line %d: oldbank must be a number", name, line);
+				      return -2;
+			      }
+			      sf_oldbank = k;
+		      }
 
 	      }
-	      init_soundfont(w[1], sf_order);
+	      init_soundfont(w[1], sf_order, sf_oldbank, sf_newbank);
 	}
       /******* font ********/
 		else if (!strcmp(w[0], "font"))
