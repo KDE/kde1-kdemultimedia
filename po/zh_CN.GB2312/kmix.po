@@ -90,7 +90,7 @@ msgstr "刻度显示"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr ""
+msgstr "允许内嵌"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"

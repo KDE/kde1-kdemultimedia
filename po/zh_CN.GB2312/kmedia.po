@@ -96,7 +96,7 @@ msgstr "已暂停"
 
 #: kmediawin.cpp:277
 msgid "Ready"
-msgstr "准备好了"
+msgstr "完成"
 
 #: kmediawin.cpp:278
 msgid "Undefined"
