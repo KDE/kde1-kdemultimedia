@@ -30,11 +30,11 @@
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 
 #ifdef __linux__
 
 #include <signal.h>
-#include <stdio.h>
 #include <time.h>
 #include <unistd.h>
 #include <fcntl.h>

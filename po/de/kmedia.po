@@ -1,37 +1,39 @@
-
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1998-01-24 18:34+0100\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
 "PO-Revision-Date: 1998-01-24 19:30+0100\n"
-"Last-Translator: Christian Esken <esken@kde.org>\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
-#: kmediawin.cpp:133
+#: kmediawin.cpp:132
 msgid "Playback position"
 msgstr "Playback-Position"
 
-#: kmediawin.cpp:139
+#: kmediawin.cpp:138
 msgid "Eject medium"
 msgstr "Auswerfen"
 
-#: kmediawin.cpp:143
+#: kmediawin.cpp:142
 msgid "Previous track"
 msgstr "Vorheriger Titel"
 
-#: kmediawin.cpp:148
+#: kmediawin.cpp:147
 msgid "Backward"
 msgstr "Zurück"
 
-#: kmediawin.cpp:156
+#: kmediawin.cpp:152
 msgid "Stop"
 msgstr "Stop"
 
-#: kmediawin.cpp:160
+#: kmediawin.cpp:156
 msgid "Play/Pause"
 msgstr "Start/Pause"
 
-#: kmediawin.cpp:170
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr ""
+
+#: kmediawin.cpp:166
 msgid "Next track"
 msgstr "Nächster Titel"
 
@@ -55,50 +57,62 @@ msgstr "Einstellungen"
 msgid "&Contents"
 msgstr "&Inhalt"
 
-#: kmediawin.cpp:211
-msgid "&About Qt..."
+#: kmediawin.cpp:210
+#, fuzzy
+msgid "&About"
 msgstr "&Über Qt..."
 
-#: kmediawin.cpp:271
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr ""
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr ""
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr ""
+
+#: kmediawin.cpp:272
 msgid "Exited"
 msgstr "Beendet"
 
-#: kmediawin.cpp:272
+#: kmediawin.cpp:273
 msgid "Init"
 msgstr "Init"
 
-#: kmediawin.cpp:273
+#: kmediawin.cpp:274
 msgid "Busy"
 msgstr "Aktiv"
 
-#: kmediawin.cpp:274
+#: kmediawin.cpp:275
 msgid "Playing"
 msgstr "Spielt"
 
-#: kmediawin.cpp:275
+#: kmediawin.cpp:276
 msgid "Paused"
 msgstr "Pause"
 
-#: kmediawin.cpp:276
+#: kmediawin.cpp:277
 msgid "Ready"
 msgstr "Bereit"
 
-#: kmediawin.cpp:277
+#: kmediawin.cpp:278
 msgid "Undefined"
 msgstr "Undefiniert"
 
-#: uiactions.cpp:125
-msgid ""
-"kmedia 0.45\n"
-"(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
-"\n"
-"Media player for the KDE Desktop Environment.\n"
-"This program is in the GPL.\n"
-"<Communication id: "
-msgstr ""
-"kmedia 0.45\n"
-"(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
-"\n"
-"Medienwiedergabe für das K Desktop Environment.\n"
-"Dieses Programm steht unter GPL.\n"
-"<Nachrichten-ID: "
+#~ msgid ""
+#~ "kmedia 0.45\n"
+#~ "(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
+#~ "\n"
+#~ "Media player for the KDE Desktop Environment.\n"
+#~ "This program is in the GPL.\n"
+#~ "<Communication id: "
+#~ msgstr ""
+#~ "kmedia 0.45\n"
+#~ "(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
+#~ "\n"
+#~ "Medienwiedergabe für das K Desktop Environment.\n"
+#~ "Dieses Programm steht unter GPL.\n"
+#~ "<Nachrichten-ID: "
