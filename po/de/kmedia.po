@@ -16,7 +16,7 @@ msgstr ""
 
 #: kmediawin.cpp:126
 msgid "Playback position"
-msgstr "Aktuelle Position"
+msgstr "Playback-Position"
 
 #: kmediawin.cpp:132
 msgid "Eject medium"
@@ -56,11 +56,11 @@ msgstr "Beenden"
 
 #: kmediawin.cpp:202
 msgid "Hide Menu"
-msgstr ""
+msgstr "Menü verstecken"
 
 #: kmediawin.cpp:203
 msgid "Mixer"
-msgstr ""
+msgstr "Mixer"
 
 #: kmediawin.cpp:205
 msgid "Preferences"
