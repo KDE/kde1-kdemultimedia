@@ -272,6 +272,7 @@ public:
 
 protected:
      bool event( QEvent* e);
+     void closeEvent( QCloseEvent* e);
 	void playtime();
 	void setupPopups();
 	void startBrowser(char* querystring);

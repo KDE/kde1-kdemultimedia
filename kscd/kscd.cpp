@@ -776,6 +776,11 @@ bool KSCD::event( QEvent *e ){
      return QWidget::event(e);
 };
 
+void KSCD::closeEvent( QCloseEvent* e){
+    e->ignore();
+    quitClicked();
+}
+
 
 void KSCD::loopClicked(){
 
