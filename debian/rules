@@ -16,7 +16,7 @@ $(BUILDDIR)/build-stamp:
 	CFLAGS="-O2 -g -Wall" \
 	CXXFLAGS="-O2 -g -Wall" \
 	../configure --enable-debug --with-install-root=`pwd`/../debian/tmp \
-	--disable-rpath 
+	--disable-rpath --prefix=/usr
 
 	make -C $(BUILDDIR)
 
@@ -57,8 +57,8 @@ binary-arch:	build
 	dh_strip
 	dh_compress
 	dh_fixperms
-	chown root.cdrom debian/tmp/usr/X11R6/bin/kscd
-	chmod 2755 debian/tmp/usr/X11R6/bin/kscd
+	chown root.cdrom debian/tmp/usr/bin/kscd
+	chmod 2755 debian/tmp/usr/bin/kscd
 	dh_suidregister
 	dh_installdeb
 	dh_shlibdeps
