@@ -101,23 +101,3 @@ msgstr "Gerät"
 msgid "Show"
 msgstr "Zeige"
 
-#~ msgid "&Options"
-#~ msgstr "&Optionen"
-
-#~ msgid "&Quit"
-#~ msgstr "&Beenden"
-
-#~ msgid "&Contents"
-#~ msgstr "&Inhalt"
-
-#~ msgid "&About"
-#~ msgstr "&Über"
-
-#~ msgid "&About Qt..."
-#~ msgstr "&Über Qt..."
-
-#~ msgid "&File"
-#~ msgstr "&Datei"
-
-#~ msgid "&Help"
-#~ msgstr "&Hilfe"
