@@ -6,6 +6,7 @@ MimeType=audio/x-midi;
 Comment=A Midi Player
 Comment[fi]=Midisoittaja
 Comment[hu]=Egy MIDI zenelejátszó
+Comment[pt]=Um reprodutor de Midi
 Name[hu]=Kmidi
 DocPath=kmidi/kmidi.html
 Exec=kmidi
