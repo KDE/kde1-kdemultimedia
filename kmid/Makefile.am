@@ -5,17 +5,20 @@ LDFLAGS	= $(all_libraries) $(KDE_RPATH)
 LDADD = player/libplayer.a -lkdeui -lkdecore -lkfile -lkfm -lqt -lXext -lX11
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
-	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp \
-	randomlist.cpp channelview.cpp channel.cpp \
-	channel3d.cpp channel4d.cpp channelcfgdlg.cpp instrname.cpp main.cpp 
+	 kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp \
+         collectdlg.cpp kaskdlg.cpp randomlist.cpp channelview.cpp \
+         channel.cpp channel3d.cpp channel4d.cpp channelcfgdlg.cpp \
+         instrname.cpp main.cpp 
 
 noinst_HEADERS = *.h
 
-PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
+PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o \
+	dattypes.o midistat.o deviceman.o synthout.o
 
 SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc \
-	 midicfgdlg.moc collectdlg.moc kaskdlg.moc channelview.moc \
-         channel.moc channel3d.moc channel4d.moc channelcfgdlg.moc
+	 klcdnumber.moc ktrianglebutton.moc midicfgdlg.moc collectdlg.moc \
+         kaskdlg.moc channelview.moc channel.moc channel3d.moc channel4d.moc \
+         channelcfgdlg.moc
 
 DISTCLEANFILES = $(SRCMETA) ./.deps/* ./.deps/.P
 
@@ -54,6 +57,10 @@ collectdlg.cpp:collectdlg.moc
 midicfgdlg.cpp:midicfgdlg.moc
 
 kslidertime.cpp:kslidertime.moc
+
+klcdnumber.cpp:klcdnumber.moc
+
+ktrianglebutton.cpp:ktrianglebutton.moc
 
 kdisptext.cpp:kdisptext.moc
 

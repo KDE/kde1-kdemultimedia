@@ -33,7 +33,7 @@
 #include <kmsgbox.h>
 #include <signal.h>   // kill is declared on signal.h on bsd, not sys/signal.h
 #include <sys/signal.h>
-#include <qlcdnum.h>
+//#include <qlcdnum.h>
 #include <kurl.h>
 #include <qlabel.h>
 #include <qkeycode.h>
@@ -41,7 +41,7 @@
 #include <kcombo.h>
 
 #include "kmidclient.moc"
-
+#include "klcdnumber.h"
 
 #include "player/midimapper.h"
 #include "player/fmout.h"
@@ -56,124 +56,128 @@
 
 
 kmidClient::kmidClient(QWidget *parent,const char *name)
-	:QWidget(parent,name)
+    :QWidget(parent,name)
 {
-	midifile_opened=NULL;
-	loopsong=0;
-	collectionplaymode=0;	
-        collectionplaylist=NULL;
-        channelView=NULL;
-        noteArray=NULL;
-        
-	KApplication *kappl;
-	kappl=KApplication::getKApplication();
-	KConfig *kconf=kappl->getConfig();
+    midifile_opened=NULL;
+    loopsong=0;
+    collectionplaymode=0;	
+    collectionplaylist=NULL;
+    channelView=NULL;
+    noteArray=NULL;
+    
+    KApplication *kappl;
+    kappl=KApplication::getKApplication();
+    KConfig *kconf=kappl->getConfig();
+    
+    kconf->setGroup("KMid"); 
+    char *tmp=getenv("HOME");
+    char *tmp2=new char[strlen(tmp)+30];
+    sprintf(tmp2,"%s/.kmid_collections",tmp);
+    collectionsfile=kconf->readEntry("CollectionsFile",tmp2);
+    delete tmp2;
+    slman=new SLManager();
+    slman->loadConfig(collectionsfile);
+    currentsl=NULL;
+    //	currentsl=slman->getCollection(activecollection);
+    itsme=0;
+    playerProcessID=0;
+    timebar = new KSlider(0,240000,30000,60000,KSlider::Horizontal,this);
+    timebar->setSteps(30000,60000);
+    timebar->setValue(0);
+    timebar->setGeometry(5,10,width()-5,15);
+    timebar->show();
+    connect (timebar,SIGNAL(valueChanged(int)),this,SLOT(timebarChange(int)));
+    
+    timetags = new KSliderTime(timebar,this);
+    timetags->setGeometry(5,10+timebar->height(),width()-5,16);
+    
+    qlabelTempo= new QLabel(i18n("Tempo :"),this,"tempolabel",
+                            QLabel::NoFrame);
+    qlabelTempo->move(5,10+timebar->height()+timetags->height()+5);
+    qlabelTempo->adjustSize();
+    
+    tempoLCD = new KLCDNumber(true,3,this,"TempoLCD");
+    //	tempoLCD->setMode(QLCDNumber::DEC);
+    tempoLCD->display(120);
+    tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,/*65*/83,28);
+    connect(tempoLCD,SIGNAL(valueChanged(int)),this,SLOT(changeTempo(int)));
 
-	kconf->setGroup("KMid"); 
-	char *tmp=getenv("HOME");
-	char *tmp2=new char[strlen(tmp)+30];
-	sprintf(tmp2,"%s/.kmid_collections",tmp);
-	collectionsfile=kconf->readEntry("CollectionsFile",tmp2);
-	delete tmp2;
-	slman=new SLManager();
-	slman->loadConfig(collectionsfile);
-	currentsl=NULL;
-//	currentsl=slman->getCollection(activecollection);
-	itsme=0;
-        playerProcessID=0;
-        timebar = new KSlider(0,240000,30000,60000,KSlider::Horizontal,this);
-	timebar->setSteps(30000,60000);
-	timebar->setValue(0);
-	timebar->setGeometry(5,10,width()-5,15);
-	timebar->show();
-	connect (timebar,SIGNAL(valueChanged(int)),this,SLOT(timebarChange(int)));
-
-	timetags = new KSliderTime(timebar,this);
-	timetags->setGeometry(5,10+timebar->height(),width()-5,16);
-
-	qlabelTempo= new QLabel(i18n("Tempo :"),this,"tempolabel",
-		QLabel::NoFrame);
-	qlabelTempo->move(5,10+timebar->height()+timetags->height()+5);
-	qlabelTempo->adjustSize();
-
-	tempoLCD = new QLCDNumber(3,this,"TempoLCD");
-	tempoLCD->setMode(QLCDNumber::DEC);
-	tempoLCD->display(120);
-	tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,65,28);
-
-	comboSongs = new KCombo(FALSE,this,"Songs");
-//	fillInComboSongs();
-	comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
-	connect (comboSongs,SIGNAL(activated(int)),this,SLOT(selectSong(int)));
-
-        volumebar = new QSlider(0,200,10,100,QSlider::Vertical,this);
-        volumebar->setSteps(10,20);
-        volumebar->setValue(100);
-	volumebar->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,15,height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+15));
-        volumebar->setTickmarks(QSlider::Right);
-        volumebar->setTickInterval(50);
-        visiblevolumebar=0;
-	connect (volumebar,SIGNAL(valueChanged(int)),this,SLOT(volumebarChange(int)));
-        
-        typeoftextevents=1;
-	kdispt=new KDisplayText(this,"KaraokeWindow");
-        kdispt->move(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10);
-
-        timer4timebar=new QTimer(this);	
-	connect (timer4timebar,SIGNAL(timeout()),this,SLOT(timebarUpdate()));
-	timer4events=new QTimer(this);	
-	connect (timer4events,SIGNAL(timeout()),this,SLOT(processSpecialEvent()));
-
-	
-	fmOut::setFMPatchesDirectory((const char *)
-					(kapp->kde_datadir()+"/kmid/fm"));
-
-
-	int sharedmemid=shmget(getpid(),sizeof(PlayerController),0666 | IPC_CREAT);
-	if (sharedmemid==-1)
-	    {
-	    printf("ERROR : Can't allocate shared memory !!! "
-			"Please report to antlarr@arrakis.es\n");
-	    };
-
-	pctl=(PlayerController *)shmat(sharedmemid,NULL,0);
-	if (pctl==NULL)
-	    printf("ERROR : Can't get shared memory !!! "
-			"Please report to antlarr@arrakis.es\n");
-	pctl->playing=0;
-	pctl->gm=1;
-        pctl->volumepercentage=100;
-        for (int i=0;i<16;i++)
-        {
-            pctl->forcepgm[i]=0;
-            pctl->pgm[i]=0;
-        };
-
-        
-        kconf->setGroup("KMid"); 
-	int mididev=kconf->readNumEntry("MidiPortNumber",0);
-
-	Midi = new DeviceManager(mididev);
-	Midi->initManager();
-	Player= new player(Midi,pctl);
-
-        kconf->setGroup("Midimapper");
-        QString qs=kconf->readEntry("Loadfile","gm.map");
-
+    
+    comboSongs = new KCombo(FALSE,this,"Songs");
+    //	fillInComboSongs();
+    comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
+    connect (comboSongs,SIGNAL(activated(int)),this,SLOT(selectSong(int)));
+    
+    volumebar = new QSlider(0,200,10,100,QSlider::Vertical,this);
+    volumebar->setSteps(10,20);
+    volumebar->setValue(100);
+    volumebar->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,15,height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+15));
+    volumebar->setTickmarks(QSlider::Right);
+    volumebar->setTickInterval(50);
+    visiblevolumebar=0;
+    connect (volumebar,SIGNAL(valueChanged(int)),this,SLOT(volumebarChange(int)));
+    
+    typeoftextevents=1;
+    kdispt=new KDisplayText(this,"KaraokeWindow");
+    kdispt->move(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10);
+    
+    timer4timebar=new QTimer(this);	
+    connect (timer4timebar,SIGNAL(timeout()),this,SLOT(timebarUpdate()));
+    timer4events=new QTimer(this);	
+    connect (timer4events,SIGNAL(timeout()),this,SLOT(processSpecialEvent()));
+    
+    
+    fmOut::setFMPatchesDirectory((const char *)
+                                 (kapp->kde_datadir()+"/kmid/fm"));
+    
+    
+    int sharedmemid=shmget(getpid(),sizeof(PlayerController),0666 | IPC_CREAT);
+    if (sharedmemid==-1)
+    {
+        printf("ERROR : Can't allocate shared memory !!! "
+               "Please report to antlarr@arrakis.es\n");
+    };
+    
+    pctl=(PlayerController *)shmat(sharedmemid,NULL,0);
+    if (pctl==NULL)
+        printf("ERROR : Can't get shared memory !!! "
+               "Please report to antlarr@arrakis.es\n");
+    pctl->playing=0;
+    pctl->gm=1;
+    pctl->volumepercentage=100;
+    pctl->tempo=1000000;
+    pctl->ratioTempo=1.0;
+    for (int i=0;i<16;i++)
+    {
+        pctl->forcepgm[i]=0;
+        pctl->pgm[i]=0;
+    };
+    
+    
+    kconf->setGroup("KMid"); 
+    int mididev=kconf->readNumEntry("MidiPortNumber",0);
+    
+    Midi = new DeviceManager(mididev);
+    Midi->initManager();
+    Player= new player(Midi,pctl);
+    
+    kconf->setGroup("Midimapper");
+    QString qs=kconf->readEntry("Loadfile","gm.map");
+    
 #ifdef KMidDEBUG
-        printf("Read Config file : %s\n",(const char *)qs);
+    printf("Read Config file : %s\n",(const char *)qs);
 #endif
-	tmp=new char[qs.length()+1];
-	strcpy(tmp,qs);
-	setMidiMapFilename(tmp);
-	delete tmp;
-	
-	initializing_songs=1;
-        kconf->setGroup("KMid"); 
-	setActiveCollection(kconf->readNumEntry("ActiveCollection",0));
-	initializing_songs=0;
-
-//        setActiveCollection(kconf->readNumEntry("ActiveCollection",0));
+    tmp=new char[qs.length()+1];
+    strcpy(tmp,qs);
+    setMidiMapFilename(tmp);
+    delete tmp;
+    
+    initializing_songs=1;
+    kconf->setGroup("KMid"); 
+    setActiveCollection(kconf->readNumEntry("ActiveCollection",0));
+    initializing_songs=0;
+    
+    //        setActiveCollection(kconf->readNumEntry("ActiveCollection",0));
 };
 
 void kmidClient::resizeEvent(QResizeEvent *) 
@@ -269,7 +273,7 @@ int kmidClient::openFile(char *filename)
         kdispt->ClearEv();
         kdispt->repaint(TRUE);
         topLevelWidget()->setCaption("KMid");
-
+        
         return -1; 
     };
     
@@ -279,7 +283,7 @@ int kmidClient::openFile(char *filename)
 #ifdef KMidDEBUG
     printf("TOTAL TIME : %g milliseconds\n",Player->Info()->millisecsTotal);
 #endif
-//    noteArray=Player->parseNotes();
+    //    noteArray=Player->parseNotes();
     noteArray=Player->getNoteArray();
     timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
     timetags->repaint(TRUE);
@@ -381,22 +385,22 @@ ulong kmidClient::timeOfNextEvent(int *type)
             };
         };
     };
-
+    
     if (type!=NULL) *type=t;
     return x;
     /*
-
-    if (type!=NULL) *type=0;
-    if (channelView==NULL)
-    {
-        if ((spev!=NULL)&&(spev->type!=0))
-        {
-            if (type!=NULL) *type=1;
-            return spev->absmilliseconds;
-        }
-        else return 0;
-    };
-    
+     
+     if (type!=NULL) *type=0;
+     if (channelView==NULL)
+     {
+     if ((spev!=NULL)&&(spev->type!=0))
+     {
+     if (type!=NULL) *type=1;
+     return spev->absmilliseconds;
+     }
+     else return 0;
+     };
+     
     if (noteArray==NULL) return 0;
     noteCmd *ncmd=noteArray->get();
     if (ncmd==NULL)
@@ -655,7 +659,6 @@ void kmidClient::moveEventPointersTo(ulong ms)
                 else channelView->changeInstrument(j,(pctl->pgm[j]));
             };
         };
-        
     };
     
     /*
@@ -819,6 +822,7 @@ void kmidClient::song_Pause()
         pctl->OK=0;
         pctl->paused=0;
         
+        printf("e1\n");
         beginmillisec=pctl->beginmillisec-pausedatmillisec;
         ulong currentmillisec=pctl->beginmillisec;
         
@@ -827,6 +831,7 @@ void kmidClient::song_Pause()
         if (type!=0)
             timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
         timer4timebar->start(1000);
+        printf("e2\n");
         
         if (noteArray!=NULL)
         {
@@ -842,6 +847,8 @@ void kmidClient::song_Pause()
             };
 
         };
+        printf("e3\n");
+
         
     };
 };
@@ -1042,188 +1049,188 @@ return kdispt->getFont();
 
 void  kmidClient::fontChanged(void)
 {
-kdispt->fontChanged();
+    kdispt->fontChanged();
 };
 
 void kmidClient::setMidiDevice(int i)
 {
-Midi->setDefaultDevice(i);
+    Midi->setDefaultDevice(i);
 };
 
 void kmidClient::setMidiMapFilename(char *mapfilename)
 {
     MidiMapper *Map=new MidiMapper(mapfilename);
     if (Map->OK()==-1)
-	{
-	char *tmp=new char [strlen(mapfilename)+
-					strlen(KApplication::kde_datadir())+20];
-	sprintf(tmp,"%s/kmid/maps/%s",
-			(const char *)KApplication::kde_datadir(),mapfilename);
-	delete Map;
-	Map=new MidiMapper(tmp);
-	delete tmp;
-	if (Map->OK()!=1)
-		{
-	        delete Map;
-                Map=new MidiMapper(NULL);
-                };
+    {
+        char *tmp=new char [strlen(mapfilename)+
+                            strlen(KApplication::kde_datadir())+20];
+        sprintf(tmp,"%s/kmid/maps/%s",
+                (const char *)KApplication::kde_datadir(),mapfilename);
+        delete Map;
+        Map=new MidiMapper(tmp);
+        delete tmp;
+        if (Map->OK()!=1)
+        {
+            delete Map;
+            Map=new MidiMapper(NULL);
         };
+    };
     int autochangemap=0;
     if ((pctl->playing==1)&&(pctl->paused==0)) autochangemap=1;
-
+    
     if (autochangemap)
-	{
-	song_Pause();
-	};
+    {
+        song_Pause();
+    };
     Midi->setMidiMap(Map); 
     if (autochangemap) 
-	{
-	song_Pause(); 
-	};
+    {
+        song_Pause(); 
+    };
 }; 
 
 void kmidClient::setSLManager(SLManager *slm)
 {
-if (slman!=NULL) delete slman;
-slman=slm;
+    if (slman!=NULL) delete slman;
+    slman=slm;
 };
 
 void kmidClient::setActiveCollection(int i)
 {
-activecollection=i;
-KApplication *kappl;
-kappl=KApplication::getKApplication();
-KConfig *kconf=kappl->getConfig();
-	
-kconf->setGroup("KMid"); 
-kconf->writeEntry("ActiveCollection",activecollection);
-currentsl=slman->getCollection(activecollection);
-generateCPL();
-initializing_songs=1;
-fillInComboSongs();
-initializing_songs=0;
+    activecollection=i;
+    KApplication *kappl;
+    kappl=KApplication::getKApplication();
+    KConfig *kconf=kappl->getConfig();
+    
+    kconf->setGroup("KMid"); 
+    kconf->writeEntry("ActiveCollection",activecollection);
+    currentsl=slman->getCollection(activecollection);
+    generateCPL();
+    initializing_songs=1;
+    fillInComboSongs();
+    initializing_songs=0;
 };
- 
+
 void kmidClient::fillInComboSongs(void)
 {
-//int oldselected=comboSongs->currentItem();
-comboSongs->clear();
-//comboSongs->setCurrentItem(-1);
-if (currentsl==NULL) return;
-currentsl->iteratorStart();
-char temp[300];
-char temp2[300];
-while (!currentsl->iteratorAtEnd())
-   {
-   sprintf(temp,"%d - %s",currentsl->getIteratorID(),
-			extractFilename(currentsl->getIteratorName(),temp2));
-   comboSongs->insertItem(temp);
-   currentsl->iteratorNext();
-   };
-if (currentsl->getActiveSongID()==-1) return;
-comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
-/*
-if (oldselected==currentsl->getActiveSongID()-1)
-   {
-   selectSong(currentsl->getActiveSongID()-1);
-   };
-*/
-selectSong(currentsl->getActiveSongID()-1);
+    //int oldselected=comboSongs->currentItem();
+    comboSongs->clear();
+    //comboSongs->setCurrentItem(-1);
+    if (currentsl==NULL) return;
+    currentsl->iteratorStart();
+    char temp[300];
+    char temp2[300];
+    while (!currentsl->iteratorAtEnd())
+    {
+        sprintf(temp,"%d - %s",currentsl->getIteratorID(),
+                extractFilename(currentsl->getIteratorName(),temp2));
+        comboSongs->insertItem(temp);
+        currentsl->iteratorNext();
+    };
+    if (currentsl->getActiveSongID()==-1) return;
+    comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
+    /*
+     if (oldselected==currentsl->getActiveSongID()-1)
+     {
+     selectSong(currentsl->getActiveSongID()-1);
+     };
+     */
+    selectSong(currentsl->getActiveSongID()-1);
 };
 
 void kmidClient::selectSong(int i)
 {
-if (currentsl==NULL) return;
-i++;
-if ((i<=0))  // The collection may be empty, or it may be just a bug :-)
+    if (currentsl==NULL) return;
+    i++;
+    if ((i<=0))  // The collection may be empty, or it may be just a bug :-)
     {
 #ifdef KMidDEBUG
-    printf("Empty\n"); 
+        printf("Empty\n"); 
 #endif
-    emit song_stopPause();
-    if (pctl->playing) song_Stop();
-    if (midifile_opened!=NULL) delete midifile_opened;
-    midifile_opened=NULL;
-    Player->removeSong();
-    timebar->setRange(0,240000);
-    timebar->setValue(0);
-    timetags->repaint(TRUE);
-    kdispt->ClearEv();
-    kdispt->repaint(TRUE);
-    comboSongs->clear();
-    comboSongs->repaint(TRUE);
-    topLevelWidget()->setCaption("KMid");
-    return;
+        emit song_stopPause();
+        if (pctl->playing) song_Stop();
+        if (midifile_opened!=NULL) delete midifile_opened;
+        midifile_opened=NULL;
+        Player->removeSong();
+        timebar->setRange(0,240000);
+        timebar->setValue(0);
+        timetags->repaint(TRUE);
+        kdispt->ClearEv();
+        kdispt->repaint(TRUE);
+        comboSongs->clear();
+        comboSongs->repaint(TRUE);
+        topLevelWidget()->setCaption("KMid");
+        return;
     };
-
-if ((i==currentsl->getActiveSongID())&&(!initializing_songs)) return;
-int play=0;
-if (pctl->playing==1) play=1;
-
-if (pctl->paused) emit song_stopPause();
-if (/*(i!=currentsl->getActiveSongID())&&*/(play==1)) song_Stop();
-currentsl->setActiveSong(i);
-if (openURL(currentsl->getActiveSongName())==-1) return;
-if (play) song_Play();
-
+    
+    if ((i==currentsl->getActiveSongID())&&(!initializing_songs)) return;
+    int play=0;
+    if (pctl->playing==1) play=1;
+    
+    if (pctl->paused) emit song_stopPause();
+    if (/*(i!=currentsl->getActiveSongID())&&*/(play==1)) song_Stop();
+    currentsl->setActiveSong(i);
+    if (openURL(currentsl->getActiveSongName())==-1) return;
+    if (play) song_Play();
+    
 };
 
 
 int kmidClient::getSelectedSong(void)
 {
-if (currentsl==NULL) return -1;
-return currentsl->getActiveSongID();
+    if (currentsl==NULL) return -1;
+    return currentsl->getActiveSongID();
 };
 
 
 void kmidClient::setSongLoop(int i)
 {
-loopsong=i;
+    loopsong=i;
 };
 
 
 void kmidClient::generateCPL(void)
 {
-if (collectionplaylist!=NULL) delete collectionplaylist;
-collectionplaylist=NULL;
-
-if (currentsl==NULL) return;
-
-if (collectionplaymode==0)
-   collectionplaylist=generate_list(currentsl->NumberOfSongs());
- else
-   collectionplaylist=generate_random_list(currentsl->NumberOfSongs());
+    if (collectionplaylist!=NULL) delete collectionplaylist;
+    collectionplaylist=NULL;
+    
+    if (currentsl==NULL) return;
+    
+    if (collectionplaymode==0)
+        collectionplaylist=generate_list(currentsl->NumberOfSongs());
+    else
+        collectionplaylist=generate_random_list(currentsl->NumberOfSongs());
 };
 
 
 void kmidClient::setCollectionPlayMode(int i)
 {
-collectionplaymode=i;
-generateCPL();
+    collectionplaymode=i;
+    generateCPL();
 };
 
 void kmidClient::saveCollections(void)
 {
-if (slman==NULL) return;
+    if (slman==NULL) return;
 #ifdef KMidDEBUG
-printf("Saving collections in : %s\n",(const char *)collectionsfile);
+    printf("Saving collections in : %s\n",(const char *)collectionsfile);
 #endif
-slman->saveConfig((const char *)collectionsfile);
+    slman->saveConfig((const char *)collectionsfile);
 };
 
 void kmidClient::saveLyrics(FILE *fh)
 {
-if (kdispt!=NULL) kdispt->saveLyrics(fh);
+    if (kdispt!=NULL) kdispt->saveLyrics(fh);
 };
 
 int kmidClient::searchInCPL(int song)
 {
-if (currentsl==NULL) return -1;
-int i=0;
-int n=currentsl->NumberOfSongs();
-while ((i<n)&&(collectionplaylist[i]!=song)) i++;
-if (i<n) return i;
-return -1;
+    if (currentsl==NULL) return -1;
+    int i=0;
+    int n=currentsl->NumberOfSongs();
+    while ((i<n)&&(collectionplaylist[i]!=song)) i++;
+    if (i<n) return i;
+    return -1;
 };
 
 void kmidClient::visibleVolumeBar(int i)
@@ -1275,19 +1282,19 @@ void kmidClient::rethinkNextEvent(void)
 {
     if (pctl->playing==0) return;
     timer4events->stop();
-
+    
     int type;
     ulong delaymillisec;
     ulong x=timeOfNextEvent(&type);
-
+    
     if (type==0) return;
-
+    
     timeval tv;
     ulong currentmillisec;
     gettimeofday(&tv, NULL);
     currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
     delaymillisec=x-(currentmillisec-beginmillisec);
-
+    
     timer4events->start(delaymillisec,TRUE);
 };
 
@@ -1308,9 +1315,9 @@ void kmidClient::communicationFromChannelView(int *i)
         pctl->pgm[i[1]-1]=i[2];
     else if (i[0]==CHN_CHANGE_FORCED_STATE)
         pctl->forcepgm[i[1]-1]=i[2];
-/*    for (int j=0;j<16;j++) { printf("%d ",pctl->forcepgm[j]);};
-    printf("\n");
-*/
+    /*    for (int j=0;j<16;j++) { printf("%d ",pctl->forcepgm[j]);};
+     printf("\n");
+     */
     if ((i[0]==CHN_CHANGE_PGM)||((i[0]==CHN_CHANGE_FORCED_STATE)&&(i[3]==1)))
     {
         if (autocontplaying)
@@ -1318,5 +1325,80 @@ void kmidClient::communicationFromChannelView(int *i)
             song_Pause();
         };
     };
+    
+};
+
+void kmidClient::changeTempo(int value)
+{
+    if (!Player->isSongLoaded())
+    {
+        tempoLCD->display(120);
+        return;
+    };
+
+//#ifdef KMidDEBUG
+    printf("Change tempo to %d\n",value);
+//#endif
+    int autocontplaying=0;
+
+    if ((pctl->playing==1)&&(pctl->paused==0)) autocontplaying=1;
+    
+
+    if (autocontplaying)
+    {
+        song_Pause();
+    }
+//    printf("a\n");
+    
+    double ratio=(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo)/(value);
+//    printf("ratio %g  , pctl->tempo %ld , value %d\n",ratio,pctl->tempo ,value);
+    /*
+    pausedatmillisec=10;
+    pctl->ratioTempo=1.434231992;
+    ratio=1.6029648469;
+    printf("pausedat : %ld\n",pausedatmillisec);
+    */
+    if (autocontplaying)
+    {
+        pausedatmillisec=(pausedatmillisec/pctl->ratioTempo)*ratio;
+    }
+//    printf("pausedat : %ld\n",pausedatmillisec);
+
+    Player->changeTempoRatio(ratio);
+//    printf("b\n");
+
+    timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
+    timebar->setValue(pausedatmillisec);
+    timetags->repaint(TRUE);
+
+    kdispt->ClearEv(false);
+//    printf("c\n");
+
+    noteArray=Player->getNoteArray();
+    spev=Player->takeSpecialEvents();
+
+    while (spev!=NULL)
+    {
+        if ((spev->type==1) || (spev->type==5)) 
+        {
+            kdispt->AddEv(spev);
+        };
+        spev=spev->next;
+    };
+//    printf("d\n");
+    
+    kdispt->calculatePositions();
+    kdispt->CursorToHome();
+//    printf("d2 : pausedatmillisec %ld\n",pausedatmillisec);
+
+    moveEventPointersTo(pausedatmillisec);
+//    kdispt->repaint(TRUE);
+        
+//    printf("e\n");
+    if (autocontplaying)
+    {
+        song_Pause();
+    };
+//    printf("f\n");
     
 };

@@ -76,8 +76,8 @@ int main(int argc, char **argv)
         };
 */
     int ret= app->exec();
-
-    delete kmidframe;
+    
+//    delete kmidframe;
     delete app;
     return ret;
 };

@@ -90,7 +90,7 @@ KDisplayText(QWidget *parent,const char *name);
 ~KDisplayText();
 
 void PreDestroyer(void);
-void ClearEv(void);
+void ClearEv(bool totally=true);
 void AddEv(SpecialEvent *ev);
 void calculatePositions(void);
 

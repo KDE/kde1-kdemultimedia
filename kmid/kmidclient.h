@@ -41,7 +41,7 @@ class DeviceManager;
 
 class KApplication;
 class KConfig;
-class QLCDNumber;
+class KLCDNumber;
 class QLabel;
 class KCombo;
 class ChannelView;
@@ -164,6 +164,8 @@ public slots:
 
     void communicationFromChannelView(int *);
 
+    void changeTempo(int value);
+    
 signals:
     void mustRechooseTextEvent();
     void song_stopPause();
@@ -183,7 +185,7 @@ private:
     KSliderTime *timetags;
     QSlider *volumebar;
 
-    QLCDNumber *tempoLCD;
+    KLCDNumber *tempoLCD;
     KDisplayText *kdispt;
     QLabel *qlabelTempo;
     KCombo *comboSongs;
