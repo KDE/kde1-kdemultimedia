@@ -28,7 +28,7 @@ msgstr "&Skjul menylinje"
 
 #: kmix.cpp:428
 msgid "&Tickmarks On/Off"
-msgstr "&Bokmerker På/Av"
+msgstr "&Bokmerker på/av"
 
 #: kmix.cpp:442
 msgid ""
@@ -92,7 +92,7 @@ msgstr "Kanaler"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Oppstart innstillinger"
+msgstr "Oppstartinnstillinger"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -104,16 +104,15 @@ msgstr "Bokmerker"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr ""
+msgstr "Tillate dokksetting"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix valg"
+msgstr "KMix-valg"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Mikser kanal oppsett (ennå ikke lagret)"
+msgstr "Mikserkanaloppsett"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -124,6 +123,5 @@ msgid "Show"
 msgstr "Vis"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "&Splitt"
+msgstr "Splitt"

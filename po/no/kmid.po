@@ -53,11 +53,11 @@ msgstr "&Organiser ..."
 
 #: kmidframe.cpp:90
 msgid "In order mode"
-msgstr "I rekkefølge modus"
+msgstr "I rekkefølgemodus"
 
 #: kmidframe.cpp:93
 msgid "Shuffle mode"
-msgstr "Blandet modus"
+msgstr "Blandetmodus"
 
 #: kmidframe.cpp:97
 msgid "AutoAdd to Collection"
@@ -65,19 +65,19 @@ msgstr "Automatisk tillegg til samling"
 
 #: kmidframe.cpp:104
 msgid "&General Midi file"
-msgstr "&General midi fil"
+msgstr "&General-midi-fil"
 
 #: kmidframe.cpp:108
 msgid "&MT-32 file"
-msgstr "&MT-32 fil"
+msgstr "&MT-32-fil"
 
 #: kmidframe.cpp:113
 msgid "See &Text events"
-msgstr "Se &tekst begivenhet"
+msgstr "Se &tekstbegivenhet"
 
 #: kmidframe.cpp:117
 msgid "See &Lyrics events"
-msgstr "Se &Sangtekst begivenhet"
+msgstr "Se &sangtekstbegivenhet"
 
 #: kmidframe.cpp:122
 msgid "&Automatic Text chooser"
@@ -110,7 +110,7 @@ msgstr ""
 "(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
 "Malaga (Spain)\n"
 "\n"
-"Midi/karaoke fil avspiller\n"
+"Midi/karaokefilavspiller\n"
 "\n"
 "KMid utgis med absolutt INGEN GARANTI; for detaljer se fil KOPIERING\n"
 "Dette er fri programvare, and du må gjerne distribuere det videre\n"
@@ -242,7 +242,7 @@ msgstr ""
 
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"
-msgstr "Konfigurer midi enheter"
+msgstr "Konfigurer midi-enheter"
 
 #: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
 msgid "OK"
@@ -250,7 +250,7 @@ msgstr "OK"
 
 #: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
 msgid "Cancel"
-msgstr "Kanseller"
+msgstr "Avbryt"
 
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
@@ -266,11 +266,11 @@ msgstr "Ingen"
 
 #: midicfgdlg.cpp:89
 msgid "Browse..."
-msgstr "Se igjennom..."
+msgstr "Bla igjennom..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
-msgstr "Samling managerr"
+msgstr "Samlingsbehandler"
 
 #: collectdlg.cpp:47
 msgid "Available collections :"
