@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1999-04-14 03:36+0200\n"
 "PO-Revision-Date: 1999-04-15 19:52+0200\n"
 "Last-Translator: Merenyi Miklos <mermik@medgyaszay-veszprem.sulinet.hu>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -13,107 +13,159 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "&Megnyitás ..."
+# kmidframe.cpp:182
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "Szünet"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "&Dalszöveg mentése ..."
+# kmidframe.cpp:173
+#: kmidframe.cpp:68 kmidframe.cpp:209
+msgid "Previous Song"
+msgstr "Elõzõ dal"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "&Kilépés"
+# kmidframe.cpp:192
+#: kmidframe.cpp:70 kmidframe.cpp:228
+msgid "Next Song"
+msgstr "Következõ dal"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "&Lejátszás"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "Szü&net"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "&Megállítás"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "&Elõzõ dal"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "&Következõ dal"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "&Végtelenített"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "&Szervezõ"
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "Eredeti sorrendben"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "Véletlen sorrenben"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "Automatikusan bevesz a válogatásba"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&General Midi fájl"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 fájl"
-
-#: kmidframe.cpp:113
+# kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:142
 msgid "See &Text events"
 msgstr "Szöveg-események"
 
-#: kmidframe.cpp:117
+# kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:148
 msgid "See &Lyrics events"
 msgstr "Dalszöveg-események"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+# kmidframe.cpp:65
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "&Dalszöveg mentése ..."
+
+# kmidframe.cpp:71
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "&Lejátszás"
+
+# kmidframe.cpp:73
+#: kmidframe.cpp:99
+msgid "P&ause"
+msgstr "Szü&net"
+
+# kmidframe.cpp:74
+#: kmidframe.cpp:100
+msgid "&Stop"
+msgstr "&Megállítás"
+
+# kmidframe.cpp:77
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "&Elõzõ dal"
+
+# kmidframe.cpp:79
+#: kmidframe.cpp:107
+msgid "&Next Song"
+msgstr "&Következõ dal"
+
+# kmidframe.cpp:82
+#: kmidframe.cpp:111
+msgid "&Loop"
+msgstr "&Végtelenített"
+
+# kmidframe.cpp:88
+#: kmidframe.cpp:117
+msgid "&Organize ..."
+msgstr "&Szervezõ"
+
+# kmidframe.cpp:91
+#: kmidframe.cpp:120
+msgid "In order mode"
+msgstr "Eredeti sorrendben"
+
+# kmidframe.cpp:94
+#: kmidframe.cpp:123
+msgid "Shuffle mode"
+msgstr "Véletlen sorrenben"
+
+# kmidframe.cpp:98
+#: kmidframe.cpp:127
+msgid "AutoAdd to Collection"
+msgstr "Automatikusan bevesz a válogatásba"
+
+# kmidframe.cpp:104
+#: kmidframe.cpp:133
+msgid "&General Midi file"
+msgstr "&General Midi fájl"
+
+# kmidframe.cpp:108
+#: kmidframe.cpp:137
+msgid "&MT-32 file"
+msgstr "&MT-32 fájl"
+
+# kmidframe.cpp:122
+#: kmidframe.cpp:154
 msgid "&Automatic Text chooser"
 msgstr "&Automataikus szöveg/dalszöveg választás"
 
-#: kmidframe.cpp:128
+# kmidframe.cpp:128
+#: kmidframe.cpp:160
 msgid "Show &Volume Bar"
 msgstr "&Hangerõszabályozó látszik"
 
-#: kmidframe.cpp:133
+# kmidframe.cpp:133
+#: kmidframe.cpp:165
 msgid "Show &Channel View"
 msgstr "MidiCsatorna ablak"
 
-#: kmidframe.cpp:138
+# kmidframe.cpp:138
+#: kmidframe.cpp:170
 msgid "Channel View &Options"
 msgstr "MidiCsatorna ablak beállításai"
 
-#: kmidframe.cpp:142
+# kmidframe.cpp:142
+#: kmidframe.cpp:174
 msgid "&Font Change ..."
 msgstr "&Betûtípus változtatás"
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:176
+msgid "Configure &Keys ..."
+msgstr ""
+
+# kmidframe.cpp:145
+#: kmidframe.cpp:179
 msgid "Midi &Setup ..."
 msgstr "&Midi beállítások"
 
-#: kmidframe.cpp:150
-#, c-format
+# kmidframe.cpp:150
+#: kmidframe.cpp:184
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
 "Malaga (Spain)\n"
 "\n"
 "Midi/Karaoke file player\n"
+"KMid's homepage is at : http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 "This is free software, and you are welcome to redistribute it\n"
@@ -126,68 +178,52 @@ msgstr ""
 "\n"
 "Midi/Karaoke lejátszó \n"
 "\n"
-"A KMid programmal SEMMIFÉLE GARANCIA NEM JÁR; a részletekrõl a COPYING fájlban olvashasz\n"
-"Ez a program meghatározott feltételek mellett szabadon terjeszthtõ.\n" #: kmidframe.cpp:160
-msgid "&File"
-msgstr "&Fájl"
+"A KMid programmal SEMMIFÉLE GARANCIA NEM JÁR; a részletekrõl a COPYING "
+"fájlban olvashasz\n"
+"Ez a program meghatározott feltételek mellett szabadon terjeszthtõ.\n"
 
-#: kmidframe.cpp:161
+# kmidframe.cpp:161
+#: kmidframe.cpp:197
 msgid "&Song"
 msgstr "&Dalok"
 
-#: kmidframe.cpp:162
+# kmidframe.cpp:162
+#: kmidframe.cpp:198
 msgid "&Collections"
 msgstr "&Válogatások"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "&Beállítások"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "&Súgó"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "Elõzõ dal"
-
-#: kmidframe.cpp:176
+# kmidframe.cpp:176
+#: kmidframe.cpp:212
 msgid "Rewind"
 msgstr "Vissza"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "Stop"
-
-#: kmidframe.cpp:182
+# kmidframe.cpp:182
+#: kmidframe.cpp:218
 msgid "Pause"
 msgstr "Szünet"
 
-#: kmidframe.cpp:186
+# kmidframe.cpp:186
+#: kmidframe.cpp:222
 msgid "Play"
 msgstr "Lejátszás"
 
-#: kmidframe.cpp:189
+# kmidframe.cpp:189
+#: kmidframe.cpp:225
 msgid "Forward"
 msgstr "Elõre"
 
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "Következõ dal"
-
-#: kmidframe.cpp:198
+# kmidframe.cpp:198
+#: kmidframe.cpp:234
 msgid "Show Channel View"
 msgstr "Csatornákat mutat"
 
-#: kmidframe.cpp:203
+# kmidframe.cpp:203
+#: kmidframe.cpp:239
 msgid "Show Volume Bar"
 msgstr "Hangerõszabályozót mutat"
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "Hiba"
-
-#: kmidframe.cpp:520
+# kmidframe.cpp:520
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -195,8 +231,8 @@ msgstr ""
 "A /dev/sequencer eszközt nem lehet megnyitni.\n"
 "Valószínûleg egy másik program használja..."
 
-
-#: kmidframe.cpp:639 kmidframe.cpp:640
+# kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -205,52 +241,57 @@ msgstr ""
 "%s nevû fájl már létezik.\n"
 "Felül akarod írni ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "Figyelmeztetés"
-
-#: kmidclient.cpp:93
+# kmidclient.cpp:93
+#: kmidclient.cpp:96
 msgid "Tempo :"
 msgstr "Tempó :"
 
-#: kmidclient.cpp:250
+# kmidclient.cpp:250
+#: kmidclient.cpp:272
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "A(z) %s fájl nem létzik, vagy nem nyitható meg"
 
-#: kmidclient.cpp:253
+# kmidclient.cpp:253
+#: kmidclient.cpp:276
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "A(z) %s nevû fájl nem midi fájl"
 
-#: kmidclient.cpp:255
+# kmidclient.cpp:255
+#: kmidclient.cpp:278
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:257
+# kmidclient.cpp:257
+#: kmidclient.cpp:280
 msgid "Not enough memory !!"
 msgstr "Ninncs elég memória !!"
 
-#: kmidclient.cpp:259
+# kmidclient.cpp:259
+#: kmidclient.cpp:282
 msgid "This file is corrupted or not well built"
 msgstr "Ez a fájl hibás!"
 
-#: kmidclient.cpp:260
+# kmidclient.cpp:260
+#: kmidclient.cpp:283
 msgid "Unknown error message"
 msgstr "Ismeretlen hibaüzenet"
 
-#: kmidclient.cpp:439
+# kmidclient.cpp:439
+#: kmidclient.cpp:467
 msgid "You must load a file before playing it"
 msgstr "Elõbb be kell töltened egy dalt!"
 
-#: kmidclient.cpp:445
+# kmidclient.cpp:445
+#: kmidclient.cpp:473
 msgid "A song is already being played"
 msgstr "A lejátszás már folyamatban van"
 
-#: kmidclient.cpp:451
+# kmidclient.cpp:451
+#: kmidclient.cpp:479
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -258,624 +299,805 @@ msgstr ""
 "A /dev/sequencer eszközt nem lehet megnyitni,\n"
 "lehet, hogy másik program használja..."
 
-#: midicfgdlg.cpp:37
+# midicfgdlg.cpp:37
+#: midicfgdlg.cpp:36
 msgid "Configure Midi devices"
 msgstr "Midi-eszközök beállítása"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr ""
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "Mégse"
-
-#: midicfgdlg.cpp:47
+# midicfgdlg.cpp:47
+#: midicfgdlg.cpp:46
 msgid "Select the midi device you want to use :"
 msgstr "Válaszd ki, melyik midi-eszközt akarod használni?"
 
-#: midicfgdlg.cpp:67
-msgid "A következõ midi-map használata :"
+#: midicfgdlg.cpp:66
+msgid "Use the midi map :"
 msgstr ""
 
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+# midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+#: midicfgdlg.cpp:83 midicfgdlg.cpp:93 midicfgdlg.cpp:125
 msgid "None"
 msgstr "Egyik sem"
 
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "Keres..."
-
+# collectdlg.cpp:39
 #: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Válogatás-kezelõ"
 
+# collectdlg.cpp:47
 #: collectdlg.cpp:47
 msgid "Available collections :"
 msgstr "Elérhetõ válogatások :"
 
+# collectdlg.cpp:67
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "A választott válogatásbon levõ dalok:"
 
+# collectdlg.cpp:81
 #: collectdlg.cpp:81
 msgid "New"
 msgstr "Új"
 
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "Másolás"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "Törlés"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "Hozzáadás"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "Eltávolítás"
-
-#: collectdlg.cpp:151
+# collectdlg.cpp:151
+#: collectdlg.cpp:154
 msgid "Enter the name of the new collection"
 msgstr "Add meg az új válogatás nevét:"
 
-#: collectdlg.cpp:152
+# collectdlg.cpp:152
+#: collectdlg.cpp:155
 msgid "New Collection"
 msgstr "Új válogatás"
 
-#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+# collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#: collectdlg.cpp:162 collectdlg.cpp:188 collectdlg.cpp:229
 #, c-format
 msgid "The name '%s' is already used"
 msgstr "A %s név már használatban van."
 
-#: collectdlg.cpp:177
+# collectdlg.cpp:177
+#: collectdlg.cpp:180
 msgid "Enter the name of the copy collection"
 msgstr "Add meg a másolat nevét:"
 
-#: collectdlg.cpp:178
+# collectdlg.cpp:178
+#: collectdlg.cpp:181
 msgid "Copy Collection"
 msgstr "Válogatás másolása"
 
-#: collectdlg.cpp:219
+# collectdlg.cpp:219
+#: collectdlg.cpp:222
 msgid "Enter the new name for the selected collection"
 msgstr "Add meg a kijelölt válogatás nevét!"
 
-#: collectdlg.cpp:220
+# collectdlg.cpp:220
+#: collectdlg.cpp:223
 msgid "Change Collection Name"
 msgstr "Válogatás nevének megváltoztatása"
 
-#: channel.cpp:75
+# kmidframe.cpp:198
+#: channelview.cpp:33
+#, fuzzy
+msgid "ChannelView"
+msgstr "Csatornákat mutat"
+
+# channel.cpp:75
+#: channel.cpp:87
 msgid "Channel"
 msgstr "Csatorna"
 
-#: channelcfgdlg.cpp:12
+# channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr "Csatorna-nézet beállításai"
 
-#: channelcfgdlg.cpp:22
+# channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr ""
 
-#: channelcfgdlg.cpp:23
+# channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr "3D kinézet"
 
-#: channelcfgdlg.cpp:24
+# channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr "3D - kitöltött"
 
+# instrname.i18n:6
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
 msgstr "Akusztikus Koncertzongora"
 
+# instrname.i18n:7
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
 msgstr "Versenyzongora"
 
+# instrname.i18n:8
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
 msgstr "Elektromos Versenyzongora"
 
+# instrname.i18n:9
 #: instrname.i18n:9
 msgid "Honky-Tonk"
 msgstr "Honky-Tonk Zongora"
 
+# instrname.i18n:10
 #: instrname.i18n:10
 msgid "Rhodes Piano"
 msgstr "Rhodes Zongora"
 
+# instrname.i18n:11
 #: instrname.i18n:11
 msgid "Chorused Piano"
 msgstr "Visszhangosított Zongora"
 
+# instrname.i18n:12
 #: instrname.i18n:12
 msgid "Harpsichord"
 msgstr "Csemballó"
 
+# instrname.i18n:13
 #: instrname.i18n:13
 msgid "Clavinet"
 msgstr "Klavinét"
 
+# instrname.i18n:14
 #: instrname.i18n:14
 msgid "Celesta"
 msgstr "Cseleszta"
 
+# instrname.i18n:15
 #: instrname.i18n:15
 msgid "Glockenspiel"
 msgstr "Harangjáték"
 
+# instrname.i18n:16
 #: instrname.i18n:16
 msgid "Music Box"
 msgstr "Zenedoboz"
 
+# instrname.i18n:17
 #: instrname.i18n:17
 msgid "Vibraphone"
 msgstr "Vibrafon"
 
+# instrname.i18n:18
 #: instrname.i18n:18
 msgid "Marimba"
 msgstr ""
 
+# instrname.i18n:19
 #: instrname.i18n:19
 msgid "Xylophone"
 msgstr "Xilofon"
 
+# instrname.i18n:20
 #: instrname.i18n:20
 msgid "Tubular Bells"
 msgstr "Csõharangok"
 
+# instrname.i18n:21
 #: instrname.i18n:21
 msgid "Dulcimer"
 msgstr ""
 
+# instrname.i18n:22
 #: instrname.i18n:22
 msgid "Hammond Organ"
 msgstr "Hammond-orgona"
 
+# instrname.i18n:23
 #: instrname.i18n:23
 msgid "Percussive Organ"
 msgstr ""
 
+# instrname.i18n:24
 #: instrname.i18n:24
 msgid "Rock Organ"
 msgstr "Rock-orgona"
 
+# instrname.i18n:25
 #: instrname.i18n:25
 msgid "Church Organ"
 msgstr "Templomi Orgona"
 
+# instrname.i18n:26
 #: instrname.i18n:26
 msgid "Reed Organ"
 msgstr ""
 
+# instrname.i18n:27
 #: instrname.i18n:27
 msgid "Accordion"
 msgstr "Akkordion"
 
+# instrname.i18n:28
 #: instrname.i18n:28
 msgid "Harmonica"
 msgstr "Harmonika"
 
+# instrname.i18n:29
 #: instrname.i18n:29
 msgid "Tango Accordion"
 msgstr "Tangóharmonika"
 
+# instrname.i18n:30
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
 msgstr "Akusztikus Gitár (Nylon)"
 
+# instrname.i18n:31
 #: instrname.i18n:31
 msgid "Acoustic Guitar (Steel)"
 msgstr "Akusztikus Gitár (Fém)"
 
+# instrname.i18n:32
 #: instrname.i18n:32
 msgid "Electric Guitar (Jazz)"
 msgstr "Elektromos Gitár (Jazz)"
 
+# instrname.i18n:33
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
 msgstr "Elektromos Gitár (Tiszta)"
 
+# instrname.i18n:34
 #: instrname.i18n:34
 msgid "Electric Guitar (Muted)"
 msgstr "Elektromos Gitár (Fojtott)"
 
+# instrname.i18n:35
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
 msgstr ""
 
+# instrname.i18n:36
 #: instrname.i18n:36
 msgid "Distortion Guitar"
 msgstr "Torzított Gitár"
 
+# instrname.i18n:37
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
 msgstr "Gitárakkordok"
 
+# instrname.i18n:38
 #: instrname.i18n:38
 msgid "Acoustic Bass"
 msgstr "Nagybõgõ"
 
+# instrname.i18n:39
 #: instrname.i18n:39
 msgid "Electric Bass (Finger)"
 msgstr "Basszusgitár (Ujj)"
 
+# instrname.i18n:40
 #: instrname.i18n:40
-msgid "Electric Bass (Pick)" 
+msgid "Electric Bass (Pick)"
 msgstr "Basszusgitár (Pengetõ)"
 
-
+# instrname.i18n:41
 #: instrname.i18n:41
 msgid "Fretless Bass"
 msgstr "Basszusgitár (Bundok Nélkül)"
 
+# instrname.i18n:42
 #: instrname.i18n:42
 msgid "Slap Bass 1"
 msgstr "Basszusgitár (Hüvelyk) 1"
 
+# instrname.i18n:43
 #: instrname.i18n:43
 msgid "Slap Bass 2"
 msgstr "Basszusgitár (Hüvelyk) 2"
 
+# instrname.i18n:44
 #: instrname.i18n:44
 msgid "Synth Bass 1"
 msgstr "Szintetizált Basszus 1"
 
+# instrname.i18n:45
 #: instrname.i18n:45
 msgid "Synth Bass 2"
 msgstr "Szintetizált Basszus 2"
 
+# instrname.i18n:46
 #: instrname.i18n:46
 msgid "Violin"
 msgstr "Hegedû"
 
+# instrname.i18n:47
 #: instrname.i18n:47
 msgid "Viola"
 msgstr "Brácsa"
 
+# instrname.i18n:48
 #: instrname.i18n:48
 msgid "Cello"
 msgstr "Cselló"
 
+# instrname.i18n:49
 #: instrname.i18n:49
 msgid "Contrabass"
 msgstr "Nagybõgõ"
 
+# instrname.i18n:50
 #: instrname.i18n:50
 msgid "Tremolo Strings"
 msgstr "Vonósok (Tremoló)"
 
 #: instrname.i18n:51
-msgid "Vonósok (Pizzicato)"
+msgid "Pizzicato Strings"
 msgstr ""
 
+# instrname.i18n:52
 #: instrname.i18n:52
 msgid "Orchestral Harp"
 msgstr "Hárfa"
 
+# instrname.i18n:53
 #: instrname.i18n:53
 msgid "Timpani"
 msgstr ""
 
+# instrname.i18n:54
 #: instrname.i18n:54
 msgid "String Ensemble 1"
 msgstr "Vonószenekar 1"
 
+# instrname.i18n:55
 #: instrname.i18n:55
 msgid "String Ensemble 2"
 msgstr "Vonószenekar 2"
 
+# instrname.i18n:56
 #: instrname.i18n:56
 msgid "Synth Strings 1"
 msgstr "Szintetizált vonósok 1"
 
+# instrname.i18n:57
 #: instrname.i18n:57
 msgid "Synth Strings 2"
 msgstr "Szintetizált Vonósok 2"
 
+# instrname.i18n:58
 #: instrname.i18n:58
 msgid "Choir Aahs"
 msgstr "Kórus Aaaah"
 
+# instrname.i18n:59
 #: instrname.i18n:59
 msgid "Voice Oohs"
 msgstr "Hang Ooooh"
 
+# instrname.i18n:60
 #: instrname.i18n:60
 msgid "Synth Voice"
 msgstr "Szintetizált Emberi Hang"
 
+# instrname.i18n:61
 #: instrname.i18n:61
 msgid "Orchestra Hit"
 msgstr "Nagyzenenekar"
 
+# instrname.i18n:62
 #: instrname.i18n:62
 msgid "Trumpet"
 msgstr "Trombita"
 
+# instrname.i18n:63
 #: instrname.i18n:63
 msgid "Trombone"
 msgstr ""
 
+# instrname.i18n:64
 #: instrname.i18n:64
 msgid "Tuba"
 msgstr ""
 
+# instrname.i18n:65
 #: instrname.i18n:65
 msgid "Muted Trumpet"
 msgstr "Fojtott Trombita"
 
+# instrname.i18n:66
 #: instrname.i18n:66
 msgid "French Horn"
 msgstr "Franciakürt"
 
+# instrname.i18n:67
 #: instrname.i18n:67
 msgid "Brass Section"
 msgstr "Fúvósszekció"
 
+# instrname.i18n:68
 #: instrname.i18n:68
 msgid "Synth Brass 1"
 msgstr "Szintetizált Fúvósok 1"
 
+# instrname.i18n:69
 #: instrname.i18n:69
 msgid "Synth Brass 2"
 msgstr "Szintetizált Fúvosok 2"
 
+# instrname.i18n:70
 #: instrname.i18n:70
 msgid "Soprano Sax"
 msgstr "Szopránszaxofon"
 
+# instrname.i18n:71
 #: instrname.i18n:71
 msgid "Alto Sax"
 msgstr "Altszaxofon"
 
+# instrname.i18n:72
 #: instrname.i18n:72
 msgid "Tenor Sax"
 msgstr "Tenorszaxofon"
 
+# instrname.i18n:73
 #: instrname.i18n:73
 msgid "Baritone Sax"
 msgstr "Baritonszaxofon"
 
+# instrname.i18n:74
 #: instrname.i18n:74
 msgid "Oboe"
 msgstr "Oboa"
 
+# instrname.i18n:75
 #: instrname.i18n:75
 msgid "English Horn"
 msgstr "Angolkürt"
 
+# instrname.i18n:76
 #: instrname.i18n:76
 msgid "Bassoon"
 msgstr ""
 
+# instrname.i18n:77
 #: instrname.i18n:77
 msgid "Clarinet"
 msgstr "Klarinét"
 
+# instrname.i18n:78
 #: instrname.i18n:78
 msgid "Piccolo"
 msgstr "Pikkoló"
 
+# instrname.i18n:79
 #: instrname.i18n:79
 msgid "Flute"
 msgstr "Fuvola"
 
+# instrname.i18n:80
 #: instrname.i18n:80
 msgid "Recorder"
 msgstr "Furulya"
 
+# instrname.i18n:81
 #: instrname.i18n:81
 msgid "Pan Flute"
 msgstr "Pánsíp"
 
+# instrname.i18n:82
 #: instrname.i18n:82
 msgid "Blown Bottle"
 msgstr "Üveg"
 
+# instrname.i18n:83
 #: instrname.i18n:83
 msgid "Shakuhachi"
 msgstr ""
 
+# instrname.i18n:84
 #: instrname.i18n:84
 msgid "Whistle"
 msgstr "Fütty"
 
+# instrname.i18n:85
 #: instrname.i18n:85
 msgid "Ocarina"
 msgstr "Okarina"
 
+# instrname.i18n:86
 #: instrname.i18n:86
 msgid "Lead 1 - Square Wave"
 msgstr "Lead 1 - Nészögjel"
 
+# instrname.i18n:87
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+#, fuzzy
+msgid "Lead 2 - Saw Tooth"
 msgstr "Lead 2 Fûrészfogjel"
 
+# instrname.i18n:88
 #: instrname.i18n:88
 msgid "Lead 3 - Calliope"
 msgstr ""
 
+# instrname.i18n:89
 #: instrname.i18n:89
 msgid "Lead 4 - Chiflead"
 msgstr ""
 
+# instrname.i18n:90
 #: instrname.i18n:90
 msgid "Lead 5 - Charang"
 msgstr ""
 
+# instrname.i18n:91
 #: instrname.i18n:91
 msgid "Lead 6 - Voice"
 msgstr ""
 
+# instrname.i18n:92
 #: instrname.i18n:92
 msgid "Lead 7 - Fifths"
 msgstr ""
 
+# instrname.i18n:93
 #: instrname.i18n:93
 msgid "Lead 8 - Bass+Lead"
 msgstr ""
 
+# instrname.i18n:94
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
 msgstr ""
 
+# instrname.i18n:95
 #: instrname.i18n:95
 msgid "Pad 2 - Warm"
 msgstr ""
 
+# instrname.i18n:96
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
 msgstr ""
 
+# instrname.i18n:97
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
 msgstr ""
 
+# instrname.i18n:98
 #: instrname.i18n:98
 msgid "Pad 5 - Bow"
 msgstr ""
 
+# instrname.i18n:99
 #: instrname.i18n:99
 msgid "Pad 6 - Metallic"
 msgstr ""
 
+# instrname.i18n:100
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
 msgstr ""
 
+# instrname.i18n:101
 #: instrname.i18n:101
 msgid "Pad 8 - Sweep"
 msgstr ""
 
+# instrname.i18n:102
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
 msgstr ""
 
+# instrname.i18n:103
 #: instrname.i18n:103
 msgid "FX 2 - Soundtrack"
 msgstr ""
 
+# instrname.i18n:104
 #: instrname.i18n:104
 msgid "FX 3 - Crystal"
 msgstr ""
 
+# instrname.i18n:105
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
 msgstr ""
 
+# instrname.i18n:106
 #: instrname.i18n:106
 msgid "FX 5 - Brightness"
 msgstr ""
 
+# instrname.i18n:107
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
 msgstr ""
 
+# instrname.i18n:108
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
 msgstr ""
 
+# instrname.i18n:109
 #: instrname.i18n:109
 msgid "FX 8 - Sci-fi"
 msgstr ""
 
+# instrname.i18n:110
 #: instrname.i18n:110
 msgid "Sitar"
 msgstr "Szitár"
 
+# instrname.i18n:111
 #: instrname.i18n:111
 msgid "Banjo"
 msgstr "Bendzsó"
 
+# instrname.i18n:112
 #: instrname.i18n:112
 msgid "Shamisen"
 msgstr ""
 
+# instrname.i18n:113
 #: instrname.i18n:113
 msgid "Koto"
 msgstr ""
 
+# instrname.i18n:114
 #: instrname.i18n:114
 msgid "Kalimba"
 msgstr ""
 
+# instrname.i18n:115
 #: instrname.i18n:115
 msgid "Bagpipe"
 msgstr "Duda"
 
+# instrname.i18n:116
 #: instrname.i18n:116
 msgid "Fiddle"
 msgstr ""
 
+# instrname.i18n:117
 #: instrname.i18n:117
 msgid "Shannai"
 msgstr ""
 
+# instrname.i18n:118
 #: instrname.i18n:118
 msgid "Tinkle Bell"
 msgstr ""
 
+# instrname.i18n:119
 #: instrname.i18n:119
 msgid "Agogo"
 msgstr ""
 
+# instrname.i18n:120
 #: instrname.i18n:120
 msgid "Steel Drum"
 msgstr "Acéldob"
 
+# instrname.i18n:121
 #: instrname.i18n:121
 msgid "Wook Block"
 msgstr ""
 
+# instrname.i18n:122
 #: instrname.i18n:122
 msgid "Taiko Drum"
 msgstr "Taiko Dob"
 
+# instrname.i18n:123
 #: instrname.i18n:123
 msgid "Melodic Tom"
 msgstr "Dallamdob"
 
+# instrname.i18n:124
 #: instrname.i18n:124
 msgid "Synth Drum"
 msgstr "Dobszintetizátor"
 
+# instrname.i18n:125
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
 msgstr ""
 
+# instrname.i18n:126
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
 msgstr ""
 
+# instrname.i18n:127
 #: instrname.i18n:127
 msgid "Breath Noise"
 msgstr "Lélegzet"
 
+# instrname.i18n:128
 #: instrname.i18n:128
 msgid "Seashore"
 msgstr "Tengerzúgás"
 
+# instrname.i18n:129
 #: instrname.i18n:129
 msgid "Bird Tweet"
 msgstr "Madárcsicsergés"
 
+# instrname.i18n:130
 #: instrname.i18n:130
 msgid "Telephone"
 msgstr "Telefon"
 
+# instrname.i18n:131
 #: instrname.i18n:131
 msgid "Helicopter"
 msgstr "Helikopter"
 
+# instrname.i18n:132
 #: instrname.i18n:132
 msgid "Applause"
 msgstr "Taps"
 
+# instrname.i18n:133
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr "Lövés"
+
+# kmidframe.cpp:62
+#~ msgid "&Open ..."
+#~ msgstr "&Megnyitás ..."
+
+# kmidframe.cpp:68
+#~ msgid "&Quit"
+#~ msgstr "&Kilépés"
+
+# kmidframe.cpp:160
+#~ msgid "&File"
+#~ msgstr "&Fájl"
+
+# kmidframe.cpp:163
+#~ msgid "&Options"
+#~ msgstr "&Beállítások"
+
+# kmidframe.cpp:165
+#~ msgid "&Help"
+#~ msgstr "&Súgó"
+
+# kmidframe.cpp:179
+#~ msgid "Stop"
+#~ msgstr "Stop"
+
+# kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
+#~ msgid "Error"
+#~ msgstr "Hiba"
+
+# collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
+# kmidclient.cpp:444 kmidframe.cpp:641
+#~ msgid "Warning"
+#~ msgstr "Figyelmeztetés"
+
+# channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+#~ msgid "Cancel"
+#~ msgstr "Mégse"
+
+# midicfgdlg.cpp:89
+#~ msgid "Browse..."
+#~ msgstr "Keres..."
+
+# collectdlg.cpp:85
+#~ msgid "Copy"
+#~ msgstr "Másolás"
+
+# collectdlg.cpp:89
+#~ msgid "Delete"
+#~ msgstr "Törlés"
+
+# collectdlg.cpp:94
+#~ msgid "Add"
+#~ msgstr "Hozzáadás"
+
+# collectdlg.cpp:98
+#~ msgid "Remove"
+#~ msgstr "Eltávolítás"
