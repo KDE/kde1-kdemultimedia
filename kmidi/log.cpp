@@ -102,14 +102,33 @@ void LogWindow::updatewindow(){
     text_window->setAutoUpdate(FALSE);
     
     for(stringlist->first();stringlist->current();stringlist->next()){
-      text_window->insertLine(stringlist->current(),-1);
+      /* after a string starting with "~", don't start a new line --gl */
+	static int tildaflag = 0;
+	static int line = 0, col = 0;
+	int futuretilda;
+	char *s = stringlist->current();
+	if (*s == '~') {
+	    futuretilda = 1;
+	    s++;
+	}
+	else futuretilda = 0;
+	if (tildaflag) {
+	    text_window->insertAt(s, line, col);
+	    col += strlen(s);
+	}
+	else {
+	    text_window->insertLine(s,-1);
+	    line++;
+	    col = strlen(s);
+	}
+	tildaflag = futuretilda;
     }
 
     text_window->setAutoUpdate(TRUE);
     text_window->setCursorPosition(text_window->numLines(),0,FALSE);
 
 
-    text_window->update();
+    //text_window->update();
     stringlist->clear();
 
   }
