@@ -56,9 +56,8 @@ msgid "&Right"
 msgstr "&Høyre"
 
 #: kmix.cpp:606
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Menylinje"
+msgstr "&Vis menylinje"
 
 #: kmix.cpp:650
 msgid "Un&mute"
