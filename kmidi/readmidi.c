@@ -162,7 +162,7 @@ static int sysex(int32 len)
   if (len != fread(s, 1, len, fp))
     {
       free(s);
-      return -1;
+      return 0;
     }
   if (len<5) { free(s); return 0; }
   id=s[0]; port=s[1]; model=s[2]; adhi=s[3]; adlo=s[4];
@@ -172,6 +172,12 @@ static int sysex(int32 len)
       GM_System_On=1;
       free(s);
       return 0;
+    }
+  if (id==0x7f && len==7 && port==0x7f && model==0x04 && adhi==0x01)
+    {
+      ctl->cmsg(CMSG_TEXT, VERB_DEBUG, "Master Volume %d", s[4]+(s[5]<<7));
+      free(s);
+      return s[4]+(s[5]<<7);
     }
   if (len<8) { free(s); return 0; }
   port &=0x0f;
@@ -187,9 +193,38 @@ static int sysex(int32 len)
 	  {
       	    ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "XG System On", len);
 	    XG_System_On=1;
-      	    return 0;
 	  }
-      /*ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "XG sysex", len);*/
+	else if (adhi == 2 && adlo == 1)
+	 {
+	    switch (cd)
+	      {
+		case 0x00:
+		  XG_System_reverb_type=dta;
+		  break;
+		case 0x20:
+		  XG_System_chorus_type=dta-64;
+		  break;
+		case 0x40:
+		  XG_System_variation_type=dta;
+		  break;
+		case 0x5a:
+		  /* dta==0 Insertion; dta==1 System */
+		  break;
+		default: break;
+	      }
+	 }
+	else if (adhi == 8 && cd <= 40)
+	 {
+	    switch (cd)
+	      {
+		case 8:
+		  channel[adlo&0x0f].transpose = (char)(dta-64);
+      	    	  ctl->cmsg(CMSG_TEXT, VERB_DEBUG, "transpose channel %d by %d",
+			(adlo&0x0f)+1, dta-64);
+		  break;
+		default: break;
+	      }
+	  }
       return 0;
     }
   else if (id==0x41 && model==0x42 && adhi==0x12 && adlo==0x40)
@@ -247,6 +282,7 @@ static int dumpstring(int32 len, char *label, int type)
 
 #define MAGIC_EOT ((MidiEventList *)(-1))
 
+
 /* Read a MIDI event, returning a freshly allocated element that can
    be linked to the event list */
 static MidiEventList *read_midi_event(void)
@@ -269,9 +305,13 @@ static MidiEventList *read_midi_event(void)
       
       if(me==0xF0 || me == 0xF7) /* SysEx event */
 	{
+	  int32 sret;
 	  len=getvl();
-	  sysex(len);
-	  /*skip(fp, len);*/
+	  sret=sysex(len);
+	  if (sret)
+	   {
+	     MIDIEVENT(at, ME_MASTERVOLUME, 0, sret&0x7f, sret>>7);
+	   }
 	}
       else if(me==0xFF) /* Meta event */
 	{
@@ -768,10 +808,13 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
   at=0;
   evlist=0;
   free_metatext();
+  GM_System_On=GS_System_On=XG_System_On=0;
+  XG_System_reverb_type=XG_System_chorus_type=XG_System_variation_type=-1;
   memset(&drumvolume,-1,sizeof(drumvolume));
   memset(&drumchorusdepth,-1,sizeof(drumchorusdepth));
   memset(&drumreverberation,-1,sizeof(drumreverberation));
   memset(&drumpanpot,NO_PANNING,sizeof(drumpanpot));
+  for (i=0; i<16; i++) channel[i].transpose = 0;
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
     {
