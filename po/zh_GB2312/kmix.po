@@ -1,30 +1,30 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-04-26 23:08+0200\n"
+"POT-Creation-Date: 1998-05-22 01:10+0200\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
-#: docking.cpp:70 docking.cpp:166
+#: docking.cpp:70 docking.cpp:168
 msgid "Restore"
 msgstr ""
 
-#: docking.cpp:164
+#: docking.cpp:166
 msgid "Minimize"
 msgstr ""
 
-#: kmix.cpp:414
+#: kmix.cpp:425
 #, fuzzy
 msgid "&Hide Menubar"
 msgstr "隐藏菜单条"
 
-#: kmix.cpp:417
+#: kmix.cpp:428
 #, fuzzy
 msgid "&Tickmarks On/Off"
 msgstr "刻度显示 开/关"
 
-#: kmix.cpp:431
+#: kmix.cpp:442
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -36,35 +36,35 @@ msgid ""
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
 
-#: kmix.cpp:455
+#: kmix.cpp:461
 msgid "&Left"
 msgstr "左边[&L]"
 
-#: kmix.cpp:456
+#: kmix.cpp:462
 msgid "&Center"
 msgstr "中间[&C]"
 
-#: kmix.cpp:457
+#: kmix.cpp:463
 msgid "&Right"
 msgstr "右边[&R]"
 
-#: kmix.cpp:580
+#: kmix.cpp:553
 msgid "Un&mute"
 msgstr "解除静音[&M]"
 
-#: kmix.cpp:582
+#: kmix.cpp:555
 msgid "&Mute"
 msgstr "静音[&M]"
 
-#: kmix.cpp:585
+#: kmix.cpp:558
 msgid "&Split"
 msgstr "分割[&S]"
 
-#: kmix.cpp:587
+#: kmix.cpp:560
 msgid "Un&split"
 msgstr "不分割[&S]"
 
-#: kmix.cpp:589
+#: kmix.cpp:562
 msgid "&RecSource"
 msgstr "录音源[&R]"
 
@@ -88,25 +88,31 @@ msgstr "菜单"
 msgid "Tickmarks"
 msgstr "刻度显示"
 
-#: prefs.cpp:59
+#: prefs.cpp:61
 msgid "Allow docking"
 msgstr ""
 
-#: prefs.cpp:81
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix 偏好设定"
 
-#: prefs.cpp:87
-msgid "Mixer channel setup (not saved yet)"
+#: prefs.cpp:96
+#, fuzzy
+msgid "Mixer channel setup"
 msgstr "混音器频道设定 (未保存)"
 
-#: prefs.cpp:94
+#: prefs.cpp:103
 msgid "Device"
 msgstr "设备"
 
-#: prefs.cpp:97
+#: prefs.cpp:109
 msgid "Show"
 msgstr "显示"
+
+#: prefs.cpp:115
+#, fuzzy
+msgid "Split"
+msgstr "分割[&S]"
 
 #~ msgid "&Options"
 #~ msgstr "选项[&O]"

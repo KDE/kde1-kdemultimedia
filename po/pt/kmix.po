@@ -1,27 +1,27 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-04-26 23:08+0200\n"
+"POT-Creation-Date: 1998-05-22 01:10+0200\n"
 "PO-Revision-Date: 1998-01-26 20:00+0000\n"
 "Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
 
-#: docking.cpp:70 docking.cpp:166
+#: docking.cpp:70 docking.cpp:168
 msgid "Restore"
 msgstr "Restaurar"
 
-#: docking.cpp:164
+#: docking.cpp:166
 msgid "Minimize"
 msgstr "Minimizar"
 
-#: kmix.cpp:414
+#: kmix.cpp:425
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:417
+#: kmix.cpp:428
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Ligado/Desligado"
 
-#: kmix.cpp:431
+#: kmix.cpp:442
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -41,35 +41,35 @@ msgstr ""
 "Modificações *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "e Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:455
+#: kmix.cpp:461
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:456
+#: kmix.cpp:462
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:457
+#: kmix.cpp:463
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:580
+#: kmix.cpp:553
 msgid "Un&mute"
 msgstr "&Com som"
 
-#: kmix.cpp:582
+#: kmix.cpp:555
 msgid "&Mute"
 msgstr "Se&m som"
 
-#: kmix.cpp:585
+#: kmix.cpp:558
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:587
+#: kmix.cpp:560
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:589
+#: kmix.cpp:562
 msgid "&RecSource"
 msgstr "Fonte de G&ravação"
 
@@ -93,22 +93,28 @@ msgstr "Barra de menu"
 msgid "Tickmarks"
 msgstr "Marcas"
 
-#: prefs.cpp:59
+#: prefs.cpp:61
 msgid "Allow docking"
 msgstr "Permitir docking"
 
-#: prefs.cpp:81
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Preferências do KMix"
 
-#: prefs.cpp:87
-msgid "Mixer channel setup (not saved yet)"
+#: prefs.cpp:96
+#, fuzzy
+msgid "Mixer channel setup"
 msgstr "Configuração dos canais do mixer (ainda não foi gravada)"
 
-#: prefs.cpp:94
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:97
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Mostrar"
+
+#: prefs.cpp:115
+#, fuzzy
+msgid "Split"
+msgstr "&Dividir"
