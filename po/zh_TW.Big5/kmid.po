@@ -1,0 +1,332 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-05-26 11:58+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmidframe.cpp:61
+msgid "&Open ..."
+msgstr "開啟[&O] ..."
+
+#: kmidframe.cpp:64
+msgid "&Save Lyrics ..."
+msgstr "儲存歌詞[&S] ..."
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "離開[&Q]"
+
+#: kmidframe.cpp:70
+msgid "&Play"
+msgstr "播放[&P]"
+
+#: kmidframe.cpp:72
+msgid "P&ause"
+msgstr "暫停[&a]"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "停止[&S]"
+
+#: kmidframe.cpp:76
+msgid "P&revious Song"
+msgstr "前一首[&r]"
+
+#: kmidframe.cpp:78
+msgid "&Next Song"
+msgstr "下一首[&N]"
+
+#: kmidframe.cpp:81
+msgid "&Loop"
+msgstr "循環[&L]"
+
+#: kmidframe.cpp:87
+msgid "&Organize ..."
+msgstr "整理[&O] ..."
+
+#: kmidframe.cpp:90
+msgid "In order mode"
+msgstr "順序播放"
+
+#: kmidframe.cpp:93
+msgid "Shuffle mode"
+msgstr "亂數選曲"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr "自動加入到收集中"
+
+#: kmidframe.cpp:104
+msgid "&General Midi file"
+msgstr "&General Midi 檔案"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr "&MT-32 檔案"
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr "顯示文字[&T]"
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr "顯示歌詞[&L]"
+
+#: kmidframe.cpp:122
+msgid "&Automatic Text chooser"
+msgstr "自動文字選取[A]"
+
+#: kmidframe.cpp:127
+msgid "&Font Change ..."
+msgstr "更換字型[&F]"
+
+#: kmidframe.cpp:130
+msgid "&Midi Setup ..."
+msgstr "&Midi 設定 ..."
+
+#: kmidframe.cpp:135
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 版權所有 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"於西班牙 馬拉加\n"
+"\n"
+"MIDI/卡拉 OK 檔播放器\n"
+"\n"
+"comes with ABSOLUTELY NO WARRANTY; 請參照 COPYING 檔中的保証細節\n"
+"此程式是免費軟體，您可以合法的將它散播給它人\n"
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "檔案[&F]"
+
+#: kmidframe.cpp:147
+msgid "&Song"
+msgstr "歌曲[&S]"
+
+#: kmidframe.cpp:148
+msgid "&Collections"
+msgstr "收集[&S]"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "選項[&O]"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "說明[&H]"
+
+#: kmidframe.cpp:160
+msgid "Previous Song"
+msgstr "前一首"
+
+#: kmidframe.cpp:163
+msgid "Rewind"
+msgstr "倒帶"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "停止"
+
+#: kmidframe.cpp:169
+msgid "Pause"
+msgstr "暫停"
+
+#: kmidframe.cpp:173
+msgid "Play"
+msgstr "播放"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "快轉"
+
+#: kmidframe.cpp:179
+msgid "Next Song"
+msgstr "下一首"
+
+#: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
+msgid "Error"
+msgstr "錯誤"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+"無法開啟 /dev/sequencer 來取得資料\n"
+"可能有其它程式正在使用它"
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+#, c-format
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"檔案 %s 已經存在\n"
+"您要覆蓋\這個檔案嗎?"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
+#: kmidclient.cpp:320 kmidframe.cpp:617
+msgid "Warning"
+msgstr "警告"
+
+#: kmidclient.cpp:87
+msgid "Tempo :"
+msgstr "速度 :"
+
+#: kmidclient.cpp:230
+#, c-format
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "無法開啟檔案 %s 或該檔不存在"
+
+#: kmidclient.cpp:233
+#, c-format
+msgid "The file %s is not a midi file"
+msgstr "檔案 %s 不是一個 MIDI 檔"
+
+#: kmidclient.cpp:235
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+"這個檔案的四分音符“滴答”數為負數，請將此檔傳到 "
+"antlarr@arrakis.es"
+
+#: kmidclient.cpp:237
+msgid "Not enough memory !!"
+msgstr "記憶體不足 !!"
+
+#: kmidclient.cpp:239
+msgid "This file is corrupted or not well built"
+msgstr "這個檔案已經損壞或是沒有建立好"
+
+#: kmidclient.cpp:240
+msgid "Unknown error message"
+msgstr "未知的錯誤"
+
+#: kmidclient.cpp:315
+msgid "You must load a file before playing it"
+msgstr "在播放之前請先載入一個檔案"
+
+#: kmidclient.cpp:321
+msgid "A song is already being played"
+msgstr "一首曲子已經在播放中"
+
+#: kmidclient.cpp:327
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+"無法開啟 /dev/sequencer\n"
+"可能有其它程式正在使用它"
+
+#: midicfgdlg.cpp:37
+msgid "Configure Midi devices"
+msgstr "設定 Midi 裝置"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "確定"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "取消"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr "請選擇您想要使用的 MIDI 裝置 :"
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr "使用此 MIDI 對照:"
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "無"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "瀏覽..."
+
+#: collectdlg.cpp:39
+msgid "Collections Manager"
+msgstr "收集管理"
+
+#: collectdlg.cpp:47
+msgid "Available collections :"
+msgstr "已經有的收集 :"
+
+#: collectdlg.cpp:67
+msgid "Songs in selected collection:"
+msgstr "在目前這個收集中的歌曲:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "新建"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "複製"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "刪除"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "加入"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "移除"
+
+#: collectdlg.cpp:151
+msgid "Enter the name of the new collection"
+msgstr "請輸入這個新收集的名稱"
+
+#: collectdlg.cpp:152
+msgid "New Collection"
+msgstr "新的收集"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
+msgid "The name '%s' is already used"
+msgstr "'%s' 這個名稱已經用過了"
+
+#: collectdlg.cpp:177
+msgid "Enter the name of the copy collection"
+msgstr "請輸入欲複製的收集名稱"
+
+#: collectdlg.cpp:178
+msgid "Copy Collection"
+msgstr "複製收集"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr "請輸入一個新的名稱給這個收集"
+
+#: collectdlg.cpp:220
+msgid "Change Collection Name"
+msgstr "更改收集的名稱"
