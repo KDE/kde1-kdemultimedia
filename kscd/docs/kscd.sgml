@@ -41,24 +41,14 @@ work properly on a variety of
 different Unix platforms. Unfortunately this has also
 complicated the compilation and installation procedure a bit. 
 
-Having introduced a number of changes to the workman sources, Kscd is now on
-for the most common platform, a Linux IDE cdrom, a faster, more 
-responsive player than any other player I know of under Unix and Windows 95. 
+Having introduced a number of changes to the workman sources, Kscd is now 
+for the most common platform, a Linux with an IDE cdrom, a faster, more 
+responsive player, than any other player I know of under Unix and Windows 95. 
 Incidentally, Kscd is also the first player under Unix which doesn't hang my 
 personal cdrom drive on exit. 
 
-While kscd does not yet offer all the bells and whistles that a
-cd player such as xmcd offers it is at about 80000 bytes definitely a lean
-mean cd-machine. Compare this to the  1 meg statically linked slow
-motif dog xmcd. 
 
-Nevertheless, while xmcd is big and slow, it 
-has invented the cddb database format and the cddb internet CD
-databases. Internet cddb is in my opinion a fantastic concept 
-and I am currently working on implementing cddb support for
-kscd.  Watch out for the next release.
-
-<bf/BTW:/ Kscd stands for "The KDE Project's small/simply CD player".
+<bf/BTW:/ Kscd stands for "The KDE Project's small/simple CD player".
 
 
 <p>
