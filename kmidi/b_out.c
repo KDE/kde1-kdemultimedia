@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <malloc.h>
+#include <string.h>
 #include "config.h"
 
 #define BB_SIZE AUDIO_BUFFER_SIZE*8
