@@ -72,6 +72,9 @@ install-data-local:
 	if [ ! -e $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) patch/acpiano.pat $(TIMID_DIR)/patch ; fi
 	if [ ! -e $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
 
+	$(mkinstalldirs) $(kde_minidir)
+	$(INSTALL_DATA) kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
+	
 	@echo ""
 	@echo "Important:"
 	@echo "=========="	
