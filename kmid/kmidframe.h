@@ -81,6 +81,7 @@ public slots:
     void buttonClicked(int i);
     void buttonSClicked(int i);
     void file_Open();
+    void file_SaveLyrics();
     void song_Pause();
     void song_stopPause(); // release the pause button and quit the pause mode
     void song_Loop();
@@ -95,6 +96,7 @@ public slots:
     void options_AutomaticText();
     void options_FontChange();
     void options_MidiSetup();
+    void spacePressed();
 
     void slotDropEvent( KDNDDropZone * _dropZone );
  

@@ -1,10 +1,10 @@
 Summary: Play midi/karaoke files and show lyrics. Support External synths, AWE, GUS, and FM devices. For X11/KDE
 Name: kmid
-Version: 0.5.1
+Version: 0.5.2
 Release: 1
 Copyright: GPL
 Group: X11/K Desktop Environment/Multimedia
-Source: kmid-0.5.1.tgz
+Source: kmid-0.5.2.tgz
 Requires: qt >= 1.3 , kdelibs
 
 %description

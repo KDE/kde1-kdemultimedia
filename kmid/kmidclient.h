@@ -143,6 +143,7 @@ signals:
     void song_stopPause();
     
 public:
+    void saveLyrics(FILE *fh);
 
     DeviceManager *devman(void) {return Midi;};
     void setMidiDevice(int i);

@@ -82,7 +82,8 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
 	timetags = new KSliderTime(timebar,this);
 	timetags->setGeometry(5,10+timebar->height(),width()-5,16);
 
-	qlabelTempo= new QLabel("Tempo :",this,"tempolabel",QLabel::NoFrame);
+	qlabelTempo= new QLabel(i18n("Tempo :"),this,"tempolabel",
+		QLabel::NoFrame);
 	qlabelTempo->move(5,10+timebar->height()+timetags->height()+5);
 	qlabelTempo->adjustSize();
 
@@ -215,19 +216,19 @@ if ((r=Player->loadSong(filename))!=0)
 	switch (r)
 	    {
 	    case (-1) : sprintf(errormsg,
-			"The file %s doesn't exist or can't be opened",filename);
+			i18n("The file %s doesn't exist or can't be opened"),filename);
 			break;
 	    case (-2) : sprintf(errormsg,
-			"The file %s is not a midi file",filename);break;
+			i18n("The file %s is not a midi file"),filename);break;
 	    case (-3) : sprintf(errormsg,
-			"Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es");break;
+			i18n("Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"));break;
 	    case (-4) : sprintf(errormsg,
-			"Not enough memory !!");break;
+			i18n("Not enough memory !!"));break;
 	    case (-5) : sprintf(errormsg,
-			"This file is corrupted or not well built");break;
-	    default : sprintf(errormsg,"Unknown error message");break;
+			i18n("This file is corrupted or not well built"));break;
+	    default : sprintf(errormsg,i18n("Unknown error message"));break;
 	    };
-        KMsgBox::message(this,"Error",errormsg);
+        KMsgBox::message(this,i18n("Error"),errormsg);
 //	Player->loadSong(midifile_opened);
 	if (midifile_opened!=NULL) delete midifile_opened;
 	midifile_opened=NULL;
@@ -271,7 +272,6 @@ sprintf(capt,"KMid - %s",fn);
 topLevelWidget()->setCaption(capt);
 delete capt;
 
-printf("file opened\n");
 timebar->setValue(0);
 return 0;
 };
@@ -297,22 +297,21 @@ return r;
 
 void kmidClient::song_Play()
 {
-#ifdef KMidDEBUG
-printf("******************************+\n");
-#endif
 if (!Player->isSongLoaded())
     {
-    KMsgBox::message(this,"Warning","You must load a file before playing it");
+    KMsgBox::message(this,i18n("Warning"),
+			i18n("You must load a file before playing it"));
     return;
     };
 if (pctl->playing==1)
     {
-    KMsgBox::message(this,"Warning","A song is already being played");
+    KMsgBox::message(this,i18n("Warning"),
+			i18n("A song is already being played"));
     return;
     };
 if (Midi->checkInit()==-1)
     {
-    KMsgBox::message(this,"Error","Couldn't open /dev/sequencer\nProbably there is another program using it");
+    KMsgBox::message(this,i18n("Error"), i18n("Couldn't open /dev/sequencer\nProbably there is another program using it"));
     return;
     };
 kdispt->CursorToHome();
@@ -412,7 +411,9 @@ if (playerProcessID!=0)
 	playerProcessID=0;
 	};
 
+#ifdef KMidDEBUG
 printf("change Time : %d\n",i);
+#endif
 pctl->OK=0;
 pctl->error=0;
 pctl->gotomsec=i;
@@ -460,7 +461,10 @@ void kmidClient::song_PlayPrevSong()
 {
 if (currentsl==NULL) return;
 if (collectionplaymode==0)
+    {
+    if (currentsl->getActiveSongID()==1) return;
     currentsl->previous();
+    }
    else
     {
     int r;
@@ -470,7 +474,7 @@ if (collectionplaymode==0)
     };
 if (currentsl->getActiveSongID()==-1)
     {
-    comboSongs->setCurrentItem(0);
+//    comboSongs->setCurrentItem(0);
 //    currentsl->setActiveSong(1);
     return;
     };
@@ -484,18 +488,23 @@ void kmidClient::song_PlayNextSong()
 {
 if (currentsl==NULL) return;
 if (collectionplaymode==0)
+    {
+    if (currentsl->getActiveSongID()==currentsl->NumberOfSongs()) return;
     currentsl->next();
+    }
    else
     {
     int r;
     while ((r=1+(int) ((double)(currentsl->NumberOfSongs())*rand()/(RAND_MAX+1.0)))==currentsl->getActiveSongID()) ;
 
+#ifdef KMidDEBUG
     printf("random number :%d\n",r);
+#endif
     currentsl->setActiveSong(r);
     };
 if (currentsl->getActiveSongID()==-1)
     {
-    comboSongs->setCurrentItem(0);
+////    comboSongs->setCurrentItem(0);
 //    currentsl->setActiveSong(1);
     return;
     };
@@ -508,7 +517,9 @@ void kmidClient::song_Pause()
 {
 timeval tv;
 if (pctl->playing==0) return;
+#ifdef KMidDEBUG
 printf("song Pause\n");
+#endif
 if (pctl->paused==0)
     {
     if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
@@ -572,7 +583,9 @@ void kmidClient::song_Stop()
 {
 if (pctl->playing==0) return;
 if (pctl->paused) return;
+#ifdef KMidDEBUG
 printf("song Stop\n");
+#endif
 if (playerProcessID!=0) kill(playerProcessID,SIGTERM);
 playerProcessID=0;
 pctl->playing=0;
@@ -820,11 +833,13 @@ while (!currentsl->iteratorAtEnd())
    };
 if (currentsl->getActiveSongID()==-1) return;
 comboSongs->setCurrentItem(currentsl->getActiveSongID()-1);
+/*
 if (oldselected==currentsl->getActiveSongID()-1)
    {
    selectSong(currentsl->getActiveSongID()-1);
    };
-//selectSong(currentsl->getActiveSongID()-1);
+*/
+selectSong(currentsl->getActiveSongID()-1);
 };
 
 void kmidClient::selectSong(int i)
@@ -890,4 +905,9 @@ if (slman==NULL) return;
 printf("Saving collections in : %s\n",(const char *)collectionsfile);
 #endif
 slman->saveConfig((const char *)collectionsfile);
+};
+
+void kmidClient::saveLyrics(FILE *fh)
+{
+if (kdispt!=NULL) kdispt->saveLyrics(fh);
 };

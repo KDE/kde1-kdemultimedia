@@ -36,15 +36,15 @@
 
 CollectionDialog::CollectionDialog(SLManager *slm,int selC,QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
 {
-setCaption("Collections Manager");
-ok=new QPushButton("OK",this);
+setCaption(i18n("Collections Manager"));
+ok=new QPushButton(i18n("OK"),this);
 ok->setGeometry(140,200,100,30);
 connect(ok,SIGNAL(clicked()),SLOT(accept()) );
-cancel=new QPushButton("Cancel",this);
+cancel=new QPushButton(i18n("Cancel"),this);
 cancel->setGeometry(250,200,100,30);
 connect(cancel,SIGNAL(clicked()),SLOT(reject()) );
 
-label=new QLabel("Available collections :",this);
+label=new QLabel(i18n("Available collections :"),this);
 label->adjustSize();
 label->move(10,10);
 collections=new QListBox(this,"collectionlist");
@@ -64,11 +64,11 @@ selectedC=selC;
 printf("selectedC : %d\n",selectedC);
 #endif
 
-label2=new QLabel("Songs in selected collection:",this);
+label2=new QLabel(i18n("Songs in selected collection:"),this);
 label2->adjustSize();
 label2->move(10,collections->y()+collections->height()+10);
 
-songs=new QListBox(this,"collectionlist");
+songs=new QListBox(this,"songlist");
 songs->setGeometry(10,label2->y()+label2->height()+10,340,120);
 connect(songs,SIGNAL(highlighted(int)),SLOT(songselected(int)));
 currentsl=slman->getCollection(selectedC);
@@ -78,24 +78,24 @@ if (slman->numberOfCollections()>0)
     collections->centerCurrentItem();
     };
 //fillInSongList();
-newC=new QPushButton("New",this);
+newC=new QPushButton(i18n("New"),this);
 newC->adjustSize();
 newC->move(360,collections->y()+5);
 connect(newC,SIGNAL(clicked()),SLOT(newCollection()) );
-copyC=new QPushButton("Copy",this);
+copyC=new QPushButton(i18n("Copy"),this);
 copyC->adjustSize();
 copyC->move(360,newC->y()+newC->height()+5);
 connect(copyC,SIGNAL(clicked()),SLOT(copyCollection()) );
-deleteC=new QPushButton("Delete",this);
+deleteC=new QPushButton(i18n("Delete"),this);
 deleteC->adjustSize();
 deleteC->move(360,copyC->y()+copyC->height()+5);
 connect(deleteC,SIGNAL(clicked()),SLOT(deleteCollection()) );
 
-addS=new QPushButton("Add",this);
+addS=new QPushButton(i18n("Add"),this);
 addS->adjustSize();
 addS->move(360,songs->y()+5);
 connect(addS,SIGNAL(clicked()),SLOT(addSong()) );
-delS=new QPushButton("Remove",this);
+delS=new QPushButton(i18n("Remove"),this);
 delS->adjustSize();
 delS->move(360,addS->y()+addS->height()+5);
 connect(delS,SIGNAL(clicked()),SLOT(removeSong()) );
@@ -148,15 +148,17 @@ printf("Selected song : %d\n",selectedS);
 void CollectionDialog::newCollection()
 {
 KAskDialog *dlg;
-dlg=new KAskDialog("Enter the name of the new collection","New Collection",this,"kask");
+dlg=new KAskDialog(i18n("Enter the name of the new collection"),
+			i18n("New Collection"),this,"kask");
 if (dlg->exec()==QDialog::Accepted)
    {
    int i=slman->createCollection(KAskDialog::getResult());
    if (i==-1)
 	{
 	char s[500];
-	sprintf(s,"The name '%s' is already used",KAskDialog::getResult());
-	KMsgBox::message(this,"Warning",s);
+	sprintf(s,i18n("The name '%s' is already used"),
+			KAskDialog::getResult());
+	KMsgBox::message(this,i18n("Warning"),s);
 	}
 	else
 	{
@@ -172,15 +174,17 @@ void CollectionDialog::copyCollection()
 SongList *src=currentsl;
 KAskDialog *dlg;
 int i;
-dlg=new KAskDialog("Enter the name of the copy collection","Copy Collection",this,"kask");
+dlg=new KAskDialog(i18n("Enter the name of the copy collection"),
+			i18n("Copy Collection"),this,"kask");
 if (dlg->exec()==QDialog::Accepted)
    {
    i=slman->createCollection(KAskDialog::getResult());
    if (i==-1)
 	{
 	char s[500];
-	sprintf(s,"The name '%s' is already used",KAskDialog::getResult());
-	KMsgBox::message(this,"Warning",s);
+	sprintf(s,i18n("The name '%s' is already used"),
+			KAskDialog::getResult());
+	KMsgBox::message(this,i18n("Warning"),s);
 	}
 	else
 	{
@@ -212,14 +216,16 @@ void CollectionDialog::changeCollectionName(int idx)
 {
 if (idx==0) return;
 KAskDialog *dlg;
-dlg=new KAskDialog("Enter the new name for the selected collection","Change Collection Name",this,"kask");
+dlg=new KAskDialog(i18n("Enter the new name for the selected collection"),
+			i18n("Change Collection Name"),this,"kask");
 if (dlg->exec()==QDialog::Accepted)
    {
    if (slman->getCollection(KAskDialog::getResult())!=NULL)
 	{
 	char s[500];
-	sprintf(s,"The name '%s' is already used",KAskDialog::getResult());
-	KMsgBox::message(this,"Warning",s);
+	sprintf(s,i18n("The name '%s' is already used"),
+			KAskDialog::getResult());
+	KMsgBox::message(this,i18n("Warning"),s);
 	}
 	else
 	{

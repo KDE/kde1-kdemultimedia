@@ -36,7 +36,7 @@ protected:
 	virtual void resizeEvent(QResizeEvent *qre);
 public:
 
-	KAskDialog(char *labeltext,char *title,QWidget *parent,const char *name);
+	KAskDialog(const char *labeltext, const char *title,QWidget *parent,const char *name);
 
 public slots:
 	void OK_pressed();

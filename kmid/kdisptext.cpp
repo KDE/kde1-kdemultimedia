@@ -500,3 +500,27 @@ void KDisplayText::ScrollPageUp()
 textscrollbar->setValue(textscrollbar->value()-nvisiblelines);
 };
 
+void KDisplayText::saveLyrics(FILE *fh)
+{
+kdispt_line *Lptr=linked_list_[(typeoftextevents==1)? 0:1];
+while (Lptr!=NULL)
+   {
+   kdispt_ev *Cptr=Lptr->ev;
+   if (Cptr!=NULL)
+      {
+      if (strcmp(Cptr->spev->text,"")!=0) 
+        if (IsLineFeed(Cptr->spev->text[0],Cptr->spev->type))
+		fputs(&Cptr->spev->text[1],fh);
+	     else
+		fputs(Cptr->spev->text,fh);
+      Cptr=Cptr->next;
+      };
+   while (Cptr!=NULL)
+      {
+      fputs(Cptr->spev->text,fh);
+      Cptr=Cptr->next;
+      };
+   fputs("\n",fh);
+   Lptr=Lptr->next;
+   };
+};

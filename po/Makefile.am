@@ -1,7 +1,7 @@
 
 SUBDIRS = cs de fr pl fi es pt ro it zh hr
 
-APPS = kmedia kmix
+APPS = kmedia kmix kmid
 
 merge:
 	@apps='$(APPS)'; \

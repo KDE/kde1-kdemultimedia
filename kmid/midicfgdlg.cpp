@@ -34,17 +34,17 @@
 
 MidiConfigDialog::MidiConfigDialog(DeviceManager *dm, QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
 {
-setCaption("Configure Midi devices");
+setCaption(i18n("Configure Midi devices"));
 setMinimumSize(360,240);
 setMaximumSize(360,240);
-ok=new QPushButton("OK",this);
+ok=new QPushButton(i18n("OK"),this);
 ok->setGeometry(140,200,100,30);
 connect(ok,SIGNAL(clicked()),SLOT(accept()) );
-cancel=new QPushButton("Cancel",this);
+cancel=new QPushButton(i18n("Cancel"),this);
 cancel->setGeometry(250,200,100,30);
 connect(cancel,SIGNAL(clicked()),SLOT(reject()) );
 
-label=new QLabel("Select the midi device you want to use :",this);
+label=new QLabel(i18n("Select the midi device you want to use :"),this);
 label->adjustSize();
 label->move(10,10);
 mididevices=new QListBox(this,"midideviceslist");
@@ -64,7 +64,7 @@ for (int i=0;i<devman->numberOfMidiPorts()+devman->numberOfSynthDevices();i++)
 selecteddevice=devman->getDefaultDevice();
 mididevices->setCurrentItem(selecteddevice);
 
-label2=new QLabel("Use the midi map :",this);
+label2=new QLabel(i18n("Use the midi map :"),this);
 label2->adjustSize();
 label2->move(10,100);
 
@@ -81,17 +81,17 @@ if (strcmp(devman->getMidiMapFilename(),"")==0)
     };
 
 if (selectedmap!=NULL) maplabel=new QLabel(selectedmap,this);
-   else maplabel=new QLabel("None",this);
+   else maplabel=new QLabel(i18n("None"),this);
 
 maplabel->adjustSize();
 maplabel->move(10,100+label2->height());
 
-mapbrowse=new QPushButton("Browse...",this);
+mapbrowse=new QPushButton(i18n("Browse..."),this);
 mapbrowse->adjustSize();
 mapbrowse->move(170,140);
 connect(mapbrowse,SIGNAL(clicked()),SLOT(browseMap()) );
 
-mapnone=new QPushButton("None",this);
+mapnone=new QPushButton(i18n("None"),this);
 mapnone->adjustSize();
 mapnone->move(170+mapbrowse->width()+10,140);
 connect(mapnone,SIGNAL(clicked()),SLOT(noMap()) );
@@ -123,7 +123,7 @@ maplabel->adjustSize();
 void MidiConfigDialog::noMap()
 {
 if (selectedmap!=NULL) {delete selectedmap;selectedmap=NULL;}; 
-maplabel->setText("None");
+maplabel->setText(i18n("None"));
 maplabel->adjustSize();
 };
 

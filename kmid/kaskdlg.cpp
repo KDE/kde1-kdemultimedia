@@ -31,13 +31,13 @@
 #include <klined.h>
 #include "version.h"
 
-KAskDialog::KAskDialog(char *labeltext,char *title,QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
+KAskDialog::KAskDialog(const char *labeltext,const char *title,QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
 {
 setCaption(title);
-ok=new QPushButton("OK",this);
+ok=new QPushButton(i18n("OK"),this);
 ok->setGeometry(140,200,100,30);
 connect(ok,SIGNAL(clicked()),SLOT(OK_pressed()) );
-cancel=new QPushButton("Cancel",this);
+cancel=new QPushButton(i18n("Cancel"),this);
 cancel->setGeometry(250,200,100,30);
 connect(cancel,SIGNAL(clicked()),SLOT(reject()) );
 
@@ -54,6 +54,7 @@ cancel->move(ok->x()+ok->width()+5,ok->y());
 int maxw=label->x()+label->width()+10;
 setMinimumSize((maxw>200)? maxw : 200,ok->y()+ok->height()+5);
 setMaximumHeight(ok->y()+ok->height()+5);
+kline->setFocus();
 };
 
 void KAskDialog::resizeEvent(QResizeEvent *)

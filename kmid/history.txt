@@ -274,3 +274,21 @@ of Stephan Kulow which look much better.
 
 Saturday 14-3-98
 - Finished deleting printf's to upload kmid tomorrow :-)
+
+Sunday 15-3-98
+- Upload it, but as I forgot to delete some printf messages :-( , I had
+to quickly do a fix and send also 0.5.1
+
+**** **-3-98
+- I've passed many days configuring the modem, the internet connection,
+sendmail, kppp, cvs and all those programs :-)
+
+Monday 30-3-98
+- I've implemented the save-Lyrics feature that Adrian Knoth suggested (thanks!)
+
+Tuesday 31-3-98
+- I've done some changes to support the new KFileDialog and the new
+changes in kdelibs done by Matthias.
+
+Thursday 2-4-98
+- Some bug fixes

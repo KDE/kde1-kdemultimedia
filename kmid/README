@@ -8,7 +8,7 @@
 				KMID
 
 
-	This info is up to date if you have KMid version 0.5.1
+	This info is up to date if you have KMid version 0.5.2
 		
 
 Index
@@ -44,6 +44,7 @@ Index
    From version 0.5 on, KMid also supports FM devices such as adlib cards,
    or opl chipsets included in nearly all sound cards (including sb pro,sb16
    and more)
+   Version 0.5.2 includes internationalization and some bug fixes.
 
 
 2. Requirements
@@ -211,7 +212,7 @@ substitute /opt/kde for the value of the KDEDIR environment variable)
    There's a "Temporary Collection" that you cannot delete, it is used
    to hold the files that you want to play but don't want to add to any
    collection. Keep in mind that when you close KMid, the contents of this
-   temporary collection will be lossed.
+   temporary collection will be lost.
 
    There's an option called "autoAdd to Collection", when turned on, every
    file you open will be automatically added to the current collection, that
@@ -247,11 +248,10 @@ substitute /opt/kde for the value of the KDEDIR environment variable)
 -------------
    Write better documentation 
 	(meanwhile I will answer any question by email)
-   Translation to other languages
    Better AWE and GUS support and use Soundfonts
-   Finish the KMidServer and make KMid use it.
+   The KMidServer and make KMid use it.
 
 -------
-12-3-1998
+3-4-1998
 Antonio Larrosa Jimenez
 antlarr@arrakis.es

@@ -28,14 +28,13 @@
 #include <qwidget.h>
 #include <signal.h>
 #include "version.h"
-#include <locale.h>
+//#include <locale.h>
 #include <klocale.h>
 
 int main(int argc, char **argv)
 {
     printf("%s Copyright (C) 1997,98 Antonio Larrosa Jimenez. Malaga (Spain)\n",VERSION_TXT);
-    printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
-);
+    printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n");
     printf("This is free software, and you are welcome to redistribute it\n");
     printf("under certain conditions\n");
 
@@ -49,10 +48,10 @@ int main(int argc, char **argv)
     sigaction(SIGTERM, &act, NULL);
 */
 
-    KApplication *app=new KApplication(argc,argv);
+    KApplication *app=new KApplication(argc,argv,"kmid");
 
     app->enableSessionManagement(TRUE);
-    kmidFrame *kmidframe=new kmidFrame("KMid");
+/*    kmidFrame *kmidframe=new kmidFrame("KMid");
 
     app->setMainWidget ( kmidframe );
 
@@ -62,10 +61,19 @@ int main(int argc, char **argv)
 	{
 	if (kmidframe->canBeRestored(1)) kmidframe->restore(1);
         }
+*/
+    if (app->isRestored()) 
+	{
+	RESTORE(kmidFrame);
+        }
+       else
+        {
+        kmidFrame *kmidframe=new kmidFrame("KMid");
+	kmidframe->show();
+        };
 
     int ret= app->exec();
 
-    delete kmidframe;
     delete app;
     return ret;
 };

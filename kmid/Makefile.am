@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-LDADD = player/libplayer.a -lkdeui -lkdecore -lqt -lXext -lX11 -lkfm
+LDADD = player/libplayer.a -lkdeui -lkdecore -lkfile -lkfm -lqt -lXext -lX11
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp 
@@ -47,6 +47,9 @@ kslidertime.cpp:kslidertime.moc
 
 kdisptext.cpp:kdisptext.moc
 
+
+messages:
+	$(XGETTEXT) -C -ki18n $(kmid_SOURCES) && mv messages.po ../po/kmid.pot
 
 install-data-local:
 	@echo "********************************************"

@@ -104,6 +104,8 @@ void gotomsec(ulong i);
 QFont *getFont(void);
 void fontChanged(void);
 
+void saveLyrics(FILE *fh);
+
 public slots:
 void ScrollText(int i);
 void ScrollDown();

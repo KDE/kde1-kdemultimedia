@@ -27,7 +27,7 @@
 //#include <kapp.h>
 #include <qkeycode.h>
 #include <stdio.h>
-#include <qfiledlg.h>
+#include <kfiledialog.h>
 #include <kapp.h>
 #include <qstring.h>
 #include <unistd.h>
@@ -36,6 +36,7 @@
 //#include "player/midispec.h"
 #include <sys/shm.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <kmsgbox.h>
 #include <ktoolbar.h>
 #include <kiconloader.h>
@@ -43,6 +44,7 @@
 #include <kurl.h>
 #include <drag.h>
 #include <kfontdialog.h>
+#include <kkeyconf.h>
 #include "midicfgdlg.h"
 #include "collectdlg.h"
 #include "version.h"
@@ -56,99 +58,131 @@ kmidFrame::kmidFrame(const char *name)
 	setView(kmidclient,FALSE);
 
 	m_file = new QPopupMenu;
-	m_file->insertItem( "&Open", this, SLOT(file_Open()), CTRL+Key_O );
+	m_file->insertItem( i18n("&Open"), this, 
+						SLOT(file_Open()), CTRL+Key_O );
 	m_file->insertSeparator();
-	m_file->insertItem( "&Quit", qApp, SLOT(quit()), CTRL+Key_Q );
+	m_file->insertItem( i18n("&Save Lyrics"), this, 
+						SLOT(file_SaveLyrics()) );
+	m_file->insertSeparator();
+	m_file->insertItem( i18n("&Quit"), qApp, SLOT(quit()), CTRL+Key_Q );
 	m_song = new QPopupMenu;
 	m_song->setCheckable(TRUE);
-	m_song->insertItem( "&Play", kmidclient, SLOT(song_Play()) , Key_Space);
-	m_song->insertItem( "P&ause", this, SLOT(song_Pause()) );
-	m_song->insertItem( "&Stop", kmidclient, SLOT(song_Stop()) ,
+	m_song->insertItem( i18n("&Play"), kmidclient, 
+					SLOT(song_Play()) /*, Key_Space*/ );
+	m_song->insertItem( i18n("P&ause"), this, SLOT(song_Pause()) );
+	m_song->insertItem( i18n("&Stop"), kmidclient, SLOT(song_Stop()) ,
 								Key_Backspace);
 	m_song->insertSeparator();
-	m_song->insertItem( "&Loop", this, SLOT(song_Loop()) );
+	m_song->insertItem( i18n("P&revious Song"), kmidclient, 
+		SLOT(song_PlayPrevSong()) , Key_Left);
+	m_song->insertItem( i18n("&Next Song"), kmidclient, 
+		SLOT(song_PlayNextSong()) , Key_Right);
+	m_song->insertSeparator();
+	m_song->insertItem( i18n("&Loop"), this, SLOT(song_Loop()) );
 	m_song->setId(4,4);
 	m_song->setItemChecked(4,FALSE);
 
 	m_collections = new QPopupMenu;
 	m_collections->setCheckable(TRUE);
-	m_collections->insertItem( "&Organize ...", this, SLOT(collect_organize()));
+	m_collections->insertItem( i18n("&Organize ..."), this, SLOT(collect_organize()));
 	m_collections->setId(0,0);
 	m_collections->insertSeparator();
-	m_collections->insertItem( "In order mode", this, SLOT(collect_inOrder()));
+	m_collections->insertItem( i18n("In order mode"), this, SLOT(collect_inOrder()));
 	m_collections->setId(2,2);
 	m_collections->setItemChecked(2,TRUE);
-	m_collections->insertItem( "Shuffle mode", this, SLOT(collect_shuffle()));
+	m_collections->insertItem( i18n("Shuffle mode"), this, SLOT(collect_shuffle()));
 	m_collections->setId(3,3);
 	m_collections->setItemChecked(3,FALSE);
 	m_collections->insertSeparator();
-	m_collections->insertItem( "AutoAdd to Collection", this, SLOT(collect_autoadd()));
+	m_collections->insertItem( i18n("AutoAdd to Collection"), this, SLOT(collect_autoadd()));
 	m_collections->setId(5,5);
 	m_collections->setItemChecked(5,FALSE);
 
 
 	m_options = new QPopupMenu;
 	m_options->setCheckable(TRUE);
-	m_options->insertItem( "&General Midi file", this, SLOT(options_GM()) );
+	m_options->insertItem( i18n("&General Midi file"), this, 
+					SLOT(options_GM()) );
 	m_options->setId(0,0);
 	m_options->setItemChecked(0,TRUE);
-	m_options->insertItem( "&MT-32 file", this, SLOT(options_MT32()) );
+	m_options->insertItem( i18n("&MT-32 file"), this, 
+					SLOT(options_MT32()) );
 	m_options->setId(1,1);
 	m_options->setItemChecked(1,FALSE);
 	m_options->insertSeparator();
-	m_options->insertItem( "See &Text events", this, 
+	m_options->insertItem( i18n("See &Text events"), this, 
 					SLOT(options_Text()),Key_1 );
 	m_options->setId(3,3);
 	m_options->setItemChecked(3,TRUE);
-	m_options->insertItem( "See &Lyrics events", this, 
+	m_options->insertItem( i18n("See &Lyrics events"), this, 
 					SLOT(options_Lyrics()) , Key_2);
 	m_options->setId(4,4);
 	m_options->setItemChecked(4,FALSE);
 
-	m_options->insertItem( "&Automatic Text chooser", this, SLOT(options_AutomaticText()) );
+	m_options->insertItem( i18n("&Automatic Text chooser"), this, 
+					SLOT(options_AutomaticText()) );
 	m_options->setId(5,5);
 	m_options->setItemChecked(5,TRUE);
 	m_options->insertSeparator();
-	m_options->insertItem( "&Font Change ...", this, SLOT(options_FontChange()));
+	m_options->insertItem( i18n("&Font Change ...") , this, 
+					SLOT(options_FontChange()));
 	m_options->insertSeparator();
-	m_options->insertItem( "&Midi Setup ...", this, SLOT(options_MidiSetup()));
+	m_options->insertItem( i18n("&Midi Setup ...") , this, 
+					SLOT(options_MidiSetup()));
 
 	char aboutstring[500];
 	sprintf(aboutstring,
-   "%s\n\n" \
+   i18n("%s\n\n" \
    "(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n" \
    "Malaga (Spain)\n\n" \
    "Midi/Karaoke file player\n\n" \
    "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n" \
    "This is free software, and you are welcome to redistribute it\n" \
-   "under certain conditions\n", VERSION_TXT );
+   "under certain conditions\n"), VERSION_TXT );
 	m_help = (KApplication::getKApplication())->getHelpMenu(true, aboutstring);
 
-	menu = new KMenuBar(this);
-	menu->insertItem("&File",m_file);
-	menu->insertItem("&Song",m_song);
-	menu->insertItem("&Collections",m_collections);
-	menu->insertItem("&Options",m_options);
+//	menu = new KMenuBar(this);
+	menu = menuBar();
+	menu->insertItem(i18n("&File"),m_file);
+	menu->insertItem(i18n("&Song"),m_song);
+	menu->insertItem(i18n("&Collections"),m_collections);
+	menu->insertItem(i18n("&Options"),m_options);
 	menu->insertSeparator();
-	menu->insertItem("&Help",m_help);
+	menu->insertItem(i18n("&Help"),m_help);
 	menu->show();
-	setMenu(menu);
+//	setMenu(menu);
 
-	toolbar=new KToolBar(this);
-	KIconLoader *loader = (KApplication::getKApplication())->getIconLoader(); 
+//	toolbar=new KToolBar(this);
+	toolbar=toolBar();
+//	KIconLoader *loader = (KApplication::getKApplication())->getIconLoader(); 
 
-	toolbar->insertButton(loader->loadIcon("kmid_prev.xpm"),1,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Previous song");
-	toolbar->insertButton(loader->loadIcon("kmid_frewind.xpm"),2,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Rewind");
-	toolbar->insertButton(loader->loadIcon("kmid_stop.xpm"),3,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Stop");
-	toolbar->insertButton(loader->loadIcon("kmid_pause.xpm"),4,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Pause");
+//	toolbar->insertButton(loader->loadIcon("kmid_prev.xpm"),1,
+	toolbar->insertButton(Icon("kmid_prev.xpm"),1,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Previous Song"));
+	toolbar->insertButton(Icon("kmid_frewind.xpm"),2,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Rewind"));
+	toolbar->insertButton(Icon("kmid_stop.xpm"),3,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Stop"));
+	toolbar->insertButton(Icon("kmid_pause.xpm"),4,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Pause"));
 	toolbar->setToggle(4,TRUE);
-	toolbar->insertButton(loader->loadIcon("kmid_play.xpm"),5,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Play");
-	toolbar->insertButton(loader->loadIcon("kmid_fforward.xpm"),6,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Forward");
-	toolbar->insertButton(loader->loadIcon("kmid_next.xpm"),7,SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,"Next song");
+	toolbar->insertButton(Icon("kmid_play.xpm"),5,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Play"));
+	toolbar->insertButton(Icon("kmid_fforward.xpm"),6,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Forward"));
+	toolbar->insertButton(Icon("kmid_next.xpm"),7,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Next Song"));
 
-	toolbar->setBarPos(KToolBar::Top);
-	toolbar->enable(KToolBar::Show);
-	addToolBar(toolbar);
+//	toolbar->setBarPos(KToolBar::Top);
+//	toolbar->enable(KToolBar::Show);
+//	addToolBar(toolbar);
 
 	KConfig *kcfg=(KApplication::getKApplication())->getConfig();
 	kcfg->setGroup("KMid");
@@ -192,6 +226,7 @@ kmidFrame::kmidFrame(const char *name)
 
         if ((kapp->argc()>1)&&(kapp->argv()[1][0]!='-'))
             {
+	    printf("Opening command line file...\n");
 	    int backautoadd=kcfg->readNumEntry("AutoAddToCollection",0);
 	    kcfg->writeEntry("AutoAddToCollection",0);
 
@@ -217,27 +252,32 @@ kmidFrame::kmidFrame(const char *name)
             if (kmidclient->midiFileName()!=NULL) kmidclient->song_Play();
 	    kcfg->writeEntry("AutoAddToCollection",backautoadd);
             };
+
+	kKeys->addKey("Play/Pause",Key_Space);
+	kKeys->registerWidget("KMidFrame",this);
+	kKeys->connectFunction("KMidFrame","Play/Pause",this,SLOT(spacePressed()));
 };
 
 kmidFrame::~kmidFrame()
 {
 delete kmidclient;
+/*
 delete m_file;
 delete m_song;
 delete m_options;
 delete m_help;
 delete menu;
 delete toolbar;
+*/
 };
 
 void kmidFrame::file_Open()
 {
-//kmidclient->file_Open();
-printf("file Open\n");
 char name[200];
 name[0]=0;
 QString filename;
-filename=QFileDialog::getOpenFileName(0,"*.*",this,name);
+//filename=QFileDialog::getOpenFileName(0,"*.*",this,name);
+filename=KFileDialog::getOpenFileName(0,"*.*",this,name);
 if (!filename.isNull())
         {
 	char *s=new char[filename.length()+10];
@@ -458,7 +498,7 @@ void kmidFrame::options_MidiSetup()
 {
 if (kmidclient->devman()->checkInit()<0) 
 	{
-	KMsgBox::message(this,"Error","Couldn't open /dev/sequencer to get some info\nProbably there is another program using it");
+	KMsgBox::message(this,i18n("Error"),i18n("Couldn't open /dev/sequencer to get some info\nProbably there is another program using it"));
 	return;
 	};
 MidiConfigDialog *dlg;
@@ -559,4 +599,33 @@ int i=kcfg->readNumEntry("AutoAddToCollection",0);
 i=(i==1) ? 0 : 1; 
 kcfg->writeEntry("AutoAddToCollection",i);
 m_collections->setItemChecked(5,(i==1) ? TRUE : FALSE);
+};
+
+
+void kmidFrame::file_SaveLyrics()
+{
+char name[200];
+name[0]=0;
+QString filename;
+//filename=QFileDialog::getSaveFileName(0,"*.*",this,name);
+filename=KFileDialog::getSaveFileName(0,"*.*",this,name);
+if (!filename.isNull())
+        {
+	struct stat statbuf;
+	if (stat((const char *)filename, &statbuf)!=-1)
+		{
+		char *s=new char [filename.length()+strlen(i18n("File %s already exists\nDo you want to overwrite it ?"))+5];
+		sprintf(s,i18n("File %s already exists\nDo you want to overwrite it ?"),(const char *)filename);
+		if (KMsgBox::yesNo(this,i18n("Warning"),s)==2) return;
+		};
+	FILE *fh=fopen((const char *)filename,"wt");
+	kmidclient->saveLyrics(fh);
+	fclose(fh);
+	};
+};
+
+void kmidFrame::spacePressed()
+{
+if (!kmidclient->isPlaying()) kmidclient->song_Play();
+   else song_Pause();
 };

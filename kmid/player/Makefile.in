@@ -1,14 +1,8 @@
-# Makefile.in generated automatically by automake 1.2f from Makefile.am
+# Makefile.in generated automatically by automake 1.2 from Makefile.am
 
-# Copyright (C) 1994, 1995, 1996, 1997, 1998 Free Software Foundation, Inc.
+# Copyright (C) 1994, 1995, 1996, 1997 Free Software Foundation, Inc.
 # This Makefile.in is free software; the Free Software Foundation
-# gives unlimited permission to copy and/or distribute it,
-# with or without modifications, as long as this notice is preserved.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
-# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
-# PARTICULAR PURPOSE.
+# gives unlimited permission to copy, distribute and modify it.
 
 
 SHELL = /bin/sh
@@ -49,12 +43,12 @@ INSTALL_DATA = @INSTALL_DATA@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
 transform = @program_transform_name@
 
-NORMAL_INSTALL = :
-PRE_INSTALL = :
-POST_INSTALL = :
-NORMAL_UNINSTALL = :
-PRE_UNINSTALL = :
-POST_UNINSTALL = :
+NORMAL_INSTALL = true
+PRE_INSTALL = true
+POST_INSTALL = true
+NORMAL_UNINSTALL = true
+PRE_UNINSTALL = true
+POST_UNINSTALL = true
 build_alias = @build_alias@
 build_triplet = @build@
 host_alias = @host_alias@
@@ -101,6 +95,7 @@ PAMLIBS = @PAMLIBS@
 QT_INCLUDES = @QT_INCLUDES@
 QT_LDFLAGS = @QT_LDFLAGS@
 RANLIB = @RANLIB@
+TOPSUBDIRS = @TOPSUBDIRS@
 USE_NLS = @USE_NLS@
 VERSION = @VERSION@
 XGETTEXT = @XGETTEXT@
@@ -137,7 +132,7 @@ noinst_LIBRARIES = libplayer.a
 
 libplayer_a_SOURCES  = midiout.cc player.cc track.cc midimapper.cc \
 	 midfile.cc dattypes.cc midistat.cc deviceman.cc synthout.cc \
-	 fmout.cc voiceman.cc songlist.cc slman.cc
+	 fmout.cc gusout.cc voiceman.cc songlist.cc slman.cc mt32togm.cc
 
 noinst_PROGRAMS = consolekmid
 consolekmid_SOURCES = main.cc
@@ -156,8 +151,8 @@ LDFLAGS = @LDFLAGS@
 LIBS = @LIBS@
 libplayer_a_LIBADD = 
 libplayer_a_OBJECTS =  midiout.o player.o track.o midimapper.o midfile.o \
-dattypes.o midistat.o deviceman.o synthout.o fmout.o voiceman.o \
-songlist.o slman.o
+dattypes.o midistat.o deviceman.o synthout.o fmout.o gusout.o \
+voiceman.o songlist.o slman.o mt32togm.o
 AR = ar
 PROGRAMS =  $(noinst_PROGRAMS)
 
@@ -171,14 +166,15 @@ CXXLINK = $(LIBTOOL) --mode=link $(CXX) $(CXXFLAGS) $(LDFLAGS) -o $@
 DIST_COMMON =  Makefile.am Makefile.in
 
 
-DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST) 
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 
 TAR = tar
 GZIP = --best
 DEP_FILES =  .deps/dattypes.P .deps/deviceman.P .deps/fmout.P \
-.deps/main.P .deps/midfile.P .deps/midimapper.P .deps/midiout.P \
-.deps/midistat.P .deps/player.P .deps/slman.P .deps/songlist.P \
-.deps/synthout.P .deps/track.P .deps/voiceman.P
+.deps/gusout.P .deps/main.P .deps/midfile.P .deps/midimapper.P \
+.deps/midiout.P .deps/midistat.P .deps/mt32togm.P .deps/player.P \
+.deps/slman.P .deps/songlist.P .deps/synthout.P .deps/track.P \
+.deps/voiceman.P
 CXXMKDEP = $(CXX) -M $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CXXFLAGS)
 SOURCES = $(libplayer_a_SOURCES) $(consolekmid_SOURCES)
 OBJECTS = $(libplayer_a_OBJECTS) $(consolekmid_OBJECTS)
@@ -186,7 +182,7 @@ OBJECTS = $(libplayer_a_OBJECTS) $(consolekmid_OBJECTS)
 default: all
 
 .SUFFIXES:
-.SUFFIXES: .S .c .cc .lo .o .s
+.SUFFIXES: .c .cc .lo .o
 $(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
 	cd $(top_srcdir) && $(AUTOMAKE) --gnu kmid/player/Makefile
 
@@ -198,53 +194,47 @@ Makefile: $(srcdir)/Makefile.in $(top_builddir)/config.status $(BUILT_SOURCES)
 mostlyclean-noinstLIBRARIES:
 
 clean-noinstLIBRARIES:
-	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
+	test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
 
 distclean-noinstLIBRARIES:
 
 maintainer-clean-noinstLIBRARIES:
 
-.s.o:
-	$(COMPILE) -c $<
-
-.S.o:
+.c.o:
 	$(COMPILE) -c $<
 
 mostlyclean-compile:
-	-rm -f *.o core *.core
+	rm -f *.o core
 
 clean-compile:
 
 distclean-compile:
-	-rm -f *.tab.c
+	rm -f *.tab.c
 
 maintainer-clean-compile:
 
-.s.lo:
-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
-
-.S.lo:
+.c.lo:
 	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
 
 mostlyclean-libtool:
-	-rm -f *.lo
+	rm -f *.lo
 
 clean-libtool:
-	-rm -rf .libs _libs
+	rm -rf .libs
 
 distclean-libtool:
 
 maintainer-clean-libtool:
 
 libplayer.a: $(libplayer_a_OBJECTS) $(libplayer_a_DEPENDENCIES)
-	-rm -f libplayer.a
+	rm -f libplayer.a
 	$(AR) cru libplayer.a $(libplayer_a_OBJECTS) $(libplayer_a_LIBADD)
 	$(RANLIB) libplayer.a
 
 mostlyclean-noinstPROGRAMS:
 
 clean-noinstPROGRAMS:
-	-test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
+	test -z "$(noinst_PROGRAMS)" || rm -f $(noinst_PROGRAMS)
 
 distclean-noinstPROGRAMS:
 
@@ -260,26 +250,21 @@ consolekmid: $(consolekmid_OBJECTS) $(consolekmid_DEPENDENCIES)
 
 tags: TAGS
 
-ID: $(HEADERS) $(SOURCES) $(LISP)
-	here=`pwd` && cd $(srcdir) \
-	  && mkid -f$$here/ID $(SOURCES) $(HEADERS) $(LISP)
+ID: $(HEADERS) $(SOURCES)
+	here=`pwd` && cd $(srcdir) && mkid -f$$here/ID $(SOURCES) $(HEADERS)
 
-TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+TAGS:  $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES)
 	tags=; \
 	here=`pwd`; \
-	list='$(SOURCES) $(HEADERS)'; \
-	unique=`for i in $$list; do echo $$i; done | \
-	  awk '    { files[$$0] = 1; } \
-	       END { for (i in files) print i; }'`; \
-	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
-	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $$unique $(LISP) -o $$here/TAGS)
+	test -z "$(ETAGS_ARGS)$(SOURCES)$(HEADERS)$$tags" \
+	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $(SOURCES) $(HEADERS) -o $$here/TAGS)
 
 mostlyclean-tags:
 
 clean-tags:
 
 distclean-tags:
-	-rm -f TAGS ID
+	rm -f TAGS ID
 
 maintainer-clean-tags:
 
@@ -290,7 +275,6 @@ subdir = kmid/player
 distdir: $(DISTFILES)
 	here=`cd $(top_builddir) && pwd`; \
 	top_distdir=`cd $(top_distdir) && pwd`; \
-	distdir=`cd $(distdir) && pwd`; \
 	cd $(top_srcdir) \
 	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --gnu kmid/player/Makefile
 	@for file in $(DISTFILES); do \
@@ -300,7 +284,12 @@ distdir: $(DISTFILES)
 	  || cp -p $$d/$$file $(distdir)/$$file; \
 	done
 
+MKDEP = gcc -M $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS)
+
 DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
+-include .deps/.P
+.deps/.P: $(BUILT_SOURCES)
+	echo > $@
 
 -include $(DEP_FILES)
 
@@ -311,29 +300,22 @@ clean-depend:
 distclean-depend:
 
 maintainer-clean-depend:
-	-rm -rf .deps
+	rm -rf .deps
 
-%.o: %.c
-	@echo '$(COMPILE) -c $<'; \
-	$(COMPILE) -Wp,-MD,.deps/$(*F).P -c $<
+.deps/%.P: %.c
+	@echo "Computing dependencies for $<..."
+	@o='o'; \
+	test -n "$o" && o='$$o'; \
+	$(MKDEP) $< >$@.tmp \
+	  && sed "s,^\(.*\)\.o:,\1.$$o \1.l$$o $@:," < $@.tmp > $@ \
+	  && rm -f $@.tmp
 
-%.lo: %.c
-	@echo '$(LTCOMPILE) -c $<'; \
-	$(LTCOMPILE) -Wp,-MD,.deps/$(*F).p -c $<
-	@-sed -e 's/^\([^:]*\)\.o:/\1.lo \1.o:/' \
-	  < .deps/$(*F).p > .deps/$(*F).P
-	@-rm -f .deps/$(*F).p
-
-%.o: %.cc
-	@echo '$(CXXCOMPILE) -c $<'; \
-	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).P -c $<
-
-%.lo: %.cc
-	@echo '$(LTCXXCOMPILE) -c $<'; \
-	$(LTCXXCOMPILE) -Wp,-MD,.deps/$(*F).p -c $<
-	@-sed -e 's/^\([^:]*\)\.o:/\1.lo \1.o:/' \
-	  < .deps/$(*F).p > .deps/$(*F).P
-	@-rm -f .deps/$(*F).p
+.deps/%.P: %.cc
+	@echo "Computing dependencies for $<..."
+	@o='o'; \
+	$(CXXMKDEP) $< >$@.tmp \
+	  && sed "s,^\(.*\)\.o:,\1.$$o \1.l$$o $@:," < $@.tmp > $@ \
+	  && rm -f $@.tmp
 info:
 dvi:
 check: all
@@ -358,19 +340,19 @@ installdirs:
 
 
 mostlyclean-generic:
-	-test -z "$(MOSTLYCLEANFILES)" || rm -f $(MOSTLYCLEANFILES)
+	test -z "$(MOSTLYCLEANFILES)" || rm -f $(MOSTLYCLEANFILES)
 
 clean-generic:
-	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
+	test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
-	-rm -f Makefile $(DISTCLEANFILES)
-	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
-	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
+	rm -f Makefile $(DISTCLEANFILES)
+	rm -f config.cache config.log stamp-h stamp-h[0-9]*
+	test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 
 maintainer-clean-generic:
-	-test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
-	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
+	test -z "$(MAINTAINERCLEANFILES)" || rm -f $(MAINTAINERCLEANFILES)
+	test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
 mostlyclean:  mostlyclean-noinstLIBRARIES mostlyclean-compile \
 		mostlyclean-libtool mostlyclean-noinstPROGRAMS \
 		mostlyclean-tags mostlyclean-depend mostlyclean-generic
@@ -382,8 +364,8 @@ clean:  clean-noinstLIBRARIES clean-compile clean-libtool \
 distclean:  distclean-noinstLIBRARIES distclean-compile \
 		distclean-libtool distclean-noinstPROGRAMS \
 		distclean-tags distclean-depend distclean-generic clean
-	-rm -f config.status
-	-rm -f libtool
+	rm -f config.status
+	rm -f libtool
 
 maintainer-clean:  maintainer-clean-noinstLIBRARIES \
 		maintainer-clean-compile maintainer-clean-libtool \
