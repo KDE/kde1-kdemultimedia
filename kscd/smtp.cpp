@@ -27,7 +27,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-extern debugflag;
+extern bool debugflag;
 
 SMTP::SMTP(char *serverhost, int port, int timeout)
 {
