@@ -50,6 +50,8 @@ int main ( int argc, char *argv[] )
   globalKapp = new KApplication( argc, argv, "kmedia" );
   KMediaUI *kmediaui;
 
+  // Setup signal handler for SIGCHLD. This allows to see when
+  // media slaves go down.
   act.sa_handler = sigchld_handler;
   sigemptyset(&(act.sa_mask));
   sigaddset(&(act.sa_mask), SIGCHLD);                                       
@@ -106,8 +108,6 @@ void KMediaWin::initMediatool()
   MdConnectNew(&m);
   if ( m.shm_adr == NULL )
     dtfatal("Failed creating media connection.\n");
-
-  // printf("The media id (talk id) for today is %i.\n", m.talkid);
 
   Playlist = PlaylistNew();
   if ( !Playlist )

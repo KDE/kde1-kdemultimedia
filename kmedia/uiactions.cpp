@@ -48,8 +48,6 @@ void KMediaWin::quitAll()
 
 void KMediaWin::quit()
 {
-  // Quit should be done by the "lastWindowClosed SIGNAL handler. But
-  // it does not make it through KApplication:-(
   //  if ( allMediaWins.count() > 1 )
   delete this;
   //  else

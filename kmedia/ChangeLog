@@ -1,3 +1,10 @@
+1998-12-12  Christian Esken  <esken@kde.org>
+
+	* Touches for KDE1.1:
+	* Version number bumped to 1.0
+	* Adding setSteps(), this was an omission
+	* Adding status bar item (Time)
+
 1998-06-17  Christian Esken  <esken@kde.org>
 
 	* ADDING MdDisconnect(). *BSD users should be much happier now.

@@ -141,7 +141,8 @@ void KMediaWin::createPanel()
   // Setup/Create the status bar
   statbar = new KStatusBar(this);
   statbar->insertItem( "xxxxxxxxxxxxxx", 1 );
-  statbar->insertItem( "", 2 );
+  statbar->insertItem( "  0:00", 2 );
+  statbar->insertItem( "", 3 );
   setStatusBar(statbar);
 
 
@@ -234,16 +235,16 @@ void KMediaWin::createMenu()
 
 
   QString msg,head;
-  char vers[50];
-  sprintf (vers,"%.2f", APP_VERSION);
   msg  = "KMedia ";
-  msg += vers;
+  msg += APP_VERSION;
   msg += i18n("\n(C) 1996-1998 by Christian Esken (esken@kde.org).\n\n" \
     "Media player for the KDE Desktop Environment.\n"\
     "This program is in the GPL.\n");
 
-  head = i18n("About KMedia ");
-  head += vers;
+  head = i18n("About");
+  head += (" KMedia ");
+  head += APP_VERSION;
+
   Mhelp = globalKapp->getHelpMenu(true,msg);
   CHECK_PTR( Mhelp );
 
@@ -372,7 +373,16 @@ void KMediaWin::SlaveStatusQuery()
       newPosValid = false;
       PosSB->setRange(0,StatChunk->pos_max);
       PosSB->setValue(StatChunk->pos_current);
+//      if ( StatChunk->pos_max < 60 )
+        PosSB->setSteps(1,60);
+//      else
+//        PosSB->setSteps(10,60);
 
+      QString position = "";
+      int minutes = StatChunk->pos_current / 60;
+      int seconds = StatChunk->pos_current % 60;
+      position.sprintf( "%3i:%02i", minutes, seconds );
+      statbar->changeItem(position,2);
       pos_old = StatChunk->pos_current;
       max_old = StatChunk->pos_max;
     }
@@ -383,7 +393,7 @@ void KMediaWin::SlaveStatusQuery()
     && (strcmp (fnameOld, StatChunk->songname) != 0) )
     {
       strcpy (fnameOld, StatChunk->songname);
-      statbar->changeItem(StatChunk->songname,2);
+      statbar->changeItem(StatChunk->songname,3);
     }
 
   /* Update key field. (De)activate keys, reflecting the status of the 
