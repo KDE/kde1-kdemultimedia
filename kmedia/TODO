@@ -1,37 +1,22 @@
 - Use QBoxLayout Class or libkresize???
 
-For V0.45
+For V1.10
 - Cleanup code, create a class KMedia:
   - k->play(media)
   - k->stop(media)
   - k->pause(media)
   - ...
 
-For V0.6
-- Major protocol revision: Message passing, TCP, net capabilities
-
-For V0.7
-- Master must have the ability to reconnect to existing connections
-- Master must have the ability to find dead connections (Timeout).
-  The same goes for connections, that are not getting built
-  at all, because the slave does not show up (No change in
-  STAT chunk done by slave). Explanation: The slave may not
-  show up because of different reasons. Memory allocation failed,
-  config file missing or because the connection library could not
-  connect the slave. Several, much more esoteric reasons, can be
-  constructed easily. This is left as exercise to the reader. ;-)
-
-
-For V0.8
-- Implement the directed text exchange protocol (Slave ---> Master).
-
-For V0.9
+For V1.15
 - Make it possible to make entrys into kpanel (play, forward, next track,
   ...) ??? Could be simply implemented as mini-programs. Then create a
   *.kdelnk for each button/program.
 
+For V2.0
+- Major protocol revision: Message passing, TCP, net capabilities
+- Implement the directed text exchange protocol (Slave ---> Master).
 
-For V1.0 or later
+For V2.0 or later
 - Special configuration data, such as sidplay filter settings could be
   setup by an external program. This is to be called by the slave (or
   the master???), again with a -media option. The slave creates during
