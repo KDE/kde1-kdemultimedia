@@ -1,6 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Comment=CD Database File
+Comment[cs]=Soubor CD databáze
 Comment[de]=CD-Datenbank-Datei
 Comment[es]=Archivo de datos de CDs
 Comment[fi]=CD Tietokantatiedosto
