@@ -58,7 +58,7 @@ char 		*tottime;
 //static void 	playtime (void);
 void 		kcderror(char* title,char* message);
 void 		kcdworker(int );
-void 		parseargs(char* buf, char** args);
+//void 		parseargs(char* buf, char** args);
 extern QTime framestoTime(int frames);
 extern void cddb_decode(QString& str);
 extern void cddb_encode(QString& str, QStrList &returnlist);
@@ -259,7 +259,7 @@ void KSCD::initCDROM(){
   if(cddrive_is_ok)
     volChanged(volume);
 
-  //  timer->start(1000);
+  timer->start(1000);
   //  cdMode();
 }  
 
@@ -1076,21 +1076,15 @@ void KSCD::cdMode(){
     
     sprintf( p, "%02d  ", cur_track );
     if(songListCB->count() == 0){
+      // we are in here when we start kscd and 
+      // the cdplayer is already playing.	
+
       for (int i = 0; i < cur_ntracks; i++){
-
-	// we are in here when we start kscd and 
-	// the cdplayer is already playing.	
-
-	timer->stop(); 
-
-	// timer must be restarted when we are done
-	// with getting the cddb info
-
-      	get_cddb_info(false); // false == do not update dialog if open
 	songListCB->insertItem( QString( 0 ).sprintf("Track %02d",i + 1 ) );
-
       }
       songListCB->setCurrentItem( cur_track - 1 );
+      have_new_cd = false;
+      get_cddb_info(false); // false == do not update dialog if open
     }
     else{
       songListCB->setCurrentItem( cur_track - 1 );
@@ -1140,8 +1134,8 @@ void KSCD::cdMode(){
     damn = FALSE;
     if(have_new_cd){
 
-      timer->stop(); 
-
+      //      timer->stop(); 
+      have_new_cd = false;
       // timer must be restarted when we are doen
       // with getting the cddb info
       get_cddb_info(false); // false == do not update dialog if open
@@ -1377,7 +1371,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
 			       );
 
   if(!res && !cddb_remote_enabled){
-    have_new_cd = false;
+    //    have_new_cd = false;
     cddb_no_info();
     return;
   }
@@ -1413,7 +1407,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
     playlistpointer = 0;
   }
 
-  have_new_cd = false;
+  //  have_new_cd = false;
 
 }
 
@@ -1936,7 +1930,7 @@ void kcderror(char* title,char* message){
 
 #include "kscd.moc"
 
-
+/*
 void parseargs(char* buf, char** args){
 
   while(*buf != '\0'){
@@ -1959,3 +1953,32 @@ void parseargs(char* buf, char** args){
   *args ='\0';;
 
 }
+*/
+/* this is how you do real http encoding TODO rewrite for qstrings!!
+STATIC void
+cddb_http_xlat(char *s1, char *s2)
+{
+	char	*p,
+		*q;
+
+	for (p = s1, q = s2; *p != '\0'; p++) {
+		switch (*p) {
+		case '?':
+		case '=':
+		case '+':
+		case '&':
+		case ' ':
+		case '%':
+			(void) sprintf(q, "%%%02X", *p);
+			q += 3;
+			break;
+		default:
+			*q = *p;
+			q++;
+			break;
+		}
+	}
+	*q = '\0';
+}
+
+*/

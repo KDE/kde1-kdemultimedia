@@ -155,24 +155,26 @@ void CDDialog::setData(
     // some sanity provisions
 
     if((int)track_list.count() < cdinfo.ntracks + 1){
-
-      for(int i = 0 ; i < (int)( cdinfo.ntracks + 1 - track_list.count()) ; i ++){
+      int k = track_list.count();
+      for(int i = 0 ; i < (int)( cdinfo.ntracks + 1 - k) ; i ++){
 	track_list.append("");
       }
     }
 
     if((int)ext_list.count() < cdinfo.ntracks + 1){
-
-      for(int i = 0 ; i < (int) ( cdinfo.ntracks + 1 - ext_list.count()) ; i ++){
+      int l = ext_list.count();
+      for(int i = 0 ; i < (int) ( cdinfo.ntracks + 1 - l) ; i ++){
 	ext_list.append("");
       }
     }
 
-    while((int)track_list.count() > cdinfo.ntracks + 1)
+    while((int)track_list.count() > cdinfo.ntracks + 1){
       track_list.remove(track_list.count() - 1);
+    }
 
-    while((int)ext_list.count() > cdinfo.ntracks + 1)
+    while((int)ext_list.count() > cdinfo.ntracks + 1){
       ext_list.remove(ext_list.count() - 1);
+    }
     
 
     titleedit->setText(track_list.at(0));

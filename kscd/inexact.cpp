@@ -62,15 +62,15 @@ InexactDialog::InexactDialog(QWidget *parent, const char *name,bool _listbox)
   statuslabel->setGeometry(2, 307, 400, 20);
   //statusPageLabel->setFont( QFont("helvetica",12,QFont::Normal) );
 
-  ok_button = new QPushButton(this,"ok_button");
-  ok_button->setGeometry(330,340,70,30);
-  ok_button->setText("Ok");
-  //  ok_button->setFocus();
-
   cancel_button = new QPushButton(this,"cancel_button");
-  cancel_button->setGeometry(250,340,70,30);
+  cancel_button->setGeometry(330,340,70,30);
   cancel_button->setText("Cancel");
   cancel_button->setFocus();
+
+  ok_button = new QPushButton(this,"ok_button");
+  ok_button->setGeometry(250,340,70,30);
+  ok_button->setText("Ok");
+  //  ok_button->setFocus();
 
 
   connect(ok_button,SIGNAL(clicked()),SLOT(checkit()));
