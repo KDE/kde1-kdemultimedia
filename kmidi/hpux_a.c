@@ -44,8 +44,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <errno.h>
-#include <audio/Alib.h>
-#include <audio/CUlib.h>
+#include <Alib.h>
+#include <CUlib.h>
 
 #include "config.h"
 #include "output.h"
