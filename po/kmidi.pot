@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-01-13 21:40+0100\n"
+"POT-Creation-Date: 1999-01-15 02:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -90,12 +90,12 @@ msgstr ""
 msgid "Song --/--"
 msgstr ""
 
-#: kmidi.cpp:511 kmidi.cpp:529 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
+#: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
 #: kmidi.cpp:653
 msgid "Playing"
 msgstr ""
 
-#: kmidi.cpp:512 kmidi.cpp:530
+#: kmidi.cpp:514 kmidi.cpp:531
 msgid "Random"
 msgstr ""
 

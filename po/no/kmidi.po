@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmidi\n"
-"POT-Creation-Date: 1999-01-13 21:40+0100\n"
+"POT-Creation-Date: 1999-01-15 02:20+0100\n"
 "PO-Revision-Date: 1999-01-13 20:20+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -89,12 +89,12 @@ msgstr "kmidi"
 msgid "Song --/--"
 msgstr "Sang --/--"
 
-#: kmidi.cpp:511 kmidi.cpp:529 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
+#: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
 #: kmidi.cpp:653
 msgid "Playing"
 msgstr "Spiller"
 
-#: kmidi.cpp:512 kmidi.cpp:530
+#: kmidi.cpp:514 kmidi.cpp:531
 msgid "Random"
 msgstr "Tilfeldig"
 
