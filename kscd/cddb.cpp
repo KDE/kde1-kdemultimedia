@@ -155,15 +155,18 @@ void CDDB::cddbgetServerList(QString& _server)
     if(protocol==CDDBHTTP)
     {
 	cddb_connect_internal();
-        QString cmd="sites";
-	send_http_command(cmd);
-	if(use_http_proxy)
+	if(connected)
 	{
-	    saved_state=SERVER_LIST_WAIT;
-	    state=HTTP_REQUEST;
-	} else
-	{
-	    state = SERVER_LIST_WAIT;
+	    QString cmd="sites";
+	    send_http_command(cmd);
+	    if(use_http_proxy)
+	    {
+		saved_state=SERVER_LIST_WAIT;
+		state=HTTP_REQUEST;
+	    } else
+	    {
+		state = SERVER_LIST_WAIT;
+	    }
 	}
     } else 
     {
@@ -234,6 +237,7 @@ void CDDB::cddb_connect_internal()
 	else // mode == SERVER_LIST_GET
 	    emit get_server_list_failed();
 
+	connected = false;
 	return;    
     }
 
@@ -283,13 +287,16 @@ void CDDB::send_http_command(QString &command)
 	fprintf(stderr,"Sending HTTP request: %s",request.data());
     
     write(sock->socket(),request.data(),request.length());
+    timeouttimer.stop();
+    timeouttimer.start(timeout*1000,TRUE);
 }
 
 void CDDB::cddb_timed_out_slot()
 {
     timeouttimer.stop();
 
-    sock->enableRead(false);
+    if(sock) 
+	sock->enableRead(false);
 
     if( mode == REGULAR )
 	emit cddb_timed_out();
@@ -378,15 +385,18 @@ void CDDB::queryCD(unsigned long _magicID,QStrList& querylist)
     if(protocol==CDDBHTTP)
     {
 	cddb_connect_internal();
-	QString param = str;
-	send_http_command(param);
-        if(use_http_proxy)
-        {
-            saved_state = QUERY;
-            state       = HTTP_REQUEST;
-        } else {
-            state  = QUERY;
-        }
+	if(connected)
+	{
+	    QString param = str;
+	    send_http_command(param);
+	    if(use_http_proxy)
+	    {
+		saved_state = QUERY;
+		state       = HTTP_REQUEST;
+	    } else {
+		state  = QUERY;
+	    }
+	}
     }
     else
     {
@@ -430,8 +440,11 @@ void CDDB::query_exact(QString line)
     if(protocol==CDDBHTTP)
     {
 	cddb_connect_internal();
-	readstring.sprintf("cddb read %s %s",category.data(),magicstr.data());
-	send_http_command(readstring);
+	if(connected)
+	{
+	    readstring.sprintf("cddb read %s %s",category.data(),magicstr.data());
+	    send_http_command(readstring);
+	}
     }
     else
     {
