@@ -168,21 +168,6 @@ void init_soundfont(char *fname, int order)
 		int preset = sfinfo.presethdr[i].preset;
 		if (is_excluded(bank, preset, -1))
 			continue;
-#if 0
-#ifndef ADAGIO
-		if (bank == 128) {
-			if (!drumset[preset]) {
-				drumset[preset] = safe_malloc(sizeof(ToneBank));
-				memset(drumset[preset], 0, sizeof(ToneBank));
-			}
-		} else {
-			if (!tonebank[bank]) {
-				tonebank[bank] = safe_malloc(sizeof(ToneBank));
-				memset(tonebank[bank], 0, sizeof(ToneBank));
-			}
-		}
-#endif
-#endif
 /*fprintf(stderr,"(init) file %s, bank %d, preset %d, order %d\n", sfrec.fname, bank, preset, order);*/
 		parse_preset(&sfrec, &sfinfo, i, order);
 	}
@@ -253,7 +238,6 @@ Instrument *load_sbk_patch(int order, int gm_num, int tpgm, int reverb, int main
     extern int next_wave_prog;
     char *name;
     int percussion, amp=-1, keynote, strip_loop, strip_envelope, strip_tail, bank, newmode;
-    int order = 1;
 #else
 Instrument *load_sbk_patch(int order, char *name, int gm_num, int bank, int percussion,
 			   int panning, int amp, int keynote,
@@ -869,41 +853,68 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 /** something is wrong here
  Try casting the layer offset to signed ints?
 **/
-#if 0
-	sp->startsample = (lay->val[SF_startAddrsHi] << 16)
+	sp->startsample = (lay->val[SF_startAddrsHi] << 15)
 		+ lay->val[SF_startAddrs]
 		+ sample->startsample;
-	sp->endsample = (lay->val[SF_endAddrsHi] << 16)
+	sp->endsample = (lay->val[SF_endAddrsHi] << 15)
 		+ lay->val[SF_endAddrs]
 		+ sample->endsample - sp->startsample;
-#endif
-	sp->startsample = sample->startsample;
-	sp->endsample = sample->endsample - sample->startsample;
 
 /* TODO: Substitute values given in config file, assessed by, e.g.:
 	    bank->tone[program].strip_tail=-1;
 */
 
 	/* set loop position */
-#if 0
-	sp->v.loop_start = (lay->val[SF_startloopAddrsHi] << 16)
+	sp->v.loop_start = (lay->val[SF_startloopAddrsHi] << 15)
 		+ lay->val[SF_startloopAddrs]
 		+ sample->startloop - sp->startsample;
-	sp->v.loop_end = (lay->val[SF_endloopAddrsHi] << 16)
+	sp->v.loop_end = (lay->val[SF_endloopAddrsHi] << 15)
 		+ lay->val[SF_endloopAddrs]
 		+ sample->endloop - sp->startsample;
-#endif
-	sp->v.loop_start = sample->startloop - sample->startsample;
-	sp->v.loop_end = sample->endloop - sample->startsample;
 	sp->v.data_length = sp->endsample;
+#if 0
+/* debug loop point calculation */
+{
+	int32 xloop_start = sample->startloop - sp->startsample;
+	int32 xloop_end = sample->endloop - sp->startsample;
+	int yloop_start = (lay->val[SF_startloopAddrsHi] << 15) + lay->val[SF_startloopAddrs];
+	int yloop_end = (lay->val[SF_endloopAddrsHi] << 15) + lay->val[SF_endloopAddrs];
+	xloop_start += yloop_start;
+	xloop_end += yloop_end;
+	if (xloop_start > xloop_end) {
+	fprintf(stderr,"start %ld > end %ld\n", xloop_start, xloop_end);
+	fprintf(stderr,"\tstart %ld = orig %lu + yloop_start %d\n", xloop_start,
+		sp->v.loop_start, yloop_start);
+	fprintf(stderr,"\t\tyloop_start 0x%x = high 0x%x + low 0x%x\n", yloop_start,
+		(lay->val[SF_startloopAddrsHi] << 15), lay->val[SF_startloopAddrs]);
+	fprintf(stderr,"\t\tend %ld = orig %lu + yloop_end %d\n", xloop_end,
+		sp->v.loop_end, yloop_end);
+	fprintf(stderr,"\tlen %lu, startsample %lu sample startloop %lu endsample %lu\n",
+		sample->endsample - sample->startsample,
+		sample->startsample, sample->startloop, sample->endsample);
+	}
+	if (xloop_end > sp->v.data_length) {
+	fprintf(stderr,"end %ld > length %lu\n", xloop_end, sp->v.data_length);
+	fprintf(stderr,"\tend %ld = orig %lu + yloop_end %d\n", xloop_end,
+		sp->v.loop_end, yloop_end);
+	fprintf(stderr,"\t\tyloop_end 0x%x = high 0x%x + low 0x%x\n", yloop_end,
+		(lay->val[SF_endloopAddrsHi] << 15), lay->val[SF_endloopAddrs]);
+	fprintf(stderr,"\tlen %lu, startsample %lu sample endloop %lu endsample %lu\n",
+		sample->endsample - sample->startsample,
+		sample->startsample, sample->endloop, sample->endsample);
+	fprintf(stderr,"\t\tstart offset = high 0x%x + low 0x%x\n",
+		(lay->val[SF_startAddrsHi] << 15), lay->val[SF_startAddrs]);
+	fprintf(stderr,"\t\tend offset = high 0x%x + low 0x%x\n",
+		(lay->val[SF_endAddrsHi] << 15), lay->val[SF_endAddrs]);
+	}
+}
+#endif
 
-/*#if 0*/
 	if (sp->v.loop_start < 0) {
 		fprintf(stderr, "negative loop pointer: stripping loop\n");
 		strip_loop = 1;
 	}
 	if (sp->v.loop_start > sp->v.loop_end) {
-		/* this happens a lot with chaos8m --gl */
 		fprintf(stderr, "illegal loop position: stripping loop\n");
 		strip_loop = 1;
 	}
@@ -911,7 +922,9 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 		/* this happens a lot with chaos12m --gl */
 		/*fprintf(stderr, "illegal loop end or data size\n");*/
 		/*strip_loop = 1;*/
-		sp->v.loop_end = sp->v.data_length;
+		if (sp->v.loop_end - sp->v.loop_start > 4)
+			sp->v.loop_end -= 4;
+		else sp->v.loop_end = sp->v.data_length;
 	}
 if (strip_loop == 1) {
 	fprintf(stderr, "orig start sample %lu, endsample %lu\n", sample->startsample, sample->endsample);
