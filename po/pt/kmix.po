@@ -7,21 +7,19 @@ msgstr ""
 
 #: docking.cpp:70 docking.cpp:166
 msgid "Restore"
-msgstr ""
+msgstr "Restaurar"
 
 #: docking.cpp:164
 msgid "Minimize"
-msgstr ""
+msgstr "Minimizar"
 
 #: kmix.cpp:414
-#, fuzzy
 msgid "&Hide Menubar"
-msgstr "Esconder Barra de Menu"
+msgstr "&Esconder Barra de Menu"
 
 #: kmix.cpp:417
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "Marcas Ligado/Desligado"
+msgstr "&Marcas Ligado/Desligado"
 
 #: kmix.cpp:431
 msgid ""
@@ -34,6 +32,14 @@ msgid ""
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
+"\n"
+"(C) 1997 por Christian Esken (esken@kde.org).\n"
+"\n"
+"Mesa de mistura para o Ambiente de Trabalho KDE.\n"
+"Este programa está sobre a GPL.\n"
+"Portagem para SGI por Paul Kendall (paul@orion.co.nz).\n"
+"Modificações *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"e Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:455
 msgid "&Left"
@@ -102,24 +108,3 @@ msgstr "Dispositivo"
 #: prefs.cpp:97
 msgid "Show"
 msgstr "Mostrar"
-
-#~ msgid "&Options"
-#~ msgstr "&Opções"
-
-#~ msgid "&Quit"
-#~ msgstr "&Sair"
-
-#~ msgid "&Contents"
-#~ msgstr "&Conteúdo"
-
-#~ msgid "&About"
-#~ msgstr "&Acerca"
-
-#~ msgid "&About Qt..."
-#~ msgstr "&Acerca do Qt..."
-
-#~ msgid "&File"
-#~ msgstr "&Ficheiro"
-
-#~ msgid "&Help"
-#~ msgstr "&Ajuda"
