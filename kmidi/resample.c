@@ -84,6 +84,7 @@ static sample_t *rs_plain(int v, int32 *countptr)
 #ifdef PRECALC_LOOPS
   int32 i;
 
+  if (!incr) return resample_buffer; /* ?? --gl */
   if (incr<0) incr = -incr; /* In case we're coming out of a bidir loop */
 
   /* Precalc how many times we should go through the loop.
@@ -149,7 +150,7 @@ static sample_t *rs_loop(Voice *vp, int32 count)
 #ifdef PRECALC_LOOPS
   int32 i;
  
-  if (incr < 1) incr = 1; 
+  if (incr < 1) incr = 1; /* fixup --gl */
   while (count) 
     {
       if (ofs >= le)
@@ -323,7 +324,8 @@ static int32 update_vibrato(Voice *vp, int sign)
 
   /* Need to compute this sample increment. */
     
-  depth=vp->sample->vibrato_depth<<7;
+  /*depth=vp->sample->vibrato_depth<<7;*/
+  depth=vp->vibrato_depth<<7;
 
   if (vp->vibrato_sweep)
     {
@@ -436,6 +438,7 @@ static sample_t *rs_vib_loop(Voice *vp, int32 count)
   int
     vibflag=0;
 
+  if (!incr) return resample_buffer;
   while (count) 
     {
       /* Hopefully the loop is longer than an increment */
