@@ -35,11 +35,6 @@
 #include "player/midiout.h"
 #include "player/player.h"
 #include "player/track.h"
-#ifdef HAVE_PTHREAD_MIT_PTHREAD_H
-#include <pthread/mit/pthread.h>
-#else
-#include <pthread.h>
-#endif
 #include <qtimer.h>
 //#include "kdisptext.h"
 
