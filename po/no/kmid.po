@@ -319,9 +319,8 @@ msgid "Change Collection Name"
 msgstr "Endre samlingsnavn"
 
 #: channelview.cpp:33
-#, fuzzy
 msgid "ChannelView"
-msgstr "Vi kanalvisning"
+msgstr "Kanalvisning"
 
 #: channel.cpp:87
 msgid "Channel"

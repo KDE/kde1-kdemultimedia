@@ -237,11 +237,11 @@ msgstr "Spell når døren lukkes"
 
 #: configdlg.cpp:169
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Autodokk ved minimering"
 
 #: configdlg.cpp:175
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Stopp spilling ved avslutt"
 
 #: docking.cpp:72 kscd.cpp:517
 msgid "Play/Pause"
