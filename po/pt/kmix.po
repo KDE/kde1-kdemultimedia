@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-01-26 20:00+0000\n"
 "Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
 
@@ -76,15 +76,23 @@ msgstr "&Juntar"
 msgid "&RecSource"
 msgstr "Fonte de G&ravação"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Geral"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Canais"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Configurações iniciais"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Barra de menu"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Marcas"
 
@@ -92,31 +100,23 @@ msgstr "Marcas"
 msgid "Allow docking"
 msgstr "Permitir docking"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Geral"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Canais"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Preferências do KMix"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Configuração dos canais do mixer"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Mostrar"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Dividir"
 

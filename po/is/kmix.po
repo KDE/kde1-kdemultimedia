@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-10-05 01:30+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@imf.au.dk>\n"
 "Language-Team: is\n"
@@ -78,15 +78,23 @@ msgstr "&Sameina"
 msgid "&RecSource"
 msgstr "Stilla &upptöku"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Almennt"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Rásir"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Upphafsgildi"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Valmyndarstika"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Kvarði"
 
@@ -94,31 +102,23 @@ msgstr "Kvarði"
 msgid "Allow docking"
 msgstr "Hleypa á spjaldið"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Almennt"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Rásir"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix stillingar"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Rásaval"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Tæki"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Sýna"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Kjúfa"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-10-18 15:43+0200\n"
 "Last-Translator: Alonso Lara <jlaram@nexo.es>\n"
 
@@ -75,15 +75,23 @@ msgstr "S&encillo"
 msgid "&RecSource"
 msgstr "&Fuente de Grabación"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "General"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Canales"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Configuración de Inicio"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Barra de Menús"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Marcas"
 
@@ -91,31 +99,23 @@ msgstr "Marcas"
 msgid "Allow docking"
 msgstr "Permitir estacionamiento"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "General"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Canales"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Preferencias"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Configuración canales del mezclador"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Mostrar"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Dividir"
 

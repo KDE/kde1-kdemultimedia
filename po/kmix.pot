@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -75,15 +75,23 @@ msgstr ""
 msgid "&RecSource"
 msgstr ""
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr ""
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr ""
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr ""
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr ""
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr ""
 
@@ -91,31 +99,23 @@ msgstr ""
 msgid "Allow docking"
 msgstr ""
 
-#: prefs.cpp:90
-msgid "General"
-msgstr ""
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr ""
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr ""
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr ""
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr ""
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr ""
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr ""
 

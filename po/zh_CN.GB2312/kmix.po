@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -71,15 +71,23 @@ msgstr "解除分割[&S]"
 msgid "&RecSource"
 msgstr "录音源[&R]"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "一般"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "频道"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "启动设定"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "菜单"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "刻度显示"
 
@@ -87,33 +95,25 @@ msgstr "刻度显示"
 msgid "Allow docking"
 msgstr "允许内嵌"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "一般"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "频道"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix 偏好设定"
 
 #
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "混音器通道设定"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "设备"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "显示"
 
 # , fuzzy
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "分割"
 

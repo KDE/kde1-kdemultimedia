@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KMIX 1.0\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-12-09 23:15 CET\n"
 "Last-Translator: Francois-Xavier DURANCEAU "
 "<Francois-Xavier.Duranceau@loria.fr>\n"
@@ -84,15 +84,23 @@ msgstr "&Attacher"
 msgid "&RecSource"
 msgstr "Source d'&enregistrement"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Général"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Canaux"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Paramètres de démarrage"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Barre de menus"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Graduations"
 
@@ -100,31 +108,23 @@ msgstr "Graduations"
 msgid "Allow docking"
 msgstr "Autoriser l'insertion dans le panneau"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Général"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Canaux"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Préférences de KMix"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Configuration des canaux du Mixeur"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Périphérique"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Afficher"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Séparer"
 

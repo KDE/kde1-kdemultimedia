@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-05-11 13:50+0100\n"
 "Last-Translator: Christian Esken <esken@kde.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -81,15 +81,23 @@ msgstr "&Verbinden"
 msgid "&RecSource"
 msgstr "&Aufnahme-Quelle"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Allgemeines"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Kanäle"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Starteinstellungen"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Menü"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Skalen"
 
@@ -97,31 +105,23 @@ msgstr "Skalen"
 msgid "Allow docking"
 msgstr "Andocken an Panel"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Allgemeines"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Kanäle"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix Einstellungen"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Kanaleinstellungen"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Gerät"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Zeige"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Trennen"
 

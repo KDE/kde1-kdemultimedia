@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KMIX\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,15 +84,23 @@ msgstr "&Yhdistä"
 msgid "&RecSource"
 msgstr "&Äänityslähde"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Yleinen"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Kanavat"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Aloitusviestit"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Valikkorivi"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Merkit"
 
@@ -100,31 +108,23 @@ msgstr "Merkit"
 msgid "Allow docking"
 msgstr "Salli upotus"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Yleinen"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Kanavat"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix asetukset"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Sekoittajan kanava-asetukset"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Laite"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Näytä"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Jaa"
 

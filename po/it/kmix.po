@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,15 +72,23 @@ msgstr "Abbina"
 msgid "&RecSource"
 msgstr "Registratore"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr "Generale"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Canali"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Configurazione di partenza"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Barra menu"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Graduatori"
 
@@ -88,31 +96,23 @@ msgstr "Graduatori"
 msgid "Allow docking"
 msgstr ""
 
-#: prefs.cpp:90
-msgid "General"
-msgstr "Generale"
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Canali"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Preferenze KMix"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Configurazione canali mixer"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Device"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Mostra"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Separa"
 

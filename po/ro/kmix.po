@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kde-1.0pre\n"
-"POT-Creation-Date: 1998-12-21 02:20+0100\n"
+"POT-Creation-Date: 1998-12-24 02:12+0100\n"
 "PO-Revision-Date: 1998-07-04 12:00+0200\n"
 "Last-Translator: Paul Ionescu <omy@main.romsoft.ro>\n"
 "Language-Team: ??? <ro@li.org>\n"
@@ -85,15 +85,23 @@ msgstr "&Unire"
 msgid "&RecSource"
 msgstr "Sursã&Inreg"
 
-#: prefs.cpp:44
+#: prefs.cpp:42
+msgid "General"
+msgstr ""
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Canale"
+
+#: prefs.cpp:46
 msgid "Startup settings"
 msgstr "Setãri iniþiale"
 
-#: prefs.cpp:49
+#: prefs.cpp:51
 msgid "Menubar"
 msgstr "Bara de meniu"
 
-#: prefs.cpp:55
+#: prefs.cpp:56
 msgid "Tickmarks"
 msgstr "Marcaje"
 
@@ -101,31 +109,23 @@ msgstr "Marcaje"
 msgid "Allow docking"
 msgstr "Permite docare"
 
-#: prefs.cpp:90
-msgid "General"
-msgstr ""
-
-#: prefs.cpp:91
-msgid "Channels"
-msgstr "Canale"
-
-#: prefs.cpp:93
+#: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "Preferinþe KMix"
 
-#: prefs.cpp:103
+#: prefs.cpp:96
 msgid "Mixer channel setup"
 msgstr "Setare canal mixer"
 
-#: prefs.cpp:110
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Dispozitiv"
 
-#: prefs.cpp:116
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Aratã"
 
-#: prefs.cpp:122
+#: prefs.cpp:115
 msgid "Split"
 msgstr "Separare"
 
