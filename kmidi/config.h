@@ -228,6 +228,22 @@
 # endif        
 #endif /* linux */
 
+#ifdef __FreeBSD__
+#include <errno.h>
+#include <machine/endian.h>
+#if BYTE_ORDER == LITTLE_ENDIAN
+#undef BIG_ENDIAN
+#undef PDP_ENDIAN
+#elif BYTE_ORDER == BIG_ENDIAN
+#undef LITTLE_ENDIAN
+#undef PDP_ENDIAN
+#else
+# error No valid byte sex defined
+#endif
+#define USE_LDEXP
+#define PI M_PI
+#endif /* __FreeBSD__ */
+
 /* Win32 on Intel machines */
 #ifdef __WIN32__
 #  define LITTLE_ENDIAN
@@ -265,13 +281,23 @@ typedef char int8;
 #ifdef LITTLE_ENDIAN
 #define LE_SHORT(x) x
 #define LE_LONG(x) x
+#ifdef __FreeBSD__
+#define BE_SHORT(x) __byte_swap_word(x)
+#define BE_LONG(x) __byte_swap_long(x)
+#else
 #define BE_SHORT(x) XCHG_SHORT(x)
 #define BE_LONG(x) XCHG_LONG(x)
+#endif
 #else
 #define BE_SHORT(x) x
 #define BE_LONG(x) x
+#ifdef __FreeBSD__
+#define LE_SHORT(x) __byte_swap_word(x)
+#define LE_LONG(x) __byte_swap_long(x)
+#else
 #define LE_SHORT(x) XCHG_SHORT(x)
 #define LE_LONG(x) XCHG_LONG(x)
+#endif
 #endif
 
 #define MAX_AMPLIFICATION 800
@@ -364,3 +390,5 @@ typedef char int8;
 #define PI M_PI
 #endif
 #endif
+
+/* $Id$ */
