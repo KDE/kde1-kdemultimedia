@@ -45,6 +45,8 @@ SUBDIRS = docs kscdmagic
 CDDB_DIRS = rock blues classical jazz newage soundtrack \
 	reggae folk country misc data
 
+bin_SCRIPTS = workman2cddb.pl
+
 install-data-local:
 	for i in $(CDDB_DIRS); do \
 	if test ! -d $(CDDBDIR)/$$i; then \
@@ -52,8 +54,6 @@ install-data-local:
 		chmod 0777 $(CDDBDIR)/$$i ;\
 	fi ;\
 	done 
-	$(mkinstalldirs) $(kde_bin)
-	$(INSTALL_PROGRAM) workman2cddb.pl $(kde_bindir)
 	$(mkinstalldirs) $(kde_icondir)
 	$(INSTALL_DATA) kscd.xpm $(kde_icondir)
 	$(INSTALL_DATA) bitmaps/cd.xpm $(kde_icondir)
