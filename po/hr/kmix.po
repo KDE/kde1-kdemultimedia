@@ -40,6 +40,15 @@ msgid ""
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
+"\n"
+"(C) 1997 Christian Esken (esken@kde.org).\n"
+"\n"
+"Sound mixer ploèa za KDE Desktop Environment.\n"
+"Ovaj program pokriven je GPL licencom.\n"
+"SGI Port napravio Paul Kendall (paul@orion.co.nz).\n"
+"*BSD popravke Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"i Lennart Augustsson (augustss@cs.chalmers.se)."
+
 
 #: kmix.cpp:455
 msgid "&Left"
