@@ -57,7 +57,7 @@ char 		*tottime;
 //static void 	playtime (void);
 void 		kcderror(char* title,char* message);
 void 		kcdworker(int );
-
+void 		parseargs(char* buf, char** args);
 extern QTime framestoTime(int frames);
 extern void cddb_decode(QString& str);
 extern void cddb_encode(QString& str, QStrList &returnlist);
@@ -1203,10 +1203,12 @@ void KSCD::readSettings(){
 
   config = mykapp->getConfig();
   
+  config->setGroup("GENERAL");
   volume = config->readNumEntry("Volume",40);
   tooltips  = (bool) config->readNumEntry("ToolTips",1);
   randomplay = (bool) config->readNumEntry("RandomPlay", 0);
-  use_kfm   = (bool) config->readNumEntry("Use_kfm_as_DefaultBrowser", 1);
+  use_kfm   = (bool) config->readNumEntry("USEKFM", 1);
+printf("USE KFM %d\n",use_kfm);
   cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
   cd_device = cd_device_str.data();
 
@@ -1237,7 +1239,8 @@ void KSCD::readSettings(){
 void KSCD::writeSettings(){
 		
   config = mykapp->getConfig();
-	
+
+  config->setGroup("GENERAL");	
   if(tooltips)
     config->writeEntry("ToolTips", 1);
   else
@@ -1246,15 +1249,15 @@ void KSCD::writeSettings(){
   if(randomplay)
     config->writeEntry("RandomPlay", 1);
   else
-    config->writeEntry("RandomPlay", 0);
-  
+    config->writeEntry("RandomPlay", 0); 
+  config->writeEntry("USEKFM", (int)use_kfm); 
   config->writeEntry("CDDevice",cd_device);
   config->writeEntry("CustomBroserCmd",browsercmd);
   config->writeEntry("Volume", volume);
   config->writeEntry("BackColor",background_color);
   config->writeEntry("LEDColor",led_color);
   config->writeEntry("UnixMailCommand",mailcmd);
-  config->writeEntry("Use_kfm_as_DefaultBrowser", (int)use_kfm);
+
 
   config->setGroup("CDDB");
   config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
@@ -1842,6 +1845,24 @@ void KSCD::startBrowser(char* querystring){
   }
   else{
 
+    char* shell = 0L;
+
+    QString bw = browsercmd.copy();
+    QString cmd;
+    cmd = cmd.sprintf(bw.data(),querystring);
+
+    if (!shell){
+    if ( ( shell = getenv("SHELL") ) && *shell ) // make sure SHELL is not empty
+      shell = qstrdup(getenv("SHELL"));
+    else
+      shell = "/bin/sh";
+    }
+   
+    KProcess proc;
+    proc.setExecutable(shell);
+    proc << "-c" << cmd;
+    proc.start(KProcess::DontCare);
+
   }
   
 }
@@ -1874,3 +1895,25 @@ void kcderror(char* title,char* message){
 #include "kscd.moc"
 
 
+void parseargs(char* buf, char** args){
+
+  while(*buf != '\0'){
+    
+    // Strip whitespace. Use nulls, so that the previous argument is terminated 
+    // automatically.
+     
+    while ((*buf == ' ' ) || (*buf == '\t' ) || (*buf == '\n' ) )
+      *buf++ ='\0';
+    
+    // save the argument
+    if(*buf != '\0')
+    *args++ = buf;
+    
+    while ((*buf != '\0') && (*buf != '\n') && (*buf != '\t') && (*buf != ' '))
+      buf++;
+    
+  }
+ 
+  *args ='\0';;
+
+}

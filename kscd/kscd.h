@@ -76,7 +76,7 @@
 #include "CDDialog.h"
 #include "CDDBSetup.h"
 #include <kapp.h>
-
+#include <kprocess.h>
 
 struct configstruct{
 
