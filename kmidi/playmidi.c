@@ -892,6 +892,8 @@ static void time_sync(int32 resync)
 static void show_markers(int32 until_time)
 {
     static struct meta_text_type *meta;
+    char buf[1024];
+    int i, j, len;
 
     if (!meta_text_list) return;
 
@@ -905,13 +907,25 @@ static void show_markers(int32 until_time)
 
     time_sync(-1);
 
+    buf[0] = '\0';
     while (meta)
 	if (meta->time <= time_expired) {
-	    ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", meta->text);
-	    if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");
+	    /*ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~[%s]", meta->text);*/
+	    strcat(buf, meta->text);
+	    /*if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");*/
+	    if (!meta->next) strcat(buf, " \n");
 	    meta = meta->next;
 	}
 	else break;
+    len = strlen(buf);
+    for (i = 0, j = 0; j < 1024 && j < len; j++)
+	if (buf[j] == '\n') {
+	    buf[j] = '\0';
+	    if (j - i > 0) ctl->cmsg(CMSG_INFO, VERB_NORMAL, buf + i);
+	    else ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");
+	    i = j + 1;
+	}
+    if (i < j) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", buf + i);
 }
 #endif
 
