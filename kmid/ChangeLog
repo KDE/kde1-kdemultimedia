@@ -82,7 +82,7 @@ because it played music at different tempos (sometimes faster and
 sometimes slower), without any rhythm. Anyway, this isn't a public
 version yet, it's only available from CVS.
 
-1.7    21-3-99
+1.7     2-4-99
 -----  -------
 Modified KMid to work with Linux kernels from the 2.2.x series which
 work very different than the ones in 2.0.x . That problem made KMid
@@ -90,4 +90,7 @@ continue playing music for a while (up to a few minutes !) after the
 user had pressed the stop button.
 Fixed a problem with AWE cards that made it play files with the pitch
 bender raised.
-Another usual fixes (better support for kernel modules, etc.)
+Fixed a problem that made kmid not to play the last few milliseconds of
+some songs (sometimes up to half a second)
+Another usual fixes (better support for kernel modules, workarounds for
+compiler bugs, etc.)         

@@ -468,9 +468,14 @@ kernel) I've found a fix that even works in the 2.0.x kernels.
 Sunday 21-3-99   (Applied on 2-4-99)
 - Fixed the high pitch of AWE cards (thanks to Joseph H. Buehler and Takashi Iwai for
  the indications)
-- Raised version number to 1.7
 
 Friday 2-4-99
 - Did a workaround for a bug in egcs which doesn't seem to optimize simple 
 return-a-value function as an inline function when using -O2 and it made kmid
 freeze under certain conditions when parsing some midi files.
+
+- Removed a comparison of double variables which is very dangerous (_even_ after
+storing in one of them the value of the other one)
+- Fixed a problem by which kmid didn't play the last half second or so of some songs. 
+- Raised version number to 1.7
+
