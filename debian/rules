@@ -44,10 +44,13 @@ binary-arch:	build
 
 binary-arch2:
 	make install 
-	rm -r debian/tmp/usr/share/apps/kscd/cddb/
+	rm -rf debian/tmp/usr/share/apps/kscd/cddb/
 	mkdir -p debian/tmp/etc/kde
 	echo "[CDDB]" > debian/tmp/etc/kde/kscdrc
 	echo "LocalBaseDir=/var/lib/cddb/" >> debian/tmp/etc/kde/kscdrc
+	echo "[General]" >> debian/tmp/etc/kde/kscdrc
+	echo "UnixMailCommand=/usr/bin/mail -s \"%s\"" >> debian/tmp/etc/kde/kscdrc 
+	echo "DOCKING=1" >> debian/tmp/etc/kde/kscdrc
 	perl -w debian/kderules
 	dh_movefiles
 	dh_undocumented `cat debian/man-pages`
@@ -57,6 +60,8 @@ binary-arch2:
 	dh_strip
 	dh_compress
 	dh_fixperms
+	chown root.cdrom debian/tmp/usr/X11R6/bin/kscd
+	chmod 2755 debian/tmp/usr/X11R6/bin/kscd
 	dh_suidregister
 	dh_installdeb
 	dh_shlibdeps
