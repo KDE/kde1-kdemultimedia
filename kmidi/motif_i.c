@@ -586,10 +586,16 @@ void handle_input(client_data, source, id)
 	    
 	    pipe_int_read(&type);
 	    pipe_string_read(message);
-	    
-	    XmTextInsert(text,wpr_position, message);
-	    wpr_position+= strlen(message);
-	    XmTextInsert(text,wpr_position++,"\n");
+
+	    if (*message == '~') {
+	        XmTextInsert(text,wpr_position, message+1);
+		wpr_position+= strlen(message) - 1;
+	    }
+	    else {
+		XmTextInsert(text,wpr_position, message);
+		wpr_position+= strlen(message);
+		XmTextInsert(text,wpr_position++,"\n");
+	    }
 	    XtVaSetValues(text,XmNcursorPosition, wpr_position,NULL);
 	    XmTextShowPosition(text,wpr_position);
 	}
