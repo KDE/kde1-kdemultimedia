@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
 "POT-Creation-Date: 1998-11-08 02:42+0100\n"
-"PO-Revision-Date: 1998-10-24 23:50 CEST\n"
+"PO-Revision-Date: 1998-11-09 08:54+01:00\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -235,11 +235,11 @@ msgstr "Hrát pøi uzavøení"
 
 #: configdlg.cpp:169
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Automaticky dokovat pøi minimalizaci"
 
 #: configdlg.cpp:175
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Pøestat hrát pøi ukonèení"
 
 #: docking.cpp:72 kscd.cpp:554
 msgid "Play/Pause"
@@ -283,25 +283,23 @@ msgstr "Vyberte, prosím, titul nebo stisknìte Zru¹it"
 
 #: kscd.cpp:220
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Záznam úspì¹nì odeslán"
 
 #: kscd.cpp:230
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Chyba pøi získávání CDDB polo¾ky."
+msgstr "Chyba pøi pøipojování k serveru."
 
 #: kscd.cpp:233
 msgid "Not connected."
-msgstr ""
+msgstr "Není spojeno."
 
 #: kscd.cpp:236
-#, fuzzy
 msgid "Connection timed out."
-msgstr "CDDB timeout."
+msgstr "Spojení vypr¹elo."
 
 #: kscd.cpp:239
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Timeout pøi èekání na interakci se serverem."
 
 #: kscd.cpp:242
 #, c-format
@@ -309,6 +307,8 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
+"Server øekl:\n"
+"\"%s\""
 
 #: kscd.cpp:244
 #, c-format
@@ -317,6 +317,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Chyba #%d pøi odesílání zprávy pøe SMTP.\n"
+"\n"
+"%s"
 
 #: kscd.cpp:373
 msgid "Vol: --"
@@ -495,7 +498,7 @@ msgstr ""
 
 #: kscd.cpp:1062
 msgid "SMTP Setup"
-msgstr ""
+msgstr "Nastavení SMTP"
 
 #: kscd.cpp:1063
 msgid "Kscd Options"
@@ -598,12 +601,12 @@ msgstr "Magický jas:"
 
 #: smtpconfig.cpp:14
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Umo¾nit odesílání pomoví SMTP"
 
 #: smtpconfig.cpp:20
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP Adresa:Port"
 
 #: smtpconfig.cpp:36
 msgid "Your Email Address"
-msgstr ""
+msgstr "Va¹e e-malová adresa"
