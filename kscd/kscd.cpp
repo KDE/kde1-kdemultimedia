@@ -300,7 +300,6 @@ void KSCD::drawPanel()
     //	const int SBARWIDTH = 180; //140
     const int SBARWIDTH = 220; //140
 
-    setCaption( "kscd" );
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, klocale->translate("About") );
 
     ix = 0;
@@ -2346,7 +2345,7 @@ void KSCD::get_pathlist(QStrList& _pathlist){
     d.setSorting( QDir::Size);
     d.setPath(cddbbasedir.data());
     if(!d.exists()){
-        
+
         dialog = new InexactDialog(0, "dialog", false);
         dialog->insertText(cddbbasedir.data());
         dialog->setTitle((char *)klocale->translate("Enter the local CDDB base Directory"));
@@ -2399,6 +2398,7 @@ int main( int argc, char *argv[] )
     mykapp->setWmCommand(argv[0]);
     mykapp->setTopWidget(k);
     mykapp->setMainWidget( k );
+    k->setCaption(mykapp->getCaption());
     k->show();
 
     return mykapp->exec();
