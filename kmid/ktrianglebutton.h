@@ -29,7 +29,7 @@
 
 class KTriangleButton : public QButton
 {
-    Q_OBJECT;
+    Q_OBJECT
 
 public:
     enum Direction {Left , Right, Up, Down};

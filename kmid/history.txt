@@ -455,3 +455,6 @@ Thursday 21-1-99
 - Fixed a null pointer access while generating beats, because I didn't
 checked for songs which didn't contain any spev (songs which use absolute 0 spev
 are extremely rare to find, as any song must include at least a tempo event)
+
+Tuesday 26-1-99
+- Removed ; after QOBJECT and fixed default midi map in consolekmid (not kmid)
