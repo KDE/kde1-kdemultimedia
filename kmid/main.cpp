@@ -51,7 +51,7 @@ int main(int argc, char **argv)
     KApplication *app=new KApplication(argc,argv,"kmid");
 
     app->enableSessionManagement(TRUE);
-/*    kmidFrame *kmidframe=new kmidFrame("KMid");
+    kmidFrame *kmidframe=new kmidFrame("KMid");
 
     app->setMainWidget ( kmidframe );
 
@@ -61,7 +61,7 @@ int main(int argc, char **argv)
 	{
 	if (kmidframe->canBeRestored(1)) kmidframe->restore(1);
         }
-*/
+/*
     if (app->isRestored()) 
 	{
 	RESTORE(kmidFrame);
@@ -71,9 +71,10 @@ int main(int argc, char **argv)
         kmidFrame *kmidframe=new kmidFrame("KMid");
 	kmidframe->show();
         };
-
+*/
     int ret= app->exec();
 
+    delete kmidframe;
     delete app;
     return ret;
 };

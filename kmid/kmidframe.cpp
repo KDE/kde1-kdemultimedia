@@ -141,8 +141,8 @@ kmidFrame::kmidFrame(const char *name)
    "under certain conditions\n"), VERSION_TXT );
 	m_help = (KApplication::getKApplication())->getHelpMenu(true, aboutstring);
 
-//	menu = new KMenuBar(this);
-	menu = menuBar();
+	menu = new KMenuBar(this);
+//	menu = menuBar();
 	menu->insertItem(i18n("&File"),m_file);
 	menu->insertItem(i18n("&Song"),m_song);
 	menu->insertItem(i18n("&Collections"),m_collections);
@@ -150,13 +150,11 @@ kmidFrame::kmidFrame(const char *name)
 	menu->insertSeparator();
 	menu->insertItem(i18n("&Help"),m_help);
 	menu->show();
-//	setMenu(menu);
+	setMenu(menu);
 
-//	toolbar=new KToolBar(this);
-	toolbar=toolBar();
-//	KIconLoader *loader = (KApplication::getKApplication())->getIconLoader(); 
+	toolbar=new KToolBar(this);
+//	toolbar=toolBar();
 
-//	toolbar->insertButton(loader->loadIcon("kmid_prev.xpm"),1,
 	toolbar->insertButton(Icon("kmid_prev.xpm"),1,
 		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
 		i18n("Previous Song"));
@@ -182,7 +180,7 @@ kmidFrame::kmidFrame(const char *name)
 
 //	toolbar->setBarPos(KToolBar::Top);
 //	toolbar->enable(KToolBar::Show);
-//	addToolBar(toolbar);
+	addToolBar(toolbar);
 
 	KConfig *kcfg=(KApplication::getKApplication())->getConfig();
 	kcfg->setGroup("KMid");
@@ -261,14 +259,14 @@ kmidFrame::kmidFrame(const char *name)
 kmidFrame::~kmidFrame()
 {
 delete kmidclient;
-/*
+
 delete m_file;
 delete m_song;
 delete m_options;
 delete m_help;
 delete menu;
 delete toolbar;
-*/
+
 };
 
 void kmidFrame::file_Open()

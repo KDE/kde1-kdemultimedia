@@ -292,3 +292,13 @@ changes in kdelibs done by Matthias.
 
 Thursday 2-4-98
 - Some bug fixes
+
+Monday 6-4-98
+- I've found and fixed a memory leakage bug, I forgot to delete the
+SpecialEvents from each song, so kmid was using more and more memory with
+each opened song.
+
+Tuesday 7-4-98
+- Aaaargh !, I have to remove the changes that I did last tuesday because it
+seems that the changes in the kdelibs have been removed.
+

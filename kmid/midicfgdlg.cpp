@@ -26,7 +26,7 @@
 #include <qpushbt.h>
 #include <qlistbox.h>
 #include <qlabel.h> 
-#include <qfiledlg.h>
+#include <kfiledialog.h>
 #include <kapp.h>
 #include <kmsgbox.h>
 #include "player/deviceman.h"
@@ -109,7 +109,7 @@ QString filename;
 char *path;
 path=new char[strlen(KApplication::kde_datadir())+20];
 sprintf(path,"%s/kmid/maps",(const char *)KApplication::kde_datadir());
-filename=QFileDialog::getOpenFileName((const char *)path,"*.map",this); 
+filename=KFileDialog::getOpenFileName((const char *)path,"*.map",this); 
 if (filename.isNull()) return;
 
 if (selectedmap) delete selectedmap;
