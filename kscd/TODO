@@ -1,7 +1,13 @@
 * connect->isConnected() and consequences
 * auto save of cddb entries
 * fix html encoding
-* make cddb timout configurable
+* make cddb timeout configurable
 * allow to choose email submisson address from server list entries with protocol SMTP
 * cache entries received by CDDBP localy
 * allow user to type in CDDB server name
+
+Juraj:
+* add code, to remove the trailing CR character from track list,
+  artist/title input box and from inexact dialog. It looks ugly.
+* Figure out, why KFM writes KFM NOT READY, ERROR: KFM crashed, when
+  trying to click on something in the nice i box ;-)
