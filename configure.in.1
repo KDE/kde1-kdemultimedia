@@ -72,10 +72,21 @@ dnl Checks for library functions. MISCOBJS is for kdecore
 AC_CHECK_KSIZE_T
 AC_CHECK_SETENV
 
+AC_ARG_ENABLE(kscd-defaults,[  --enable-kscd-defaults  use kscd default configs [default=yes]],
+[
+if test $enableval = "no"; dnl
+  then use_kscd_defaults="no"
+  else use_kscd_defaults="yes"
+fi
+], use_kscd_defaults="yes"
+)
+
 dnl output files
 topdir=`pwd`
 AC_SUBST(topdir)
 
 dnl Perform program name transformation
 AC_ARG_PROGRAM
+
+
 

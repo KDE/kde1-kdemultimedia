@@ -23,10 +23,18 @@ TOPSUBDIRS=""
 	done
 fi
 # we handle po separatly
-TOPSUBDIRS="$TOPSUBDIRS po"
+# TOPSUBDIRS="$TOPSUBDIRS po"
 
 AC_SUBST(TOPSUBDIRS)
 
 ac_output=`find $TOPSUBDIRS -name Makefile.in -print | sed -e 's/.in$//;' | sort`
 AC_OUTPUT($ac_output Makefile)
 
+if echo $TOPSUBDIRS | grep "kscd" > /dev/null 2> /dev/null; then 
+  if test "$use_kscd_defaults" = "yes"; then
+    cp kscd/config.h.std kscd/config.h
+  else
+    cd kscd && kscd-script
+    cd $topdir
+  fi
+fi
