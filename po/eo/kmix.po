@@ -1,0 +1,127 @@
+# Esperantaj mesaøoj por "kmix"
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Wolfram Diestel <diestel@rzaix340.rz.uni-leipzig.de>, 1998.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmix 1.0pre2\n"
+"POT-Creation-Date: 1998-06-16 14:34+0200\n"
+"PO-Revision-Date: 1998-07-30 19:00+0100\n"
+"Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
+"Language-Team: Esperanto <eo@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-3\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: docking.cpp:166
+msgid "Minimize"
+msgstr "Minimumigu"
+
+#: kmix.cpp:425
+msgid "&Hide Menubar"
+msgstr "&Kaþu menulistelon"
+
+#: kmix.cpp:428
+msgid "&Tickmarks On/Off"
+msgstr "&Tikmarkoj jes/ne"
+
+#: kmix.cpp:442
+msgid ""
+"\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Sound mixer panel for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+"SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
+"*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"and Lennart Augustsson (augustss@cs.chalmers.se)."
+msgstr ""
+"\n"
+"(C) 1997 æe Christian Esken (esken@kde.org).\n"
+"\n"
+"Sonromiksila panelo por la KDE-LAbortabula Medio.\n"
+"Tiu æi programo estas sub GPL.\n"
+"SGI-porto farita de Paul Kendall (paul@oriaon.co.nz).\n"
+"*BSD-korektoj de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"kaj Lennart Augustsson (augustss@cs.chalmers.se)."
+
+#: kmix.cpp:461
+msgid "&Left"
+msgstr "&Maldekstre"
+
+#: kmix.cpp:462
+msgid "&Center"
+msgstr "&Centre"
+
+#: kmix.cpp:463
+msgid "&Right"
+msgstr "&Dekstre"
+
+#: kmix.cpp:553
+msgid "Un&mute"
+msgstr "&Sone"
+
+#: kmix.cpp:555
+msgid "&Mute"
+msgstr "&Sensone"
+
+#: kmix.cpp:558
+msgid "&Split"
+msgstr "&Splitigu"
+
+#: kmix.cpp:560
+msgid "Un&split"
+msgstr "Mal&splitigu"
+
+#: kmix.cpp:562
+msgid "&RecSource"
+msgstr "&Fonto"
+
+#: prefs.cpp:42
+msgid "General"
+msgstr "Øenerale"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "Kanaloj"
+
+#: prefs.cpp:46
+msgid "Startup settings"
+msgstr "Komencaj difinoj"
+
+#: prefs.cpp:51
+msgid "Menubar"
+msgstr "Menulistelo"
+
+#: prefs.cpp:56
+msgid "Tickmarks"
+msgstr "Tikmarkoj"
+
+#: prefs.cpp:61
+msgid "Allow docking"
+msgstr "Permesu algluadon"
+
+#: prefs.cpp:86
+msgid "KMix Preferences"
+msgstr "KMix-Preferoj"
+
+#: prefs.cpp:96
+msgid "Mixer channel setup"
+msgstr "Miksila kanalkonfiguro"
+
+#: prefs.cpp:103
+msgid "Device"
+msgstr "Aparato"
+
+#: prefs.cpp:109
+msgid "Show"
+msgstr "Montru"
+
+#: prefs.cpp:115
+msgid "Split"
+msgstr "Splitigu"
+
+
+
+
