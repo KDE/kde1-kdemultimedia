@@ -33,6 +33,9 @@
 extern KApplication *mykapp;
 extern KSCD *k;
 
+extern bool debugflag;
+extern bool dockinginprogress;
+
 DockWidget::DockWidget(const char *name)
   : QWidget(0, name, 0) {
 
@@ -181,16 +184,16 @@ void DockWidget::mousePressEvent(QMouseEvent *e) {
   }
 
 }
-extern dockinginprogress;
-void DockWidget::toggle_window_state() {
 
+void DockWidget::toggle_window_state() {
   // restore/hide connect-window
     if(k != 0L)  {
         if (k->isVisible()){
             dockinginprogress = true;
-            QPoint point = k->mapToGlobal (QPoint (0,0));
-            pos_x = point.x();
-            pos_y = point.y();
+            SaveKscdPosition();
+//            QPoint point = k->mapToGlobal (QPoint (0,0));
+//            pos_x = point.x();
+//            pos_y = point.y();
             toggled = true;
             k->hide();
         }
@@ -204,8 +207,15 @@ void DockWidget::toggle_window_state() {
                            pos_y,
                            k->width(),
                            k->height());
-
             toggled = false;
+            //
+            QPoint zp = k->mapToGlobal(QPoint (0,0));
+            if(zp.x() == pos_x && zp.y() == pos_y){
+                if(debugflag)
+                    printf("warning: qt bug? compensating.....\n");
+                k->setGeometry(pos_x-4, pos_y-24, k->width(), k->height());
+            }
+            //
             k->show();
             dockinginprogress = false;
         }
@@ -217,13 +227,12 @@ const bool DockWidget::isToggled()
     return(toggled);
 }
 
-void DockWidget::SaveKscdPosition(){
-
+void DockWidget::SaveKscdPosition()
+{
      QPoint point = k->mapToGlobal (QPoint (0,0));
      pos_x = point.x();
      pos_y = point.y();
      have_kscd_position = true;
-
 }
 void DockWidget::eject() {
 

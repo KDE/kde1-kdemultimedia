@@ -1,3 +1,10 @@
+1998-11-11 Sam Maloney <thufir@illogic.ml.org>
+
+	* Fixed bug with debug flag being messed up when docking
+	  (incorrect extern statement)
+	* Worked around a wierd bug thing with docking. (consult
+	  docking.cpp in toggleState() )
+
 1998-11-08 Robert Bossecker <Robert.Bossecker@fresenius.de>
 
 	* Fixed problem with editing EXT info, where if you edited track

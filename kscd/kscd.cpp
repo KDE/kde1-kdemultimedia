@@ -63,7 +63,7 @@ SMTP                *smtpMailer;
 bool dockinginprogress = 0;
 bool quitPending = 0;
 
-bool             debugflag = true;
+bool            debugflag = false;
 char 		tmptime[100];
 char 		*tottime;
 //static void 	playtime (void);
@@ -854,7 +854,7 @@ bool KSCD::event( QEvent *e ){
         if(dock_widget)
             dock_widget->SaveKscdPosition();
         // a trick to remove the window from the taskbar (Matthias)
-        recreate(0,0, geometry().topLeft(), FALSE);
+        recreate(0, 0, geometry().topLeft(), FALSE);
         // set the icons again
         KWM::setIcon(winId(), kapp->getIcon());
         KWM::setMiniIcon(winId(), kapp->getMiniIcon());
@@ -2358,8 +2358,6 @@ void KSCD::get_pathlist(QStrList& _pathlist){
 
 int main( int argc, char *argv[] )
 {
-    debugflag = false;
-
     mykapp = new KApplication( argc, argv,"kscd" );
     k = new KSCD();
 
