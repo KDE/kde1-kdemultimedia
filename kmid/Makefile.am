@@ -54,16 +54,16 @@ install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) $(srcdir)/mini-kmid.xpm $(kde_minidir)/kmid.xpm
 	@echo "********************************************"
-	@echo "Thanks for installing kmid 1.2 !"
+	@echo "Thanks for installing kmid 1.7 !"
 	@echo "I have included some example songs that have been installed in"
 	@echo $(kde_datadir)/kmid
 	@echo ""
 	@echo "If you find any bug, have any idea or only want to tell me"
 	@echo "how much you like kmid :-), just send me an email to:"
-	@echo "antlarr@arrakis.es"
+	@echo "larrosa@kde.org"
 	@echo ""
 	@echo "I hope that you have fun with kmid !"
-	@echo "Antonio Larrosa Jimenez (antlarr@arrakis.es)"
+	@echo "Antonio Larrosa Jimenez (larrosa@kde.org)"
 	@echo ""
 	@echo "PS: I will not be liable for any flood during the use of kmid ;-)"
 	@echo "*********************************************"
