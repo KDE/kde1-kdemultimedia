@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: 1998-05-25 18:05:10+0800\n"
+"Last-Translator: Karl Backström <karl_b@geocities.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Uppspelnings position"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Kasta ut medium"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Föregående spår"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "Bakåt"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Stopp"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Spela/Paus"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "Framåt"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Nästa spår"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Nytt fönster"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Avsluta"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mixer"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "Inställningar"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "&Innehåll"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Om"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Arkiv"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Inställningar"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "&Hjälp"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Avslutat"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Start"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Upptagen"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Spelar"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Har paus"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Klar"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Odefinegerat"
+

@@ -1,0 +1,322 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=\n"
+"Date: 1998-04-03 19:18:58+0000\n"
+"From: antonio <antonio@jupiter.arrakis.es>\n"
+"Xgettext-Options: -C -ki18n\n"
+"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
+"midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
+
+#: kmidframe.cpp:61
+#, fuzzy
+msgid "&Open ..."
+msgstr "&Avaa"
+
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "&Save Lyrics ..."
+msgstr "&Tallenna sanat"
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "&Lopeta"
+
+#: kmidframe.cpp:70
+msgid "&Play"
+msgstr "&Soita"
+
+#: kmidframe.cpp:72
+msgid "P&ause"
+msgstr "&Tauko"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "P&ys‰yt‰"
+
+#: kmidframe.cpp:76
+msgid "P&revious Song"
+msgstr "&Edellinen kappale"
+
+#: kmidframe.cpp:78
+msgid "&Next Song"
+msgstr "Se&uraava kappale"
+
+#: kmidframe.cpp:81
+msgid "&Loop"
+msgstr "S&ilmukoi"
+
+#: kmidframe.cpp:87
+msgid "&Organize ..."
+msgstr "&J‰rjest‰ ..."
+
+#: kmidframe.cpp:90
+msgid "In order mode"
+msgstr "J‰rjestyksess‰"
+
+#: kmidframe.cpp:93
+msgid "Shuffle mode"
+msgstr "Sekoitettuna"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr "Automaattisesti lis‰‰ kokoelmiin"
+
+#: kmidframe.cpp:104
+msgid "&General Midi file"
+msgstr "&General Midi tiedosto"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr "&MT-32 tiedosto"
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr "N‰yt‰ &Tekstitapahtumat"
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr "N‰yt‰ &sanatapahtumat"
+
+#: kmidframe.cpp:122
+msgid "&Automatic Text chooser"
+msgstr "&Automaattinen tekstinvalitsin"
+
+#: kmidframe.cpp:127
+msgid "&Font Change ..."
+msgstr "&Kirjasimen vaihtaminen ..."
+
+#: kmidframe.cpp:130
+msgid "&Midi Setup ..."
+msgstr "&Midi asetukset ..."
+
+#: kmidframe.cpp:135
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Espanja)\n"
+"\n"
+"Midi/Karaoke soittaja\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "&Tiedosto"
+
+#: kmidframe.cpp:147
+msgid "&Song"
+msgstr "&Kappale"
+
+#: kmidframe.cpp:148
+msgid "&Collections"
+msgstr "K&okoelmat"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "&Asetukset"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "&Ohje"
+
+#: kmidframe.cpp:160
+msgid "Previous Song"
+msgstr "Edellinen kappale"
+
+#: kmidframe.cpp:163
+msgid "Rewind"
+msgstr "Takaisin"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "Pys‰yt‰"
+
+#: kmidframe.cpp:169
+msgid "Pause"
+msgstr "Tauko"
+
+#: kmidframe.cpp:173
+msgid "Play"
+msgstr "Soita"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "Eteen"
+
+#: kmidframe.cpp:179
+msgid "Next Song"
+msgstr "Seuraava kappale"
+
+#: kmidclient.cpp:231 kmidclient.cpp:315 kmidframe.cpp:499
+msgid "Error"
+msgstr "Virhe"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+"En saanut avattua /dev/sequencer tiedon saamiseksi.\n"
+"Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"Tiedosto %s on jo olemassa\n"
+"Haluatko ylikirjoittaa sen ?"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:303
+#: kmidclient.cpp:309 kmidframe.cpp:617
+msgid "Warning"
+msgstr "Varoitus"
+
+#: kmidclient.cpp:85
+msgid "Tempo :"
+msgstr "Tempo :"
+
+#: kmidclient.cpp:219
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "Tiedostoa %s ei ole olemassa tai sit‰ ei saada avattua"
+
+#: kmidclient.cpp:222
+msgid "The file %s is not a midi file"
+msgstr "Tiedosto %s ei ole miditiedosto"
+
+#: kmidclient.cpp:224
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+
+#: kmidclient.cpp:226
+msgid "Not enough memory !!"
+msgstr "Muistia ei ole tarpeeksi !!"
+
+#: kmidclient.cpp:228
+msgid "This file is corrupted or not well built"
+msgstr "T‰m‰ tiedosto on viallinen tai huonosti rakennettu"
+
+#: kmidclient.cpp:229
+msgid "Unknown error message"
+msgstr "Tuntematon virhe"
+
+#: kmidclient.cpp:304
+msgid "You must load a file before playing it"
+msgstr "Sinun on ladattava tiedosto ennen sen soittamista"
+
+#: kmidclient.cpp:310
+msgid "A song is already being played"
+msgstr "Kappaletta soitetaan jo"
+
+#: kmidclient.cpp:315
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+"En saanut avattua /dev/sequencer tiedon saamiseksi.\n"
+"Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
+
+#: midicfgdlg.cpp:37
+msgid "Configure Midi devices"
+msgstr "Aseta Midi laitteita"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "OK"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "Peruuta"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr "Valitse midilaite jota haluat k‰ytt‰‰ :"
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr "K‰yt‰ midi karttaa :"
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "Ei mik‰‰n"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "Selaa..."
+
+#: collectdlg.cpp:39
+msgid "Collections Manager"
+msgstr "Kokoelmahallinta"
+
+#: collectdlg.cpp:47
+msgid "Available collections :"
+msgstr "Olemassaolevat kokoelmat :"
+
+#: collectdlg.cpp:67
+msgid "Songs in selected collection:"
+msgstr "Kappaleet valitussa kokoelmassa:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Uusi"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "Kopioi"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "Tuhoa"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "Lis‰‰"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "Poista"
+
+#: collectdlg.cpp:151
+msgid "Enter the name of the new collection"
+msgstr "Anna uuden kokoelman nimi"
+
+#: collectdlg.cpp:152
+msgid "New Collection"
+msgstr "Uusi kokoelma"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+msgid "The name '%s' is already used"
+msgstr "Nimi %s on jo k‰ytˆss‰"
+
+#: collectdlg.cpp:177
+msgid "Enter the name of the copy collection"
+msgstr "Anna kokoelman kopion nimi"
+
+#: collectdlg.cpp:178
+msgid "Copy Collection"
+msgstr "Kopioi kokoelma"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr "Anna uusi nimi kokoelmalle"
+
+#: collectdlg.cpp:220
+msgid "Change Collection Name"
+msgstr "Vaihda kokoelman nime‰"
+
