@@ -443,3 +443,10 @@ extern char *sys_errlist[];
 #define PI M_PI
 #endif
 #endif
+
+#ifdef _SCO_DS
+#include <math.h>
+#ifndef PI
+#define PI M_PI
+#endif
+#endif

@@ -32,6 +32,9 @@
 #include <sys/ioctl.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
+#ifdef _SCO_DS
+#include <sys/socket.h>
+#endif
 #include <errno.h>
 
 #include "../config.h"

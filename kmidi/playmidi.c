@@ -1056,7 +1056,7 @@ static int xmp_epoch = -1;
 static unsigned xxmp_epoch = 0;
 static unsigned time_expired = 0;
 static unsigned last_time_expired = 0;
-#if !defined( _UNIXWARE ) && ! defined(__hpux__) && ! defined (sun)
+#if !defined( _UNIXWARE ) && ! defined(__hpux__) && ! defined (sun) && ! defined(_SCO_DS)
 extern int gettimeofday(struct timeval *, struct timezone *);
 #endif
 static struct timeval tv;
