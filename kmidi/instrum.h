@@ -32,11 +32,12 @@ typedef struct {
   int32
     envelope_rate[6], envelope_offset[6];
   float
-    volume;
+    volume, resonance;
   sample_t *data;
   int32 
     tremolo_sweep_increment, tremolo_phase_increment, 
-    vibrato_sweep_increment, vibrato_control_ratio;
+    vibrato_sweep_increment, vibrato_control_ratio,
+    cutoff_freq;
   uint8
     tremolo_depth, vibrato_depth,
     modes;
@@ -119,6 +120,7 @@ extern int cutoff_allowed;
 
 extern int load_missing_instruments(void);
 extern void free_instruments(void);
+extern void end_soundfont(void);
 extern int set_default_instrument(char *name);
 
 extern void init_soundfont(char *fname, int order, int oldbank, int newbank);
