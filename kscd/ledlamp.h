@@ -40,10 +40,10 @@ public:
   State state() const { return s; }
   
 
-  void setState(State state) { s= state; paintEvent(0); }
+  void setState(State state) { s= state; repaint(false); }
 
 
-  void toggleState() { if (s == On) s= Off; else if (s == Off) s= On; paintEvent(0); }
+  void toggleState() { if (s == On) s= Off; else if (s == Off) s= On; repaint(false); }
 public slots:
   void toggle() { toggleState(); };
   void on() { setState(On); };
