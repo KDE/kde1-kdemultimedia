@@ -2,6 +2,14 @@
 
 prefix  = @prefix@
 
+kde_libraries = @kde_libraries@
+qt_libraries = @qt_libraries@
+top_builddir = ..
+LIBTOOL = @LIBTOOL@
+KDE_RPATH = @KDE_RPATH@
+topdir = @topdir@
+SHELL = /bin/sh
+
 BINDIR  = $(prefix)/bin
 LIBDIR  = $(prefix)/lib
 ICONDIR  = $(prefix)/share/icons
@@ -71,10 +79,10 @@ config.h: kscd-script
 	sh kscd-script
 
 kscd: config.h $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
-	$(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS)
+	$(LIBTOOL) -mode=link $(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS) $(KDE_RPATH)
 
 $(TARGET2): $(SOURCES2)  $(OBJECTS2) $(HEADER)
-	$(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS)
+	$(LIBTOOL) -mode=link $(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS) $(KDE_RPATH)
 
 depend:
 	@makedepend -I$(INCDIR) $(SOURCES) 2> /dev/null
