@@ -130,7 +130,7 @@ msgid "Midi &Setup ..."
 msgstr "Midi-opp&sett ..."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -147,10 +147,12 @@ msgid ""
 msgstr ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
-"Malaga (Spain)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
+"Malaga (Spansk)\n"
 "\n"
 "Midi/karaokefilavspiller\n"
+"KMids hjemmeside er på: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid utgis med absolutt INGEN GARANTI; for detaljer se fil KOPIERING\n"
 "Dette er fri programvare, and du må gjerne distribuere det videre\n"
@@ -178,7 +180,7 @@ msgstr "Spill"
 
 #: kmidframe.cpp:225
 msgid "Forward"
-msgstr ""
+msgstr "Forover"
 
 #: kmidframe.cpp:234
 msgid "Show Channel View"
@@ -269,7 +271,7 @@ msgstr "Bruk midi map :"
 
 #: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -285,7 +287,7 @@ msgstr "Sanger i utvalgte samling:"
 
 #: collectdlg.cpp:81
 msgid "New"
-msgstr ""
+msgstr "Ny"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"

@@ -35,7 +35,7 @@ msgstr "Spill/Pause"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr ""
+msgstr "Forover"
 
 #: kmediawin.cpp:200
 msgid "Next track"
