@@ -9,11 +9,9 @@
 VERSION = 0.2i
 
 INCLUDES = $(all_includes)
-DEFS += -DDEFAULT_PATH=\"$(TIMID_DIR)\"  
-DEFS += -DKMIDI
+DEFS = @DEFS@ -DDEFAULT_PATH=\"$(TIMID_DIR)\" -DKMIDI
 LDFLAGS = $(all_libraries) $(KDE_RPATH)
-LDADD =      $(LIB_KFM) $(LIB_KDEUI) $(LIBALIB) \
-	$(LIBAUDIO) $(LIBMME) 
+LDADD = $(LIB_KFM) $(LIB_KDEUI) $(LIBALIB) $(LIBAUDIO) $(LIBMME) 
 
 # Where to install the patches, config files, and MIDI files.
 # If you change this, it's a good idea to recompile the binary,
@@ -72,7 +70,6 @@ EXTRA_DIST = $(apps_DATA) $(icon_DATA) $(pics_DATA) kmidi-mini.xpm
 
 
 install-data-local:
-	$(mkinstalldirs) $(TIMID_DIR)
 	$(mkinstalldirs) $(TIMID_DIR)/patch
 	if [ ! -f $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) patch/acpiano.pat $(TIMID_DIR)/patch ; fi
 	if [ ! -f $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
