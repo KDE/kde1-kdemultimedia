@@ -106,7 +106,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   connect(cd_device_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(device_changed(const char*)));  
 
-#if defined(sun) && defined(__sun__) && defined(__osf__) && defined(ultrix) && defined(__ultrix)
+#if defined(sun) || defined(__sun__) || defined(__osf__) || defined(ultrix) || defined(__ultrix)
 
   label5->hide();
   cd_device_edit->hide();

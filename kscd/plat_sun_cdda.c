@@ -23,11 +23,8 @@
  */
 
 /*
- * @(#)plat_sun_cdda.c	1.7 13 Sep 1995
- *
  * Sun (really Solaris) CDDA functions.
  */
-static char *ident = "@(#)plat_sun_cdda.c	1.7 13 Sep 1995";
 
 #include "config.h"
 

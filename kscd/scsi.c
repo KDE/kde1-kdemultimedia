@@ -23,13 +23,12 @@
  */
 
 /*
- * @(#)scsi.c	1.8	3/3/94
  *
  * Frontend functions for sending raw SCSI commands to the CD-ROM drive.
  * These depend on wm_scsi(), which should be defined in each platform
  * module.
  */
-static char ident[] = "@(#)scsi.c	1.8\t3/3/94";
+
 
 #include <stdio.h>
 #include <string.h>

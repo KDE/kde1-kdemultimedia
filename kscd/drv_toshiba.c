@@ -27,7 +27,6 @@
  *
  * Vendor-specific drive control routines for Toshiba XM-3401 series.
  */
-static char *ident = "@(#)drv_toshiba.c	1.6 03 Jun 1995";
 
 #include <stdio.h>
 #include <errno.h>
@@ -70,6 +69,7 @@ tosh_init(d)
 	extern int	min_volume;
 
 	min_volume = 0;
+	return 0;
 }
 
 /*
@@ -105,7 +105,7 @@ static int
 unscale_volume(cd_vol, max)
 	int	cd_vol, max;
 {
-	int	vol = 0, top = max, bot = 0, scaled;
+  int	vol = 0, top = max, bot = 0, scaled =0;
 
 	/*cd_vol = (cd_vol * 100 + (max_volume - 1)) / max_volume;*/
 

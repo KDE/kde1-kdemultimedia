@@ -27,7 +27,6 @@
  *
  * Vendor-specific drive control routines for Sony CDU-8012 series.
  */
-static char *ident = "@(#)drv_sony.c	1.1 12/21/93";
 
 #include <stdio.h>
 #include <errno.h>
@@ -70,6 +69,7 @@ sony_init(d)
 {
 	min_volume = 128;
 	max_volume = 255;
+	return 0;
 }
 
 /*
@@ -107,7 +107,7 @@ static int
 unscale_volume(cd_vol, max)
 	int	cd_vol, max;
 {
-	int	vol = 0, top = max, bot = 0, scaled;
+	int	vol = 0, top = max, bot = 0, scaled =0;
 
 	cd_vol = (cd_vol * 100 + (max_volume - 1)) / max_volume;
 

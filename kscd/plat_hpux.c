@@ -23,11 +23,10 @@
  */
 
 /*
- * @(#)plat_hpux.c	1.8	4/13/95
+ * $Id$
  *
  * HP/UX-specific drive control routines.
  */
-static char *ident = "@(#)plat_hpux.c	1.8 4/13/95";
 
 
 #include "config.h"

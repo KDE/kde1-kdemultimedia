@@ -1,18 +1,21 @@
 /*
- * @(#)cdinfo.c	1.85	12/18/93
+ * $Id$
  *
  * Get information about a CD.
  */
-static char *ident = "@(#)cdinfo.c	1.85 12/18/93";
 
 #include <errno.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include "struct.h"
 #include <string.h>
 
 void *calloc(), *malloc(), *realloc(), print_cdinfo(), wipe_cdinfo();
 char *strchr(), *getenv();
+
+void play_cd(int start, int pos, int end);
+void stop_cd();
 
 struct play *playlist = NULL;
 struct cdinfo_wm thiscd, *cd = &thiscd;
@@ -121,9 +124,8 @@ nomem:
  *
  * Note: updating user interface elements is up to the caller.
  */
-split_trackinfo(pos)
-	int	pos;
-{
+int split_trackinfo(int pos){
+
 	int	i, l, num;
 
 	if (pos < cd->trk[0].start)
@@ -205,9 +207,8 @@ split_trackinfo(pos)
  *
  * Returns 1 on success, 0 on failure.
  */
-remove_trackinfo(num)
-	int	num;
-{
+int remove_trackinfo(int num){
+
 	int	i, l;
 
 	if (num < 1 || num >= cur_ntracks || cd->trk[num].section < 2)
@@ -345,9 +346,8 @@ trackname(num)
  *
  * Return a track's length in seconds.
  */
-tracklen(num)
-	int	num;
-{
+int tracklen(int num){
+
 	if (cd != NULL && num >= 0 && num < cur_ntracks)
 		return (cd->trk[num].length);
 	else
@@ -359,9 +359,8 @@ tracklen(num)
  *
  * Return the default volume (0-32, 0=none) for the CD or a track.
  */
-get_default_volume(track)
-	int	track;
-{
+int get_default_volume(int track){
+
 	if (! track)
 		return (cd->volume);
 	else if (track <= cur_ntracks)
@@ -375,9 +374,8 @@ get_default_volume(track)
  *
  * Return the contd value for a track.
  */
-get_contd(num)
-	int	num;
-{
+int get_contd(int num){
+
 	if (num >= 0 && num < cur_ntracks)
 		return (cd->trk[num].contd);
 	else
@@ -389,9 +387,8 @@ get_contd(num)
  *
  * Return the avoid value for a track.
  */
-get_avoid(num)
-	int	num;
-{
+int get_avoid(int num){
+
 	if (num >= 0 && num < cur_ntracks)
 		return (cd->trk[num].avoid);
 	else
@@ -403,8 +400,8 @@ get_avoid(num)
  *
  * Is autoplay set on this disc?
  */
-get_autoplay()
-{
+int get_autoplay(){
+
 	return (cd->autoplay);
 }
 
@@ -413,8 +410,8 @@ get_autoplay()
  *
  * Return the default playmode for the CD.
  */
-get_playmode()
-{
+int get_playmode(){
+
 	return (cd->playmode);
 }
 
@@ -423,8 +420,8 @@ get_playmode()
  *
  * Return the total running time for the current playlist in seconds.
  */
-get_runtime()
-{
+int get_runtime(){
+
 	int	i;
 
 	if (playlist == NULL || playlist[0].start == 0 || cur_firsttrack == -1)

@@ -23,11 +23,11 @@
  */
 
 /*
- * @(#)plat_bsd386.c	1.6	12/26/93
+ * $Id$
  *
  * BSD/386-specific drive control routines.
  */
-static char *ident = "@(#)plat_bsd386.c	1.6 12/26/93";
+
 
 #include "config.h"
 

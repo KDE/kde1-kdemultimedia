@@ -23,11 +23,11 @@
  */
 
 /*
- * @(#)plat_news.c	1.5	1/1/94
+ * $Id$
  *
  * Sony NEWS-specific drive control routines.
  */
-static char *ident = "@(#)plat_news.c	1.5 1/1/94";
+
 
 #include "config.h"
 

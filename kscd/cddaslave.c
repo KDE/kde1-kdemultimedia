@@ -18,7 +18,7 @@
  * to hold cddaslave together, plus some non-system-dependent audio
  * processing code.  Look in plat_*_cdda.c for system-specific stuff.
  */
-static char *ident = "@(#)cddaslave.c	1.11 13 Sep 1995";
+
 
 #include "config.h"
 #include "wmcdda.h"
@@ -518,7 +518,8 @@ fprintf(stderr,"cddaslave: done init.");
 
 #else /* BUILD_CDDA } { */
 
-main()
+#include <stdio.h>
+int main()
 {
    printf("cddaslave: will work only on Solaris 2.4 or newer.");
    exit(0);

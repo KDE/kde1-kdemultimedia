@@ -23,11 +23,8 @@
  */
 
 /*
- * @(#)plat_sun_audio.c	1.6 13 Sep 1995
- *
  * Sun (really Solaris) digital audio functions.
  */
-static char *ident = "@(#)plat_sun_audio.c	1.6 13 Sep 1995";
 
 #include "config.h"
 

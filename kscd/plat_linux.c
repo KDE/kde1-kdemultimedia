@@ -23,15 +23,15 @@
  */
 
 /*
- * @(#)plat_linux.c	1.8	5/14/94
+ * $Id$
  *
  * Linux-specific drive control routines.  Very similar to the Sun module.
  */
-static char *ident = "@(#)plat_linux.c	1.8 5/14/94";
 
 #ifdef linux
 
-
+#include <unistd.h>
+#include <sys/ioctl.h>    
 #include <errno.h>
 #include <stdio.h>
 #include <sys/types.h>
@@ -39,6 +39,7 @@ static char *ident = "@(#)plat_linux.c	1.8 5/14/94";
 #include <sys/param.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+
 /* this is for glibc 2.x which defines ust structure in ustat.h not stat.h */
 #ifdef __GLIBC__
 #include <sys/ustat.h>
@@ -155,7 +156,7 @@ gen_get_cdlen(d, frames)
 
 
 /* Alarm signal handler. */
-static void do_nothing(x) int x; { x++; }
+/*static void do_nothing(x) int x; { x++; }*/
 
 /*
  * Get the current status of the drive: the current play mode, the absolute
@@ -169,7 +170,6 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 	int		*pos, *track, *index;
 {
 	struct cdrom_subchnl		sc;
-	struct itimerval		old_timer, new_timer;
 
 #ifdef SBPCD_HACK
 	static int prevpos = 0;

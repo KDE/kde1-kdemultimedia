@@ -23,11 +23,9 @@
  */
 
 /*
- * @(#)plat_svr4.c	1.1	1/2/94
- *
  * SVR4 specific.  Much of this is similar to plat_hpux.c.
  */
-static char *ident = "@(#)plat_svr4.c	1.1\t1/2/94";
+
 
 
 #include "config.h"

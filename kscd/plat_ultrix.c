@@ -23,11 +23,10 @@
  */
 
 /*
- * @(#)plat_ultrix.c	1.7	11/26/94
  *
  * ULTRIX 4.2 drive control routines.
  */
-static char *ident = "@(#)plat_ultrix.c	1.7 11/26/94";
+
 
 #include "config.h"
 

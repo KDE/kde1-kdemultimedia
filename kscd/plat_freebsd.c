@@ -30,7 +30,7 @@
  * Todd Pfaff, 3/20/94
  *
  */
-static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
+
 
 /* Please check the includes and defines up until the mark "That's it". 
    Thank you -- Bernd */
@@ -38,6 +38,7 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 
 #if defined(__FreeBSD__) || defined(__NetBSD__)
 
+static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 
 #include <errno.h>
 #include <stdio.h>

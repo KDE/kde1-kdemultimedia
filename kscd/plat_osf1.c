@@ -23,11 +23,8 @@
  */
 
 /*
- * @(#)plat_osf1.c	1.3	02 Jun 1995
- *
  * OSF  drive control routines.
  */
-static char *ident = "@(#)plat_osf1.c	1.3 02 Jun 1995";
 
 #include "config.h"
 

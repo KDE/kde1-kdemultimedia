@@ -1,14 +1,15 @@
 /*
- * @(#)cdrom.c	1.11	04 Jun 1995
+ * $Id$
  *
  * Interface between most of WorkMan and the low-level CD-ROM library
  * routines defined in plat_*.c and drv_*.c.  The goal is to have no
  * platform- or drive-dependent code here.
  */
-static char *ident = "@(#)cdrom.c	1.11 04 Jun 1995";
 
 #include <errno.h>
+#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <sys/types.h>
 #include <sys/time.h>
 #include <string.h>
@@ -39,6 +40,8 @@ struct drivelist {
 
 void *malloc();
 char *strchr();
+void strmcpy(char **t, char *s);
+int susleep(int usec);
 
 extern struct play *playlist;
 extern struct cdinfo_wm thiscd, *cd;
@@ -80,9 +83,9 @@ find_drive_struct(vendor, model, rev)
 
 	for (d = drives; d; d++)
 	{
-		if (d->ven != NULL && strncmp(d->ven, vendor, strlen(d->ven)) ||
-		    d->mod != NULL && strncmp(d->mod, model, strlen(d->mod)) ||
-		    d->rev != NULL && strncmp(d->rev, rev, strlen(d->rev)))
+		if ((d->ven != NULL && strncmp(d->ven, vendor, strlen(d->ven))) ||
+		    (d->mod != NULL && strncmp(d->mod, model, strlen(d->mod))) ||
+		    (d->rev != NULL && strncmp(d->rev, rev, strlen(d->rev))))
 			continue;
 		
 		if (d->proto->vendor[0] == '\0')
@@ -103,9 +106,11 @@ cddb_sum(int n)
 	char	buf[12],
 		*p;
 	int	ret = 0;
+	long unsigned int ntemp = 0;
+	ntemp = (long unsigned int) n;
 
 	/* For backward compatibility this algorithm must not change */
-	sprintf(buf, "%lu", n);
+	sprintf(buf, "%lu", ntemp);
 	for (p = buf; *p != '\0'; p++)
 		ret += (*p - '0');
 
@@ -149,9 +154,6 @@ read_toc()
 	struct playlist		*l;
 	int			i, pos;
 
-	unsigned long	magicid;
-	int t = 0;
-	int n = 0;
 	int tempframe = 0;
 
 	if ((drive.get_trackcount)(&drive, &thiscd.ntracks) < 0)
@@ -283,10 +285,13 @@ read_toc()
 
 int cd_close(){
 
+  int ret = 0;
+  
   if((drive.fd >=0)){
-    close(drive.fd);
+    ret = close(drive.fd);
     drive.fd = -1;
   }
+  return ret;
 }
 
 
@@ -447,6 +452,10 @@ cd_status()
 	case TRACK_DONE:
 		cur_cdmode = mode;
 		break;
+	case FORWARD:	    
+	case EJECTED:	      
+	default:
+	  break;
 	}
 
 	return (ret);
@@ -512,6 +521,8 @@ pause_cd()
 	case PAUSED:		/* paused */
 		cur_cdmode = PLAYING;
 		(drive.resume)(&drive);
+	default:
+	  break;
 	}
 }
 
@@ -597,7 +608,7 @@ play_from_pos(pos)
  * Returns 0 on success, 1 if the CD couldn't be ejected, or 2 if the
  * CD contains a mounted filesystem.
  */
-eject_cd()
+int eject_cd()
 {
 	int	status;
 
@@ -632,13 +643,13 @@ eject_cd()
  * around 10 frames or when the next track is encountered, at which point
  * it's a fair bet the index in question doesn't exist.
  */
-find_trkind(track, index, start)
+int find_trkind(track, index, start)
 	int	track, index, start;
 {
 	int	top = 0, bottom, current, interval, ret = 0, i;
 
 	if (cur_cdmode == EJECTED || cd == NULL)
-		return;
+		return 0;
 
 	for (i = 0; i < cur_ntracks; i++)
 		if (cd->trk[i].track == track)
@@ -687,7 +698,7 @@ find_trkind(track, index, start)
 /*
  * Simulate usleep() using select().
  */
-susleep(usec)
+int susleep(usec)
 	int	usec;
 {
 	struct timeval	tv;
@@ -705,7 +716,7 @@ susleep(usec)
  *
  * "max" is the maximum value of the volume knob.
  */
-read_initial_volume(max)
+int read_initial_volume(max)
 	int max;
 {
 	int	left, right;

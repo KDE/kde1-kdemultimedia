@@ -39,7 +39,6 @@
  * paul@orion.co.nz, or
  * paul@kcbbs.gen.nz
  */
-static char *ident = "@(#)plat_irix.c	1.1	26/9/97";
 
 
 #include "config.h"

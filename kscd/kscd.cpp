@@ -3,7 +3,7 @@
 
    $Id$
  
-   Copyright (c) 1997 Bernd Johannes Wuebben math.cornell.edu
+   Copyright (c) 1997 Bernd Johannes wuebben@math.cornell.edu
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -423,6 +423,8 @@ void KSCD::drawPanel()
   songListCB->setGeometry( ix, iy, SBARWIDTH/10*4, HEIGHT );
   songListCB->setFont( QFont( "helvetica", 12 ) );
   songListCB->setFocusPolicy ( QWidget::NoFocus );
+
+printf("Width %d Height %d\n",WIDTH, HEIGHT);
 
   iy = 0;
   ix = WIDTH + SBARWIDTH;
@@ -1282,11 +1284,19 @@ void KSCD::readSettings(){
   use_kfm   = (bool) config->readNumEntry("USEKFM", 1);
   docking   = (bool) config->readNumEntry("DOCKING", 1);
 
-  cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
-  cd_device = cd_device_str.data();
 
-  mailcmd = config->readEntry("UnixMailCommand","mail -s \"%s\" ");
-  browsercmd = config->readEntry("CustomBroserCmd","netscape \"%s\" ");
+#ifdef DEFAULT_CD_DEVICE
+
+  // sun ultrix etc have a canonical cd rom device specified in the
+  // respective plat_xxx.c file. On those platforms you need nnot
+  // specify the cd rom device and DEFAULT_CD_DEVICE is not defined
+  // in config.h
+
+  cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
+  cd_device = cd_device_str.data();     
+
+#endif  
+
 
   QColor defaultback = black;
   QColor defaultled = QColor(226,224,255);

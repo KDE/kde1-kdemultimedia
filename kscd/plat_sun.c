@@ -23,11 +23,10 @@
  */
 
 /*
- * @(#)plat_sun.c	1.24 13 Sep 1995
+ * $Id$
  *
  * Sun-specific drive control routines.
  */
-static char *ident = "@(#)plat_sun.c	1.24 13 Sep 1995";
 
 #include "config.h"
 
