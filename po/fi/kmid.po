@@ -313,9 +313,8 @@ msgid "Change Collection Name"
 msgstr "Vaihda kokoelman nimeä"
 
 #: channelview.cpp:33
-#, fuzzy
 msgid "ChannelView"
-msgstr "Näytä kanavat"
+msgstr "Kanavanäkymä"
 
 #: channel.cpp:87
 msgid "Channel"

@@ -237,11 +237,11 @@ msgstr "Soita kelkan sulkeuduttua"
 
 #: configdlg.cpp:169
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Nielaise pienennettäessä"
 
 #: configdlg.cpp:175
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Lopeta soitto lopetettaessa"
 
 #: docking.cpp:72 kscd.cpp:517
 msgid "Play/Pause"
