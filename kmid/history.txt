@@ -409,3 +409,6 @@ Saturday 24-10-98
  I've also fixed a small bug by which the tempo (and rhythm) changed its 
  state before the event actually happening if you moved the timebar near
  before the event time. The problem was caused by volatile shared variables. 
+
+Sunday 25-10-98
+- Fixed a serious bug I introduced in the previous commitment
