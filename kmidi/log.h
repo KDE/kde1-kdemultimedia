@@ -44,7 +44,7 @@ public:
   myMultiEdit(QWidget *parent=0, const char *name=0);
   ~myMultiEdit();
 
-
+bool rowYPos(int row, int& yPos);
 void newLine();
 void  insertChar(char c);
 };

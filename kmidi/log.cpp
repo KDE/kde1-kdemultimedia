@@ -41,22 +41,22 @@ void myMultiEdit::newLine(){
 }
 
 
+
+bool  myMultiEdit::rowYPos(int row, int& yPos){
+
+  return QMultiLineEdit::rowYPos(row,&yPos);
+}
+
 LogWindow::LogWindow(QWidget *parent, const char *name)
   : QDialog(parent, name, FALSE)
 {
   setCaption("Info Window");
 
+
   text_window = new myMultiEdit(this,"logwindow");
   text_window->setGeometry(2,5,500, 300);
-  //  text_window->setReadOnly(FALSE);
+  text_window->setFocusPolicy ( QWidget::NoFocus );
 
-  statuslabel = new QLabel( this, "statuslabel" );
-  
-  statuslabel->setFrameStyle( QFrame::Panel | QFrame::Sunken );
-  statuslabel->setText( "" );
-  statuslabel->setAlignment( AlignLeft|AlignVCenter );
-  statuslabel->setGeometry(2, 307, 500, 20);
-  //statusPageLabel->setFont( QFont("helvetica",12,QFont::Normal) );
 
   dismiss = new QPushButton(this,"dismissbutton");
   dismiss->setGeometry(330,340,70,30);
@@ -66,9 +66,7 @@ LogWindow::LogWindow(QWidget *parent, const char *name)
  
   stringlist = new QStrList(TRUE); // deep copies
   stringlist->setAutoDelete(TRUE);
-  /*  fline = new QFrame(this,"line");
-  fline->setFrameStyle(QFrame::HLine |QFrame::Sunken);
-  fline->setGeometry(2,332,398,5);*/
+
   adjustSize();
   setMinimumSize(width(),height());
   
@@ -128,9 +126,26 @@ void LogWindow::updatewindow(){
     text_window->setAutoUpdate(TRUE);
     text_window->setCursorPosition(text_window->numLines(),0,FALSE);
 
+    int y1  = -1;
+    int y2  = -1;
 
-    //update here causes flicker --gl
-    text_window->update();
+    int templine,tempcol;
+    
+    text_window->getCursorPosition(&templine,&tempcol);	
+
+    bool visible1, visible2;
+
+    visible1 = text_window->rowYPos(templine ,y1);
+    visible2 = text_window->rowYPos(templine +1,y2);
+    
+    if(y1 == -1)
+      y1 = 0;
+    
+    if(y2 == -1)
+      y2 = text_window->height();
+    
+    text_window->repaint(0,y1,text_window->width(),y2);
+
     stringlist->clear();
 
   }
@@ -162,7 +177,7 @@ void LogWindow::insertStr(char* str){
   stringlist->append(string.data());
  
   if(!timerset){
-    sltimer->start(500,TRUE); // sinlge shot TRUE
+    sltimer->start(10,TRUE); // sinlge shot TRUE
     timerset = true;
   }
 
@@ -192,27 +207,20 @@ void LogWindow::insertchar(char c) {
 }
 
 
-void LogWindow::statusLabel(const char *n) {
+void LogWindow::statusLabel(const char* ) {
 
-  statuslabel->setText(n);
+  /*  statuslabel->setText(n);*/
 
 }
 
 
-
-/*
-void LogWindow::keyPressEvent(QKeyEvent *k) {
-}
-
-*/
 
 void LogWindow::resizeEvent(QResizeEvent* ){
 
   int w = width() ;
   int h = height();
 
-  text_window->setGeometry(2,5,w - 2 ,h - 63);
-  statuslabel->setGeometry(2, h - 56 , w -2 , 20);
+  text_window->setGeometry(0,5,w  ,h - 42);
   dismiss->setGeometry(w - 72 , h - 32, 70, 30);
   
 }

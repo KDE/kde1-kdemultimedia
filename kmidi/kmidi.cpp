@@ -771,7 +771,7 @@ void KMidi::aboutClicked()
   label->setGeometry(140,40,160,170);
 
   QString labelstring = "KMidi "KMIDIVERSION"\n"\
-		   "Copyright (c) 1997\nBernd Johannes Wuebben\n"\
+		   "Copyright (c) 1997-98\nBernd Johannes Wuebben\n"\
 		   "wuebben@kde.org\n\n"\
 		   "KMidi contains code from:\n"
 		   "TiMidity version 0.2.i\n"

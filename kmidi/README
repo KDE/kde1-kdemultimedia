@@ -1,12 +1,15 @@
 
-This is Tuukka Toivonen's program TiMidity for playing midi files on a pcm
-device such as Linux /dev/dsp0 or Sun's /dev/audio (see README.tim).  You need
-patch files to use it (see below).  There are several user interfaces provided
-for, including a "dumb" command line version and a KDE version, done by Bernd
-Wuebben (see below).  The patches can be GUS, i.e. Gravis/Forte, type files,
-Gravis InterWave sound fonts, or AWE sbk/sf2 sound fonts.  The InterWave font
-support was done by me (Greg Lee) and the AWE support was done by Takashi Iwai
+In order to use KMidi you need so called (sound) patch files (see below).  
+There are several user interfaces provided for, including a "dumb" command 
+line version and a KDE version, done by Bernd Wuebben (see below).  The 
+patches can be GUS, i.e. Gravis/Forte, type files, Gravis InterWave 
+sound fonts, or AWE sbk/sf2 sound fonts.  The InterWave font support was 
+done by Greg Lee  and the AWE support was done by Takashi Iwai
 (see README.sf2).
+
+PLEASE READE THE SECTION TITLED "NOTES" FURTHER BELOW!
+thanks,
+Bernd
 
 
 KMidi 0.4
@@ -114,7 +117,7 @@ wuebben@math.cornell.edu
 
 
 ---------------------------------------------------------------
-further notes (where to put them?) --gl
+NOTES:
 ---------------------------------------------------------------
 
 Compiling the command line version of TiMidity can be done, under Linux, by

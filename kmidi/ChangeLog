@@ -1,3 +1,8 @@
+Wed Jun 10 03:51:29 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* Work on the Info Window. Improved resonse time and got rid
+	of most of the flicker.
+
 Wed Jun  3 22:13:05 HST 1998  Greg Lee <lee@hawaii.edu>
 
 	* AWE vibrato
