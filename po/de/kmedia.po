@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
 "POT-Creation-Date: 1997-10-07 22:20+0200\n"
-"PO-Revision-Date: 1998-01-24 19:30+0100\n"
+"PO-Revision-Date: 1998-04-21 19:30+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
 #: kmediawin.cpp:132
@@ -31,7 +31,7 @@ msgstr "Start/Pause"
 
 #: kmediawin.cpp:161
 msgid "Forward"
-msgstr ""
+msgstr "Vorspulen"
 
 #: kmediawin.cpp:166
 msgid "Next track"
@@ -58,21 +58,20 @@ msgid "&Contents"
 msgstr "&Inhalt"
 
 #: kmediawin.cpp:210
-#, fuzzy
 msgid "&About"
-msgstr "&Über Qt..."
+msgstr "&Über"
 
 #: kmediawin.cpp:214
 msgid "&File"
-msgstr ""
+msgstr "&Datei"
 
 #: kmediawin.cpp:215
 msgid "&Options"
-msgstr ""
+msgstr "&Einstellungen"
 
 #: kmediawin.cpp:217
 msgid "&Help"
-msgstr ""
+msgstr "&Hilfe"
 
 #: kmediawin.cpp:272
 msgid "Exited"

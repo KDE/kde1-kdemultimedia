@@ -1,5 +1,5 @@
 
-SUBDIRS = cs de fr pl fi es pt ro it zh hr sk
+SUBDIRS = cs de fr pl fi es pt ro it zh_TW_Big5 hr sk
 
 APPS = kmedia kmix kmid
 
