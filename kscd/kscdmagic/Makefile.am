@@ -18,9 +18,6 @@ APPSDIR = $(kde_appsdir)/Multimedia
 # set the include path for X, qt and KDE
 INCLUDES= $(all_includes)
 
-# claim which subdirectories you want to install
-SUBDIRS = 
-
 ####### This part is very kscdmagic specific
 # you can add here more. This one gets installed 
 bin_PROGRAMS = 	kscdmagic
@@ -38,29 +35,7 @@ kscdmagic_LDADD   = -lkdeui -lkdecore -lqt -lXext -lX11 -lm $(LIBSOCKET)
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = bitmap.h    symbol.h    syna.h      xlib.h magicconf.h
 
-# just to make sure, automake makes them 
-BUILTSOURCES =
-
-# if you "make distclean", this files get removed. If you want to remove
-# them while "make clean", use CLEANFILES
-DISTCLEANFILES = $(BUILTSOURCES)
-
 # make messages.po. Move this one to ../po/ and "make merge" in po
 messages:
 #	$(XGETTEXT) -C -ktranslate -kTRANS -x../../kdelibs/po/kde.pot $(kscdmagic_SOURCES)
-
-# just install datas here. Use install-exec-local for scripts and etc.
-# the binary itself is already installed from automake
-# use mkinstalldirs, not "install -d"
-# don't install a list of file. Just one file per install.
-# if you have more of them, create a subdirectory with an extra Makefile 
-install-data-local: 
-
-
-# remove ALL you have installed in install-data-local or install-exec-local
-uninstall-local:
-
-
-# add a dependency for every moc file to be full portable
-# I've added a key binding to emacs for this. 
 
