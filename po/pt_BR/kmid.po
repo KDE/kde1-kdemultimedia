@@ -98,7 +98,6 @@ msgid "&Font Change ..."
 msgstr "Mudar &Fonte ..."
 
 #: kmidframe.cpp:145
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "Config &Midi ..."
 
@@ -350,9 +349,8 @@ msgid "Change Collection Name"
 msgstr "Mudar nome da coleção"
 
 #: channel.cpp:75
-#, fuzzy
 msgid "Channel"
-msgstr "Cancelar"
+msgstr "Canal"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
@@ -403,9 +401,8 @@ msgid "Clavinet"
 msgstr "Cravo"
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Apagar"
+msgstr "Celesta"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -513,15 +510,15 @@ msgstr "Baixo elétrico (palheta)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
-msgstr ""
+msgstr "Baixo sem Tasto"
 
 #: instrname.i18n:42
 msgid "Slap Bass 1"
-msgstr ""
+msgstr "Baixo 1"
 
 #: instrname.i18n:43
 msgid "Slap Bass 2"
-msgstr ""
+msgstr "Baixo 2"
 
 #: instrname.i18n:44
 msgid "Synth Bass 1"
@@ -613,7 +610,7 @@ msgstr "Trompete silenciado"
 
 #: instrname.i18n:66
 msgid "French Horn"
-msgstr ""
+msgstr "Buzina Francesa"
 
 #: instrname.i18n:67
 msgid "Brass Section"
@@ -649,11 +646,11 @@ msgstr "Oboé"
 
 #: instrname.i18n:75
 msgid "English Horn"
-msgstr ""
+msgstr "Buzina Inglesa"
 
 #: instrname.i18n:76
 msgid "Bassoon"
-msgstr ""
+msgstr "Fagote"
 
 #: instrname.i18n:77
 msgid "Clarinet"
@@ -677,11 +674,11 @@ msgstr "Flauta de Pan"
 
 #: instrname.i18n:82
 msgid "Blown Bottle"
-msgstr ""
+msgstr "Vidro Soprado"
 
 #: instrname.i18n:83
 msgid "Shakuhachi"
-msgstr ""
+msgstr "Shakuhachi"
 
 #: instrname.i18n:84
 msgid "Whistle"
@@ -701,15 +698,15 @@ msgstr "Onda dente-de-serra"
 
 #: instrname.i18n:88
 msgid "Lead 3 - Calliope"
-msgstr ""
+msgstr "Órgão a vapor"
 
 #: instrname.i18n:89
 msgid "Lead 4 - Chiflead"
-msgstr ""
+msgstr "Lead 4 - Chiflead"
 
 #: instrname.i18n:90
 msgid "Lead 5 - Charang"
-msgstr ""
+msgstr "Charanga"
 
 #: instrname.i18n:91
 msgid "Lead 6 - Voice"
@@ -717,43 +714,43 @@ msgstr "Voz"
 
 #: instrname.i18n:92
 msgid "Lead 7 - Fifths"
-msgstr ""
+msgstr "Quintas"
 
 #: instrname.i18n:93
 msgid "Lead 8 - Bass+Lead"
-msgstr ""
+msgstr "Baixo+Líder"
 
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
-msgstr ""
+msgstr "Pad 1 - New Age"
 
 #: instrname.i18n:95
 msgid "Pad 2 - Warm"
-msgstr ""
+msgstr "Pad 2 - Aquecimento"
 
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
-msgstr ""
+msgstr "Pad 3 - Poli-sintetiz."
 
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
-msgstr ""
+msgstr "Pad 4 - Coro"
 
 #: instrname.i18n:98
 msgid "Pad 5 - Bow"
-msgstr ""
+msgstr "Pad 5 - Arco"
 
 #: instrname.i18n:99
 msgid "Pad 6 - Metallic"
-msgstr ""
+msgstr "Pad 6 - Metálico"
 
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
-msgstr ""
+msgstr "Pad 7 - Halo"
 
 #: instrname.i18n:101
 msgid "Pad 8 - Sweep"
-msgstr ""
+msgstr "Pad 8 - Macio"
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
@@ -777,7 +774,7 @@ msgstr "FX 5 - Brilho"
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
-msgstr ""
+msgstr "FX 6 - Gnomos"
 
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
@@ -797,7 +794,7 @@ msgstr "Banjo"
 
 #: instrname.i18n:112
 msgid "Shamisen"
-msgstr ""
+msgstr "Shamisen"
 
 #: instrname.i18n:113
 msgid "Koto"
@@ -805,24 +802,23 @@ msgstr "Koto"
 
 #: instrname.i18n:114
 msgid "Kalimba"
-msgstr ""
+msgstr "Kalimba"
 
 #: instrname.i18n:115
 msgid "Bagpipe"
 msgstr "Gaita de Fole"
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Arquivo"
+msgstr "Rabeca"
 
 #: instrname.i18n:117
 msgid "Shannai"
-msgstr ""
+msgstr "Shannai"
 
 #: instrname.i18n:118
 msgid "Tinkle Bell"
-msgstr ""
+msgstr "Sino de Campainha"
 
 #: instrname.i18n:119
 msgid "Agogo"
@@ -830,23 +826,23 @@ msgstr "Agogô"
 
 #: instrname.i18n:120
 msgid "Steel Drum"
-msgstr ""
+msgstr "Tambor de aço"
 
 #: instrname.i18n:121
 msgid "Wook Block"
-msgstr ""
+msgstr "Bloco Wook"
 
 #: instrname.i18n:122
 msgid "Taiko Drum"
-msgstr ""
+msgstr "Tambor Taiko"
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
-msgstr ""
+msgstr "Tom melódico"
 
 #: instrname.i18n:124
 msgid "Synth Drum"
-msgstr ""
+msgstr "Tambor sintetiz."
 
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
@@ -854,7 +850,7 @@ msgstr "Címbalo Reverso"
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
-msgstr ""
+msgstr "Ruído Tasto de Guitarra"
 
 #: instrname.i18n:127
 msgid "Breath Noise"
@@ -877,9 +873,8 @@ msgid "Helicopter"
 msgstr "Helicóptero"
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pausa"
+msgstr "Aplausos"
 
 #: instrname.i18n:133
 msgid "Gunshot"
