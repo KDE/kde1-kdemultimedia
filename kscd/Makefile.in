@@ -79,10 +79,10 @@ config.h: kscd-script
 	sh kscd-script
 
 kscd: config.h $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
-	$(LIBTOOL) -mode=link $(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS) $(KDE_RPATH)
+	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS) $(KDE_RPATH)
 
 $(TARGET2): $(SOURCES2)  $(OBJECTS2) $(HEADER)
-	$(LIBTOOL) -mode=link $(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS) $(KDE_RPATH)
+	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS) $(KDE_RPATH)
 
 depend:
 	@makedepend -I$(INCDIR) $(SOURCES) 2> /dev/null
