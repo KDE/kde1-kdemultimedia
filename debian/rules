@@ -53,7 +53,7 @@ binary-arch:	build
 	echo "[General]" >> debian/tmp/etc/kde/kscdrc
 	echo "UnixMailCommand=/usr/bin/mail -s \"%s\"" >> debian/tmp/etc/kde/kscdrc 
 	echo "DOCKING=1" >> debian/tmp/etc/kde/kscdrc
-	perl -w debian/kderules
+	perl -w admin/debianrules
 	dh_movefiles
 	dh_undocumented 
 	dh_installdocs
@@ -70,7 +70,7 @@ binary-arch:	build
 	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
-	perl -w debian/kderules update
+	perl -w admin/debianrules update
 	dh_builddeb
 
 # Below here is fairly generic really
