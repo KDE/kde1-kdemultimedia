@@ -226,7 +226,7 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
 				   int panning, int amp, int note_to_use,
 				   int strip_loop, int strip_envelope,
 #ifndef ADAGIO
-				   int strip_tail, int bank, int gm_num)
+				   int strip_tail, int brightness, int harmoniccontent, int bank, int gm_num)
 #else /* ADAGIO */
 				   int strip_tail,
 				   int gm_num, int tpgm, int reverb, int main_volume)
@@ -243,16 +243,16 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
 #ifdef ADAGIO
   int newmode;
   extern Instrument *load_fff_patch(int, int, int, int);
-  extern Instrument *load_sbk_patch(int, int, int, int, int);
+  extern Instrument *load_sbk_patch(int, int, int, int, int, int, int);
   extern int next_wave_prog;
 
   if (gm_num >= 0) {
   if ((ip = load_fff_patch(gm_num, tpgm, reverb, main_volume))) return(ip);
-  if ((ip = load_sbk_patch(0, gm_num, tpgm, reverb, main_volume))) return(ip);
+  if ((ip = load_sbk_patch(0, gm_num, tpgm, reverb, main_volume, brightness, harmoniccontent))) return(ip);
   }
 #else
   extern Instrument *load_fff_patch(char *, int, int, int, int, int, int, int, int, int);
-  extern Instrument *load_sbk_patch(int, char *, int, int, int, int, int, int, int, int, int);
+  extern Instrument *load_sbk_patch(int, char *, int, int, int, int, int, int, int, int, int, int, int);
 
   if (gm_num >= 0) {
       if (font_type == FONT_FFF && (ip = load_fff_patch(name, gm_num, bank, percussion,
@@ -266,7 +266,7 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
       if (font_type == FONT_SBK && (ip = load_sbk_patch(0, name, gm_num, bank, percussion,
 			   panning, amp, note_to_use,
 			   strip_loop, strip_envelope,
-			   strip_tail))) return(ip);
+			   strip_tail, brightness, harmoniccontent))) return(ip);
   }
 #endif
 
@@ -301,7 +301,7 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
   	if (font_type == FONT_SBK && (ip = load_sbk_patch(1, name, gm_num, bank, percussion,
 			   panning, amp, note_to_use,
 			   strip_loop, strip_envelope,
-			   strip_tail))) return(ip);
+			   strip_tail, brightness, harmoniccontent))) return(ip);
       }
     #endif
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
@@ -844,6 +844,8 @@ static int fill_bank(int b)
 				     ((dr) ? 1 : -1),
 				#ifndef ADAGIO
 				     bank->tone[i].strip_tail,
+				     bank->tone[i].brightness,
+				     bank->tone[i].harmoniccontent,
 				     b,
 				     ((dr) ? i + 128 : i) )))
 				#else /* ADAGIO */
@@ -903,7 +905,7 @@ int set_default_instrument(char *name)
 {
   Instrument *ip;
 #ifndef ADAGIO
-  if (!(ip=load_instrument(name, FONT_NORMAL, 0, -1, -1, -1, 0, 0, 0, 0, -1)))
+  if (!(ip=load_instrument(name, FONT_NORMAL, 0, -1, -1, -1, 0, 0, 0, -1, -1, 0, -1)))
 #else /* ADAGIO */
   if (!(ip=load_instrument(name, FONT_NORMAL, 0, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0)))
 #endif /* ADAGIO */

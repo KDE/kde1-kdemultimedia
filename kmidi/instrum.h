@@ -84,7 +84,7 @@ typedef struct {
   Instrument *instrument;
   int font_type;
 #ifndef ADAGIO
-  int note, amp, pan, strip_loop, strip_envelope, strip_tail;
+  int note, amp, pan, strip_loop, strip_envelope, strip_tail, brightness, harmoniccontent;
 #else /* ADAGIO */
   int note, amp, pan, strip_loop, strip_envelope, strip_tail,
 	 gm_num, tpgm, reverb, main_volume;
@@ -96,6 +96,7 @@ typedef struct {
 #define MAGIC_LOAD_INSTRUMENT ((Instrument *)(-1))
 #define MAXPROG 128
 #define MAXBANK 129
+#define SFXBANK (MAXBANK-1)
 
 typedef struct {
 #ifndef ADAGIO
