@@ -247,8 +247,8 @@ void KMediaWin::openClicked()
   QString &urlQref = urlQstr;
   KURL::decodeURL(urlQref);
 
-  FileNameSet( FnamChunk, urlQstr.data());
-  launchPlayer(urlQstr.data());
+  FileNameSet( FnamChunk, urlQstr.data() );
+  launchPlayer(urlQstr.data() );
 
   delete url;
 }

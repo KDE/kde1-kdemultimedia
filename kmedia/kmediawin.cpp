@@ -52,6 +52,7 @@ KMediaWin::~KMediaWin()
   if (!exitOK)
     fprintf(stderr,"Player does not quit!!!\n");
 
+  MdDisconnect(&m);
   delete mainmenu;
   delete statbar;
 }
@@ -219,7 +220,7 @@ void KMediaWin::createMenu()
 
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
-  Mfile->insertItem( i18n("&Open"),  this, SLOT(openClicked()), CTRL+Key_O );
+  Mfile->insertItem( i18n("&Open..."),  this, SLOT(openClicked()), CTRL+Key_O );
 
   Mfile->insertItem( i18n("&New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
   Mfile->insertItem( i18n("E&xit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
