@@ -90,6 +90,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   ttcheckbox = new QCheckBox(i18n("Show Tool Tips"), this, "tooltipscheckbox");
   ttcheckbox->setGeometry(30,110,135,25);
+  ttcheckbox->setFixedSize( ttcheckbox->sizeHint() );
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
 }
