@@ -35,6 +35,7 @@
 #include <ksock.h>
 
 #define DEFAULT_SUBMIT_EMAIL "xmcd-cddb@amb.org"
+//"root@localhost"
 #define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
 #define DEFAULT_CDDBHTTP_SERVER "cddb.moonsoft.com http 80 /~cddb/cddb.cgi"
 
@@ -60,7 +61,7 @@ class CDDB:public QObject
                    INEX_READ=11,
                    REQUEST_SERVER_LIST=12, SERVER_LIST_WAIT=13, GETTING_SERVER_LIST=14,
                    HTTP_REQUEST=15, HTTP_HEADER=16,
-		   PROTO=17
+		   PROTO=17, DO_NOTHING=127
     } CDDBState;
     
     typedef enum { REGULAR=100, SERVER_LIST_GET=101 } CDDBMode;

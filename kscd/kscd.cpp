@@ -115,6 +115,7 @@ int info_modified;
 int cur_stopmode;
 int cur_playnew;
 int mark_a, mark_b;
+    char cddbbasedirtext[4096];
 
 /****************************************************************************
 				The GUI part
@@ -576,10 +577,24 @@ void KSCD::playClicked()
         songListCB->clear();
         setLEDs( "00:00" );
 
-        for (int i = 0; i < cur_ntracks; i++){
-            songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
+        int i = 0;
+        songListCB->clear();
+        char *ptr = tracktitlelist.first();
+        for(ptr = tracktitlelist.next(); ptr != 0; ptr = tracktitlelist.next()){
+            i++;
+            songListCB->insertItem( QString(0).sprintf("%02d: %s", i, ptr));
+        }
+        for(; i < cur_ntracks; i++){
+            songListCB->insertItem( QString(0).sprintf(klocale->translate("%02d: <Unknown>"), i+1));
         }
 
+
+//        for (int i = 0; i < cur_ntracks; i++){
+//            songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
+//        }
+
+
+        
         qApp->processEvents();
         qApp->flushX();
 
@@ -889,7 +904,7 @@ void KSCD::aboutClicked(){
 
     box->setGeometry(10,10,520,420);
 
-    label->setGeometry(160,30,340,300);
+    label->setGeometry(160,30,340,350);
     label->setAlignment( AlignCenter);
     QString labelstring;
     labelstring = "kscd "KSCDVERSION"\n";
@@ -911,7 +926,11 @@ void KSCD::aboutClicked(){
 #endif
      labelstring += klocale->translate(
         "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
-        "for his work on the http proxy code.\n") ;
+        "for his work on the http proxy code.\n\n") ;
+     labelstring += klocale->translate(
+                                       "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
+                                       "For the many CDDB code bug fixes, local CDDB "
+                                       "record caching, and track tweek.\n\n");
 
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
     label->setText(labelstring.data());
@@ -1133,10 +1152,20 @@ void KSCD::cdMode(){
         if(songListCB->count() == 0){
             // we are in here when we start kscd and
             // the cdplayer is already playing.	
-
-            for (int i = 0; i < cur_ntracks; i++){
-                songListCB->insertItem( QString( 0 ).sprintf(klocale->translate("Track %02d"),i + 1 ) );
+            int i = 0;
+            songListCB->clear();
+            char *ptr = tracktitlelist.first();
+            for(ptr = tracktitlelist.next(); ptr != 0; ptr = tracktitlelist.next()){
+                i++;
+                songListCB->insertItem( QString(0).sprintf("%02d: %s", i, ptr));
             }
+            for(; i < cur_ntracks; i++){
+                songListCB->insertItem( QString(0).sprintf(klocale->translate("%02d: <Unknown>"), i+1));
+            }
+
+//            for (int i = 0; i < cur_ntracks; i++){
+//                songListCB->insertItem( QString( 0 ).sprintf(klocale->translate("Track %02d"),i + 1 ) );
+//            }
             songListCB->setCurrentItem( cur_track - 1 );
             have_new_cd = false;
             get_cddb_info(false); // false == do not update dialog if open
@@ -1165,15 +1194,25 @@ void KSCD::cdMode(){
         break;
 
     case 4:         /* STOPPED */
-        int i;
         if (damn) {
 
             statuslabel->setText( klocale->translate("Ready") );
             setLEDs( "--:--" );
             songListCB->clear();
 
-            for (i = 0; i < cur_ntracks; i++)
-                songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
+            int i = 0;
+            songListCB->clear();
+            char *ptr = tracktitlelist.first();
+            for(ptr = tracktitlelist.next(); ptr != 0; ptr = tracktitlelist.next()){
+                i++;
+                songListCB->insertItem( QString(0).sprintf("%02d: %s", i, ptr));
+            }
+            for(; i < cur_ntracks; i++){
+                songListCB->insertItem( QString(0).sprintf(klocale->translate("%02d: <Unknown>"), i+1));
+            }
+
+//            for (i = 0; i < cur_ntracks; i++)
+//                songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
 
             int w = ((cur_track >= 0) ? cur_track : 1);
 
@@ -1266,7 +1305,6 @@ void KSCD::setColors(){
 
 void KSCD::readSettings()
 {
-
     config = mykapp->getConfig();
 
     config->setGroup("GENERAL");
@@ -1307,6 +1345,8 @@ void KSCD::readSettings()
     basedirdefault += "/kscd/cddb/";
 
     cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
+    strncpy(cddbbasedirtext, cddbbasedir.data(), 4095);
+    cddbbasedirtext[4095] = 0;
 // Set this to false by default. Look at the settings dialog source code
 // for the reason. - Juraj.
     cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
@@ -1472,6 +1512,7 @@ void KSCD::getCDDBserversDone(){
 }
 
 void KSCD::get_cddb_info(bool _updateDialog){
+    static int connected = 0;
 
     updateDialog = _updateDialog;
 
@@ -1489,13 +1530,15 @@ void KSCD::get_cddb_info(bool _updateDialog){
     get_pathlist(pathlist);
     cddb.setPathList(pathlist);
 
+    if(!connected){
     connect(&cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
     connect(&cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
     connect(&cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
     connect(&cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
     connect(&cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
     connect(&cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
-
+        connected = 1;
+    }
     led_on();
 
     bool res = cddb.local_query(
@@ -1521,7 +1564,6 @@ void KSCD::get_cddb_info(bool _updateDialog){
         cddb.cddb_connect(current_server);
     }
     else{
-
         if (debugflag) printf("FOUND RECORD LOCALLY\n");
         if((int)tracktitlelist.count() != (cd->ntracks + 1)){
             if(debugflag) printf(
@@ -1540,6 +1582,18 @@ void KSCD::get_cddb_info(bool _updateDialog){
             artistlabel->setText(tracktitlelist.at(0));
         }
 
+        int i = 0;
+        songListCB->clear();
+        char *ptr = tracktitlelist.first();
+        for(ptr = tracktitlelist.next(); ptr != 0; ptr = tracktitlelist.next()){
+            i++;
+            songListCB->insertItem( QString(0).sprintf("%02d: %s", i, ptr));
+        }
+        for(; i < cur_ntracks; i++){
+            songListCB->insertItem( QString(0).sprintf(klocale->translate("%02d: <Unknown>"), i+1));
+        }
+
+
         led_off();
         timer->start(1000);
 
@@ -1553,12 +1607,15 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
 }
 
-
+int cddb_ready_bug = 0;
 void KSCD::cddb_ready(){
 
     if(!cd)
         return;
-
+/*    if(cddb_ready_bug)
+        return;
+    cddb_ready_bug = 1;
+*/
     querylist.clear();
     tracktitlelist.clear();
     extlist.clear();
@@ -1577,7 +1634,7 @@ void KSCD::cddb_ready(){
 }
 
 void KSCD::cddb_no_info(){
-
+//        cddb_ready_bug = 0;
     titlelabel->setText(klocale->translate("No matching CDDB entry found."));
     artistlabel->setText("");
     titlelabeltimer->start(10000,TRUE); // 10 secs
@@ -1602,7 +1659,7 @@ void KSCD::cddb_failed(){
 
     // TODO differentiate between those casees where the communcition really
     // failed and those where we just couldn't find anything
-
+//        cddb_ready_bug = 0;
     tracktitlelist.clear();
     for(int i = 0 ; i <= cd->ntracks; i++)
         tracktitlelist.append("");
@@ -1624,6 +1681,7 @@ void KSCD::cddb_failed(){
 
 void KSCD::cddb_timed_out(){
 
+//    cddb_ready_bug = 0;
     tracktitlelist.clear();
     for(int i = 0 ; i <= cd->ntracks; i++)
         tracktitlelist.append("");
@@ -1683,6 +1741,8 @@ void KSCD::cddb_done()
 {
     cddb_inexact_sentinel =false;
 
+//    cddb_ready_bug = 0;
+
     cddb.getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);
     playlistpointer = 0;
 
@@ -1704,6 +1764,21 @@ void KSCD::cddb_done()
     if(cddialog && updateDialog)
         cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
                           revision,playlist,pathlist,mailcmd,submitaddress);
+
+    int i = 0;
+    songListCB->clear();
+    char *ptr = tracktitlelist.first();
+    for(ptr = tracktitlelist.next(); ptr != 0; ptr = tracktitlelist.next()){
+        i++;
+        songListCB->insertItem( QString(0).sprintf("%02d: %s", i, ptr));
+    }
+    for(; i < cur_ntracks; i++){
+        songListCB->insertItem( QString(0).sprintf(klocale->translate("%02d: <Unknown>"), i+1));
+    }
+
+//    for (int i = 0; i < cur_ntracks; i++){
+//        songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
+//    }
 
     led_off();
     timer->start(1000);

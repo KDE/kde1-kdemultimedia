@@ -42,6 +42,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <errno.h>
 
 extern KApplication 	*mykapp;
 
@@ -50,6 +51,9 @@ void cddb_encode(QString& str, QStrList &returnlist);
 bool cddb_playlist_decode(QStrList& playlist,QString&  value);
 void cddb_playlist_encode(QStrList& playlist,QString&  value);
 extern bool debugflag;
+
+int Ret;
+extern char cddbbasedirtext[4096];
 
 CDDB::CDDB(char *host, int _port,int _timeout)
 {
@@ -82,7 +86,12 @@ CDDB::CDDB(char *host, int _port,int _timeout)
 	username = pw->pw_name;
     else
 	username = "anonymous";
-
+//printf("debug: %d\n", debugflag);
+//debugflag = true;
+//printf("debug: %d\n", debugflag);
+//printf("cddb info: host[%s] port[%d] connected[%d] readonly[%d] timeout[%d]\n", host, port, connected, readonly, timeout);
+//printf("attemping to connect to cddb...\n");
+//fflush(stdout);
     //Connect handlers
     QObject::connect(&starttimer,SIGNAL(timeout()),this,SLOT(cddb_connect_internal()));
     QObject::connect(&timeouttimer,SIGNAL(timeout()),this,SLOT(cddb_timed_out_slot()));
@@ -103,14 +112,14 @@ CDDB::~CDDB()
 void CDDB::sighandler(int signum)
 {
     signum = signum;
-    /*
-      if (signum == SIGALRM && connecting == true ){
+    
+/*      if (signum == SIGALRM && connecting == true ){
       mykapp->processEvents();
       mykapp->flushX();
       signal( SIGALRM , CDDB::sighandler );
       setalarm();
-      fprintf(stderr,"SIGALRM\n");
-      }
+*/      fprintf(stderr,"SIGALRM\n");
+/*      }
     */
 
 }
@@ -147,9 +156,10 @@ void CDDB::cddbgetServerList(QString& _server)
 
     protocol=decodeTransport(proto);
 
-    if(debugflag) 
+    if(debugflag) {
 	fprintf(stderr,"GETTING SERVERLIST\n");
-
+	fflush(stderr);
+}
     mode = SERVER_LIST_GET;
 
     if(protocol==CDDBHTTP)
@@ -332,6 +342,10 @@ void CDDB::cddb_close(KSocket *socket)
     }
 }
 
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+
 void CDDB::cddb_read(KSocket *socket)
 {
     int  n;
@@ -366,7 +380,9 @@ bool CDDB::next_token()
 
 void CDDB::queryCD(unsigned long _magicID,QStrList& querylist)
 {
-
+//    if(state == DO_NOTHING)
+//        return;
+//    state = DO_NOTHING;
     if((sock == 0L || sock->socket() < 0) && protocol==CDDBP)
 	return;
 
@@ -404,6 +420,8 @@ void CDDB::queryCD(unsigned long _magicID,QStrList& querylist)
 	timeouttimer.stop();
 	timeouttimer.start(timeout*1000,TRUE);
 	str += "\n";
+	if(debugflag)
+		fprintf(stderr, "strdata: %s\n", str.data());
 	write(sock->socket(),str.data(),str.length());
         state  = QUERY;
     }
@@ -464,6 +482,11 @@ void CDDB::query_exact(QString line)
 
 void CDDB::do_state_machine()
 {
+    char tbuf[4096];
+    static int cddbfh = 0;
+    int cddblinelen;
+
+
     if(debugflag)
         fprintf(stderr,"STATE MACHINE: State: %d Got: %s\n",(int)state,lastline.data());
 
@@ -508,8 +531,12 @@ void CDDB::do_state_machine()
 	break;
       
     case INIT:
+	if(debugflag)
+		fprintf(stderr, "case INIT == true\n");
 	if((lastline.left(3) == QString("201")) ||(lastline.left(3) == QString("200")) )
         {
+	if(debugflag)
+	   fprintf(stderr, "next if == true\n");
 	    QString hellostr;
 
 	    // cddb hello username hostname clientname version
@@ -518,8 +545,12 @@ void CDDB::do_state_machine()
 	    hellostr += KSCDVERSION;
 
 	    hellostr += " \n";
+	if(debugflag)
+	fprintf(stderr, "hellostr: %s\n", hellostr.data());
 
-	    write(sock->socket(),hellostr.data(),hellostr.length());
+	    Ret = write(sock->socket(),hellostr.data(),hellostr.length());
+	    if(debugflag)
+		fprintf(stderr, "write() returned: %d [%s]\n", Ret, strerror(errno));
 	    state = HELLO;
 	}
 	else {
@@ -607,6 +638,8 @@ void CDDB::do_state_machine()
     case CDDB_READING:
 	if(lastline.left(1) == QString("."))
 	{
+            close(cddbfh);
+            cddbfh = 0;
             if(protocol!=CDDBHTTP)
                 write(sock->socket(),"quit\n",6);
             state = CDDB_DONE;
@@ -614,6 +647,18 @@ void CDDB::do_state_machine()
 	    cddb_close(sock);
 	    emit cddb_done();
 	} else {
+            if(!cddbfh){
+                snprintf(tbuf, 4096, "%s/%s/%x", cddbbasedirtext, category.data(), magicID);
+                if(debugflag)
+                    fprintf(stderr, "dir/file path: %s\n", tbuf);
+                cddbfh = open(tbuf, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+            }
+            cddblinelen = strlen(lastline.data());
+            write(cddbfh, lastline.data(), cddblinelen);
+            write(cddbfh, "\n", strlen("\n"));
+//            if(debugflag)
+//                fprintf(stderr, "line written: %d\n", cddblinelen);
+            
             respbuffer.prepend("\n");
             respbuffer.prepend(lastline);
         }

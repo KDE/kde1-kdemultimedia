@@ -354,6 +354,8 @@ void CDDialog::titlechanged(const char* t){
 
 }
 
+QString submitcat;
+
 void CDDialog::upload(){
 
   if(!checkit())
@@ -399,7 +401,6 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
 
   QStrList catlist;
-  QString submitcat;
 
   catlist.append("rock");
   catlist.append("classical");
@@ -433,25 +434,25 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   mykapp->flushX();
 
 
-  QString subject;
+/*  QString subject;
   subject.sprintf("cddb %s %08x",submitcat.data(),cdinfo.magicID);
-
-  FILE* mailpipe;
 
   QString formatstr;
   //  formatstr = mailcmd + " cddb-test@cddb.cddb.com";
   formatstr = mailcmd;
   formatstr += " ";
   formatstr += submitaddress;
-
-  if (debugflag ) printf(klocale->translate("Submitting cddb entry: %s\n"),formatstr.data());
+*/
 
   QString cmd;
   //  cmd = cmd.sprintf("mail -s \"%s\" cddb-test@cddb.cddb.com",subject.data());
   //  cmd = cmd.sprintf("sendmail wuebben@math.cornell.edu");
-  cmd = cmd.sprintf(formatstr.data(),subject.data()); 
+  cmd = cmd.sprintf("sendmail -tU");
+  //  cmd = cmd.sprintf(formatstr.data(),subject.data());
 		    
+  if (debugflag ) printf(klocale->translate("Submitting cddb entry: %s\n"),cmd.data());
 
+  FILE* mailpipe;
   mailpipe = popen(cmd.data(),"w");
 
   if(mailpipe == NULL){
@@ -568,6 +569,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   magic.sprintf("%08x",cdinfo.magicID);
   bool have_magic_already = false;
 
+  if(debugflag) printf("::save_cddb_entry(): path: %s upload = %d\n", path.data(), upload);
   // Steve and Ti contacted me and said they have changed the cddb upload specs
   // Now, an uploaded entry must only contain one DISCID namely the one corresponding
   // to the CD the user actually owns.
@@ -607,6 +609,15 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
 
   QString tmp;
   QTextStream t(&file);
+
+  if(upload){
+      QString subject;
+      subject.sprintf("cddb %s %08x", submitcat.data(), cdinfo.magicID);
+
+      t << "To: " + submitaddress + "\n";
+      tmp = tmp.sprintf("Subject: %s\n", subject.data());
+      t << tmp.data();
+  }
 
   t << "# xmcd CD database file\n";
 
@@ -741,7 +752,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
     t << tmp.data();
   }
 
-
+  t << "\n";
 
   file.close();
   chmod(file.name(), S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH );

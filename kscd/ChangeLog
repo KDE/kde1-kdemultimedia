@@ -1,3 +1,23 @@
+1998-09-23  Sam Maloney  <thufir@illogic.ml.org>
+	
+	* Fixed submission of CDDB records, where it would not include a
+	  'PLAYORDER=' at the bottom of the email.
+	* Switched it over from using 'mail -s <subject> < record', to
+	  using sendmail. (currently adding SMTP suppport, so it uses
+	  no external program for this)
+
+1998-09-21  Sam Maloney  <thufir@illogic.ml.org>
+	
+	* Added automatic storing of CDDB records downloaded from CDDB
+	  server to local harddrive.
+	* Fixed bug with routine connecting signals, over and over again,
+	  causing routines to be called too many time, annoying CDDB
+	  server admins. Happens when a new CDDB (remote) request was
+	  issued.
+	* Added snazyness of having the pulldown track selection box
+	  display ("%02d: %s", tracknumber, trackname) for each item,
+	  instead of just the number. 
+
 Fri May 15 18:28:40 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
 
 	* docking.cpp: fixed up the docking behaviour
