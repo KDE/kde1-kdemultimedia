@@ -706,7 +706,7 @@ int main(int argc, char **argv)
 #if defined(AU_LINUX) || defined(AU_WIN32)
   int buffer_fragments=-1;
 #endif
-
+  extern int command_cutoff_allowed;
 #ifdef __WIN32__
 	int evil=0;
 #endif
@@ -736,8 +736,9 @@ options.  I moved it down. --gl
   if (!read_config_file(CONFIG_FILE))
 	 got_a_configuration=1;
 */
+  command_cutoff_allowed = 0;
 
-  while ((c=getopt(argc, argv, "UI:P:L:c:A:C:ap:fo:O:s:Q:FD:hi:#:"
+  while ((c=getopt(argc, argv, "UI:P:L:c:A:C:ap:fo:O:s:Q:FD:hi:#:q"
 #if defined(AU_LINUX) || defined(AU_WIN32)
 			"B:" /* buffer fragments */
 #endif
@@ -747,6 +748,7 @@ options.  I moved it down. --gl
 			))>0)
 	 switch(c)
 		{
+		case 'q': command_cutoff_allowed=1; break;
 		case 'U': free_instruments_afterwards=1; break;
 		case 'L': add_to_pathlist(optarg); try_config_again=1; break;
 		case 'c':
