@@ -55,7 +55,7 @@ msgstr ""
 "(C) 1996-1998 Christian Esken (esken@kde.org)\n"
 "\n"
 "Medienwiedergabe für das K Desktop Environment.\n"
-"Dieses Programm steht unter GPL.\n"
+"Dieses Programm unterliegt der GPL.\n"
 
 #: kmediawin.cpp:309
 msgid "Exited"
