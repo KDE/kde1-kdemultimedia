@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
-"POT-Creation-Date: 1998-11-26 02:07+0100\n"
+"POT-Creation-Date: 1998-11-30 02:03+0100\n"
 "PO-Revision-Date: 1998-11-09 08:54+01:00\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -241,7 +241,7 @@ msgstr "Automaticky dokovat pøi minimalizaci"
 msgid "Stop Playing on Exit"
 msgstr "Pøestat hrát pøi ukonèení"
 
-#: docking.cpp:75 kscd.cpp:556
+#: docking.cpp:75 kscd.cpp:559
 msgid "Play/Pause"
 msgstr "Start/Pauza"
 
@@ -325,121 +325,122 @@ msgstr ""
 msgid "Vol: --"
 msgstr "Hlas: --"
 
-#: kscd.cpp:522
+#: kscd.cpp:525
 msgid "Performances"
 msgstr "Vystoupení"
 
-#: kscd.cpp:525
+#: kscd.cpp:528
 msgid "Purchases"
 msgstr "Nákupy"
 
-#: kscd.cpp:532
+#: kscd.cpp:535
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:558
+#: kscd.cpp:561
 msgid "Loop CD"
 msgstr "Opakovat CD"
 
-#: kscd.cpp:559
+#: kscd.cpp:562
 msgid "Track Selection"
 msgstr "Výbìr stopy"
 
-#: kscd.cpp:560
+#: kscd.cpp:563
 msgid "30 Secs Forward"
 msgstr "o 30s dopøedu"
 
-#: kscd.cpp:561
+#: kscd.cpp:564
 msgid "30 Secs Backward"
 msgstr "o 30s zpìt"
 
-#: kscd.cpp:562
+#: kscd.cpp:565
 msgid "Next Track"
 msgstr "Dal¹í stopa"
 
-#: kscd.cpp:563
+#: kscd.cpp:566
 msgid "Previous Track"
 msgstr "Pøedchozí stopa"
 
-#: kscd.cpp:564
-msgid "Dock Kscd"
-msgstr "Dokovat Kscd"
+#: kscd.cpp:567
+#, fuzzy
+msgid "Quit Kscd"
+msgstr "Magic Kscd"
 
-#: kscd.cpp:565
+#: kscd.cpp:568
 msgid "Cycle Time Display"
 msgstr "Pøepínaè módu displeje"
 
-#: kscd.cpp:566
+#: kscd.cpp:569
 msgid "Configure Kscd"
 msgstr "Nastav Kscd"
 
-#: kscd.cpp:567
+#: kscd.cpp:570
 msgid "Eject CD"
 msgstr "Vysuò CD"
 
-#: kscd.cpp:568
+#: kscd.cpp:571
 msgid "The Artist on the Web"
 msgstr "Interpret na Webu"
 
-#: kscd.cpp:569
+#: kscd.cpp:572
 msgid "Random Play"
 msgstr "Náhodné poøadí"
 
-#: kscd.cpp:570
+#: kscd.cpp:573
 msgid "CDDB Dialog"
 msgstr "Dialogové okno CDDB"
 
-#: kscd.cpp:571
+#: kscd.cpp:574
 msgid "CD Volume Control"
 msgstr "Nastavení hlasitosti CD"
 
-#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1268
+#: kscd.cpp:625 kscd.cpp:676 kscd.cpp:1267
 msgid "Playing"
 msgstr "Hraji"
 
-#: kscd.cpp:634 kscd.cpp:1282 kscd.cpp:1330 kscd.cpp:1738 kscd.cpp:1936
+#: kscd.cpp:637 kscd.cpp:1281 kscd.cpp:1329 kscd.cpp:1737 kscd.cpp:1935
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: (neznámý)"
 
-#: kscd.cpp:665 kscd.cpp:1311
+#: kscd.cpp:668 kscd.cpp:1310
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:670 kscd.cpp:939 kscd.cpp:1264
+#: kscd.cpp:673 kscd.cpp:944 kscd.cpp:1263
 msgid "Random"
 msgstr "Náhodnì"
 
-#: kscd.cpp:678
+#: kscd.cpp:681
 msgid "Strange...."
 msgstr "Divné...."
 
-#: kscd.cpp:695
+#: kscd.cpp:698
 msgid "Stopped"
 msgstr "Zastaven"
 
-#: kscd.cpp:902 kscd.cpp:1266
+#: kscd.cpp:907 kscd.cpp:1265
 msgid "Loop"
 msgstr "Dokola"
 
-#: kscd.cpp:914
+#: kscd.cpp:919
 msgid "Ejecting"
 msgstr "Vysouvám"
 
-#: kscd.cpp:990
+#: kscd.cpp:995
 msgid "kscd Configuraton"
 msgstr "Nastavení kscd"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1011
+#, fuzzy
 msgid ""
-"Maintained by:\n"
-"     Sam Maloney <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) contains code from:\n"
-"\n"
-"kscd 1.2.0 (branched from)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
+"Currently maintained by:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
+"\n"
+"Kscd contains code from:\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -464,7 +465,7 @@ msgstr ""
 "databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
-#: kscd.cpp:1021
+#: kscd.cpp:1024
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -474,7 +475,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1025
+#: kscd.cpp:1028
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -484,35 +485,23 @@ msgstr ""
 "za práci na kódu pro http proxy.\n"
 "\n"
 
-#: kscd.cpp:1028
-msgid ""
-"Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-"For the many CDDB code bug fixes, local CDDB record caching, and track "
-"tweek, and configuration fixes.\n"
-"\n"
-msgstr ""
-"Díky Samu Maloneymu <thufir@illogic.ml.org>\n"
-"za mnoho oprav chyb v CDDB kódu, ke¹ování CDDB lokálních záznamù\n"
-"a opravy konfigurace.\n"
-"\n"
-
-#: kscd.cpp:1084
+#: kscd.cpp:1083
 msgid "SMTP Setup"
 msgstr "Nastavení SMTP"
 
-#: kscd.cpp:1085
+#: kscd.cpp:1084
 msgid "Kscd Options"
 msgstr "Volby Kscd"
 
-#: kscd.cpp:1086
+#: kscd.cpp:1085
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1174 kscd.cpp:2068
+#: kscd.cpp:1173 kscd.cpp:2067
 msgid "Vol: %02d%%"
 msgstr "Hlas: %02d%%"
 
-#: kscd.cpp:1212
+#: kscd.cpp:1211
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -523,51 +512,51 @@ msgstr ""
 "Ovìøte, prosím, svá pøístupová práva k:\n"
 "%s"
 
-#: kscd.cpp:1318
+#: kscd.cpp:1317
 msgid "Ready"
 msgstr "Pøipraven"
 
-#: kscd.cpp:1362
+#: kscd.cpp:1361
 msgid "Ejected"
 msgstr "Otevøen"
 
-#: kscd.cpp:1644
+#: kscd.cpp:1643
 msgid "Unable to get CDDB server list."
 msgstr "Nepovedlo se získat data z CDDB serveru."
 
-#: kscd.cpp:1788 kscd.cpp:1793
+#: kscd.cpp:1787 kscd.cpp:1792
 msgid "No matching CDDB entry found."
 msgstr "®ádná odpovídající polo¾ka CDDB."
 
-#: kscd.cpp:1817 kscd.cpp:1827
+#: kscd.cpp:1816 kscd.cpp:1826
 msgid "Error getting CDDB entry."
 msgstr "Chyba pøi získávání CDDB polo¾ky."
 
-#: kscd.cpp:1843 kscd.cpp:1853
+#: kscd.cpp:1842 kscd.cpp:1852
 msgid "CDDB query timed out."
 msgstr "CDDB timeout."
 
-#: kscd.cpp:2043
+#: kscd.cpp:2042
 msgid "Tra Rem"
 msgstr "Sto Zbyt"
 
-#: kscd.cpp:2047
+#: kscd.cpp:2046
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2051
+#: kscd.cpp:2050
 msgid "Tot Rem"
 msgstr "Tot Zbyt"
 
-#: kscd.cpp:2056
+#: kscd.cpp:2055
 msgid "Tra Sec"
 msgstr "Sto Sec"
 
-#: kscd.cpp:2181
+#: kscd.cpp:2180
 msgid "Cannot start kscdmagic."
 msgstr "Nepovedlo se spustit kscdmagic."
 
-#: kscd.cpp:2196
+#: kscd.cpp:2195
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -575,16 +564,16 @@ msgstr ""
 "KSCD Magic ukonèen s chybou.\n"
 "Máte KSCD Magic nainstalován?"
 
-#: kscd.cpp:2351
+#: kscd.cpp:2350
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "Výchozí adresáø CDDB:"
 
-#: kscd.cpp:2391
+#: kscd.cpp:2390
 msgid "-h: display commandline options\n"
 msgstr "-h: výpis voleb pøíkazové øádky\n"
 
-#: kscd.cpp:2392
+#: kscd.cpp:2391
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povolit výpis debug informací.\n"
 
@@ -604,14 +593,28 @@ msgstr "Vý¹ka magického okna:"
 msgid "MAGIC Brightness:"
 msgstr "Magický jas:"
 
-#: smtpconfig.cpp:14
+#: smtpconfig.cpp:37
 msgid "Enable submission via SMTP"
 msgstr "Umo¾nit odesílání pomoví SMTP"
 
-#: smtpconfig.cpp:21
+#: smtpconfig.cpp:44
 msgid "SMTP Address:Port"
 msgstr "SMTP Adresa:Port"
 
-#: smtpconfig.cpp:39
+#: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr "Va¹e e-malová adresa"
+
+#~ msgid "Dock Kscd"
+#~ msgstr "Dokovat Kscd"
+
+#~ msgid ""
+#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
+#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
+#~ "tweek, and configuration fixes.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Díky Samu Maloneymu <thufir@illogic.ml.org>\n"
+#~ "za mnoho oprav chyb v CDDB kódu, ke¹ování CDDB lokálních záznamù\n"
+#~ "a opravy konfigurace.\n"
+#~ "\n"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-11-26 02:07+0100\n"
+"POT-Creation-Date: 1998-11-30 02:03+0100\n"
 "PO-Revision-Date: 1998-01-24 18:50+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
@@ -232,7 +232,7 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:75 kscd.cpp:556
+#: docking.cpp:75 kscd.cpp:559
 msgid "Play/Pause"
 msgstr ""
 
@@ -314,121 +314,121 @@ msgstr ""
 msgid "Vol: --"
 msgstr ""
 
-#: kscd.cpp:522
+#: kscd.cpp:525
 msgid "Performances"
 msgstr "Touren und Auftritte"
 
-#: kscd.cpp:525
+#: kscd.cpp:528
 msgid "Purchases"
 msgstr "Kaufgelegenheiten"
 
-#: kscd.cpp:532
+#: kscd.cpp:535
 msgid "KSCD Magic"
 msgstr ""
 
-#: kscd.cpp:558
+#: kscd.cpp:561
 msgid "Loop CD"
 msgstr "Wiederholen"
 
-#: kscd.cpp:559
+#: kscd.cpp:562
 msgid "Track Selection"
 msgstr "Track-Auswahl"
 
-#: kscd.cpp:560
+#: kscd.cpp:563
 msgid "30 Secs Forward"
 msgstr "30 Sek. vorwärts"
 
-#: kscd.cpp:561
+#: kscd.cpp:564
 msgid "30 Secs Backward"
 msgstr "30 Sek. zurück"
 
-#: kscd.cpp:562
+#: kscd.cpp:565
 msgid "Next Track"
 msgstr "Nächster Track"
 
-#: kscd.cpp:563
+#: kscd.cpp:566
 msgid "Previous Track"
 msgstr "Vorheriger Track"
 
-#: kscd.cpp:564
-msgid "Dock Kscd"
-msgstr ""
+#: kscd.cpp:567
+#, fuzzy
+msgid "Quit Kscd"
+msgstr "Kscd beenden"
 
-#: kscd.cpp:565
+#: kscd.cpp:568
 msgid "Cycle Time Display"
 msgstr "Zeitanzeige ändern"
 
-#: kscd.cpp:566
+#: kscd.cpp:569
 msgid "Configure Kscd"
 msgstr "Kscd konfigurieren"
 
-#: kscd.cpp:567
+#: kscd.cpp:570
 msgid "Eject CD"
 msgstr "CD auswerfen"
 
-#: kscd.cpp:568
+#: kscd.cpp:571
 msgid "The Artist on the Web"
 msgstr "Der Künstler im Web"
 
-#: kscd.cpp:569
+#: kscd.cpp:572
 msgid "Random Play"
 msgstr "Zufallsspiel"
 
-#: kscd.cpp:570
+#: kscd.cpp:573
 msgid "CDDB Dialog"
 msgstr "CDDB-Dialog"
 
-#: kscd.cpp:571
+#: kscd.cpp:574
 msgid "CD Volume Control"
 msgstr "Lautstärkeregler"
 
-#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1268
+#: kscd.cpp:625 kscd.cpp:676 kscd.cpp:1267
 msgid "Playing"
 msgstr "Spiele"
 
-#: kscd.cpp:634 kscd.cpp:1282 kscd.cpp:1330 kscd.cpp:1738 kscd.cpp:1936
+#: kscd.cpp:637 kscd.cpp:1281 kscd.cpp:1329 kscd.cpp:1737 kscd.cpp:1935
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:665 kscd.cpp:1311
+#: kscd.cpp:668 kscd.cpp:1310
 msgid "Pause"
 msgstr ""
 
-#: kscd.cpp:670 kscd.cpp:939 kscd.cpp:1264
+#: kscd.cpp:673 kscd.cpp:944 kscd.cpp:1263
 msgid "Random"
 msgstr "Zufall"
 
-#: kscd.cpp:678
+#: kscd.cpp:681
 msgid "Strange...."
 msgstr "Merkwürdig..."
 
-#: kscd.cpp:695
+#: kscd.cpp:698
 msgid "Stopped"
 msgstr "Angehalten"
 
-#: kscd.cpp:902 kscd.cpp:1266
+#: kscd.cpp:907 kscd.cpp:1265
 msgid "Loop"
 msgstr "Schleife"
 
-#: kscd.cpp:914
+#: kscd.cpp:919
 msgid "Ejecting"
 msgstr "Werfe aus"
 
-#: kscd.cpp:990
+#: kscd.cpp:995
 msgid "kscd Configuraton"
 msgstr "Kscd konfiguration"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1011
 msgid ""
-"Maintained by:\n"
-"     Sam Maloney <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) contains code from:\n"
-"\n"
-"kscd 1.2.0 (branched from)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
+"Currently maintained by:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
+"\n"
+"Kscd contains code from:\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -437,45 +437,37 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kscd.cpp:1021
+#: kscd.cpp:1024
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 msgstr ""
 
-#: kscd.cpp:1025
+#: kscd.cpp:1028
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 "\n"
 msgstr ""
 
-#: kscd.cpp:1028
-msgid ""
-"Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-"For the many CDDB code bug fixes, local CDDB record caching, and track "
-"tweek, and configuration fixes.\n"
-"\n"
-msgstr ""
-
-#: kscd.cpp:1084
+#: kscd.cpp:1083
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1085
+#: kscd.cpp:1084
 msgid "Kscd Options"
 msgstr "Kscd Optionen"
 
-#: kscd.cpp:1086
+#: kscd.cpp:1085
 msgid "Kscd Magic"
 msgstr ""
 
-#: kscd.cpp:1174 kscd.cpp:2068
+#: kscd.cpp:1173 kscd.cpp:2067
 msgid "Vol: %02d%%"
 msgstr ""
 
-#: kscd.cpp:1212
+#: kscd.cpp:1211
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -486,52 +478,52 @@ msgstr ""
 "Bitte stellen Sie sicher, daß Sie Zugriffsberechtigung haben auf:\n"
 "%s"
 
-#: kscd.cpp:1318
+#: kscd.cpp:1317
 msgid "Ready"
 msgstr "Bereit"
 
-#: kscd.cpp:1362
+#: kscd.cpp:1361
 msgid "Ejected"
 msgstr "Ausgeworfen"
 
-#: kscd.cpp:1644
+#: kscd.cpp:1643
 msgid "Unable to get CDDB server list."
 msgstr "Kann die CDDB-Serverliste nicht bekommen."
 
-#: kscd.cpp:1788 kscd.cpp:1793
+#: kscd.cpp:1787 kscd.cpp:1792
 msgid "No matching CDDB entry found."
 msgstr "Kein passender CDDB-Eintrag gefunden."
 
-#: kscd.cpp:1817 kscd.cpp:1827
+#: kscd.cpp:1816 kscd.cpp:1826
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Kein passender CDDB-Eintrag gefunden."
 
-#: kscd.cpp:1843 kscd.cpp:1853
+#: kscd.cpp:1842 kscd.cpp:1852
 msgid "CDDB query timed out."
 msgstr "CDDB-Abfrage: Zeitüberschreitung."
 
-#: kscd.cpp:2043
+#: kscd.cpp:2042
 msgid "Tra Rem"
 msgstr "Tra Übr"
 
-#: kscd.cpp:2047
+#: kscd.cpp:2046
 msgid "Tot Sec"
 msgstr "Ges Sek"
 
-#: kscd.cpp:2051
+#: kscd.cpp:2050
 msgid "Tot Rem"
 msgstr "Ges Übr"
 
-#: kscd.cpp:2056
+#: kscd.cpp:2055
 msgid "Tra Sec"
 msgstr "Tra Sek"
 
-#: kscd.cpp:2181
+#: kscd.cpp:2180
 msgid "Cannot start kscdmagic."
 msgstr "Kann kscdmagic nicht starten."
 
-#: kscd.cpp:2196
+#: kscd.cpp:2195
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -539,16 +531,16 @@ msgstr ""
 "KSCD Magic abnormal beendet.\n"
 "Sind Sie sicher, daß kscdmagic installiert ist?"
 
-#: kscd.cpp:2351
+#: kscd.cpp:2350
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB Basisverzeichnis"
 
-#: kscd.cpp:2391
+#: kscd.cpp:2390
 msgid "-h: display commandline options\n"
 msgstr "-h: Kommandozeilenparameter anzeigen\n"
 
-#: kscd.cpp:2392
+#: kscd.cpp:2391
 msgid "-d: enable debugging output.\n"
 msgstr "-d: Debug-Ausgaben anzeigen.\n"
 
@@ -568,17 +560,14 @@ msgstr "Höhe des Magic-Fensters"
 msgid "MAGIC Brightness:"
 msgstr "MAGIC Helligkeit:"
 
-#: smtpconfig.cpp:14
+#: smtpconfig.cpp:37
 msgid "Enable submission via SMTP"
 msgstr ""
 
-#: smtpconfig.cpp:21
+#: smtpconfig.cpp:44
 msgid "SMTP Address:Port"
 msgstr ""
 
-#: smtpconfig.cpp:39
+#: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr ""
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Kscd beenden"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-26 02:07+0100\n"
+"POT-Creation-Date: 1998-11-30 02:03+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,7 +243,7 @@ msgstr "Nielaise pienennettäessä"
 msgid "Stop Playing on Exit"
 msgstr "Lopeta soitto lopetettaessa"
 
-#: docking.cpp:75 kscd.cpp:556
+#: docking.cpp:75 kscd.cpp:559
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
@@ -325,121 +325,122 @@ msgstr ""
 msgid "Vol: --"
 msgstr "Ään: --"
 
-#: kscd.cpp:522
+#: kscd.cpp:525
 msgid "Performances"
 msgstr "Esitykset"
 
-#: kscd.cpp:525
+#: kscd.cpp:528
 msgid "Purchases"
 msgstr "Ostopaikat"
 
-#: kscd.cpp:532
+#: kscd.cpp:535
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:558
+#: kscd.cpp:561
 msgid "Loop CD"
 msgstr "Toista CD:tä"
 
-#: kscd.cpp:559
+#: kscd.cpp:562
 msgid "Track Selection"
 msgstr "Kappaleen valinta"
 
-#: kscd.cpp:560
+#: kscd.cpp:563
 msgid "30 Secs Forward"
 msgstr "30 sekuntia eteen"
 
-#: kscd.cpp:561
+#: kscd.cpp:564
 msgid "30 Secs Backward"
 msgstr "30 sekuntia taakse"
 
-#: kscd.cpp:562
+#: kscd.cpp:565
 msgid "Next Track"
 msgstr "Seuraava kappale"
 
-#: kscd.cpp:563
+#: kscd.cpp:566
 msgid "Previous Track"
 msgstr "Edellinen kappale"
 
-#: kscd.cpp:564
-msgid "Dock Kscd"
-msgstr "Upota Kscd"
+#: kscd.cpp:567
+#, fuzzy
+msgid "Quit Kscd"
+msgstr "Magic Kscd"
 
-#: kscd.cpp:565
+#: kscd.cpp:568
 msgid "Cycle Time Display"
 msgstr "Aikanäyttö"
 
-#: kscd.cpp:566
+#: kscd.cpp:569
 msgid "Configure Kscd"
 msgstr "Aseta Kscd:tä"
 
-#: kscd.cpp:567
+#: kscd.cpp:570
 msgid "Eject CD"
 msgstr "Poista CD"
 
-#: kscd.cpp:568
+#: kscd.cpp:571
 msgid "The Artist on the Web"
 msgstr "Artisti verkossa"
 
-#: kscd.cpp:569
+#: kscd.cpp:572
 msgid "Random Play"
 msgstr "Satunnainen soitto"
 
-#: kscd.cpp:570
+#: kscd.cpp:573
 msgid "CDDB Dialog"
 msgstr "CDDB-Valintaikkuna"
 
-#: kscd.cpp:571
+#: kscd.cpp:574
 msgid "CD Volume Control"
 msgstr "CD äänenvoimakkuus"
 
-#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1268
+#: kscd.cpp:625 kscd.cpp:676 kscd.cpp:1267
 msgid "Playing"
 msgstr "Soitan"
 
-#: kscd.cpp:634 kscd.cpp:1282 kscd.cpp:1330 kscd.cpp:1738 kscd.cpp:1936
+#: kscd.cpp:637 kscd.cpp:1281 kscd.cpp:1329 kscd.cpp:1737 kscd.cpp:1935
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: <tuntematon>"
 
-#: kscd.cpp:665 kscd.cpp:1311
+#: kscd.cpp:668 kscd.cpp:1310
 msgid "Pause"
 msgstr "Paussi"
 
-#: kscd.cpp:670 kscd.cpp:939 kscd.cpp:1264
+#: kscd.cpp:673 kscd.cpp:944 kscd.cpp:1263
 msgid "Random"
 msgstr "Satunnainen"
 
-#: kscd.cpp:678
+#: kscd.cpp:681
 msgid "Strange...."
 msgstr "Outo..."
 
-#: kscd.cpp:695
+#: kscd.cpp:698
 msgid "Stopped"
 msgstr "Pysäytetty"
 
-#: kscd.cpp:902 kscd.cpp:1266
+#: kscd.cpp:907 kscd.cpp:1265
 msgid "Loop"
 msgstr "Silmukka"
 
-#: kscd.cpp:914
+#: kscd.cpp:919
 msgid "Ejecting"
 msgstr "Poistan levyä"
 
-#: kscd.cpp:990
+#: kscd.cpp:995
 msgid "kscd Configuraton"
 msgstr "kscd Asetukset"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1011
+#, fuzzy
 msgid ""
-"Maintained by:\n"
-"     Sam Maloney <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) contains code from:\n"
-"\n"
-"kscd 1.2.0 (branched from)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
+"Currently maintained by:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
+"\n"
+"Kscd contains code from:\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -463,7 +464,7 @@ msgstr ""
 "CDDB:tä.\n"
 "\n"
 
-#: kscd.cpp:1021
+#: kscd.cpp:1024
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -473,7 +474,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1025
+#: kscd.cpp:1028
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -482,35 +483,23 @@ msgstr ""
 "Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
 "hänen työstään http proxy-koodin kanssa.\n"
 
-#: kscd.cpp:1028
-msgid ""
-"Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-"For the many CDDB code bug fixes, local CDDB record caching, and track "
-"tweek, and configuration fixes.\n"
-"\n"
-msgstr ""
-"Kiitokset Sam Maloney:lle <thufir@illogic.ml.org>\n"
-"Monista CDDB virheiden korjauksista, paikallisesta CDDB-völimuistista, ja "
-"kappale virityksistä, ja asetuskorjauksista.\n"
-"\n"
-
-#: kscd.cpp:1084
+#: kscd.cpp:1083
 msgid "SMTP Setup"
 msgstr "SMTP Asetukset"
 
-#: kscd.cpp:1085
+#: kscd.cpp:1084
 msgid "Kscd Options"
 msgstr "Kscd optiot"
 
-#: kscd.cpp:1086
+#: kscd.cpp:1085
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1174 kscd.cpp:2068
+#: kscd.cpp:1173 kscd.cpp:2067
 msgid "Vol: %02d%%"
 msgstr "Ään: %02d%%"
 
-#: kscd.cpp:1212
+#: kscd.cpp:1211
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -521,51 +510,51 @@ msgstr ""
 "Varmista että sinulla on käyttöoikeudet laitteeseen:\n"
 "%s"
 
-#: kscd.cpp:1318
+#: kscd.cpp:1317
 msgid "Ready"
 msgstr "Valmis"
 
-#: kscd.cpp:1362
+#: kscd.cpp:1361
 msgid "Ejected"
 msgstr "Ei levyä"
 
-#: kscd.cpp:1644
+#: kscd.cpp:1643
 msgid "Unable to get CDDB server list."
 msgstr "En saa CDDB-palvelinlistaa."
 
-#: kscd.cpp:1788 kscd.cpp:1793
+#: kscd.cpp:1787 kscd.cpp:1792
 msgid "No matching CDDB entry found."
 msgstr "Ei yhteensopivaa CDDB-tietuetta."
 
-#: kscd.cpp:1817 kscd.cpp:1827
+#: kscd.cpp:1816 kscd.cpp:1826
 msgid "Error getting CDDB entry."
 msgstr "Virhe haettaessa CDDB-tietuetta."
 
-#: kscd.cpp:1843 kscd.cpp:1853
+#: kscd.cpp:1842 kscd.cpp:1852
 msgid "CDDB query timed out."
 msgstr "CDDB-hakuaika loppui."
 
-#: kscd.cpp:2043
+#: kscd.cpp:2042
 msgid "Tra Rem"
 msgstr "Kap Jäl"
 
-#: kscd.cpp:2047
+#: kscd.cpp:2046
 msgid "Tot Sec"
 msgstr "Yht Sek"
 
-#: kscd.cpp:2051
+#: kscd.cpp:2050
 msgid "Tot Rem"
 msgstr "Yht Jäl"
 
-#: kscd.cpp:2056
+#: kscd.cpp:2055
 msgid "Tra Sec"
 msgstr "Kap Sek"
 
-#: kscd.cpp:2181
+#: kscd.cpp:2180
 msgid "Cannot start kscdmagic."
 msgstr "En saa käynnistettyä kscdmagic:a."
 
-#: kscd.cpp:2196
+#: kscd.cpp:2195
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -573,15 +562,15 @@ msgstr ""
 "KSCD Magic lopetti epänormaalisti.\n"
 "Oletko varma, että se on asennettu?"
 
-#: kscd.cpp:2351
+#: kscd.cpp:2350
 msgid "Enter the local CDDB base Directory"
 msgstr "Anna CDDB-juurihakemisto"
 
-#: kscd.cpp:2391
+#: kscd.cpp:2390
 msgid "-h: display commandline options\n"
 msgstr "-h: näytä komentorivioptiot\n"
 
-#: kscd.cpp:2392
+#: kscd.cpp:2391
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debuggaustiedot.\n"
 
@@ -601,14 +590,28 @@ msgstr "Magic-ikkunan korkeus:"
 msgid "MAGIC Brightness:"
 msgstr "MAGIC kirkkaus:"
 
-#: smtpconfig.cpp:14
+#: smtpconfig.cpp:37
 msgid "Enable submission via SMTP"
 msgstr "Lähetä tietueet SMTP:llä"
 
-#: smtpconfig.cpp:21
+#: smtpconfig.cpp:44
 msgid "SMTP Address:Port"
 msgstr "SMTP Osoite:Portti"
 
-#: smtpconfig.cpp:39
+#: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr "Sähköpostiosoitteesi"
+
+#~ msgid "Dock Kscd"
+#~ msgstr "Upota Kscd"
+
+#~ msgid ""
+#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
+#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
+#~ "tweek, and configuration fixes.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Kiitokset Sam Maloney:lle <thufir@illogic.ml.org>\n"
+#~ "Monista CDDB virheiden korjauksista, paikallisesta CDDB-völimuistista, ja "
+#~ "kappale virityksistä, ja asetuskorjauksista.\n"
+#~ "\n"
