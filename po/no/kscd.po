@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
 "Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -71,20 +71,20 @@ msgstr "Bruk denne tekstredigerer for å kommentere dette spor"
 msgid "Use this Editor to annotate the title"
 msgstr "Bruk denne tekstredigerer for å kommentere tittelen"
 
-#: CDDialog.cpp:415 CDDialog.cpp:544
+#: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
 msgstr "Vennligst velg en kategori eller trykk Kanseller"
 
-#: CDDialog.cpp:416
+#: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
 msgstr "Hvilken kategori tilhører CDen?"
 
-#: CDDialog.cpp:445
+#: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "Oversender CDDB-data: %s\n"
 
-#: CDDialog.cpp:457
+#: CDDialog.cpp:459
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -93,11 +93,11 @@ msgstr ""
 "Kunne ikke overføre (\"pipe\") innholdet til:\n"
 " %s"
 
-#: CDDialog.cpp:545
+#: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "I hvilken kategori ønsker du å lagre disse CDDB-data?"
 
-#: CDDialog.cpp:595
+#: CDDialog.cpp:597
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -106,17 +106,18 @@ msgid ""
 msgstr ""
 "Ikke i stand til å skrive til fil:\n"
 "%s\n"
-"Vennligst sjekk dine adgangstillatelser og sørg for at din kategorikataloger eksisterer."
+"Vennligst sjekk dine adgangstillatelser og sørg for at din kategorikataloger "
+"eksisterer."
 
-#: CDDialog.cpp:600
+#: CDDialog.cpp:602
 msgid "Kscd Error"
 msgstr "Kscd-feil"
 
-#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
 msgstr "Ugyldig database-opplysning"
 
-#: CDDialog.cpp:760
+#: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -124,7 +125,7 @@ msgstr ""
 "CD artist- / tittelfelt er ikke utfylt.\n"
 "Vennligst korriger opplysningen og prøv igjen."
 
-#: CDDialog.cpp:775
+#: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -134,20 +135,19 @@ msgstr ""
 "Vennligst separer artisten fra tittel til CD'en med \n"
 "en forlengs skråstrek, slik som i: Peter Gabriel / Greatest Hits\n"
 
-#: CDDialog.cpp:789 CDDialog.cpp:811
+#: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
-msgstr "" 
+msgstr ""
 "Alle sportitler kan ikke være tomme.\n"
 "Vennligst korriger opplysningen og prøv igjen."
 
-
-#: CDDialog.cpp:821
+#: CDDialog.cpp:823
 msgid "Internal Error"
 msgstr "Intern feil"
 
-#: CDDialog.cpp:822
+#: CDDialog.cpp:824
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -155,7 +155,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->telling() + 1\n"
 "Vennligst send epost til forfatteren."
 
-#: CDDialog.cpp:851
+#: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
 msgstr "Ugyldig spilleliste\n"
 
@@ -197,7 +197,7 @@ msgstr "Konfigurer Kscd"
 
 #: configdlg.cpp:68
 msgid "LED Color:"
-msgstr "LED-farge:" 
+msgstr "LED-farge:"
 
 #: configdlg.cpp:82
 msgid "Background Color:"
@@ -230,14 +230,10 @@ msgstr "Vis verktøytips"
 #: configdlg.cpp:154
 msgid "Enable KPanel Docking"
 msgstr "Gjør mulig KPanel-dokking"
- 
+
 #: docking.cpp:72 kscd.cpp:507
 msgid "Play/Pause"
 msgstr "Spill/pause"
-
-#: docking.cpp:73 kscd.cpp:508
-msgid "Stop"
-msgstr "Stopp"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -255,10 +251,6 @@ msgstr "Forrige"
 msgid "Eject"
 msgstr "Kast ut"
 
-#: docking.cpp:81 docking.cpp:177
-msgid "Restore"
-msgstr "Gjenopprett"
-
 #: docking.cpp:175
 msgid "Minimize"
 msgstr "Minimer"
@@ -268,8 +260,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Maken finnes ikke. Vennligst velg en passende CD fra "
-"listen av valgmuligheter vist nedenfor."
+"Maken finnes ikke. Vennligst velg en passende CD fra listen av "
+"valgmuligheter vist nedenfor."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -404,8 +396,8 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Takk til Ti Kan og Steve Scherf, oppfinnerne av CDDB-"
-"database-konseptet. Besøk http://www.cddb.com for mer info om CDDB.\n"
+"Takk til Ti Kan og Steve Scherf, oppfinnerne av CDDB-database-konseptet. "
+"Besøk http://www.cddb.com for mer info om CDDB.\n"
 "\n"
 
 #: kscd.cpp:897
@@ -520,3 +512,9 @@ msgstr "Høyde på magisk vindu:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC-lysstyrke:"
+
+#~ msgid "Stop"
+#~ msgstr "Stopp"
+
+#~ msgid "Restore"
+#~ msgstr "Gjenopprett"

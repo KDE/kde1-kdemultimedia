@@ -2,6 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
@@ -39,7 +40,7 @@ msgstr "Implicitní"
 
 #: CDDBSetupData.cpp:133
 msgid "Use HTTP proxy to access CDDB"
-msgstr "Pou¾ívat HTTP proxy pro pøístup k CDDB"
+msgstr "Pou¾ít proxy pro pøístup k CDDB"
 
 #: CDDialog.cpp:55
 msgid "CD Database Editor"
@@ -89,7 +90,7 @@ msgstr "Posílám polo¾ku CDDB: %s\n"
 msgid ""
 "Could not pipe contents into:\n"
 " %s"
-msgstr 
+msgstr ""
 "Nepodaøilo se pøedat obsah do:\n"
 " %s"
 
@@ -103,10 +104,11 @@ msgid ""
 "Unable to write to file:\n"
 "%s\n"
 "Please check your permissions and make your category directories exist."
-msgstr 
+msgstr ""
 "Není mo¾né zapisovat do souboru:\n"
 "%s\n"
-"Prosim, ovìøte pøístupová práva a ujistìte se, ¾e adresáøe pro kategorie existují."
+"Prosim, ovìøte pøístupová práva a ujistìte se, ¾e adresáøe pro kategorie "
+"existují."
 
 #: CDDialog.cpp:602
 msgid "Kscd Error"
@@ -120,16 +122,14 @@ msgstr "Nesprávná polo¾ka databáze"
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
-msgstr 
-"Není vyplnìn interpret/titul."
-"Prosím, doplòte tyto informace."
+msgstr "Není vyplnìn interpret/titul.Prosím, doplòte tyto informace."
 
 #: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
-msgstr 
+msgstr ""
 "Interpret/Titul není správnì vyplnìn.\n"
 "Prosím, oddìlte interpreta of titulu pomocí lomítka,\n"
 "napø. Peter Gabriel / Greatest Hits\n"
@@ -138,7 +138,7 @@ msgstr
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
-msgstr 
+msgstr ""
 "Musí být vyplòen alespoò jeden název písnì.\n"
 "Opravte, prosím názvy."
 
@@ -150,7 +150,7 @@ msgstr "Interní chyba"
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
-msgstr
+msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Po¹lete, prosím, e-mail s touto chybou autorovi programu."
 
@@ -258,8 +258,9 @@ msgstr "Minimalizuj"
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr "Nepodaøilo se najít odpovídající data. Prosím, vyberte pøíslu¹né CD"
-"z tohoto seznamu mo¾ností."
+msgstr ""
+"Nepodaøilo se najít odpovídající data. Prosím, vyberte pøíslu¹né CDz tohoto "
+"seznamu mo¾ností."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -386,7 +387,7 @@ msgid ""
 "Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
-msgstr 
+msgstr ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
@@ -394,8 +395,8 @@ msgstr
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce "
-"CDDB databáze. Dal¹í informace na http://www.cddb.com.\n"
+"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB "
+"databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
 #: kscd.cpp:897
@@ -403,7 +404,7 @@ msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
-msgstr 
+msgstr ""
 "KSCD Magic je zalo¾en na Synaesthesia od Paula Harrisona "
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
@@ -412,7 +413,7 @@ msgstr
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
-msgstr 
+msgstr ""
 "Dìkuji Vadimu Zalivovi <lord@crocodile.org>\n"
 "za práci na kódu pro http proxy.\n"
 
@@ -434,7 +435,7 @@ msgid ""
 "CDROM read or access error.\n"
 "Please make sure you have access permissions to:\n"
 "%s"
-msgstr 
+msgstr ""
 "Chyba pøi pøístupu nebo ètení CDROM.\n"
 "Ovìøte, prosím, svá pøístupová práva k:\n"
 "%s"
@@ -483,7 +484,7 @@ msgstr "Nepovedlo se spustit kscdmagic."
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
-msgstr 
+msgstr ""
 "KSCD Magic ukonèen s chybou.\n"
 "Máte KSCD Magic nainstalován?"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: 1998-05-15 18:50+0100\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 
@@ -63,20 +63,20 @@ msgstr "Pou¾ite tento editor na popísanie tejto stopy"
 msgid "Use this Editor to annotate the title"
 msgstr "Pou¾ite tento editor na popísanie tohoto titulu"
 
-#: CDDialog.cpp:415 CDDialog.cpp:544
+#: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
 msgstr "Prosím zvoµte kategóriu alebo stlaète Zru¹i»"
 
-#: CDDialog.cpp:416
+#: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
 msgstr "Do akej kategórie patrí CD?"
 
-#: CDDialog.cpp:445
+#: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "Zasielam cddb polo¾ku: %s\n"
 
-#: CDDialog.cpp:457
+#: CDDialog.cpp:459
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -85,11 +85,11 @@ msgstr ""
 "Nemô¾em zasla» obsah do:\n"
 " %s"
 
-#: CDDialog.cpp:545
+#: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "Pod akou kategóriou si prajete ulo¾i» túto CDDB polo¾ku?"
 
-#: CDDialog.cpp:595
+#: CDDialog.cpp:597
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -100,15 +100,15 @@ msgstr ""
 "%s\n"
 "Prosím skontrolujte práva a vytvorte prieèinky s kategóriami."
 
-#: CDDialog.cpp:600
+#: CDDialog.cpp:602
 msgid "Kscd Error"
 msgstr "Chyba Kscd"
 
-#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
 msgstr "Chybná databázová polo¾ka"
 
-#: CDDialog.cpp:760
+#: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -116,7 +116,7 @@ msgstr ""
 "Polo¾ka \"Autor / Titul\" nie je vyplnená.\n"
 "Prosím doplnte ju a skúste e¹te raz."
 
-#: CDDialog.cpp:775
+#: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -126,7 +126,7 @@ msgstr ""
 "Prosím oddeµte autora od titulu s lomítkom, napríklad takto:\n"
 "Peter Gabriel / Greatest Hits\n"
 
-#: CDDialog.cpp:789 CDDialog.cpp:811
+#: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -134,11 +134,11 @@ msgstr ""
 "Nemô¾u by» v¹etky popisy stôp prázdne.\n"
 "Prosím opravte to a skúste znova."
 
-#: CDDialog.cpp:821
+#: CDDialog.cpp:823
 msgid "Internal Error"
 msgstr "Interná chyba"
 
-#: CDDialog.cpp:822
+#: CDDialog.cpp:824
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -146,7 +146,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Prosím oboznámte autora."
 
-#: CDDialog.cpp:851
+#: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
 msgstr "Chybný playlist\n"
 
@@ -226,10 +226,6 @@ msgstr "Povoli» vsunutie do panelu"
 msgid "Play/Pause"
 msgstr "Hra»/Pozastavi»"
 
-#: docking.cpp:73 kscd.cpp:508
-msgid "Stop"
-msgstr "Zastavi»"
-
 #: docking.cpp:75
 msgid "Backward"
 msgstr "Spä»"
@@ -245,10 +241,6 @@ msgstr "Predchádzajúca"
 #: docking.cpp:78
 msgid "Eject"
 msgstr "Vysunú»"
-
-#: docking.cpp:81 docking.cpp:177
-msgid "Restore"
-msgstr "Obnovi»"
 
 #: docking.cpp:175
 msgid "Minimize"
@@ -511,3 +503,9 @@ msgstr "Vý¹ka Magic okna:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Svetlos» Magic:"
+
+#~ msgid "Stop"
+#~ msgstr "Zastavi»"
+
+#~ msgid "Restore"
+#~ msgstr "Obnovi»"

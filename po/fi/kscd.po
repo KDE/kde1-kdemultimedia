@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,20 +72,20 @@ msgstr "Aseta editori kappaleen kuvaamiseksi"
 msgid "Use this Editor to annotate the title"
 msgstr "Aseta editori kappaleen kuvaamiseksi"
 
-#: CDDialog.cpp:415 CDDialog.cpp:544
+#: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
 msgstr "Valitse kategoria tai paina Peruuta"
 
-#: CDDialog.cpp:416
+#: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
 msgstr "Mihin kategoriaan tämä levy kuuluu?"
 
-#: CDDialog.cpp:445
+#: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "Lähetän cddb tietueen: %s\n"
 
-#: CDDialog.cpp:457
+#: CDDialog.cpp:459
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -94,11 +94,11 @@ msgstr ""
 "En saanut putkitettua sisältöä:\n"
 " %s"
 
-#: CDDialog.cpp:545
+#: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "Minkä kategorian alle haluat tallentaa tämän CBBD tietueen?"
 
-#: CDDialog.cpp:595
+#: CDDialog.cpp:597
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -109,15 +109,15 @@ msgstr ""
 "%s\n"
 "Tarkista tiedosto-oikeutesi ja että kategoria -hakemistot ovat olemassa."
 
-#: CDDialog.cpp:600
+#: CDDialog.cpp:602
 msgid "Kscd Error"
 msgstr "Kscd virhe"
 
-#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
 msgstr "Virheellinen tietue"
 
-#: CDDialog.cpp:760
+#: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -125,7 +125,7 @@ msgstr ""
 "Levyn artisti / otsikko kenttää ei ole täytetty.\n"
 "Korjaa kenttä ja yritä uudelleen."
 
-#: CDDialog.cpp:775
+#: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -135,7 +135,7 @@ msgstr ""
 "Eroita artisti otsikosta normaalilla kauttamerkillä esimerkiksi \n"
 "Peter Gabriel / Greatest Hits\n"
 
-#: CDDialog.cpp:789 CDDialog.cpp:811
+#: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -143,11 +143,11 @@ msgstr ""
 "Kaikki levyn kappaleiden otsikot eivät voi\n"
 "olla tyhjiä. Korjaa otsikot ja yritä uudelleen."
 
-#: CDDialog.cpp:821
+#: CDDialog.cpp:823
 msgid "Internal Error"
 msgstr "Sisäinen virhe"
 
-#: CDDialog.cpp:822
+#: CDDialog.cpp:824
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -155,7 +155,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Lähetä postia tekijälle."
 
-#: CDDialog.cpp:851
+#: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
 msgstr "Viallinen soittolista\n"
 
@@ -235,10 +235,6 @@ msgstr "Käytä Kpaneliin upotusta"
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
-#: docking.cpp:73 kscd.cpp:508
-msgid "Stop"
-msgstr "Pysäytä"
-
 #: docking.cpp:75
 msgid "Backward"
 msgstr "Taakse"
@@ -255,10 +251,6 @@ msgstr "Edellinen"
 msgid "Eject"
 msgstr "Poista levy"
 
-#: docking.cpp:81 docking.cpp:177
-msgid "Restore"
-msgstr "Palauta"
-
 #: docking.cpp:175
 msgid "Minimize"
 msgstr "Pienennä"
@@ -267,8 +259,7 @@ msgstr "Pienennä"
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr ""
-"Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevalta listalta."
+msgstr "Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevalta listalta."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -403,8 +394,8 @@ msgstr ""
 "workman 1.4 beta 3:ta\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Erikoiskiitokset Ti Kan ja Steve Scherf, CDDB tietokannan "
-"kehittämisestä. Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
+"Erikoiskiitokset Ti Kan ja Steve Scherf, CDDB tietokannan kehittämisestä. "
+"Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
 "\n"
 
 #: kscd.cpp:897
@@ -519,3 +510,9 @@ msgstr "Magic ikkunan korkeus:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC kirkkaus:"
+
+#~ msgid "Stop"
+#~ msgstr "Pysäytä"
+
+#~ msgid "Restore"
+#~ msgstr "Palauta"
