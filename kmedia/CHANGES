@@ -1,0 +1,3 @@
+0.90 Added this file
+     Implementing the new "set playback position" thing, which is
+     in the mediatool protocol since today.
