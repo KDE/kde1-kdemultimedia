@@ -320,9 +320,8 @@ msgid "Change Collection Name"
 msgstr "Zmeni» názov zbierky"
 
 #: channelview.cpp:33
-#, fuzzy
 msgid "ChannelView"
-msgstr "Ukáza» kanály"
+msgstr "Ukáza»Kanály"
 
 #: channel.cpp:87
 msgid "Channel"
