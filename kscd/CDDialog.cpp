@@ -34,6 +34,7 @@
 #define Inherited CDDialogData
 
 QTime framestoTime(int frames);
+void  mimetranslate(QString& s);
 extern void cddb_decode(QString& str);
 extern void cddb_encode(QString& str, QStrList &returnlist);
 extern void cddb_playlist_encode(QStrList& list,QString& playstr);
@@ -453,17 +454,26 @@ I would like you ask you to upload as many test submissions as possible.\n"\
     return;
     
   }
-
+  
   QFile file(tempfile);
+  //  QFile file2("/home/wuebben/test.txt"); // ******
+
   file.open(IO_ReadOnly);
+  //file2.open(IO_ReadWrite); // ******
   QTextStream ti(&file);
+  //QTextStream to(&file2); // ******
 
   QTextStream to(mailpipe,IO_WriteOnly );
 
   QString s;
+
+  to << "Content-Transfer-Encoding: quoted-printable\n";
+
+
   while ( !ti.eof() ) {
     s = ti.readLine();
     if(!ti.eof()){
+      mimetranslate(s);
       to << s.data() << '\n';
     }
   }	  
@@ -471,6 +481,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   pclose(mailpipe);
 
   file.close();
+  //  file2.close();   // *****
 
   unlink(tempfile.data());
   printf("DONE SENDING\n");
@@ -838,5 +849,40 @@ bool CDDialog::checkit(){
 void CDDialog::load(){
 
   emit cddb_query_signal(true);
+
+}
+
+// simplyfied quoted printable mime encoding that should be good enough 
+// for our purposed. The encoding differs from the 'real' encoding in
+// that we don't need to worry about trailing \n, \t or lines exeeding the
+// spec length.
+
+void  mimetranslate(QString& s){
+
+  QString q;
+  QString hex;
+
+  s = s.stripWhiteSpace(); // there is no harm in doing this and it
+                           // will simplify the quoted printable mime encoding.
+
+  for(uint i = 0 ; i < s.length(); i++){
+
+    if (((s.data()[i] >= 32) && (s.data()[i] <= 60)) || 
+	  ((s.data()[i] >= 62) && (s.data()[i] <= 126))) {
+
+      q += s.data()[i];
+    }
+    else{
+
+        hex = hex.sprintf("=%02X", (unsigned char)s.data()[i]);
+	q += hex;
+
+    }
+    
+  }
+
+  q.detach();
+  //  printf("%s\n",q.data());
+  s = q.copy();
 
 }
