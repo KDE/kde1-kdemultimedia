@@ -159,7 +159,7 @@ void CDDB::cddb_connect_internal(){
 
     timeouttimer.stop();
 
-    if(debug) printf("CONNECT FAILED\n");
+    if(debugflag) printf("CONNECT FAILED\n");
 
     if( mode == REGULAR )
       emit cddb_failed();      

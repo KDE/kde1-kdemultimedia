@@ -42,17 +42,16 @@ config.h: kscd-script
 
 SUBDIRS = docs kscdmagic
 
-kscd: config.h 
-
 CDDB_DIRS = rock blues classical jazz newage soundtrack \
 	reggae folk country misc data
 
 install-data-local:
-	for i in $(CDDB_DIRS); do 
-	if test ! -d $(CDDBDIR)/$i; then
-		$(mkinstalldirs) $(CDDBDIR)/$i
-		chmod 0777 $(CDDBDIR)/$i
-	fi
+	for i in $(CDDB_DIRS); do \
+	if test ! -d $(CDDBDIR)/$i; then \
+		$(mkinstalldirs) $(CDDBDIR)/$i ;\
+		chmod 0777 $(CDDBDIR)/$i ;\
+	fi ;\
+	done 
 	$(mkinstalldirs) $(kde_icondir)
 	$(INSTALL_DATA) kscd.xpm $(kde_icondir)
 	$(INSTALL_DATA) bitmaps/cd.xpm $(kde_icondir)
@@ -85,7 +84,7 @@ cddb.cpp: cddb.moc
 configdlg.cpp: configdlg.moc
 docking.cpp: docking.moc
 inexact.cpp: inexact.moc
-kscd.cpp: kscd.moc
+kscd.cpp: kscd.moc config.h
 ledlamp.cpp: ledlamp.moc
 mgconfdlg.cpp: mgconfdlg.moc
 

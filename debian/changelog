@@ -1,3 +1,11 @@
+kdemultimedia (2:980331-1) frozen; urgency=low
+
+  * let it depend on kdebase for the help system
+  * fixed old fsf-address
+  * new upstream version with bugfixes
+
+ -- Stephan Kulow <coolo@kde.org>  Tue, 31 Mar 1998 23:17:10 +0200
+
 kdemultimedia (2:980311-2) frozen; urgency=low
 
   * new compile cycle with qt-1.33 and libstdc++-2.8
