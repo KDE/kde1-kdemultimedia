@@ -25,6 +25,7 @@
    However, my changes may not work for you. I recommend you leave the following
    untouched for a first test drive. If things don't work properly come back
    and uncomment the next line.
+*/
 /*
 #define WORKMAN_ORIGINAL
 */
