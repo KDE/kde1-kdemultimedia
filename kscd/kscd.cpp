@@ -47,7 +47,7 @@ extern "C" {
 #include "bitmaps/ff.xbm"
 #include "bitmaps/rew.xbm"
 #include "bitmaps/info.xbm"
-//#include "bitmaps/dock.xbm"
+#include "bitmaps/poweroff.xbm"
 #include "bitmaps/eject.xbm"
 #include "bitmaps/db.xbm"
 #include "bitmaps/logo.xbm"
@@ -182,7 +182,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     connect( nextPB, SIGNAL(clicked()), SLOT(nextClicked()) );
     connect( fwdPB, SIGNAL(clicked()), SLOT(fwdClicked()) );
     connect( bwdPB, SIGNAL(clicked()), SLOT(bwdClicked()) );
-    connect( dockPB, SIGNAL(clicked()), SLOT(dockClicked()) );
+    connect( dockPB, SIGNAL(clicked()), SLOT(quitClicked()) );
     connect( replayPB, SIGNAL(clicked()), SLOT(loopClicked()) );
     connect( ejectPB, SIGNAL(clicked()), SLOT(ejectClicked()) );
     connect( songListCB, SIGNAL(activated(int)), SLOT(trackSelected(int)));
@@ -469,7 +469,7 @@ void KSCD::loadBitmaps() {
     QBitmap bwdBmp( rew_width, rew_height, rew_bits, TRUE );
     QBitmap ejectBmp( eject_width, eject_height, eject_bits, TRUE );
     QBitmap infoBmp( info_width, info_height,info_bits, TRUE );
-//    QBitmap dockBmp( dock_width, dock_height, dock_bits, TRUE );
+    QBitmap dockBmp( poweroff_width, poweroff_height, poweroff_bits, TRUE );
     QBitmap shuffleBmp( shuffle_width, shuffle_height, shuffle_bits, TRUE );
     QBitmap databaseBmp( db_width, db_height, db_bits, TRUE );
     QBitmap aboutBmp( logo_width, logo_height, logo_bits, TRUE );
@@ -484,9 +484,12 @@ void KSCD::loadBitmaps() {
     bwdPB->setPixmap( bwdBmp );
     ejectPB->setPixmap( ejectBmp );
     infoPB->setPixmap( infoBmp );
-    //   dockPB->setPixmap( dockBmp );
-    dockPB->setFont(QFont("helvetica", 12, QFont::Bold));
-    dockPB->setText("DOCK");
+    dockPB->setPixmap( dockBmp );
+
+    // This is UGLY .... -- Bernd
+    // dockPB->setFont(QFont("helvetica", 12, QFont::Bold));
+    // dockPB->setText("DOCK");
+
     aboutPB->setPixmap( aboutBmp );
     shufflebutton->setPixmap( shuffleBmp );
     cddbbutton->setPixmap( databaseBmp );
@@ -805,7 +808,25 @@ void KSCD::bwdClicked(){
 
 void KSCD::quitClicked()
 {
-    emit dockClicked();
+    quitPending = true;
+    randomplay = FALSE;
+    statuslabel->setText("");
+    setLEDs( "--:--" );
+
+    qApp->processEvents();
+    qApp->flushX();
+
+    if(stopexit)
+        stop_cd ();
+
+    cd_status();
+    cd_status();
+
+    cleanUp();
+    writeSettings();
+    qApp->quit();
+    //e->accept();
+    
 }
 
 void KSCD::dockClicked()
@@ -823,24 +844,8 @@ void KSCD::dockClicked()
 
 void KSCD::closeEvent( QCloseEvent *e ){
 
-    quitPending = true;
-    randomplay = FALSE;
-    statuslabel->setText("");
-    setLEDs( "--:--" );
+  emit dockClicked();
 
-    qApp->processEvents();
-    qApp->flushX();
-
-    if(stopexit)
-        stop_cd ();
-
-    cd_status();
-    cd_status();
-
-    cleanUp();
-    writeSettings();
-    //qApp->quit();
-    e->accept();
 }
 
 bool KSCD::event( QEvent *e ){
@@ -1003,11 +1008,9 @@ void KSCD::aboutClicked(){
     QString labelstring;
     labelstring = "kscd "KSCDVERSION"\n";
     labelstring += klocale->translate(
-                                      "Maintained by:\n     Sam Maloney <thufir@illogic.ml.org>\n"
-                                      "kscd (>=1.2.1) contains code from:\n\n"
-                                      "kscd 1.2.0 (branched from)\n"
-                                      "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"
-                                      "workman 1.4 beta 3\n"
+    "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"
+    "Currently maintained by:\nSam Maloney <thufir@illogic.ml.org>\n\n"
+    "Kscd contains code from:\nworkman 1.4 beta 3\n"
                                       "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"
                                       "Special thanks to Ti Kan and "
                                       "Steve Scherf, the inventors of "
@@ -1024,11 +1027,7 @@ void KSCD::aboutClicked(){
      labelstring += klocale->translate(
         "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
         "for his work on the http proxy code.\n\n") ;
-     labelstring += klocale->translate(
-                                       "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-                                       "For the many CDDB code bug fixes, local CDDB "
-                                       "record caching, and track tweek, and configuration "
-                                       "fixes.\n\n");
+
 
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
     label->setText(labelstring.data());
