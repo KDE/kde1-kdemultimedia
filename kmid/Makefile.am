@@ -53,6 +53,8 @@ messages:
 	$(XGETTEXT) -C -ki18n $(kmid_SOURCES) && mv messages.po ../po/kmid.pot
 
 install-data-local:
+	$(mkinstalldirs) $(kde_minidir)
+	$(INSTALL_DATA) mini-kmid.xpm $(kde_minidir)/kmid.xpm
 	@echo "********************************************"
 	@echo "Thanks for installing kmid 0.5.1 !"
 	@echo "I have included some example songs that have been installed in"
