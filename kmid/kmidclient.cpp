@@ -271,6 +271,7 @@ int kmidClient::openFile(char *filename)
         case (-1) : sprintf(errormsg,
                             i18n("The file %s doesn't exist or can't be opened"),filename);
         break;
+        case (-6) :
         case (-2) : sprintf(errormsg,
                             i18n("The file %s is not a midi file"),filename);break;
         case (-3) : sprintf(errormsg,
@@ -279,8 +280,6 @@ int kmidClient::openFile(char *filename)
                             i18n("Not enough memory !!"));break;
         case (-5) : sprintf(errormsg,
                             i18n("This file is corrupted or not well built"));break;
-        case (-6) : sprintf(errormsg,
-                            i18n("%s is not a regular file"),filename);break;
         default : sprintf(errormsg,i18n("Unknown error message"));break;
         };
         KMsgBox::message(this,i18n("Error"),errormsg);
