@@ -564,7 +564,7 @@ void KSCD::setToolTips()
         QToolTip::add( bwdPB, 		klocale->translate("30 Secs Backward") );
         QToolTip::add( nextPB, 		klocale->translate("Next Track") );
         QToolTip::add( prevPB, 		klocale->translate("Previous Track") );
-        QToolTip::add( dockPB, 		klocale->translate("Dock Kscd") );
+        QToolTip::add( dockPB, 		klocale->translate("Quit Kscd") );
         QToolTip::add( aboutPB, 	klocale->translate("Cycle Time Display") );
         QToolTip::add( optionsbutton, 	klocale->translate("Configure Kscd") );
         QToolTip::add( ejectPB, 	klocale->translate("Eject CD") );
