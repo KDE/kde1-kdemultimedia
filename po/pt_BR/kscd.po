@@ -303,9 +303,7 @@ msgstr "Tempo esgotado para interação com servidor."
 msgid ""
 "Server said:\n"
 "\"%s\""
-msgstr ""
-"Servidor respondeu:\n"
-"\"%s\""
+msgstr "Servidor respondeu:\n\"%s\""
 
 #: kscd.cpp:247
 #, c-format
@@ -313,10 +311,7 @@ msgid ""
 "Error #%d sending message via SMTP.\n"
 "\n"
 "%s"
-msgstr ""
-"Erro #%d ao mandar mensagem via SMTP.\n"
-"\n"
-"%s"
+msgstr "Erro #%d ao mandar mensagem via SMTP.\n\n%s"
 
 #: kscd.cpp:376
 msgid "Vol: --"
