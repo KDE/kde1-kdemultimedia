@@ -591,26 +591,19 @@ void KMidi::stopClicked()
 
 void KMidi::prevClicked(){
 
+    song_number --;
 
-    if(playlist->count() == 0)
-	return;
+    if (song_number < 1)
+      song_number = playlist->count();
 
-    if (song_number == 1)
-	song_number = playlist->count() +1 ;
+    if(status == KPLAYING)
+      setLEDs("OO:OO");
 
-    if( (song_number >  1)){
+    statusLA->setText(i18n("Playing"));
 
-	song_number --;
-
-	if(status == KPLAYING)
-	    setLEDs("OO:OO");
-
-	statusLA->setText(i18n("Playing"));
-
-	pipe_int_write(MOTIF_PLAY_FILE);
-        pipe_string_write(playlist->at(song_number));
-	status = KPLAYING;
-    }
+    pipe_int_write(MOTIF_PLAY_FILE);
+    pipe_string_write(playlist->at(song_number-1));
+    status = KPLAYING;
 }
 
 void KMidi::slowdownslot(){
@@ -636,28 +629,18 @@ void KMidi::nextClicked(){
 
     if(playlist->count() == 0)
 	return;
+    song_number = (randomplay) ? randomSong() : song_number + 1;
+    if(song_number > (int)playlist->count())
+      song_number = 1;
 
-    if (song_number == (int)playlist->count())
-	song_number = 0;
+    if(status == KPLAYING)
+      setLEDs("OO:OO");
 
-    if(randomplay)
-	song_number = randomSong() -1;
+    statusLA->setText(i18n("Playing"));
 
-    if(((int)playlist->count()  > song_number ) && (song_number >= 0)){
-
-	song_number ++;
-
-	if(status == KPLAYING)
-	    setLEDs("OO:OO");
-
-	statusLA->setText(i18n("Playing"));
-
-	pipe_int_write(MOTIF_PLAY_FILE);
-        pipe_string_write(playlist->at(song_number));
-	status = KPLAYING;
-    }
-
-
+    pipe_int_write(MOTIF_PLAY_FILE);
+    pipe_string_write(playlist->at(song_number-1));
+    status = KPLAYING;
 }
 
 void KMidi::fwdClicked(){
