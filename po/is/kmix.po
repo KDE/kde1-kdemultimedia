@@ -1,30 +1,26 @@
-# Íslenskun á kmix.po
 # Copyright (C) 1998 Free Software Foundation, Inc.
-# FIRST AUTHOR <logir@imf.au.dk>, 1998.
+# Logi Ragnarsson <logir@imf.au.dk>, 1998.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-10-05 01:30+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@imf.au.dk>\n"
-"Language-Team: is_IS <???>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Language-Team: is\n"
 
-#: kmix.cpp:506
+#: kmix.cpp:444
 msgid "&Hide Menubar"
 msgstr "Fela &valmyndastiku"
 
-#: kmix.cpp:509
+#: kmix.cpp:447
 msgid "&Tickmarks On/Off"
 msgstr "&Kvarði af/á"
 
-#: kmix.cpp:523
+#: kmix.cpp:461
 msgid ""
 "\n"
-"(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
 "\n"
 "Sound mixer panel for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
@@ -34,7 +30,7 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
-"Höfundarréttur 1997-1998, Christian Esken (esken@kde.org).\n"
+"Höfundarréttur 1997, Christian Esken (esken@kde.org).\n"
 "\n"
 "Hljóðblandari fyrir KDE skjáumhverfið.\n"
 "Þetta forrit fellur undir GPL.\n"
@@ -43,35 +39,35 @@ msgstr ""
 "Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "Nick Lopez (kimo_sabe@usa.net) flutti á ALSA."
 
-#: kmix.cpp:543
+#: kmix.cpp:481
 msgid "&Left"
 msgstr "&Vinstri"
 
-#: kmix.cpp:544
+#: kmix.cpp:482
 msgid "&Center"
 msgstr "&Miðja"
 
-#: kmix.cpp:545
+#: kmix.cpp:483
 msgid "&Right"
 msgstr "&Hægri"
 
-#: kmix.cpp:632
+#: kmix.cpp:570
 msgid "Un&mute"
 msgstr "&Heyrast"
 
-#: kmix.cpp:634
+#: kmix.cpp:572
 msgid "&Mute"
 msgstr "&Þagna"
 
-#: kmix.cpp:637
+#: kmix.cpp:575
 msgid "&Split"
 msgstr "&Kljúfa"
 
-#: kmix.cpp:639
+#: kmix.cpp:577
 msgid "Un&split"
 msgstr "&Sameina"
 
-#: kmix.cpp:641
+#: kmix.cpp:579
 msgid "&RecSource"
 msgstr "Stilla &upptöku"
 
