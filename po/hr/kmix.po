@@ -2,35 +2,32 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-04-26 23:08+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 1997-11-08 23:50+0100\n"
+"PO-Revision-Date: 1998-03-15 20:00-0500\n"
+"Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
+"Language-Team: Croatian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Content-Transfer-Encoding: iso-8859-2\n"
 
 #: docking.cpp:70 docking.cpp:166
 msgid "Restore"
-msgstr ""
+msgstr "Vrati"
 
 #: docking.cpp:164
 msgid "Minimize"
-msgstr ""
+msgstr "Smanji"
 
 #: kmix.cpp:414
-#, fuzzy
 msgid "&Hide Menubar"
-msgstr "Sakrij izbornik"
+msgstr "&Sakrij izbornik"
 
 #: kmix.cpp:417
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "Oznake uklj/isklj"
+msgstr "&Oznake uklj/isklj"
 
 #: kmix.cpp:431
 msgid ""
@@ -98,7 +95,7 @@ msgstr "Oznake"
 
 #: prefs.cpp:81
 msgid "KMix Preferences"
-msgstr "KMix pode¹avanja"
+msgstr "KMix Postava"
 
 #: prefs.cpp:87
 msgid "Mixer channel setup (not saved yet)"
@@ -111,24 +108,3 @@ msgstr "Ureðaj"
 #: prefs.cpp:97
 msgid "Show"
 msgstr "Prika¾i"
-
-#~ msgid "&Options"
-#~ msgstr "&Opcije"
-
-#~ msgid "&Quit"
-#~ msgstr "&Zavr¹i"
-
-#~ msgid "&Contents"
-#~ msgstr "&Sadr¾aj"
-
-#~ msgid "&About"
-#~ msgstr "&O programu"
-
-#~ msgid "&About Qt..."
-#~ msgstr "O &Qt..."
-
-#~ msgid "&File"
-#~ msgstr "&Datoteka"
-
-#~ msgid "&Help"
-#~ msgstr "Po&moæ"
