@@ -353,7 +353,6 @@ if (!filename.isNull())
         {
 	char *s=new char[filename.length()+10];
 	sprintf(s,"file:%s",(const char *)filename);
-	printf("s %s\n",s);
 	int c=autoAddSongToCollection(s,1);
 	delete s;
 	kmidclient->setActiveCollection(c);
