@@ -6,8 +6,7 @@ APPSDIR = $(kde_appsdir)/Multimedia
 CDDBDIR = $(kde_datadir)/kscd/cddb/
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-kscd_LDADD   = $(LIBCDROM) $(LIBCDAUDIO) $(LIBFPE) -lkfm -lkdeui \
-	-lkdecore    -lXext $(LIB_QT)
+kscd_LDADD   = $(LIBCDROM) $(LIBCDAUDIO) $(LIBFPE) -lkfm $(LIB_KDEUI)
 INCLUDES= $(all_includes)
 LINK    = $(CXXLINK)
 
