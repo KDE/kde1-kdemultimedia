@@ -428,11 +428,16 @@ void kmidFrame::slotDropEvent( KDNDDropZone * _dropZone )
 		kmidclient->song_Play();
 };  
 
+void kmidFrame::shuttingDown()
+{
+   if (kmidclient->isPlaying()==1) kmidclient->song_Stop();
+};
+
+
 void kmidFrame::saveProperties(KConfig *kcfg)
 {
 kmidclient->saveCollections();
-int play;
-if ((play=kmidclient->isPlaying())==1) kmidclient->song_Stop();
+int play=kmidclient->isPlaying();
 kcfg->writeEntry("File",kmidclient->midiFileName());
 kcfg->writeEntry("ActiveCollection",kmidclient->getActiveCollection());
 kcfg->writeEntry("ActiveSong",kmidclient->getSelectedSong());

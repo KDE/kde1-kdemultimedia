@@ -102,6 +102,8 @@ public slots:
  
     void rechooseTextEvent();
 
+    void shuttingDown();
+    
 private:
     KMenuBar *menu;
     kmidClient *kmidclient;

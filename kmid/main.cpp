@@ -55,6 +55,8 @@ int main(int argc, char **argv)
 
     app->setMainWidget ( kmidframe );
 
+    QObject::connect(app,SIGNAL(shutDown()),kmidframe,SLOT(shuttingDown()));
+
     kmidframe->show();
 
     if (app->isRestored()) 
