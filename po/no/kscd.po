@@ -494,7 +494,7 @@ msgstr ""
 
 #: kscd.cpp:1062
 msgid "SMTP Setup"
-msgstr ""
+msgstr "SMTP-oppsett"
 
 #: kscd.cpp:1063
 msgid "Kscd Options"
@@ -597,18 +597,12 @@ msgstr "MAGIC-lysstyrke:"
 
 #: smtpconfig.cpp:14
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Sett under SMTP-kommando"
 
 #: smtpconfig.cpp:20
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP-adresse:port"
 
 #: smtpconfig.cpp:36
 msgid "Your Email Address"
-msgstr ""
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Gå ut av Kscd"
-
-#~ msgid "Track %02d"
-#~ msgstr "Spor %02d"
+msgstr "Din epostadresse"
