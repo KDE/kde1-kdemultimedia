@@ -106,7 +106,7 @@ static int play (void *mem, int len)
 	EnterCriticalSection (&critSect);
 	nBlocks++;
 	LeaveCriticalSection (&critSect);
-//	cmsg (CMSG_INFO,VERB_NOISY, "Play: %d blocks", nBlocks);
+     /*	cmsg (CMSG_INFO,VERB_NOISY, "Play: %d blocks", nBlocks); */
 	return FALSE;
 	}
 
@@ -130,7 +130,7 @@ static void CALLBACK wave_callback (HWAVE hWave, UINT uMsg,
 		GlobalFree (hg);
 		nBlocks--;
 		LeaveCriticalSection (&critSect);
-//		cmsg (CMSG_INFO, VERB_NOISY, "Callback: %d blocks", nBlocks);
+     /*		cmsg (CMSG_INFO, VERB_NOISY, "Callback: %d blocks", nBlocks); */
 		}
 	}
 
