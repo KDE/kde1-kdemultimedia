@@ -392,11 +392,11 @@ msgstr "Vibrafon"
 
 #: instrname.i18n:18
 msgid "Marimba"
-msgstr ""
+msgstr "Marimba"
 
 #: instrname.i18n:19
 msgid "Xylophone"
-msgstr ""
+msgstr "Xsylofon"
 
 #: instrname.i18n:20
 msgid "Tubular Bells"
@@ -408,7 +408,7 @@ msgstr "Cymbal"
 
 #: instrname.i18n:22
 msgid "Hammond Organ"
-msgstr ""
+msgstr "Hammond-orgel"
 
 #: instrname.i18n:23
 msgid "Percussive Organ"
@@ -460,7 +460,7 @@ msgstr "Elektrisk gitar (dempet)"
 
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
-msgstr ""
+msgstr "Forsterktet gitar"
 
 #: instrname.i18n:36
 msgid "Distortion Guitar"
@@ -468,7 +468,7 @@ msgstr "Fordreiet gitar"
 
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
-msgstr ""
+msgstr "Harmonisk gitar"
 
 #: instrname.i18n:38
 msgid "Acoustic Bass"
@@ -484,7 +484,7 @@ msgstr "Elektrisk bass (hakke)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
-msgstr ""
+msgstr "Harmonisk gitar"
 
 #: instrname.i18n:42
 msgid "Slap Bass 1"
@@ -520,7 +520,7 @@ msgstr "Kontrabass"
 
 #: instrname.i18n:50
 msgid "Tremolo Strings"
-msgstr ""
+msgstr "Tremolostrenger"
 
 #: instrname.i18n:51
 msgid "Pizzicato Strings"
@@ -532,7 +532,7 @@ msgstr "Orkesterharpe"
 
 #: instrname.i18n:53
 msgid "Timpani"
-msgstr ""
+msgstr "Timpani"
 
 #: instrname.i18n:54
 msgid "String Ensemble 1"
@@ -556,7 +556,7 @@ msgstr "Kor-A'er"
 
 #: instrname.i18n:59
 msgid "Voice Oohs"
-msgstr ""
+msgstr "Åhh-stemme"
 
 #: instrname.i18n:60
 msgid "Synth Voice"
@@ -564,7 +564,7 @@ msgstr "Synth-stemme"
 
 #: instrname.i18n:61
 msgid "Orchestra Hit"
-msgstr ""
+msgstr "Orkesterslag"
 
 #: instrname.i18n:62
 msgid "Trumpet"
@@ -588,15 +588,15 @@ msgstr "Fransk horn"
 
 #: instrname.i18n:67
 msgid "Brass Section"
-msgstr ""
+msgstr "Messingseksjon"
 
 #: instrname.i18n:68
 msgid "Synth Brass 1"
-msgstr ""
+msgstr "Synth-messing 1"
 
 #: instrname.i18n:69
 msgid "Synth Brass 2"
-msgstr ""
+msgstr "Synth-messing 2"
 
 #: instrname.i18n:70
 msgid "Soprano Sax"
@@ -652,7 +652,7 @@ msgstr "Blåseflaske"
 
 #: instrname.i18n:83
 msgid "Shakuhachi"
-msgstr ""
+msgstr "Shakuhachi"
 
 #: instrname.i18n:84
 msgid "Whistle"
@@ -664,35 +664,35 @@ msgstr "Leirgjøk"
 
 #: instrname.i18n:86
 msgid "Lead 1 - Square Wave"
-msgstr ""
+msgstr "Råk 1 - Square-bølge"
 
 #: instrname.i18n:87
 msgid "Lead 2 - Saw Ttooth"
-msgstr ""
+msgstr "Råk 2 - sauetunge"
 
 #: instrname.i18n:88
 msgid "Lead 3 - Calliope"
-msgstr ""
+msgstr "Råk 3 - Calliope"
 
 #: instrname.i18n:89
 msgid "Lead 4 - Chiflead"
-msgstr ""
+msgstr "Råk 4 - Chiflead"
 
 #: instrname.i18n:90
 msgid "Lead 5 - Charang"
-msgstr ""
+msgstr "Råk 5 - Charang"
 
 #: instrname.i18n:91
 msgid "Lead 6 - Voice"
-msgstr ""
+msgstr "Råk 6 - stemme"
 
 #: instrname.i18n:92
 msgid "Lead 7 - Fifths"
-msgstr ""
+msgstr "Råk 7 - Fifths"
 
 #: instrname.i18n:93
 msgid "Lead 8 - Bass+Lead"
-msgstr ""
+msgstr "Råk 8 - Bass+råk"
 
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
@@ -748,7 +748,7 @@ msgstr "Fx 5 - glans"
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
-msgstr ""
+msgstr "FX 6 - Goblins"
 
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
@@ -768,15 +768,15 @@ msgstr "Banjo"
 
 #: instrname.i18n:112
 msgid "Shamisen"
-msgstr ""
+msgstr "Shamisen"
 
 #: instrname.i18n:113
 msgid "Koto"
-msgstr ""
+msgstr "Koto"
 
 #: instrname.i18n:114
 msgid "Kalimba"
-msgstr ""
+msgstr "Kalimba"
 
 #: instrname.i18n:115
 msgid "Bagpipe"
@@ -788,15 +788,15 @@ msgstr "Fiolin"
 
 #: instrname.i18n:117
 msgid "Shannai"
-msgstr ""
+msgstr "Shannai"
 
 #: instrname.i18n:118
 msgid "Tinkle Bell"
-msgstr ""
+msgstr "Tinkle-bjelle"
 
 #: instrname.i18n:119
 msgid "Agogo"
-msgstr ""
+msgstr "Agogo"
 
 #: instrname.i18n:120
 msgid "Steel Drum"
@@ -804,11 +804,11 @@ msgstr "Ståltromme"
 
 #: instrname.i18n:121
 msgid "Wook Block"
-msgstr ""
+msgstr "Wook-blokk"
 
 #: instrname.i18n:122
 msgid "Taiko Drum"
-msgstr ""
+msgstr "Taiko-trumme"
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
