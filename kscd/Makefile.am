@@ -34,7 +34,7 @@ DISTCLEANFILES = kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc \
 	 inexact.moc CDDialog.moc CDDialogData.moc CDDBSetup.moc \
 	CDDBSetupData.moc docking.moc mgconfdlg.moc
 
-bin_PROGRAMS = kscd cddaslave
+bin_PROGRAMS = kscd cddaslave 
 TARGET3 = kscdmagic
 
 config.h: kscd-script 
@@ -52,6 +52,8 @@ install-data-local:
 		chmod 0777 $(CDDBDIR)/$i ;\
 	fi ;\
 	done 
+	$(mkinstalldirs) $(kde_bin)
+	$(INSTALL_PROGRAM) workman2cddb.pl $(kde_bindir)
 	$(mkinstalldirs) $(kde_icondir)
 	$(INSTALL_DATA) kscd.xpm $(kde_icondir)
 	$(INSTALL_DATA) bitmaps/cd.xpm $(kde_icondir)
