@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Date: 1998-04-04 21:34:38+0000\n"
-"From: antonio <antonio@jupiter.arrakis.es>\n"
-"Content-Type: text/plain; charset=\n"
-"Xgettext-Options: -C -ki18n\n"
-"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
+"Project-Id-Version: kdemultimedia\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: 1998-04-18 12:02+0200\n"
+"First-Translator: <antonio@jupiter.arrakis.es>\n"
+"Last-Translator: Boris Wesslowski <bwess@gmx.net>\n"
 
 #: kmidframe.cpp:61
 msgid "&Open ..."
@@ -12,7 +12,7 @@ msgstr "&Abrir ..."
 
 #: kmidframe.cpp:64
 msgid "&Save Lyrics ..."
-msgstr "&Guardar Letra ..."
+msgstr "&Guardar letra ..."
 
 #: kmidframe.cpp:67
 msgid "&Quit"
@@ -32,11 +32,11 @@ msgstr "&Parar"
 
 #: kmidframe.cpp:76
 msgid "P&revious Song"
-msgstr "&Canción Anterior"
+msgstr "Canción &anterior"
 
 #: kmidframe.cpp:78
 msgid "&Next Song"
-msgstr "&Siguiente Canción"
+msgstr "Canción &siguiente"
 
 #: kmidframe.cpp:81
 msgid "&Loop"
@@ -48,15 +48,15 @@ msgstr "&Organizar ..."
 
 #: kmidframe.cpp:90
 msgid "In order mode"
-msgstr "Modo ordenado"
+msgstr "Modo o&rdenado"
 
 #: kmidframe.cpp:93
 msgid "Shuffle mode"
-msgstr "Modo aleatorio"
+msgstr "Modo a&leatorio"
 
 #: kmidframe.cpp:97
 msgid "AutoAdd to Collection"
-msgstr "AutoAñadir a Colección"
+msgstr "&AutoAñadir a Colección"
 
 #: kmidframe.cpp:104
 msgid "&General Midi file"
@@ -76,11 +76,11 @@ msgstr "Ver eventos de &Lírica"
 
 #: kmidframe.cpp:122
 msgid "&Automatic Text chooser"
-msgstr "&Elegir Automáticamente Evento"
+msgstr "&Elegir evento automáticamente"
 
 #: kmidframe.cpp:127
 msgid "&Font Change ..."
-msgstr "Cambiar &Fuente ..."
+msgstr "Cambiar &fuente ..."
 
 #: kmidframe.cpp:130
 msgid "&Midi Setup ..."
@@ -133,7 +133,7 @@ msgstr "Ay&uda"
 
 #: kmidframe.cpp:162
 msgid "Previous Song"
-msgstr "Canción Anterior"
+msgstr "Canción anterior"
 
 #: kmidframe.cpp:165
 msgid "Rewind"
@@ -157,7 +157,7 @@ msgstr "Adelantar"
 
 #: kmidframe.cpp:181
 msgid "Next Song"
-msgstr "Siguiente Canción"
+msgstr "Canción siguiente"
 
 #: kmidclient.cpp:231 kmidclient.cpp:314 kmidframe.cpp:501
 msgid "Error"
@@ -168,10 +168,9 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"No se ha podido abrir /dev/sequencer para obtener información/n"
-"Probablemente hay otro programa usandolo"
+"No se pudo abrir /dev/sequencer para obtener información/n"
+"Probablemente hay otro programa usándolo"
  
-
 #: kmidframe.cpp:617 kmidframe.cpp:618
 msgid ""
 "File %s already exists\n"
@@ -198,7 +197,7 @@ msgstr "El fichero %s no es un fichero midi"
 
 #: kmidclient.cpp:224
 msgid "Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"
-msgstr "El tick por cuarto de nota es negativo, por favor, manda este fichero a antlarr@arrakis.es"
+msgstr "El tick por cuarto de nota es negativo, por favor manda este fichero a antlarr@arrakis.es"
 
 #: kmidclient.cpp:226
 msgid "Not enough memory !!"
@@ -214,7 +213,7 @@ msgstr "Mensaje de error desconocido"
 
 #: kmidclient.cpp:303
 msgid "You must load a file before playing it"
-msgstr "Debes abrir una cancion antes de tocarla"
+msgstr "Debes abrir una canción antes de tocarla"
 
 #: kmidclient.cpp:309
 msgid "A song is already being played"
@@ -226,7 +225,7 @@ msgid ""
 "Probably there is another program using it"
 msgstr ""
 "No se ha podido abrir /dev/sequencer"
-"Probablemente hay otro programa usandolo"
+"Probablemente hay otro programa usándolo"
  
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"
@@ -254,11 +253,11 @@ msgstr "Ninguno"
 
 #: midicfgdlg.cpp:89
 msgid "Browse..."
-msgstr "Buscar ..."
+msgstr "Buscar..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
-msgstr "Administrador de Colecciones"
+msgstr "Administrador de colecciones"
 
 #: collectdlg.cpp:47
 msgid "Available collections :"
@@ -294,11 +293,11 @@ msgstr "Escribe el nombre de la nueva colección"
 
 #: collectdlg.cpp:152
 msgid "New Collection"
-msgstr "Nueva Colección"
+msgstr "Nueva colección"
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
 msgid "The name '%s' is already used"
-msgstr "El nombre '%s' ya está usado"
+msgstr "El nombre '%s' está en uso"
 
 #: collectdlg.cpp:177
 msgid "Enter the name of the copy collection"
@@ -306,7 +305,7 @@ msgstr "Escribe el nombre de la colección copia"
 
 #: collectdlg.cpp:178
 msgid "Copy Collection"
-msgstr "Copiar Colección"
+msgstr "Copiar colección"
 
 #: collectdlg.cpp:219
 msgid "Enter the new name for the selected collection"
@@ -314,4 +313,4 @@ msgstr "Escribe el nuevo nombre para la colección seleccionada"
 
 #: collectdlg.cpp:220
 msgid "Change Collection Name"
-msgstr "Cambiar Nombre de la Colección"
+msgstr "Cambiar Nombre de la colección"
