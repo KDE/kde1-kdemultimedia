@@ -8,7 +8,8 @@ TiMidity \- MIDI to WAVE converter and player
 .P
 .SH DESCRIPTION
 TiMidity is a MIDI to WAVE converter using Gravis
-Ultrasound\-compatible patch files to generate digital audio data from
+Ultrasound\-compatible patch files or AWE\-compatible SoundFonts
+to generate digital audio data from
 General MIDI files.  The data can be stored in a file for processing,
 or played in real time through an audio device.
 .P
@@ -104,7 +105,7 @@ playing, which reduces aliasing noise at low resampling frequencies.
 .B \-f
 Toggles fast envelopes. Some MIDI files sound better when notes decay
 slower -- it gives the impression of reverb, which TiMidity doesn't
-currently support.
+currently fully support.
 .TP
 .B \-e
 Make TiMidity evil.  On Win32 version, this increases the task
@@ -122,6 +123,11 @@ Multiplies the master volume by \fIamplification\fP%.
 Sets the ratio of sampling and control frequencies.  This determines how
 often envelopes are recalculated -- small ratios yield better quality
 but use more CPU time.
+.TP
+.BI \-# " number"
+Selects patchset when the configuration file has been set up
+appropriately.  See the FILES section below under \fBif\fP and
+\fBelse\fP for how to do this.
 .TP
 .BI \-L " directory"
 Adds \fIdirectory\fP to the library path.  Patch, configuration, and
@@ -238,13 +244,49 @@ Adds \fIdirectory\fP to the search path in the same manner as the
 Reads another configuration file, then continues processing the
 current one.
 .TP
-.BI bank " number"
+.BI fff " file"
+Reads the parameters in a Gravis/Forte\-compatible InterWave file.
+The file name is assumed to end in ".fff", which need not be
+given.  An accompanying ".dat" file containing waveform data must
+be in the same directory as the ".fff" file.  Preceding patch
+mappings must list all patches that are to be loaded from the
+files, and the preceding \fBbank\fP/\fBdrumset\fP keywords must
+be followed by \fBfff\fP.
+.TP
+.BI sbk " file [option]"
+Reads the parameters and waveforms in an AWE\-compatible SoundFont
+file.  Both ".sbk" and ".sf2" SoundFonts can be used.  Preceding patch
+mappings must list all patches that are to be loaded from the
+file, and the preceding \fBbank\fP/\fBdrumset\fP keywords must
+be followed by \fBsbk\fP.
+The options allowed are:
+.RS
+.TP
+\fBoldbank=\fP\fIbanknumber\fP
+The bank number given in the first preceding
+"bank"/"drumset" statement is to be used in place of
+the bank \fIbanknumber\fP given in the SoundFont itself.
+.TP
+\fBorder=\fP\fInumber\fP
+This option is essentially obsolete.  It assigns a searching order
+to decide which patch should be used when one can be found both
+from among the GUS patches and SoundFont patches.  See
+the file "README.sf" if you really want to use this.
+.RE
+.TP
+.BI bank " number [option]"
 Selects the tone bank to modify.  Patch mappings that follow will
 affect this tone bank.
+The options allowed are \fBfff\fP and \fBsbk\fP, which were described above.
 .TP
-.BI drumset " number"
+.BI drumset " number [option]"
 Selects the drum set to modify.  Patch mappings that follow will affect
 this drum set.
+The options allowed are \fBfff\fP and \fBsbk\fP, which were described above.
+.TP
+.BI sfx
+Selects the XG non-rhythm SFX bank to modify.
+Patch mappings that follow will affect this tone bank.
 .TP
 .I "number file [options]"
 Specifies that the the MIDI program \fInumber\fP in the current tone
@@ -312,8 +354,10 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 \fIGNU General Public License\fP for more details.
 .SH AVAILABILITY
-The latest release is available on the TiMidity Home Page,
+The latest release of the original version is available on the TiMidity Home Page,
 URL \fIhttp://www.clinet.fi/~toivonen/timidity/\fP.
+The present modified version is part of the KDE distribution,
+URL \fIftp://ftp.kde.org/\fP in the directory kdemultimedia/kmidi.
 .SH BUGS
 8-bit and low-rate output sounds worse than it should.
 .P
@@ -324,10 +368,17 @@ Tuukka Toivonen <toivonen@clinet.fi>
 HP\-UX audio code, X-Motif interface, icons and antialiasing filter by
 Vincent Pagel <pagel@loria.fr>
 .br
-Tcl/Tk interface by Takashi Iwai <iwai@dragon.mm.t.u-tokyo.ac.jp>
+Tcl/Tk interface and AWE SoundFont support by Takashi
+Iwai <iwai@dragon.mm.t.u-tokyo.ac.jp>
 .br
 Windows 95/NT audio code by Davide Moretti <dmoretti@iper.net>
 .br
 DEC audio code by Chi Ming HUNG <cmhung@insti.physics.sunysb.edu>
 .br
 S\-Lang user interface by Riccardo Facchetti <riccardo@cdc8g5.cdc.polimi.it>
+.br
+IW patchset support, karaoke, AWE/XG enhancements, much reworking of the code
+by Greg Lee <lee@hawaii.edu>
+.br
+KDE user interface "KMidi"
+Copyright (C) 1997 Bernd Johannes Wuebben <wuebben@math.cornell.edu>
