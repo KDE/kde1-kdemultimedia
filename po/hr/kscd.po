@@ -22,7 +22,7 @@ msgstr "©aljite CDDB priloge na:"
 
 #: CDDBSetupData.cpp:82
 msgid "CDDB server:"
-msgstr "CDDB poslu¾itelj"
+msgstr "CDDB poslu¾itelj:"
 
 #: CDDBSetupData.cpp:90
 msgid "Update"
@@ -30,7 +30,7 @@ msgstr "Osvje¾i"
 
 #: CDDBSetupData.cpp:112
 msgid "Enable Remote CDDB"
-msgstr "Dozvoli udaljeni CDDB"
+msgstr "Dozvoli spajanje na CDDB poslu¾itelj"
 
 #: CDDBSetupData.cpp:120
 msgid "Defaults"
@@ -50,7 +50,7 @@ msgid ""
 "Total Time:\n"
 "%02d:%02d:%02d"
 msgstr ""
-"Ukupno vrijeme:\n"
+"Ukupno vrijeme\n"
 "%02d:%02d:%02d"
 
 #: CDDialog.cpp:202
@@ -59,7 +59,7 @@ msgid ""
 "Total Time:\n"
 " %02d:%02d"
 msgstr ""
-"Ukupno vrijeme:\n"
+"Ukupno vrijeme\n"
 " %02d:%02d"
 
 #: CDDialog.cpp:244
@@ -68,7 +68,7 @@ msgstr "Koristi ovaj ureðivaè za obilje¾avanje ove pjesme"
 
 #: CDDialog.cpp:269
 msgid "Use this Editor to annotate the title"
-msgstr "Koristi ovaj ureðivaè za obilje¾avanje ovog naslova"
+msgstr "Koristi ovaj ureðivaè za obilje¾avanje naslova"
 
 #: CDDialog.cpp:418 CDDialog.cpp:547
 msgid "Please select a Category or press Cancel"
@@ -163,7 +163,7 @@ msgstr "Uèitaj"
 
 #: CDDialogData.cpp:87
 msgid "Play List Editor"
-msgstr "Ureðivaè redoslijeda sviranja"
+msgstr "Redoslijed sviranja"
 
 #: CDDialogData.cpp:93
 msgid "Edit Track Title"
@@ -175,7 +175,7 @@ msgstr "Umjetnik / Naslov"
 
 #: CDDialogData.cpp:105
 msgid "Track / Time / Title"
-msgstr "Traka / Vrijeme / Naslov"
+msgstr "Pjesma / Vrijeme / Naslov"
 
 #: CDDialogData.cpp:111 CDDialogData.cpp:117
 msgid "Ext Info"
@@ -223,7 +223,7 @@ msgstr "Izaberi preglednik"
 
 #: configdlg.cpp:147
 msgid "Show Tool Tips"
-msgstr "Prika¾i savjet nad alatima"
+msgstr "Savjet nad alatima"
 
 #: configdlg.cpp:153
 msgid "Enable KPanel Docking"
