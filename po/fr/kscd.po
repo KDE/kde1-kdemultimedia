@@ -463,8 +463,8 @@ msgstr ""
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Remerciements spéciaux à Ti Kan et Steve Scherf, les inventeurs du concept "
-"de base de données CDDB. Visitez http://www.cddb.com pour plus d'informations "
-"sur CDDB.\n"
+"de base de données CDDB. Visitez http://www.cddb.com pour plus "
+"d'informations sur CDDB.\n"
 "\n"
 
 #: kscd.cpp:1021
