@@ -107,7 +107,7 @@ msgstr "Mostra barra de &Volume"
 
 #: kmidframe.cpp:165
 msgid "Show &Channel View"
-msgstr "Mostra visão de &Canais"
+msgstr "Mostra configuração de &Canais"
 
 #: kmidframe.cpp:170
 msgid "Channel View &Options"
@@ -180,7 +180,7 @@ msgstr "Avançar"
 
 #: kmidframe.cpp:234
 msgid "Show Channel View"
-msgstr "Mostra visão de Canais"
+msgstr "Mostra Configuração de Canais"
 
 #: kmidframe.cpp:239
 msgid "Show Volume Bar"
@@ -316,7 +316,7 @@ msgstr "Mudar nome da coleção"
 
 #: channelview.cpp:33
 msgid "ChannelView"
-msgstr "Visão de Canais"
+msgstr "Configuração de Canais"
 
 #: channel.cpp:87
 msgid "Channel"
@@ -324,7 +324,7 @@ msgstr "Canal"
 
 #: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
-msgstr "Configurar visão dos Canais"
+msgstr "Configurar Canais"
 
 #: channelcfgdlg.cpp:26
 msgid "Choose look mode"
