@@ -485,3 +485,6 @@ to the usual 0.00% of CPU use :-)
 
 Monday 12-4-99
 - Fixed a bug that made KMid freeze when trying to open a directory
+
+Thursday 15-4-99
+- Better support for broken karaoke files which has duplicated lyrics
