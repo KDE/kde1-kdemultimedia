@@ -8,7 +8,7 @@ msgstr ""
 "POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: 1999-02-16 22:49-0500\n"
 "Last-Translator: Erik Kjær Pedersen <erik@binghamton.edu>\n"
-"Language-Team: da <LL@li.org>\n"
+"Language-Team: da <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO_8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgstr "CDDB-tjener:"
 
 #: CDDBSetupData.cpp:93
 msgid "Update"
-msgstr "Opdater"
+msgstr "Opdatér"
 
 #: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
@@ -106,7 +106,7 @@ msgid ""
 msgstr ""
 "Ikke i stand til at skrive til fil:\n"
 "%s\n"
-"Undersøg dine adgangstilladelser og sørg for at din kategorifoldere "
+"Undersøg dine adgangstilladelser og sørg for at din kategorikataloger "
 "eksisterer."
 
 #: CDDialog.cpp:646
@@ -225,7 +225,7 @@ msgstr "Brug selvdefineret netsøger:"
 
 #: configdlg.cpp:154
 msgid "Show Tool Tips"
-msgstr "Vis verktøjstips"
+msgstr "Vis værktøjstips"
 
 #: configdlg.cpp:161
 msgid "Enable KPanel Docking"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
-msgstr "Velg en CD-titel eller tryk på Annuller"
+msgstr "Vælg en CD-titel eller tryk på Annuller"
 
 #: kscd.cpp:226
 msgid "Record submitted successfully"
@@ -293,7 +293,7 @@ msgstr "CD blev sendt korrekt"
 
 #: kscd.cpp:236
 msgid "Error connecting to server."
-msgstr "Fejl ved forbindelse til tjener."
+msgstr "Fejl ved forbindelse til server."
 
 #: kscd.cpp:239
 msgid "Not connected."
@@ -305,7 +305,7 @@ msgstr "Forbindelsen blev tidsafsluttet."
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
-msgstr "Tiden udløb mens der ventedes på svar fra tjeneren."
+msgstr "Tiden udløb mens der ventedes på svar fra serveren."
 
 #: kscd.cpp:248
 #, c-format
@@ -313,7 +313,7 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
-"Tjeneren sagde:\n"
+"Serveren sagde:\n"
 "\"%s\""
 
 #: kscd.cpp:250
@@ -373,7 +373,7 @@ msgstr "Afslut Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
-msgstr "Opdater tidsvisning"
+msgstr "Opdatér tidsvisning"
 
 #: kscd.cpp:572
 msgid "Configure Kscd"
@@ -574,7 +574,7 @@ msgstr "-h: vis kommandolinie-valg\n"
 
 #: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
-msgstr "-d: muliggør aflusning af uddata.\n"
+msgstr "-d: muliggør problemløsning af uddata.\n"
 
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"

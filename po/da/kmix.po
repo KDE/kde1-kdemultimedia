@@ -109,7 +109,7 @@ msgstr "Målestreger"
 
 #: prefs.cpp:87
 msgid "Allow docking"
-msgstr "Tillad dykning"
+msgstr "Tillad panelvisning"
 
 #: prefs.cpp:100
 msgid "Mixer channel setup"
