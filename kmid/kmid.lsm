@@ -1,7 +1,7 @@
 Begin3
 Title:          kmid
-Version:        1.2
-Entered-date:   14/09/1998
+Version:        1.6
+Entered-date:   16/01/1998
 Description:    A midi/karaoke player with a very friendly interface.
  Main features of kmid :
  - Shows the text of karaoke files changing its color synchronized with music
@@ -9,6 +9,7 @@ Description:    A midi/karaoke player with a very friendly interface.
  - Has midi maps to allow using old keyboards with GM midi/karaoke files
  - Stores an unlimited number of collections (also called playlists)
  - Shows in a keyboard the notes played by each instrument (at realtime).
+ - Allows to change the tempo
 Keywords:       mid kar player midi karaoke KDE X11 Qt kmid fm awe gus synth
 Author:         antlarr@arrakis.es (Antonio Larrosa Jimenez)
 Maintained-by:  antlarr@arrakis.es (Antonio Larrosa Jimenez) 

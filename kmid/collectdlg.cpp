@@ -28,6 +28,7 @@
 #include <kfiledialog.h>
 #include <kapp.h>
 #include <kmsgbox.h>
+#include <kurl.h>
 #include "version.h"
 #include "player/songlist.h"
 #include "player/slman.h"
@@ -118,6 +119,7 @@ fillInSongList();
 
 void CollectionDialog::fillInSongList(void)
 {
+QString qs;
 songs->clear();
 if (currentsl!=NULL)
    {
@@ -125,7 +127,9 @@ if (currentsl!=NULL)
    int i=0;
    while (!currentsl->iteratorAtEnd())
        {
-       songs->insertItem(currentsl->getIteratorName(),i);
+       qs=QString(currentsl->getIteratorName());
+       KURL::decodeURL(qs);	
+       songs->insertItem(qs,i);
        currentsl->iteratorNext();
        i++;    
        };

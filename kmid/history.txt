@@ -447,3 +447,6 @@ Sunday 20-12-98
 - Fixed a problem when [un]installing midi devices (not such a mad idea if you
 use kernel modules) that made kmid segfault because it couldn't found
 the device.
+
+Saturday 16-1-99
+- Decode URL before showing it on the screen.

@@ -1184,10 +1184,13 @@ void kmidClient::fillInComboSongs(void)
     currentsl->iteratorStart();
     char temp[300];
     char temp2[300];
+    QString qs;
     while (!currentsl->iteratorAtEnd())
     {
+	qs=currentsl->getIteratorName();
+	KURL::decodeURL(qs);
         sprintf(temp,"%d - %s",currentsl->getIteratorID(),
-                extractFilename(currentsl->getIteratorName(),temp2));
+                extractFilename(qs.data(),temp2));
         comboSongs->insertItem(temp);
         currentsl->iteratorNext();
     };
