@@ -73,6 +73,10 @@ static unsigned max_polyphony = 0;
 
 #ifndef ADAGIO
 Channel channel[16];
+char drumvolume[16][128];
+char drumpanpot[16][128];
+char drumreverberation[16][128];
+char drumchorusdepth[16][128];
 #else /* ADAGIO */
 static void read_seq(unsigned char *from, unsigned char *to);
 Channel channel[MAX_TONE_VOICES];
@@ -91,6 +95,10 @@ float
 
 int32 drumchannels=DEFAULT_DRUMCHANNELS;
 int adjust_panning_immediately=0;
+
+int GM_System_On=0;
+int XG_System_On=0;
+int GS_System_On=0;
 
 static int32 lost_notes, cut_notes;
 static int32 common_buffer[AUDIO_BUFFER_SIZE*2], /* stereo samples */
@@ -147,6 +155,10 @@ static void reset_midi(void)
       channel[i].panning=NO_PANNING;
       channel[i].pitchsens=2;
       channel[i].bank=0; /* tone bank or drum set */
+      channel[i].harmoniccontent=64,
+      channel[i].releasetime=64,
+      channel[i].attacktime=64,
+      channel[i].brightness=64,
       channel[i].kit=0;
     }
   reset_voices();
@@ -266,6 +278,9 @@ static void recompute_freq(int v)
 	      (double)(play_mode->rate)),
 	     FRACTION_BITS);
 
+  /* what to do if incr is 0? --gl */
+  if (!a) a++;
+
   if (sign) 
     a = -a; /* need to preserve the loop direction */
 
@@ -275,12 +290,23 @@ static void recompute_freq(int v)
 static void recompute_amp(int v)
 {
   int32 tempamp;
+  int chan = voice[v].channel;
 
   /* TODO: use fscale */
 
-  tempamp= (voice[v].velocity *
-	    channel[voice[v].channel].volume * 
-	    channel[voice[v].channel].expression); /* 21 bits */
+  if (ISDRUMCHANNEL(chan) || channel[chan].kit)
+   {
+    int vol = channel[chan].volume;
+    int note = voice[v].sample->note_to_use;
+    if (note && drumvolume[chan][note]>=0) vol = drumvolume[chan][note];
+    tempamp= (voice[v].velocity *
+	    vol * 
+	    channel[chan].expression); /* 21 bits */
+   }
+  else
+    tempamp= (voice[v].velocity *
+	    channel[chan].volume * 
+	    channel[chan].expression); /* 21 bits */
 
   if (!(play_mode->encoding & PE_MONO))
     {
@@ -406,11 +432,16 @@ static int vc_alloc(int j)
 static void clone_voice(int v, MidiEvent *e)
 {
   int w, k, played_note, chorus, reverb;
+  int chan = voice[v].channel;
   extern int command_cutoff_allowed;
   voice[v].clone_voice = -1;
 
-  chorus = channel[ voice[v].channel ].chorusdepth;
-  reverb = channel[ voice[v].channel ].reverberation;
+  chorus = channel[chan].chorusdepth;
+  reverb = channel[chan].reverberation;
+  if (ISDRUMCHANNEL(chan) || channel[chan].kit) {
+	if ((k=drumreverberation[chan][voice[v].note]) >= 0) reverb = k;
+	if ((k=drumchorusdepth[chan][voice[v].note]) >= 0) chorus = k;
+  }
 /* also clone for reverb and chorus depth */
   if (!voice[v].right_sample) {
 	if (voices - current_polyphony < 8) return;
@@ -437,6 +468,7 @@ static void clone_voice(int v, MidiEvent *e)
   voice[w].frequency = voice[v].frequency;
   voice[w].sample_offset = voice[v].sample_offset;
   voice[w].sample_increment = voice[v].sample_increment;
+  voice[w].echo_delay = voice[v].echo_delay;
   voice[w].envelope_volume = voice[v].envelope_volume;
   voice[w].envelope_target = voice[v].envelope_target;
   voice[w].envelope_increment = voice[v].envelope_increment;
@@ -468,8 +500,12 @@ static void clone_voice(int v, MidiEvent *e)
   if (reverb) {
 	if (voice[w].panning < 64) voice[w].panning = 127;
 	else voice[w].panning = 0;
-	voice[w].velocity /= 2;
+	/*voice[w].velocity /= 2;*/
 	voice[w].velocity = (voice[w].velocity * reverb) / 128;
+	/*voice[w].echo_delay = 50 * (play_mode->rate/1000);*/
+	voice[w].echo_delay = (reverb>>2) * (play_mode->rate/1000);
+/* 500, 250, 100, 50 too long; 25 pretty good */
+/*printf("start clone %d del %ld\n", w, voice[w].echo_delay);*/
   }
   played_note = voice[w].sample->note_to_use;
   if (!played_note) played_note = e->a & 0x7f;
@@ -522,11 +558,10 @@ static void start_note(MidiEvent *e, int i)
 {
   Instrument *ip;
   int j;
-  int played_note;
+  int played_note, drumpan=NO_PANNING;
 
 #ifndef ADAGIO
   if (ISDRUMCHANNEL(e->channel) || channel[e->channel].kit)
-  /*if (ISDRUMCHANNEL(e->channel))*/
     {
       if (!(ip=drumset[channel[e->channel].bank]->tone[e->a].instrument))
 	{
@@ -541,7 +576,10 @@ static void start_note(MidiEvent *e, int i)
 	}
 
       if (ip->sample->note_to_use) /* Do we have a fixed pitch? */
-	voice[i].orig_frequency=freq_table[(int)(ip->sample->note_to_use)];
+	{
+	  voice[i].orig_frequency=freq_table[(int)(ip->sample->note_to_use)];
+	  drumpan=drumpanpot[e->channel][(int)ip->sample->note_to_use];
+	}
       else
 	voice[i].orig_frequency=freq_table[e->a & 0x7F];
       
@@ -567,8 +605,9 @@ static void start_note(MidiEvent *e, int i)
 	voice[i].orig_frequency=freq_table[e->a & 0x7F];
       select_stereo_samples(i, ip);
 #ifndef ADAGIO
-    }
+    } /* not drum channel */
 #endif
+
     played_note = voice[i].sample->note_to_use;
     if (!played_note) played_note = e->a & 0x7f;
 #ifdef ADAGIO
@@ -579,6 +618,7 @@ static void start_note(MidiEvent *e, int i)
     played_note = ( (played_note - voice[i].sample->freq_center) * voice[i].sample->freq_scale ) / 1024 +
 		voice[i].sample->freq_center;
     voice[i].orig_frequency = freq_table[played_note];
+
   if (voice[i].sample->modes & MODES_FAST_RELEASE) voice[i].status=VOICE_OFF;
   else
   voice[i].status=VOICE_ON;
@@ -590,6 +630,7 @@ static void start_note(MidiEvent *e, int i)
 #endif
   voice[i].sample_offset=0;
   voice[i].sample_increment=0; /* make sure it isn't negative */
+  voice[i].echo_delay=0;
 
   voice[i].tremolo_phase=0;
   voice[i].tremolo_phase_increment=voice[i].sample->tremolo_phase_increment;
@@ -608,8 +649,9 @@ static void start_note(MidiEvent *e, int i)
     voice[i].panning=channel[e->channel].panning;
   else
     voice[i].panning=voice[i].sample->panning;
+  if (drumpan != NO_PANNING)
+    voice[i].panning=drumpan;
 /* for now, ... */
-  /*if (voice[i].right_sample) voice[i].panning = 0;*/
   if (voice[i].right_sample) voice[i].panning = voice[i].sample->panning;
 
   recompute_freq(i);
@@ -984,6 +1026,22 @@ static void seek_forward(int32 until_time)
 	  channel[current_event->channel].chorusdepth=current_event->a;
 	  break;
 
+	case ME_HARMONICCONTENT:
+	  channel[current_event->channel].harmoniccontent=current_event->a;
+	  break;
+
+	case ME_RELEASETIME:
+	  channel[current_event->channel].releasetime=current_event->a;
+	  break;
+
+	case ME_ATTACKTIME:
+	  channel[current_event->channel].attacktime=current_event->a;
+	  break;
+
+	case ME_BRIGHTNESS:
+	  channel[current_event->channel].brightness=current_event->a;
+	  break;
+
 	case ME_RESET_CONTROLLERS:
 	  reset_controllers(current_event->channel);
 	  break;
@@ -993,8 +1051,10 @@ static void seek_forward(int32 until_time)
 	  break;
 	  
 	case ME_TONE_KIT:
+	/*
 	  if (current_event->a != 127)
 	  channel[current_event->channel].bank=current_event->a;
+	*/
 	  channel[current_event->channel].kit=current_event->a;
 	  break;
 	  
@@ -1133,7 +1193,18 @@ static void do_compute_data(int32 count)
   for (i=0; i<voices; i++)
     {
       if(voice[i].status != VOICE_FREE)
-	mix_voice(buffer_pointer, i, count);
+	{
+	  if (!voice[i].sample_offset && voice[i].echo_delay)
+	    {
+		if (voice[i].echo_delay >= count) voice[i].echo_delay -= count;
+		else
+		  {
+	            mix_voice(buffer_pointer+voice[i].echo_delay, i, count-voice[i].echo_delay);
+		    voice[i].echo_delay = 0;
+		  }
+	    }
+	  else mix_voice(buffer_pointer, i, count);
+	}
     }
   current_sample += count;
 }
@@ -1300,20 +1371,39 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	    case ME_ALL_SOUNDS_OFF:
 	      all_sounds_off(current_event->channel);
 	      break;
+
+	    case ME_HARMONICCONTENT:
+	      channel[current_event->channel].harmoniccontent=current_event->a;
+	      break;
+
+	    case ME_RELEASETIME:
+	      channel[current_event->channel].releasetime=current_event->a;
+	      break;
+
+	    case ME_ATTACKTIME:
+	      channel[current_event->channel].attacktime=current_event->a;
+	      break;
+
+	    case ME_BRIGHTNESS:
+	      channel[current_event->channel].brightness=current_event->a;
+	      break;
 	      
 	    case ME_TONE_BANK:
 	      channel[current_event->channel].bank=current_event->a;
 	      break;
 
 	    case ME_TONE_KIT:
+	    /*
 	      if (current_event->a != 127)
-	      channel[current_event->channel].bank=current_event->a;
+	          channel[current_event->channel].bank=current_event->a;
+	    */
 	      channel[current_event->channel].kit=current_event->a;
 	      break;
 
 	    case ME_EOT:
 	      /* Give the last notes a couple of seconds to decay  */
-	      compute_data(play_mode->rate * 2);
+	      /*compute_data(play_mode->rate * 2);*/
+	      compute_data(play_mode->rate * 4);
 	      compute_data(0); /* flush buffer to device */
 	      ctl->cmsg(CMSG_INFO, VERB_VERBOSE,
 		   "Playing time: ~%d seconds",
