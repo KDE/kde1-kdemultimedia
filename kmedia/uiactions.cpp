@@ -120,37 +120,6 @@ void KMediaWin::onDrop( KDNDDropZone* _zone )
 }
 
 
-void KMediaWin::aboutClicked()
-{
-   char TalkIdStr[10];
-
-  sprintf(TalkIdStr,"%i", m.talkid);
-
-  QString msg,head;
-  char vers[50];
-  sprintf (vers,"%.2f", APP_VERSION);
-
-  msg  = "KMedia ";
-  msg += vers;
-  msg += i18n("\n(C) 1996-1998 by Christian Esken (esken@kde.org).\n\n" \
-    "Media player for the KDE Desktop Environment.\n"\
-    "This program is in the GPL.\n"\
-    "<Communication id: ");
-  msg += TalkIdStr;
-  msg += ">";
-
-  head = i18n("About KMedia ");
-  head += vers;
-
-  QMessageBox::about( this, head,msg);
-}
-
-void KMediaWin::aboutqt()
-{
-  QMessageBox::aboutQt(this);
-}
-
-
 void KMediaWin::TimerFunctions()
 {
   if (TimerAction == NOP)
@@ -204,8 +173,11 @@ void KMediaWin::TimerFunctions()
 
 void KMediaWin::pllClicked()
 {
-   char PlayLoopInfo[]="playlist loop";
-   QMessageBox::about( NULL, "Playlist Loop", PlayLoopInfo);
+   char PlayLoopInfo[]="\"KDE is an acronym for 'KDE doesn't emulate'.\n" \
+        "\nKeep in mind KDE does not look like Windows\" (Christian)\n";
+   QMessageBox::about( NULL, "KDE doesn't emulate (Windows)", PlayLoopInfo);
+   QMessageBox::about( NULL, "Much fun with KDE", "Much fun with KDE wishes\n" \
+   "               Christian :-)");
 }
 
 void KMediaWin::PosChanged( int new_pos )

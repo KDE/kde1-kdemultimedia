@@ -27,7 +27,7 @@
 
 #include "kmediawin.h"
 #include "kmediawin.moc"
-
+#include "version.h"
 
 
 // Pics
@@ -222,7 +222,7 @@ void KMediaWin::createMenu()
   CHECK_PTR( Mfile );
   Mfile->insertItem( i18n("&Open..."),  this, SLOT(openClicked()), CTRL+Key_O );
 
-  Mfile->insertItem( i18n("&New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
+  Mfile->insertItem( i18n("&New Window"),  this, SLOT(newviewClicked()), CTRL+Key_N );
   Mfile->insertItem( i18n("E&xit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
 
   QPopupMenu *Moptions = new QPopupMenu;
@@ -232,14 +232,22 @@ void KMediaWin::createMenu()
   Moptions->insertSeparator();
   Moptions->insertItem( i18n("&Preferences"), this, SLOT(showOpts()));
 
-  QPopupMenu *Mhelp = new QPopupMenu;
-  CHECK_PTR( Mhelp );
-  Mhelp->insertItem( i18n("&Contents"), this, SLOT(launchHelp()), Key_F1);
-  Mhelp->insertSeparator();
-  Mhelp->insertItem( i18n("&About"), this, SLOT(aboutClicked()));
-  Mhelp->insertItem( i18n("&About Qt..."), this, SLOT(aboutqt()));
 
-  mainmenu = new KMenuBar( this /*Container*/ , "mainmenu" );
+  QString msg,head;
+  char vers[50];
+  sprintf (vers,"%.2f", APP_VERSION);
+  msg  = "KMedia ";
+  msg += vers;
+  msg += i18n("\n(C) 1996-1998 by Christian Esken (esken@kde.org).\n\n" \
+    "Media player for the KDE Desktop Environment.\n"\
+    "This program is in the GPL.\n");
+
+  head = i18n("About KMedia ");
+  head += vers;
+  Mhelp = globalKapp->getHelpMenu(true,msg);
+  CHECK_PTR( Mhelp );
+
+  mainmenu = new KMenuBar( this , "mainmenu" );
   CHECK_PTR( mainmenu );
   mainmenu->insertItem( i18n("&File"), Mfile );
   mainmenu->insertItem( i18n("&Options"), Moptions );

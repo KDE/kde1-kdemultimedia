@@ -97,8 +97,8 @@ You can open multiple KMedia windows. Either by using File->New view
 or by starting another media player through kpanel.
 
 If you want KMedia to use a specific output device (e.g. soundcard)
-you can set it in kmedia's configuration dialog. Attention: This is currently
-unimplemented!!!
+you can set it in kmedia's configuration dialog. Attention: This is
+currently unimplemented!!!
 You can set  the device using numbers. 0 means the default
 device, 1 the primary, 2 the secondary device and so on.
 
@@ -121,9 +121,17 @@ KMedia honors the following key binding.
 <p>
 <sect1>File
 <p>
+<sect2>Open...
+<p>
+Opens a media. A file selector pops up and asks for a Media.
+<p>
 <sect2>New view 
 <p>
 Open new media player window
+<p>
+<sect2>Exit
+<p>
+Closes this media player
 
 
 <sect2>Quit
@@ -146,12 +154,13 @@ Opens the KMedia options dialog
 <sect2>Help
 <p>
 Invokes the KDE help system with the KMedia help pages displayed.
-<sect2>About 
+<sect2>About kmedia...
 <p>
 Displays essential information about KMedia.
 
+<!--
 <sect>Questions and answers
-
+-->
 
 
 <p>

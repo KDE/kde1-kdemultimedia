@@ -1,6 +1,9 @@
 1998-06-17  Christian Esken  <esken@kde.org>
 
 	* ADDING MdDisconnect(). *BSD users should be much happier now.
+	* Now using getHelpMenu().
+	* Using more standard texts
+	* Cleaning up options dialog
 
 1998-06-13  Christian Esken  <esken@kde.org>
 

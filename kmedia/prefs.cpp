@@ -48,20 +48,13 @@ Preferences::Preferences( QWidget *parent ) :
    mixerLE->setGeometry(x,y, tabctl->width()-x-10, mixerLE->height() );
 
    // Define page 2
-   QButtonGroup *grpbox1 = new QButtonGroup( "Play in", page2 );
-   grpbox1->setGeometry( 10, 10, tabctl->width()/2-15, 100 );
-   QRadioButton *rb2_1 = new QRadioButton( "Stereo", grpbox1 );
-   rb2_1->move( 10, 15 );   
-   QRadioButton *rb2_2 = new QRadioButton( "Mono", grpbox1 );
-   rb2_2->move( 10, 40 );
-
-   QButtonGroup *grpbox2 = new QButtonGroup( "Quality", page2 );
-   grpbox2->setGeometry( tabctl->width()/2+5, 10, tabctl->width()/2-15, 100 );
-   QRadioButton *rb2_3 = new QRadioButton( "Best", grpbox2 );
+   QButtonGroup *grpbox2 = new QButtonGroup( "Use sound device", page2 );
+   grpbox2->setGeometry( 10, 10, tabctl->width()-20, 100 );
+   QRadioButton *rb2_3 = new QRadioButton( "Default ", grpbox2 );
    rb2_3->move( 10, 15 );   
-   QRadioButton *rb2_4 = new QRadioButton( "Medium", grpbox2 );
+   QRadioButton *rb2_4 = new QRadioButton( "Device 1", grpbox2 );
    rb2_4->move( 10, 40 );
-   QRadioButton *rb2_5 = new QRadioButton( "Low", grpbox2 );
+   QRadioButton *rb2_5 = new QRadioButton( "Device 2", grpbox2 );
    rb2_5->move( 10, 65 );
    QLabel *lbl2_1 = new QLabel( "NOT IMPLEMENTED YET!!!",
 				page2 );

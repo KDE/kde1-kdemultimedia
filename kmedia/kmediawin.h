@@ -113,8 +113,6 @@ public slots:
   void		launchMixer();
   void		hideMenu();
   void		PosChanged( int new_pos ); 
-  void		aboutClicked();
-  void		aboutqt();
   void		newviewClicked();
   void          openClicked();
   void		showOpts();
