@@ -229,7 +229,7 @@ msgstr "Afficher les bulles d'aide"
 
 #: configdlg.cpp:161
 msgid "Enable KPanel Docking"
-msgstr "Activer l'insertion dans le panneau"
+msgstr "Placer sur le tableau de bord"
 
 #: configdlg.cpp:168
 msgid "Play on Tray Close"
@@ -237,7 +237,7 @@ msgstr "Lecture lors de la fermeture de la trappe"
 
 #: configdlg.cpp:175
 msgid "AutoDock on Minimize"
-msgstr "Insérer dans le panneau au lieu d'Icônifier"
+msgstr "Placer sur le tableau de bord au lieu d'Icônifier"
 
 #: configdlg.cpp:183
 msgid "Stop Playing on Exit"
