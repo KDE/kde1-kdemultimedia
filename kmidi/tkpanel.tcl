@@ -196,7 +196,19 @@ proc AppendMsg {str} {
 
     incr Stat(CurMsgs)
     if {$Stat(CurMsgs) >= $Stat(MaxMsgs)} { ClearMsg }
-    .body.text.buf insert end $str\n
+
+    if [regexp "^(~)(.*)" $str foo til rem] {
+	set flagnl 0
+    } else {
+	set flagnl 1
+	set rem $str
+    }
+
+    if $flagnl {
+    	.body.text.buf insert end $rem\n
+    } else {
+    	.body.text.buf insert end $rem
+    }
     .body.text.buf yview -pickplace end
 }
 
