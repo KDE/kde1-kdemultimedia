@@ -9,14 +9,12 @@ msgstr ""
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:61
-#, fuzzy
 msgid "&Open ..."
-msgstr "&Avaa"
+msgstr "&Avaa ..."
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "&Save Lyrics ..."
-msgstr "&Tallenna sanat"
+msgstr "&Tallenna sanat ..."
 
 #: kmidframe.cpp:67
 msgid "&Quit"

@@ -16,19 +16,17 @@ msgstr ""
 
 #: docking.cpp:70 docking.cpp:168
 msgid "Restore"
-msgstr ""
+msgstr "Palauta"
 
 #: docking.cpp:166
 msgid "Minimize"
-msgstr ""
+msgstr "Pienennä"
 
 #: kmix.cpp:425
-#, fuzzy
 msgid "&Hide Menubar"
 msgstr "&Piilota valikkorivi"
 
 #: kmix.cpp:428
-#, fuzzy
 msgid "&Tickmarks On/Off"
 msgstr "&Merkit On/Off"
 
@@ -43,6 +41,14 @@ msgid ""
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
+"\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Äänimikseri KDE Työpöytää varten.\n"
+"Tämä ohjelma on GPL lisenssin alainen.\n"
+"SGI versio Paul Kendall (paul@orion.co.nz).\n"
+"*BSD korjaukset Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"ja Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:461
 msgid "&Left"
@@ -98,14 +104,13 @@ msgstr "Merkit"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr ""
+msgstr "Salli upotus"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
 msgstr "KMix asetukset"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
 msgstr "Sekoittajan kanava-asetukset"
 
@@ -118,27 +123,6 @@ msgid "Show"
 msgstr "Näytä"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "&Jaa"
+msgstr "Jaa"
 
-#~ msgid "&Options"
-#~ msgstr "&Asetukset"
-
-#~ msgid "&Quit"
-#~ msgstr "&Lopeta"
-
-#~ msgid "&Contents"
-#~ msgstr "&Ohje"
-
-#~ msgid "&About"
-#~ msgstr "&Tietoja"
-
-#~ msgid "&About Qt..."
-#~ msgstr "Tietoja &Qt..."
-
-#~ msgid "&File"
-#~ msgstr "&Tiedosto"
-
-#~ msgid "&Help"
-#~ msgstr "&Ohje"
