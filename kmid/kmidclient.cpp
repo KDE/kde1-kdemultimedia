@@ -31,6 +31,7 @@
 #include <sys/shm.h>
 #include <sys/wait.h>
 #include <kmsgbox.h>
+#include <signal.h>   // kill is declared on signal.h on bsd, not sys/signal.h
 #include <sys/signal.h>
 #include <qlcdnum.h>
 #include <kurl.h>

@@ -166,16 +166,16 @@ if ((ev->type==1) || (ev->type==5))
 	    cursor_line_[idx]->ypos=cursor_line_[idx]->num*30;
 	    cursor_line_[idx]->ev=new kdispt_ev;
 	    cursor_line_[idx]->next=NULL;
-	    cursor_[idx]=cursor_line_[idx]->ev;
-	    cursor_[idx]->xpos=5;
-	    cursor_[idx]->width=qfmetr->width(&ev->text[1]);
+            cursor_[idx]=cursor_line_[idx]->ev;
+            cursor_[idx]->xpos=5;
+            cursor_[idx]->width=qfmetr->width(&ev->text[1]);
             }
  	   else
 	    {
 	    cursor_[idx]->next=new kdispt_ev;
 	    cursor_[idx]->next->xpos=cursor_[idx]->xpos+cursor_[idx]->width;
 	    cursor_[idx]=cursor_[idx]->next;
-	    cursor_[idx]->width=qfmetr->width(ev->text);
+            cursor_[idx]->width=qfmetr->width(ev->text);
 	    };
 	cursor_[idx]->spev=ev;
 	cursor_[idx]->next=NULL;
