@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmedia \n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: 1998-01-10 21:45+0100\n"
+"Last-Translator: Piotr Roszatycki <dexter@fnet.com.pl>\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Pozycja odtwarzania"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Wyrzuæ no¶nik"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Poprzednia ¶cie¿ka"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "W ty³"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Stop"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Odtwarzaj/Pauza"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "W przód"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Nastêpna ¶cie¿ka"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Nowe okno"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Wyj¶cie"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mikser"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "W³a¶ciwo¶ci"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "Pomo&c"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Informacje o kmedia"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Plik"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Opcje"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "Pomo&c"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Zakoñczony"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Inicjacja"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Zajêty"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Odtwarza"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Zatrzymany"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Gotowy"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Niezdefiniowany"
