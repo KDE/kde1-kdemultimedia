@@ -638,7 +638,9 @@ void kmidClient::timebarChange(int i)
 
 void kmidClient::moveEventPointersTo(ulong ms)
 {
+#ifdef KMidDEBUG
     printf("Move To : %lu\n",ms);
+#endif
     spev=Player->takeSpecialEvents();
     while ((spev!=NULL)&&(spev->absmilliseconds<ms))
     {
@@ -650,10 +652,13 @@ void kmidClient::moveEventPointersTo(ulong ms)
     {
         int pgm[16];
         noteArray->moveIteratorTo(ms,pgm);
-        for (int j=0;j<16;j++)
+        if (channelView!=NULL)
         {
-            if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
-            else channelView->changeInstrument(j,(pctl->pgm[j]));
+            for (int j=0;j<16;j++)
+            {
+                if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+                else channelView->changeInstrument(j,(pctl->pgm[j]));
+            };
         };
         
     };
@@ -827,14 +832,17 @@ void kmidClient::song_Pause()
             timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
         timer4timebar->start(1000);
         
-        if ((noteArray!=NULL)&&(channelView!=NULL))
+        if (noteArray!=NULL)
         {
             int pgm[16];
             noteArray->moveIteratorTo(pausedatmillisec,pgm);
-            for (int j=0;j<16;j++)
+            if (channelView!=NULL)
             {
-                if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
-                else channelView->changeInstrument(j,(pctl->pgm[j]));
+                for (int j=0;j<16;j++)
+                {
+                    if (!pctl->forcepgm[j]) channelView->changeInstrument(j,(pctl->gm==1)?(pgm[j]):(MT32toGM[pgm[j]]));
+                    else channelView->changeInstrument(j,(pctl->pgm[j]));
+                };
             };
 
         };
