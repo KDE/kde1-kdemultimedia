@@ -64,7 +64,9 @@ $(PLAYEROBJECTS):
 install: $(TARGET)
 	$(INSTALL_DIR) $(prefix)/share/apps/kmid
 	$(INSTALL) $(TARGET) $(BINDIR)
+	$(INSTALL_DIR) $(prefix)/share/applnk/Multimedia
 	$(INSTALL_DATA) kmid.kdelnk $(prefix)/share/applnk/Multimedia
+	$(INSTALL_DIR) $(prefix)/share/mimelnk/audio
 	$(INSTALL_DATA) x-karaoke.kdelnk $(prefix)/share/mimelnk/audio
 	$(INSTALL_DIR) $(prefix)/share/doc/HTML/en/kmid
 	$(INSTALL_DATA) kmid.html $(prefix)/share/doc/HTML/en/kmid
