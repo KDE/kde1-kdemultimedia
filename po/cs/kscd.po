@@ -1,0 +1,126 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: kscd 0.8.0\n"
+"POT-Creation-Date: 1998-01-24 18:00+0100\n"
+"PO-Revision-Date: 1998-05-11 18:00+0100\n"
+"Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
+
+#: kscd.cpp:497
+msgid "Performances"
+msgstr "Koncerty"
+
+#: kscd.cpp:500
+msgid "Purchases"
+msgstr "Nákupy"
+
+#: kscd.cpp:1923
+msgid "Cannot start kscdmagic."
+msgstr "Nelze spustit kscdmagic."
+
+#: kscd.cpp:1938
+msgid "KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr "KSCD Magic ukonèen s chybou.\n"
+"Máte kscdmagic nainstalován?"
+
+#: configdlg.cpp:60
+msgid "Configure kscd"
+msgstr "Nastavení kscd"
+
+#: configdlg.cpp:77
+msgid "Change"
+msgstr "Zmìnit"
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Barva pozadí:"
+
+#: configdlg.cpp:96
+msgid "Help"
+msgstr "Nápovìda"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "Zaøízení CDROM:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Pøíkaz pro mail:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr "WWW prohlí¾eè"
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "Pou¾ít jako prohlí¾eè kfm"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Vlastní prohlí¾eè:"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Zobrazovat nápovìdy"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "Zpøístupnit vsazení do KPanelu"
+
+#: docking.cpp:47
+msgid "Could not load %s"
+msgstr "Není mo¾né nahrát %s"
+
+#: docking.cpp:48
+msgid "Error"
+msgstr "Chyba"
+
+#: docking.cpp:73
+msgid "Stop"
+msgstr "Stop"
+
+#: docking.cpp:72
+msgid "Play/Pause"
+msgstr "Pøehrát/Pauza"
+
+#: docking.cpp:74
+msgid   "Forward"
+msgstr  "Vpøed"
+
+#: docking.cpp:75
+msgid   "Backward"
+msgstr  "Zpìt"
+
+#: docking.cpp:76
+msgid "Next"
+msgstr "Následující"
+
+#: docking.cpp:77
+msgid "Previous"
+msgstr "Pøedcházející"
+
+#: docking.cpp:78
+msgid "Eject"
+msgstr "Vysuò CD"
+
+#: docking.cpp:175
+msgid "Minimize"
+msgstr "Minimalizovat"
+
+#: docking.cpp:81
+msgid "Restore"
+msgstr "Obnovit"
+
+
+#: mgconfdlg.cpp:59
+msgid "Width of Magic Window:"
+msgstr "©íøka okna Magic:"
+
+#: mgconfdlg.cpp:71
+msgid "Height of Magic Window:"
+msgstr "Vý¹ka okna Magic:"
+
+#: mgconfdlg.cpp:83
+msgid "MAGIC Brightness:"
+msgstr "Jas MAGIC:"
