@@ -436,3 +436,6 @@ Thursday 10-12-98
 Friday 11-12-98
 - Fixed a shared memory leackage bug (hopefully the last bug in KMid :) ).
 
+Thursday 17-12-98
+- Initial support for SoftOSS (this is making some sound now :))
+- Indentified the player directory sources and beautified them a little
