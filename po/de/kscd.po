@@ -7,35 +7,35 @@ msgstr ""
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
-msgstr ""
+msgstr "CDDB Basisverzeichnis"
 
 #: CDDBSetupData.cpp:62
 msgid "Send CDDB submissions to:"
-msgstr ""
+msgstr "CDDB-Einträge senden an:"
 
 #: CDDBSetupData.cpp:82
 msgid "CDDB server:"
-msgstr ""
+msgstr "CDDB-Server:"
 
 #: CDDBSetupData.cpp:90
 msgid "Update"
-msgstr ""
+msgstr "Auffrischen"
 
 #: CDDBSetupData.cpp:108
 msgid "Enable Remote CDDB"
-msgstr ""
+msgstr "Remote-CDDB ermöglichen"
 
 #: CDDBSetupData.cpp:116
 msgid "Defaults"
-msgstr ""
+msgstr "Standard"
 
 #: CDDBSetupData.cpp:133
 msgid "Use HTTP proxy to access CDDB"
-msgstr ""
+msgstr "HTTP-Proxy für CDDB-Zugriff"
 
 #: CDDialog.cpp:55
 msgid "CD Database Editor"
-msgstr ""
+msgstr "CD-Datenbank Editor"
 
 #: CDDialog.cpp:200
 #, c-format
@@ -43,6 +43,8 @@ msgid ""
 "Total Time:\n"
 "%02d:%02d:%02d"
 msgstr ""
+"Gesamtzeit:\n"
+"%02d:%02d:%02d"
 
 #: CDDialog.cpp:202
 #, c-format
@@ -50,27 +52,30 @@ msgid ""
 "Total Time:\n"
 " %02d:%02d"
 msgstr ""
+"Gesamtzeit:\n"
+" %02d:%02d"
+
 
 #: CDDialog.cpp:244
 msgid "Use this Editor to annotate this track"
-msgstr ""
+msgstr "Benutzen Sie diesen Editor, um Anmerkungen zu machen"
 
 #: CDDialog.cpp:269
 msgid "Use this Editor to annotate the title"
-msgstr ""
+msgstr "Benutzen Sie diesen Editor, um Anmerkungen zu machen"
 
 #: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
-msgstr ""
+msgstr "Bitten wählen Sie eine Kategorie oder wählen Sie Abbrechen"
 
 #: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
-msgstr ""
+msgstr "Zu welcher Kategorie gehört diese CD?"
 
 #: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
-msgstr ""
+msgstr "Übertrage CDDB-Eintrag: %s\n"
 
 #: CDDialog.cpp:459
 #, c-format
@@ -78,10 +83,12 @@ msgid ""
 "Could not pipe contents into:\n"
 " %s"
 msgstr ""
+"Konnte die Daten nicht übergeben an:\n"
+" %s"
 
 #: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
-msgstr ""
+msgstr "In welcher Kategorie möchten Sie diesen CDDB-Eintrag speichern?"
 
 #: CDDialog.cpp:597
 #, c-format
@@ -90,20 +97,25 @@ msgid ""
 "%s\n"
 "Please check your permissions and make your category directories exist."
 msgstr ""
+"Kann Datei nicht schreiben:\n"
+"%s\n"
+"Bitte überprüfen Sie die Rechte und erstellen Sie das Kategorienverzeichnis."
 
 #: CDDialog.cpp:602
 msgid "Kscd Error"
-msgstr ""
+msgstr "Kscd Fehler"
 
 #: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
-msgstr ""
+msgstr "Ungültiger Datenbank-Eintrag"
 
 #: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
 msgstr ""
+"Das Künstler / Titel Feld ist nicht ausgefüllt.\n"
+"Bitte verbessern Sie den Eintrag und versuchen es erneut."
 
 #: CDDialog.cpp:777
 msgid ""
@@ -111,16 +123,21 @@ msgid ""
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
 msgstr ""
+"Das Künstler / Titel Feld ist nicht richtig ausgefüllt.\n"
+"Bitte trennen Sie den Künstler vom Titel der CD mit \n"
+"einem Schrägstrich, wie in: Peter Gabriel / Greatest Hits\n"
 
 #: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
 msgstr ""
+"Nicht alle Track-Titel können leer sein.\n"
+"Bitte verbessern Sie den eintrag und versuchen es erneut."
 
 #: CDDialog.cpp:823
 msgid "Internal Error"
-msgstr ""
+msgstr "Interner Fehler"
 
 #: CDDialog.cpp:824
 msgid ""
@@ -130,31 +147,31 @@ msgstr ""
 
 #: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
-msgstr ""
+msgstr "Ungültige Playlist\n"
 
 #: CDDialogData.cpp:74
 msgid "Load"
-msgstr ""
+msgstr "Laden"
 
 #: CDDialogData.cpp:87
 msgid "Play List Editor"
-msgstr ""
+msgstr "Playlist-Editor"
 
 #: CDDialogData.cpp:93
 msgid "Edit Track Title"
-msgstr ""
+msgstr "Track-Titel bearbeiten"
 
 #: CDDialogData.cpp:99
 msgid "Disc Artist / Title"
-msgstr ""
+msgstr "Künstler / Titel"
 
 #: CDDialogData.cpp:105
 msgid "Track / Time / Title"
-msgstr ""
+msgstr "Track / Zeit / Titel"
 
 #: CDDialogData.cpp:111 CDDialogData.cpp:117
 msgid "Ext Info"
-msgstr ""
+msgstr "Weitere Informationen"
 
 #: CDDialogData.cpp:133
 msgid "Disc ID"
@@ -162,27 +179,27 @@ msgstr ""
 
 #: CDDialogData.cpp:145
 msgid "Upload"
-msgstr ""
+msgstr "Übertragen"
 
 #: configdlg.cpp:61
 msgid "Configure kscd"
-msgstr ""
+msgstr "Kscd konfigurieren"
 
 #: configdlg.cpp:68
 msgid "LED Color:"
-msgstr ""
+msgstr "LED-Farbe:"
 
 #: configdlg.cpp:82
 msgid "Background Color:"
-msgstr ""
+msgstr "Hintergrundfarbe:"
 
 #: configdlg.cpp:101
 msgid "CDROM Device:"
-msgstr ""
+msgstr "CDROM-Gerät:"
 
 #: configdlg.cpp:118
 msgid "Unix mail command:"
-msgstr ""
+msgstr "Unix Mail-Kommando:"
 
 #: configdlg.cpp:126
 msgid "WWW-Browser"
@@ -190,19 +207,19 @@ msgstr ""
 
 #: configdlg.cpp:129
 msgid "Use kfm as Browser"
-msgstr ""
+msgstr "KFM als Browser benutzen"
 
 #: configdlg.cpp:136
 msgid "Use Custom Browser:"
-msgstr ""
+msgstr "Anderer Browser:"
 
 #: configdlg.cpp:148
 msgid "Show Tool Tips"
-msgstr ""
+msgstr "Menühilfen"
 
 #: configdlg.cpp:154
 msgid "Enable KPanel Docking"
-msgstr ""
+msgstr "In KPanel eindocken"
 
 #: docking.cpp:72 kscd.cpp:507
 msgid "Play/Pause"
@@ -210,33 +227,35 @@ msgstr ""
 
 #: docking.cpp:75
 msgid "Backward"
-msgstr ""
+msgstr "Zurück"
 
 #: docking.cpp:76
 msgid "Next"
-msgstr ""
+msgstr "Nächster"
 
 #: docking.cpp:77
 msgid "Previous"
-msgstr ""
+msgstr "Vorheriger"
 
 #: docking.cpp:78
 msgid "Eject"
-msgstr ""
+msgstr "Auswerfen"
 
 #: docking.cpp:175
 msgid "Minimize"
-msgstr ""
+msgstr "Minimieren"
 
 #: inexact.cpp:54
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
+"Es konnte kein genauer Treffer gefunden werden. Bitte wählen Sie die "
+"richtige CD aus der untenstehenden Liste"
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
-msgstr ""
+msgstr "Bitte wählen Sie einen CD-Titel oder wählen Sie Abbrechen"
 
 #: kscd.cpp:328
 msgid "Vol: --"
@@ -256,63 +275,63 @@ msgstr ""
 
 #: kscd.cpp:509
 msgid "Loop CD"
-msgstr ""
+msgstr "Wiederholen"
 
 #: kscd.cpp:510
 msgid "Track Selection"
-msgstr ""
+msgstr "Track-Auswahl"
 
 #: kscd.cpp:511
 msgid "30 Secs Forward"
-msgstr ""
+msgstr "30 Sek. vorwärts"
 
 #: kscd.cpp:512
 msgid "30 Secs Backward"
-msgstr ""
+msgstr "30 Sek. zurück"
 
 #: kscd.cpp:513
 msgid "Next Track"
-msgstr ""
+msgstr "Nächster Track"
 
 #: kscd.cpp:514
 msgid "Previous Track"
-msgstr ""
+msgstr "Vorheriger Track"
 
 #: kscd.cpp:515
 msgid "Exit Kscd"
-msgstr ""
+msgstr "Kscd beenden"
 
 #: kscd.cpp:516
 msgid "Cycle Time Display"
-msgstr ""
+msgstr "Zeitanzeige ändern"
 
 #: kscd.cpp:517
 msgid "Configure Kscd"
-msgstr ""
+msgstr "Kscd konfigurieren"
 
 #: kscd.cpp:518
 msgid "Eject CD"
-msgstr ""
+msgstr "CD auswerfen"
 
 #: kscd.cpp:519
 msgid "The Artist on the Web"
-msgstr ""
+msgstr "Der Künstler im Web"
 
 #: kscd.cpp:520
 msgid "Random Play"
-msgstr ""
+msgstr "Zufallsspiel"
 
 #: kscd.cpp:521
 msgid "CDDB Dialog"
-msgstr ""
+msgstr "CDDB-Dialog"
 
 #: kscd.cpp:522
 msgid "CD Volume Control"
-msgstr ""
+msgstr "Lautstärkeregler"
 
 #: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
 msgid "Playing"
-msgstr ""
+msgstr "Spiele"
 
 #: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
 #, c-format
@@ -325,27 +344,27 @@ msgstr ""
 
 #: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
 msgid "Random"
-msgstr ""
+msgstr "Zufall"
 
 #: kscd.cpp:615
 msgid "Strange...."
-msgstr ""
+msgstr "Merkwürdig..."
 
 #: kscd.cpp:632
 msgid "Stopped"
-msgstr ""
+msgstr "Angehalten"
 
 #: kscd.cpp:784 kscd.cpp:1116
 msgid "Loop"
-msgstr ""
+msgstr "Schleife"
 
 #: kscd.cpp:796
 msgid "Ejecting"
-msgstr ""
+msgstr "Werfe aus"
 
 #: kscd.cpp:869
 msgid "kscd Configuraton"
-msgstr ""
+msgstr "Kscd konfiguration"
 
 #: kscd.cpp:885
 msgid ""
@@ -376,7 +395,7 @@ msgstr ""
 
 #: kscd.cpp:947
 msgid "Kscd Options"
-msgstr ""
+msgstr "Kscd Optionen"
 
 #: kscd.cpp:948
 msgid "Kscd Magic"
@@ -393,60 +412,65 @@ msgid ""
 "Please make sure you have access permissions to:\n"
 "%s"
 msgstr ""
+"CD-ROM Lese- oder Zugriffsfehler.\n"
+"Bitte stellen Sie sicher, daß Sie Zugriffsberechtigung haben auf:\n"
+"%s"
 
 #: kscd.cpp:1159
 msgid "Ready"
-msgstr ""
+msgstr "Bereit"
 
 #: kscd.cpp:1191
 msgid "Ejected"
-msgstr ""
+msgstr "Ausgeworfen"
 
 #: kscd.cpp:1447
 msgid "Unable to get CDDB server list."
-msgstr ""
+msgstr "Kann die CDDB-Serverliste nicht bekommen."
 
 #: kscd.cpp:1569 kscd.cpp:1604
 msgid "No matching CDDB entry found."
-msgstr ""
+msgstr "Kein passender CDDB-Eintrag gefunden."
 
 #: kscd.cpp:1625
 msgid "CDDB query timed out."
-msgstr ""
+msgstr "CDDB-Abfrage: Zeitüberschreitung."
 
 #: kscd.cpp:1797
 msgid "Tra Rem"
-msgstr ""
+msgstr "Tra Übr"
 
 #: kscd.cpp:1801
 msgid "Tot Sec"
-msgstr ""
+msgstr "Ges Sek"
 
 #: kscd.cpp:1805
 msgid "Tot Rem"
-msgstr ""
+msgstr "Ges Übr"
 
 #: kscd.cpp:1810
 msgid "Tra Sec"
-msgstr ""
+msgstr "Tra Sek"
 
 #: kscd.cpp:1935
 msgid "Cannot start kscdmagic."
-msgstr ""
+msgstr "Kann kscdmagic nicht starten."
 
 #: kscd.cpp:1950
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
 msgstr ""
+"KSCD Magic abnormal beendet.\n"
+"Sind Sie sicher, daß kscdmagic installiert ist?"
 
 #: kscd.cpp:2131
 msgid "-h: display commandline options\n"
-msgstr ""
+msgstr "-h: Kommandozeilenparameter anzeigen\n"
 
 #: kscd.cpp:2132
 msgid "-d: enable debugging output.\n"
-msgstr ""
+msgstr "-d: Debug-Ausgaben anzeigen.\n"
 
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"
@@ -454,12 +478,12 @@ msgstr ""
 
 #: mgconfdlg.cpp:59
 msgid "Width of Magic Window:"
-msgstr ""
+msgstr "Breite des Magic-Fensters"
 
 #: mgconfdlg.cpp:71
 msgid "Height of Magic Window:"
-msgstr ""
+msgstr "Höhe des Magic-Fensters"
 
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
-msgstr ""
+msgstr "MAGIC Helligkeit:"
