@@ -61,6 +61,7 @@ KSCD 	         *k;
 DockWidget*     dock_widget;
 SMTP                *smtpMailer;
 bool dockinginprogress = 0;
+bool quitPending = 0;
 
 bool             debugflag = true;
 char 		tmptime[100];
@@ -823,6 +824,7 @@ void KSCD::dockClicked()
 
 void KSCD::closeEvent( QCloseEvent *e ){
 
+    quitPending = true;
     randomplay = FALSE;
     statuslabel->setText("");
     setLEDs( "--:--" );
@@ -843,20 +845,22 @@ void KSCD::closeEvent( QCloseEvent *e ){
 }
 
 bool KSCD::event( QEvent *e ){
-     if(e->type() == Event_Hide && autodock){
+    if(e->type() == Event_Hide && autodock){
+        if(dockinginprogress || quitPending)
+            return(FALSE);
         sleep(1); // give kwm some time..... ugly I know.
-        if (!KWM::isIconified(winId())) // maybe we are just on another desktop 
-   	    return FALSE;
-       if(dock_widget)
- 	dock_widget->SaveKscdPosition();
-       // a trick to remove the window from the taskbar (Matthias)
-       recreate(0,0, geometry().topLeft(), FALSE);
-       // set the icons again
-       KWM::setIcon(winId(), kapp->getIcon());
-       KWM::setMiniIcon(winId(), kapp->getMiniIcon());
-       return TRUE;
-     }
-     return QWidget::event(e);
+        if (!KWM::isIconified(winId())) // maybe we are just on another desktop
+            return FALSE;
+        if(dock_widget)
+            dock_widget->SaveKscdPosition();
+        // a trick to remove the window from the taskbar (Matthias)
+        recreate(0,0, geometry().topLeft(), FALSE);
+        // set the icons again
+        KWM::setIcon(winId(), kapp->getIcon());
+        KWM::setMiniIcon(winId(), kapp->getMiniIcon());
+        return TRUE;
+    }
+    return QWidget::event(e);
 }
 
 // void KSCD::focusOutEvent(QFocusEvent *e)
