@@ -95,24 +95,31 @@ static int ctl_read(int32 *valp)
 static int cmsg(int type, int verbosity_level, char *fmt, ...)
 {
   va_list ap;
+  int flag_newline = 1;
 #ifdef ADAGIO
   if (interactive) return 0;
 #endif
   if ((type==CMSG_TEXT || type==CMSG_INFO || type==CMSG_WARNING) &&
       ctl.verbosity<verbosity_level)
     return 0;
+  if (*fmt == '~')
+    {
+      flag_newline = 0;
+      fmt++;
+    }
   va_start(ap, fmt);
   if (!ctl.opened)
     {
       vfprintf(stderr, fmt, ap);
-      fprintf(stderr, "\n");
+      if (flag_newline) fprintf(stderr, "\n");
     }
   else
     {
       vfprintf(outfp, fmt, ap);
-      fprintf(outfp, "\n");
+      if (flag_newline) fprintf(outfp, "\n");
     }
   va_end(ap);
+  if (!flag_newline) fflush(outfp);
   return 0;
 }
 
