@@ -20,6 +20,7 @@
 // $Id$
 // Preferences Widget of Media player
 
+#include <kapp.h>
 #include "prefs.h"
 #include "prefs.moc"
 //#include "kmediaui.h"
@@ -34,13 +35,13 @@ Preferences::Preferences( QWidget *parent ) :
    
    page1 = new QWidget( tabctl );
    page2 = new QWidget( tabctl );
-   tabctl->addTab( page1, "Players" );
-   tabctl->addTab( page2, "Options" );
+   tabctl->addTab( page1, i18n("Players") );
+   tabctl->addTab( page2, i18n("Options") );
    tabctl->setGeometry( 10, 10, tabwidth, tabheight );
 
    int x=10,y=10;
    // Define page 1
-   QLabel    *mixerLB = new QLabel("Mixer",page1);
+   QLabel    *mixerLB = new QLabel(i18n("Mixer"),page1);
    mixerLB->setGeometry( 10, y, mixerLB->width(), mixerLB->height() );
    x += mixerLB->width()+4;
 
@@ -49,14 +50,14 @@ Preferences::Preferences( QWidget *parent ) :
    mixerLE->setGeometry(x,y, tabctl->width()-x-10, mixerLE->height() );
 
    // Define page 2
-   QButtonGroup *grpbox2 = new QButtonGroup( "Use sound device", page2 );
+   QButtonGroup *grpbox2 = new QButtonGroup( i18n("Use sound device"), page2 );
    grpbox2->setGeometry( 10, 10, tabctl->width()-20, 100 );
-   QRadioButton *rb2_3 = new QRadioButton( "Default ", grpbox2 );
+   QRadioButton *rb2_3 = new QRadioButton( i18n("Default"), grpbox2 );
    rb2_3->move( 10, 15 );   
    rb2_3->setChecked(true);
-   rb2_4 = new QRadioButton( "Device 1", grpbox2 );
+   rb2_4 = new QRadioButton( i18n("Device 1"), grpbox2 );
    rb2_4->move( 10, 40 );
-   rb2_5 = new QRadioButton( "Device 2", grpbox2 );
+   rb2_5 = new QRadioButton( i18n("Device 2"), grpbox2 );
    rb2_5->move( 10, 65 );
    QLabel *lbl2_1 = new QLabel( "",
 				page2 );
@@ -65,20 +66,20 @@ Preferences::Preferences( QWidget *parent ) :
    lbl2_1->move( (tabctl->width()-lbl2_1->width())/2, 120 );
    
 
-   buttonOk = new QPushButton( "OK", this );
+   buttonOk = new QPushButton( i18n("OK"), this );
    buttonOk->setGeometry( tabwidth-250, tabheight+20, 80, 25 );
    connect( buttonOk, SIGNAL(clicked()), this, SLOT(slotOk()));
 
-   buttonApply = new QPushButton( "Apply", this );
+   buttonApply = new QPushButton( i18n("Apply"), this );
    buttonApply->setGeometry( tabwidth-160, tabheight+20, 80, 25 );
    connect( buttonApply, SIGNAL(clicked()), this, SLOT(slotApply()));
 
-   buttonCancel = new QPushButton( "Cancel", this );
+   buttonCancel = new QPushButton( i18n("Cancel"), this );
    buttonCancel->setGeometry( tabwidth-70, tabheight+20, 80, 25 );
    connect( buttonCancel, SIGNAL(clicked()), this, SLOT(slotCancel()));
    
    setFixedSize( tabwidth + 20, tabheight + 55 );
-   setCaption( "KMedia Preferences" );
+   setCaption( i18n("KMedia Preferences") );
 }
 
 void Preferences::slotShow()

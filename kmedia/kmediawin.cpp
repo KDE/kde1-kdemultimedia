@@ -231,7 +231,7 @@ void KMediaWin::createMenu()
   //  Moptions->insertItem( i18n("Hide Menu"), this, SLOT(hideMenu()));
   Moptions->insertItem( i18n("&Mixer"), this, SLOT(launchMixer()));
   Moptions->insertSeparator();
-  Moptions->insertItem( i18n("&Preferences"), this, SLOT(showOpts()));
+  Moptions->insertItem( i18n("&Preferences..."), this, SLOT(showOpts()));
 
 
   QString msg,head;
