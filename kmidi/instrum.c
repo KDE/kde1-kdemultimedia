@@ -87,15 +87,13 @@ static void free_instrument(Instrument *ip)
       free(sp->data);
     }
   free(ip->sample);
-#ifdef ADAGIO
   for (i=0; i<ip->right_samples; i++)
     {
       sp=&(ip->right_sample[i]);
       free(sp->data);
     }
   if (ip->right_sample)
-  free(ip->right_sample);
-#endif
+    free(ip->right_sample);
   free(ip);
 }
 
@@ -298,16 +296,14 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
   
   if (noluck)
     {
+    #ifndef ADAGIO
       if (gm_num >= 0) {
-	#ifdef ADAGIO
-  	if ((ip = load_sbk_patch(1, gm_num, tpgm, reverb, main_volume))) return(ip);
-	#else
   	if (font_type == FONT_SBK && (ip = load_sbk_patch(1, name, gm_num, bank, percussion,
 			   panning, amp, note_to_use,
 			   strip_loop, strip_envelope,
 			   strip_tail))) return(ip);
-	#endif
       }
+    #endif
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 
 		"Instrument `%s' can't be found.", name);
     #ifdef ADAGIO
@@ -600,6 +596,12 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
       }
 #endif
 #endif
+/******debug*********
+	if (gm_num==67)
+	  for (j = 0; j < 6; j++) {
+	printf("\t%d: rate %ld offset %ld\n", j, tmp[j], tmp[6+j]);
+	  }
+******debug*********/
 
       for (j=0; j<6; j++)
 	{
