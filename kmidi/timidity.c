@@ -309,7 +309,7 @@ static int set_ctl(char *cp)
 
 #define MAXWORDS 10
 
-static int read_config_file(char *name)
+int read_config_file(char *name)
 {
   FILE *fp;
   char tmp[1024], *w[MAXWORDS], *cp;
