@@ -6,6 +6,7 @@ Icon=sound.xpm
 Patterns=*.kar;*.KAR;
 Comment=Karaoke file
 Comment[cs]=Karaoke soubor
+Comment[da]=Karaoke-fil
 Comment[de]=Karaoke Dokument
 Comment[es]=Archivo Karaoke
 Comment[fi]=Karakoetiedosto
