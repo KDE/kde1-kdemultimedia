@@ -130,7 +130,7 @@ static SFExclude *sfexclude;
 static SFOrder *sforder;
 
 int cutoff_allowed = 0;
-int command_cutoff_allowed = 0;
+int command_cutoff_allowed = 1;
 
 
 #ifdef GREGSTEST
@@ -1127,6 +1127,7 @@ if (!no_shown) {
 	lay->val[SF_decayEnv2],
 	lay->val[SF_releaseEnv2] );
 	printf("play_mode->rate = %u; control_ratio = %u\n\n", play_mode->rate, control_ratio);
+	printf("sustain %ld attack %ld hold %ld decay %ld release %ld\n", sustain, attack, hold, decay, release);
 }
 #endif
 

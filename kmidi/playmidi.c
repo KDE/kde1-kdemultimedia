@@ -566,8 +566,9 @@ static void start_note(MidiEvent *e, int i)
       else
 	voice[i].orig_frequency=freq_table[e->a & 0x7F];
       select_stereo_samples(i, ip);
+#ifndef ADAGIO
     }
-
+#endif
     played_note = voice[i].sample->note_to_use;
     if (!played_note) played_note = e->a & 0x7f;
 #ifdef ADAGIO
@@ -877,6 +878,7 @@ static void time_sync(int32 resync)
 		xmp_epoch = -1;
 		xxmp_epoch = 0; 
 		time_expired = 0;
+		/*return;*/
 	}
 	gettimeofday (&tv, &tz);
 	if (xmp_epoch < 0) {
@@ -922,7 +924,7 @@ static void show_markers(int32 until_time)
 	    else ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");
 	    i = j + 1;
 	}
-    if (j - i > 0) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", buf + i);
+    if (i < j) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", buf + i);
 }
 #endif
 

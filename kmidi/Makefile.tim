@@ -107,6 +107,7 @@ SYSTEM += -DADAGIO
 EXTRAINCS += -I../include
 endif
 
+ifndef ADAGIOFLAGS
 # Select the ncurses full-screen interface
 SYSTEM += -DIA_NCURSES
 SYSEXTRAS += ncurs_c.c
@@ -120,11 +121,11 @@ SYSEXTRAS += slang_c.c
 EXTRALIBS += -lslang
 
 # Select the MOTIF interface
-#SYSTEM += -DMOTIF
-#SYSEXTRAS += motif_c.c motif_i.c motif_p.c
+SYSTEM += -DMOTIF
+SYSEXTRAS += motif_c.c motif_i.c motif_p.c
 #EXTRAINCS += -I/usr/local/X11R5/include -L/usr/local/X11R5/lib
-#EXTRAINCS += -I/usr/include/X11
-#EXTRALIBS += -L/usr/X11R6/lib -lXm -lXt -lX11
+EXTRAINCS += -I/usr/include/X11
+EXTRALIBS += -L/usr/X11R6/lib -lXm -lXt -lX11
 # Solaris needs libgen?
 #EXTRALIBS += -lgen
 
@@ -137,7 +138,6 @@ EXTRALIBS += -ltk -ltcl -L/usr/X11R6/lib -lX11
 # Linux user needs this.
 EXTRALIBS += -ldl
 
-ifndef ADAGIOFLAGS
 SYSTEM += '-DDEFAULT_CONTROL_MODE=&dumb_control_mode'
 endif
 
