@@ -23,7 +23,7 @@
  */
 
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__svr4__)
 
 
 #define X11_DRIVER

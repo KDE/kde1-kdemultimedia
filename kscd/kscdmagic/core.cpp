@@ -21,7 +21,7 @@
     27 Bond St., Mt. Waverley, 3149, Melbourne, Australia
 */
 
-#ifdef __linux__
+#if defined(__linux__) || defined(_UNIXWARE7)
 
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,4 +1,4 @@
-#ifdef __linux__
+#if defined(__linux__) || defined(__svr4__)
 
 #define SYMBOLSWIDTH 586
 #define SYMBOLSHEIGHT 50

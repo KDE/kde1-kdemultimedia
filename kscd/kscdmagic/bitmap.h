@@ -21,7 +21,7 @@
     27 Bond St., Mt. Waverley, 3149, Melbourne, Australia
 */
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__svr4__)
 
 template <
   class SrcType,

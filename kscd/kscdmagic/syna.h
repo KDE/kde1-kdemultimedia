@@ -31,7 +31,7 @@
 #ifndef __SYNA_H__
 #define __SYNA_H__
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__svr4__)
 
 #include "magicconf.h"
 

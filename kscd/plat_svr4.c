@@ -68,6 +68,35 @@ int	max_volume = 255;
 extern char	*cd_device;
 
 /*
+ * find_cdrom
+ *
+ * Determine the name of the CD-ROM device.
+ *
+ * If the "CDROM" environment variable is set, use that instead.
+ */                                
+
+int               
+find_cdrom()
+{          
+    if ((cd_device = getenv("CDROM")) != NULL)
+                return 1;
+    if (access("/dev/cdrom/cdrom1", F_OK) == 0)
+        {
+                cd_device = "/dev/cdrom/cdrom1";
+                return 1;
+        }
+    else if (access("/dev/cdrom/cdrom2", F_OK) == 0){
+                cd_device = "/dev/cdrom/cdrom2";
+                return 1;
+        }
+    else
+        {
+                fprintf(stderr, "Couldn't find a CD device!\n");
+                return 0;
+        }
+}
+
+/*
  * Initialize the drive.  A no-op for the generic driver.
  */
 int
@@ -291,6 +320,11 @@ wmcd_open(d)
 	static int	warned = 0;
 	char		vendor[9], model[17], rev[5];
 
+        if (cd_device == NULL){
+          if(!find_cdrom())
+            return -1;
+        }
+
 	if (d->fd >= 0)		/* Device already open? */
 		return (0);
 	
@@ -298,7 +332,6 @@ wmcd_open(d)
 	  fprintf(stderr,"cd_device string empty\n");
 	  return (-1);
 	}
-
 
 	d->fd = create_cdrom_node(cd_device); /* this will do open */
 
@@ -375,8 +408,10 @@ wm_scsi(d, xcdb, cdblen, retbuf, retbuflen, getreply)
 	sb.SCB.sc_comp_code = SDI_PROGRES;
 	sb.SCB.sc_int = NULL;
 	sb.SCB.sc_wd = 0;
+#ifndef _UNIXWARE
 	sb.SCB.sc_dev.sa_major = 0;
 	sb.SCB.sc_dev.sa_minor = 0;
+#endif
 	sb.SCB.sc_dev.sa_lun = 0;
 #ifdef _UNIXWARE
 	sb.SCB.sc_dev.sa_bus = 0;
@@ -411,8 +446,10 @@ wm_scsi(d, xcdb, cdblen, retbuf, retbuflen, getreply)
         sb.SCB.sc_comp_code = SDI_PROGRES;
         sb.SCB.sc_int = NULL;
         sb.SCB.sc_wd = 0;
+#ifndef _UNIXWARE
         sb.SCB.sc_dev.sa_major = 0;
         sb.SCB.sc_dev.sa_minor = 0;
+#endif
         sb.SCB.sc_dev.sa_lun = 0;
 #ifdef _UNIXWARE
         sb.SCB.sc_dev.sa_bus = 0;
