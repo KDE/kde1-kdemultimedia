@@ -2,6 +2,7 @@
 [KDE Desktop Entry]
 BinaryPattern=kmid;
 Name=KMid Midi/Karaoke Player
+Name[fr]=KMid - Platine MIDI/Karaoké
 Name[de]=KMod Midi-/Karaoke-Spieler
 Name[es]=KMid Reproductor de Midi/Karaoke
 Name[fi]=KMid Midi/Karaokesoittaja
@@ -13,6 +14,7 @@ Name[hr]=KMid Midi/Karaoke Player
 Protocols=file;
 MimeType=audio/x-karaoke;audio/x-midi;
 Comment=A midi / karaoke file player
+Comment[fr]=Platine d'audition MIDI/Karaoké
 Comment[de]=Ein Midi-/Karakoke-Datei-Abspielprogramm
 Comment[es]=Un reproductor de ficheros Midi/Karaoke
 Comment[fi]=KMid Midi/Karaokesoittaja

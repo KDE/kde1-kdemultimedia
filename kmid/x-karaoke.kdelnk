@@ -5,6 +5,7 @@ MimeType=audio/x-karaoke
 Icon=sound.xpm
 Patterns=*.kar;*.KAR;
 Comment=Karaoke file
+Comment[fr]=Fichier pour karaoké
 Comment[de]=Karaoke Dokument
 Comment[nl]=Karaoke bestand
 Comment[pt]=Ficheiro Karaoke
