@@ -90,7 +90,7 @@ PlaylistDialog::PlaylistDialog(QWidget *parent, const char *name,QStrList *playl
   connect(cancelButton,SIGNAL(clicked()),this,SLOT(reject()));
 
   okButton = new QPushButton(this,"okButton");
-  okButton->setText("Ok");
+  okButton->setText("OK");
   connect(okButton,SIGNAL(clicked()),this,SLOT(checkList()));
 
   local_list = new QListBox(panner->child0(), "local_list",0);

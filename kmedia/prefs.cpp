@@ -65,7 +65,7 @@ Preferences::Preferences( QWidget *parent ) :
    lbl2_1->move( (tabctl->width()-lbl2_1->width())/2, 120 );
    
 
-   buttonOk = new QPushButton( "Ok", this );
+   buttonOk = new QPushButton( "OK", this );
    buttonOk->setGeometry( tabwidth-250, tabheight+20, 80, 25 );
    connect( buttonOk, SIGNAL(clicked()), this, SLOT(slotOk()));
 

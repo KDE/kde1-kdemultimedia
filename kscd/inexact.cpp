@@ -71,7 +71,7 @@ InexactDialog::InexactDialog(QWidget *parent, const char *name,bool _listbox)
 
   ok_button = new QPushButton(this,"ok_button");
   ok_button->setGeometry(250,340,70,30);
-  ok_button->setText(klocale->translate("Ok"));
+  ok_button->setText(klocale->translate("OK"));
   //  ok_button->setFocus();
 
 
