@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: 1998-05-15 18:50+0100\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 
@@ -234,31 +234,31 @@ msgstr "Do panelu pri ikoniz."
 msgid "Stop Playing on Exit"
 msgstr "Presta» hra» pri ukonè."
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Hra»/Pozastavi»"
 
-#: docking.cpp:74
+#: docking.cpp:77
 msgid "Forward"
 msgstr "Vpred"
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Spä»"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "Vpred"
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Predchádzajúca"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Vysunú»"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "Minimalizova»"
 
@@ -562,11 +562,11 @@ msgstr ""
 "KSCD Magic skonèil s chybou.\n"
 "Ste si istý, ¾e ho máte správne nain¹talovaný?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: vypí¹ parametre príkazovej riadky\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povoµ ladiaci výstup (anglicky).\n"
 

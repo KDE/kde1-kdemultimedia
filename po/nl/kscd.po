@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,38 +286,38 @@ msgid "Stop Playing on Exit"
 msgstr ""
 
 # docking.cpp:72 kscd.cpp:507
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Spelen / Pause"
 
 # kscd.cpp:511
-#: docking.cpp:74
+#: docking.cpp:77
 #, fuzzy
 msgid "Forward"
 msgstr "30 seconden voorwaarts"
 
 # docking.cpp:75
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Terugspoelen"
 
 # docking.cpp:76
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "Volgende"
 
 # docking.cpp:77
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Vorige"
 
 # docking.cpp:78
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Eject"
 
 # docking.cpp:175
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "Minimaliseren"
 
@@ -664,12 +664,12 @@ msgstr ""
 "Weet je zeker dat kscdmagic is geinstalleerd?"
 
 # kscd.cpp:2131
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: toon commandorgel opties\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debugging output aanzetten.\n"
 

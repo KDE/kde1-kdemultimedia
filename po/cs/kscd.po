@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: 1998-11-09 08:54+01:00\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -241,31 +241,31 @@ msgstr "Automaticky dokovat pøi minimalizaci"
 msgid "Stop Playing on Exit"
 msgstr "Pøestat hrát pøi ukonèení"
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Start/Pauza"
 
-#: docking.cpp:74
+#: docking.cpp:77
 msgid "Forward"
 msgstr "Dopøedu"
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Zpìt"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "Dal¹í"
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Pøedchozí"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Vysuò"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "Minimalizuj"
 
@@ -575,11 +575,11 @@ msgstr ""
 "KSCD Magic ukonèen s chybou.\n"
 "Máte KSCD Magic nainstalován?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: výpis voleb pøíkazové øádky\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povolit výpis debug informací.\n"
 

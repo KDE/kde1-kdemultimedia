@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: 1998-10-20 00:20+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@hi.is>\n"
 "Language-Team: is\n"
@@ -233,32 +233,32 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Spila/Bíða"
 
-#: docking.cpp:74
+#: docking.cpp:77
 #, fuzzy
 msgid "Forward"
 msgstr "Framm um 30 sek."
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Aftur"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr ""
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Fyrra"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Spýta út"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr ""
 
@@ -553,11 +553,11 @@ msgstr ""
 "Keyrslu KSCD Galdra lauk óeðlilega.\n"
 "Ertu viss um að KSCD sé uppsett?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: sýna möguleg viðföng\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: sýna upplýsingar til villuleitar\n"
 

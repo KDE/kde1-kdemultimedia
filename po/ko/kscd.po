@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -243,32 +243,32 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "연주/잠시멈춤"
 
-#: docking.cpp:74
+#: docking.cpp:77
 #, fuzzy
 msgid "Forward"
 msgstr "30초 앞으로"
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "뒤로"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "다음"
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "이전"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "꺼내기"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "최소화"
 
@@ -567,11 +567,11 @@ msgstr ""
 "KSCD Magic이 비정상적으로 종료됐읍니다.\n"
 "분명히 kscdmagic을 설치했읍니까?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: 명령행 옵션을 보여줌\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 디버깅 출력을 가능하게 함\n"
 

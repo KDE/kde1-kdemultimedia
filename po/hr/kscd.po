@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: 1998-10-15 15:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -241,31 +241,31 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Sviraj/Pauza"
 
-#: docking.cpp:74
+#: docking.cpp:77
 msgid "Forward"
 msgstr "Naprijed"
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Natrag"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "Slijedeæa"
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Prethodna"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Izbaci"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "Smanji"
 
@@ -566,11 +566,11 @@ msgstr ""
 "KSCD Magic je neoèekivano zavr¹io.\n"
 "Da li ste sigurni da je kscdmagic instaliran?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: prika¾i opcije na komandnoj liniji\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: ukljuèi debug ispis\n"
 

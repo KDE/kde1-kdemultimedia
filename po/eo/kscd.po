@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.0pre2\n"
-"POT-Creation-Date: 1998-11-11 02:21+0100\n"
+"POT-Creation-Date: 1998-11-12 02:21+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -242,32 +242,32 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:72 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
 msgstr "Ludu/Paýzo"
 
-#: docking.cpp:74
+#: docking.cpp:77
 #, fuzzy
 msgid "Forward"
 msgstr "30s antaýen"
 
-#: docking.cpp:75
+#: docking.cpp:78
 msgid "Backward"
 msgstr "Malantaýen"
 
-#: docking.cpp:76
+#: docking.cpp:79
 msgid "Next"
 msgstr "Sekva"
 
-#: docking.cpp:77
+#: docking.cpp:80
 msgid "Previous"
 msgstr "Antaýa"
 
-#: docking.cpp:78
+#: docking.cpp:81
 msgid "Eject"
 msgstr "Eligu"
 
-#: docking.cpp:174
+#: docking.cpp:177
 msgid "Minimize"
 msgstr "Minimumigu"
 
@@ -567,11 +567,11 @@ msgstr ""
 "KSCD Magic nenormale finiøis.\n"
 "Æu vi estas certa, ke vi øuste instalis kscdmagic?"
 
-#: kscd.cpp:2378
+#: kscd.cpp:2376
 msgid "-h: display commandline options\n"
 msgstr "-h: montru komandliniajn opciojn\n"
 
-#: kscd.cpp:2379
+#: kscd.cpp:2377
 msgid "-d: enable debugging output.\n"
 msgstr "-d: enþaltu malcimigajn mesaøojn.\n"
 
