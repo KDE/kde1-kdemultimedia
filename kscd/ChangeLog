@@ -1,3 +1,8 @@
+Thu Jan  1 19:08:22 1998  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* Monster commit: Commit cddb and web integration additions
+	  Let the games begin!
+
 Fri Dec 26 13:48:56 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
 
 	* headerfile changes in plat_bsd.c

@@ -270,7 +270,7 @@ void  CDDB::queryCD(unsigned long _magicID,QStrList& querylist){
   str += "\n";
 
   write(sock->socket(),str.data(),str.length());
-  printf("WROTE:%s\n",str.data());
+  //  printf("WROTE:%s\n",str.data());
   state  = QUERY;
   
 }
@@ -303,7 +303,7 @@ void CDDB::query_exact(QString line){
       }
 
       write(sock->socket(),readstring.data(),readstring.length());
-      printf("WROTE=%s\n",readstring.data());
+      //      printf("WROTE=%s\n",readstring.data());
 
       state = CDDB_READ;
       respbuffer = "";
@@ -357,7 +357,7 @@ void CDDB::do_state_machine(){
 
       write(sock->socket(),hellostr.data(),hellostr.length());
 
-      printf("WROTE=%s\n",hellostr.data());
+      //      printf("WROTE=%s\n",hellostr.data());
       state = HELLO;
 
     }
@@ -378,7 +378,7 @@ void CDDB::do_state_machine(){
 	emit cddb_ready();
       else{
 	write(sock->socket(),"sites\n",6);
-	printf("WROTE=%s\n","sites\n");
+	//	printf("WROTE=%s\n","sites\n");
 	state = SERVER_LIST_WAIT;
       }
 
@@ -442,7 +442,7 @@ void CDDB::do_state_machine(){
       readstring.sprintf("quit \n",category.data(),magicID);
 
       write(sock->socket(),readstring.data(),readstring.length());
-      printf("WROTE=%s\n",readstring.data());
+      //      printf("WROTE=%s\n",readstring.data());
 
       state = CDDB_DONE;
 
@@ -471,7 +471,7 @@ void CDDB::do_state_machine(){
     }
     parse_serverlist();
     write(sock->socket(),"quit\n",6);
-    printf("WROTE=%s\n","quit\n");
+    //    printf("WROTE=%s\n","quit\n");
     emit get_server_list_done();
     state = CDDB_DONE;
     break;
