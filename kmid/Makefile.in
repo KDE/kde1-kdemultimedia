@@ -25,6 +25,11 @@ INSTALL_DIR_PRIVATE = $(install) -d -m 0700
 prefix = @prefix@
 install_root = @install_root@
 exec_prefix = @exec_prefix@
+kde_libraries = @kde_libraries@
+qt_libraries = @qt_libraries@
+top_builddir = ..
+LIBTOOL = @LIBTOOL@
+KDE_RPATH = @KDE_RPATH@
 BINDIR = @kde_bindir@
 DATADIR = @kde_datadir@/kmid
 
@@ -53,7 +58,7 @@ Makefile: Makefile.in
 	cd .. && CONFIG_FILES=kmid/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
 $(TARGET): $(SRCMETA) $(OBJECTS) $(PLAYEROBJECTS)
-	$(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS) $(KDE_RPATH)
 
 $(PLAYEROBJECTS):
 	(cd player && make all_copy && cd ..)

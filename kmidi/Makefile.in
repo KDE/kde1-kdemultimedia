@@ -25,6 +25,11 @@ INSTALL_DIR_PRIVATE = @INSTALL@ -d -m 0700
 prefix       = @prefix@
 exec_prefix  = @exec_prefix@
 install_root = @install_root@
+kde_libraries = @kde_libraries@
+qt_libraries = @qt_libraries@
+top_builddir = ..
+LIBTOOL = @LIBTOOL@
+KDE_RPATH = @KDE_RPATH@
 BINDIR       = @kde_bindir@
 PICSDIR      = @kde_datadir@/kmidi/pics
 ICONDIR      = @kde_icondir@
@@ -79,7 +84,7 @@ Makefile: Makefile.in
 	cd .. && CONFIG_FILES=kmidi/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
 $(TARGET): $(SRCMETA) $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS) $(KDE_RPATH)
 
 depend:
 	@makedepend $(SOURCES) 2> /dev/null
@@ -94,7 +99,7 @@ clean:
 distclean: clean
 	rm -f Makefile
 
-install:
+install: all
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
 	(cd docs && $(MAKE) install)
