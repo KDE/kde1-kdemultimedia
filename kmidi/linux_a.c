@@ -76,7 +76,8 @@ PlayMode dpm = {
 static int open_output(void)
 {
   int fd, tmp, i, warnings=0;
-  
+
+
   /* Open the audio device */
   fd=open(dpm.name, O_RDWR | O_NDELAY);
   if (fd<0)
@@ -85,6 +86,7 @@ static int open_output(void)
 	   dpm.name, sys_errlist[errno]);
       return -1;
     }
+
 
   fcntl(fd,F_SETFD,1);
    
@@ -188,13 +190,18 @@ static int open_output(void)
     }
 #endif
 
+
   dpm.fd=fd;
-  
+
+
   return warnings;
 }
 
 static void output_data(int32 *buf, int32 count)
 {
+
+  int out;
+
 
   if (!(dpm.encoding & PE_MONO)) count*=2; /* Stereo samples */
 
@@ -202,18 +209,21 @@ static void output_data(int32 *buf, int32 count)
     {
       /* Convert data to signed 16-bit PCM */
       s32tos16(buf, count);
-      
+
       /* Write the data out. Linux likes to give an EINTR if you suspend
 	 a program while waiting on a write, so we may need to retry. */
-      while ((-1==write(dpm.fd, buf, count * 2)) && errno==EINTR)
-	;
+      while ((-1==(out = write(dpm.fd, buf, count * 2))) && errno==EINTR){
+//	printf("%d\n",out);
+      };
     }
   else
     {
       /* Convert to 8-bit unsigned and write out. */
       s32tou8(buf, count);
-      
-      while ((-1==write(dpm.fd, buf, count)) && errno==EINTR)
+
+      while ((-1==(out = write(dpm.fd, buf, count))) && errno==EINTR){
+	//printf("%d\n",out);
+      }
 	;
     }
 }

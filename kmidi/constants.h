@@ -16,6 +16,7 @@
 #define RC_CHANGE_VOLUME 12
 #define RC_LOAD_FILE 13		/* Load a new midifile */
 #define RC_TUNE_END 14		/* The tune is over, play it again sam? */
+#define RC_TRY_OPEN_DEVICE 15
 
 #define CMSG_INFO	0
 #define CMSG_WARNING	1
@@ -56,7 +57,8 @@
 #define NEXT_FILE_MESSAGE 18
 #define PREV_FILE_MESSAGE 19
 #define TUNE_END_MESSAGE 20
-
+#define DEVICE_OPEN 21
+#define DEVICE_NOT_OPEN 22
 /* 
  * MESSAGE ON THE PIPE FROM MOTIF TOWARD KERNEL
  */
@@ -70,3 +72,5 @@
 #define MOTIF_FWD 8
 #define MOTIF_RWD 9
 #define MOTIF_PAUSE 10
+#define TRY_OPEN_DEVICE 11
+

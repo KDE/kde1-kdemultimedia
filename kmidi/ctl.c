@@ -69,6 +69,7 @@ void 	pipe_puts(char *str);
 int 	pipe_gets(char *str, int maxlen);
 */
 
+extern int output_device_open;
 void pipe_int_write(int c);
 void pipe_int_read(int *c);
 void pipe_string_write(char *str);
@@ -454,6 +455,9 @@ static int ctl_blocking_read(int32 *valp)
 	      case MOTIF_RWD:
 		  *valp=play_mode->rate;
 		  return RC_BACK;
+
+	      case TRY_OPEN_DEVICE:
+		  return RC_TRY_OPEN_DEVICE;
 	      }
 	  
 	  
@@ -527,6 +531,18 @@ static void ctl_pass_playing_list(int number_of_files, char *list_of_files[])
 
 		    switch(command)
 			{
+			case RC_TRY_OPEN_DEVICE:
+			  if( output_device_open == 0){
+			  if (play_mode->open_output()<0){
+			    output_device_open = 0;
+			    pipe_int_write(DEVICE_NOT_OPEN);
+			  }
+                          else{
+			    output_device_open = 1;
+			    pipe_int_write(DEVICE_OPEN);
+			  }
+			  }
+			 break;
 			case RC_NEXT:
 			    pipe_int_write(NEXT_FILE_MESSAGE);
 			    break;

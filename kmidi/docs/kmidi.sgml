@@ -106,9 +106,12 @@ since by default KMidi will overwrite it!
 % ./configure
 % make
 % make install
-% make install-patch  ( if this is your first installation )
 </verb></tscreen>
 
+make will check if you have already precious config files from a previous installtion
+of kmidi in the config directory ( usuall KDEDIR/share/apps/kmidi/config ). If
+yes it will not overwrite them. So for a completely fresh install you must
+remove the files in the config directory.
 
 Should you run into problems please report them to me.
 <p>

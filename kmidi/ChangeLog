@@ -1,3 +1,7 @@
+Sun Jan 18 08:39:01 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* kmidi.cpp: various internal fixes and improvments
+
 Sun Sep 21 15:51:34 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
 
 	* fought with autconf to get support for 

@@ -103,6 +103,7 @@ install:
 	$(INSTALL_DATA) docs/kmidi-3.html $(DOCSDIR)
 	$(INSTALL_DATA) docs/kmidi-4.html $(DOCSDIR)
 	$(INSTALL_DATA) docs/kmidi-5.html $(DOCSDIR)
+	$(INSTALL_DATA) docs/logotp3.gif $(DOCSDIR)	
 	$(INSTALL_DIR) $(DOCSDIRDE)
 	$(INSTALL_DATA) docs/de/kmidi.sgml $(DOCSDIRDE)
 	$(INSTALL_DATA) docs/de/kmidi.html $(DOCSDIRDE)

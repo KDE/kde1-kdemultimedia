@@ -68,7 +68,7 @@ PlayMode *play_mode_list[] = {
 #ifdef DEFAULT_PLAY_MODE
   PlayMode *play_mode=DEFAULT_PLAY_MODE;
 #else
-  PlayMode *play_mode=&wave_play_mode;
+ PlayMode *play_mode=&wave_play_mode;
 #endif
 
 /*****************************************************************/

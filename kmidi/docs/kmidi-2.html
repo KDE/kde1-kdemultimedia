@@ -3,8 +3,8 @@
 <HEAD>
 <TITLE>The KMidi Handbook: Installation</TITLE>
 <META HTTP-EQUIV="content-type" CONTENT="text/html; charset=iso-8859-1">
-<META NAME="keywords" CONTENT="kmidi midi">
-<META NAME="description" CONTENT="Documentation for kmidi">
+<META NAME="keywords" CONTENT="KMidi Midi Player Timidity Midi to Wav">
+<META NAME="description" CONTENT="KMidi Midi Player Timidity Midi To Wav">
 </HEAD>
 <BODY BGCOLOR="#ffffff" LINK="#aa0000" TEXT="#000000" > 
 <FONT FACE="Helvetica">
@@ -53,10 +53,12 @@ since by default KMidi will overwrite it!
 % ./configure
 % make
 % make install
-% make install-patch  ( if this is your first installation )
 </PRE>
 </CODE></BLOCKQUOTE>
-<P>
+<P>make will check if you have already precious config files from a previous installtion
+of kmidi in the config directory ( usuall KDEDIR/share/apps/kmidi/config ). If
+yes it will not overwrite them. So for a completely fresh install you must
+remove the files in the config directory.
 <P>Should you run into problems please report them to me.
 <P>
 <P>

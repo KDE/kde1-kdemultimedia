@@ -67,6 +67,7 @@ void pipe_string_write(char *str);
 extern PlayMode *play_mode;
 extern int have_commandline_midis;
 extern int output_device_open;
+extern int32 control_ratio;
 
 enum midistatus{ KNONE, KPLAYING, KSTOPPED, KLOOPING, KFORWARD, 
 		 KBACKWARD, KNEXT, KPREVIOUS,KPAUSED};
@@ -826,57 +827,56 @@ void KMidi::PlayCommandlineMods(){
     // time whether the driver is finally ready. This is handy for people
     // like me who usually use NAS but forgot to turn it off. 
 
-    timer->changeInterval(1000);
 
+  timer->changeInterval(1000);
 
-    if(!output_device_open){
+  connect(readtimer, SIGNAL(timeout()),this,SLOT(ReadPipe()));
+  readtimer->start(10);  
 
-	// we couldn't initialize the driver 
-	// this happens e.g. when I still have NAS running
-	// let's blink a bit.
+  if(!output_device_open){
     
-
-	if (blink){
-	    blink = false;
-	    statusLA->setText("           ");
+    // we couldn't initialize the driver 
+    // this happens e.g. when I still have NAS running
+    // let's blink a bit.
+    
+    pipe_int_write(TRY_OPEN_DEVICE);    
+      
+    if (blink){
+      blink = false;
+      statusLA->setText("           ");
 	}
-	else{
-	    blink = true;
-	    statusLA->setText("Error");
-	    modlabel->setText("Can't open Output Device");
-	    song_count_label->setText( "Song --/--" );
-	}
-
-	if( play_mode->open_output()<0){ 
-	    output_device_open = 0;
-	}
-	else{
-	    output_device_open = 1;
-	    modlabel->setText(""); // clear the error message
-	    song_count_label->setText( "Song --/--" );
-	}
-
-	return;    
+    else{
+      blink = true;
+      statusLA->setText("Error");
+      modlabel->setText("Can't open Output Device");
+      song_count_label->setText( "Song --/--" );
     }
+    
+    
+    modlabel->setText(""); // clear the error message
+    song_count_label->setText( "Song --/--" );
+    
+    return;    
+  }
 
-    // O.K all clear -- the driver is ready.
+  // O.K all clear -- the driver is ready.
+  
+  timer->stop();
+  
+  disconnect( timer, SIGNAL(timeout()),this, SLOT(PlayCommandlineMods()) );
+  connect( timer, SIGNAL(timeout()),this, SLOT(PlayMOD()) );
+  thisapp->processEvents();
+  thisapp->flushX();
+  
+  display_playmode();
+  
+  thisapp->processEvents();
+  thisapp->flushX();
+  
+  
+  statusLA->setText("Ready");
 
-    timer->stop();
-
-    disconnect( timer, SIGNAL(timeout()),this, SLOT(PlayCommandlineMods()) );
-    connect( timer, SIGNAL(timeout()),this, SLOT(PlayMOD()) );
-    thisapp->processEvents();
-    thisapp->flushX();
-
-    display_playmode();
-
-    thisapp->processEvents();
-    thisapp->flushX();
-
-
-    statusLA->setText("Ready");
-    connect(readtimer, SIGNAL(timeout()),this,SLOT(ReadPipe()));
-    readtimer->start(10);  
+  //  readtimer->start(10);  
 
 }
 
@@ -936,7 +936,18 @@ void KMidi::ReadPipe(){
 	      /*		printf("REFRESH MESSAGE IS OBSOLETE !!!\n");*/
 	    }
 	    break;
-	    
+
+	    case DEVICE_NOT_OPEN:
+	      output_device_open = 0;
+	      break;
+
+	    case DEVICE_OPEN:
+
+	      output_device_open = 1;
+	      if(have_commandline_midis && output_device_open)
+		emit play();
+	      break;
+
 	    case TOTALTIME_MESSAGE : { 
 		int cseconds;
 		int minutes,seconds;
@@ -1016,7 +1027,7 @@ void KMidi::ReadPipe(){
 		  }	
 		
 		if( !have_commandline_midis) {
-		  /*don't have cmd line midis to paly*/
+		  /*don't have cmd line midis to play*/
 		  /*or none of them was readable */
 		    loadplaylist();
 		}
@@ -1028,10 +1039,11 @@ void KMidi::ReadPipe(){
 		    int index = fileName.findRev('/',-1,TRUE);
 		    if(index != -1)
 			fileName = fileName.right(fileName.length() -index -1);
-		    updateUI();
+		    if(output_device_open)
+		      updateUI();
     
 		}
-		if(have_commandline_midis)
+		if(have_commandline_midis && output_device_open)
 		  emit play();
 
 	    }

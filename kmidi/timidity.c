@@ -160,33 +160,8 @@ static void help(void)
 	 "   `t'    trace playing\n\n");
 	 */
 }
-/*
-static void interesting_message(void)
-{
-  printf(
-"\n"
-" KMidi version " KMIDIVERSION "  MIDI to WAVE player/converter\n"
-" Copyright (C) 1995 Bernd Johannes Wuebben <wuebben@math.cornell.edu>\n"
-" \n"
-" This program is free software; you can redistribute it and/or modify\n"
-" it under the terms of the GNU General Public License as published by\n"
-" the Free Software Foundation; either version 2 of the License, or\n"
-" (at your option) any later version.\n"
-" \n"
-" This program is distributed in the hope that it will be useful,\n"
-" but WITHOUT ANY WARRANTY; without even the implied warranty of\n"
-" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n"
-" GNU General Public License for more details.\n"
-" \n"
-" You should have received a copy of the GNU General Public License\n"
-" along with this program; if not, write to the Free Software\n"
-" Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.\n"
-"\n"
-);
 
-}
 
-*/
 static int set_channel_flag(int32 *flags, int32 i, char *name)
 {
   if (i==0) *flags=0;
@@ -296,6 +271,8 @@ static int read_config_file(char *name)
   ToneBank *bank=0;
   int i, j, k, line=0, words;
   static int rcf_count=0;
+
+
 
   if (rcf_count>50)
 	 {
@@ -662,70 +639,70 @@ int main(int argc, char **argv)
 			"e"	/* evil (be careful) */
 #endif
 			))>0)
-	 switch(c)
-		{
-		case 'U': free_instruments_afterwards=1; break;
-		case 'L': add_to_pathlist(optarg); try_config_again=1; break;
-		case 'c':
+    switch(c)
+      {
+      case 'U': free_instruments_afterwards=1; break;
+      case 'L': add_to_pathlist(optarg); try_config_again=1; break;
+      case 'c':
 	if (read_config_file(optarg)) cmderr++;
 	else got_a_configuration=1;
 	break;
-
-		case 'Q':
+	
+      case 'Q':
 	if (set_channel_flag(&quietchannels, atoi(optarg), "Quiet channel"))
 	  cmderr++;
 	break;
 
-		case 'D':
+      case 'D':
 	if (set_channel_flag(&drumchannels, atoi(optarg), "Drum channel"))
 	  cmderr++;
 	break;
 
-		case 'O': /* output mode */
+      case 'O': /* output mode */
 	if (set_play_mode(optarg))
 	  cmderr++;
 	break;
-
-		case 'o':	output_name=optarg; break;
-
-		case 'a': antialiasing_allowed=1; break;
-
-		case 'f': fast_decay=(fast_decay) ? 0 : 1; break;
-
-		case 'F': adjust_panning_immediately=1; break;
-
-		case 's': /* sampling rate */
+	
+      case 'o':	output_name=optarg; break;
+	
+      case 'a': antialiasing_allowed=1; break;
+	
+      case 'f': fast_decay=(fast_decay) ? 0 : 1; break;
+	
+      case 'F': adjust_panning_immediately=1; break;
+	
+      case 's': /* sampling rate */
 	i=atoi(optarg);
 	if (i < 100) i *= 1000;
 	if (set_value(&output_rate, i, MIN_OUTPUT_RATE, MAX_OUTPUT_RATE,
-				"Resampling frequency")) cmderr++;
+		      "Resampling frequency")) cmderr++;
 	break;
-
-		case 'P': /* set overriding instrument */
+	
+      case 'P': /* set overriding instrument */
 	strncpy(def_instr_name, optarg, 255);
 	def_instr_name[255]='\0';
 	break;
-
-		case 'I':
+	
+      case 'I':
 	if (set_value(&tmpi32, atoi(optarg), 0, 127,
-				"Default program")) cmderr++;
+		      "Default program")) cmderr++;
 	else default_program=tmpi32;
 	break;
-		case 'A':
+      case 'A':
 	if (set_value(&amplification, atoi(optarg), 1, MAX_AMPLIFICATION,
-				"Amplification")) cmderr++;
+		      "Amplification")) cmderr++;
 	break;
-		case 'C':
+      case 'C':
 	if (set_value(&control_ratio, atoi(optarg), 1, MAX_CONTROL_RATIO,
 				"Control ratio")) cmderr++;
 	break;
-		case 'p':
+      case 'p':
 	if (set_value(&tmpi32, atoi(optarg), 1, MAX_VOICES,
-				"Polyphony")) cmderr++;
+		      "Polyphony")) cmderr++;
 	else voices=tmpi32;
 	break;
 
-		case 'i':
+      case 'i':
 	if (set_ctl(optarg))
 	  cmderr++;
 
@@ -739,51 +716,52 @@ int main(int argc, char **argv)
 	  buffer_fragments=2;
 
 #else
-	  buffer_fragments=3;		/* On Win32 2 is chunky */
+	buffer_fragments=3;		/* On Win32 2 is chunky */
 #endif
 #endif
 	break;
 
 #if defined(AU_LINUX) || defined(AU_WIN32)
 	
-		case 'B':
-		  if (set_value(&tmpi32, atoi(optarg), 0, 1000,
-				"Buffer fragments")) cmderr++;
-		  else buffer_fragments=tmpi32;
-		  break;
+      case 'B':
+	if (set_value(&tmpi32, atoi(optarg), 0, 1000,
+		      "Buffer fragments")) cmderr++;
+	else buffer_fragments=tmpi32;
+	break;
 
 #endif
 
 #ifdef __WIN32__
 
-		case 'e': /* evil */
-			evil = 1;
-			break;
-
+      case 'e': /* evil */
+	evil = 1;
+	break;
+	
 #endif
 
-		case 'h':
+      case 'h':
 	help();
 	return 0;
-
-		default:
+	
+      default:
 	cmderr++; break;
-		}
+      } /* END SWITCH() */
+
 
   if (!got_a_configuration)
-	 {
-		if (!try_config_again || read_config_file(CONFIG_FILE))
+    {
+      if (!try_config_again || read_config_file(CONFIG_FILE))
 	cmderr++;
-	 }
+    }
 
   /* If there were problems, give up now */
   /*  if (cmderr || optind >= argc)*/
 
   if (cmderr )
-	 {
-		fprintf(stderr, "Try %s -h for help\n", program_name);
-		return 1; /* problems with command line */
-	 }
+    {
+      fprintf(stderr, "Try %s -h for help\n", program_name);
+      return 1; /* problems with command line */
+    }
 
 
   /* Set play mode parameters */
@@ -806,84 +784,79 @@ int main(int argc, char **argv)
 
   init_tables();
 
-  /*  if (optind<argc)
-    {*/
+  orig_optind=optind;
+  
+  while (optind<argc)
+    if (!strcmp(argv[optind++], "-"))
+      need_stdin=1;
 
-      orig_optind=optind;
+  optind=orig_optind;
 
-      while (optind<argc)
-	if (!strcmp(argv[optind++], "-"))
-	  need_stdin=1;
+  if (play_mode->open_output()<0){
 
-      optind=orig_optind;
-
-
-      if (play_mode->open_output()<0)
-	{
-       	  fprintf(stderr, "KMidi: Sorry, couldn't open %s.\n", play_mode->id_name);
-	  /*	  ctl->close();*/
-	  
-	  output_device_open = 0;
-
-	  return 2;
-	}
+      fprintf(stderr, "KMidi: Sorry, couldn't open %s.\n", play_mode->id_name);
+      /*	  ctl->close();*/
       
-      
-      if (ctl->open(need_stdin, need_stdout))
-	{
-	  fprintf(stderr, "Couldn't open %s\n", ctl->id_name);
-	  play_mode->close_output();
-	  return 3;
-	}	
+      output_device_open = 0;
 
-      if (!control_ratio)
-	{
-	  control_ratio = play_mode->rate / CONTROLS_PER_SECOND;
-	  if(control_ratio<1)
-	    control_ratio=1;
-	  else if (control_ratio > MAX_CONTROL_RATIO)
-	    control_ratio=MAX_CONTROL_RATIO;
-	}
+//      return 2;
+  }
       
-      if (sf_file)
-	init_soundfont(sf_file, sf_order);
-      
-      if (*def_instr_name)
-	set_default_instrument(def_instr_name);
+  if (ctl->open(need_stdin, need_stdout)){
 
-#ifdef __WIN32__
-      
-      SetConsoleCtrlHandler (handler, TRUE);
-      InitializeCriticalSection (&critSect);
-
-      if(evil)
-	if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_ABOVE_NORMAL))
-	  fprintf(stderr, "Error raising process priority.\n");
-
-#endif
-      
-      /* Return only when quitting */
-
-      /*      printf("apg-opt %d\n",argc-optind);*/
-      if(argc-optind > 0 )
-	have_commandline_midis = 1;
-      else
-	have_commandline_midis = 0;
-            
-      ctl->pass_playing_list(argc-optind, &argv[orig_optind]);
-      
+      fprintf(stderr, "Couldn't open %s\n", ctl->id_name);
       play_mode->close_output();
-      ctl->close();
+      return 3;
+  }	
+  
+
+  if (!control_ratio){
+
+      control_ratio = play_mode->rate / CONTROLS_PER_SECOND;
+      if(control_ratio<1)
+	control_ratio=1;
+      else if (control_ratio > MAX_CONTROL_RATIO)
+	control_ratio=MAX_CONTROL_RATIO;
+  }
+
+  
+  if (sf_file)
+    init_soundfont(sf_file, sf_order);
+  
+  if (*def_instr_name)
+    set_default_instrument(def_instr_name);
+  
+#ifdef __WIN32__
+      
+  SetConsoleCtrlHandler (handler, TRUE);
+  InitializeCriticalSection (&critSect);
+  
+  if(evil)
+    if (!SetThreadPriority(GetCurrentThread(), THREAD_PRIORITY_ABOVE_NORMAL))
+      fprintf(stderr, "Error raising process priority.\n");
+
+#endif
+      
+  /* Return only when quitting */
+
+  /*      printf("apg-opt %d\n",argc-optind);*/
+  if(argc-optind > 0 )
+    have_commandline_midis = 1;
+  else
+    have_commandline_midis = 0;
+  
+  ctl->pass_playing_list(argc-optind, &argv[orig_optind]);
+  
+  play_mode->close_output();
+  ctl->close();
 
 
 #ifdef __WIN32__
 
-      DeleteCriticalSection (&critSect);
+  DeleteCriticalSection (&critSect);
 
 #endif
 
-      return 0;
-      
-      /*    }*/
   return 0;
+
 }
