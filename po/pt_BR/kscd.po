@@ -359,7 +359,6 @@ msgid "Previous Track"
 msgstr "Faixa anterior"
 
 #: kscd.cpp:567
-#, fuzzy
 msgid "Quit Kscd"
 msgstr "Sair do Kscd"
 
@@ -429,7 +428,6 @@ msgid "kscd Configuraton"
 msgstr "Configuração do kscd"
 
 #: kscd.cpp:1011
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -447,6 +445,9 @@ msgid ""
 msgstr ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"Mantido atualmente por:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
 "\n"
 "kscd contém código de:\n"
 "workman 1.4 beta 3\n"
