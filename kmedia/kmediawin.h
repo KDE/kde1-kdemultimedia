@@ -48,7 +48,7 @@ public:
 
 
   void		baseinitMediatool();
-  void		launchPlayer(char *filename);
+  void		launchPlayer(const char *filename);
   bool		removePlayer();
 
   // Mediatool

@@ -783,7 +783,7 @@ void KMidi::aboutClicked()
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
   
-  QString pixdir = thisapp->kdedir() + QString("/share/apps/kmidi/pics/"); 
+  QString pixdir = thisapp->kde_datadir() + "/kmidi/pics/"; 
 
 
   QPixmap pm((pixdir + "kmidilogo.xpm").data());

@@ -120,8 +120,8 @@ void CDDBSetup::set_defaults(){
   server_listbox->setAutoUpdate(true);
   server_listbox->repaint();
 
-  basedirstring = mykapp->kdedir().copy();
-  basedirstring += "/share/apps/kscd/cddb/";
+  basedirstring = mykapp->kde_datadir().copy();
+  basedirstring += "/kscd/cddb/";
   basedir_edit->setText(basedirstring);
 
   submitaddressstring = "xmcd-cddb@amb.org";

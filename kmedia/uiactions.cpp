@@ -211,7 +211,7 @@ void KMediaWin::newviewClicked()
 
 
 
-void KMediaWin::launchPlayer(char *filename)
+void KMediaWin::launchPlayer(const char *filename)
 {
   
   char* Opts[10];
@@ -238,7 +238,7 @@ void KMediaWin::launchPlayer(char *filename)
 
   // Do a stupid file type recognition
   int fnlen = strlen(filename);
-  char *filename_start;
+  const char *filename_start;
   filename_start = strrchr(filename,'/');
   if (filename_start==NULL)
     filename_start = filename;

@@ -921,7 +921,7 @@ void KSCD::aboutClicked(){
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
   
-  QString pixdir = mykapp->kdedir() + QString("/share/apps/kscd/pics/"); 
+  QString pixdir = mykapp->kde_datadir() + QString("/kscd/pics/"); 
 
   QPixmap pm((pixdir + "kscdlogo.xpm").data());
   QLabel *logo = new QLabel(box);
@@ -1261,8 +1261,8 @@ void KSCD::readSettings(){
 
   config->setGroup("CDDB");
   QString basedirdefault;
-  basedirdefault = mykapp->kdedir().copy();
-  basedirdefault += "/share/apps/kscd/cddb/";
+  basedirdefault = mykapp->kde_datadir().copy();
+  basedirdefault += "/kscd/cddb/";
 
   cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
   cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",

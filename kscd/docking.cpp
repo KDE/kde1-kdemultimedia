@@ -40,7 +40,7 @@ DockWidget::DockWidget(const char *name)
 
   pos_x = pos_y = 0;
 
-  QString pixdir = mykapp->kdedir() + QString("/share/apps/kscd/pics/");  
+  QString pixdir = mykapp->kde_datadir() + "/kscd/pics/";
   QString tmp;
 
 #define PMERROR(pm) \
