@@ -224,16 +224,15 @@ msgstr "Povoli» vsunutie do panelu"
 
 #: configdlg.cpp:159
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Hra» pri zavretí dvierok"
 
 #: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Hra»/Pozastavi»"
 
 #: docking.cpp:74
-#, fuzzy
 msgid "Forward"
-msgstr "30 sek. vpred"
+msgstr "Vpred"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -308,9 +307,8 @@ msgid "Previous Track"
 msgstr "Predch. stopa"
 
 #: kscd.cpp:522
-#, fuzzy
 msgid "Dock Kscd"
-msgstr "Magic Kscd"
+msgstr "Kscd do panelu"
 
 #: kscd.cpp:523
 msgid "Cycle Time Display"
@@ -347,7 +345,7 @@ msgstr "Hrám"
 #: kscd.cpp:592 kscd.cpp:1173 kscd.cpp:1221 kscd.cpp:1614 kscd.cpp:1812
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: <Neznámy>"
 
 #: kscd.cpp:623 kscd.cpp:1202
 msgid "Pause"
@@ -378,7 +376,6 @@ msgid "kscd Configuraton"
 msgstr "Nastavenie kscd"
 
 #: kscd.cpp:912
-#, fuzzy
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -395,10 +392,14 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"Spravuje :\n"
+"     Sam Maloney <thufir@illogic.ml.org>\n"
+"kscd (>=1.2.1) obsahuje kód z:\n"
+"\n"
+"kscd 1.2.0 (vyvinuté z)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"kscd obsahuje kód z programu\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -417,14 +418,14 @@ msgstr ""
 "\n"
 
 #: kscd.cpp:931
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 "\n"
 msgstr ""
-"Poïakovabue ore Vadima Zalivu <lord@crocodile.org>\n"
+"Poïakovabue pre Vadima Zalivu <lord@crocodile.org>\n"
 "za jeho prácu na http proxy kóde.\n"
+"\n"
 
 #: kscd.cpp:934
 msgid ""
@@ -433,6 +434,9 @@ msgid ""
 "tweek, and configuration fixes.\n"
 "\n"
 msgstr ""
+"Poïakovanie pre Sama Maloneyho <thufir@illogic.ml.org>\n"
+"za mnoho opráv v CDDB kóde, ke¹ovanie CDDB záznamov a konfiguraèných "
+"opráv.\n\n"
 
 #: kscd.cpp:986
 msgid "Kscd Options"
@@ -474,9 +478,8 @@ msgid "No matching CDDB entry found."
 msgstr "Nemô¾em nájs» CDDB polo¾ku."
 
 #: kscd.cpp:1693 kscd.cpp:1703
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "Nemô¾em nájs» CDDB polo¾ku."
+msgstr "Chyba pri získavaní CDDB polo¾ky."
 
 #: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."
