@@ -3,7 +3,7 @@
 GMFILES = kmedia.gmo
 POFILES = $(GMFILES:.gmo=.po)
 
-LANG = cs 
+LANG = cs
 
 localedir = $(kde_locale)
 
