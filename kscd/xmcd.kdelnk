@@ -1,6 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Comment=CD Database File
+Comment[es]=Archivo de datos de CDs
 Comment[fr]=Banque de données pour CD
 Comment[de]=CD-Datenbank-Datei
 Comment[no]=CD-databasefil
