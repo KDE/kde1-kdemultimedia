@@ -9,7 +9,7 @@ LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@
 topdir = @topdir@
 SHELL = /bin/sh
-
+MIMEDIR = $(prefix)/share/mimlnk/text/
 BINDIR  = $(prefix)/bin
 LIBDIR  = $(prefix)/lib
 ICONDIR  = $(prefix)/share/icons
@@ -119,10 +119,13 @@ install: all
 	$(INSTALL) $(TARGET2) $(BINDIR)
 	$(INSTALL_DIR) $(ICONDIR)
 	$(INSTALL_DATA) kscd.xpm $(ICONDIR)
+	$(INSTALL_DATA) bitmaps/cd.xpm $(ICONDIR)
 	$(INSTALL_DIR) $(MINIDIR)
 	$(INSTALL_DATA) mini-kscd.xpm $(MINIDIR)
 	$(INSTALL_DIR) $(PICSDIR)
 	$(INSTALL_DATA) kscdlogo.xpm $(PICSDIR)
+	$(INSTALL_DIR) $(MIMEDIR)
+	$(INSTALL_DATA) xmcd.kdelnk $(MIMEDIR)/xmcd.kdelnk
 	$(INSTALL_DIR) $(APPSDIR)
 	$(INSTALL_DATA) kscd.kdelnk $(APPSDIR)/kscd.kdelnk
 

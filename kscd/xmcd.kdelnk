@@ -1,0 +1,9 @@
+# KDE Config File
+[KDE Desktop Entry]
+Comment=CD Database File
+Comment[de]=CD Dataenbank Datei
+DefaultApp=kedit
+Icon=cd.xpm
+Type=MimeType
+MimeType=text/xmcd
+Patterns=
