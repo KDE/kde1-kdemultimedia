@@ -1,13 +1,13 @@
-# SOME DESCRIPTIVE TITLE.
+# Norwegian translations for KDE Multimedia/kscd
 # Copyright (C) 1998 Free Software Foundation, Inc.
 # Hans Petter Bieker <zerium@webindex.no>, 1998.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: KDE MULTIMEDIA/kscd\n"
 "POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
-"Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
+"Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO_8859-1\n"
