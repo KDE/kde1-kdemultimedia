@@ -181,7 +181,6 @@ msgstr ""
 "%s\n"
 "ist nicht bereit oder existiert nicht."
 
-
 #: kmidi.cpp:1025
 msgid "KMidi Warning"
 msgstr "KMidi Warnung"

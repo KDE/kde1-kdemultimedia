@@ -21,7 +21,8 @@ msgstr "Oculta la &barra de menú"
 msgid "&Tickmarks On/Off"
 msgstr "&Marques Sí/No"
 
-#: kmix.cpp:536 kmix.cpp:650port by
+# kmix.cpp:536 kmix.cpp:650port by
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr "&Opcions..."
 
