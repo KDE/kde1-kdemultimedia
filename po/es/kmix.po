@@ -6,7 +6,7 @@ msgstr ""
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "Ocultar Barra de &Menús"
+msgstr "Ocultar Barra de &Men\372s"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
@@ -33,10 +33,9 @@ msgstr ""
 "\n"
 "Panel mezclador de sonido para el Entorno de Escritorio KDE.\n"
 "Programa bajo la licencia GPL.\n"
-"Conversión para SGI por Paul Kendall (paul@orion.co.nz).\n"
+"Conversi\363n para SGI por Paul Kendall (paul@orion.co.nz).\n"
 "Arreglos para *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"y Lennart Augustsson (augustss@cs.chalmers.se).Porte ALSA por Nick Lopez "
-"(kimo_sabe@usa.net)."
+"y Lennart Augustsson (augustss@cs.chalmers.se).Porte ALSA por Nick Lopez (kimo_sabe@usa.net)."
 
 #: kmix.cpp:555
 msgid "&Left"
@@ -50,10 +49,10 @@ msgstr "&Centrar"
 msgid "&Right"
 msgstr "&Derecha"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Barra de Menús"
+msgstr "Barra de Men\372s"
 
 #: kmix.cpp:688
 msgid "Un&mute"
@@ -73,7 +72,7 @@ msgstr "S&encillo"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "&Fuente de Grabación"
+msgstr "&Fuente de Grabaci\363n"
 
 #: prefs.cpp:42
 msgid "General"
@@ -85,11 +84,11 @@ msgstr "Canales"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Configuración de Inicio"
+msgstr "Configuraci\363n de Inicio"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "Barra de Menús"
+msgstr "Barra de Men\372s"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
@@ -105,7 +104,7 @@ msgstr "Preferencias"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Configuración canales del mezclador"
+msgstr "Configuraci\363n canales del mezclador"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -122,6 +121,3 @@ msgstr "Dividir"
 #: docking.cpp:155
 msgid "Minimize"
 msgstr "Minimizar"
-
-#~ msgid "Restore"
-#~ msgstr "Recuperar"

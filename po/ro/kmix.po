@@ -2,7 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kde-1.0pre\n"
@@ -26,8 +26,8 @@ msgstr "&Marcaje on/off"
 msgid "&Options..."
 msgstr ""
 
+# , fuzzy
 #: kmix.cpp:535
-#, fuzzy
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -43,14 +43,14 @@ msgstr ""
 "(C) 1997-1998 de Christian Esken (esken@kde.org).\n"
 "\n"
 "Mixer de sunet pentru KDE Desktop Environment.\n"
-"Acest program este înregistrat ca GPL.\n"
+"Acest program este \356nregistrat ca GPL.\n"
 "Modificare pt. SGI de Paul Kendall (paul@orion.co.nz).\n"
 "Corectare *BSD de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"ºi Lennart Augustsson (augustss@cs.chalmers.se)."
+"\272i Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "&Stânga"
+msgstr "&St\342nga"
 
 #: kmix.cpp:556
 msgid "&Center"
@@ -60,8 +60,8 @@ msgstr "&Centru"
 msgid "&Right"
 msgstr "&Dreapta"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
 msgstr "Bara de meniu"
 
@@ -83,7 +83,7 @@ msgstr "&Unire"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Sursã&Inreg"
+msgstr "Surs\343&Inreg"
 
 #: prefs.cpp:42
 msgid "General"
@@ -95,7 +95,7 @@ msgstr "Canale"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Setãri iniþiale"
+msgstr "Set\343ri ini\376iale"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -111,7 +111,7 @@ msgstr "Permite docare"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "Preferinþe KMix"
+msgstr "Preferin\376e KMix"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
@@ -123,7 +123,7 @@ msgstr "Dispozitiv"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Aratã"
+msgstr "Arat\343"
 
 #: prefs.cpp:115
 msgid "Split"

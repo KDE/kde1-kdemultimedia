@@ -41,12 +41,11 @@ msgstr ""
 "\n"
 "(C) 1997-1998 Christian Esken (esken@kde.org).\n"
 "\n"
-"Sound mixer ploèa za KDE Desktop Environment.\n"
+"Sound mixer plo\350a za KDE Desktop Environment.\n"
 "Ovaj program pokriven je GPL licencom.\n"
 "SGI Port napravio Paul Kendall (paul@orion.co.nz).\n"
 "*BSD popravke napravio Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"i Lennart Augustsson (augustss@cs.chalmers.se).ALSA port Nick Lopez "
-"(kimo_sabe@usa.net)."
+"i Lennart Augustsson (augustss@cs.chalmers.se).ALSA port Nick Lopez (kimo_sabe@usa.net)."
 
 #: kmix.cpp:555
 msgid "&Left"
@@ -60,8 +59,8 @@ msgstr "&Centar"
 msgid "&Right"
 msgstr "&Desno"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
 msgstr "Izbornik"
 
@@ -71,7 +70,7 @@ msgstr "Zvu&k"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "&Ti¹ina"
+msgstr "&Ti\271ina"
 
 #: kmix.cpp:693
 msgid "&Split"
@@ -87,7 +86,7 @@ msgstr "&Izvor snimka"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "Opæeniti"
+msgstr "Op\346eniti"
 
 #: prefs.cpp:43
 msgid "Channels"
@@ -119,11 +118,11 @@ msgstr "Postavi mikser kanala"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Ureðaj"
+msgstr "Ure\360aj"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Prika¾i"
+msgstr "Prika\276i"
 
 #: prefs.cpp:115
 msgid "Split"
@@ -132,6 +131,3 @@ msgstr "Podijeli"
 #: docking.cpp:155
 msgid "Minimize"
 msgstr "Smanji"
-
-#~ msgid "Restore"
-#~ msgstr "Vrati"

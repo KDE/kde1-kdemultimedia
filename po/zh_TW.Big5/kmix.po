@@ -2,7 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
@@ -13,20 +13,20 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
+# , fuzzy
 #: kmix.cpp:520 kmix.cpp:641
-#, fuzzy
 msgid "&Hide Menubar"
-msgstr "隱藏選單"
+msgstr "\301\364\302\303\277\357\263\346"
 
+# , fuzzy
 #: kmix.cpp:523
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "刻度顯示 On/Off"
+msgstr "\250\350\253\327\305\343\245\334 On/Off"
 
+# , fuzzy
 #: kmix.cpp:526 kmix.cpp:644
-#, fuzzy
 msgid "&Options..."
-msgstr "選項[&O]"
+msgstr "\277\357\266\265[&O]"
 
 #: kmix.cpp:535
 msgid ""
@@ -43,60 +43,60 @@ msgstr ""
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "左[&H]"
+msgstr "\245\252[&H]"
 
 #: kmix.cpp:556
 msgid "&Center"
-msgstr "中[&C]"
+msgstr "\244\244[&C]"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "右[&R]"
+msgstr "\245k[&R]"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "選單"
+msgstr "\277\357\263\346"
 
 #: kmix.cpp:688
 msgid "Un&mute"
-msgstr "解除靜音[&M]"
+msgstr "\270\321\260\243\300R\255\265[&M]"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "靜音[&M]"
+msgstr "\300R\255\265[&M]"
 
 #: kmix.cpp:693
 msgid "&Split"
-msgstr "分割[&S]"
+msgstr "\244\300\263\316[&S]"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "組合[&S]"
+msgstr "\262\325\246X[&S]"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "錄音來源[&R]"
+msgstr "\277\375\255\265\250\323\267\275[&R]"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "一般"
+msgstr "\244@\257\353"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "頻道"
+msgstr "\300W\271D"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "初始設定"
+msgstr "\252\354\251l\263]\251w"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "選單"
+msgstr "\277\357\263\346"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "刻度顯示"
+msgstr "\250\350\253\327\305\343\245\334"
 
 #: prefs.cpp:61
 msgid "Allow docking"
@@ -104,44 +104,26 @@ msgstr ""
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix 功\能設定"
+msgstr "KMix \245\\\257\340\263]\251w"
 
+# , fuzzy
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "混音器頻道設定 (還不能儲存)"
+msgstr "\262V\255\265\276\271\300W\271D\263]\251w (\301\331\244\243\257\340\300x\246s)"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "裝置"
+msgstr "\270\313\270m"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "顯示"
+msgstr "\305\343\245\334"
 
+# , fuzzy
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "分割[&S]"
+msgstr "\244\300\263\316[&S]"
 
 #: docking.cpp:155
 msgid "Minimize"
 msgstr ""
-
-#~ msgid "&Quit"
-#~ msgstr "離開[&Q]"
-
-#~ msgid "&Contents"
-#~ msgstr "內容[&C]"
-
-#~ msgid "&About"
-#~ msgstr "有關[&A]"
-
-#~ msgid "&About Qt..."
-#~ msgstr "有關 &Qt..."
-
-#~ msgid "&File"
-#~ msgstr "檔案[&F]"
-
-#~ msgid "&Help"
-#~ msgstr "求助[&H]"

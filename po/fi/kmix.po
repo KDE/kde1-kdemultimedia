@@ -2,7 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Kim Enkovaara <kim.enkovaara@iki.fi>, 1998.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: KMIX\n"
@@ -41,12 +41,11 @@ msgstr ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
 "\n"
-"Äänimikseri KDE Työpöytää varten.\n"
-"Tämä ohjelma on GPL-lisenssin alainen.\n"
+"\304\344nimikseri KDE Ty\366p\366yt\344\344 varten.\n"
+"T\344m\344 ohjelma on GPL-lisenssin alainen.\n"
 "SGI-versio Paul Kendall (paul@orion.co.nz).\n"
 "*BSD-korjaukset Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"ja Lennart Augustsson (augustss@cs.chalmers.se).ALSA sovitus Nick Lopez "
-"(kimo_sabe@usa.net)."
+"ja Lennart Augustsson (augustss@cs.chalmers.se).ALSA sovitus Nick Lopez (kimo_sabe@usa.net)."
 
 #: kmix.cpp:555
 msgid "&Left"
@@ -62,15 +61,15 @@ msgstr "&Oikea"
 
 #: kmix.cpp:643
 msgid "&Show Menubar"
-msgstr "Näytä &Valikkorivi"
+msgstr "N\344yt\344 &Valikkorivi"
 
 #: kmix.cpp:688
 msgid "Un&mute"
-msgstr "&Ääni"
+msgstr "&\304\344ni"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "&Hiljennä"
+msgstr "&Hiljenn\344"
 
 #: kmix.cpp:693
 msgid "&Split"
@@ -78,11 +77,11 @@ msgstr "&Jaa"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "&Yhdistä"
+msgstr "&Yhdist\344"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "&Äänityslähde"
+msgstr "&\304\344nitysl\344hde"
 
 #: prefs.cpp:42
 msgid "General"
@@ -122,7 +121,7 @@ msgstr "Laite"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Näytä"
+msgstr "N\344yt\344"
 
 #: prefs.cpp:115
 msgid "Split"
@@ -130,4 +129,4 @@ msgstr "Jaa"
 
 #: docking.cpp:155
 msgid "Minimize"
-msgstr "Pienennä"
+msgstr "Pienenn\344"

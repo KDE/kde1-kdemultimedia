@@ -2,7 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,18 +16,18 @@ msgstr ""
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "메뉴바 숨기기(&H)"
+msgstr "\270\336\264\272\271\331 \274\373\261\342\261\342(&H)"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "눈금 보이기/감추기(&T)"
+msgstr "\264\253\261\335 \272\270\300\314\261\342/\260\250\303\337\261\342(&T)"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr ""
 
+# , fuzzy
 #: kmix.cpp:535
-#, fuzzy
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -40,95 +40,95 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
-"(C) 1997 Christian Esken (esken@kde.org).\n"
+"(C) 1997-1998 Christian Esken (esken@kde.org).\n"
 "\n"
-"KDE 데스크탑 환경 사운드 믹서 패널.\n"
-"이 프로그램은 GPL을 따릅니다.\n"
-"SGI 포팅 : Paul Kendall (paul@orion.co.nz).\n"
-"*BSD 포팅 : Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-" 그리고 Lennart Augustsson (augustss@cs.chalmers.se)."
+"KDE \265\245\275\272\305\251\305\276 \310\257\260\346 \273\347\277\356\265\345 \271\315\274\255 \306\320\263\316.\n"
+"\300\314 \307\301\267\316\261\327\267\245\300\272 GPL\300\273 \265\373\270\250\264\317\264\331.\n"
+"SGI \306\367\306\303 : Paul Kendall (paul@orion.co.nz).\n"
+"*BSD \306\367\306\303 : Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+" \261\327\270\256\260\355 Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "왼쪽(&L)"
+msgstr "\277\336\302\312(&L)"
 
 #: kmix.cpp:556
 msgid "&Center"
-msgstr "중앙(&C)"
+msgstr "\301\337\276\323(&C)"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "오른쪽(&R)"
+msgstr "\277\300\270\245\302\312(&R)"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "메뉴바"
+msgstr "\270\336\264\272\271\331"
 
 #: kmix.cpp:688
 msgid "Un&mute"
-msgstr "소리냄(&m)"
+msgstr "\274\322\270\256\263\277(&m)"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "조용히(&M)"
+msgstr "\301\266\277\353\310\367(&M)"
 
 #: kmix.cpp:693
 msgid "&Split"
-msgstr "좌우나눔(&S)"
+msgstr "\301\302\277\354\263\252\264\256(&S)"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "좌우합침(&s)"
+msgstr "\301\302\277\354\307\325\304\247(&s)"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "녹음소스"
+msgstr "\263\354\300\275\274\322\275\272"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "일반"
+msgstr "\300\317\271\335"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "채널"
+msgstr "\303\244\263\316"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "시작 설정사항"
+msgstr "\275\303\300\333 \274\263\301\244\273\347\307\327"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "메뉴바"
+msgstr "\270\336\264\272\271\331"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "눈금"
+msgstr "\264\253\261\335"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr "패널에 작은 아이콘 표시"
+msgstr "\306\320\263\316\277\241 \300\333\300\272 \276\306\300\314\304\334 \307\245\275\303"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix 선택사항"
+msgstr "KMix \274\261\305\303\273\347\307\327"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "믹서 채널 설정"
+msgstr "\271\315\274\255 \303\244\263\316 \274\263\301\244"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "장치"
+msgstr "\300\345\304\241"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "보이기"
+msgstr "\272\270\300\314\261\342"
 
 #: prefs.cpp:115
 msgid "Split"
-msgstr "나누기"
+msgstr "\263\252\264\251\261\342"
 
 #: docking.cpp:155
 msgid "Minimize"
-msgstr "최소화"
+msgstr "\303\326\274\322\310\255"

@@ -18,8 +18,8 @@ msgstr "&Podpowiedzi Tak/Nie"
 msgid "&Options..."
 msgstr ""
 
+# , fuzzy
 #: kmix.cpp:535
-#, fuzzy
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -34,8 +34,8 @@ msgstr ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
 "\n"
-"Panel miksera dla ¶rodowiska KDE.\n"
-"Ten program objêty jest licencj± GPL.\n"
+"Panel miksera dla \266rodowiska KDE.\n"
+"Ten program obj\352ty jest licencj\261 GPL.\n"
 "Port SGI Paul Kendall (paul@orion.co.nz).\n"
 "Poprawki *BSD Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "i Lennart Augustsson (augustss@cs.chalmers.se)."
@@ -46,20 +46,20 @@ msgstr "&Lewy"
 
 #: kmix.cpp:556
 msgid "&Center"
-msgstr "¦&rodek"
+msgstr "\246&rodek"
 
 #: kmix.cpp:557
 msgid "&Right"
 msgstr "&Prawy"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
 msgstr "Pasek menu"
 
 #: kmix.cpp:688
 msgid "Un&mute"
-msgstr "Z&g³o¶"
+msgstr "Z&g\263o\266"
 
 #: kmix.cpp:690
 msgid "&Mute"
@@ -71,19 +71,19 @@ msgstr "Ro&zdziel"
 
 #: kmix.cpp:695
 msgid "Un&split"
-msgstr "&Z³±cz"
+msgstr "&Z\263\261cz"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "¬&ród³o zapisu"
+msgstr "\254&r\363d\263o zapisu"
 
 #: prefs.cpp:42
 msgid "General"
-msgstr "Ogólne"
+msgstr "Og\363lne"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "Kana³y"
+msgstr "Kana\263y"
 
 #: prefs.cpp:46
 msgid "Startup settings"
@@ -99,23 +99,23 @@ msgstr "Podpowiedzi"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr "Pozwól dokowaæ"
+msgstr "Pozw\363l dokowa\346"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "W³a¶ciwo¶ci KMix"
+msgstr "W\263a\266ciwo\266ci KMix"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Ustawienia kana³ów miksera"
+msgstr "Ustawienia kana\263\363w miksera"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Urz±dzenie"
+msgstr "Urz\261dzenie"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Poka¿"
+msgstr "Poka\277"
 
 #: prefs.cpp:115
 msgid "Split"

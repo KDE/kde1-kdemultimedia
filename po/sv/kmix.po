@@ -2,31 +2,31 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-05-25 17:57:11+0800\n"
-"Last-Translator: Karl Backström <karl_b@geocities.com>\n"
+"Last-Translator: Karl Backstr\366m <karl_b@geocities.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "&Göm menyfält"
+msgstr "&G\366m menyf\344lt"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "&Bokmärken På/Av"
+msgstr "&Bokm\344rken P\345/Av"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr ""
 
+# , fuzzy
 #: kmix.cpp:535
-#, fuzzy
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -41,15 +41,15 @@ msgstr ""
 "\n"
 "(C) 1997-1998 av Christian Esken (esken@kde.org).\n"
 "\n"
-"Ljud mixer panel för KDE Desktop Enviroment.\n"
-"Detta program är skrivet med GPL.\n"
-"SGI Port utfört av Paul Kendall (paul@orion.co.nz).\n"
+"Ljud mixer panel f\366r KDE Desktop Enviroment.\n"
+"Detta program \344r skrivet med GPL.\n"
+"SGI Port utf\366rt av Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fixar av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "och Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:555
 msgid "&Left"
-msgstr "&Vänster"
+msgstr "&V\344nster"
 
 #: kmix.cpp:556
 msgid "&Center"
@@ -57,12 +57,12 @@ msgstr "&Center"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "&Högre"
+msgstr "&H\366gre"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Menyfält"
+msgstr "Menyf\344lt"
 
 #: kmix.cpp:688
 msgid "Un&mute"
@@ -82,7 +82,7 @@ msgstr "&Sammanfoga"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Mottagar &källa"
+msgstr "Mottagar &k\344lla"
 
 #: prefs.cpp:42
 msgid "General"
@@ -94,15 +94,15 @@ msgstr "Kanaler"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Uppstarts inställingar"
+msgstr "Uppstarts inst\344llingar"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "Menyfält"
+msgstr "Menyf\344lt"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Bokmärken"
+msgstr "Bokm\344rken"
 
 #: prefs.cpp:61
 msgid "Allow docking"
@@ -110,12 +110,12 @@ msgstr ""
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "KMix Inställningar"
+msgstr "KMix Inst\344llningar"
 
+# , fuzzy
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Mixer kanal inställningar (ej sparat ännu)"
+msgstr "Mixer kanal inst\344llningar (ej sparat \344nnu)"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -125,14 +125,11 @@ msgstr "Enhet"
 msgid "Show"
 msgstr "Visa"
 
+# , fuzzy
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
 msgstr "&Dela"
 
 #: docking.cpp:155
 msgid "Minimize"
 msgstr "Minimera"
-
-#~ msgid "Restore"
-#~ msgstr "Gjenopprett"

@@ -14,14 +14,14 @@ msgstr "Fela &valmyndastiku"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
-msgstr "&Kvarði af/á"
+msgstr "&Kvar\360i af/\341"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
 msgstr ""
 
+# , fuzzy
 #: kmix.cpp:535
-#, fuzzy
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -34,14 +34,14 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
-"Höfundarréttur 1997, Christian Esken (esken@kde.org).\n"
+"H\366fundarr\351ttur 1997-1998, Christian Esken (esken@kde.org).\n"
 "\n"
-"Hljóðblandari fyrir KDE skjáumhverfið.\n"
-"Þetta forrit fellur undir GPL.\n"
-"Paul Kendall (paul@orion.co.nz) færði á SGI.\n"
-"Sebestyen Zoltan (szoli@digo.inf.elte.hu) lagaði BSD útgáfuna ásamt\n"
+"Hlj\363\360blandari fyrir KDE skj\341umhverfi\360.\n"
+"\336etta forrit fellur undir GPL.\n"
+"Paul Kendall (paul@orion.co.nz) f\346r\360i \341 SGI.\n"
+"Sebestyen Zoltan (szoli@digo.inf.elte.hu) laga\360i BSD \372tg\341funa \341samt\n"
 "Lennart Augustsson (augustss@cs.chalmers.se).\n"
-"Nick Lopez (kimo_sabe@usa.net) flutti á ALSA."
+"Nick Lopez (kimo_sabe@usa.net) flutti \341 ALSA."
 
 #: kmix.cpp:555
 msgid "&Left"
@@ -49,14 +49,14 @@ msgstr "&Vinstri"
 
 #: kmix.cpp:556
 msgid "&Center"
-msgstr "&Miðja"
+msgstr "&Mi\360ja"
 
 #: kmix.cpp:557
 msgid "&Right"
-msgstr "&Hægri"
+msgstr "&H\346gri"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
 msgstr "Valmyndarstika"
 
@@ -66,11 +66,11 @@ msgstr "&Heyrast"
 
 #: kmix.cpp:690
 msgid "&Mute"
-msgstr "Þ&agna"
+msgstr "\336&agna"
 
 #: kmix.cpp:693
 msgid "&Split"
-msgstr "&Kljúfa"
+msgstr "&Klj\372fa"
 
 #: kmix.cpp:695
 msgid "Un&split"
@@ -78,7 +78,7 @@ msgstr "&Sameina"
 
 #: kmix.cpp:698
 msgid "&RecSource"
-msgstr "Stilla &upptöku"
+msgstr "Stilla &uppt\366ku"
 
 #: prefs.cpp:42
 msgid "General"
@@ -86,7 +86,7 @@ msgstr "Almennt"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "Rásir"
+msgstr "R\341sir"
 
 #: prefs.cpp:46
 msgid "Startup settings"
@@ -98,11 +98,11 @@ msgstr "Valmyndarstika"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Kvarði"
+msgstr "Kvar\360i"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr "Hleypa á spjaldið"
+msgstr "Hleypa \341 spjaldi\360"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
@@ -110,20 +110,20 @@ msgstr "KMix stillingar"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Rásaval"
+msgstr "R\341saval"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Tæki"
+msgstr "T\346ki"
 
 #: prefs.cpp:109
 msgid "Show"
-msgstr "Sýna"
+msgstr "S\375na"
 
 #: prefs.cpp:115
 msgid "Split"
-msgstr "Kjúfa"
+msgstr "Kj\372fa"
 
 #: docking.cpp:155
 msgid "Minimize"
-msgstr "Lágmarka"
+msgstr "L\341gmarka"

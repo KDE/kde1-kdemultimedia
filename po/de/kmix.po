@@ -12,7 +12,7 @@ msgstr ""
 
 #: kmix.cpp:520 kmix.cpp:641
 msgid "&Hide Menubar"
-msgstr "&Menü verstecken"
+msgstr "&Men\374 verstecken"
 
 #: kmix.cpp:523
 msgid "&Tickmarks On/Off"
@@ -37,7 +37,7 @@ msgstr ""
 "\n"
 "(C) Christian Esken (esken@kde.org) 1997-1998.\n"
 "\n"
-"Multikanal-Klangregler für das KDE Desktop Environment.\n"
+"Multikanal-Klangregler f\374r das KDE Desktop Environment.\n"
 "Dieses Programm unterliegt der GPL.\n"
 "SGI-Port von Paul Kendall (paul@orion.co.nz).\n"
 "*BSD-Anpassungen von Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
@@ -56,10 +56,10 @@ msgstr "&Mitte"
 msgid "&Right"
 msgstr "&Rechts"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Menü"
+msgstr "Men\374"
 
 #: kmix.cpp:688
 msgid "Un&mute"
@@ -87,7 +87,7 @@ msgstr "Allgemeines"
 
 #: prefs.cpp:43
 msgid "Channels"
-msgstr "Kanäle"
+msgstr "Kan\344le"
 
 #: prefs.cpp:46
 msgid "Startup settings"
@@ -95,7 +95,7 @@ msgstr "Starteinstellungen"
 
 #: prefs.cpp:51
 msgid "Menubar"
-msgstr "Menü"
+msgstr "Men\374"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
@@ -115,7 +115,7 @@ msgstr "Kanaleinstellungen"
 
 #: prefs.cpp:103
 msgid "Device"
-msgstr "Gerät"
+msgstr "Ger\344t"
 
 #: prefs.cpp:109
 msgid "Show"
@@ -128,6 +128,3 @@ msgstr "Trennen"
 #: docking.cpp:155
 msgid "Minimize"
 msgstr "Minimieren"
-
-#~ msgid "Restore"
-#~ msgstr "Wiederherstellen"

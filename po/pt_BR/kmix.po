@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kmix\n"
 "POT-Creation-Date: 1998-11-23 02:08+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
-"Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
+"Last-Translator: Elvis Pf\374tzenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
@@ -19,7 +19,7 @@ msgstr "&Tiques Liga/Desliga"
 
 #: kmix.cpp:526 kmix.cpp:644
 msgid "&Options..."
-msgstr "&Opções..."
+msgstr "&Op\347\365es..."
 
 #: kmix.cpp:535
 msgid ""
@@ -37,7 +37,7 @@ msgstr ""
 "(C) 1997-1998 por Christian Esken (esken@kde.org).\n"
 "\n"
 "Mixer de som para o ambiente KDE.\n"
-"Este programa está sob o GPL.\n"
+"Este programa est\341 sob o GPL.\n"
 "Port para SGI - Paul Kendall (paul@orion.co.nz).\n"
 "Ajustes para *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "e Lennart Augustsson (augustss@cs.chalmers.se).\n"
@@ -89,7 +89,7 @@ msgstr "Canais"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Configs de início"
+msgstr "Configs de in\355cio"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -105,11 +105,11 @@ msgstr "Permitir embutir"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "Preferências KMix"
+msgstr "Prefer\352ncias KMix"
 
 #: prefs.cpp:96
 msgid "Mixer channel setup"
-msgstr "Configuração dos canais do Mixer"
+msgstr "Configura\347\343o dos canais do Mixer"
 
 #: prefs.cpp:103
 msgid "Device"

@@ -47,8 +47,8 @@ msgstr "Centra"
 msgid "&Right"
 msgstr "Destra"
 
+# , fuzzy
 #: kmix.cpp:643
-#, fuzzy
 msgid "&Show Menubar"
 msgstr "Barra menu"
 
