@@ -58,7 +58,8 @@ class CDDB:public QObject
                    CDDB_DONE=9, CDDB_TIMEDOUT=10,
                    INEX_READ=11,
                    REQUEST_SERVER_LIST=12, SERVER_LIST_WAIT=13, GETTING_SERVER_LIST=14,
-                   HTTP_REQUEST=15, HTTP_HEADER=16
+                   HTTP_REQUEST=15, HTTP_HEADER=16,
+		   PROTO=17
     } CDDBState;
     
     typedef enum { REGULAR=100, SERVER_LIST_GET=101 } CDDBMode;
@@ -122,7 +123,7 @@ class CDDB:public QObject
     transport protocol;
     transport decodeTransport(const char *);
     
-
+    
  public slots:
 
     void	 cddb_connect(QString& server);
@@ -178,6 +179,7 @@ class CDDB:public QObject
     QString	title;
     QStrList 	serverlist;
     unsigned long magicID;
+    int         protocol_level;
 
 };
 

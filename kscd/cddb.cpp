@@ -60,14 +60,12 @@ CDDB::CDDB(char *host, int _port,int _timeout)
     timeout    = _timeout;
     tempbuffer = "";
 
-    QObject::connect(&starttimer,SIGNAL(timeout()),this,SLOT(cddb_connect_internal()));
-    QObject::connect(&timeouttimer,SIGNAL(timeout()),this,SLOT(cddb_timed_out_slot()));
-
     sock = 0L;
     state = INIT;
 
     use_http_proxy=false;
-
+    protocol_level=1;
+    // for direct connections assuming CDDB protocol level 1
 
     // get current user/host name
     struct utsname uts;
@@ -84,6 +82,11 @@ CDDB::CDDB(char *host, int _port,int _timeout)
 	username = pw->pw_name;
     else
 	username = "anonymous";
+
+    //Connect handlers
+    QObject::connect(&starttimer,SIGNAL(timeout()),this,SLOT(cddb_connect_internal()));
+    QObject::connect(&timeouttimer,SIGNAL(timeout()),this,SLOT(cddb_timed_out_slot()));
+
 }
 
 CDDB::~CDDB()
@@ -242,9 +245,15 @@ void CDDB::cddb_connect_internal()
     sock->enableRead(true);
 
     if(protocol==CDDBHTTP)
+    {
+	protocol_level=3;
 	state=READY;
+    }
     else
+    {
+	protocol_level=1;
 	state = INIT;
+    }
     
     if (debugflag) 
 	fprintf(stderr,"CONNECTED\n");
@@ -254,9 +263,11 @@ void CDDB::send_http_command(QString &command)
 {
     QString request;
     QString prt;
+    QString prot;
     QString identification;
     
-    identification="&hello="+username+"+"+domainname+"+Kscd+"+KSCDVERSION+"&proto=3";
+    prot.setNum(protocol_level);
+    identification="&hello="+username+"+"+domainname+"+Kscd+"+KSCDVERSION+"&proto="+prot;
 
     prt.setNum(port);
     QString base  = "http://"+hostname+":"+prt;
@@ -509,13 +520,11 @@ void CDDB::do_state_machine()
     case HELLO:
 	if(lastline.left(3) == QString("200"))
         {
-	    state = READY;
-	    if(mode == REGULAR)
-		emit cddb_ready();
-	    else {
-		write(sock->socket(),"sites\n",6);
-		state = SERVER_LIST_WAIT;
-	    }
+	    // Negotiate protocol level
+	    state = PROTO;
+	    // Let's try to request protocol level 3
+	    // so we'll get list of servers with protocol.
+	    write(sock->socket(),"proto 3\n",8); 
 	}
 	else {
 	    state = ERROR_HELLO;
@@ -525,6 +534,21 @@ void CDDB::do_state_machine()
 	}
 
 	respbuffer = "";
+	break;
+	
+    case PROTO:
+	if(lastline.left(3) == QString("201"))
+	    protocol_level=3;
+	else
+	    protocol_level=1;
+	
+	state = READY;
+	if(mode == REGULAR)
+	    emit cddb_ready();
+	else {
+	    write(sock->socket(),"sites\n",6);
+	    state = SERVER_LIST_WAIT;
+	}
 	break;
 
     case QUERY:
@@ -644,15 +668,13 @@ void CDDB::parse_serverlist_entry()
   
     QString tempstr;
 
-    if(protocol==CDDBP)
+    if(protocol_level<3)
     {
-        // for direct connections assuming CDDB protocol level 1
         sscanf(lastline.data(),"%s %s",serv,po);
         tempstr = tempstr.sprintf("%s cddbp %s -",serv,po);
         serverlist.append(tempstr.data());
     } else
     {
-        // for http connections assuming CDDB protocol level 3
         sscanf(lastline.data(),"%s %s %s %s",serv,proto,po,extra);
         tempstr = tempstr.sprintf("%s %s %s %s",serv,proto,po,extra);
         transport tr=decodeTransport(proto);

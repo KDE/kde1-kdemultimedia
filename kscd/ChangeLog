@@ -1,3 +1,8 @@
+1998-04-26  Vadim Zaliva  <lord@crocodile.org>
+
+	* Removed potetial concurency problem in CDDB connection procedure.
+	* Added support for protocol level 3 in CDDB connections.
+
 1998-04-17  Vadim Zaliva  <lord@crocodile.org>
 
 	* User and domain name now calculated once, not per each request.
