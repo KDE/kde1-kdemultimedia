@@ -1,0 +1,119 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kmix\n"
+"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"PO-Revision-Date: 1998-04-22 03:31+0800\n"
+"Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmix.cpp:411
+msgid "Hide Menubar"
+msgstr "隱藏選單"
+
+#: kmix.cpp:414
+msgid "Tickmarks On/Off"
+msgstr "刻度顯示 On/Off"
+
+#: kmix.cpp:417
+msgid "&Options"
+msgstr "選項[&O]"
+
+#: kmix.cpp:419
+msgid "&Quit"
+msgstr "離開[&Q]"
+
+#: kmix.cpp:423
+msgid "&Contents"
+msgstr "內容[&C]"
+
+#: kmix.cpp:426
+msgid "&About"
+msgstr "有關[&A]"
+
+#: kmix.cpp:427
+msgid "&About Qt..."
+msgstr "有關 &Qt..."
+
+#: kmix.cpp:431
+msgid "&File"
+msgstr "檔案[&F]"
+
+#: kmix.cpp:433
+msgid "&Help"
+msgstr "求助[&H]"
+
+#: kmix.cpp:437
+msgid "&Left"
+msgstr "左[&H]"
+
+#: kmix.cpp:438
+msgid "&Center"
+msgstr "中[&C]"
+
+#: kmix.cpp:439
+msgid "&Right"
+msgstr "右[&R]"
+
+#: kmix.cpp:561
+msgid "Un&mute"
+msgstr "解除靜音[&M]"
+
+#: kmix.cpp:563
+msgid "&Mute"
+msgstr "靜音[&M]"
+
+#: kmix.cpp:566
+msgid "&Split"
+msgstr "分割[&S]"
+
+#: kmix.cpp:568
+msgid "Un&split"
+msgstr "組合[&S]"
+
+#: kmix.cpp:570
+msgid "&RecSource"
+msgstr "錄音來源[&R]"
+
+#: prefs.cpp:43
+msgid "General"
+msgstr "一般"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "頻道"
+
+#: prefs.cpp:47
+msgid "Startup settings"
+msgstr "初始設定"
+
+#: prefs.cpp:52
+msgid "Menubar"
+msgstr "選單"
+
+#: prefs.cpp:57
+msgid "Tickmarks"
+msgstr "刻度顯示"
+
+#: prefs.cpp:82
+msgid "KMix Preferences"
+msgstr "KMix 功\能設定"
+
+#: prefs.cpp:88
+msgid "Mixer channel setup (not saved yet)"
+msgstr "混音器頻道設定 (還不能儲存)"
+
+#: prefs.cpp:95
+msgid "Device"
+msgstr "裝置"
+
+#: prefs.cpp:98
+msgid "Show"
+msgstr "顯示"
+

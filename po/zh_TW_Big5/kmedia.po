@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: kmedia\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: 1998-02-22 21:24:+0800\n"
+"Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "播放位置"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "退出媒體"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "前一軌"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "往回"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "停止"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "播放/暫停"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "往前"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "下一軌"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "新的視窗"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "離開"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "混音器"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "偏好設定"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "內容[&C]"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "有關[&A]"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "檔案[&F]"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "選項[&O]"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "求助[&H]"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "已離開"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "初始化"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "忙碌中"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "播放中"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "已暫停"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "準備好了"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "無定義"
