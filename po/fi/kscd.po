@@ -152,6 +152,8 @@ msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
 msgstr ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Lähetä postia tekijälle."
 
 #: CDDialog.cpp:851
 msgid "Invalid Playlist\n"
@@ -394,6 +396,16 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd sisältää koodia:\n"
+"workman 1.4 beta 3:ta\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Erikoiskiitokset Ti Kan ja Steve Scherf, CDDB tietokannan "
+"kehittämisestä. Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
+"\n"
 
 #: kscd.cpp:897
 msgid ""
@@ -401,12 +413,17 @@ msgid ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 msgstr ""
+"KSCD Magic pohjautuu Paul Harrisonin Synaesthesiaan  "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
 
 #: kscd.cpp:901
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 msgstr ""
+"Kiitokset Vadim Zaliva <lord@crocodile.org>\n"
+"hänen työstään proxy koodin kanssa.\n"
 
 #: kscd.cpp:947
 msgid "Kscd Options"
