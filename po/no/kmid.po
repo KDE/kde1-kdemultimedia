@@ -13,7 +13,7 @@ msgstr ""
 
 #: kmidframe.cpp:61
 msgid "&Open ..."
-msgstr "&Åpne ..."
+msgstr "Å&pne ..."
 
 #: kmidframe.cpp:64
 msgid "&Save Lyrics ..."
@@ -25,7 +25,7 @@ msgstr "&Avslutt"
 
 #: kmidframe.cpp:70
 msgid "&Play"
-msgstr "&Spill"
+msgstr "Spi&ll"
 
 #: kmidframe.cpp:72
 msgid "P&ause"
@@ -89,7 +89,7 @@ msgstr "&Endring av skrifttype ..."
 
 #: kmidframe.cpp:130
 msgid "&Midi Setup ..."
-msgstr "&Midi oppsett ..."
+msgstr "M&idi-oppsett ..."
 
 #: kmidframe.cpp:135
 #, c-format
@@ -126,7 +126,7 @@ msgstr "&Sang"
 
 #: kmidframe.cpp:148
 msgid "&Collections"
-msgstr "&Samlinger"
+msgstr "S&amlinger"
 
 #: kmidframe.cpp:149
 msgid "&Options"
