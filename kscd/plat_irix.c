@@ -104,7 +104,7 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 	CDSTATUS s;
 	if( CDgetstatus(d->daux, &s)==0 )
 		return -1;
-	*pos = CDmsftoframe(s.min,s.sec,s.frame);
+	*pos = CDmsftoframe(s.abs_min,s.abs_sec,s.abs_frame);
 	*track = s.track;
 	*index = 0;
 	switch( s.state )
