@@ -705,16 +705,29 @@ void KSCD::aboutClicked()
   QGroupBox *box = new QGroupBox(about,"box");
   QLabel  *label = new QLabel(box,"label");
   box->setGeometry(10,10,320,260);
-  label->setGeometry(20,10,280,240);
+  label->setGeometry(130,30,165,200);
   label->setAlignment( AlignCenter);
-  label->setText("kscd "KSCDVERSION"\n"\
-		 "Copyright (c) 1997 Bernd Johannes Wuebben\n"\
+  QString labelstring;
+  labelstring = "kscd "KSCDVERSION"\n"\
+		 "Copyright (c) 1997\nBernd Johannes Wuebben\n"\
 		 "wuebben@math.cornell.edu\n"\
 		 "wuebben@kde.org\n\n"\
 		 "\nkscd  contains code from:\n"
                  "workman 1.4 beta 3\n"
                  "Copyright (c) Steven Grimm \n"\
-                 "koreth@hyperion.com\n");
+                 "koreth@hyperion.com\n"
+
+;
+
+  label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
+  label->setText(labelstring.data());
+  
+  QString pixdir = mykapp->kdedir() + QString("/share/apps/kscd/pics/"); 
+
+  QPixmap pm((pixdir + "kscdlogo.xpm").data());
+  QLabel *logo = new QLabel(box);
+  logo->setPixmap(pm);
+  logo->setGeometry(20, 50, pm.width(), pm.height());
 
   ConfigDlg* dlg;
   struct configstruct config;
