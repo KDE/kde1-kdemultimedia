@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-19 02:34+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-12-18 11:34+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:530 kmix.cpp:649
+#: kmix.cpp:530 kmix.cpp:647
 msgid "&Hide Menubar"
 msgstr "&Skrýt menu"
 
@@ -21,7 +21,7 @@ msgstr "&Skrýt menu"
 msgid "&Tickmarks On/Off"
 msgstr "S&tupnice zapnout/vypnout"
 
-#: kmix.cpp:536 kmix.cpp:652
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr "&Mo¾nosti..."
 
@@ -59,27 +59,27 @@ msgstr "Vy&centrovat"
 msgid "&Right"
 msgstr "Vp&ravo"
 
-#: kmix.cpp:651
+#: kmix.cpp:649
 msgid "&Show Menubar"
 msgstr "&Zobrazovat menu"
 
-#: kmix.cpp:696
+#: kmix.cpp:694
 msgid "Un&mute"
 msgstr "Vypnout ztlu&mení"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&Mute"
 msgstr "Ztlu&mit"
 
-#: kmix.cpp:701
+#: kmix.cpp:699
 msgid "&Split"
 msgstr "&Rozdìlit"
 
-#: kmix.cpp:703
+#: kmix.cpp:701
 msgid "Un&split"
 msgstr "&Sdru¾it"
 
-#: kmix.cpp:706
+#: kmix.cpp:704
 msgid "&RecSource"
 msgstr "Zd&roj nahrávání"
 
@@ -127,6 +127,6 @@ msgstr "Zobrazovat"
 msgid "Split"
 msgstr "Rozdìlit"
 
-#: docking.cpp:155
+#: docking.cpp:156
 msgid "Minimize"
 msgstr "Minimalizovat"

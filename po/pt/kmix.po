@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-19 02:34+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-01-26 20:00+0000\n"
 "Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
 
-#: kmix.cpp:530 kmix.cpp:649
+#: kmix.cpp:530 kmix.cpp:647
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
@@ -13,7 +13,7 @@ msgstr "&Esconder Barra de Menu"
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Ligado/Desligado"
 
-#: kmix.cpp:536 kmix.cpp:652
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr ""
 
@@ -52,27 +52,27 @@ msgid "&Right"
 msgstr "&Direita"
 
 # , fuzzy
-#: kmix.cpp:651
+#: kmix.cpp:649
 msgid "&Show Menubar"
 msgstr "Barra de menu"
 
-#: kmix.cpp:696
+#: kmix.cpp:694
 msgid "Un&mute"
 msgstr "&Com som"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&Mute"
 msgstr "Se&m som"
 
-#: kmix.cpp:701
+#: kmix.cpp:699
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:703
+#: kmix.cpp:701
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:706
+#: kmix.cpp:704
 msgid "&RecSource"
 msgstr "Fonte de G&ravação"
 
@@ -120,6 +120,6 @@ msgstr "Mostrar"
 msgid "Split"
 msgstr "Dividir"
 
-#: docking.cpp:155
+#: docking.cpp:156
 msgid "Minimize"
 msgstr "Minimizar"

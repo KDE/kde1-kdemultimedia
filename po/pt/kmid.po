@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "Content-Type: text/plain; charset=\n"
 "Date: 1998-04-13 18:42:57+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
@@ -662,7 +662,7 @@ msgid "Lead 1 - Square Wave"
 msgstr ""
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr ""
 
 #: instrname.i18n:88

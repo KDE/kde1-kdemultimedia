@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmid\n"
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-04-18 12:02+0200\n"
 "Last-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
 "First-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-19 02:34+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-05-11 13:50+0100\n"
 "Last-Translator: Christian Esken <esken@kde.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Transfer-Encoding: ISO-8859-1\n"
 "Translator: Christian Esken <esken@kde.org>\n"
 
-#: kmix.cpp:530 kmix.cpp:649
+#: kmix.cpp:530 kmix.cpp:647
 msgid "&Hide Menubar"
 msgstr "&Menü verstecken"
 
@@ -18,7 +18,7 @@ msgstr "&Menü verstecken"
 msgid "&Tickmarks On/Off"
 msgstr "&Skalen An/Aus"
 
-#: kmix.cpp:536 kmix.cpp:652
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr ""
 
@@ -57,27 +57,27 @@ msgid "&Right"
 msgstr "&Rechts"
 
 # , fuzzy
-#: kmix.cpp:651
+#: kmix.cpp:649
 msgid "&Show Menubar"
 msgstr "Menü"
 
-#: kmix.cpp:696
+#: kmix.cpp:694
 msgid "Un&mute"
 msgstr "M&ute aus"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&Mute"
 msgstr "&Mute an"
 
-#: kmix.cpp:701
+#: kmix.cpp:699
 msgid "&Split"
 msgstr "&Trennen"
 
-#: kmix.cpp:703
+#: kmix.cpp:701
 msgid "Un&split"
 msgstr "&Verbinden"
 
-#: kmix.cpp:706
+#: kmix.cpp:704
 msgid "&RecSource"
 msgstr "&Aufnahme-Quelle"
 
@@ -125,6 +125,6 @@ msgstr "Zeige"
 msgid "Split"
 msgstr "Trennen"
 
-#: docking.cpp:155
+#: docking.cpp:156
 msgid "Minimize"
 msgstr "Minimieren"

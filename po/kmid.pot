@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -648,7 +648,7 @@ msgid "Lead 1 - Square Wave"
 msgstr ""
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr ""
 
 #: instrname.i18n:88

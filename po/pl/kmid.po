@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid \n"
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-07-05 22:39+0200\n"
 "Last-Translator: Piotr Roszatycki <dexter@fnet.com.pl>\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
@@ -664,7 +664,7 @@ msgid "Lead 1 - Square Wave"
 msgstr ""
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr ""
 
 #: instrname.i18n:88

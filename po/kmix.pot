@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-19 02:34+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:530 kmix.cpp:649
+#: kmix.cpp:530 kmix.cpp:647
 msgid "&Hide Menubar"
 msgstr ""
 
@@ -22,7 +22,7 @@ msgstr ""
 msgid "&Tickmarks On/Off"
 msgstr ""
 
-#: kmix.cpp:536 kmix.cpp:652
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr ""
 
@@ -51,27 +51,27 @@ msgstr ""
 msgid "&Right"
 msgstr ""
 
-#: kmix.cpp:651
+#: kmix.cpp:649
 msgid "&Show Menubar"
 msgstr ""
 
-#: kmix.cpp:696
+#: kmix.cpp:694
 msgid "Un&mute"
 msgstr ""
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&Mute"
 msgstr ""
 
-#: kmix.cpp:701
+#: kmix.cpp:699
 msgid "&Split"
 msgstr ""
 
-#: kmix.cpp:703
+#: kmix.cpp:701
 msgid "Un&split"
 msgstr ""
 
-#: kmix.cpp:706
+#: kmix.cpp:704
 msgid "&RecSource"
 msgstr ""
 
@@ -119,6 +119,6 @@ msgstr ""
 msgid "Split"
 msgstr ""
 
-#: docking.cpp:155
+#: docking.cpp:156
 msgid "Minimize"
 msgstr ""

@@ -1,13 +1,13 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-12-19 02:34+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
 #
-#: kmix.cpp:530 kmix.cpp:649
+#: kmix.cpp:530 kmix.cpp:647
 msgid "&Hide Menubar"
 msgstr "隐藏菜单条[&H]"
 
@@ -17,7 +17,7 @@ msgid "&Tickmarks On/Off"
 msgstr "刻度显示[&T] 开/关"
 
 # , fuzzy
-#: kmix.cpp:536 kmix.cpp:652
+#: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
 msgstr "选项[&O]"
 
@@ -47,27 +47,27 @@ msgid "&Right"
 msgstr "右边[&R]"
 
 # , fuzzy
-#: kmix.cpp:651
+#: kmix.cpp:649
 msgid "&Show Menubar"
 msgstr "菜单"
 
-#: kmix.cpp:696
+#: kmix.cpp:694
 msgid "Un&mute"
 msgstr "解除静音[&M]"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&Mute"
 msgstr "静音[&M]"
 
-#: kmix.cpp:701
+#: kmix.cpp:699
 msgid "&Split"
 msgstr "分割[&S]"
 
-#: kmix.cpp:703
+#: kmix.cpp:701
 msgid "Un&split"
 msgstr "解除分割[&S]"
 
-#: kmix.cpp:706
+#: kmix.cpp:704
 msgid "&RecSource"
 msgstr "录音源[&R]"
 
@@ -117,6 +117,6 @@ msgstr "显示"
 msgid "Split"
 msgstr "分割"
 
-#: docking.cpp:155
+#: docking.cpp:156
 msgid "Minimize"
 msgstr "最小化"
