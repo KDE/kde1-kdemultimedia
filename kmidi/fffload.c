@@ -689,12 +689,13 @@ sp->sample_rate, sp->low_freq, sp->high_freq, sp->root_freq);
 /**
 I think it's better to adjust the envelopes, somehow.  Now, loops and
 envelopes are only stripped by specific request in config file.
+**/
     if (note_to_use >= 0) {
 	strip_loop = 1;
 	strip_envelope = 1;
     }
-**/
 
+#define STRIP_PERCUSSION
 #ifdef ADAGIO
 #ifndef STRIP_PERCUSSION
       strip_loop = strip_envelope = strip_tail = 0;
@@ -733,6 +734,17 @@ envelopes are only stripped by specific request in config file.
       if (sp->modes & MODES_LOOPING) 
 	sp->modes |= MODES_SUSTAIN;
 #endif
+
+/** debug -- How is strip_loop set to 1 here??? **/
+/**if (!percussion) strip_loop = 0;*/
+if (sp->loop_start < 0) strip_loop = 1;
+if (sp->loop_end > sp->data_length) strip_loop = 1;
+if (sp->loop_start >=  sp->loop_end) strip_loop = 1;
+if (!percussion && strip_loop == 1) {
+	fprintf(stderr, "loop start %lu, loop end %lu, datalength %lu\n",
+		sp->loop_start, sp->loop_end, sp->data_length);
+}
+
       /* Strip any loops and envelopes we're permitted to */
       if ((strip_loop==1) && 
 	  (sp->modes & (MODES_SUSTAIN | MODES_LOOPING | 
@@ -760,16 +772,6 @@ envelopes are only stripped by specific request in config file.
 	      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 			" - No loop, removing sustain and envelope");
 	    }
-#if 0
-	  else if (!memcmp(tmp, "??????", 6) || tmp[11] >= 100) 
-	    {
-	      /* Envelope rates all maxed out? Envelope end at a high "offset"?
-		 That's a weird envelope. Take it out. */
-	      sp->modes &= ~MODES_ENVELOPE;
-	      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
-			" - Weirdness, removing envelope");
-	    }
-#endif
 #ifndef ADAGIO
 	  else if (!(sp->modes & MODES_SUSTAIN))
 	    {
@@ -781,8 +783,9 @@ envelopes are only stripped by specific request in config file.
 	      ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 			" - No sustain, removing envelope");
 	    }
-#endif
+#endif /* ADAGIO */
 	}
+
 
 #define ENV_FS
 #define MIR_R 40
@@ -822,10 +825,10 @@ envelopes are only stripped by specific request in config file.
 #endif
 	  if (!nr) {
 	    sp->envelope_offset[j] = 8;
-	    /* sp->envelope_rate[j] = 63 ; */
+	    sp->envelope_rate[j] = 63;
 	    /* sp->envelope_rate[j] = 193 ; */
-	    if (prog > 127) sp->envelope_rate[j] = 193;
-	    else sp->envelope_rate[j] = e->envp_records[v].sustain_rate;
+	    /*if (prog > 127) sp->envelope_rate[j] = 193;
+	    else sp->envelope_rate[j] = e->envp_records[v].sustain_rate;*/
 	    j++;
 	  } else
 	  for (k = 0; k < nr && j < 6; k++,j++) {
@@ -835,8 +838,8 @@ envelopes are only stripped by specific request in config file.
 #ifdef ENV_FS
 	  for (; j < 6; j++) {
 	    sp->envelope_offset[j] = (nr)? e->envp_records[v].envp_points_release[nr-1].offset : 8;
-	    sp->envelope_rate[j] = 193;
-	    /**sp->envelope_rate[j] = 63;**/
+	    /*sp->envelope_rate[j] = 193;*/
+	    sp->envelope_rate[j] = 63;
 	  }
 #endif
 
@@ -877,7 +880,7 @@ envelopes are only stripped by specific request in config file.
 	    else if (prog > 127) sp->envelope_rate[1] = (3<<6) | (63 - (r>>1));
 #endif
 	  }
-#endif
+#endif /* REV_E_ADJUST */
 
 #ifdef VOL_E_ADJUST
 #define VR_NUM 2
@@ -889,8 +892,17 @@ envelopes are only stripped by specific request in config file.
             voff = ((poff + VR_NUM*256) * voff + VR_DEN*128) / (VR_DEN*256);
             sp->envelope_offset[j] = voff;
           }
-#endif
-#endif
+#endif /* VOL_E_ADJUST */
+
+#endif /* ADAGIO */
+
+/******debug*********
+	if (prog==67)
+	  for (j = 0; j < 6; j++) {
+	printf("\t%d: rate %ld offset %ld\n", j, sp->envelope_rate[j], sp->envelope_offset[j]);
+	  }
+******debug*********/
+
 	  for (j = 0; j < 6; j++) {
 	    sp->envelope_offset[j] = convert_envelope_offset(sp->envelope_offset[j]);
 	    sp->envelope_rate[j] =
@@ -986,7 +998,7 @@ printf("read %d byte sample\n", cnt);
 	sp->volume=(double)(amp) / 100.0;
       else
 	{
-/* This adjustment is never done, now, since amp value is taken from
+/* For Adagio, this adjustment is never done, now, since amp value is taken from
  * gus_voice value. Maybe I should change this back.
  */
 	  /* Try to determine a volume scaling factor for the sample.
@@ -1281,7 +1293,7 @@ patch->base_freq, patch->low_note, patch->high_note, patch->base_note);
 	  so = e->envp_records[v].sustain_offset;
 	  sr = e->envp_records[v].sustain_rate;
 	  j = 0;
-#if 0
+/*#if 0*/
 	  for (k = 0; k < na && j < 6; k++,j++) {
 	    patch->env_offset[j] = e->envp_records[v].envp_points_attack[k].offset;
 	    patch->env_rate[j] = e->envp_records[v].envp_points_attack[k].rate;
@@ -1294,7 +1306,11 @@ patch->base_freq, patch->low_note, patch->high_note, patch->base_note);
 	    patch->env_offset[j] = 8;
 	    patch->env_rate[j] = e->envp_records[v].release_rate+MIR_R;
 	  }
-#endif
+/*#endif*/
+
+
+#if 0
+
 #ifdef NO_ENV_FILL
 	  if (na + nr < 2)
 	      patch->mode &= ~WAVE_ENVELOPES;
@@ -1381,6 +1397,8 @@ patch->base_freq, patch->low_note, patch->high_note, patch->base_note);
             patch->env_offset[j] = voff;
           }
 #endif
+
+#endif /* #if 0 */
 	}
 
     patch->volume = (int)gus_voice[tpgm].volume;
