@@ -1,26 +1,32 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
-msgstr "Project-Id-Version: kuser\n"
-       "POT-Creation-Date: 1998-03-21 18:32+0300\n"
-       "PO-Revision-Date: 1998-03-23 00:00+0100\n"
-       "Last-Translator: Sandro Henrique <sandro@conectiva.com.br>\n"
+msgstr ""
+"Project-Id-Version: kmix\n"
+"POT-Creation-Date: 1998-06-16 14:34+0200\n"
+       "PO-Revision-Date: 1998-06-23 09:00-0300\n"
+       "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
 
-#: docking.cpp:70 docking.cpp:166
-msgid "Restore"
-msgstr "Restaurar"
-
-#: docking.cpp:164
+#: docking.cpp:166
 msgid "Minimize"
 msgstr "Minimizar"
 
-#: kmix.cpp:414
+#: kmix.cpp:425
 msgid "&Hide Menubar"
-msgstr "&Esconder barra de menu"
+msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:417
+#: kmix.cpp:428
 msgid "&Tickmarks On/Off"
-msgstr "&Marcas Ligado/Desligado"
+msgstr "&Tiques Liga/Desliga"
 
-#: kmix.cpp:431
+#: kmix.cpp:442
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -31,46 +37,46 @@ msgid ""
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
-       "\n"
-       "(C) 1997 por Christian Esken (esken@kde.org).\n"
-       "\n"
-       "Mixer para o Ambiente de Trabalho KDE.\n"
-       "Este programa está sobre a GPL.\n"
-       "Portagem para SGI por Paul Kendall (paul@orion.co.nz).\n"
-       "Modificações *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-       "e Lennart Augustsson (augustss@cs.chalmers.se)."
+"\n"
+"(C) 1997 por Christian Esken (esken@kde.org).\n"
+"\n"
+"Mixer de som para o ambiente KDE.\n"
+"Este programa está sob o GPL.\n"
+"Port para SGI - Paul Kendall (paul@orion.co.nz).\n"
+"Ajustes para *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"e Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:455
+#: kmix.cpp:461
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:456
+#: kmix.cpp:462
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:457
+#: kmix.cpp:463
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:580
+#: kmix.cpp:553
 msgid "Un&mute"
-msgstr "&Com som"
+msgstr "&Ligar"
 
-#: kmix.cpp:582
+#: kmix.cpp:555
 msgid "&Mute"
-msgstr "Se&m som"
+msgstr "&Desligar"
 
-#: kmix.cpp:585
+#: kmix.cpp:558
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:587
+#: kmix.cpp:560
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:589
+#: kmix.cpp:562
 msgid "&RecSource"
-msgstr "Fonte de G&ravação"
+msgstr "&Fonte de Som"
 
 #: prefs.cpp:42
 msgid "General"
@@ -82,7 +88,7 @@ msgstr "Canais"
 
 #: prefs.cpp:46
 msgid "Startup settings"
-msgstr "Configurações iniciais"
+msgstr "Configs de início"
 
 #: prefs.cpp:51
 msgid "Menubar"
@@ -90,24 +96,28 @@ msgstr "Barra de menu"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Marcas"
+msgstr "Tiques"
 
-#: prefs.cpp:59
+#: prefs.cpp:61
 msgid "Allow docking"
-msgstr "Permitir docking"
+msgstr "Permitir embutir"
 
-#: prefs.cpp:81
+#: prefs.cpp:86
 msgid "KMix Preferences"
-msgstr "Preferências do KMix"
+msgstr "Preferências KMix"
 
-#: prefs.cpp:87
-msgid "Mixer channel setup (not saved yet)"
-msgstr "Configuração dos canais do mixer (ainda não gravada)"
+#: prefs.cpp:96
+msgid "Mixer channel setup"
+msgstr "Configuração dos canais do Mixer"
 
-#: prefs.cpp:94
+#: prefs.cpp:103
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:97
+#: prefs.cpp:109
 msgid "Show"
 msgstr "Mostrar"
+
+#: prefs.cpp:115
+msgid "Split"
+msgstr "Dividir"
