@@ -908,7 +908,7 @@ static void show_markers(int32 until_time)
     while (meta)
 	if (meta->time <= time_expired) {
 	    ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", meta->text);
-	    if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "");
+	    if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");
 	    meta = meta->next;
 	}
 	else break;
@@ -951,8 +951,8 @@ static void seek_forward(int32 until_time)
 	  break;
 	  
 	case ME_PROGRAM:
-	  if (ISDRUMCHANNEL(current_event->channel))
-  	  /*if (ISDRUMCHANNEL(current_event->channel) || !channel[current_event->channel].kit)*/
+	  /*if (ISDRUMCHANNEL(current_event->channel))*/
+  	  if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
 	    /* Change drum set */
 	    channel[current_event->channel].bank=current_event->a;
 	  else
@@ -1255,8 +1255,8 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_PROGRAM:
-	      if (ISDRUMCHANNEL(current_event->channel))
-  	      /*if (ISDRUMCHANNEL(current_event->channel) || !channel[current_event->channel].kit)*/
+	      /*if (ISDRUMCHANNEL(current_event->channel))*/
+  	      if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
 		{
 		  /* Change drum set */
 		  channel[current_event->channel].bank=current_event->a;
