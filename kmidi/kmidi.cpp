@@ -756,7 +756,7 @@ void KMidi::aboutClicked()
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
   tabdialog->setCaption( "kmidi Configuraton" );
   tabdialog->resize( 350, 350 );
-  tabdialog->setCancelButton();
+  tabdialog->setCancelButton( "Cancel" );
     
   QWidget *about = new QWidget(tabdialog,"about");
 
