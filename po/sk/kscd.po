@@ -566,9 +566,8 @@ msgstr ""
 "Ste si istý, ¾e ho máte správne nain¹talovaný?"
 
 #: kscd.cpp:2352
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "Hlavný prieèinok CDDB"
+msgstr "Zadajte hlavný lokálny prieèinok CDDB"
 
 #: kscd.cpp:2392
 msgid "-h: display commandline options\n"
