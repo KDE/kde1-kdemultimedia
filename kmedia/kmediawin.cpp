@@ -131,7 +131,7 @@ void KMediaWin::createPanel()
 
   // Create Slider (Position indicator)
   PosSB = new KSlider( 0, 0, 1, 5, KSlider::Horizontal, Container, "mediaslider" );
-  PosSB->setTracking(false);
+  PosSB->setTracking(true);
   QSize PosSBsize = PosSB->sizeHint();
   PosSB->setGeometry( ix, iy, w, PosSBsize.height() +4);
   //  PosSB->setTracking(false);
