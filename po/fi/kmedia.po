@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# Kim Enkovaara <kim.enkovaara@iki.fi>, 1998.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Soittopaikka"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Poista media"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Edellinen kappale"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "Taakse"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Pysäytä"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Soita/Paussi"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "Eteen"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Seuraava kappale"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Uusi näyttö"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Lopeta"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mikseri"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "Asetukset"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "&Sisältö"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Tietoja"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Tiedosto"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Asetukset"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "&Ohje"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Lopetan"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Asetan"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Varattu"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Soitan"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Pysäytetty"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Valmis"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Määrittelemätön"
