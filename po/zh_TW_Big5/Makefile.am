@@ -1,9 +1,9 @@
 
 # This has to be set. The rest should be reusable
-GMFILES = kmedia.gmo kmix.gmo kscd.gmo
+GMFILES = kmedia.gmo kmix.gmo
 POFILES = $(GMFILES:.gmo=.po)
 
-LANG = de
+LANG = zh_TW_Big5
 
 localedir = $(kde_locale)
 
