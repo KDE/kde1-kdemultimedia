@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-17 02:14+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "Last-Translator: Bjarni R. Einarsson <bre@mmedia.is>\n"
 "Language-Team: is <kde-isl@mmedia.is>\n"
 "MIME-Version: 1.0\n"
@@ -188,7 +188,7 @@ msgstr "Sýna rásarsýn"
 msgid "Show Volume Bar"
 msgstr "Sýna hljóðstyrksslá"
 
-#: kmidframe.cpp:563
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -196,7 +196,7 @@ msgstr ""
 "Gat ekki lesið vissar uppl. úr /dev/sequencer\n"
 "Hugsanlega er annað forrit að nota tækið"
 
-#: kmidframe.cpp:682 kmidframe.cpp:683
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"

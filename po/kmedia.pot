@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgid "&Mixer"
 msgstr ""
 
 #: kmediawin.cpp:234
-msgid "&Preferences"
+msgid "&Preferences..."
 msgstr ""
 
 #: kmediawin.cpp:240
@@ -85,4 +85,28 @@ msgstr ""
 
 #: kmediawin.cpp:315
 msgid "Undefined"
+msgstr ""
+
+#: prefs.cpp:38
+msgid "Players"
+msgstr ""
+
+#: prefs.cpp:44
+msgid "Mixer"
+msgstr ""
+
+#: prefs.cpp:53
+msgid "Use sound device"
+msgstr ""
+
+#: prefs.cpp:58
+msgid "Device 1"
+msgstr ""
+
+#: prefs.cpp:60
+msgid "Device 2"
+msgstr ""
+
+#: prefs.cpp:82
+msgid "KMedia Preferences"
 msgstr ""

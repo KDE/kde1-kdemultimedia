@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 1.0\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1998-06-29 11:00+0200\n"
 "Last-Translator: Kerem ERZURUMLU <kerem@linux.org.tr>\n"
 "Language-Team: Hacettepe Linux Users Group <hacettepe@linux.org.tr>\n"
@@ -46,7 +46,8 @@ msgid "&Mixer"
 msgstr "Karýþtýrýcý"
 
 #: kmediawin.cpp:234
-msgid "&Preferences"
+#, fuzzy
+msgid "&Preferences..."
 msgstr "Seçenekler"
 
 #: kmediawin.cpp:240
@@ -90,6 +91,32 @@ msgstr "Hazýr"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Tanýmlanmamýþ"
+
+#: prefs.cpp:38
+msgid "Players"
+msgstr ""
+
+#: prefs.cpp:44
+#, fuzzy
+msgid "Mixer"
+msgstr "Karýþtýrýcý"
+
+#: prefs.cpp:53
+msgid "Use sound device"
+msgstr ""
+
+#: prefs.cpp:58
+msgid "Device 1"
+msgstr ""
+
+#: prefs.cpp:60
+msgid "Device 2"
+msgstr ""
+
+#: prefs.cpp:82
+#, fuzzy
+msgid "KMedia Preferences"
+msgstr "Seçenekler"
 
 #~ msgid "About KMedia "
 #~ msgstr "Kmedia Hakkýnda"

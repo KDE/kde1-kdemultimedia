@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1998-04-21 19:30+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
@@ -40,7 +40,8 @@ msgstr "Mixer"
 
 # , fuzzy
 #: kmediawin.cpp:234
-msgid "&Preferences"
+#, fuzzy
+msgid "&Preferences..."
 msgstr "Einstellungen"
 
 #: kmediawin.cpp:240
@@ -84,3 +85,31 @@ msgstr "Bereit"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Undefiniert"
+
+#: prefs.cpp:38
+msgid "Players"
+msgstr ""
+
+# , fuzzy
+#: prefs.cpp:44
+#, fuzzy
+msgid "Mixer"
+msgstr "Mixer"
+
+#: prefs.cpp:53
+msgid "Use sound device"
+msgstr ""
+
+#: prefs.cpp:58
+msgid "Device 1"
+msgstr ""
+
+#: prefs.cpp:60
+msgid "Device 2"
+msgstr ""
+
+# , fuzzy
+#: prefs.cpp:82
+#, fuzzy
+msgid "KMedia Preferences"
+msgstr "Einstellungen"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-01-15 02:20+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,7 +25,7 @@ msgstr "Impossível carregar cdup.bmp"
 msgid "Could not load file.bmp"
 msgstr "Impossível carregar file.bmp"
 
-#: kmidi.cpp:159
+#: kmidi.cpp:159 kmidi.cpp:366
 msgid "Play/Pause"
 msgstr "Reproduzir/Pausar"
 
@@ -89,6 +89,28 @@ msgstr "kmidi"
 msgid "Song --/--"
 msgstr "Som --/--"
 
+#: kmidi.cpp:372
+#, fuzzy
+msgid "Replay"
+msgstr "Pronto"
+
+#: kmidi.cpp:376
+msgid "Bwd"
+msgstr ""
+
+#: kmidi.cpp:379
+msgid "Fwd"
+msgstr ""
+
+#: kmidi.cpp:383
+msgid "Prev"
+msgstr ""
+
+#: kmidi.cpp:386
+#, fuzzy
+msgid "Next"
+msgstr "Próximo Midi"
+
 #: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
 #: kmidi.cpp:653
 msgid "Playing"
@@ -97,6 +119,11 @@ msgstr "Reproduzindo"
 #: kmidi.cpp:514 kmidi.cpp:531
 msgid "Random"
 msgstr "Aleatório"
+
+#: kmidi.cpp:555
+#, fuzzy
+msgid "Paused"
+msgstr "Reproduzir/Pausar"
 
 #: kmidi.cpp:585 kmidi.cpp:879 kmidi.cpp:1104
 msgid "Ready"

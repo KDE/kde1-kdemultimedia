@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-01-17 02:14+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 ) \n"
@@ -184,7 +184,7 @@ msgstr ""
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:563
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -192,7 +192,7 @@ msgstr ""
 "不能打开 /dev/sequencer 来取得某些信息\n"
 "也许另外一个程序正在使用它"
 
-#: kmidframe.cpp:682 kmidframe.cpp:683
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-01-17 02:14+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: montel laurent <montell@club-internet.fr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -179,7 +179,7 @@ msgstr ""
 msgid "Show Volume Bar"
 msgstr "Montrer la barre de volume"
 
-#: kmidframe.cpp:563
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -187,7 +187,7 @@ msgstr ""
 "Impossible d'ouvrir /dev/sequencer pour obtenir quelques informations\n"
 "Probablement qu'il y a un autre programme qui s'en sert"
 
-#: kmidframe.cpp:682 kmidframe.cpp:683
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"

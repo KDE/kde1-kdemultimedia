@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -41,7 +41,7 @@ msgstr "混音器"
 
 #: kmediawin.cpp:234
 #, fuzzy
-msgid "&Preferences"
+msgid "&Preferences..."
 msgstr "偏好设定"
 
 #: kmediawin.cpp:240
@@ -80,6 +80,32 @@ msgstr "完成"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "没有定义"
+
+#: prefs.cpp:38
+msgid "Players"
+msgstr ""
+
+#: prefs.cpp:44
+#, fuzzy
+msgid "Mixer"
+msgstr "混音器"
+
+#: prefs.cpp:53
+msgid "Use sound device"
+msgstr ""
+
+#: prefs.cpp:58
+msgid "Device 1"
+msgstr ""
+
+#: prefs.cpp:60
+msgid "Device 2"
+msgstr ""
+
+#: prefs.cpp:82
+#, fuzzy
+msgid "KMedia Preferences"
+msgstr "偏好设定"
 
 #~ msgid "Stop"
 #~ msgstr "停止"

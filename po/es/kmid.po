@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1999-01-17 02:14+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1999-01-16 18:53+0200\n"
 "Last-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
 "First-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
@@ -182,7 +182,7 @@ msgstr "Mostrar Vista de Canales"
 msgid "Show Volume Bar"
 msgstr "Mostrar Barra de Volumen"
 
-#: kmidframe.cpp:563
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -190,7 +190,7 @@ msgstr ""
 "No se pudo abrir /dev/sequencer para obtener información\n"
 "Probablemente hay otro programa usándolo"
 
-#: kmidframe.cpp:682 kmidframe.cpp:683
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"

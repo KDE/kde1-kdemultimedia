@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1999-01-17 02:14+0100\n"
+"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 "PO-Revision-Date: 1998-12-23 15:41 CET\n"
 "Last-Translator: Miroslav Flísr <flidr@kky.zcu.cz>\n"
 "Language-Team: czech <flidr@kky.zcu.cz>\n"
@@ -185,7 +185,7 @@ msgstr "Zobrazit pøehled kanálù"
 msgid "Show Volume Bar"
 msgstr "Zobrazit nastavení hlasitosti"
 
-#: kmidframe.cpp:563
+#: kmidframe.cpp:562
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -193,7 +193,7 @@ msgstr ""
 "Není mo¾né otevøít /dev/sequencer k získání\n"
 "nìjaké informace. Pravdìpodobnì ho pou¾ívá jiný program."
 
-#: kmidframe.cpp:682 kmidframe.cpp:683
+#: kmidframe.cpp:681 kmidframe.cpp:682
 #, c-format
 msgid ""
 "File %s already exists\n"
