@@ -111,9 +111,8 @@ msgid "KMix Preferences"
 msgstr "KMix Postava"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Postavi mikser kanala (jo¹ nije snimljen)"
+msgstr "Postavi mikser kanala"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -124,6 +123,5 @@ msgid "Show"
 msgstr "Prika¾i"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "Podje&li"
+msgstr "Podijeli"
