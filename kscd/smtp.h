@@ -85,7 +85,7 @@ public:
         SUCCESSFUL = 250,     // command successful
         READYDATA = 354,      // server ready to recieve data
         ERROR = 501,          // error
-        UNKNOWN = 550,        // user unknown
+        UNKNOWN = 550        // user unknown
     }SMTPServerStatus;
 
     typedef enum {

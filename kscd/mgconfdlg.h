@@ -56,7 +56,7 @@ public:
   ~MGConfigDlg() {}
 
 
-  struct mgconfigstruct * MGConfigDlg::getData();
+  struct mgconfigstruct * getData();
 
 private slots:
 

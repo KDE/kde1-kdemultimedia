@@ -26,7 +26,7 @@
 
 #include <smtpconfig.h>
 
-SMTPConfig::SMTPConfig(QWidget *parent=0, const char *name=0, struct SMTPConfigData *_configData = 0)
+SMTPConfig::SMTPConfig(QWidget *parent, const char *name, struct SMTPConfigData *_configData)
     : QDialog(parent, name)
 {
     configData = _configData;
