@@ -8,6 +8,7 @@
 static char ident[] = "@(#)scsi.c	1.8\t3/3/94";
 
 #include <stdio.h>
+#include <string.h>
 #include "struct.h"
 
 #define SCMD_INQUIRY		0x12
