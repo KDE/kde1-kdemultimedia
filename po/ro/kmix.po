@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kde-1.0pre\n"
-"POT-Creation-Date: 1998-11-05 02:17+0100\n"
+"POT-Creation-Date: 1998-11-09 02:36+0100\n"
 "PO-Revision-Date: 1998-07-04 12:00+0200\n"
 "Last-Translator: Paul Ionescu <omy@main.romsoft.ro>\n"
 "Language-Team: ??? <ro@li.org>\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:504 kmix.cpp:604
+#: kmix.cpp:513 kmix.cpp:613
 msgid "&Hide Menubar"
 msgstr "&Ascunde bara de meniu"
 
-#: kmix.cpp:507
+#: kmix.cpp:516
 msgid "&Tickmarks On/Off"
 msgstr "&Marcaje on/off"
 
-#: kmix.cpp:519
+#: kmix.cpp:528
 #, fuzzy
 msgid ""
 "\n"
@@ -44,40 +44,40 @@ msgstr ""
 "Corectare *BSD de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "ºi Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:539
+#: kmix.cpp:548
 msgid "&Left"
 msgstr "&Stânga"
 
-#: kmix.cpp:540
+#: kmix.cpp:549
 msgid "&Center"
 msgstr "&Centru"
 
-#: kmix.cpp:541
+#: kmix.cpp:550
 msgid "&Right"
 msgstr "&Dreapta"
 
-#: kmix.cpp:606
+#: kmix.cpp:615
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "Bara de meniu"
 
-#: kmix.cpp:650
+#: kmix.cpp:660
 msgid "Un&mute"
 msgstr "&Activ"
 
-#: kmix.cpp:652
+#: kmix.cpp:662
 msgid "&Mute"
 msgstr "&Mut"
 
-#: kmix.cpp:655
+#: kmix.cpp:665
 msgid "&Split"
 msgstr "&Separare"
 
-#: kmix.cpp:657
+#: kmix.cpp:667
 msgid "Un&split"
 msgstr "&Unire"
 
-#: kmix.cpp:660
+#: kmix.cpp:670
 msgid "&RecSource"
 msgstr "Sursã&Inreg"
 

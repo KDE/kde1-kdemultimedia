@@ -1,22 +1,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-11-05 02:17+0100\n"
+"POT-Creation-Date: 1998-11-09 02:36+0100\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
 #
-#: kmix.cpp:504 kmix.cpp:604
+#: kmix.cpp:513 kmix.cpp:613
 msgid "&Hide Menubar"
 msgstr "隐藏菜单条[&H]"
 
 #
-#: kmix.cpp:507
+#: kmix.cpp:516
 msgid "&Tickmarks On/Off"
 msgstr "刻度显示[&T] 开/关"
 
-#: kmix.cpp:519
+#: kmix.cpp:528
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -29,40 +29,40 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 
-#: kmix.cpp:539
+#: kmix.cpp:548
 msgid "&Left"
 msgstr "左边[&L]"
 
-#: kmix.cpp:540
+#: kmix.cpp:549
 msgid "&Center"
 msgstr "中间[&C]"
 
-#: kmix.cpp:541
+#: kmix.cpp:550
 msgid "&Right"
 msgstr "右边[&R]"
 
-#: kmix.cpp:606
+#: kmix.cpp:615
 #, fuzzy
 msgid "&Show Menubar"
 msgstr "菜单"
 
-#: kmix.cpp:650
+#: kmix.cpp:660
 msgid "Un&mute"
 msgstr "解除静音[&M]"
 
-#: kmix.cpp:652
+#: kmix.cpp:662
 msgid "&Mute"
 msgstr "静音[&M]"
 
-#: kmix.cpp:655
+#: kmix.cpp:665
 msgid "&Split"
 msgstr "分割[&S]"
 
-#: kmix.cpp:657
+#: kmix.cpp:667
 msgid "Un&split"
 msgstr "解除分割[&S]"
 
-#: kmix.cpp:660
+#: kmix.cpp:670
 msgid "&RecSource"
 msgstr "录音源[&R]"
 
