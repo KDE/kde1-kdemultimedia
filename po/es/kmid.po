@@ -168,7 +168,7 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"No se ha podido abrir /dev/sequencer para obtener información"
+"No se ha podido abrir /dev/sequencer para obtener información/n"
 "Probablemente hay otro programa usandolo"
  
 

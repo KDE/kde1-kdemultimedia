@@ -115,6 +115,7 @@ for (int i=0;i<2;i++)
 void KDisplayText::ClearEv(void)
 {
 RemoveLinkedList();
+textscrollbar->setRange(1,1);
 repaint(TRUE);
 };
 

@@ -310,11 +310,13 @@ if (pctl->playing==1)
 			i18n("A song is already being played"));
     return;
     };
+#ifndef MODE_DEMO_ONLYVISUAL
 if (Midi->checkInit()==-1)
     {
     KMsgBox::message(this,i18n("Error"), i18n("Couldn't open /dev/sequencer\nProbably there is another program using it"));
     return;
     };
+#endif
 kdispt->CursorToHome();
 pctl->message=0;
 pctl->playing=0;
@@ -356,10 +358,11 @@ while ((pctl->playing==0)&&(pctl->error==0)) ;
 if (pctl->error==1) return;
 #endif
 
-timer4timebar->start(1000);
 
 if ((spev!=NULL)&&(spev->type!=0))
    timer4events->start(spev->absmilliseconds,TRUE);
+
+timer4timebar->start(1000);
 
 #ifdef KMidDEBUG
 printf("PlayerProcess : %d . ParentProcessID : %d\n",playerProcessID,getpid());
@@ -370,10 +373,12 @@ printf("******************************-\n");
 void kmidClient::timebarUpdate()
 {
 itsme=1;
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->playing==0)
     {
     timer4timebar->stop();
     };
+#endif
 timeval tv;
 gettimeofday(&tv, NULL);
 ulong currentmillisec=tv.tv_sec*1000+tv.tv_usec/1000;
@@ -397,6 +402,7 @@ void kmidClient::timebarChange(int i)
 {
 if (itsme==1) return;
 //if (timebar->draggingSlider()==TRUE) return;
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->playing==0) 
 	{
 	itsme=1;
@@ -404,6 +410,7 @@ if (pctl->playing==0)
 	itsme=0;
 	return;
 	};
+#endif
 if (pctl->paused) return;
 if (playerProcessID!=0) 
 	{
@@ -444,7 +451,11 @@ while ((spev!=NULL)&&(spev->absmilliseconds<(ulong)i))
      };
 kdispt->gotomsec(i);
 while ((pctl->OK==0)&&(pctl->error==0)) ;
+
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->error==1) return;
+#endif
+
 pctl->OK=0;
 tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
 
@@ -517,7 +528,9 @@ song_Play();
 void kmidClient::song_Pause()
 {
 timeval tv;
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->playing==0) return;
+#endif
 #ifdef KMidDEBUG
 printf("song Pause\n");
 #endif
@@ -556,7 +569,9 @@ if ((playerProcessID=fork())==0)
     _exit(0);
     };
 while ((pctl->OK==0)&&(pctl->error==0)) ;
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->error==1) return;
+#endif
 pctl->OK=0;
 /////    pctl->OK=0;
     pctl->paused=0;
@@ -582,7 +597,9 @@ pctl->OK=0;
 
 void kmidClient::song_Stop()
 {
+#ifndef MODE_DEMO_ONLYVISUAL
 if (pctl->playing==0) return;
+#endif
 if (pctl->paused) return;
 #ifdef KMidDEBUG
 printf("song Stop\n");
