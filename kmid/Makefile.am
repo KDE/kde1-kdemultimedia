@@ -5,46 +5,61 @@ LDFLAGS	= $(all_libraries) $(KDE_RPATH)
 LDADD = player/libplayer.a -lkdeui -lkdecore -lqt -lXext -lX11 
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
-	kslidertime.cpp midicfgdlg.cpp main.cpp 
+	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp 
 
 PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
 
-SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc midicfgdlg.moc 
+SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc \
+	 midicfgdlg.moc collectdlg.moc kaskdlg.moc
 
-DISTCLEANFILES = $(SRCMETA)
+DISTCLEANFILES = $(SRCMETA) ./.deps/* ./.deps/.P
 
 bin_PROGRAMS = kmid
 
-SUBDIRS = player toolbarxpm maps examples
+SUBDIRS = player toolbarxpm maps examples doc
 
-applnkdir = $(kde_appsdir)/Multimedia
 applnk_DATA = kmid.kdelnk
+applnkdir = $(kde_appsdir)/Multimedia
 
-mimedir = $(kde_mimedir)
 mime_DATA = x-karaoke.kdelnk
+mimedir = $(kde_mimedir)/audio
 
-docsdir = $(kde_htmldir)/en/kmid
-docs_DATA = kmid.html
-
-icondir = $(kde_icondir)
 icon_DATA = kmid.xpm
+icondir = $(kde_icondir)
 
-kmidframe.cpp: kmidframe.moc                   
-kmidframe.moc: kmidframe.h                     
-	$(MOC) -o kmidframe.moc kmidframe.h 
+fmpatches_DATA = std.sb drums.sb std.o3 drums.o3
+fmpatchesdir = $(kde_datadir)/kmid/fm
 
-kmidclient.cpp: kmidclient.moc                   
-kmidclient.moc: kmidclient.h                     
-	$(MOC) -o kmidclient.moc kmidclient.h 
+%.moc: %.h
+	$(MOC) $< -o $@
 
-kdisptext.cpp: kdisptext.moc                   
-kdisptext.moc: kdisptext.h                     
-	$(MOC) -o kdisptext.moc kdisptext.h 
+kmidclient.cpp:kmidclient.moc
 
-kslidertime.cpp: kslidertime.moc                   
-kslidertime.moc: kslidertime.h                     
-	$(MOC) -o kslidertime.moc kslidertime.h 
+kmidframe.cpp:kmidframe.moc
 
-midicfgdlg.cpp: midicfgdlg.moc                   
-midicfgdlg.moc: midicfgdlg.h                     
-	$(MOC) -o midicfgdlg.moc midicfgdlg.h 
+kaskdlg.cpp:kaskdlg.moc
+
+collectdlg.cpp:collectdlg.moc
+
+midicfgdlg.cpp:midicfgdlg.moc
+
+kslidertime.cpp:kslidertime.moc
+
+kdisptext.cpp:kdisptext.moc
+
+
+install-data-local:
+	@echo "********************************************"
+	@echo "Thanks for installing kmid !"
+	@echo "I have included some example songs that have been installed in"
+	@echo $(kde_datadir)/kmid
+	@echo ""
+	@echo "If you find any bug, have any idea or only want to tell me"
+	@echo "how much you like kmid :-), just send me an email to:"
+	@echo "antlarr@arrakis.es"
+	@echo ""
+	@echo "I hope that you have fun with kmid !"
+	@echo "Antonio Larrosa Jimenez (antlarr@arrakis.es)"
+	@echo ""
+	@echo "PS: I will not be liable for any flood during the use of kmid ;-)"
+	@echo "*********************************************"

@@ -1,3 +1,3 @@
 
-example_DATA = UnBesoYUnaFlor.kar MoonlightShadow.kar AgainstAllOdds.kar
+example_DATA = Entre2Tierras.kar BakerStreet.kar YourSong.kar 
 exampledir = $(kde_datadir)/kmid

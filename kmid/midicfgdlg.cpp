@@ -30,6 +30,7 @@
 #include <kapp.h>
 #include <kmsgbox.h>
 #include "player/deviceman.h"
+#include "version.h"
 
 MidiConfigDialog::MidiConfigDialog(DeviceManager *dm, QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
 {
@@ -99,16 +100,7 @@ connect(mapnone,SIGNAL(clicked()),SLOT(noMap()) );
 
 void MidiConfigDialog::deviceselected(int idx)
 {
-if (strcmp(devman->type(idx),"FM")==0)
-    {
-    KMsgBox::message(this,"Warning","You cannot select an FM device because it is not yet supported (but it will be soon)");
-    mididevices->setCurrentItem(selecteddevice);
-    
-    return;
-    };
-
 selecteddevice=idx;
-
 };
 
 void MidiConfigDialog::browseMap()

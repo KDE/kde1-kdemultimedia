@@ -36,9 +36,6 @@
 #include <qtimer.h>
 //#include "kdisptext.h"
 
-// uncomment the next line to debug KMid
-//#define KMidDEBUG
-
 class KApplication;
 class KConfig;
 class kmidClient;
@@ -61,14 +58,16 @@ private:
 
     QPopupMenu *m_file;
     QPopupMenu *m_song;
+    QPopupMenu *m_collections;
     QPopupMenu *m_options;
     QPopupMenu *m_help;
 
 protected:
+    int autoAddSongToCollection(char *filename=NULL,int setactive=1);
+
 
     virtual void saveProperties(KConfig *kcfg);
     virtual void readProperties(KConfig *kcfg);
-
 
 //    virtual void closeEvent(QCloseEvent *e);
 public:
@@ -80,9 +79,15 @@ public:
 public slots:
 
     void buttonClicked(int i);
+    void buttonSClicked(int i);
     void file_Open();
     void song_Pause();
-
+    void song_stopPause(); // release the pause button and quit the pause mode
+    void song_Loop();
+    void collect_organize();
+    void collect_inOrder();
+    void collect_shuffle();
+    void collect_autoadd();
     void options_GM();
     void options_MT32();
     void options_Text();
@@ -93,12 +98,14 @@ public slots:
 
     void slotDropEvent( KDNDDropZone * _dropZone );
  
-
+    void rechooseTextEvent();
 
 private:
     KMenuBar *menu;
     kmidClient *kmidclient;
     KToolBar *toolbar;
+    KToolBar *toolbarSC; // toolbar for Song Collections
+    KToolBar *toolbarSong; // toolbar for Songs
 };
 
 #endif

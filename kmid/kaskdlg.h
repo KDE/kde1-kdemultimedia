@@ -1,7 +1,7 @@
 /**************************************************************************
 
-    kslidertime.h  - A widget that displays time tags under a KSlider
-    Copyright (C) 1997,98  Antonio Larrosa Jimenez
+    kaskdlg.h  - A dialog that ask the user something definable
+    Copyright (C) 1998  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,29 +21,34 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#include <kslider.h>
+#include <qdialog.h>
 
-class QWidget;
-class KSlider;
-
-class KSliderTime : public QWidget
+class QLabel;
+class QPushButton;
+class KLined;
+class KAskDialog : public QDialog
 {
-  Q_OBJECT
+	Q_OBJECT
 private:
 
-KSlider *kslider;
+protected:
 
-int fontheight;
+	virtual void resizeEvent(QResizeEvent *qre);
 public:
 
-  KSliderTime( KSlider *ksl, QWidget *parent = NULL, const char *name = NULL );
+	KAskDialog(char *labeltext,char *title,QWidget *parent,const char *name);
 
-  int getFontHeight(void) {return fontheight;};
+public slots:
+	void OK_pressed();
 
 private:
+QLabel *label;
+QPushButton *ok;
+QPushButton *cancel;
+KLined *kline;
 
-  virtual void paintEvent( QPaintEvent * );  
-  void drawTimeMarks(QPainter *painter);
+static char *textresult;
 
-  char *formatMillisecs(int ms,char *tmp);
+public:
+static	char *getResult(void);
 };

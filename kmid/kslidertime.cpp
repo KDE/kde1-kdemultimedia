@@ -32,6 +32,11 @@ KSliderTime::KSliderTime( KSlider *ksl, QWidget *parent, const char *name)
 					: QWidget (parent,name)
 {
 kslider=ksl;
+
+QPainter painter;
+QFontMetrics qfmt(painter.font());
+fontheight=qfmt.height();
+
 };
 
 char *KSliderTime::formatMillisecs(int ms,char *tmp)
@@ -73,6 +78,7 @@ if (kslider==NULL) return;
   int i;
   int maxV = kslider->maxValue();
   QFontMetrics qfmt(painter->font());
+  fontheight=qfmt.height();
   int ntimetags = width()/(qfmt.width("-88:88-"));
   int timestep;
   if (ntimetags>1) timestep = maxV/(ntimetags);

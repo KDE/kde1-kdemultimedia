@@ -32,9 +32,7 @@
 #include <unistd.h>
 #include <sys/time.h>
 #include <sys/types.h>
-
-// uncomment the next line to debug KMid
-//#define KMidDEBUG
+#include "player/slman.h"
 
 class DeviceManager;
 
@@ -43,6 +41,7 @@ class KApplication;
 class KConfig;
 class QLCDNumber;
 class QLabel;
+class KCombo;
 
 class kmidClient : public QWidget
 {
@@ -69,18 +68,31 @@ private:
     int	itsme;
 
     char *midifile_opened;
+    int hasbeenopened;
 
     int typeoftextevents;
 
-    void extractFilename(const char *in,char *out);
+    SLManager *slman;
+    int activecollection;
+    QString collectionsfile;
+    SongList *currentsl;
+    int initializing_songs;
+    int loopsong;
+    int collectionplaymode;
+
+    void fillInComboSongs(void);
+
+    int openFile(char *filename);
 public:
     kmidClient(QWidget *parent,const char *name=0);
     ~kmidClient();
 
     char *midiFileName(void) {return midifile_opened;};
-    int isPlaying(void) {return pctl->playing;};
+			// If it returns NULL then there isn't any file opened
 
-    int openFile(char *filename);
+    int isPlaying(void) {return pctl->playing;};
+    int isPaused(void) {return (pctl->playing)&&(pctl->paused);};
+
     int openURL(char *s);
 
     void repaintText(int typeoftextevents);
@@ -92,24 +104,45 @@ public:
     QFont *getFont(void);
     void fontChanged(void); // The new font is already in KConfig
 
+    SLManager *getSLManager(void) {return slman;};
+    void setSLManager(SLManager *slm);
+		// setSLManager only change the pointer, so DO NOT DELETE
+		// the objectr you pass to it
+    int getActiveCollection(void) {return activecollection;};
+    void setActiveCollection(int i);
+    int getSelectedSong(void);
+    void saveCollections(void);
+
+    void setSongLoop(int i);
+    void setCollectionPlayMode(int i);
+
 protected:
     void resizeEvent(QResizeEvent *qre);
 
 
 public slots:
-    void file_Open();
-    void help_Help();
-    void help_About();
+//    void help_Help();
+//    void help_About();
     void song_Play();
     void song_Pause();
     void song_Stop();
     void song_Rewind();
     void song_Forward();
+    void song_PlayPrevSong();
+    void song_PlayNextSong();
 
     void timebarUpdate();
     void timebarChange(int i);
 
+    void selectSong(int i);
+
     void processSpecialEvent();
+
+signals:
+    void mustRechooseTextEvent();
+    void song_stopPause();
+    
+public:
 
     DeviceManager *devman(void) {return Midi;};
     void setMidiDevice(int i);
@@ -120,6 +153,9 @@ private:
     QLCDNumber *tempoLCD;
     KDisplayText *kdispt;
     QLabel *qlabelTempo;
+    KCombo *comboSongs;
 };
+
+char *extractFilename(const char *in,char *out); // returns a pointer to out
 
 #endif

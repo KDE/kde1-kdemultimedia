@@ -27,12 +27,12 @@
 #include <qscrbar.h>
 #include <kapp.h>
 #include <kconfig.h>
+#include "version.h"
 
 #include "kdisptext.moc"
 
 #define NUMPREVLINES 2
 
-//#define KDISPTEXTDEBUG
 
 KDisplayText::KDisplayText(QWidget *parent,const char *name) : QWidget(parent,name)
 {
@@ -479,3 +479,24 @@ int KDisplayText::ChooseTypeOfTextEvents(void)
 {
 return (nlines_[0]>nlines_[1])? 1 : 5;
 };
+
+void KDisplayText::ScrollDown()
+{
+textscrollbar->setValue(textscrollbar->value()+1);
+};
+
+void KDisplayText::ScrollUp()
+{
+textscrollbar->setValue(textscrollbar->value()-1);
+};
+
+void KDisplayText::ScrollPageDown()
+{
+textscrollbar->setValue(textscrollbar->value()+nvisiblelines);
+};
+
+void KDisplayText::ScrollPageUp()
+{
+textscrollbar->setValue(textscrollbar->value()-nvisiblelines);
+};
+

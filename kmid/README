@@ -8,7 +8,7 @@
 				KMID
 
 
-	This info is up to date if you have KMid version 0.41
+	This info is up to date if you have KMid version 0.5
 		
 
 Index
@@ -20,9 +20,10 @@ Index
  5. Running
  6. Uninstalling
  7. How do I use a Midi Mapper ?
- 8. What is ConsoleKMid ?
- 9. Where can I download KMid from ?
- 10. To do list
+ 8. Playlists / Collections
+ 9. What is ConsoleKMid ?
+ 10. Where can I download KMid from ?
+ 11. To do list
 
 1. What is KMid
 ---------------
@@ -35,22 +36,25 @@ Index
    KMid has a very beautiful user interface, which lets you customize the
    fonts, use drag&drop thus allowing the user to drag a file from a kfm
    window and drop it in a kmid window to play it, and other features ... 
-   Session Management is now also supported, thus if you logout of KDE while
+   Session Management is also supported, thus if you logout of KDE while
    a song is playing, the next time you log in, kmid will be restored and
    the song will continue playing !.
-   As of version 0.4, AWE and GUS cards are also supported (primitively but
-   they make sound :-) ). KMid will also read any gzipped midi file just as
-   it reads a normal midi file.
+   As of version 0.4, AWE and GUS cards are also supported. KMid will also
+   read any gzipped midi file just as it reads a normal midi file.
+   From version 0.5 on, KMid also supports FM devices such as adlib cards,
+   or opl chipsets included in nearly all sound cards (including sb pro,sb16
+   and more)
 
 
 2. Requirements
 ---------------
 
-   A UNIX machine with X11, KDE, Qt libs, a /dev/sequencer device and an 
-   external synth or a GUS with a properly installed driver from the Linux 
-   Ultrasound Project, AWE cards are also supported from this release on 
-   (future versions will work with FM ... if I'm asked to do it, or someone 
-   send me a patch :-) 
+   A UNIX machine with X11, KDE, Qt libs, a soundcard and a /dev/sequencer 
+   device well installed 
+   If you have a GUS, you need a properly installed driver from the Linux 
+   Ultrasound Project, AWE cards are also supported, but you will probably
+   need to compile KMid in order to get an AWE card to work.
+   FM devices are also supported. 
    I have only tested KMid in Linux, but I have had sucessful reports getting 
    KMid to work on FreeBSD
    If you sucessfully run KMid in other unices, please tell me !
@@ -62,7 +66,7 @@ Index
 
 4. Installing 
 -----------------
-   To install the rpm version, just do "rpm -i kmid-0.4-1.rpm".
+   To install the rpm version, just do "rpm -i kmid-0.5-1.rpm" (as root).
 
    To install the tgz version, follow these steps:
 
@@ -73,10 +77,7 @@ Index
    player directory.
 
    To install the binary, toolbar pictures, icon and the help file do also a 
-   "make install" in this directory 
-   Be aware that by default the files are installed using as top level
-   directory the value of the environment variable, KDEDIR. So you need
-   to have KDEDIR pointing to the correct directory.
+   "make install" (highly recommended - required (?)) 
 
 5. Running
 --------------
@@ -85,7 +86,7 @@ Index
    directory, but if you haven't, then you will have to go to this directory
    to execute it.
 
-   If you want to use KMid with an AWE card or a GUS, you will have to open
+   If you want to use KMid with an AWE,GUS, or FM cards you will have to open
    the Options | Midi Setup ...  dialog and select the appropiate device.
    By default it is set to external midi port. 
 
@@ -98,10 +99,13 @@ Index
    Erase the kmid_*.xpm files in the /opt/kde/share/toolbar directory and
    the file kmid in /opt/kde/bin, also erase the file ~/.kde/share/config/kmidrc
    that should have been created in each user's home directory.
-   Go to /opt/kde/share/doc/HTML/default and erase the file kmid.html also, if you
-   want to delete the help.
+   Go to /opt/kde/share/doc/HTML/default and erase the file kmid.html also,
+   if you want to delete the help.
    Now that you have deleted the binary you will not need the icon, so you
    can delete it, it should be in $PREFIX/share/icons/kmid.xpm
+   There's also another method, to uninstall you can run "make uninstall",
+   but I don't guarantee it to work (in fact, I don't guarantee anything to
+   work :-))
 
 7. How do I use a Midi Mapper ?
 -------------------------------
@@ -191,7 +195,34 @@ can use it !
 The map files are in /opt/kde/share/apps/kmid/maps (Some people should
 substitute /opt/kde for the value of the KDEDIR environment variable)
 
-8. What is ConsoleKMid ? 
+8. Playlists / Collections
+--------------------------
+   Collections have been added in KMid in version 0.5.
+   By using them you will be able to prepare a list of midis so that when
+   you finish playing one, the next one will start playing. That way,
+   you can leave KMid in the background (or in another desktop) playing,
+   and don't need to interrupt your work to play another song.
+
+   To configure your collections, you have to select Organize, from the
+   Collections menu, and then create (with "New") as many collections as 
+   you wish.  Once created, you can add songs to the selected collection
+   by pressing "Add" or add them later by using Drag & Drop or "File|Open ..."
+
+   There's a "Temporary Collection" that you cannot delete, it is used
+   to hold the files that you want to play but don't want to add to any
+   collection. Keep in mind that when you close KMid, the contents of this
+   temporary collection will be lossed.
+
+   There's an option called "autoAdd to Collection", when turned on, every
+   file you open will be automatically added to the current collection, that
+   way, you can use Drag & drop to easily add files.
+   When this option is turned off, if you open a file, the current collection
+   will be automatically set to the temporary collection, it will be cleaned
+   and the file(s) you want to hear will be added to it. That means that
+   you will get a collection with only the files you have dropped in KMid.
+
+
+9. What is ConsoleKMid ? 
 ------------------------
    ConsoleKMid is a small program for Linux in console mode, which uses the same
    player engine of KMid. Of course it doesn't have the same friendly
@@ -203,7 +234,7 @@ substitute /opt/kde for the value of the KDEDIR environment variable)
    If you have the rpm distribution, you will not find the consolekmid program
    unless you also have the src.rpm distribution
 
-9. Where can I download KMid from ?
+10. Where can I download KMid from ?
 -----------------------------------
 
    KMid's homepage is at :
@@ -212,16 +243,15 @@ substitute /opt/kde for the value of the KDEDIR environment variable)
    From there you can download latest versions as well as know the latest
    changes and improvements of KMid
 	 
-10. To do list
+11. To do list
 -------------
    Write better documentation 
 	(meanwhile I will answer any question by email)
-   FM support
-   Do the play lists
    Translation to other languages
+   Better AWE and GUS support and use Soundfonts
    Finish the KMidServer and make KMid use it.
 
 -------
-21-2-1998
+12-3-1998
 Antonio Larrosa Jimenez
 antlarr@arrakis.es

@@ -24,15 +24,15 @@
 #include "kmidframe.h"
 #include <stdlib.h>
 #include <string.h>
-//#include <qapp.h>
-// Why can't I include qapp before kapp ?
 #include <kapp.h>
 #include <qwidget.h>
 #include <signal.h>
+#include "version.h"
+
 
 int main(int argc, char **argv)
 {
-    printf("KMid 0.4.1 Copyright (C) 1997,98 Antonio Larrosa Jimenez. Malaga (Spain)\n");
+    printf("%s Copyright (C) 1997,98 Antonio Larrosa Jimenez. Malaga (Spain)\n",VERSION_TXT);
     printf("KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 );
     printf("This is free software, and you are welcome to redistribute it\n");
@@ -47,7 +47,6 @@ int main(int argc, char **argv)
     sigaction(SIGINT, &act, NULL);
     sigaction(SIGTERM, &act, NULL);
 */
- 
 
     KApplication *app=new KApplication(argc,argv);
 
@@ -64,6 +63,7 @@ int main(int argc, char **argv)
         }
 
     int ret= app->exec();
+
     delete kmidframe;
     delete app;
     return ret;

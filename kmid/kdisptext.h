@@ -106,4 +106,9 @@ void fontChanged(void);
 
 public slots:
 void ScrollText(int i);
+void ScrollDown();
+void ScrollUp();
+void ScrollPageDown();
+void ScrollPageUp();
+
 };

@@ -10,11 +10,15 @@ Sebestyen Zoltan
 szoli@digo.inf.elte.hu
 FreeBSD diffs and AWE testing
 
-
 Greetins go to :
-Rafael Larrosa, Christian Esken, Stephan Kulow, Marc Diefenbruch, 
-Jaroslav Kysela, Peter Gritsch, Magnus Pfeffer, Urko Lusa and everyone that
-sent me a patch, bug report or just an email to give me encouragement
+Rafael Larrosa - For his continuous help
+Christian Esken - For answering my (silly) questions in kdedevel ;-)
+Stephan Kulow - For the fabulous configure scripts and help with automake
+Jaroslav Kysela - For helping me find the problem with gusd
+
+Thanks go also to Marc Diefenbruch, Peter Gritsch, Magnus Pfeffer, 
+Urko Lusa, Peter-Paul Witta, Thorsten Westheider and everyone that sent
+me a patch, bug report or just an email to give me encouragement
 
 And of course to all the fabulous musicians over the net that keep giving us
 those wonderful midi files.
