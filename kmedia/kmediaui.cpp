@@ -19,8 +19,8 @@
 // $Id$
 // A GUI for the mediatool players. Serves as mediatool master
 
-#include "kmedia.h"
-#include "kmedia.moc"
+#include "kmediaui.h"
+#include "kmediaui.moc"
 
 #include <sys/types.h> 
 #include <sys/wait.h> 
@@ -49,7 +49,7 @@ int main ( int argc, char *argv[] )
   struct sigaction act;
 
   globalKapp = new KApplication( argc, argv, "kmedia" );
-  KMEDIA *kmedia;
+  KMediaUI *kmediaui;
 
   act.sa_handler = sigchld_handler;
   sigemptyset(&(act.sa_mask));
@@ -58,31 +58,31 @@ int main ( int argc, char *argv[] )
   sigaction( SIGCHLD, &act, NULL);
 
   // globalKIL = new KIconLoader();
-  kmedia  = new KMEDIA;
+  kmediaui  = new KMediaUI;
 
   /* Create initial Playlist from command line */
   for ( i=1 ; i<argc; i++ ) {
     if ( argv[i][0] != '-' ) {
       /*
-	PlaylistAdd(kmedia->Playlist, argv[i],-1);
+	PlaylistAdd(kmediaui->Playlist, argv[i],-1);
       */
       KURL *url = new KURL( argv[i] );
-      kmedia->kmw->launchPlayer(url->path()); // Will be launched only one time
+      kmediaui->kmw->launchPlayer(url->path()); // Will be launched only one time
       // OK, this cast is umh ... not-so-good. But it is the low-level
-      // protocol, only kmedia and the media players speak lowlevel protocol.
-      FileNameSet( kmedia->kmw->FnamChunk, (char*)url->path());
+      // protocol, only kmediaui and the media players speak lowlevel protocol.
+      FileNameSet( kmediaui->kmw->FnamChunk, (char*)url->path());
       delete url;
       break;
     }
   }
-  globalKapp->connect( globalKapp, SIGNAL(lastWindowClosed()), kmedia->kmw, SLOT( quitAll()));
+  globalKapp->connect( globalKapp, SIGNAL(lastWindowClosed()), kmediaui->kmw, SLOT( quitAll()));
 
   return globalKapp->exec();
 }
 
 
 
-KMEDIA::KMEDIA( QWidget *parent, const char *name ) :  QWidget(parent,name)
+KMediaUI::KMediaUI( QWidget *parent, const char *name ) :  QWidget(parent,name)
 {
   kmw = new KMediaWin(this, " ");
   // Window title

@@ -1,6 +1,6 @@
 //-*-C++-*-
-#ifndef KMEDIA_H
-#define KMEDIA_H
+#ifndef KMEDIAUI_H
+#define KMEDIAUI_H
 
 /*
    Copyright (c) 1997-1998 Christian Esken (esken@kde.org)
@@ -51,14 +51,14 @@ extern "C" {
 
 
 
-class KMEDIA : public QWidget { //: public KTopLevelWidget {
+class KMediaUI : public QWidget { //: public KTopLevelWidget {
   Q_OBJECT
 
 public:
-  KMEDIA( QWidget *parent = 0, const char *name = 0 );
+  KMediaUI( QWidget *parent = 0, const char *name = 0 );
   KMediaWin	*kmw;
 
 
 };
 
-#endif /* KMEDIA_H */
+#endif /* KMEDIAUI_H */
