@@ -41,12 +41,16 @@
 
 char *program_name, current_filename[1024];
 
+#ifdef KMIDI
+    static PathList *pathlist=0;
+#else
 #ifdef DEFAULT_PATH
     /* The paths in this list will be tried whenever we're reading a file */
     static PathList defaultpathlist={DEFAULT_PATH,0};
     static PathList *pathlist=&defaultpathlist; /* This is a linked list */
 #else
     static PathList *pathlist=0;
+#endif
 #endif
 
 /* Try to open a file for reading. If the filename ends in one of the 
