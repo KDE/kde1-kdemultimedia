@@ -85,7 +85,8 @@
 /* Default sampling rate, default polyphony, and maximum polyphony.
    All but the last can be overridden from the command line. */
 #ifndef DEFAULT_RATE
-#define DEFAULT_RATE	32000
+/*#define DEFAULT_RATE	32000*/
+#define DEFAULT_RATE	44100
 #endif
 
 #ifndef DEFAULT_VOICES
