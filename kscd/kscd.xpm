@@ -1,5 +1,5 @@
 /* XPM */
-/* Drawn  by Nico Schwiring for the K Desktop Environment */
+/* Drawn  by Nico Shirwing for the K Desktop Environment */
 /* See http://www.kde.org */
 static char*kscd[]={
 "32 32 16 1",
@@ -14,9 +14,9 @@ static char*kscd[]={
 "d c #ff0000",
 "f c #00ff00",
 "g c #00ffff",
-"h c #ffbebe",
-"i c #beffff",
-"e c #ffa85a",
+"h c #ffc0c0",
+"i c #c0ffff",
+"e c #ffa858",
 "c c #004040",
 ". c None",
 ".##############################.",
