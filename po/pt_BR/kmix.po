@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-14 02:08+0100\n"
+"POT-Creation-Date: 1998-12-19 02:34+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,19 +9,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:520 kmix.cpp:639
+#: kmix.cpp:530 kmix.cpp:649
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:523
+#: kmix.cpp:533
 msgid "&Tickmarks On/Off"
 msgstr "&Tiques Liga/Desliga"
 
-#: kmix.cpp:526 kmix.cpp:642
+#: kmix.cpp:536 kmix.cpp:652
 msgid "&Options..."
 msgstr "&Opções..."
 
-#: kmix.cpp:535
+#: kmix.cpp:545
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -43,59 +43,51 @@ msgstr ""
 "e Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 
-#: kmix.cpp:555
+#: kmix.cpp:565
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:556
+#: kmix.cpp:566
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:557
+#: kmix.cpp:567
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:641
+#: kmix.cpp:651
 msgid "&Show Menubar"
 msgstr "&Mostrar barra de menu"
 
-#: kmix.cpp:686
+#: kmix.cpp:696
 msgid "Un&mute"
 msgstr "&Ligar"
 
-#: kmix.cpp:688
+#: kmix.cpp:698
 msgid "&Mute"
 msgstr "&Desligar"
 
-#: kmix.cpp:691
+#: kmix.cpp:701
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:693
+#: kmix.cpp:703
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:696
+#: kmix.cpp:706
 msgid "&RecSource"
 msgstr "&Fonte de Som"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Geral"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Canais"
-
-#: prefs.cpp:46
+#: prefs.cpp:44
 msgid "Startup settings"
 msgstr "Configs de início"
 
-#: prefs.cpp:51
+#: prefs.cpp:49
 msgid "Menubar"
 msgstr "Barra de menu"
 
-#: prefs.cpp:56
+#: prefs.cpp:55
 msgid "Tickmarks"
 msgstr "Tiques"
 
@@ -103,23 +95,31 @@ msgstr "Tiques"
 msgid "Allow docking"
 msgstr "Permitir embutir"
 
-#: prefs.cpp:86
+#: prefs.cpp:90
+msgid "General"
+msgstr "Geral"
+
+#: prefs.cpp:91
+msgid "Channels"
+msgstr "Canais"
+
+#: prefs.cpp:93
 msgid "KMix Preferences"
 msgstr "Preferências KMix"
 
-#: prefs.cpp:96
+#: prefs.cpp:103
 msgid "Mixer channel setup"
 msgstr "Configuração dos canais do Mixer"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Mostrar"
 
-#: prefs.cpp:115
+#: prefs.cpp:122
 msgid "Split"
 msgstr "Dividir"
 

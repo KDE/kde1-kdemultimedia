@@ -460,7 +460,8 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB databáze. Dal¹í informace na http://www.cddb.com.\n"
+"Speciálnì dìkuji Ti Kan a Stevu Scherfovi, stvoøitelùm koncepce CDDB "
+"databáze. Dal¹í informace na http://www.cddb.com.\n"
 "\n"
 
 #: kscd.cpp:1019

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-14 02:08+0100\n"
+"POT-Creation-Date: 1998-12-19 02:34+0100\n"
 "PO-Revision-Date: 1998-04-22 03:31+0800\n"
 "Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
 "MIME-Version: 1.0\n"
@@ -14,21 +14,21 @@ msgstr ""
 "Content-Transfer-Encoding: ENCODING\n"
 
 # , fuzzy
-#: kmix.cpp:520 kmix.cpp:639
+#: kmix.cpp:530 kmix.cpp:649
 msgid "&Hide Menubar"
 msgstr "隱藏選單"
 
 # , fuzzy
-#: kmix.cpp:523
+#: kmix.cpp:533
 msgid "&Tickmarks On/Off"
 msgstr "刻度顯示 On/Off"
 
 # , fuzzy
-#: kmix.cpp:526 kmix.cpp:642
+#: kmix.cpp:536 kmix.cpp:652
 msgid "&Options..."
 msgstr "選項[&O]"
 
-#: kmix.cpp:535
+#: kmix.cpp:545
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -41,60 +41,52 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 
-#: kmix.cpp:555
+#: kmix.cpp:565
 msgid "&Left"
 msgstr "左[&H]"
 
-#: kmix.cpp:556
+#: kmix.cpp:566
 msgid "&Center"
 msgstr "中[&C]"
 
-#: kmix.cpp:557
+#: kmix.cpp:567
 msgid "&Right"
 msgstr "右[&R]"
 
 # , fuzzy
-#: kmix.cpp:641
+#: kmix.cpp:651
 msgid "&Show Menubar"
 msgstr "選單"
 
-#: kmix.cpp:686
+#: kmix.cpp:696
 msgid "Un&mute"
 msgstr "解除靜音[&M]"
 
-#: kmix.cpp:688
+#: kmix.cpp:698
 msgid "&Mute"
 msgstr "靜音[&M]"
 
-#: kmix.cpp:691
+#: kmix.cpp:701
 msgid "&Split"
 msgstr "分割[&S]"
 
-#: kmix.cpp:693
+#: kmix.cpp:703
 msgid "Un&split"
 msgstr "組合[&S]"
 
-#: kmix.cpp:696
+#: kmix.cpp:706
 msgid "&RecSource"
 msgstr "錄音來源[&R]"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "一般"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "頻道"
-
-#: prefs.cpp:46
+#: prefs.cpp:44
 msgid "Startup settings"
 msgstr "初始設定"
 
-#: prefs.cpp:51
+#: prefs.cpp:49
 msgid "Menubar"
 msgstr "選單"
 
-#: prefs.cpp:56
+#: prefs.cpp:55
 msgid "Tickmarks"
 msgstr "刻度顯示"
 
@@ -102,25 +94,33 @@ msgstr "刻度顯示"
 msgid "Allow docking"
 msgstr ""
 
-#: prefs.cpp:86
+#: prefs.cpp:90
+msgid "General"
+msgstr "一般"
+
+#: prefs.cpp:91
+msgid "Channels"
+msgstr "頻道"
+
+#: prefs.cpp:93
 msgid "KMix Preferences"
 msgstr "KMix 功\能設定"
 
 # , fuzzy
-#: prefs.cpp:96
+#: prefs.cpp:103
 msgid "Mixer channel setup"
 msgstr "混音器頻道設定 (還不能儲存)"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "裝置"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "顯示"
 
 # , fuzzy
-#: prefs.cpp:115
+#: prefs.cpp:122
 msgid "Split"
 msgstr "分割[&S]"
 

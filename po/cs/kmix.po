@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-14 02:08+0100\n"
+"POT-Creation-Date: 1998-12-19 02:34+0100\n"
 "PO-Revision-Date: 1998-12-18 11:34+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -13,19 +13,19 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:520 kmix.cpp:639
+#: kmix.cpp:530 kmix.cpp:649
 msgid "&Hide Menubar"
 msgstr "&Skrýt menu"
 
-#: kmix.cpp:523
+#: kmix.cpp:533
 msgid "&Tickmarks On/Off"
 msgstr "S&tupnice zapnout/vypnout"
 
-#: kmix.cpp:526 kmix.cpp:642
+#: kmix.cpp:536 kmix.cpp:652
 msgid "&Options..."
 msgstr "&Mo¾nosti..."
 
-#: kmix.cpp:535
+#: kmix.cpp:545
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -47,59 +47,51 @@ msgstr ""
 "a Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "ALSA port napsal Nick Lopez (kimo_sabe@usa.net)."
 
-#: kmix.cpp:555
+#: kmix.cpp:565
 msgid "&Left"
 msgstr "V&levo"
 
-#: kmix.cpp:556
+#: kmix.cpp:566
 msgid "&Center"
 msgstr "Vy&centrovat"
 
-#: kmix.cpp:557
+#: kmix.cpp:567
 msgid "&Right"
 msgstr "Vp&ravo"
 
-#: kmix.cpp:641
+#: kmix.cpp:651
 msgid "&Show Menubar"
 msgstr "&Zobrazovat menu"
 
-#: kmix.cpp:686
+#: kmix.cpp:696
 msgid "Un&mute"
 msgstr "Vypnout ztlu&mení"
 
-#: kmix.cpp:688
+#: kmix.cpp:698
 msgid "&Mute"
 msgstr "Ztlu&mit"
 
-#: kmix.cpp:691
+#: kmix.cpp:701
 msgid "&Split"
 msgstr "&Rozdìlit"
 
-#: kmix.cpp:693
+#: kmix.cpp:703
 msgid "Un&split"
 msgstr "&Sdru¾it"
 
-#: kmix.cpp:696
+#: kmix.cpp:706
 msgid "&RecSource"
 msgstr "Zd&roj nahrávání"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Obecné"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanály"
-
-#: prefs.cpp:46
+#: prefs.cpp:44
 msgid "Startup settings"
 msgstr "Nastavení pøi spu¹tìní"
 
-#: prefs.cpp:51
+#: prefs.cpp:49
 msgid "Menubar"
 msgstr "Menu"
 
-#: prefs.cpp:56
+#: prefs.cpp:55
 msgid "Tickmarks"
 msgstr "Stupnice"
 
@@ -107,23 +99,31 @@ msgstr "Stupnice"
 msgid "Allow docking"
 msgstr "Povolit dokování"
 
-#: prefs.cpp:86
+#: prefs.cpp:90
+msgid "General"
+msgstr "Obecné"
+
+#: prefs.cpp:91
+msgid "Channels"
+msgstr "Kanály"
+
+#: prefs.cpp:93
 msgid "KMix Preferences"
 msgstr "Nastavení Kmixu"
 
-#: prefs.cpp:96
+#: prefs.cpp:103
 msgid "Mixer channel setup"
 msgstr "Nastavení kanálù mixeru"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Zaøízení"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Zobrazovat"
 
-#: prefs.cpp:115
+#: prefs.cpp:122
 msgid "Split"
 msgstr "Rozdìlit"
 
