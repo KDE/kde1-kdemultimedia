@@ -9,7 +9,7 @@ SUBDIRS = pics docs
 bin_PROGRAMS = 	kmedia
 kmedia_SOURCES	= kmediaui.cpp mediaactions.cpp uiactions.cpp kmediawin.cpp prefs.cpp
 noinst_HEADERS = kmediaui.h kmediawin.h prefs.h
-kmedia_LDADD = $(all_libraries) -lkfile -lkfm -lkdeui -lkdecore -lqt -lXext -lX11 -lmediatool $(LIBCOMPAT)
+kmedia_LDADD = $(all_libraries) -lkfile -lkfm -lkdeui -lkdecore -lqt -lXext -lX11 -lmediatool $(LIBCOMPAT) $(LIBSOCKET)
 
 kmedia_LDFLAGS = $(LDFLAGS) $(KDE_RPATH)
 

@@ -30,7 +30,7 @@
 
 #include "config.h"
 
-#if defined(SVR4) && !defined(sun) && !defined(__sun__)
+#if (defined(SVR4) && !defined(sun) && !defined(__sun__)) || defined(_UNIXWARE)
 
 
 
@@ -45,9 +45,9 @@
 #include <signal.h>
 #include <sys/mkdev.h>
 #include <sys/stat.h>
-#include <sys/sdi.h>
-#include <sys/sdi_edt.h>
 #include <sys/scsi.h>
+#include <sys/sdi_edt.h>
+#include <sys/sdi.h>
 #include <errno.h>
 
 #include "struct.h"
@@ -372,7 +372,11 @@ wm_scsi(d, xcdb, cdblen, retbuf, retbuflen, getreply)
 	sb.SCB.sc_dev.sa_major = 0;
 	sb.SCB.sc_dev.sa_minor = 0;
 	sb.SCB.sc_dev.sa_lun = 0;
+#ifdef _UNIXWARE
+	sb.SCB.sc_dev.sa_bus = 0;
+#else
 	sb.SCB.sc_dev.sa_exlun = 0;
+#endif
 	sb.SCB.sc_status = 0;
 	sb.SCB.sc_link = (struct sb *) NULL;
 	sb.SCB.sc_resid = 0;
@@ -404,7 +408,11 @@ wm_scsi(d, xcdb, cdblen, retbuf, retbuflen, getreply)
         sb.SCB.sc_dev.sa_major = 0;
         sb.SCB.sc_dev.sa_minor = 0;
         sb.SCB.sc_dev.sa_lun = 0;
+#ifdef _UNIXWARE
+        sb.SCB.sc_dev.sa_bus = 0;
+#else
         sb.SCB.sc_dev.sa_exlun = 0;
+#endif
         sb.SCB.sc_status = 0;
         sb.SCB.sc_link = (struct sb *) NULL;
         sb.SCB.sc_resid = 0;

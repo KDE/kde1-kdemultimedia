@@ -277,6 +277,11 @@
 #define PI M_PI
 #endif /* __FreeBSD__ */
 
+#ifdef _UNIXWARE
+#undef BIG_ENDIAN
+#define LITTLE_ENDIAN
+#endif
+
 /* Win32 on Intel machines */
 #ifdef __WIN32__
 #  define LITTLE_ENDIAN
@@ -399,6 +404,13 @@ typedef char int8;
   extern char *optarg;
   #define PI 3.14159265358979323846
   #define rindex(s,c) strrchr(s,c)
+#endif
+
+#ifdef _UNIXWARE
+extern char *sys_errlist[];
+#include <values.h>
+#define PI M_PI
+#include <sys/filio.h>
 #endif
 
 #ifdef __WIN32__
