@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 1997 Christian Esken (esken@kde.org)
+   Copyright (c) 1997-1998 Christian Esken (esken@kde.org)
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -14,14 +14,18 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
- 	kmedia.cpp : the GUI part of the media master
-		     The protocol resides in libmediatool.a
 */
+
+
+// $Id$
+// User interface actions
+
 
 #include <unistd.h>
 #include <kmisc.h>
+#include <klocale.h>
 #include "kmedia.h"
+#include "version.h"
 
 extern KApplication	*globalKapp;
 QList<KMediaWin> KMediaWin::allMediaWins;
@@ -116,17 +120,27 @@ void KMediaWin::onDrop( KDNDDropZone* _zone )
 
 void KMediaWin::aboutClicked()
 {
-  QString msg;
-  char TalkIdStr[10];
+   char TalkIdStr[10];
 
   sprintf(TalkIdStr,"%i", m.talkid);
 
-   msg = \
-         klocale->translate("kmedia 0.45\n(C) 1996, 1997 Christian Esken (esken@kde.org)\n\nMedia player for the KDE Desktop Environment.\nThis program is in the GPL.\n<Communication id: ");
+  QString msg,head;
+  char vers[50];
+  sprintf (vers,"%.2f", APP_VERSION);
+
+  msg  = "KMedia ";
+  msg += vers;
+  msg += i18n("\n(C) 1996-1998 by Christian Esken (esken@kde.org).\n\n" \
+    "Media player for the KDE Desktop Environment.\n"\
+    "This program is in the GPL.\n"\
+    "<Communication id: ");
   msg += TalkIdStr;
   msg += ">";
 
-  QMessageBox::about( this, "About kmedia 0.45",msg);
+  head = i18n("About KMedia ");
+  head += vers;
+
+  QMessageBox::about( this, head,msg);
 }
 
 void KMediaWin::aboutqt()
@@ -196,8 +210,12 @@ void KMediaWin::pllClicked()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  (KeysChunk->pos_new) = new_pos;
-  EventCounterRaise(&(KeysChunk->posnew),1);
+  if (posChangeValid) {
+    // OK, it's a user initiated position change.
+    posChangeValid = false;
+    (KeysChunk->pos_new) = new_pos;
+    EventCounterRaise(&(KeysChunk->posnew),1);
+  }
 }
 
 

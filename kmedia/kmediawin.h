@@ -2,8 +2,32 @@
 #ifndef KMEDIAWIN_H
 #define KMEDIAWIN_H
 
+/*
+   Copyright (c) 1997-1998 Christian Esken (esken@kde.org)
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
+
+
+// $Id$
+// KmediaWin header
+
 const int	WIDTH  = 25;
 const int	HEIGHT = 30;
+
+#include <iostream.h>
 
 #include <qpushbt.h>
 #include <qlabel.h>
@@ -69,6 +93,7 @@ signals:
   void		lastWindowClosed();
 
 public slots:
+void endSelMediapos()  { posChangeValid=true; };
   void		playClicked();
   void		stopClicked();
   void		prevClicked();
@@ -104,6 +129,8 @@ private:
   uint32	status_old;
   uint32	status, supp_keys_now;
   uint32	pos_old, max_old;
+  bool	posChangeValid;
+
   QPixmap	playpauseBmp, playpause_playBmp, playpause_bothBmp;
   int32		SuppKeysOld;
   const char   	*modetext;

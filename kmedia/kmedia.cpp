@@ -1,5 +1,5 @@
 /*
-   Copyright (c) 1997 Christian Esken (esken@kde.org)
+   Copyright (c) 1997-98 Christian Esken (esken@kde.org)
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -14,10 +14,10 @@
    You should have received a copy of the GNU General Public License
    along with this program; if not, write to the Free Software
    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-
- 	kmedia.cpp : the GUI part of the media master
-		     The protocol resides in libmediatool.a
 */
+
+// $Id$
+// A GUI for the mediatool players. Serves as mediatool master
 
 #include "kmedia.h"
 #include "kmedia.moc"
@@ -107,7 +107,7 @@ void KMediaWin::initMediatool()
   baseinitMediatool();
   MdConnectNew(&m);
   if ( m.shm_adr == NULL )
-    dtfatal("Could not create media connection.\n");
+    dtfatal("Failed creating media connection.\n");
 
 //  printf("The media id (talk id) for today is %i.\n", m.talkid);
 

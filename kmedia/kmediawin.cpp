@@ -1,4 +1,26 @@
-#include <iostream.h> //!!!
+/*
+   Copyright (c) 1997-1998 Christian Esken (esken@kde.org)
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+*/
+
+
+// $Id$
+// KMediaWin implementation
+
+#include <iostream.h>
 #include <string.h>
 #include <klocale.h>
 #include <kiconloader.h>
@@ -25,7 +47,7 @@ KMediaWin::~KMediaWin()
 {
   timer->stop();
   allMediaWins.removeRef(this);
-  cerr << "Deleting win " << this << "\n";
+  //  cerr << "Deleting win " << this << "\n";
 
   bool exitOK = removePlayer();
   if (!exitOK)
@@ -43,6 +65,7 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
 
   InitialDelay = -1;
   RepeatSpeed  =  1;
+  posChangeValid = false;
 
   timer = new QTimer( this );
   timerFn = new QTimer( this );
@@ -137,22 +160,23 @@ void KMediaWin::createPanel()
   //  PosSB->setTracking(false);
   //  PosSB->setEnabled(false);
   connect( PosSB, SIGNAL(valueChanged(int)), SLOT(PosChanged(int)));
-  QToolTip::add( PosSB,	klocale->translate("Playback position" ));
+  connect( PosSB, SIGNAL(sliderReleased()), SLOT(endSelMediapos()));
+  QToolTip::add( PosSB,	i18n("Playback position" ));
 
 
   // Now setup the buttons
   ix  = 0;
   iy += PosSB->height();
-  ejectPB = createButton( ix, iy, WIDTH, HEIGHT, "Eject", klocale->translate("Eject medium") );
+  ejectPB = createButton( ix, iy, WIDTH, HEIGHT, "Eject", i18n("Eject medium") );
   connect( ejectPB, SIGNAL(clicked()), SLOT(ejectClicked()) );
 
   ix += WIDTH;
-  prevPB = createButton( ix, iy, WIDTH, HEIGHT, "Prev", klocale->translate("Previous track") );
+  prevPB = createButton( ix, iy, WIDTH, HEIGHT, "Prev", i18n("Previous track") );
   connect( prevPB, 	SIGNAL(pressed()), 	SLOT(prevClicked()) );
   connect( prevPB, 	SIGNAL(released()), 	SLOT(prevReleased()) );
 
   ix += WIDTH;
-  bwdPB = createButton( ix, iy, WIDTH, HEIGHT, "Bwd", klocale->translate("Backward") );
+  bwdPB = createButton( ix, iy, WIDTH, HEIGHT, "Bwd", i18n("Backward") );
   connect( bwdPB, 	SIGNAL(pressed()), 	SLOT(bwdClicked()) );
   connect( bwdPB, 	SIGNAL(released()), 	SLOT(bwdReleased()) );
 
@@ -160,21 +184,21 @@ void KMediaWin::createPanel()
   connect(  pllPB,      SIGNAL(clicked()),      SLOT(pllClicked()) );
 
   ix += WIDTH;
-  stopPB = createButton( ix, iy, WIDTH, HEIGHT, "Stop" , klocale->translate("Stop") );
+  stopPB = createButton( ix, iy, WIDTH, HEIGHT, "Stop" , i18n("Stop") );
   connect( stopPB, 	SIGNAL(clicked()), 	SLOT(stopClicked()) );
 
   ix += WIDTH;
-  playPB = createButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" , klocale->translate("Play/Pause") );
+  playPB = createButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" , i18n("Play/Pause") );
   connect( playPB, 	SIGNAL(clicked()), 	SLOT(playClicked()) );
 
 
   ix += WIDTH;
-  fwdPB = createButton( ix, iy, WIDTH, HEIGHT, "Fwd" , klocale->translate("Forward" ));
+  fwdPB = createButton( ix, iy, WIDTH, HEIGHT, "Fwd" , i18n("Forward" ));
   connect( fwdPB, 	SIGNAL(pressed()), 	SLOT(fwdClicked()) );
   connect( fwdPB, 	SIGNAL(released()), 	SLOT(fwdReleased()) );
 
   ix += WIDTH;
-  nextPB = createButton( ix, iy, WIDTH, HEIGHT, "Next" , klocale->translate("Next track"));
+  nextPB = createButton( ix, iy, WIDTH, HEIGHT, "Next" , i18n("Next track"));
   connect( nextPB, 	SIGNAL(pressed()), 	SLOT(nextClicked()) );
   connect( nextPB, 	SIGNAL(released()), 	SLOT(nextReleased()) );
 
@@ -200,29 +224,29 @@ void KMediaWin::createMenu()
 
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
-  Mfile->insertItem( klocale->translate("New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
-  Mfile->insertItem( klocale->translate("Quit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
+  Mfile->insertItem( i18n("New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
+  Mfile->insertItem( i18n("Quit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
 
   QPopupMenu *Moptions = new QPopupMenu;
   CHECK_PTR( Moptions );
-  //  Moptions->insertItem( klocale->translate("Hide Menu"), this, SLOT(hideMenu()));
-  Moptions->insertItem( klocale->translate("Mixer"), this, SLOT(launchMixer()));
+  //  Moptions->insertItem( i18n("Hide Menu"), this, SLOT(hideMenu()));
+  Moptions->insertItem( i18n("Mixer"), this, SLOT(launchMixer()));
   Moptions->insertSeparator();
-  Moptions->insertItem( klocale->translate("Preferences"), this, SLOT(showOpts()));
+  Moptions->insertItem( i18n("Preferences"), this, SLOT(showOpts()));
 
   QPopupMenu *Mhelp = new QPopupMenu;
   CHECK_PTR( Mhelp );
-  Mhelp->insertItem( klocale->translate("&Contents"), this, SLOT(launchHelp()), Key_F1);
+  Mhelp->insertItem( i18n("&Contents"), this, SLOT(launchHelp()), Key_F1);
   Mhelp->insertSeparator();
-  Mhelp->insertItem( klocale->translate("&About"), this, SLOT(aboutClicked()));
-  Mhelp->insertItem( klocale->translate("&About Qt..."), this, SLOT(aboutqt()));
+  Mhelp->insertItem( i18n("&About"), this, SLOT(aboutClicked()));
+  Mhelp->insertItem( i18n("&About Qt..."), this, SLOT(aboutqt()));
 
   mainmenu = new KMenuBar( this /*Container*/ , "mainmenu" );
   CHECK_PTR( mainmenu );
-  mainmenu->insertItem( klocale->translate("&File"), Mfile );
-  mainmenu->insertItem( klocale->translate("&Options"), Moptions );
+  mainmenu->insertItem( i18n("&File"), Mfile );
+  mainmenu->insertItem( i18n("&Options"), Moptions );
   mainmenu->insertSeparator();
-  mainmenu->insertItem( klocale->translate("&Help"), Mhelp );
+  mainmenu->insertItem( i18n("&Help"), Mhelp );
 }
 
 
@@ -275,13 +299,13 @@ void KMediaWin::SlaveStatusQuery()
     *modetextUnknown=NULL;
 
   // This is for NLS support. Look up texts only once
-  if (!modetextExited)	modetextExited=klocale->translate("Exited");
-  if (!modetextInit)	modetextInit=klocale->translate("Init");
-  if (!modetextBusy)	modetextBusy=klocale->translate("Busy");
-  if (!modetextPlaying)	modetextPlaying=klocale->translate("Playing");
-  if (!modetextPausing)	modetextPausing=klocale->translate("Paused");
-  if (!modetextReady)	modetextReady=klocale->translate("Ready");
-  if (!modetextUnknown)	modetextUnknown=klocale->translate("Undefined");
+  if (!modetextExited)	modetextExited=i18n("Exited");
+  if (!modetextInit)	modetextInit=i18n("Init");
+  if (!modetextBusy)	modetextBusy=i18n("Busy");
+  if (!modetextPlaying)	modetextPlaying=i18n("Playing");
+  if (!modetextPausing)	modetextPausing=i18n("Paused");
+  if (!modetextReady)	modetextReady=i18n("Ready");
+  if (!modetextUnknown)	modetextUnknown=i18n("Undefined");
 
   status = *StatStatPtr;
 
@@ -329,8 +353,19 @@ void KMediaWin::SlaveStatusQuery()
   /* Update slider range and position */
   if ( StatChunk->pos_current != pos_old || StatChunk->pos_max != max_old )
     {
+#if 0
+      float mult=1;
+
+      if ( StatChunk->pos_max > (PosSB->width()/4) ) {
+	mult = ((float)(PosSB->width())/4)/(float)(StatChunk->pos_max);
+	cerr << mult << " =mult\n";
+      }
+      PosSB->setRange(0,(int)((float)StatChunk->pos_max*mult));
+      PosSB->setValue((int)((float)StatChunk->pos_current*mult));
+#endif
       PosSB->setRange(0,StatChunk->pos_max);
       PosSB->setValue(StatChunk->pos_current);
+
       pos_old = StatChunk->pos_current;
       max_old = StatChunk->pos_max;
     }
