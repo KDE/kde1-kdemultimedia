@@ -88,12 +88,17 @@ install-appdir:
 install-icons:
 	$(INSTALL_DIR) $(APPDIR)/pics
 	$(INSTALL_DATA) pics/media.xpm pics/playpause.xbm pics/playpause_both.xpm pics/playpause_play.xpm $(APPDIR)/pics
+	$(INSTALL_DATA) pics/kmedia.xpm $(prefix)/share/icons
+	$(INSTALL_DATA) pics/kmedia_mini.xpm $(prefix)/share/icons/mini
 
 #install-nls:
 #	for i in $(SRCNLS); do $(INSTALL_DIR) $(prefix)/share/locale/$$i/LC_MESSAGES; $(INSTALL_DATA) $$i.mo $(prefix)/share/locale/$$i/LC_MESSAGES/kmedia.mo; done
 
 uninstall:
 	rm -f $(BINDIR)/$(TARGET)
+	rm -Rf $(APPDIR)
+	rm -f $(prefix)/share/icons/kmedia.xpm
+	rm -f $(prefix)/share/icons/mini/kmedia.xpm
 
 kmedia.moc: kmedia.h
 	$(MOC) kmedia.h -o kmedia.moc
