@@ -64,8 +64,24 @@ AC_FIND_JPEG
 dnl Checks for header files.
 AC_HEADER_DIRENT
 AC_HEADER_STDC
-AC_CHECK_HEADERS(fcntl.h sys/time.h unistd.h linux/awe_voice.h awe_voice.h /usr/src/sys/i386/isa/sound/awe_voice.h /usr/src/sys/gnu/i386/isa/sound/awe_voice.h machine/soundcard.h sys/soundcard.h)
+AC_CHECK_HEADERS(fcntl.h sys/time.h unistd.h linux/awe_voice.h awe_voice.h /usr/src/sys/i386/isa/sound/awe_voice.h /usr/src/sys/gnu/i386/isa/sound/awe_voice.h)
 AC_CHECK_FUNCS(usleep)
+
+AC_ARG_WITH(alsa, [  --with-alsa             use an alternative driver for GUS],
+[
+   if test $witharg = "yes"; then
+     $kde_with_alsa=yes;
+    else kde_with_alsa=no
+  fi
+], kde_with_alsa=no)
+
+if test "$ac_header_sys_soundlib_h" = "no"; then
+  kde_with_alsa=no
+fi
+ 
+if test "$kde_with_alsa" = "yes"; then
+  AC_DEFINE(ALSA)
+fi
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_HEADER_TIME
@@ -73,7 +89,7 @@ AC_HEADER_TIME
 dnl check if the compiler has bool
 AC_CHECK_BOOL
 
-dnl Checks for library functions.
+dnl Checks for library functions. MISCOBJS is for kdecore
 AC_CHECK_SETENV
 
 AC_ARG_ENABLE(kscd-defaults,[  --enable-kscd-defaults  use kscd default configs [default=yes]],
@@ -103,11 +119,4 @@ if echo $TOPSUBDIRS | grep "kscd" > /dev/null 2> /dev/null; then
   fi
 fi 
 ])
-
-# don't compile kmid if you have neither machine/soundcard.h nor sys/soundcard.h
-if test -z "`grep '#define HAVE_MACHINE_SOUNDCARD_H' confdefs.h`" ; then
-  if test -z "`grep '#define HAVE_SYS_SOUNDCARD_H' confdefs.h`" ; then
-    DO_NOT_COMPILE="$DO_NOT_COMPILE kmid"
-  fi
-fi
 
