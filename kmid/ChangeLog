@@ -74,3 +74,12 @@ clean the latest bugs, isn't it ? :-)
 This version includes a new ChannelView to see notes played by each 
 instrument and a volume bar.
 It also has some bug fixes and support for really broken midi files.
+
+1.6    27-11-98
+-----  -------
+This version fix a bug that made kmid totally unusable to many users
+because it played music at different tempos (sometimes faster and
+sometimes slower), without any rhythm. Anyway, this isn't a public
+version yet, it's only available from CVS.
+
+

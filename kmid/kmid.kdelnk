@@ -35,7 +35,7 @@ Exec=kmid %u
 Icon=kmid.xpm
 TerminalOptions=
 Path=
-DocPath=kmid/kmid.html
+DocPath=kmid/index.html
 Type=Application
 Terminal=0
 
