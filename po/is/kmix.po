@@ -3,24 +3,23 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-09 02:36+0100\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-10-05 01:30+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@imf.au.dk>\n"
 "Language-Team: is\n"
 
-#: kmix.cpp:513 kmix.cpp:613
+#: kmix.cpp:444
 msgid "&Hide Menubar"
 msgstr "Fela &valmyndastiku"
 
-#: kmix.cpp:516
+#: kmix.cpp:447
 msgid "&Tickmarks On/Off"
 msgstr "&Kvarði af/á"
 
-#: kmix.cpp:528
-#, fuzzy
+#: kmix.cpp:461
 msgid ""
 "\n"
-"(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
 "\n"
 "Sound mixer panel for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
@@ -39,40 +38,35 @@ msgstr ""
 "Lennart Augustsson (augustss@cs.chalmers.se).\n"
 "Nick Lopez (kimo_sabe@usa.net) flutti á ALSA."
 
-#: kmix.cpp:548
+#: kmix.cpp:481
 msgid "&Left"
 msgstr "&Vinstri"
 
-#: kmix.cpp:549
+#: kmix.cpp:482
 msgid "&Center"
 msgstr "&Miðja"
 
-#: kmix.cpp:550
+#: kmix.cpp:483
 msgid "&Right"
 msgstr "&Hægri"
 
-#: kmix.cpp:615
-#, fuzzy
-msgid "&Show Menubar"
-msgstr "Valmyndarstika"
-
-#: kmix.cpp:660
+#: kmix.cpp:570
 msgid "Un&mute"
 msgstr "&Heyrast"
 
-#: kmix.cpp:662
+#: kmix.cpp:572
 msgid "&Mute"
-msgstr "&Þagna"
+msgstr "Þ&agna"
 
-#: kmix.cpp:665
+#: kmix.cpp:575
 msgid "&Split"
 msgstr "&Kljúfa"
 
-#: kmix.cpp:667
+#: kmix.cpp:577
 msgid "Un&split"
 msgstr "&Sameina"
 
-#: kmix.cpp:670
+#: kmix.cpp:579
 msgid "&RecSource"
 msgstr "Stilla &upptöku"
 
