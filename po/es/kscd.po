@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
 "POT-Creation-Date: 1999-04-03 02:43+0200\n"
-"PO-Revision-Date: 1998-12-28 15:43+0200\n"
+"PO-Revision-Date: 1999-04-23 07:43+0100\n"
 "Last-Translator: Marcos Nieto <mnieto@arrakis.es>\n"
 "Language-Team: Spanish <kde-es@kyb.ml.org>\n"
 "MIME-Version: 1.0\n"
@@ -245,7 +245,7 @@ msgstr "Parar de tocar al salir"
 
 #: configdlg.cpp:190
 msgid "Eject on Finish"
-msgstr "Eyectar al salir"
+msgstr "Expulsar al salir"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -269,7 +269,7 @@ msgstr "Anterior"
 
 #: docking.cpp:79
 msgid "Eject"
-msgstr "Eyectar"
+msgstr "Expulsar"
 
 #: docking.cpp:174
 msgid "Minimize"
@@ -373,7 +373,7 @@ msgstr "Salir de Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
-msgstr "Mostrar el Tiempo de Ciclado"
+msgstr "Mostrar el Tiempo de Ciclo"
 
 #: kscd.cpp:572
 msgid "Configure Kscd"
@@ -381,7 +381,7 @@ msgstr "Configurar el Kscd"
 
 #: kscd.cpp:573
 msgid "Eject CD"
-msgstr "Eyectar CD"
+msgstr "Expulsar CD"
 
 #: kscd.cpp:574
 msgid "The Artist on the Web"
@@ -430,7 +430,7 @@ msgstr "Repetir"
 
 #: kscd.cpp:916
 msgid "Ejecting"
-msgstr "Eyectando"
+msgstr "Expulsando"
 
 #: kscd.cpp:992
 msgid "kscd Configuraton"
@@ -520,7 +520,7 @@ msgstr "Listo"
 
 #: kscd.cpp:1377
 msgid "Ejected"
-msgstr "Eyectado"
+msgstr "Sin CD"
 
 #: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
@@ -532,7 +532,7 @@ msgstr "No se encontró entrada CDDB acorde."
 
 #: kscd.cpp:1834 kscd.cpp:1844
 msgid "Error getting CDDB entry."
-msgstr "Error al conseguir entrada CDDB."
+msgstr "Error obteniendo entrada CDDB."
 
 #: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
