@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmix.cpp:411
+msgid "Hide Menubar"
+msgstr "Menü verstecken"
+
+#: kmix.cpp:414
+msgid "Tickmarks On/Off"
+msgstr "Skalen An/Aus"
+
+#: kmix.cpp:417
+msgid "&Options"
+msgstr "&Optionen"
+
+#: kmix.cpp:419
+msgid "&Quit"
+msgstr "&Beenden"
+
+#: kmix.cpp:423
+#, fuzzy
+msgid "&Contents"
+msgstr "&Mitte"
+
+#: kmix.cpp:426
+msgid "&About"
+msgstr "&Über"
+
+#: kmix.cpp:427
+msgid "&About Qt..."
+msgstr "&Über Qt..."
+
+#: kmix.cpp:431
+msgid "&File"
+msgstr "&Datei"
+
+#: kmix.cpp:433
+msgid "&Help"
+msgstr "&Hilfe"
+
+#: kmix.cpp:437
+msgid "&Left"
+msgstr "&Links"
+
+#: kmix.cpp:438
+msgid "&Center"
+msgstr "&Mitte"
+
+#: kmix.cpp:439
+msgid "&Right"
+msgstr "&Rechts"
+
+#: kmix.cpp:561
+msgid "Un&mute"
+msgstr "M&ute aus"
+
+#: kmix.cpp:563
+msgid "&Mute"
+msgstr "&Mute an"
+
+#: kmix.cpp:566
+msgid "&Split"
+msgstr "&Trennen"
+
+#: kmix.cpp:568
+msgid "Un&split"
+msgstr "&Verbinden"
+
+#: kmix.cpp:570
+msgid "&RecSource"
+msgstr "&Aufnahme-Quelle"
+
+#: prefs.cpp:43
+msgid "General"
+msgstr "Allgemeines"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanäle"
+
+#: prefs.cpp:47
+msgid "Startup settings"
+msgstr "Starteinstellungen"
+
+#: prefs.cpp:52
+msgid "Menubar"
+msgstr "Menü"
+
+#: prefs.cpp:57
+msgid "Tickmarks"
+msgstr "Skalen"
+
+#: prefs.cpp:82
+msgid "KMix Preferences"
+msgstr "KMix Einstellungen"
+
+#: prefs.cpp:88
+msgid "Mixer channel setup (not saved yet)"
+msgstr "Kanaleinstellungen (nicht gespeichert)"
+
+#: prefs.cpp:95
+msgid "Device"
+msgstr "Gerät"
+
+#: prefs.cpp:98
+msgid "Show"
+msgstr "Zeige"

@@ -100,4 +100,3 @@ msgstr "Bereit"
 #: kmediawin.cpp:278
 msgid "Undefined"
 msgstr "Undefiniert"
-
