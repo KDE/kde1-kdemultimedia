@@ -70,6 +70,7 @@
 
 #ifdef linux
 #include <mntent.h>
+#define KSCDMAGIC 1
 #endif
 
 #include "ledlamp.h"
@@ -90,6 +91,13 @@ struct configstruct{
   bool	docking;
 };
 
+struct mgconfigstruct{
+
+  int width;
+  int height;
+  int brightness;
+};
+
 
 class CDDB;
 
@@ -102,6 +110,8 @@ class KSCD : public QWidget {
 
 public slots:
 
+	  void          magicdone(KProcess*);
+	void            magicslot(int);
 	void		togglequeryled();
 	void		cddb_done();
 	void		cddb_timed_out();
@@ -186,9 +196,13 @@ private:
 	QComboBox	*songListCB;
 	QSlider		*volSB;
 
+	KProcess*             magicproc;
 	int		volChnl;
 	int		mixerFd;
 	int 	        volume;
+	int magic_width;
+	int magic_height;
+	int magic_brightness;
 	QFrame 		*backdrop;
 	LedLamp        *queryled;
 	KConfig 	*config;

@@ -32,6 +32,7 @@ extern "C" {
 #include "docking.h"
 #include "kscd.h"
 #include "configdlg.h"
+#include "mgconfdlg.h"
 #include "version.h"
 #include "config.h"
 #include "cddb.h"
@@ -121,6 +122,7 @@ int mark_a, mark_b;
 KSCD::KSCD( QWidget *parent, const char *name ) :
   QWidget( parent, name ){
 
+  magicproc           = 0L;
   cd_device_str        	= "";
   background_color 	= black;
   led_color 		= green;
@@ -128,6 +130,10 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   looping 		= false;
   cddrive_is_ok 		= true;
   tooltips 		= true;
+  magic_width           = 320;
+  magic_height          = 200;
+  magic_brightness      = 3;
+
   cycle_flag		= false;
   cddb_remote_enabled   = true;
   cddb 			= 0L;
@@ -513,7 +519,15 @@ void KSCD::setupPopups(){
   connect( purchPopup, SIGNAL(activated(int)), SLOT(purchases(int)) );
 
   mainPopup->insertItem (klocale->translate("Information"), infoPopup);
+
+#ifdef KSCDMAGIC
+  mainPopup->insertSeparator(-1);
+  mainPopup->insertItem ("KSCD Magic");
+  connect( mainPopup, SIGNAL(activated(int)), SLOT(magicslot(int)) );
+#endif
+
   connect( infoPopup, SIGNAL(activated(int)), SLOT(information(int)) );
+
   connect( infoPB, SIGNAL(clicked()), SLOT(showPopup()) );
 
 }
@@ -901,14 +915,13 @@ void KSCD::aboutClicked(){
   QGroupBox *box = new QGroupBox(about,"box");
   QLabel  *label = new QLabel(box,"label");
   box->setGeometry(10,10,365,360);
-  label->setGeometry(170,30,165,300);
+  label->setGeometry(160,30,195,300);
   label->setAlignment( AlignCenter);
   QString labelstring;
   labelstring = "kscd "KSCDVERSION"\n"\
 		 "Copyright (c) 1997 \nBernd Johannes Wuebben\n"\
-		 "wuebben@math.cornell.edu\n"\
 		 "wuebben@kde.org\n\n"\
-		 "\nkscd  contains code from:\n"
+		 "kscd  contains code from:\n"
                  "workman 1.4 beta 3\n"
                  "Copyright (c) Steven Grimm \n"\
                  "koreth@hyperion.com\n\n"\
@@ -916,7 +929,12 @@ void KSCD::aboutClicked(){
                  "Steve Scherf, the inventors of "\
                  "the CDDB database concept. "\
                  "Visit http://www.cddb.com for "\
-                 "more information on CDDB.";
+                 "more information on CDDB.\n\n"
+#ifdef KSCDMAGIC
+                 "KSCD Magic based on Synaesthesia by "\
+                 "Paul Harrison pfh@yoyo.cc.monash.edu.au"
+#endif
+;
 
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
@@ -927,6 +945,7 @@ void KSCD::aboutClicked(){
   QLabel *logo = new QLabel(box);
   logo->setPixmap(pm);
   logo->setGeometry(40, 50, pm.width(), pm.height());
+
 
   ConfigDlg* dlg;
   struct configstruct config;
@@ -947,9 +966,16 @@ void KSCD::aboutClicked(){
   setup->insertData(cddbserverlist,cddbbasedir,
 		    submitaddress,current_server,cddb_remote_enabled);
 
+  MGConfigDlg* mgdlg;
+  struct mgconfigstruct mgconfig;
+  mgconfig.width = magic_width;
+  mgconfig.height = magic_height;
+  mgconfig.brightness = magic_brightness;
+  mgdlg = new MGConfigDlg(tabdialog,&mgconfig,"mgconfigdialg");
 
   tabdialog->addTab(setup,"CDDB");
   tabdialog->addTab(dlg,"Kscd Options");
+  tabdialog->addTab(mgdlg,"Kscd Magic");
   tabdialog->addTab(about,"About");
 
 
@@ -973,6 +999,10 @@ void KSCD::aboutClicked(){
     }
     cddrive_is_ok = true;
       
+    magic_width = mgdlg->getData()->width;
+    magic_height = mgdlg->getData()->height;
+    magic_brightness = mgdlg->getData()->brightness;
+
     setup->getData(cddbserverlist,cddbbasedir,submitaddress,
 		   current_server,cddb_remote_enabled);
     setColors();
@@ -1259,6 +1289,12 @@ void KSCD::readSettings(){
   background_color = config->readColorEntry("BackColor",&defaultback);	
   led_color = config->readColorEntry("LEDColor",&defaultled);
 
+
+  config->setGroup("MAGIC");
+  magic_width      = config->readNumEntry("magicwidth",320);
+  magic_height     = config->readNumEntry("magicheight",200);
+  magic_brightness = config->readNumEntry("magicbrightness", 3);
+
   config->setGroup("CDDB");
   QString basedirdefault;
   basedirdefault = mykapp->kde_datadir().copy();
@@ -1305,6 +1341,13 @@ void KSCD::writeSettings(){
   config->writeEntry("SeverList",cddbserverlist);
   config->writeEntry("CDDBSubmitAddress",submitaddress);
   config->writeEntry("CurrentServer",current_server);
+
+
+  config->setGroup("MAGIC");
+  config->writeEntry("magicwidth",magic_width);
+  config->writeEntry("magicheight",magic_height);
+  config->writeEntry("magicbrightness",magic_brightness);
+
   config->sync();
 	
 }
@@ -1825,6 +1868,62 @@ void  KSCD::purchases(int i){
   }
 
 }
+void KSCD::magicslot(int ){
+
+  if(magicproc && magicproc->isRunning()){
+      return;
+  }
+  
+  magicproc = 0L;
+  magicproc = new KProcess;
+
+  magicproc->setExecutable("kscdmagic");
+  QString b;
+  b.setNum(magic_brightness);
+  QString w;
+  w.setNum(magic_width);
+  QString h;
+  h.setNum(magic_height);
+
+  *magicproc << "-b" << b.data() << "-w"<< w.data() << "-h" << h.data();
+
+  connect(magicproc, 
+	  SIGNAL(processExited(KProcess *)),this, SLOT(magicdone(KProcess*)));
+
+
+  bool result = magicproc->start(KProcess::NotifyOnExit , KProcess::NoCommunication);
+  
+  if(!result){
+    QString str;
+    str.sprintf(klocale->translate("Cannot start kscdmagic."));
+    QMessageBox::critical(this,"KSCD", str.data());
+  }
+   
+  return;
+  
+
+}
+
+void KSCD::magicdone(KProcess* proc){
+
+  if(proc->normalExit()){
+    //    fprintf(stderr,"kscdmagic exit status %d\n",proc->exitStatus());
+    if(proc->exitStatus()!=0){
+      QString str;
+      str.sprintf(klocale->translate("KSCD Magic exited abnormally.\n"\
+				     "Are you sure kscdmagic is installed?"));
+      QMessageBox::critical(this,"KSCD", str.data());
+    }
+  }
+
+  //  printf("KSCD Magic Process Exited\n");
+
+  if(proc)
+    delete proc;
+  magicproc = 0L;
+
+}
+
 
 void KSCD::information(int i){
 

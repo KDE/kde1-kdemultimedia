@@ -41,31 +41,39 @@ CFLAGS	=
 ####### Files
 
 HEADER = kscd.h struct.h bwlednum.h ledlamp.h inexact.h CDDialog.h CDDialogData.h\
-	CDDBSetup.h CDDBSetupData.h
+	CDDBSetup.h CDDBSetupData.h mgconfdlg.h
 
 SOURCES	= kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp CDDialogData.cpp \
 	CDDBSetup.cpp CDDBSetupData.cpp docking.cpp \
-	inexact.cpp cdinfo.c\
+	inexact.cpp cdinfo.c mgconfdlg.cpp \
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
 	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp
 
 SOURCES2=plat_sun_audio.c plat_sun_cdda.c cddaslave.c  
 
+
+SOURCES3=kscdmagic/bitmap.cpp  kscdmagic/core.cpp kscdmagic/main.cpp \
+	kscdmagic/sound.cpp kscdmagic/xlibwrap.cpp kscdmagic/xlib.c
+
+OBJECTS3=kscdmagic/bitmap.o  kscdmagic/core.o kscdmagic/main.o \
+	kscdmagic/sound.o kscdmagic/xlibwrap.o kscdmagic/xlib.o
+
 OBJECTS	= kscd.o configdlg.o  ledlamp.o inexact.o cddb.o cdinfo.o\
 	CDDialog.o CDDialogData.o CDDBSetup.o CDDBSetupData.o docking.o\
-	plat_sun.o plat_hpux.o plat_linux.o plat_news.o \
-	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o \
+	plat_sun.o plat_hpux.o plat_linux.o plat_news.o mgconfdlg.o\
+	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o\
 	plat_svr4.o plat_freebsd.o plat_osf1.o plat_irix.o bwlednum.o
 
 OBJECTS2=plat_sun_audio.o plat_sun_cdda.o cddaslave.o 
 
 SRCMETA	= kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc inexact.moc\
 	CDDialog.moc CDDialogData.moc CDDBSetup.moc CDDBSetupData.moc\
-	docking.moc
+	docking.moc mgconfdlg.moc
 
 TARGET1 = kscd
 TARGET2 = cddaslave
+TARGET3 = kscdmagic
 
 ####### Implicit rules
 
@@ -78,7 +86,7 @@ TARGET2 = cddaslave
 
 ####### Build rules
 
-all: $(TARGET1) $(TARGET2)
+all: $(TARGET1) $(TARGET2) 
 
 Makefile: Makefile.in
 	cd .. && CONFIG_FILES=kscd/$@ CONFIG_HEADERS= $(SHELL) ./config.status
@@ -88,14 +96,19 @@ config.h: kscd-script
 	sh kscd-script
 
 kscd: config.h $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
+	(cd kscdmagic && $(MAKE) all )
 	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS) $(KDE_RPATH)
 
 $(TARGET2): $(SOURCES2)  $(OBJECTS2) $(HEADER)
 	$(LIBTOOL) --mode=link $(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS) $(KDE_RPATH)
 
+
+
 depend:
 	@makedepend -I$(INCDIR) $(SOURCES) 2> /dev/null
 clean:
+	(cd docs && $(MAKE) clean)
+	(cd kscdmagic && $(MAKE) clean)
 	-rm -f *.o *.bak *~ *% #*
 	-rm -f config.h
 	-rm -f $(SRCMETA) $(TARGET1) $(TARGET2)
@@ -105,6 +118,7 @@ distclean: clean
 
 install: all
 	(cd docs && $(MAKE) install)
+	(cd kscdmagic && $(MAKE) install)
 	strip kscd
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL_CDDB_DIR) $(CDDBDIR)/rock
@@ -178,9 +192,12 @@ CDDialogData.moc: CDDialogData.h
 
 CDDBSetupData.moc: CDDBSetupData.h
 	$(MOC) CDDBSetupData.h -o CDDBSetupData.moc
-	
+
 docking.moc: docking.h
 	$(MOC) docking.h -o docking.moc
+
+mgconfdlg.moc: mgconfdlg.h
+	$(MOC) mgconfdlg.h -o mgconfdlg.moc
 
 
 
