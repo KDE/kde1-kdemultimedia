@@ -852,47 +852,55 @@ static void adjust_volume(int c)
 }
 
 #ifndef ADAGIO
-
-
 static int xmp_epoch = -1;
 static unsigned xxmp_epoch = 0;
 static unsigned time_expired = 0;
+static unsigned last_time_expired = 0;
 extern int gettimeofday(struct timeval *, struct timezone *);
 static struct timeval tv;
 static struct timezone tz;
-static void time_sync()
+static void time_sync(int32 resync)
 {
 	unsigned jiffies;
 
+	if (resync >= 0) {
+		last_time_expired = resync;
+		xmp_epoch = -1;
+		xxmp_epoch = 0; 
+		time_expired = 0;
+		return;
+	}
 	gettimeofday (&tv, &tz);
 	if (xmp_epoch < 0) {
 		xxmp_epoch = tv.tv_sec;
 		xmp_epoch = tv.tv_usec;
 	}
 	jiffies = (tv.tv_sec - xxmp_epoch)*100 + (tv.tv_usec - xmp_epoch)/10000;
-	time_expired = (jiffies * play_mode->rate)/100;
+	time_expired = (jiffies * play_mode->rate)/100 + last_time_expired;
 }
 
 
-static void show_markers(int display_lyrics)
+static void show_markers(int32 until_time)
 {
-    struct meta_text_type *meta;
+    static struct meta_text_type *meta;
 
-    time_sync();
+    if (!meta_text_list) return;
 
-    for (meta = meta_text_list; meta != NULL; )
+    if (until_time >= 0) {
+	time_sync(until_time);
+	for (meta = meta_text_list; meta && meta->time < until_time; meta = meta->next) ;
+	return;
+    }
+
+    if (!time_expired) meta = meta_text_list;
+
+    time_sync(-1);
+
+    while (meta)
 	if (meta->time <= time_expired) {
-	    if (display_lyrics) {
-	        ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", meta->text);
-		/*printf("%s", meta->text);*/
-	        if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "");
-		/*if (!meta->next) printf("\n");*/
-		/*fflush(stdout);*/
-	    }
-	    meta_text_list = meta->next;
-	    free(meta->text);
-	    free(meta);
-	    meta = meta_text_list;
+	    ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", meta->text);
+	    if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "");
+	    meta = meta->next;
 	}
 	else break;
 }
@@ -902,6 +910,7 @@ static void show_markers(int display_lyrics)
 static void seek_forward(int32 until_time)
 {
   reset_voices();
+  show_markers(until_time);
   while (current_event->time < until_time)
     {
       switch(current_event->type)
@@ -986,6 +995,7 @@ static void skip_to(int32 until_time)
 #ifndef ADAGIO
   if (until_time)
     seek_forward(until_time);
+  else show_markers(until_time);
   ctl->reset();
 #endif /* ADAGIO */
 }
@@ -1126,7 +1136,7 @@ static int compute_data(int32 count)
       
       ctl->current_time(current_sample);
 #ifndef ADAGIO
-      show_markers(1);
+      show_markers(-1);
       if ((rc=apply_controls())!=RC_NONE)
 	return rc;
 #endif /* not ADAGIO */
@@ -1152,7 +1162,6 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
   lost_notes=cut_notes=0;
 
   skip_to(0);
-  show_markers(1);
   
   for (;;)
     {

@@ -86,6 +86,17 @@ static int32 getvl(void)
 /**********************************/
 struct meta_text_type *meta_text_list = NULL;
 
+static void free_metatext()
+{
+    struct meta_text_type *meta;
+    while (meta_text_list) {
+	meta = meta_text_list;
+	meta_text_list = meta->next;
+	free(meta->text);
+	free(meta);
+    }
+}
+
 static int metatext(int type, int leng, char *mess)
 {
     static int continued_flag = 0;
@@ -616,6 +627,7 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
   event_count=0;
   at=0;
   evlist=0;
+  free_metatext();
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
     {
