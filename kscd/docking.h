@@ -5,7 +5,7 @@
  *
  *              Copyright (C) 1997 Bernd Johannes Wuebben
  *                      wuebben@math.cornell.edu
- * 
+ *
  * This file was contributed by Harri Porten <porten@tu-harburg.de>
  *
  *
@@ -70,15 +70,11 @@ public slots:
 public:
     const bool isDocked();
     const bool isToggled();
-    void SaveKscdPosition();
 
 private:
   bool docked;
   int toggleID;
-  int pos_x;
-  int pos_y;
   QPopupMenu *popup_m;
-  bool have_kscd_position;
   QPixmap cdsmall_pixmap;
   bool toggled;
 

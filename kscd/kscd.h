@@ -162,7 +162,7 @@ public slots:
     void information(int);
     void showPopup();
     void dockClicked();
-    
+
     void doSM();
 
 private:

@@ -840,7 +840,6 @@ void KSCD::dockClicked()
         dockinginprogress = true;
         if(dock_widget) {
             dock_widget->dock();
-            dock_widget->SaveKscdPosition();
         }
         this->hide();
     }
@@ -880,43 +879,15 @@ bool KSCD::event( QEvent *e ){
         if (!KWM::isIconified(winId())) // maybe we are just on another desktop
             return FALSE;
         if(dock_widget) {
-            dock_widget->SaveKscdPosition();
             dock_widget->dock();
         }
         // a trick to remove the window from the taskbar (Matthias)
-        recreate(0, 0, geometry().topLeft(), FALSE);
+        recreate(0, 0, QPoint(x(), y()), FALSE);
         kapp->setTopWidget( this );
         return TRUE;
     }
     return QWidget::event(e);
 }
-
-// void KSCD::focusOutEvent(QFocusEvent *e)
-// {
-//     qApp->processEvents();
-//     qApp->flushX();
-//     if(!dockinginprogress &&
-//        docking &&
-//        autodock &&
-//        dock_widget &&
-//        e->lostFocus() == true &&
-//        this->isVisible() == false &&
-//        dock_widget->isToggled() == false){
-//         if(debugflag)
-//             printf("autodock Conditions = TRUE\n");
-//         dock_widget->SaveKscdPosition();
-//         this->show();
-//         this->hide();
-//     }else
-//         if(debugflag){
-//             printf("autodock Conditions = FALSE\n");
-//             printf("docking = %d\nautodock = %d\ne->lostFocus() = %d\n"
-//                    "this->isVisible() = %d\ndock_widget->isToggled = %d\n",
-//                    docking, autodock, e->lostFocus(), this->isVisible(),
-//                    dock_widget->isToggled());
-//         }
-// //    dockinginprogress = false;
-// }
 
 void KSCD::loopClicked(){
 
@@ -2416,7 +2387,7 @@ int main( int argc, char *argv[] )
     k = new KSCD();
 
     cur_track = 1;
-    
+
     bool hide = FALSE;
 
     for(int i = 0; i < argc; i++){

@@ -41,8 +41,6 @@ DockWidget::DockWidget(const char *name)
 
   docked = false;
 
-  pos_x = pos_y = 0;
-  have_kscd_position = false;
   QString pixdir = mykapp->kde_datadir() + "/kscd/pics/";
   QString tmp;
 
@@ -106,12 +104,6 @@ void DockWidget::dock() {
     // finally dock the widget
     this->show();
     docked = true;
-  }
-  if(k){
-    QPoint point = k->mapToGlobal (QPoint (0,0));
-    pos_x = point.x();
-    pos_y = point.y();
-
   }
 }
 
@@ -190,23 +182,17 @@ void DockWidget::toggle_window_state() {
     if(k != 0L)  {
         if (k->isVisible()){
             dockinginprogress = true;
-            SaveKscdPosition();
             toggled = true;
             k->hide();
+            k->recreate(0, 0, QPoint(k->x(), k->y()), FALSE);
+            kapp->setTopWidget( k );
+
         }
         else {
-
-            if(!have_kscd_position)
-                SaveKscdPosition();
-
-            k->setGeometry(
-                           pos_x,
-                           pos_y,
-                           k->width(),
-                           k->height());
             toggled = false;
             k->show();
             dockinginprogress = false;
+            KWM::activate(k->winId());
         }
     }
 }
@@ -216,13 +202,6 @@ const bool DockWidget::isToggled()
     return(toggled);
 }
 
-void DockWidget::SaveKscdPosition()
-{
-     QPoint point = k->mapToGlobal (QPoint (0,0));
-     pos_x = point.x();
-     pos_y = point.y();
-     have_kscd_position = true;
-}
 void DockWidget::eject() {
 
   k->ejectClicked();
