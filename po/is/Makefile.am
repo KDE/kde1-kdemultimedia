@@ -1,9 +1,10 @@
 
 # This has to be set. The rest should be reusable
 GMOFILES = kmix.gmo kscd.gmo
+
 POFILES = $(GMOFILES:.gmo=.po)
 
-LANG = no
+LANG = is
 
 localedir = $(kde_locale)
 
