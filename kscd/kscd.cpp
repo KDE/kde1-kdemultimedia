@@ -504,7 +504,7 @@ void KSCD::setupPopups(){
 
 void KSCD::showPopup(){
 
-  QPoint point = this->mapToGlobal (QPoint (0,0));
+  QPoint point = this->mapToGlobal (QPoint(0,0));
 
   if(mainPopup)
     mainPopup->popup(point);
