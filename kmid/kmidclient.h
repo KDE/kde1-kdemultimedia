@@ -44,6 +44,7 @@ class KConfig;
 class KLCDNumber;
 class QLabel;
 class KCombo;
+class RhythmView;
 class ChannelView;
 
 class kmidClient : public QWidget
@@ -192,7 +193,9 @@ private:
     KDisplayText *kdispt;
     QLabel *qlabelTempo;
     KCombo *comboSongs;
+    RhythmView *rhythmview;
 
+    
     ChannelView *channelView;
 
 };

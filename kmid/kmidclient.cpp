@@ -53,6 +53,7 @@
 #include "channelview.h"
 #include "channel.h"
 #include "version.h"
+#include "rhythmview.h"
 
 
 kmidClient::kmidClient(QWidget *parent,const char *name)
@@ -108,12 +109,17 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,83,28);
     connect(tempoLCD,SIGNAL(valueChanged(double)),this,SLOT(changeTempo(double)));
 
-    
+
     comboSongs = new KCombo(FALSE,this,"Songs");
     //	fillInComboSongs();
     comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
     connect (comboSongs,SIGNAL(activated(int)),this,SLOT(selectSong(int)));
-    
+
+
+    rhythmview= new RhythmView(this,"RhythmView");
+    rhythmview->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+2,15,7);
+    rhythmview->show();
+
     volumebar = new QSlider(0,200,10,100,QSlider::Vertical,this);
     volumebar->setSteps(10,20);
     volumebar->setValue(100);
@@ -192,6 +198,7 @@ void kmidClient::resizeEvent(QResizeEvent *)
     timebar->setGeometry(5,10,width()-5,timebar->height());
     timetags->setGeometry(5,10+timebar->height(),width()-5,timetags->getFontHeight());
     comboSongs->setGeometry(tempoLCD->x()+tempoLCD->width()+15,tempoLCD->y(),width()-(tempoLCD->x()+tempoLCD->width()+25),tempoLCD->height());
+    rhythmview->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+2,width()-10,7);
     volumebar->setGeometry(5,10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,15,height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+15));
     kdispt->setGeometry(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10,width()-(5+((visiblevolumebar)?25:5)),height()-(10+timebar->height()+timetags->height()+5+tempoLCD->height()+10));
 };
@@ -638,12 +645,13 @@ void kmidClient::timebarChange(int i)
      ulong delaymillisec=spev->absmilliseconds-(currentmillisec-beginmillisec);
      timer4events->start(delaymillisec,TRUE);
      */
-    
+
     pctl->OK=0;
+/*
     tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
     currentTempo=tempoLCD->getValue();
     tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
-    
+*/
 };
 
 void kmidClient::moveEventPointersTo(ulong ms)
@@ -652,10 +660,23 @@ void kmidClient::moveEventPointersTo(ulong ms)
     printf("Move To : %lu\n",ms);
 #endif
     spev=Player->takeSpecialEvents();
+
+    ulong tempo=(ulong)(500000 * pctl->ratioTempo);
+    int num=4;
+    int den=4;
+    
     while ((spev!=NULL)&&(spev->absmilliseconds<ms))
     {
+        if (spev->type==3) tempo=spev->tempo;
+        else if (spev->type==6) {num=spev->num;den=spev->den;};
         spev=spev->next;
     };
+    tempoLCD->display(tempoToMetronomeTempo(tempo));
+    currentTempo=tempoLCD->getValue();
+    tempoLCD->setDefaultValue(tempoToMetronomeTempo(tempo)*pctl->ratioTempo);
+
+    rhythmview->setRhythm(num,den);
+    
     kdispt->gotomsec(ms);
 //    if (noteArray!=NULL) noteArray->moveIteratorTo(ms);
     if (noteArray!=NULL)
@@ -992,7 +1013,7 @@ void kmidClient::processSpecialEvent()
             {
                 kdispt->PaintIn(spev->type);
             }
-            else
+            else if (spev->type==3)
             {
                 tempoLCD->display(tempoToMetronomeTempo(spev->tempo));
 #ifdef KMidDEBUG
@@ -1001,6 +1022,17 @@ void kmidClient::processSpecialEvent()
 #endif
                 currentTempo=tempoLCD->getValue();
                 tempoLCD->setDefaultValue(tempoToMetronomeTempo(spev->tempo)*pctl->ratioTempo);
+            }
+            else if (spev->type==6)
+            {
+                rhythmview->setRhythm(spev->num,spev->den);
+            }
+            else if (spev->type==7)
+            {
+#ifdef KMidDEBUG
+                printf("Beat : %d/%d\n",spev->num,spev->den);
+#endif
+                rhythmview->Beat(spev->num);
             };
             pctl->SPEVprocessed++;
             spev=spev->next;

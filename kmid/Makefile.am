@@ -8,7 +8,7 @@ kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp \
          collectdlg.cpp kaskdlg.cpp randomlist.cpp channelview.cpp \
          channel.cpp channel3d.cpp channel4d.cpp channelcfgdlg.cpp \
-         instrname.cpp main.cpp 
+         instrname.cpp rhythmview.cpp main.cpp 
 
 noinst_HEADERS = *.h
 

@@ -391,12 +391,21 @@ Thursday 1-10-98
 
 Thursday 15-10-98
 - FIXED !!!
-The long awaited fix has arrived for songs keeping playing after X11' logout
-when channelview was actived.
-Now also the ChannelView change its colors when the user change the
-global colors, kdisptext paints a frame over the karaoke text,
-KLCDNumber only accepts a range of values (from 3 to 999)
+ The long awaited fix has arrived for songs keeping playing after X11' logout
+ when channelview was actived.
+ Now also the ChannelView change its colors when the user change the
+ global colors, kdisptext paints a frame over the karaoke text,
+ KLCDNumber only accepts a range of values (from 3 to 999)
 
 Friday 16-10-98
 - Improved support for really broken files.
 - Added some translations to Spanish
+
+Friday 23-10-98
+- I've started writing the internals of a rhythm view
+
+Saturday 24-10-98
+- Now KMid shows a new widget to make easier follow the rhythm of songs.
+ I've also fixed a small bug by which the tempo (and rhythm) changed its 
+ state before the event actually happening if you moved the timebar near
+ before the event time. The problem was caused by volatile shared variables. 
