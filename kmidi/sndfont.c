@@ -1036,6 +1036,22 @@ if (strip_loop == 1) {
 	}
 	else sp->v.panning = 64;
 
+	if (lay->set[SF_chorusEffectsSend]) {
+		if (sf->version == 1)
+			sp->v.chorusdepth = (int8)lay->val[SF_chorusEffectsSend];
+		else
+			sp->v.chorusdepth = (int8)((int)lay->val[SF_chorusEffectsSend] * 127 / 1000);
+	}
+	else sp->v.chorusdepth = 0;
+
+	if (lay->set[SF_reverbEffectsSend]) {
+		if (sf->version == 1)
+			sp->v.reverberation = (int8)lay->val[SF_reverbEffectsSend];
+		else
+			sp->v.reverberation = (int8)((int)lay->val[SF_reverbEffectsSend] * 127 / 1000);
+	}
+	else sp->v.reverberation = 0;
+
 	/* tremolo & vibrato */
 	sp->v.tremolo_sweep_increment = 0;
 	sp->v.tremolo_phase_increment = 0;
