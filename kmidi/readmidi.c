@@ -33,6 +33,8 @@
 #include <unistd.h>
 #endif
 
+#include <ctype.h>
+
 #include "config.h"
 #include "common.h"
 #include "instrum.h"
@@ -81,9 +83,73 @@ static int32 getvl(void)
     }
 }
 
+/**********************************/
+struct meta_text_type *meta_text_list = NULL;
+
+static int metatext(int type, int leng, char *mess)
+{
+    static int continued_flag = 0;
+    int n, c;
+    unsigned char *p = (unsigned char *)mess;
+    struct meta_text_type *meta, *mlast;
+    char *meta_string;
+
+    if (at > 0 && (type == 1||type == 5||type == 6||type == 7)) {
+	meta = (struct meta_text_type *)malloc(sizeof(struct meta_text_type));
+	if (leng > 72) leng = 72;
+	meta_string = (char *)malloc(leng+8);
+	if (!leng) {
+	    continued_flag = 1;
+	    meta_string[leng++] = '\012';
+	}
+	else for (n = 0; n < leng; n++) {
+	    c = *p++;
+	    if (!n && (c == '/' || c == '\\')) {
+		continued_flag = 1;
+		meta_string[0] = '\012';
+	        if (c == '/') {
+		meta_string[1] = ' ';
+		meta_string[2] = ' ';
+		meta_string[3] = ' ';
+		meta_string[4] = ' ';
+		leng += 4;
+		n += 4;
+		}
+	    }
+	    else {
+		meta_string[n] = (isprint(c) || isspace(c)) ? c : '.';
+		if (c == '\012') continued_flag = 1;
+		if (c == '\015') meta_string[n] = '\012';
+	    }
+	}
+	if (!continued_flag) {
+		meta_string[leng++] = '\012';
+	}
+	meta_string[leng] = '\0';
+	meta->type = type;
+	meta->text = meta_string;
+	meta->time = at;
+	if (meta_text_list == NULL) {
+	    meta->next = meta_text_list;
+	    meta_text_list = meta;
+	}
+	else {
+	    for (mlast = meta_text_list; mlast->next != NULL; mlast = mlast->next)
+		if (mlast->next->time > meta->time) break;
+	    meta->next = mlast->next;
+	    mlast->next = meta;
+	}
+	return 1;
+    }
+    else return 0;
+}
+
+/**********************************/
+
+
 /* Print a string from the file, followed by a newline. Any non-ASCII
    or unprintable characters will be converted to periods. */
-static int dumpstring(int32 len, char *label)
+static int dumpstring(int32 len, char *label, int type)
 {
   signed char *s=safe_malloc(len+1);
   if (len != fread(s, 1, len, fp))
@@ -92,12 +158,15 @@ static int dumpstring(int32 len, char *label)
       return -1;
     }
   s[len]='\0';
-  while (len--)
+  if (!metatext(type, len, s))
+  {
+   while (len--)
     {
       if (s[len]<32)
 	s[len]='.';
     }
-  ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "%s%s", label, s);
+   ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "%s%s", label, s);
+  }
   free(s);
   return 0;
 }
@@ -144,7 +213,7 @@ static MidiEventList *read_midi_event(void)
 	      static char *label[]={
 		"Text event: ", "Text: ", "Copyright: ", "Track name: ",
 		"Instrument: ", "Lyric: ", "Marker: ", "Cue point: "};
-	      dumpstring(len, label[(type>7) ? 0 : type]);
+	      dumpstring(len, label[(type>7) ? 0 : type], type);
 	    }
 	  else
 	    switch(type)
@@ -201,6 +270,8 @@ static MidiEventList *read_midi_event(void)
 		  case 10: control=ME_PAN; break;
 		  case 11: control=ME_EXPRESSION; break;
 		  case 64: control=ME_SUSTAIN; break;
+		  case 91: control=ME_REVERBERATION; break;
+		  case 93: control=ME_CHORUSDEPTH; break;
 		  case 120: control=ME_ALL_SOUNDS_OFF; break;
 		  case 121: control=ME_RESET_CONTROLLERS; break;
 		  case 123: control=ME_ALL_NOTES_OFF; break;
@@ -380,6 +451,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
   MidiEventList *meep;
   int32 i, our_event_count, tempo, skip_this_event, new_value;
   int32 sample_cum, samples_to_do, at, st, dt, counting_time;
+  struct meta_text_type *meta = meta_text_list;
 
   int current_bank[16], current_set[16], current_program[16]; 
   /* Or should each bank have its own current program? */
@@ -409,7 +481,11 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 		"%6d: ch %2d: event %d (%d,%d)",
 		meep->event.time, meep->event.channel + 1,
 		meep->event.type, meep->event.a, meep->event.b);
-
+      while (meta && meta->time <= at)
+	{
+	   meta->time = st;
+	   meta = meta->next;
+	}
       if (meep->event.type==ME_TEMPO)
 	{
 	  tempo=
@@ -523,7 +599,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
   lp->type=ME_EOT;
   our_event_count++;
   free_midi_list();
-  
+ 
   *eventsp=our_event_count;
   *samplesp=st;
   return groomed_list;
