@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-11-21 02:10+0100\n"
+"POT-Creation-Date: 1998-11-26 02:07+0100\n"
 "PO-Revision-Date: 1998-10-15 15:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -241,7 +241,7 @@ msgstr ""
 msgid "Stop Playing on Exit"
 msgstr ""
 
-#: docking.cpp:75 kscd.cpp:557
+#: docking.cpp:75 kscd.cpp:556
 msgid "Play/Pause"
 msgstr "Sviraj/Pauza"
 
@@ -318,116 +318,116 @@ msgid ""
 "%s"
 msgstr ""
 
-#: kscd.cpp:376
+#: kscd.cpp:375
 msgid "Vol: --"
 msgstr "Jaèina: --"
 
-#: kscd.cpp:523
+#: kscd.cpp:522
 msgid "Performances"
 msgstr "Nastupi"
 
-#: kscd.cpp:526
+#: kscd.cpp:525
 msgid "Purchases"
 msgstr "Kupovine"
 
-#: kscd.cpp:533
+#: kscd.cpp:532
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:559
+#: kscd.cpp:558
 msgid "Loop CD"
 msgstr "Ponavljaj CD"
 
-#: kscd.cpp:560
+#: kscd.cpp:559
 msgid "Track Selection"
 msgstr "Izaberi pjesme"
 
-#: kscd.cpp:561
+#: kscd.cpp:560
 msgid "30 Secs Forward"
 msgstr "30 sekundi naprijed"
 
-#: kscd.cpp:562
+#: kscd.cpp:561
 msgid "30 Secs Backward"
 msgstr "30 sekundi natrag"
 
-#: kscd.cpp:563
+#: kscd.cpp:562
 msgid "Next Track"
 msgstr "Slijedeæa pjesma"
 
-#: kscd.cpp:564
+#: kscd.cpp:563
 msgid "Previous Track"
 msgstr "Prethodna pjesma"
 
-#: kscd.cpp:565
+#: kscd.cpp:564
 msgid "Dock Kscd"
 msgstr "Pristani Kscd"
 
-#: kscd.cpp:566
+#: kscd.cpp:565
 msgid "Cycle Time Display"
 msgstr "Kru¾no vrijeme"
 
-#: kscd.cpp:567
+#: kscd.cpp:566
 msgid "Configure Kscd"
 msgstr "Podesi Kscd"
 
-#: kscd.cpp:568
+#: kscd.cpp:567
 msgid "Eject CD"
 msgstr "Izbaci CD"
 
-#: kscd.cpp:569
+#: kscd.cpp:568
 msgid "The Artist on the Web"
 msgstr "Umjetnici na Webu"
 
-#: kscd.cpp:570
+#: kscd.cpp:569
 msgid "Random Play"
 msgstr "Sluèajni redoslijed"
 
-#: kscd.cpp:571
+#: kscd.cpp:570
 msgid "CDDB Dialog"
 msgstr "CDDB dijalog"
 
-#: kscd.cpp:572
+#: kscd.cpp:571
 msgid "CD Volume Control"
 msgstr "Jaèina zvuka CDa"
 
-#: kscd.cpp:623 kscd.cpp:674 kscd.cpp:1269
+#: kscd.cpp:622 kscd.cpp:673 kscd.cpp:1268
 msgid "Playing"
 msgstr "Sviram"
 
-#: kscd.cpp:635 kscd.cpp:1283 kscd.cpp:1331 kscd.cpp:1739 kscd.cpp:1937
+#: kscd.cpp:634 kscd.cpp:1282 kscd.cpp:1330 kscd.cpp:1738 kscd.cpp:1936
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:666 kscd.cpp:1312
+#: kscd.cpp:665 kscd.cpp:1311
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:671 kscd.cpp:940 kscd.cpp:1265
+#: kscd.cpp:670 kscd.cpp:939 kscd.cpp:1264
 msgid "Random"
 msgstr "Sluèajno"
 
-#: kscd.cpp:679
+#: kscd.cpp:678
 msgid "Strange...."
 msgstr "Èudno...."
 
-#: kscd.cpp:696
+#: kscd.cpp:695
 msgid "Stopped"
 msgstr "Zaustavljeno"
 
-#: kscd.cpp:903 kscd.cpp:1267
+#: kscd.cpp:902 kscd.cpp:1266
 msgid "Loop"
 msgstr "Kru¾i"
 
-#: kscd.cpp:915
+#: kscd.cpp:914
 msgid "Ejecting"
 msgstr "Izbacujem"
 
-#: kscd.cpp:991
+#: kscd.cpp:990
 msgid "kscd Configuraton"
 msgstr "kscd postava"
 
-#: kscd.cpp:1007
+#: kscd.cpp:1006
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -460,7 +460,7 @@ msgstr ""
 "http://www.cddb.com za dodatne informacije o CDDBu.\n"
 "\n"
 
-#: kscd.cpp:1022
+#: kscd.cpp:1021
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -470,7 +470,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1026
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -479,7 +479,7 @@ msgstr ""
 "Zahvale Vadimu Zalivu <lord@crocodile.org>\n"
 "za njegov http proxy kod.\n"
 
-#: kscd.cpp:1029
+#: kscd.cpp:1028
 msgid ""
 "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
 "For the many CDDB code bug fixes, local CDDB record caching, and track "
@@ -487,23 +487,23 @@ msgid ""
 "\n"
 msgstr ""
 
-#: kscd.cpp:1085
+#: kscd.cpp:1084
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1086
+#: kscd.cpp:1085
 msgid "Kscd Options"
 msgstr "Kscd Opcije"
 
-#: kscd.cpp:1087
+#: kscd.cpp:1086
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1175 kscd.cpp:2069
+#: kscd.cpp:1174 kscd.cpp:2068
 msgid "Vol: %02d%%"
 msgstr "Jaèina: %02d%%"
 
-#: kscd.cpp:1213
+#: kscd.cpp:1212
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -514,51 +514,51 @@ msgstr ""
 "Molim provjerite da imate odgovarajuæe pristupne privilegije na:\n"
 "%s"
 
-#: kscd.cpp:1319
+#: kscd.cpp:1318
 msgid "Ready"
 msgstr "Gotov"
 
-#: kscd.cpp:1363
+#: kscd.cpp:1362
 msgid "Ejected"
 msgstr "Izbaèen"
 
-#: kscd.cpp:1645
+#: kscd.cpp:1644
 msgid "Unable to get CDDB server list."
 msgstr "Ne mogu naæi CDDB listu poslu¾itelja."
 
-#: kscd.cpp:1789 kscd.cpp:1794
+#: kscd.cpp:1788 kscd.cpp:1793
 msgid "No matching CDDB entry found."
 msgstr "Ne mogu naæi podatke za ovaj CD"
 
-#: kscd.cpp:1818 kscd.cpp:1828
+#: kscd.cpp:1817 kscd.cpp:1827
 msgid "Error getting CDDB entry."
 msgstr "Gre¹ka prilikom dobivanja CDDB podataka."
 
-#: kscd.cpp:1844 kscd.cpp:1854
+#: kscd.cpp:1843 kscd.cpp:1853
 msgid "CDDB query timed out."
 msgstr "Istek vremena za CDDB upit."
 
-#: kscd.cpp:2044
+#: kscd.cpp:2043
 msgid "Tra Rem"
 msgstr "Pje Ostatak"
 
-#: kscd.cpp:2048
+#: kscd.cpp:2047
 msgid "Tot Sec"
 msgstr "Uku Sek"
 
-#: kscd.cpp:2052
+#: kscd.cpp:2051
 msgid "Tot Rem"
 msgstr "Uku Ostalo"
 
-#: kscd.cpp:2057
+#: kscd.cpp:2056
 msgid "Tra Sec"
 msgstr "Pje Sek"
 
-#: kscd.cpp:2182
+#: kscd.cpp:2181
 msgid "Cannot start kscdmagic."
 msgstr "Ne mogu startati kscdmagic."
 
-#: kscd.cpp:2197
+#: kscd.cpp:2196
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -566,16 +566,16 @@ msgstr ""
 "KSCD Magic je neoèekivano zavr¹io.\n"
 "Da li ste sigurni da je kscdmagic instaliran?"
 
-#: kscd.cpp:2352
+#: kscd.cpp:2351
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB poèetni direktorij"
 
-#: kscd.cpp:2392
+#: kscd.cpp:2391
 msgid "-h: display commandline options\n"
 msgstr "-h: prika¾i opcije na komandnoj liniji\n"
 
-#: kscd.cpp:2393
+#: kscd.cpp:2392
 msgid "-d: enable debugging output.\n"
 msgstr "-d: ukljuèi debug ispis\n"
 
