@@ -77,9 +77,7 @@ bool KMediaWin::removePlayer()
 	break;
       else
 	{
-	  //usleep(100*1000);
 	  sleep(1);
-	  //QApplication::processEvents();
 	}
     }
   if (*StatStatPtr == MD_STAT_EXITED)
