@@ -9,9 +9,8 @@ msgstr ""
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Tauko"
+msgstr "Soita/Tauko"
 
 #: kmidframe.cpp:68 kmidframe.cpp:205
 msgid "Previous Song"
@@ -31,19 +30,19 @@ msgstr "Näytä &sanatapahtumat"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr ""
+msgstr "Selaa alas karaokea"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr ""
+msgstr "Selaa ylös karaokea"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr ""
+msgstr "Selaa sivu alas karaokea"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr ""
+msgstr "Selaa sivu ylös karaokea"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -103,15 +102,15 @@ msgstr "&Automaattinen tekstinvalitsin"
 
 #: kmidframe.cpp:158
 msgid "Show &Volume Bar"
-msgstr ""
+msgstr "Näytä &äänipylväs"
 
 #: kmidframe.cpp:163
 msgid "Show &Channel View"
-msgstr ""
+msgstr "Näytä &kanavat"
 
 #: kmidframe.cpp:168
 msgid "Channel View &Options"
-msgstr ""
+msgstr "Kanavanäytön &optiot"
 
 #: kmidframe.cpp:172
 msgid "&Font Change ..."
@@ -119,10 +118,9 @@ msgstr "&Kirjasimen vaihtaminen ..."
 
 #: kmidframe.cpp:174
 msgid "Configure &Keys ..."
-msgstr ""
+msgstr "Aseta &Näppäimiä ..."
 
 #: kmidframe.cpp:177
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Midi asetukset ..."
 
@@ -173,11 +171,11 @@ msgstr "Soita"
 
 #: kmidframe.cpp:230
 msgid "Show Channel View"
-msgstr ""
+msgstr "Näytä kanavat"
 
 #: kmidframe.cpp:235
 msgid "Show Volume Bar"
-msgstr ""
+msgstr "Näytä äänipylväs"
 
 #: kmidframe.cpp:555
 msgid ""
@@ -298,25 +296,24 @@ msgid "Change Collection Name"
 msgstr "Vaihda kokoelman nimeä"
 
 #: channel.cpp:89
-#, fuzzy
 msgid "Channel"
-msgstr "Peruuta"
+msgstr "Kanava"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
-msgstr ""
+msgstr "Aseta kanavanäkymää"
 
 #: channelcfgdlg.cpp:22
 msgid "Choose look mode"
-msgstr ""
+msgstr "Valitse näkymätila"
 
 #: channelcfgdlg.cpp:23
 msgid "3D look"
-msgstr ""
+msgstr "3D näkymä"
 
 #: channelcfgdlg.cpp:24
 msgid "3D - filled"
-msgstr ""
+msgstr "3D - täytetty"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
@@ -351,9 +348,8 @@ msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Tuhoa"
+msgstr ""
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -760,9 +756,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Tiedosto"
+msgstr ""
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -825,64 +820,10 @@ msgid "Helicopter"
 msgstr ""
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Tauko"
+msgstr ""
 
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
 
-#~ msgid "&Open ..."
-#~ msgstr "&Avaa ..."
-
-#~ msgid "&Quit"
-#~ msgstr "&Lopeta"
-
-#~ msgid "&File"
-#~ msgstr "&Tiedosto"
-
-#~ msgid "&Options"
-#~ msgstr "&Asetukset"
-
-#~ msgid "&Help"
-#~ msgstr "&Ohje"
-
-#~ msgid "Stop"
-#~ msgstr "Pysäytä"
-
-#~ msgid "Forward"
-#~ msgstr "Eteen"
-
-#~ msgid "Error"
-#~ msgstr "Virhe"
-
-#~ msgid "Warning"
-#~ msgstr "Varoitus"
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "Cancel"
-#~ msgstr "Peruuta"
-
-#~ msgid "None"
-#~ msgstr "Ei mikään"
-
-#~ msgid "Browse..."
-#~ msgstr "Selaa..."
-
-#~ msgid "New"
-#~ msgstr "Uusi"
-
-#~ msgid "Copy"
-#~ msgstr "Kopioi"
-
-#~ msgid "Delete"
-#~ msgstr "Tuhoa"
-
-#~ msgid "Add"
-#~ msgstr "Lisää"
-
-#~ msgid "Remove"
-#~ msgstr "Poista"

@@ -39,14 +39,12 @@ msgid "Next track"
 msgstr "Seuraava kappale"
 
 #: kmediawin.cpp:231
-#, fuzzy
 msgid "&Mixer"
-msgstr "Mikseri"
+msgstr "&Mikseri"
 
 #: kmediawin.cpp:233
-#, fuzzy
 msgid "&Preferences"
-msgstr "Asetukset"
+msgstr "&Asetukset"
 
 #: kmediawin.cpp:241
 msgid ""
@@ -56,10 +54,15 @@ msgid ""
 "Media player for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
 msgstr ""
+"\n"
+"(C) 1996-1998 Christian Esken (esken@kde.org).\n"
+"\n"
+"Mediasoitin KDE Desktop -ympäristöön.\n"
+"tämä ohjelma on GPL lisenssin alla.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
-msgstr ""
+msgstr "Tietoja KMedia:ta"
 
 #: kmediawin.cpp:308
 msgid "Exited"
