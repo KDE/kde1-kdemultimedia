@@ -110,7 +110,6 @@ msgid "KMix Preferences"
 msgstr "Nastavenie Kmixu"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
 msgstr "Nastavenie kanálov mixéru"
 
@@ -123,6 +122,5 @@ msgid "Show"
 msgstr "Zobrazova»"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "&Rozdeli»"
+msgstr "Rozdeli»"
