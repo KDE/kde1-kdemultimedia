@@ -39,7 +39,7 @@ msgstr "Próxima faixa"
 
 #: kmediawin.cpp:196
 msgid "New view"
-msgstr "Nova vista"
+msgstr "Nova janela"
 
 #: kmediawin.cpp:197
 msgid "Exit"
