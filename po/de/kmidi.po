@@ -2,7 +2,6 @@
 # Copyright (C) 1999 The KDE Team
 # Gregor Zumstein <zumstein@ssd.ethz.ch>
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kmidi VERSION\n"
