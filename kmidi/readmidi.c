@@ -155,6 +155,63 @@ static int metatext(int type, int leng, char *mess)
     else return 0;
 }
 
+static int sysex(int32 len)
+{
+  unsigned char *s=safe_malloc(len);
+  int id, model, port, adhi, adlo, cd, dta, dtb, dtc;
+  if (len != fread(s, 1, len, fp))
+    {
+      free(s);
+      return -1;
+    }
+  if (len<5) { free(s); return 0; }
+  id=s[0]; port=s[1]; model=s[2]; adhi=s[3]; adlo=s[4];
+  if (id==0x7e && port==0x7f && model==0x09 && adhi==0x01)
+    {
+      ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "GM System On", len);
+      GM_System_On=1;
+      free(s);
+      return 0;
+    }
+  if (len<8) { free(s); return 0; }
+  port &=0x0f;
+  cd=s[5]; dta=s[6];
+  if (len >= 8) dtb=s[7];
+  else dtb=-1;
+  if (len >= 9) dtc=s[8];
+  else dtc=-1;
+  free(s);
+  if (id==0x43 && model==0x4c)
+    {
+	if (!adhi && !adlo && cd==0x7e && !dta)
+	  {
+      	    ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "XG System On", len);
+	    XG_System_On=1;
+      	    return 0;
+	  }
+      /*ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "XG sysex", len);*/
+      return 0;
+    }
+  else if (id==0x41 && model==0x42 && adhi==0x12 && adlo==0x40)
+    {
+	if (dtc<0) return 0;
+	if (!cd && dta==0x7f && !dtb && dtc==0x41)
+	  {
+      	    ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "GS System On", len);
+	    GS_System_On=1;
+      	    return 0;
+	  }
+	if (dta==0x15)
+	  {
+	    int chan=cd&0x0f;
+	    if (dtc<=0x14) channel[chan].kit=127;
+	  }
+      /*ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "GS sysex", len);*/
+      return 0;
+    }
+  return 0;
+}
+
 /**********************************/
 
 
@@ -213,7 +270,8 @@ static MidiEventList *read_midi_event(void)
       if(me==0xF0 || me == 0xF7) /* SysEx event */
 	{
 	  len=getvl();
-	  skip(fp, len);
+	  sysex(len);
+	  /*skip(fp, len);*/
 	}
       else if(me==0xFF) /* Meta event */
 	{
@@ -281,6 +339,10 @@ static MidiEventList *read_midi_event(void)
 		  case 10: control=ME_PAN; break;
 		  case 11: control=ME_EXPRESSION; break;
 		  case 64: control=ME_SUSTAIN; break;
+		  case 71: control=ME_HARMONICCONTENT; break;
+		  case 72: control=ME_RELEASETIME; break;
+		  case 73: control=ME_ATTACKTIME; break;
+		  case 74: control=ME_BRIGHTNESS; break;
 		  case 91: control=ME_REVERBERATION; break;
 		  case 93: control=ME_CHORUSDEPTH; break;
 		  case 120: control=ME_ALL_SOUNDS_OFF; break;
@@ -294,20 +356,57 @@ static MidiEventList *read_midi_event(void)
 		       continuous controller. This will cause lots of
 		       warnings about undefined tone banks. */
 		  case 0:
-		    if (!b || b == 127 || b == 64 || b == 126)
+		    if (XG_System_On)
 		    	control=ME_TONE_KIT;
 		    else control=ME_TONE_BANK;
 		    break;
-		  case 32: control=ME_TONE_BANK; break;
+		  case 32:
+	            if (XG_System_On) control=ME_TONE_BANK;
+		    break;
 
 		  case 100: nrpn=0; rpn_msb[lastchan]=b; break;
 		  case 101: nrpn=0; rpn_lsb[lastchan]=b; break;
-		  case 98: nrpn=1; rpn_msb[lastchan]=b; break;
-		  case 99: nrpn=1; rpn_lsb[lastchan]=b; break;
-		    
+		  case 98: nrpn=1; rpn_lsb[lastchan]=b; break;
+		  case 99: nrpn=1; rpn_msb[lastchan]=b; break;
 		  case 6:
 		    if (nrpn)
 		      {
+			if (rpn_msb[lastchan]==1) switch (rpn_lsb[lastchan])
+			 {
+			/*
+			   case 0x08: vibrato rate
+			   case 0x09: vibrato depth
+			   case 0x0a: vibrato delay
+			*/
+			   case 0x20: control=ME_BRIGHTNESS; break;
+			   case 0x21: control=ME_HARMONICCONTENT; break;
+			/*
+			   case 0x63: envelope attack rate
+			   case 0x64: envelope decay rate
+			   case 0x66: envelope release rate
+			*/
+			 }
+			else switch (rpn_msb[lastchan])
+			 {
+			/*
+			   case 0x14: filter cutoff frequency
+			   case 0x15: filter resonance
+			   case 0x16: envelope attack rate
+			   case 0x17: envelope decay rate
+			   case 0x18: pitch coarse
+			   case 0x19: pitch fine
+			*/
+			   case 0x1a: drumvolume[lastchan][0x7f & rpn_lsb[lastchan]] = b; break;
+			   case 0x1c:
+			     if (!b) b=(int) (127.0*rand()/(RAND_MAX));
+			     drumpanpot[lastchan][0x7f & rpn_lsb[lastchan]] = b;
+			     break;
+			   case 0x1d: drumreverberation[lastchan][0x7f & rpn_lsb[lastchan]] = b; break;
+			   case 0x1e: drumchorusdepth[lastchan][0x7f & rpn_lsb[lastchan]] = b; break;
+			/*
+			   case 0x1f: variation send level
+			*/
+			 }
 			ctl->cmsg(CMSG_INFO, VERB_DEBUG, 
 				  "(Data entry (MSB) for NRPN %02x,%02x: %ld)",
 				  rpn_msb[lastchan], rpn_lsb[lastchan],
@@ -607,12 +706,6 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	      skip_this_event=1;
 	      break;
 	    }
-	  /* Need a better way! */
-	  if (!meep->event.a && current_bank[meep->event.channel])
-	    {
-	      skip_this_event=1;
-	      break;
-	    }
 	  if (tonebank[meep->event.a]) /* Is this a defined tone bank? */
 	    new_value=meep->event.a;
 	  else 
@@ -675,6 +768,10 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
   at=0;
   evlist=0;
   free_metatext();
+  memset(&drumvolume,-1,sizeof(drumvolume));
+  memset(&drumchorusdepth,-1,sizeof(drumchorusdepth));
+  memset(&drumreverberation,-1,sizeof(drumreverberation));
+  memset(&drumpanpot,NO_PANNING,sizeof(drumpanpot));
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
     {
