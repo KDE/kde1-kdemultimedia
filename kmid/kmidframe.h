@@ -26,13 +26,20 @@
 
 //#include <kapp.h>
 //#include <qwidget.h>
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <ktopwidget.h>
 #include <kmenubar.h>
 #include <kslider.h>
 #include "player/midiout.h"
 #include "player/player.h"
 #include "player/track.h"
+#ifdef HAVE_PTHREAD_MIT_PTHREAD_H
 #include <pthread/mit/pthread.h>
+#else
+#include <pthread.h>
+#endif
 #include <qtimer.h>
 //#include "kdisptext.h"
 
