@@ -1,0 +1,506 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kscd.cpp:330
+msgid "Vol: --"
+msgstr "Styrk: --"
+
+#: kscd.cpp:475
+msgid "Performances"
+msgstr "Tónleikar"
+
+#: kscd.cpp:478
+msgid "Purchases"
+msgstr "Tónlistarkaup"
+
+#: kscd.cpp:485
+msgid "KSCD Magic"
+msgstr "KSCD Galdrar"
+
+#: docking.cpp:72 kscd.cpp:509
+msgid "Play/Pause"
+msgstr "Spila/Bíða"
+
+#: kscd.cpp:511
+msgid "Loop CD"
+msgstr "Spila í hring"
+
+#: kscd.cpp:512
+msgid "Track Selection"
+msgstr "Velja lag"
+
+#: kscd.cpp:513
+msgid "30 Secs Forward"
+msgstr "Framm um 30 sek."
+
+#: kscd.cpp:514
+msgid "30 Secs Backward"
+msgstr "Aftur um 30 sek."
+
+#: kscd.cpp:515
+msgid "Next Track"
+msgstr "Næsta lag"
+
+#: kscd.cpp:516
+msgid "Previous Track"
+msgstr "Fyrra lag"
+
+#: kscd.cpp:517
+msgid "Exit Kscd"
+msgstr "Loka Kscd"
+
+#: kscd.cpp:518
+msgid "Cycle Time Display"
+msgstr "Breyta tímamælingu"
+
+#: kscd.cpp:519
+msgid "Configure Kscd"
+msgstr "Stilla Kscd"
+
+#: kscd.cpp:520
+msgid "Eject CD"
+msgstr "Spýta diskinum út"
+
+#: kscd.cpp:521
+msgid "The Artist on the Web"
+msgstr "Tónlist á vefnum"
+
+#: kscd.cpp:522
+msgid "Random Play"
+msgstr "Slembispilun"
+
+#: kscd.cpp:523
+msgid "CDDB Dialog"
+msgstr "Breyta CDDB-færslu"
+
+#: kscd.cpp:524
+msgid "CD Volume Control"
+msgstr "Hljóðstyrkur"
+
+#: kscd.cpp:575 kscd.cpp:612 kscd.cpp:1130
+msgid "Playing"
+msgstr "Spila"
+
+#: kscd.cpp:580 kscd.cpp:1138 kscd.cpp:1176
+#, c-format
+msgid "Track %02d"
+msgstr "Lag %02d"
+
+#: kscd.cpp:604 kscd.cpp:1163
+msgid "Pause"
+msgstr "Bíð"
+
+#: kscd.cpp:609 kscd.cpp:830 kscd.cpp:1126
+msgid "Random"
+msgstr "Slembið"
+
+#: kscd.cpp:617
+msgid "Strange...."
+msgstr "Undarlegt..."
+
+#: kscd.cpp:634
+msgid "Stopped"
+msgstr "Stöðvað"
+
+#: kscd.cpp:796 kscd.cpp:1128
+msgid "Loop"
+msgstr "Í hring"
+
+#: kscd.cpp:808
+msgid "Ejecting"
+msgstr "Spýti út"
+
+#: kscd.cpp:881
+msgid "kscd Configuraton"
+msgstr "Kscd stillingar"
+
+#: kscd.cpp:897
+msgid ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd  contains code from:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
+"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
+"\n"
+msgstr ""
+"Höfundarréttur 1997-98\n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"Í kscd er kóði úr:"
+"workman 1.4 beta 3\n"
+"Höfundarréttur: Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Sérstakar þakkir fá Ti Kan og Steve Scherf sem fundu upp CDDB "
+"gagnagrunnskerfið. Sjá nánar á http://www.cddb.com\n"
+
+#: kscd.cpp:909
+msgid ""
+"KSCD Magic based on Synaesthesia by Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+msgstr ""
+"KSCD Magic er unnið úr Synaesthesia eftir Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+
+#: kscd.cpp:913
+msgid ""
+"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+"for his work on the http proxy code.\n"
+msgstr ""
+"Vadin Zaliva <lord@crocodile.org> fær\n"
+"fær þakkir fyrir http proxy forritun.\n"
+
+#: kscd.cpp:959
+msgid "Kscd Options"
+msgstr "Kscd stillingar"
+
+#: kscd.cpp:960
+msgid "Kscd Magic"
+msgstr "Kscd Galdrar"
+
+#: kscd.cpp:1041 kscd.cpp:1834
+msgid "Vol: %02d%%"
+msgstr "Hæð: %02d%%"
+
+#: kscd.cpp:1079
+#, c-format
+msgid ""
+"CDROM read or access error.\n"
+"Please make sure you have access permissions to:\n"
+"%s"
+msgstr ""
+"Vandi í lestri á geisladrifi. Gakktu\n"
+"úr skugga um að þú hafir lesretindi á:\n"
+"%s"
+
+#: kscd.cpp:1171
+msgid "Ready"
+msgstr "Tilbúinn"
+
+#: kscd.cpp:1203
+msgid "Ejected"
+msgstr "Spýtt út"
+
+#: kscd.cpp:1459
+msgid "Unable to get CDDB server list."
+msgstr "Ekki tóksta ð sækja CDDB-þjónalista."
+
+#: kscd.cpp:1581 kscd.cpp:1616
+msgid "No matching CDDB entry found."
+msgstr "CDDB færsla fyrir þennan disk fannst ekki."
+
+#: kscd.cpp:1637
+msgid "CDDB query timed out."
+msgstr "CDDB fyrirspurn úreltist."
+
+#: kscd.cpp:1809
+msgid "Tra Rem"
+msgstr "Lag Eftr"
+
+#: kscd.cpp:1813
+msgid "Tot Sec"
+msgstr "Alls Sek"
+
+#: kscd.cpp:1817
+msgid "Tot Rem"
+msgstr "Alls Eftr"
+
+#: kscd.cpp:1822
+msgid "Tra Sec"
+msgstr "Lag Sec"
+
+#: kscd.cpp:1947
+msgid "Cannot start kscdmagic."
+msgstr "Ekki tókst að ræsa kscdmagic."
+
+#: kscd.cpp:1962
+msgid ""
+"KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr ""
+"Keyrslu KSCD Galdra lauk óeðlilega.\n"
+"Ertu viss um að KSCD sé uppsett?"
+
+#: kscd.cpp:2143
+msgid "-h: display commandline options\n"
+msgstr "-h: sýna viðföng\n"
+
+#: kscd.cpp:2144
+msgid "-d: enable debugging output.\n"
+msgstr "-d: sýna upplýsingar til villuleitar\n"
+
+#: configdlg.cpp:61
+msgid "Configure kscd"
+msgstr "Stilla kscd"
+
+#: configdlg.cpp:68
+msgid "LED Color:"
+msgstr "Skjálitur"
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Bakgrunnslitur"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "Geisladrif:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Póstskipun:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr "Vefflakkari"
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "Nota kfm sem vefflakara"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Nota annan vefflakkara"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Sýna vísbendingar"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "Hleypa á spjaldið"
+
+#: CDDialog.cpp:55
+msgid "CD Database Editor"
+msgstr "Ritill fyrir geisladiskafærslur"
+
+#: CDDialog.cpp:200
+#, c-format
+msgid ""
+"Total Time:\n"
+"%02d:%02d:%02d"
+msgstr ""
+"Heildartími:\n"
+"%02d:%02d:%02d"
+
+#: CDDialog.cpp:202
+#, c-format
+msgid ""
+"Total Time:\n"
+" %02d:%02d"
+msgstr ""
+"Heildartími:\n"
+" %02d:%02d"
+
+#: CDDialog.cpp:244
+msgid "Use this Editor to annotate this track"
+msgstr "Notaðu þennan ritil til að skrifa um lagið"
+
+#: CDDialog.cpp:269
+msgid "Use this Editor to annotate the title"
+msgstr "Notaðu þennan ritil til að skrifa um diskinn"
+
+#: CDDialog.cpp:417 CDDialog.cpp:546
+msgid "Please select a Category or press Cancel"
+msgstr "Veldu flokk eða hættu við"
+
+#: CDDialog.cpp:418
+msgid "To which category does the CD belong?"
+msgstr "Í hvaða flokki er þessi diskur?"
+
+#: CDDialog.cpp:447
+#, c-format
+msgid "Submitting cddb entry: %s\n"
+msgstr "Sendi CDDB færslu: %s\n"
+
+#: CDDialog.cpp:459
+#, c-format
+msgid ""
+"Could not pipe contents into:\n"
+" %s"
+msgstr ""
+"Ekki tókst að senda innihaldið um pípu í:\n"
+" %s"
+
+#: CDDialog.cpp:547
+msgid "Under which category would you like to store this CDDB entry?"
+msgstr "Í hvaða flokk viltu setja þessa CDDB færslu?"
+
+#: CDDialog.cpp:597
+#, c-format
+msgid ""
+"Unable to write to file:\n"
+"%s\n"
+"Please check your permissions and make your category directories exist."
+msgstr ""
+"Ekki tókst a' skrifa í skrána:\n"
+"%s\n"
+"Gakktu úr skugga um að mappan sé til og að þú hafir skrifréttindi í skrána."
+
+#: CDDialog.cpp:602
+msgid "Kscd Error"
+msgstr "Kscd villa"
+
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
+msgid "Invalid Database Entry"
+msgstr "Gölluð gagnagrunnsfærsla"
+
+#: CDDialog.cpp:762
+msgid ""
+"The Disc Artist / Title field is not filled in.\n"
+"Please correct the entry and try again."
+msgstr "Ekki er búið að skrá höfund/titil disks."
+
+#: CDDialog.cpp:777
+msgid ""
+"The Disc Artist / Title field is not filled in correctly.\n"
+"Please separate the artist from the title of the CD with \n"
+"a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
+msgstr ""
+"Skráningin á höfundi/titli disks er ekki á réttu formi.\n"
+"Settu skástrik á milli nafns höfundar og nafns disks, sbr.\n"
+"Peter Gabriel / Greatest Hits\n"
+
+
+#: CDDialog.cpp:791 CDDialog.cpp:813
+msgid ""
+"Not all track titles can be empty.\n"
+"Please correct the entry and try again."
+msgstr ""
+"Það meiga ekki öll lögin vera nafnlaus."
+
+#: CDDialog.cpp:823
+msgid "Internal Error"
+msgstr "Innri villa"
+
+#: CDDialog.cpp:824
+msgid ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Please email the author."
+msgstr ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Vinsamlegast sendu höfundi bréf.."
+
+#: CDDialog.cpp:853
+msgid "Invalid Playlist\n"
+msgstr "Gallaður lagalisti\n"
+
+#: CDDialogData.cpp:74
+msgid "Load"
+msgstr "Lesa"
+
+#: CDDialogData.cpp:87
+msgid "Play List Editor"
+msgstr "Ritill fyrir lagalista"
+
+#: CDDialogData.cpp:93
+msgid "Edit Track Title"
+msgstr "Breyta nafni lags"
+
+#: CDDialogData.cpp:99
+msgid "Disc Artist / Title"
+msgstr "Höfundur / nafn disks"
+
+#: CDDialogData.cpp:105
+msgid "Track / Time / Title"
+msgstr "Lag / Tími / Titill"
+
+#: CDDialogData.cpp:111 CDDialogData.cpp:117
+msgid "Ext Info"
+msgstr "Auka uppl"
+
+#: CDDialogData.cpp:133
+msgid "Disc ID"
+msgstr "Auðkenni disks"
+
+#: CDDialogData.cpp:145
+msgid "Upload"
+msgstr "Senda inn"
+
+#: CDDBSetupData.cpp:44
+msgid "CDDB Base Directory"
+msgstr "Grunnmappa fyrir CDDB"
+
+#: CDDBSetupData.cpp:62
+msgid "Send CDDB submissions to:"
+msgstr "Senda CDDB færslur til:"
+
+#: CDDBSetupData.cpp:82
+msgid "CDDB server:"
+msgstr "CDDB þjónn:"
+
+#: CDDBSetupData.cpp:90
+msgid "Update"
+msgstr "Uppfæra"
+
+#: CDDBSetupData.cpp:108
+msgid "Enable Remote CDDB"
+msgstr "Nota CDDB yfir net"
+
+#: CDDBSetupData.cpp:116
+msgid "Defaults"
+msgstr "Sjálfgefin gildi"
+
+#: CDDBSetupData.cpp:133
+msgid "Use HTTP proxy to access CDDB"
+msgstr "Nota HTTP proxy í samskiptum við CDDB þjón"
+
+#: docking.cpp:75
+msgid "Backward"
+msgstr "Aftur"
+
+#: docking.cpp:77
+msgid "Previous"
+msgstr "Fyrra"
+
+#: docking.cpp:78
+msgid "Eject"
+msgstr "Spýta út"
+
+#: docking.cpp:175
+msgid "Smækka"
+msgstr "Lágmarka"
+
+#: inexact.cpp:54
+msgid ""
+"No exact match could be found. Please select the appropriate CD from the "
+"list of choices presented below."
+msgstr ""
+"Enginn einn diskur fannst. Veldu úr listanum."
+
+#: inexact.cpp:57
+msgid "Please select a Disk Title or press Cancel"
+msgstr "Veldu diskanafn eða hættu við"
+
+#: mgconfdlg.cpp:52
+msgid "Magic Kscd"
+msgstr "Kscd galdrar"
+
+#: mgconfdlg.cpp:59
+msgid "Width of Magic Window:"
+msgstr "Breidd galdraglugga"
+
+#: mgconfdlg.cpp:71
+msgid "Height of Magic Window:"
+msgstr "Hæð galdraglugga"
+
+#: mgconfdlg.cpp:83
+msgid "MAGIC Brightness:"
+msgstr "Birta galdra"
