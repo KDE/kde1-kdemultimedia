@@ -43,7 +43,6 @@ msgstr "Mixer"
 msgid "&Preferences"
 msgstr "Einstellungen"
 
-# , fuzzy
 #: kmediawin.cpp:241
 msgid ""
 "\n"
@@ -52,12 +51,11 @@ msgid ""
 "Media player for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
 msgstr ""
-"kmedia 0.45\n"
+"\n"
 "(C) 1996, 1997 Christian Esken (esken@kde.org)\n"
 "\n"
 "Medienwiedergabe f\374r das K Desktop Environment.\n"
 "Dieses Programm steht unter GPL.\n"
-"<Nachrichten-ID: "
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
