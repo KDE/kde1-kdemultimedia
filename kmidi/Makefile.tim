@@ -218,14 +218,13 @@ PSPAGES = $(MANPAGES:.1=.ps)
 DOCS = README README.tk README.DEC README.W32 \
 	COPYING INSTALL CHANGES TODO FAQ $(MANPAGES) $(TXTPAGES) $(PSPAGES)
 
-CONFIGF = timidity.cfg gsdrum.cfg gravis.cfg midia.cfg wowpats.cfg mt32.cfg
+CONFIGF = config/timidity.cfg config/gsdrum.cfg config/gravis.cfg config/midia.cfg \
+	config/wowpats.cfg config/mt32.cfg config/chaos12-voices \
+	config/chaos8-voices config/megadrum config/megainst
 
-# PATCHF = patch/acpiano.pat patch/nylongt2.pat
-# SAMPLEF = midi/cavatina.mid midi/impromptu.mid midi/malaguena.mid \
-# 	  midi/test-decay.mid midi/test-panning.mid midi/test-scale.mid
-
-PATCHF =
-SAMPLEF =
+PATCHF = patch/acpiano.pat patch/nylongt2.pat
+SAMPLEF = midi/cavatina.mid midi/impromptu.mid midi/malaguena.mid \
+	  midi/test-decay.mid midi/test-panning.mid midi/test-scale.mid
 
 # These get stuffed in the distribution archive
 ALLDIST = $(DOCS) $(ALLSRCS) $(CONFIGF)
