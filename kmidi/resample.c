@@ -148,7 +148,8 @@ static sample_t *rs_loop(Voice *vp, int32 count)
 
 #ifdef PRECALC_LOOPS
   int32 i;
-  
+ 
+  if (incr < 1) incr = 1; 
   while (count) 
     {
       if (ofs >= le)
