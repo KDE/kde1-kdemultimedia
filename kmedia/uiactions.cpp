@@ -22,7 +22,7 @@
 
 
 #include <unistd.h>
-#include <kmisc.h>
+#include <config.h>
 #include <klocale.h>
 #include <kfiledialog.h>
 #include "kmediaui.h"
