@@ -109,8 +109,10 @@ void CDDB::cddbgetServerList(QString& _server){
 
   char ser[1024];
   char por[1024];
+  char proto[1024];
+  char extra[1024];
   
-  sscanf(_server.data(),"%s %s",ser,por);
+  sscanf(_server.data(),"%s %s %s %s",ser,proto,por,extra);
   
   hostname  = ser;
   port      = atoi(por);
@@ -125,8 +127,10 @@ void CDDB::cddb_connect(QString& _server){
 
   char ser[1024];
   char por[1024];
+  char proto[1024];
+  char extra[1024];
   
-  sscanf(_server.data(),"%s %s",ser,por);
+  sscanf(_server.data(),"%s %s %s %s",ser,proto,por,extra);
   
   hostname  = ser;
   port      = atoi(por);
@@ -531,9 +535,9 @@ void CDDB::serverList(QStrList& list){
 void CDDB::parse_serverlist(){
 
   
-  int pos1,pos2;
-  char po[1024];
-  char serv[1024];
+  int  pos1,pos2;
+  char serv [1024];
+  char po   [1024];
 
   serverlist.clear();
   // get rid of the first line
@@ -546,12 +550,13 @@ void CDDB::parse_serverlist(){
 
   while((pos2 = respbuffer.find("\n",pos1  ,true)) != -1){
     
-    if(pos2-pos1  > 0){
+    if(pos2-pos1 > 0)
+    {
       QString tempstr1;
       QString tempstr2;
       tempstr1 = respbuffer.mid(pos1 ,pos2-pos1  );
       sscanf(tempstr1.data(),"%s %s",serv,po);
-      tempstr2 = tempstr2.sprintf("%s %s",serv,po);
+      tempstr2 = tempstr2.sprintf("%s cddbp %s -",serv,po);
       serverlist.append(tempstr2.data());
     }
 
@@ -978,6 +983,43 @@ void cddb_encode(QString& str, QStrList &returnlist){
   returnlist.append(str);
 
 }
+
+// This function converts server list entry from "Server Port" format
+// To "Server Protocol Port Address".
+//     The fields are as follows:
+//         site:
+//             The Internet address of the remote site.
+//         protocol:
+//             The transfer protocol used to access the site.
+//         port:
+//             The port at which the server resides on that site.
+//         address:
+//             Any additional addressing information needed to access the
+//             server. For example, for HTTP protocol servers, this would be
+//             the path to the CDDB server CGI script. This field will be
+//             "-" if no additional addressing information is needed.
+//
+// Returns 'true' if format have been converted.
+bool CDDB::normalize_server_list_entry(QString &entry)
+{
+    char serv [1024];
+    char proto[1024];
+    char po   [1024];
+    char extra[1024];
+    
+    if(sscanf(entry.data(),"%s %s %s %s",serv,proto,po,extra)==2) 
+    {
+	// old format
+	sprintf(extra,"%s cddbp %s -",serv, proto);
+	entry=strdup(extra);
+	return true;
+    } else
+    {
+	// Otherwise let us leave the item unchanged.
+	return false;
+    }
+}
+
 #include "cddb.moc"
 
 

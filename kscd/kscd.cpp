@@ -58,7 +58,7 @@ KApplication 	*mykapp;
 KSCD 	         *k;
 DockWidget*     dock_widget;
 
-bool             debugflag = false;
+bool             debugflag = true;
 char 		tmptime[100];
 char 		*tottime;
 //static void 	playtime (void);
@@ -1317,12 +1317,43 @@ void KSCD::readSettings(){
   cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
   cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
 						    (int)true);
-  current_server = config->readEntry("CurrentServer","cddb.cddb.com 888");
+  current_server = config->readEntry("CurrentServer","www.cddb.com cddbp 8880 -");
+  //Let's check if it is in old format and if so, convert it to new one:
+  if(CDDB::normalize_server_list_entry(current_server))
+  {
+      if(debugflag) fprintf(stderr,"Default CDDB server entry converted to new format and saved.\n");
+      config->writeEntry("CurrentServer",current_server);
+      config->sync();
+  }
   submitaddress = config->readEntry("CDDBSubmitAddress","xmcd-cddb@amb.org");
   int num;
   num = config->readListEntry("SeverList",cddbserverlist,',');
   if (num == 0)
-    cddbserverlist.append("cddb.cddb.com 888");
+      cddbserverlist.append("www.cddb.com cddbp 8880 -");
+  else
+  {
+      //Let's check if it is in old format and if so, convert it to new one:
+      bool needtosave=false;
+      QStrList nlist;
+      for(QString entry=cddbserverlist.first(); 
+	  entry != 0; 
+	  entry=cddbserverlist.next())
+      {
+	  needtosave|=CDDB::normalize_server_list_entry(entry);
+	  nlist.append(entry.data());
+      }
+      if(needtosave)
+      {
+	// I have to recreate list because of sytange behaviour of sync()
+	// function in configuration - it does not notice if QStrList
+	// String contents is changed.
+	  cddbserverlist=nlist;
+	  if(debugflag) 
+	      fprintf(stderr,"CDDB server list converted to new format and saved.\n");
+	  config->writeEntry("SeverList",cddbserverlist,',',true);
+	  config->sync();
+      }
+  }
 }
 
 void KSCD::writeSettings(){

@@ -97,6 +97,8 @@ static void 	setalarm();
 			    );
    void getCategoryFromPathName(char* pathname, QString& string);
 
+static bool normalize_server_list_entry(QString &entry);
+   
 protected:
    void 	do_state_machine();
    void 	parse_serverlist();

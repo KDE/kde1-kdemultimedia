@@ -116,7 +116,7 @@ void CDDBSetup::set_defaults(){
 
   server_listbox->setAutoUpdate(false);
   server_listbox->clear();
-  server_listbox->insertItem("cddb.cddb.com 888", -1);
+  server_listbox->insertItem("cddb.cddb.com cddbp 888 -", -1);
   server_listbox->setAutoUpdate(true);
   server_listbox->repaint();
 
@@ -126,7 +126,7 @@ void CDDBSetup::set_defaults(){
 
   submitaddressstring = "xmcd-cddb@amb.org";
   submit_edit->setText(submitaddressstring);
-  current_server_string = "cddb.cddb.com 888";
+  current_server_string = "cddb.cddb.com cddbp 888 -";
   current_server_label->setText(current_server_string.data());
   remote_cddb_cb->setChecked(true);
   emit updateCurrentServer();

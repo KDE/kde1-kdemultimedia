@@ -63,7 +63,7 @@ CDDBSetupData::CDDBSetupData
 	server_listbox->setGeometry( 20, 225, 240, 135 );
 	server_listbox->setFrameStyle( 51 );
 	server_listbox->setLineWidth( 2 );
-	server_listbox->insertItem( "cddb.cddb.com 888" );
+	server_listbox->insertItem( "cddb.cddb.com cddbp 888 -" );
 
 	tmpQLabel = new QLabel( this, "Label_10" );
 	tmpQLabel->setGeometry( 20, 175, 235, 20 );
