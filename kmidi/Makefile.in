@@ -27,6 +27,7 @@ exec_prefix  = @exec_prefix@
 install_root = @install_root@
 kde_libraries = @kde_libraries@
 qt_libraries = @qt_libraries@
+x_libraries = @x_libraries@
 top_builddir = ..
 LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@
