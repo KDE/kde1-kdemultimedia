@@ -58,7 +58,7 @@ typedef struct _SampleList {
 typedef struct _InstList {
 	int bank, preset, keynote;
 	int samples, rsamples;
-	int order;
+	int order, already_loaded;
 	char *fname;
 	FILE *fd;
 	SampleList *slist, *rslist;
@@ -146,13 +146,13 @@ static char *getname(p)
 
 static SFInfo sfinfo;
 
-void init_soundfont(char *fname, int order)
+void init_soundfont(char *fname, int order, int oldbank, int newbank)
 {
 	/*static SFInfo sfinfo;*/
 	int i;
+	InstList *ip;
 
 	ctl->cmsg(CMSG_INFO, VERB_NOISY, "init soundfonts `%s'", fname);
-
 #ifdef ADAGIO
 	play_mode->rate = setting_dsp_rate;  /*output_rate;*/
 #endif
@@ -173,8 +173,14 @@ void init_soundfont(char *fname, int order)
 	for (i = 0; i < sfinfo.nrpresets; i++) {
 		int bank = sfinfo.presethdr[i].bank;
 		int preset = sfinfo.presethdr[i].preset;
-		if (is_excluded(bank, preset, -1))
-			continue;
+		if (oldbank != newbank) {
+			if (newbank >= 128 && bank == 128 && preset == oldbank) {
+				preset = sfinfo.presethdr[i].sub_preset = newbank - 128;
+			}
+			else if (bank == oldbank) bank = sfinfo.presethdr[i].sub_bank = newbank;
+		}
+		/*if (is_excluded(bank, preset, -1))
+			continue;*/
 /*fprintf(stderr,"(init) file %s, bank %d, preset %d, order %d\n", sfrec.fname, bank, preset, order);*/
 		parse_preset(&sfrec, &sfinfo, i, order);
 	}
@@ -186,6 +192,9 @@ void init_soundfont(char *fname, int order)
 	sfrec.samplesize = sfinfo.samplesize;
 
 	free_sbk(&sfinfo);
+
+	/* mark instruments as loaded so they won't be loaded again if we're re-called */
+	for (ip = sfrec.instlist; ip; ip = ip->next) ip->already_loaded = 1;
 
 #ifdef SF_CLOSE_EACH_FILE
 /* mustn't do this: inst's now remember the open fd's --gl
@@ -302,17 +311,18 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
 		    ip->order == order)
 			break;
 	}
-
 	if (ip && ip->samples) {
 		sfrec.fname = ip->fname;
-    		ctl->cmsg(CMSG_INFO, VERB_NOISY, "Loading %sinstrument %s[%d,%d] from %s.",
-			(ip->rsamples)? "linked " : "", name,
+    		ctl->cmsg(CMSG_INFO, VERB_NOISY, "Loading %s%s %s[%d,%d] from %s.",
+			(ip->rsamples)? "linked " : "",
+			(percussion)? "drum":"instrument", name,
 			(percussion)? keynote : preset, (percussion)? preset : bank, sfrec.fname);
 		sfrec.fd = ip->fd;
 		sfrec.fname = ip->fname;
 		inst = load_from_file(&sfrec, ip, amp);
 	}
-	else if (order) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't find instrument %s[%d,%d] in %s.", name,
+	else if (order) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't find %s %s[%d,%d] in %s.",
+			(percussion)? "drum":"instrument", name,
 			(percussion)? keynote : preset, (percussion)? preset : bank, sfrec.fname);
 
 
@@ -562,20 +572,20 @@ static void parse_preset(SFInsts *rec, SFInfo *sf, int preset, int order)
 {
 	int from_ndx, to_ndx;
 	Layer lay, glay;
-	int i, inst;
+	int i, inst, inum;
 
 	from_ndx = sf->presethdr[preset].bagNdx;
 	to_ndx = sf->presethdr[preset+1].bagNdx;
 
 #ifdef GREGSTEST
 if (to_ndx - from_ndx > 1) {
-fprintf(stderr,"Preset #%d (%s) has %d instruments.\n", preset,
+printf("Preset #%d (%s) has %d instruments.\n", preset,
  getname(sf->presethdr[preset].name), to_ndx - from_ndx);
 }
 #endif
 
 	memset(&glay, 0, sizeof(glay));
-	for (i = from_ndx; i < to_ndx; i++) {
+	for (i = from_ndx, inum = 0; i < to_ndx; i++) {
 		memset(&lay, 0, sizeof(Layer));
 		parse_preset_layer(&lay, sf, i);
 		inst = search_inst(&lay);
@@ -583,7 +593,8 @@ fprintf(stderr,"Preset #%d (%s) has %d instruments.\n", preset,
 			memcpy(&glay, &lay, sizeof(Layer));
 		else {
 			append_layer(&lay, &glay, sf);
-			parse_inst(rec, &lay, sf, preset, inst, order, i - from_ndx);
+			parse_inst(rec, &lay, sf, preset, inst, order, inum);
+			inum++;
 		}
 	}
 }
@@ -701,6 +712,8 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 {
 	int banknum = sf->presethdr[pr_idx].bank;
 	int preset = sf->presethdr[pr_idx].preset;
+	int sub_banknum = sf->presethdr[pr_idx].sub_bank;
+	int sub_preset = sf->presethdr[pr_idx].sub_preset;
 	int keynote, n_order, program, truebank;
 	int strip_loop = 0, strip_envelope = 0, strip_tail = 0, panning = 0, amp = 0;
 #ifndef ADAGIO
@@ -714,6 +727,7 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 	int linked_wave;
 #endif
 
+	if (banknum == 128) which = 0;
 	/* more than 2 notes in chord?  sorry -- no can do */
 	if (which > 1) return;
 
@@ -730,7 +744,7 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 
 	/* set bank/preset name */
 	if (banknum == 128) {
-		truebank = preset;
+		truebank = sub_preset;
 		program = keynote = LO_VAL(lay->val[SF_keyRange]);
 #ifndef ADAGIO
 #ifndef STRICT_VOICE_DECL
@@ -747,13 +761,13 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 			}
 		}
 #endif
-		if (drumset[preset]) {
-			bank = drumset[preset];
+		if (drumset[truebank]) {
+			bank = drumset[truebank];
 		}
 #endif
 	} else {
 		keynote = -1;
-		truebank = banknum;
+		truebank = sub_banknum;
 		program = preset;
 #ifndef ADAGIO
 #ifndef STRICT_VOICE_DECL
@@ -770,23 +784,25 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 			}
 		}
 #endif
-		if (tonebank[banknum]) {
-			bank = tonebank[banknum];
+		if (tonebank[truebank]) {
+			bank = tonebank[truebank];
 		}
 #endif
 	}
 
 #ifdef GREGSTEST
-if (in_idx <= 10) {
-fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, preset,
- getname(sf->insthdr[in_idx].name), in_idx, banknum);
-}
+printf("Adding keynote #%d preset %d to %s (%d), bank %d (=? %d).\n", keynote, preset,
+ getname(sf->insthdr[in_idx].name), in_idx, banknum, truebank);
 #endif
 
 
 #ifndef ADAGIO
 	if (!bank) return;
 	namep = &bank->tone[program].name;
+#ifdef GREGSTEST
+if (*namep) printf("cfg name is %s\n", *namep);
+else printf("NO CFG NAME!\n");
+#endif
 #ifdef STRICT_VOICE_DECL
 	if (*namep == 0) return;
 #endif
@@ -822,18 +838,19 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 
 	/* search current instrument list */
 	for (ip = rec->instlist; ip; ip = ip->next) {
-		if (ip->bank == banknum && ip->preset == preset &&
+		if (ip->bank == sub_banknum && ip->preset == sub_preset &&
 		    (keynote < 0 || keynote == ip->keynote))
 			break;
 	}
-	/* don't append sample from a different font */
-	if (ip && ip->fd != rec->fd) return;
+	/* don't append sample when instrument completely specified */
+	if (ip && ip->already_loaded) return;
 	if (ip == NULL) {
 		ip = (InstList*)safe_malloc(sizeof(InstList));
-		ip->bank = banknum;
-		ip->preset = preset;
+		ip->bank = sub_banknum;
+		ip->preset = sub_preset;
 		ip->keynote = keynote;
 		ip->order = order;
+		ip->already_loaded = 0;
 		ip->samples = 0;
 		ip->rsamples = 0;
 		ip->slist = NULL;
