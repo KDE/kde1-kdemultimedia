@@ -1,5 +1,7 @@
 1998-04-16  Vadim Zaliva  <lord@crocodile.org>
-
+	
+	* Tested with Netscape Proxy
+	
 	* Tested with Squid-1.1.18 HTTP proxy
 	* Tested with HTTP proxy, w/o HTTP proxy, using CDDBP and HTTP.
 	* Small bug in parsing corrected.
