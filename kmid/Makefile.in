@@ -76,7 +76,7 @@ install: $(TARGET)
 	$(INSTALL_DATA) kmid.xpm $(prefix)/share/icons
 	$(INSTALL_DIR) $(prefix)/share/apps/kmid/maps
 	$(INSTALL_DATA) maps/*.map $(prefix)/share/apps/kmid/maps
-	$(INSTALL_DATA) examples/* $(prefix)/share/apps/kmid
+	$(INSTALL_DATA) examples/*.kar $(prefix)/share/apps/kmid
 
 clean:
 	(cd player && make clean && cd ..)
