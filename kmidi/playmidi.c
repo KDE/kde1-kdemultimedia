@@ -1057,7 +1057,9 @@ static unsigned xxmp_epoch = 0;
 static unsigned time_expired = 0;
 static unsigned last_time_expired = 0;
 #ifndef _UNIXWARE
+#ifndef __hpux__
 extern int gettimeofday(struct timeval *, struct timezone *);
+#endif
 #endif
 static struct timeval tv;
 static struct timezone tz;
