@@ -23,7 +23,7 @@
 
 
 
-#if defined(__linux__) || defined(__svr4__)
+#if defined(__linux__) 
 
 #include "bitmap.h"
 #include "symbol.h"

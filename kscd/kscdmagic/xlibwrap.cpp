@@ -24,7 +24,7 @@
 */
 
 
-#if defined(__linux__) || defined(__svr4__)
+#if defined(__linux__) 
 
 #include <string.h>
 

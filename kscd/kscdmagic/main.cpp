@@ -32,7 +32,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#if defined(__linux__) || defined(__svr4__)
+#if defined(__linux__) 
 
 #include <signal.h>
 #include <time.h>
@@ -41,9 +41,7 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <string.h>
-#if defined(__linux__)
 #include <getopt.h>
-#endif
 
 #include "magicconf.h"
 #include "syna.h"

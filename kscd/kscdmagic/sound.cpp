@@ -22,7 +22,7 @@
 
 */
 
-#if defined(__linux__) || defined(__svr4__)
+#if defined(__linux__) 
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,13 +37,7 @@
 #include <unistd.h>
 #include <signal.h>
 
-#if defined(__linux__) 
 #include <linux/soundcard.h>
-#else
-#if defined(__svr4__)
-#include <sys/soundcard.h>
-#endif
-#endif
 #include <time.h>
 
 #include <stdlib.h>
