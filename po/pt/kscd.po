@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 
@@ -63,20 +63,20 @@ msgstr "Utilize este Editor para anotar esta faixa"
 msgid "Use this Editor to annotate the title"
 msgstr "Utilize este Editor para anotar o título"
 
-#: CDDialog.cpp:415 CDDialog.cpp:544
+#: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
 msgstr "Seleccione uma Categoria ou pressione Cancelar"
 
-#: CDDialog.cpp:416
+#: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
 msgstr "A que category pertence este CD?"
 
-#: CDDialog.cpp:445
+#: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "A enviar entrada cddb: %s\n"
 
-#: CDDialog.cpp:457
+#: CDDialog.cpp:459
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -85,11 +85,11 @@ msgstr ""
 "Não consegui enviar conteúdo para:\n"
 " %s"
 
-#: CDDialog.cpp:545
+#: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "Em que categoria é que deseja guardar este CD?"
 
-#: CDDialog.cpp:595
+#: CDDialog.cpp:597
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -100,15 +100,15 @@ msgstr ""
 "%s\n"
 "Verifique as suas permissões e que as directorias das categorias existem."
 
-#: CDDialog.cpp:600
+#: CDDialog.cpp:602
 msgid "Kscd Error"
 msgstr "Erro do Kscd"
 
-#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
 msgstr "Entrada da Base de Dados Inválida"
 
-#: CDDialog.cpp:760
+#: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -116,7 +116,7 @@ msgstr ""
 "O campo do Artista / Título não está preenchido.\n"
 "Preenchea-o e tente novamente."
 
-#: CDDialog.cpp:775
+#: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -126,7 +126,7 @@ msgstr ""
 "Por favor separe o artista do título do CD com \n"
 "uma barra, como em: Blind Zero / Redcoast\n"
 
-#: CDDialog.cpp:789 CDDialog.cpp:811
+#: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -134,11 +134,11 @@ msgstr ""
 "Nem todos os títulos das faixas podem estar vazias.\n"
 "Preencha-os e tente novamente."
 
-#: CDDialog.cpp:821
+#: CDDialog.cpp:823
 msgid "Internal Error"
 msgstr "Erro Interno"
 
-#: CDDialog.cpp:822
+#: CDDialog.cpp:824
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -146,7 +146,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Por favor informe o autor."
 
-#: CDDialog.cpp:851
+#: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
 msgstr "Lista Inválida\n"
 
@@ -226,10 +226,6 @@ msgstr "Activar Atracagem no Painel"
 msgid "Play/Pause"
 msgstr "Tocar/Pausar"
 
-#: docking.cpp:73 kscd.cpp:508
-msgid "Stop"
-msgstr "Parar"
-
 #: docking.cpp:75
 msgid "Backward"
 msgstr "Recuar"
@@ -246,10 +242,6 @@ msgstr "Anterior"
 msgid "Eject"
 msgstr "Ejectar"
 
-#: docking.cpp:81 docking.cpp:177
-msgid "Restore"
-msgstr "Restaurar"
-
 #: docking.cpp:175
 msgid "Minimize"
 msgstr "Minimizar"
@@ -259,8 +251,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Não foi encontrado nenhum título iguais. Seleccine o CD apropriado da "
-"lista apresentada em baixo."
+"Não foi encontrado nenhum título iguais. Seleccine o CD apropriado da lista "
+"apresentada em baixo."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -511,3 +503,9 @@ msgstr "Altura da Janela Mágica:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Brilho MÁGICO:"
+
+#~ msgid "Stop"
+#~ msgstr "Parar"
+
+#~ msgid "Restore"
+#~ msgstr "Restaurar"

@@ -55,7 +55,6 @@ msgstr ""
 "Gesamtzeit:\n"
 " %02d:%02d"
 
-
 #: CDDialog.cpp:244
 msgid "Use this Editor to annotate this track"
 msgstr "Benutzen Sie diesen Editor, um Anmerkungen zu machen"

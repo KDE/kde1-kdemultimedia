@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"POT-Creation-Date: 1998-07-16 15:14+0200\n"
 "PO-Revision-Date: 1998-01-22 08:53 MET\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -13,98 +13,104 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmediawin.cpp:132
+#: kmediawin.cpp:162
 msgid "Playback position"
 msgstr "Pozice v pøehrávaném záznamu"
 
-#: kmediawin.cpp:138
+#: kmediawin.cpp:168
 msgid "Eject medium"
 msgstr "Vysuò medium"
 
-#: kmediawin.cpp:142
+#: kmediawin.cpp:172
 msgid "Previous track"
 msgstr "Pøedcházející stopa"
 
-#: kmediawin.cpp:147
+#: kmediawin.cpp:177
 msgid "Backward"
 msgstr "Zpìt"
 
-#: kmediawin.cpp:152
-msgid "Stop"
-msgstr "Stop"
-
-#: kmediawin.cpp:156
+#: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Pøehrát/Pauza"
 
-#: kmediawin.cpp:161
-msgid "Forward"
-msgstr "Vpøed"
-
-#: kmediawin.cpp:166
+#: kmediawin.cpp:200
 msgid "Next track"
 msgstr "Následující stopa"
 
-#: kmediawin.cpp:196
-msgid "New view"
-msgstr "Nový pøehrávaè"
-
-#: kmediawin.cpp:197
-msgid "Exit"
-msgstr "Ukonèit"
-
-#: kmediawin.cpp:202
-msgid "Mixer"
+#: kmediawin.cpp:231
+#, fuzzy
+msgid "&Mixer"
 msgstr "Mixer"
 
-#: kmediawin.cpp:204
-msgid "Preferences"
+#: kmediawin.cpp:233
+#, fuzzy
+msgid "&Preferences"
 msgstr "Preference"
 
-#: kmediawin.cpp:208
-msgid "&Contents"
-msgstr "&Nápovìda"
+#: kmediawin.cpp:241
+msgid ""
+"\n"
+"(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Media player for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+msgstr ""
 
-#: kmediawin.cpp:210
-msgid "&About"
-msgstr "&Informace"
+#: kmediawin.cpp:245
+msgid "About KMedia "
+msgstr ""
 
-#: kmediawin.cpp:214
-msgid "&File"
-msgstr "&Soubor"
-
-#: kmediawin.cpp:215
-msgid "&Options"
-msgstr "&Mo¾nosti"
-
-#: kmediawin.cpp:217
-msgid "&Help"
-msgstr "&Nápovìda"
-
-#: kmediawin.cpp:272
+#: kmediawin.cpp:308
 msgid "Exited"
 msgstr "Ukonèeno"
 
-#: kmediawin.cpp:273
+#: kmediawin.cpp:309
 msgid "Init"
 msgstr "Init"
 
-#: kmediawin.cpp:274
+#: kmediawin.cpp:310
 msgid "Busy"
 msgstr "Zaneprázdnìný"
 
-#: kmediawin.cpp:275
+#: kmediawin.cpp:311
 msgid "Playing"
 msgstr "Hraji"
 
-#: kmediawin.cpp:276
+#: kmediawin.cpp:312
 msgid "Paused"
 msgstr "Zastaveno"
 
-#: kmediawin.cpp:277
+#: kmediawin.cpp:313
 msgid "Ready"
 msgstr "Pøipraven"
 
-#: kmediawin.cpp:278
+#: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Nedefinován"
+
+#~ msgid "Stop"
+#~ msgstr "Stop"
+
+#~ msgid "Forward"
+#~ msgstr "Vpøed"
+
+#~ msgid "New view"
+#~ msgstr "Nový pøehrávaè"
+
+#~ msgid "Exit"
+#~ msgstr "Ukonèit"
+
+#~ msgid "&Contents"
+#~ msgstr "&Nápovìda"
+
+#~ msgid "&About"
+#~ msgstr "&Informace"
+
+#~ msgid "&File"
+#~ msgstr "&Soubor"
+
+#~ msgid "&Options"
+#~ msgstr "&Mo¾nosti"
+
+#~ msgid "&Help"
+#~ msgstr "&Nápovìda"

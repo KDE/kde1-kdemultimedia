@@ -1,102 +1,108 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"POT-Creation-Date: 1998-07-16 15:14+0200\n"
 "PO-Revision-Date: 1998-04-18 11:58+0200\n"
 "Last-Translator: Boris Wesslowski <bwess@gmx.net>\n"
 
-#: kmediawin.cpp:132
+#: kmediawin.cpp:162
 msgid "Playback position"
 msgstr "Posición de reproducción"
 
-#: kmediawin.cpp:138
+#: kmediawin.cpp:168
 msgid "Eject medium"
 msgstr "Expulsar disco"
 
-#: kmediawin.cpp:142
+#: kmediawin.cpp:172
 msgid "Previous track"
 msgstr "Pista anterior"
 
-#: kmediawin.cpp:147
+#: kmediawin.cpp:177
 msgid "Backward"
 msgstr "Retroceder"
 
-#: kmediawin.cpp:152
-msgid "Stop"
-msgstr "Parar"
-
-#: kmediawin.cpp:156
+#: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Reproducir/Pausa"
 
-#: kmediawin.cpp:161
-msgid "Forward"
-msgstr "Adelante"
-
-#: kmediawin.cpp:166
+#: kmediawin.cpp:200
 msgid "Next track"
 msgstr "Siguiente pista"
 
-#: kmediawin.cpp:196
-msgid "New view"
-msgstr "&Nueva ventana"
-
-#: kmediawin.cpp:197
-msgid "Exit"
-msgstr "&Salir"
-
-#: kmediawin.cpp:202
-msgid "Mixer"
+#: kmediawin.cpp:231
+#, fuzzy
+msgid "&Mixer"
 msgstr "&Mezclador"
 
-#: kmediawin.cpp:204
-msgid "Preferences"
+#: kmediawin.cpp:233
+#, fuzzy
+msgid "&Preferences"
 msgstr "&Preferencias"
 
-#: kmediawin.cpp:208
-msgid "&Contents"
-msgstr "&Contenido"
+#: kmediawin.cpp:241
+msgid ""
+"\n"
+"(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Media player for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+msgstr ""
 
-#: kmediawin.cpp:210
-msgid "&About"
-msgstr "&Acerca de"
+#: kmediawin.cpp:245
+msgid "About KMedia "
+msgstr ""
 
-#: kmediawin.cpp:214
-msgid "&File"
-msgstr "&Archivo"
-
-#: kmediawin.cpp:215
-msgid "&Options"
-msgstr "&Opciones"
-
-#: kmediawin.cpp:217
-msgid "&Help"
-msgstr "A&yuda"
-
-#: kmediawin.cpp:272
+#: kmediawin.cpp:308
 msgid "Exited"
 msgstr "Finalizado"
 
-#: kmediawin.cpp:273
+#: kmediawin.cpp:309
 msgid "Init"
 msgstr "Iniciar"
 
-#: kmediawin.cpp:274
+#: kmediawin.cpp:310
 msgid "Busy"
 msgstr "Ocupado"
 
-#: kmediawin.cpp:275
+#: kmediawin.cpp:311
 msgid "Playing"
 msgstr "Reproduciendo"
 
-#: kmediawin.cpp:276
+#: kmediawin.cpp:312
 msgid "Paused"
 msgstr "Detenido"
 
-#: kmediawin.cpp:277
+#: kmediawin.cpp:313
 msgid "Ready"
 msgstr "Listo"
 
-#: kmediawin.cpp:278
+#: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Sin definir"
+
+#~ msgid "Stop"
+#~ msgstr "Parar"
+
+#~ msgid "Forward"
+#~ msgstr "Adelante"
+
+#~ msgid "New view"
+#~ msgstr "&Nueva ventana"
+
+#~ msgid "Exit"
+#~ msgstr "&Salir"
+
+#~ msgid "&Contents"
+#~ msgstr "&Contenido"
+
+#~ msgid "&About"
+#~ msgstr "&Acerca de"
+
+#~ msgid "&File"
+#~ msgstr "&Archivo"
+
+#~ msgid "&Options"
+#~ msgstr "&Opciones"
+
+#~ msgid "&Help"
+#~ msgstr "A&yuda"

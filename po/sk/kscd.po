@@ -503,4 +503,3 @@ msgstr "Vý¹ka Magic okna:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Svetlos» Magic:"
-
