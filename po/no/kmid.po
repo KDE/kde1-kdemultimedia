@@ -344,7 +344,7 @@ msgstr "Rhodes-piano"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
-msgstr ""
+msgstr "Korpiano"
 
 #: instrname.i18n:12
 msgid "Harpsichord"
@@ -540,7 +540,7 @@ msgstr ""
 
 #: instrname.i18n:60
 msgid "Synth Voice"
-msgstr ""
+msgstr "Synth-stemme"
 
 #: instrname.i18n:61
 msgid "Orchestra Hit"
