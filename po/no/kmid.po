@@ -85,24 +85,23 @@ msgstr "&Automtisk tekstvelger"
 
 #: kmidframe.cpp:128
 msgid "Show &Volume Bar"
-msgstr ""
+msgstr "Vis &lydstyrkelinje"
 
 #: kmidframe.cpp:133
 msgid "Show &Channel View"
-msgstr ""
+msgstr "Vis &kanalvisning"
 
 #: kmidframe.cpp:138
 msgid "Channel View &Options"
-msgstr ""
+msgstr "Kanalvisnings&valg"
 
 #: kmidframe.cpp:142
 msgid "&Font Change ..."
 msgstr "&Endring av skrifttype ..."
 
 #: kmidframe.cpp:145
-#, fuzzy
 msgid "Midi &Setup ..."
-msgstr "M&idi-oppsett ..."
+msgstr "Midi-opp&sett ..."
 
 #: kmidframe.cpp:150
 #, c-format
@@ -179,11 +178,11 @@ msgstr "Neste sang"
 
 #: kmidframe.cpp:198
 msgid "Show Channel View"
-msgstr ""
+msgstr "Vi kanalvisning"
 
 #: kmidframe.cpp:203
 msgid "Show Volume Bar"
-msgstr ""
+msgstr "Vi lydstyrkelinje"
 
 #: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
 msgid "Error"
@@ -351,25 +350,24 @@ msgid "Change Collection Name"
 msgstr "Endre samlingsnavn"
 
 #: channel.cpp:75
-#, fuzzy
 msgid "Channel"
-msgstr "Avbryt"
+msgstr "Kanal"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
-msgstr ""
+msgstr "Konfigurer kanalvisning"
 
 #: channelcfgdlg.cpp:22
 msgid "Choose look mode"
-msgstr ""
+msgstr "Velg låsemodus"
 
 #: channelcfgdlg.cpp:23
 msgid "3D look"
-msgstr ""
+msgstr "3D-utseende"
 
 #: channelcfgdlg.cpp:24
 msgid "3D - filled"
-msgstr ""
+msgstr "3D - fylt"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
@@ -404,9 +402,8 @@ msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Slett"
+msgstr "Celeste"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -813,9 +810,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Fil"
+msgstr ""
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -871,17 +867,16 @@ msgstr ""
 
 #: instrname.i18n:130
 msgid "Telephone"
-msgstr ""
+msgstr "Telefon"
 
 #: instrname.i18n:131
 msgid "Helicopter"
-msgstr ""
+msgstr "Helikopter"
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pause"
+msgstr "Applaus"
 
 #: instrname.i18n:133
 msgid "Gunshot"
-msgstr ""
+msgstr "Pistolskudd"

@@ -38,14 +38,12 @@ msgid "Next track"
 msgstr "Neste spor"
 
 #: kmediawin.cpp:231
-#, fuzzy
 msgid "&Mixer"
-msgstr "Mikser"
+msgstr "&Mikser"
 
 #: kmediawin.cpp:233
-#, fuzzy
 msgid "&Preferences"
-msgstr "Preferanser"
+msgstr "&Preferanser"
 
 #: kmediawin.cpp:241
 msgid ""
@@ -55,10 +53,15 @@ msgid ""
 "Media player for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
 msgstr ""
+"\n"
+"(C) 1996-1998 av Christian Esken (esken@kde.org).\n"
+"\n"
+"Multimediaspilleren for KDE Desktop Environment.\n"
+"Dette programmet er under GPL.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
-msgstr ""
+msgstr "Om KMedia "
 
 #: kmediawin.cpp:308
 msgid "Exited"
@@ -87,30 +90,3 @@ msgstr "Klar"
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Udefinert"
-
-#~ msgid "Stop"
-#~ msgstr "Stopp"
-
-#~ msgid "Forward"
-#~ msgstr "Fremover"
-
-#~ msgid "New view"
-#~ msgstr "Neste brukerutsnitt"
-
-#~ msgid "Exit"
-#~ msgstr "Gå ut"
-
-#~ msgid "&Contents"
-#~ msgstr "&Innhold"
-
-#~ msgid "&About"
-#~ msgstr "&Om"
-
-#~ msgid "&File"
-#~ msgstr "&Fil"
-
-#~ msgid "&Options"
-#~ msgstr "&Valg"
-
-#~ msgid "&Help"
-#~ msgstr "&Hjelp"
