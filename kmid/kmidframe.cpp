@@ -51,7 +51,7 @@
 
 
 kmidFrame::kmidFrame(const char *name)
-    :KTopLevelWidget(name)
+    :KTMainWindow(name)
 {
     kmidclient=new kmidClient(this,"KMidClient");
     kmidclient->songType(1);

@@ -533,6 +533,7 @@ void kmidClient::timebarUpdate()
     itsme=0;
     if ((pctl->playing==0)&&(pctl->finished==1))
     {
+        waitpid(playerProcessID, NULL, 0);
         if (loopsong)
         {
             song_Play();
@@ -861,6 +862,7 @@ void kmidClient::song_Stop()
     if (playerProcessID!=0)
     {
         int r=kill(playerProcessID,SIGTERM);
+	printf("Killing\n");
         waitpid(playerProcessID, NULL, 0);
         playerProcessID=0;
     };

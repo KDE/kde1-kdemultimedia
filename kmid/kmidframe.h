@@ -26,7 +26,7 @@
 
 //#include <kapp.h>
 //#include <qwidget.h>
-#include <ktopwidget.h>
+#include <ktmainwindow.h>
 #include <kmenubar.h>
 #include <kslider.h>
 #include "player/midiout.h"
@@ -43,7 +43,7 @@ class KToolBar;
 class KDNDDropZone;
 class KAccel;
 
-class kmidFrame : public KTopLevelWidget
+class kmidFrame : public KTMainWindow
 {
     Q_OBJECT
 private:
@@ -76,7 +76,7 @@ protected:
 //    virtual void closeEvent(QCloseEvent *e);
 public:
     kmidFrame(const char *name=0);
-    ~kmidFrame();
+    virtual ~kmidFrame();
 
 //    void readConfig(KConfig *kconf);
 

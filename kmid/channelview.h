@@ -25,12 +25,12 @@
 #ifndef CHANNELVIEW_H
 #define CHANNELVIEW_H
 
-#include <qwidget.h>
+#include <ktmainwindow.h>
 #include <qscrbar.h>
 #include "channel.h"
 
 
-class ChannelView : public QWidget
+class ChannelView : public KTMainWindow
 {
     Q_OBJECT
 private:
@@ -42,7 +42,7 @@ private:
     
 public:
 	ChannelView(void);
-	~ChannelView();
+	virtual ~ChannelView();
 
         void setScrollBarRange(void);
 

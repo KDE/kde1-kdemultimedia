@@ -28,7 +28,7 @@
 #include <kapp.h>
 
 
-ChannelView::ChannelView(void) : QWidget(NULL,"channels")
+ChannelView::ChannelView(void) : KTMainWindow("ChannelView")
 {
     for (int i=0;i<16;i++)
     {
