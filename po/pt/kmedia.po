@@ -27,7 +27,7 @@ msgstr "Tocar/Pausar"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr ""
+msgstr "Avançar"
 
 #: kmediawin.cpp:200
 msgid "Next track"
