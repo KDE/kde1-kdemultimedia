@@ -216,7 +216,7 @@ works for you. -- thanks !
 #if defined(__osf__)
 
 /* Nothing to be done. The cd device should be automatically detected */
-/* If you have troulbe look at plat_osf1.c and let me know what needs
+/* If you have trouble look at plat_osf1.c and let me know what needs
    to be changes */
 
 #endif

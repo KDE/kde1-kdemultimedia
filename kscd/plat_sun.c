@@ -70,7 +70,7 @@ int	current_end;
  * there if there's no CD in the drive.)  This is done so a single SunOS 4.x
  * binary can be used on any 4.x or higher Sun system.
  */
-void
+int
 find_cdrom()
 {
 	if (access("/vol/dev/aliases", X_OK) == 0)
@@ -82,18 +82,22 @@ find_cdrom()
 		cd_device = getenv("VOLUME_DEVICE");
 		if (cd_device == NULL)
 			cd_device = "/vol/dev/aliases/cdrom0";
+		return 1;
 	}
 	else if (access("/dev/rdsk/c0t6d0s2", F_OK) == 0)
 	{
 		/* Solaris 2.x w/o volume manager. */
 		cd_device = "/dev/rdsk/c0t6d0s2";
+		return 1;
 	}
-	else if (access("/dev/rsr0", F_OK) == 0)
+	else if (access("/dev/rsr0", F_OK) == 0){
 		cd_device = "/dev/rsr0";
+		return 1;
+	}
 	else
 	{
 		fprintf(stderr, "Couldn't find a CD device!\n");
-		exit(1);
+		return 0;
 	}
 }
 
@@ -808,8 +812,10 @@ wmcd_open(d)
 	static int	warned = 0;
 	char		vendor[32], model[32], rev[32];
 
-	if (cd_device == NULL)
-		find_cdrom();
+	if (cd_device == NULL){
+	  if(!find_cdrom())
+	    return -1;
+	}
 
 	if (d->fd >= 0)		/* Device already open? */
 		return (0);

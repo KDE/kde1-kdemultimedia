@@ -28,7 +28,7 @@ static char *ident = "@(#)plat_hpux.c	1.8 4/13/95";
 
 #include "struct.h"
 
-#define	DEFAULT_CD_DEVICE	"/dev/rscsi"
+
 
 void *malloc();
 char *strchr();
@@ -247,9 +247,11 @@ wmcd_open(d)
 
 	if (d->fd >= 0)		/* Device already open? */
 		return (0);
-	
-	if (cd_device == NULL)
-		cd_device = DEFAULT_CD_DEVICE;
+
+	if (cd_device == NULL){
+	  fprintf(stderr,"cd_device string empty\n");
+	  return (-1);
+	}
 
 	d->fd = open(cd_device, O_RDWR);
 	if (d->fd < 0)

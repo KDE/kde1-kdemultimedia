@@ -352,8 +352,11 @@ wmcd_open(d)
 
 	if (d->fd < 0)		/* Device already open? */
 	{
-		if (cd_device == NULL)
-			cd_device = DEFAULT_CD_DEVICE;
+
+	if (cd_device == NULL){
+	  fprintf(stderr,"cd_device string empty\n");
+	  return (-1);
+	}
 
 		d->fd = 1;
 

@@ -78,6 +78,7 @@ struct configstruct{
   QColor led_color;
   QColor background_color;
   bool   tooltips;
+  QString cd_device;
 };
 
 
@@ -127,6 +128,8 @@ private:
 	bool looping;
 	bool volstartup;
 	bool cddrive_is_ok;
+	
+	QString cd_device_str;
    // Private functions
 	QPushButton     *makeButton( int, int, int, int, const char * );
 

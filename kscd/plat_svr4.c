@@ -10,7 +10,7 @@ static char *ident = "@(#)plat_svr4.c	1.1\t1/2/94";
 
 #if defined(SVR4) && !defined(sun) && !defined(__sun__)
 
-#define	DEFAULT_CD_DEVICE	"/dev/rcdrom/cd0"
+
 
 
 #include <sys/types.h>
@@ -256,8 +256,11 @@ wmcd_open(d)
 	if (d->fd >= 0)		/* Device already open? */
 		return (0);
 	
-	if (cd_device == NULL)
-		cd_device = DEFAULT_CD_DEVICE;
+	if (cd_device == NULL){
+	  fprintf(stderr,"cd_device string empty\n");
+	  return (-1);
+	}
+
 
 	d->fd = create_cdrom_node(cd_device); /* this will do open */
 

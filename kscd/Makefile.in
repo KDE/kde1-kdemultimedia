@@ -37,7 +37,7 @@ CFLAGS	=
 
 ####### Files
 
-HEADER = kscd.h struct.h bwlednum.h
+HEADER = kscd.h struct.h bwlednum.h 
 
 SOURCES	= kscd.cpp configdlg.cpp  cdinfo.c\
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \

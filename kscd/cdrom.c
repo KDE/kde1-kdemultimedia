@@ -198,6 +198,16 @@ read_toc()
 	return (&thiscd);
 }
 
+
+int cd_close(){
+
+  if((drive.fd >=0)){
+    close(drive.fd);
+    drive.fd = -1;
+  }
+}
+
+
 /*
  * cd_status()
  *
@@ -226,6 +236,7 @@ cd_status()
 	status = wmcd_open(&drive);
 #endif
 
+//printf("%s %d\n",cd_device, status);
 	if (status < 0)
 		return (status);
 	if (status > 0)

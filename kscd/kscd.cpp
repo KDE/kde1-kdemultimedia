@@ -58,6 +58,7 @@ void 		kcdworker(int );
 extern "C" {
   int play_cd(int start,int pos,int end);
   int pause_cd();
+  int cd_close();
   int stop_cd();
   int cd_status();
   int eject_cd();
@@ -66,6 +67,7 @@ extern "C" {
 
 extern struct play *playlist ;
 extern struct cdinfo_wm thiscd, *cd ;
+extern char	*cd_device;
 
 extern int	cur_track;	/* Current track number, starting at 1 */
 extern int	cur_index;	/* Current index mark */
@@ -99,21 +101,19 @@ int mark_a, mark_b;
 KSCD::KSCD( QWidget *parent, const char *name ) :
 	QDialog( parent, name )
 {
-   
+        cd_device_str = "";
         background_color = black;
 	led_color = green;
 	randomplay = false;
 	looping = false;
 	cddrive_is_ok = true;
 	tooltips = true;
-	initWorkMan();
 
-	//	initMixer();
-	//	checkMount(); /*see comment below at KSCD::checkMount() */
 	drawPanel();
 	loadBitmaps();
 	setColors();
 	setToolTips();
+
 	timer = new QTimer( this );
 	connect( timer, SIGNAL(timeout()),  SLOT(cdMode()) );
 	connect( playPB, SIGNAL(clicked()), SLOT(playClicked()) );
@@ -135,6 +135,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 
 	readSettings();
 	setColors();
+	initWorkMan();
 
 	volstartup = TRUE;
 	volSB->setValue(volume);
@@ -741,6 +742,7 @@ void KSCD::aboutClicked()
   config.background_color = background_color;
   config.led_color = led_color;
   config.tooltips = tooltips;
+  config.cd_device = cd_device;
 
   dlg = new ConfigDlg(tabdialog,&config,"configdialg");
  
@@ -752,6 +754,15 @@ void KSCD::aboutClicked()
     background_color = dlg->getData()->background_color;
     led_color = dlg->getData()->led_color;
     tooltips = dlg->getData()->tooltips;
+
+    if( (QString)cd_device != dlg->getData()->cd_device){
+      cd_device_str = dlg->getData()->cd_device;
+      cd_close();
+      cd_device = cd_device_str.data();
+  }
+    cddrive_is_ok = true;
+      
+
     setColors();
     setToolTips();
   }
@@ -790,12 +801,15 @@ void KSCD::cdMode()
 	QString str;
 
 	sss = cd_status();
+	//	printf("status %d\n",sss);
    	if(sss < 0){
 	   if(cddrive_is_ok){
-		   QMessageBox::information(this,
-		   "Sorry","CD-rom read or access error !\n"\
-		   "Please make sure you have permission access the device.");
-		   cddrive_is_ok = false;
+	     statuslabel->setText( "Error" );
+	     cddrive_is_ok = false;
+	     QString errstring;
+	     errstring.sprintf("CDROM read or access error.\n"\
+	     "Please make sure you have access permissions to:\n%s",cd_device);
+	     QMessageBox::warning(this,"Error",errstring.data());
 	   }
 	 return;
 	}
@@ -925,42 +939,16 @@ void KSCD::setColors(){
 
 void KSCD::readSettings(){
 
-	// let's set the defaults 
-        volume  = 40;
-	randomplay = false;
-	int tooltipsint  = 1;
-	int randomplayint = 0;
-
-	QString str;
-	
 	config = mykapp->getConfig();
 
-	str = config->readEntry("Volume");
-	if ( !str.isNull() )
-	  volume = atoi(str.data());
-
-	str = config->readEntry("ToolTips");
-	if ( !str.isNull() )
-	  tooltipsint =  atoi(str.data());
-
-	if (tooltipsint == 1)
-	  tooltips = TRUE;
-	else
-	  tooltips = FALSE;
-
-	str = config->readEntry("RandomPlay");
-	if ( !str.isNull() )
-	  randomplayint =  atoi(str.data());
-
-	if (randomplayint == 1)
-	  randomplay = TRUE;
-	else
-	  randomplay = FALSE;
+	volume = config->readNumEntry("Volume",40);
+	tooltips  = (bool) config->readNumEntry("ToolTips",1);
+	randomplay = (bool) config->readEntry("RandomPlay", 0);
+	cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
+	cd_device = cd_device_str.data();
 
 	QColor defaultback = black;
 	QColor defaultled = QColor(226,224,255);
-
-
 	background_color = config->readColorEntry("BackColor",&defaultback);	
 	led_color = config->readColorEntry("LEDColor",&defaultled);
 
@@ -983,7 +971,7 @@ void KSCD::writeSettings(){
 	else
 	  config->writeEntry("RandomPlay", 0);
 
-
+	config->writeEntry("CDDevice",cd_device);
 	config->writeEntry("Volume", volume);
 	config->writeEntry("BackColor",background_color);
 	config->writeEntry("LEDColor",led_color);
@@ -998,7 +986,10 @@ int main ( int argc, char *argv[] )
 	KSCD 		*k = new KSCD; 
 
 	cur_track = 1;
-	mykapp->setMainWidget( k );
+	mykapp->enableSessionManagement(true);
+	mykapp->setWmCommand(argv[0]);      
+	mykapp->setTopWidget(k);
+	//	mykapp->setMainWidget( k );
 	k->show();
 	mykapp->exec();
 }

@@ -496,9 +496,12 @@ wmcd_open(d)
 #ifdef LINUX_SCSI_PASSTHROUGH
 	char vendor[9], model[17], rev[5];
 #endif
- 
-	if (cd_device == NULL)
-		cd_device = DEFAULT_CD_DEVICE;
+
+	if (cd_device == NULL){
+	  fprintf(stderr,"cd_device string empty\n");
+	  return (-1);
+	}
+
 
 	if (d->fd >= 0)		/* Device already open? */
 #ifdef SBPCD_HACK

@@ -37,6 +37,7 @@
 #include <qlabel.h>
 #include <qframe.h>
 #include <qchkbox.h>
+#include <qlined.h>
 #include <kcolordlg.h>
 
 
@@ -62,6 +63,7 @@ private slots:
   void set_background_color();
   void help();
   void ttclicked();
+  void device_changed(const char*);
 
 signals:
   void color_change();
@@ -95,6 +97,9 @@ private:
 
   QLabel *tooltipslabel;
   QCheckBox *ttcheckbox;
+  
+  QLabel *label5;
+  QLineEdit *cd_device_edit;
 
 };
 #endif

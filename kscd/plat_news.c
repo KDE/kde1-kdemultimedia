@@ -340,8 +340,11 @@ wmcd_open(d)
 		return (0);
 
 	intermittent_dev = 1;
-	if (cd_device == NULL)
-		cd_device = DEFAULT_CD_DEVICE;
+ 
+	if (cd_device == NULL){
+	  fprintf(stderr,"cd_device string empty\n");
+	  return (-1);
+	}
 
 	if ((d->fd = CD_Open(cd_device, 0)) < 0)
 	{

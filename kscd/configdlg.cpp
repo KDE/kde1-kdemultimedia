@@ -40,11 +40,13 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.background_color = black;
   configdata.led_color = green;
   configdata.tooltips = true;
+  configdata.cd_device ="/dev/cdrom";
   
   if(data){
     configdata.background_color = data->background_color;
     configdata.led_color = data->led_color;
     configdata.tooltips = data->tooltips;
+    configdata.cd_device = data->cd_device;
   }
 
   colors_changed = false;
@@ -84,14 +86,34 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
   button3 = new QPushButton(this);
-  button3->setGeometry(205,175,100,25);
+  button3->setGeometry(205,200,100,25);
   button3->setText("Help");
   connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 
+  label5 = new QLabel(this);
+  label5->setGeometry(20,110,135,25);
+  label5->setText("CDROM Device:");
+
+  cd_device_edit = new QLineEdit(this);
+  cd_device_edit->setGeometry(155,110,150,25);
+  cd_device_edit->setText(configdata.cd_device);
+  connect(cd_device_edit,SIGNAL(textChanged(const char*)),
+	  this,SLOT(device_changed(const char*)));  
+
+#if defined(sun) && defined(__sun__) && defined(__osf__) && defined(ultrix) && defined(__ultrix)
+
+  label5->hide();
+  cd_device_edit->hide();
+
+#endif
+
   ttcheckbox = new QCheckBox("Show Tool Tips", this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30,110,135,25);
+  ttcheckbox->setGeometry(30,160,135,25);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
+
+  
+  
 }
 
 
@@ -99,6 +121,11 @@ void ConfigDlg::okbutton() {
 
 
 
+}
+
+void ConfigDlg::device_changed(const char* dev) {
+
+  configdata.cd_device = dev;
 }
 
 void ConfigDlg::ttclicked(){
@@ -136,7 +163,7 @@ void ConfigDlg::set_background_color(){
 }
 
 struct configstruct * ConfigDlg::getData(){
-
+  
   return &configdata;
 
 }
