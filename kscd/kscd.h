@@ -162,6 +162,8 @@ public slots:
     void information(int);
     void showPopup();
     void dockClicked();
+    
+    void doSM();
 
 private:
     CDDBSetup       *setup;
@@ -281,7 +283,7 @@ private:
         bool autodock;
         bool stopexit;
         bool ejectonfinish;
-        
+
 	bool 		cddb_inexact_sentinel;
         bool            updateDialog;
         bool ejectedBefore;

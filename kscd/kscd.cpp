@@ -132,6 +132,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     QWidget( parent, name )
 {
 
+    connect(kapp, SIGNAL (saveYourself() ), SLOT (doSM()));
     magicproc             = 0L;
     cd_device_str        	= "";
     background_color 	= black;
@@ -850,20 +851,20 @@ void KSCD::dockClicked()
 void KSCD::closeEvent( QCloseEvent *e ){
 
     //emit dockClicked();
-  
+
     quitPending = true;
     randomplay = FALSE;
-                                                    
+
     statuslabel->setText("");
-                                                    
+
     setLEDs( "--:--" );
-   
+
     qApp->processEvents();
     qApp->flushX();
-                                                    
+
     if(stopexit)
 	stop_cd ();
-                                                    
+
     cd_status();
     cd_status();
     cleanUp();
@@ -2400,6 +2401,14 @@ void KSCD::get_pathlist(QStrList& _pathlist){
     }
 }
 
+void KSCD::doSM()
+{
+    if (isVisible())
+	mykapp->setWmCommand(QString(kapp->argv()[0])+" -caption \""+kapp->getCaption()+"\"");
+    else
+	mykapp->setWmCommand(QString(kapp->argv()[0])+" -caption \""+kapp->getCaption()+"\" -hide ");
+}
+
 
 int main( int argc, char *argv[] )
 {
@@ -2407,6 +2416,8 @@ int main( int argc, char *argv[] )
     k = new KSCD();
 
     cur_track = 1;
+    
+    bool hide = FALSE;
 
     for(int i = 0; i < argc; i++){
 
@@ -2415,6 +2426,10 @@ int main( int argc, char *argv[] )
             printf("DEBUG MODE ON\n");
         }
 
+        if(strcmp(argv[i],"-hide") == 0){
+	    hide = TRUE;
+	}
+	
         if(strcmp(argv[i],"-h") == 0){
             printf("KSCD "KSCDVERSION\
                    " Copyright 1997-98 Bernd Johannes Wuebben wuebben@kde.org\n");
@@ -2425,11 +2440,11 @@ int main( int argc, char *argv[] )
     }
 
     mykapp->enableSessionManagement(true);
-    mykapp->setWmCommand(QString(argv[0])+" -caption \""+kapp->getCaption()+"\"");
     mykapp->setTopWidget(k);
     mykapp->setMainWidget( k );
     k->setCaption(mykapp->getCaption());
-    k->show();
+    if (!hide)
+	k->show();
 
     return mykapp->exec();
 }

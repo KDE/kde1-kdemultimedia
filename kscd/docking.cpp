@@ -5,7 +5,7 @@
  *
  *              Copyright (C) 1997 Bernd Johannes Wuebben
  *                      wuebben@math.cornell.edu
- * 
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
  * License as published by the Free Software Foundation; either
@@ -119,7 +119,7 @@ void DockWidget::undock() {
 
   if (docked) {
 
-    // the widget's window has to be destroyed in order 
+    // the widget's window has to be destroyed in order
     // to undock from the panel. Simply using hide() is
     // not enough.
     this->destroy(true, true);
@@ -156,13 +156,13 @@ void DockWidget::timeclick() {
 
   if(this->isVisible()){
     paintIcon();
-  }  
+  }
 }
 
 
 void DockWidget::mousePressEvent(QMouseEvent *e) {
 
-  // open/close connect-window on right mouse button 
+  // open/close connect-window on right mouse button
   if ( e->button() == LeftButton ) {
     toggle_window_state();
   }
@@ -177,7 +177,7 @@ void DockWidget::mousePressEvent(QMouseEvent *e) {
       text = klocale->translate("Minimize");
     else
       text = klocale->translate("Restore");
-    
+
     popup_m->changeItem(text, toggleID);
     popup_m->popup(QPoint(x, y));
     popup_m->exec();
@@ -191,9 +191,6 @@ void DockWidget::toggle_window_state() {
         if (k->isVisible()){
             dockinginprogress = true;
             SaveKscdPosition();
-//            QPoint point = k->mapToGlobal (QPoint (0,0));
-//            pos_x = point.x();
-//            pos_y = point.y();
             toggled = true;
             k->hide();
         }
@@ -208,14 +205,6 @@ void DockWidget::toggle_window_state() {
                            k->width(),
                            k->height());
             toggled = false;
-            //
-            QPoint zp = k->mapToGlobal(QPoint (0,0));
-            if(zp.x() == pos_x && zp.y() == pos_y){
-                if(debugflag)
-                    printf("warning: qt bug? compensating.....\n");
-                k->setGeometry(pos_x-4, pos_y-24, k->width(), k->height());
-            }
-            //
             k->show();
             dockinginprogress = false;
         }
