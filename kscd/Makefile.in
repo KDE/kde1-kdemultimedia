@@ -8,15 +8,16 @@ top_builddir = ..
 LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@
 topdir = @topdir@
+install_root = @install_root@
+
 SHELL = /bin/sh
-MIMEDIR = $(prefix)/share/mimelnk/text/
-BINDIR  = $(prefix)/bin
-LIBDIR  = $(prefix)/lib
-ICONDIR  = $(prefix)/share/icons
-MINIDIR  = $(prefix)/share/icons/mini
-PICSDIR  = $(prefix)/share/apps/kscd/pics/
-APPSDIR = $(prefix)/share/applnk/Multimedia
-CDDBDIR = $(prefix)/share/apps/kscd/cddb/
+MIMEDIR = @kde_mimedir@/text/
+BINDIR  = @kde_bindir@
+ICONDIR  = @kde_icondir@
+MINIDIR  = @kde_minidir@
+PICSDIR  = @kde_datadir@/kscd/pics/
+APPSDIR = @kde_appsdir@/Multimedia
+CDDBDIR = @kde_datadir@/kscd/cddb/
 install = @INSTALL@
 INSTALL = $(install) -m 0755
 INSTALL_DATA = $(install) -m 0644
@@ -121,7 +122,7 @@ install: all
 	$(INSTALL_DATA) kscd.xpm $(ICONDIR)
 	$(INSTALL_DATA) bitmaps/cd.xpm $(ICONDIR)
 	$(INSTALL_DIR) $(MINIDIR)
-	$(INSTALL_DATA) mini-kscd.xpm $(MINIDIR)
+	$(INSTALL_DATA) mini-kscd.xpm $(MINIDIR)/kscd.xpm
 	$(INSTALL_DIR) $(PICSDIR)
 	$(INSTALL_DATA) kscdlogo.xpm $(PICSDIR)
 	$(INSTALL_DIR) $(MIMEDIR)
@@ -137,6 +138,8 @@ uninstall:
 	rm -f $(PICSDIR)/kscdlogo.xpm
 	rm -f $(ICONDIR)/kscd.xpm
 	rm -f $(MINIDIR)/kscd.xpm
+	rm -f $(ICONDIR)/cd.xpm
+	rm -f $(MIMEDIR)/xmcd.kdelnk
 
 ####### Explicit dependencies
 

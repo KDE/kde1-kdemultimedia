@@ -23,16 +23,17 @@ INSTALL_DIR = @INSTALL@ -d -m 0755
 INSTALL_DIR_PRIVATE = @INSTALL@ -d -m 0700
 
 prefix       = @prefix@
-BINDIR       = $(prefix)/bin
-PICSDIR      = $(prefix)/share/apps/kmidi/pics
-ICONDIR      = $(prefix)/share/icons
-DOCSDIR      = $(prefix)/share/doc/HTML/en/kmidi
-DOCSDIRDE      = $(prefix)/share/doc/HTML/de/kmidi
-APPSDIR      = $(prefix)/share/applnk/Multimedia
+install_root = @install_root@
+BINDIR       = @kde_bindir@
+PICSDIR      = @kde_datadir@/kmidi/pics
+ICONDIR      = @kde_icondir@
+DOCSDIR      = @kde_htmldir@/en/kmidi
+DOCSDIRDE      = @kde_htmldir@/de/kmidi
+APPSDIR      = @kde_appsdir@/Multimedia
 # Where to install the patches, config files, and MIDI files.
 # If you change this, it's a good idea to recompile the binary,
 # or you'll need to invoke timidity with the -L option.
-TIMID_DIR = $(prefix)/share/apps/kmidi/config
+TIMID_DIR = @kde_datadir@/kmidi/config
 
 
 
@@ -95,24 +96,7 @@ distclean: clean
 install:
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
-	$(INSTALL_DIR) $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi.sgml $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi-1.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi-2.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi-3.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi-4.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/kmidi-5.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/logotp3.gif $(DOCSDIR)	
-	$(INSTALL_DIR) $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi.sgml $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi.html $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi-1.html $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi-2.html $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi-3.html $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi-4.html $(DOCSDIRDE)
-	$(INSTALL_DATA) docs/de/kmidi-5.html $(DOCSDIRDE)	
-	$(INSTALL_DATA) docs/FAQ $(DOCSDIRDE)
+	(cd docs && $(MAKE) install)
 	$(INSTALL_DIR) $(APPSDIR)
 	$(INSTALL_DATA) KMidi.kdelnk $(APPSDIR)
 	$(INSTALL_DIR) $(PICSDIR)
@@ -121,16 +105,9 @@ install:
 	$(INSTALL_DATA) kmidilogo.xpm $(PICSDIR)
 	$(INSTALL_DIR) $(TIMID_DIR)
 	$(INSTALL_DIR) $(TIMID_DIR)/patch
-	if ! [ -e $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) patch/acpiano.pat $(TIMID_DIR)/patch ; fi
-	if ! [ -e $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
-	if ! [ -e $(TIMID_DIR)/gravis.cfg ]; then  $(INSTALL_DATA) config/gravis.cfg $(TIMID_DIR); fi
-	if ! [ -e $(TIMID_DIR)/gsdrum.cfg ]; then  $(INSTALL_DATA) config/gsdrum.cfg $(TIMID_DIR) ; fi
-	if ! [ -e $(TIMID_DIR)/midia.cfg ]; then  $(INSTALL_DATA) config/midia.cfg $(TIMID_DIR); fi
-	if ! [ -e $(TIMID_DIR)/mt32.cfg ]; then  $(INSTALL_DATA) config/mt32.cfg $(TIMID_DIR); fi
-	if ! [ -e $(TIMID_DIR)/sndfont.cfg ]; then  $(INSTALL_DATA) config/sndfont.cfg $(TIMID_DIR); fi
-	if ! [ -e $(TIMID_DIR)/timidity.cfg ]; then  $(INSTALL_DATA) config/timidity.cfg $(TIMID_DIR); fi
-	if ! [ -e $(TIMID_DIR)/wowpats.cfg ]; then  $(INSTALL_DATA) config/wowpats.cfg $(TIMID_DIR); fi 
-
+	if [ ! -e $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) patch/acpiano.pat $(TIMID_DIR)/patch ; fi
+	if [ ! -e $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
+	(cd config && $(MAKE) install)
 
 	@echo ""
 	@echo "Important:"
@@ -155,7 +132,13 @@ uninstall:
 	rm -f $(BINDIR)/$(TARGET)
 	rm -f $(DOCSDIR)/kmidi.html
 	rm -f $(DOCSDIR)/kmidi.gif
-	rm -f $(APPSDIR)/Utilities/kmidi.kdelnk
+	rm -f $(ICONDIR)/kmidi.xpm
+	rm -f $(PICSDIR)/kmidilogo.xpm
+	rm -f $(APPSDIR)/KMidi.kdelnk
+	(cd docs && $(MAKE) uninstall)
+	rm -f $(TIMID_DIR)/patch/acpiano.pat
+	rm -f $(TIMID_DIR)/patch/nylongt2.pat
+	(cd config && $(MAKE) uninstall)
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
 

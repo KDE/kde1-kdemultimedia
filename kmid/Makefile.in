@@ -23,10 +23,9 @@ INSTALL_DIR = $(install) -d -m 0755
 INSTALL_DIR_PRIVATE = $(install) -d -m 0700
 
 prefix = @prefix@
-KDEINC = $(prefix)/include
-BINDIR = $(prefix)/bin
-LIBDIR = $(prefix)/lib
-PICSDIR = $(LIBDIR)/pics
+install_root = @install_root@
+BINDIR = @kde_bindir@
+DATADIR = @kde_datadir@/kmid
 
 ########### File Formats ###########
 
@@ -62,35 +61,42 @@ $(PLAYEROBJECTS):
 #	./install.sh	
 
 install: $(TARGET)
-	$(INSTALL_DIR) $(prefix)/share/apps/kmid
+	$(INSTALL_DIR) $(DATADIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
-	$(INSTALL_DIR) $(prefix)/share/applnk/Multimedia
-	$(INSTALL_DATA) kmid.kdelnk $(prefix)/share/applnk/Multimedia
-	$(INSTALL_DIR) $(prefix)/share/mimelnk/audio
-	$(INSTALL_DATA) x-karaoke.kdelnk $(prefix)/share/mimelnk/audio
-	$(INSTALL_DIR) $(prefix)/share/doc/HTML/en/kmid
-	$(INSTALL_DATA) kmid.html $(prefix)/share/doc/HTML/en/kmid
-	$(INSTALL_DIR) $(prefix)/share/apps/kmid/toolbar
-	$(INSTALL_DATA) toolbarxpm/*.xpm $(prefix)/share/apps/kmid/toolbar
-	$(INSTALL_DIR) $(prefix)/share/icons
-	$(INSTALL_DATA) kmid.xpm $(prefix)/share/icons
-	$(INSTALL_DIR) $(prefix)/share/apps/kmid/maps
-	$(INSTALL_DATA) maps/*.map $(prefix)/share/apps/kmid/maps
-	$(INSTALL_DATA) examples/*.kar $(prefix)/share/apps/kmid
+	$(INSTALL_DIR) @kde_appsdir@/Multimedia
+	$(INSTALL_DATA) kmid.kdelnk @kde_appsdir@/Multimedia
+	$(INSTALL_DIR) @kde_mimedir@/audio
+	$(INSTALL_DATA) x-karaoke.kdelnk @kde_mimedir@/audio
+	$(INSTALL_DIR) @kde_htmldir@/en/kmid
+	$(INSTALL_DATA) kmid.html @kde_htmldir@/en/kmid
+	(cd toolbarxpm && $(MAKE) install)
+	$(INSTALL_DIR) @kde_icondir@
+	$(INSTALL_DATA) kmid.xpm @kde_icondir@
+	$(INSTALL_DIR) $(DATADIR)/maps
+	(cd maps && $(MAKE) install)
+	(cd examples && $(MAKE) install)
+
+
+uninstall:
+	rm -f $(BINDIR)/$(TARGET)
+	(cd maps && $(MAKE) uninstall)
+	(cd examples && $(MAKE) uninstall)
+	(cd toolbarxpm && $(MAKE) uninstall)
+	-rm -f @kde_icondir@/kmid.xpm
+	-rm -f @kde_mimedir@/audio/x-karaoke.kdelnk
+	-rm -f @kde_appsdir@/Multimedia/kmid.kdelnk
+	rm -f @kde_htmldir@/en/kmid/kmid.html
 
 clean:
 	(cd player && make clean && cd ..)
+	(cd toolbarxpm && $(MAKE) uninstall)
+	(cd maps && $(MAKE) uninstall)
+	(cd examples && $(MAKE) uninstall)
 	rm -f *.o *.bak *~ *% #*
 	rm -f $(SRCMETA) $(TARGET)
 
 distclean: clean
 	rm -f Makefile
 
-#install:
-#	$(INSTALL_DIR) $(BINDIR)
-#	$(INSTALL) $(TARGET) $(BINDIR)
-
-uninstall:
-	rm -f $(BINDIR)/$(TARGET)
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.

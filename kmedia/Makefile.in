@@ -29,10 +29,9 @@ INSTALL_DIR = $(install) -d -m 0755
 INSTALL_DIR_PRIVATE = $(install) -d -m 0700
 
 prefix = @prefix@
-KDEINC = $(prefix)/include
-BINDIR = $(prefix)/bin
-LIBDIR = $(prefix)/lib
-APPDIR = $(prefix)/share/apps/kmedia
+install_root = @install_root@
+BINDIR = @kde_bindir@
+APPDIR = @kde_datadir@/kmedia
 
 ########### File Formats ###########
 
@@ -76,29 +75,35 @@ depend:
 install: $(TARGET) install-appdir install-icons # install-nls
 	$(INSTALL_DIR) $(BINDIR)
 	$(INSTALL) $(TARGET) $(BINDIR)
-	$(INSTALL_DIR) $(prefix)/share/doc/HTML/en/kmedia
-	$(INSTALL_DATA) kmedia.html $(prefix)/share/doc/HTML/en/kmedia
-	$(INSTALL_DIR) $(prefix)/share/applnk/Multimedia
-	$(INSTALL_DATA) KMedia.kdelnk $(prefix)/share/applnk/Multimedia
+	$(INSTALL_DIR) @kde_htmldir@/en/kmedia
+	$(INSTALL_DATA) kmedia.html @kde_htmldir@/en/kmedia
+	$(INSTALL_DIR) @kde_appsdir@/Multimedia
+	$(INSTALL_DATA) KMedia.kdelnk @kde_appsdir@/Multimedia
 
 install-appdir:
 	$(INSTALL_DIR) $(APPDIR)
 
 install-icons:
 	$(INSTALL_DIR) $(APPDIR)/pics
-	$(INSTALL_DATA) pics/media.xpm pics/playpause.xbm pics/playpause_both.xpm pics/playpause_play.xpm $(APPDIR)/pics
-	$(INSTALL_DATA) pics/kmedia.xpm $(prefix)/share/icons
-	$(INSTALL_DIR) $(prefix)/share/icons/mini
-	$(INSTALL_DATA) pics/kmedia_mini.xpm $(prefix)/share/icons/mini
+	$(INSTALL_DATA) pics/media.xpm $(APPDIR)/pics
+	$(INSTALL_DATA) pics/playpause.xbm $(APPDIR)/pics
+	$(INSTALL_DATA)	pics/playpause_both.xpm $(APPDIR)/pics
+	$(INSTALL_DATA) pics/playpause_play.xpm $(APPDIR)/pics
+	$(INSTALL_DIR) @kde_icondir@
+	$(INSTALL_DATA) pics/kmedia.xpm @kde_icondir@
+	$(INSTALL_DIR) @kde_minidir@
+	$(INSTALL_DATA) pics/kmedia_mini.xpm @kde_minidir@/kmedia.xpm
 
 #install-nls:
 #	for i in $(SRCNLS); do $(INSTALL_DIR) $(prefix)/share/locale/$$i/LC_MESSAGES; $(INSTALL_DATA) $$i.mo $(prefix)/share/locale/$$i/LC_MESSAGES/kmedia.mo; done
 
 uninstall:
 	rm -f $(BINDIR)/$(TARGET)
-	rm -Rf $(APPDIR)
-	rm -f $(prefix)/share/icons/kmedia.xpm
-	rm -f $(prefix)/share/icons/mini/kmedia.xpm
+	rm -rf $(APPDIR)
+	rm -f @kde_icondir@/kmedia.xpm
+	rm -f @kde_minidir@/kmedia.xpm
+	rm -f @kde_appsdir@/Multimedia/KMedia.kdelnk
+	rm -f @kde_htmldir@/en/kmedia/kmedia.html
 
 kmedia.moc: kmedia.h
 	$(MOC) kmedia.h -o kmedia.moc
