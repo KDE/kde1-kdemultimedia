@@ -119,15 +119,15 @@ msgstr "Kanalvisnings&valg"
 
 #: kmidframe.cpp:174
 msgid "&Font Change ..."
-msgstr "&Ændring af skrift ..."
+msgstr "Æ&ndring af skrift ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr "Indstil &taster ..."
+msgstr "&Indstil taster ..."
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
-msgstr "Midi-op&sætning ..."
+msgstr "Mi&di-opsætning ..."
 
 #: kmidframe.cpp:184
 #, c-format
