@@ -35,7 +35,6 @@ kscdmagic_LDADD   = -lkdeui -lkdecore -lqt -lXext -lX11 -lm $(LIBSOCKET)
 # this option you can leave out. Just, if you use "make dist", you need it
 noinst_HEADERS = bitmap.h    symbol.h    syna.h      xlib.h magicconf.h
 
-# make messages.po. Move this one to ../po/ and "make merge" in po
 messages:
-#	$(XGETTEXT) -C -ktranslate -kTRANS -x../../kdelibs/po/kde.pot $(kscdmagic_SOURCES)
+#	$(XGETTEXT) -C -ktranslate -kTRANS -ki18n -x $(includedir)/kde.pot $(kscdmagic_SOURCES)
 

@@ -43,7 +43,7 @@ uninstall-local:
 	rm -f $(APPSDIR)/KMedia.kdelnk
 
 messages:
-	@XGETTEXT@ -C -ki18n *.cpp -x../../kdelibs/po/kde.pot && mv messages.po ../po/kmedia.pot
+	$(XGETTEXT) -C -ki18n -x $(includedir)/kde.pot $(kmedia_SOURCES) && mv messages.po ../po/kmedia.pot
 
 edit:
 	xemacs $(kmedia_SOURCES) $(noinst_HEADERS) &
