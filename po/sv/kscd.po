@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscs revision 1.4\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1998-12-14 02:08+0100\n"
 "PO-Revision-Date: 1998-08-26 16:53+SET\n"
 "Last-Translator: Christer Gustavsson <f93-cgn@sm.luth.se>\n"
 "Language-Team: Swedish <LL@li.org>\n"
@@ -469,22 +469,22 @@ msgid "CD Volume Control"
 msgstr "CD Volymkontroll"
 
 # kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1276
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1292
 msgid "Playing"
 msgstr "Spelar"
 
-#: kscd.cpp:639 kscd.cpp:1290 kscd.cpp:1343 kscd.cpp:1752 kscd.cpp:1950
+#: kscd.cpp:639 kscd.cpp:1306 kscd.cpp:1359 kscd.cpp:1768 kscd.cpp:1966
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
 # kscd.cpp:602 kscd.cpp:1151
-#: kscd.cpp:670 kscd.cpp:1320
+#: kscd.cpp:670 kscd.cpp:1336
 msgid "Pause"
 msgstr "Paus"
 
 # kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-#: kscd.cpp:675 kscd.cpp:951 kscd.cpp:1272
+#: kscd.cpp:675 kscd.cpp:967 kscd.cpp:1288
 msgid "Random"
 msgstr "Slumpmässig"
 
@@ -499,22 +499,22 @@ msgid "Stopped"
 msgstr "Stanade"
 
 # kscd.cpp:784 kscd.cpp:1116
-#: kscd.cpp:914 kscd.cpp:1274
+#: kscd.cpp:930 kscd.cpp:1290
 msgid "Loop"
 msgstr "Cirkulera"
 
 # kscd.cpp:796
-#: kscd.cpp:926
+#: kscd.cpp:942
 msgid "Ejecting"
 msgstr "Mata ut"
 
 # kscd.cpp:869
-#: kscd.cpp:1002
+#: kscd.cpp:1018
 msgid "kscd Configuraton"
 msgstr "kscd Konfiguration"
 
 # kscd.cpp:885
-#: kscd.cpp:1018
+#: kscd.cpp:1034
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -542,7 +542,7 @@ msgstr ""
 "databaskonceptet. Besök http://www.cddb.com för mer information om CDDB.\n"
 
 # kscd.cpp:897
-#: kscd.cpp:1031
+#: kscd.cpp:1047
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -552,7 +552,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 
 # kscd.cpp:901
-#: kscd.cpp:1035
+#: kscd.cpp:1051
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -562,27 +562,27 @@ msgstr ""
 "Tack till Vadim Zaliva <lord@crocodile.org>\n"
 "för hans arbete av http-proxykod.\n"
 
-#: kscd.cpp:1091
+#: kscd.cpp:1107
 msgid "SMTP Setup"
 msgstr ""
 
 # kscd.cpp:947
-#: kscd.cpp:1092
+#: kscd.cpp:1108
 msgid "Kscd Options"
 msgstr "Kscd Val"
 
 # kscd.cpp:948
-#: kscd.cpp:1093
+#: kscd.cpp:1109
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
 # kscd.cpp:1029 kscd.cpp:1822
-#: kscd.cpp:1182 kscd.cpp:2082
+#: kscd.cpp:1198 kscd.cpp:2098
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
 # kscd.cpp:1067
-#: kscd.cpp:1220
+#: kscd.cpp:1236
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -594,63 +594,63 @@ msgstr ""
 "%s"
 
 # kscd.cpp:1159
-#: kscd.cpp:1331
+#: kscd.cpp:1347
 msgid "Ready"
 msgstr "Klar"
 
 # kscd.cpp:1191
-#: kscd.cpp:1374
+#: kscd.cpp:1390
 msgid "Ejected"
 msgstr "Matade ut"
 
 # kscd.cpp:1447
-#: kscd.cpp:1658
+#: kscd.cpp:1674
 msgid "Unable to get CDDB server list."
 msgstr "Kan inte erhålla CDDB serverlista."
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1802 kscd.cpp:1807
+#: kscd.cpp:1818 kscd.cpp:1823
 msgid "No matching CDDB entry found."
 msgstr "Ingen matchande CDDB-post hittades."
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1831 kscd.cpp:1841
+#: kscd.cpp:1847 kscd.cpp:1857
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Ingen matchande CDDB-post hittades."
 
 # kscd.cpp:1625
-#: kscd.cpp:1857 kscd.cpp:1867
+#: kscd.cpp:1873 kscd.cpp:1883
 msgid "CDDB query timed out."
 msgstr "CDDB "
 
 # kscd.cpp:1797
-#: kscd.cpp:2057
+#: kscd.cpp:2073
 msgid "Tra Rem"
 msgstr "Spå kv"
 
 # kscd.cpp:1801
-#: kscd.cpp:2061
+#: kscd.cpp:2077
 msgid "Tot Sec"
 msgstr "Tot sek"
 
 # kscd.cpp:1805
-#: kscd.cpp:2065
+#: kscd.cpp:2081
 msgid "Tot Rem"
 msgstr "Tot kv"
 
 # kscd.cpp:1810
-#: kscd.cpp:2070
+#: kscd.cpp:2086
 msgid "Tra Sec"
 msgstr "Spå sek"
 
 # kscd.cpp:1935
-#: kscd.cpp:2195
+#: kscd.cpp:2211
 msgid "Cannot start kscdmagic."
 msgstr "Kan inte starta kscdmagic."
 
 # kscd.cpp:1950
-#: kscd.cpp:2210
+#: kscd.cpp:2226
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -659,18 +659,18 @@ msgstr ""
 "Är du säker på att kscdmagic är installerad?"
 
 # CDDBSetupData.cpp:44
-#: kscd.cpp:2365
+#: kscd.cpp:2381
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB Baskatalog"
 
 # kscd.cpp:2131
-#: kscd.cpp:2405
+#: kscd.cpp:2421
 msgid "-h: display commandline options\n"
 msgstr "-h: visar kommandoprompts val\n"
 
 # kscd.cpp:2132
-#: kscd.cpp:2406
+#: kscd.cpp:2422
 msgid "-d: enable debugging output.\n"
 msgstr "-d: möjliggör debuggning av utdata.\n"
 

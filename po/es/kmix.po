@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-11-23 02:08+0100\n"
+"POT-Creation-Date: 1998-12-14 02:08+0100\n"
 "PO-Revision-Date: 1998-10-18 15:43+0200\n"
 "Last-Translator: Alonso Lara <jlaram@nexo.es>\n"
 
-#: kmix.cpp:520 kmix.cpp:641
+#: kmix.cpp:520 kmix.cpp:639
 msgid "&Hide Menubar"
 msgstr "Ocultar Barra de &Menús"
 
@@ -12,7 +12,7 @@ msgstr "Ocultar Barra de &Menús"
 msgid "&Tickmarks On/Off"
 msgstr "&Marcas Si/No"
 
-#: kmix.cpp:526 kmix.cpp:644
+#: kmix.cpp:526 kmix.cpp:642
 msgid "&Options..."
 msgstr ""
 
@@ -51,27 +51,27 @@ msgid "&Right"
 msgstr "&Derecha"
 
 # , fuzzy
-#: kmix.cpp:643
+#: kmix.cpp:641
 msgid "&Show Menubar"
 msgstr "Barra de Menús"
 
-#: kmix.cpp:688
+#: kmix.cpp:686
 msgid "Un&mute"
 msgstr "&Activar"
 
-#: kmix.cpp:690
+#: kmix.cpp:688
 msgid "&Mute"
 msgstr "&Silencio"
 
-#: kmix.cpp:693
+#: kmix.cpp:691
 msgid "&Split"
 msgstr "&Doble"
 
-#: kmix.cpp:695
+#: kmix.cpp:693
 msgid "Un&split"
 msgstr "S&encillo"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&RecSource"
 msgstr "&Fuente de Grabación"
 

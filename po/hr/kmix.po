@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-11-23 02:08+0100\n"
+"POT-Creation-Date: 1998-12-14 02:08+0100\n"
 "PO-Revision-Date: 1998-05-14 20:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmix.cpp:520 kmix.cpp:641
+#: kmix.cpp:520 kmix.cpp:639
 msgid "&Hide Menubar"
 msgstr "&Sakrij izbornik"
 
@@ -22,7 +22,7 @@ msgstr "&Sakrij izbornik"
 msgid "&Tickmarks On/Off"
 msgstr "&Oznake uklj/isklj"
 
-#: kmix.cpp:526 kmix.cpp:644
+#: kmix.cpp:526 kmix.cpp:642
 msgid "&Options..."
 msgstr ""
 
@@ -61,27 +61,27 @@ msgid "&Right"
 msgstr "&Desno"
 
 # , fuzzy
-#: kmix.cpp:643
+#: kmix.cpp:641
 msgid "&Show Menubar"
 msgstr "Izbornik"
 
-#: kmix.cpp:688
+#: kmix.cpp:686
 msgid "Un&mute"
 msgstr "Zvu&k"
 
-#: kmix.cpp:690
+#: kmix.cpp:688
 msgid "&Mute"
 msgstr "&Ti¹ina"
 
-#: kmix.cpp:693
+#: kmix.cpp:691
 msgid "&Split"
 msgstr "Podje&li"
 
-#: kmix.cpp:695
+#: kmix.cpp:693
 msgid "Un&split"
 msgstr "Spo&ji"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&RecSource"
 msgstr "&Izvor snimka"
 

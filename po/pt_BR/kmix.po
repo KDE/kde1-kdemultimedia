@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-11-23 02:08+0100\n"
+"POT-Creation-Date: 1998-12-14 02:08+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,7 +9,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:520 kmix.cpp:641
+#: kmix.cpp:520 kmix.cpp:639
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
@@ -17,7 +17,7 @@ msgstr "&Esconder Barra de Menu"
 msgid "&Tickmarks On/Off"
 msgstr "&Tiques Liga/Desliga"
 
-#: kmix.cpp:526 kmix.cpp:644
+#: kmix.cpp:526 kmix.cpp:642
 msgid "&Options..."
 msgstr "&Opções..."
 
@@ -55,27 +55,27 @@ msgstr "&Centro"
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:643
+#: kmix.cpp:641
 msgid "&Show Menubar"
 msgstr "&Mostrar barra de menu"
 
-#: kmix.cpp:688
+#: kmix.cpp:686
 msgid "Un&mute"
 msgstr "&Ligar"
 
-#: kmix.cpp:690
+#: kmix.cpp:688
 msgid "&Mute"
 msgstr "&Desligar"
 
-#: kmix.cpp:693
+#: kmix.cpp:691
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:695
+#: kmix.cpp:693
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:698
+#: kmix.cpp:696
 msgid "&RecSource"
 msgstr "&Fonte de Som"
 

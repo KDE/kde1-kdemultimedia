@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-12-13 02:08+0100\n"
+"POT-Creation-Date: 1998-12-14 02:08+0100\n"
 "PO-Revision-Date: 1998-05-15 18:50+0100\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 
@@ -392,20 +392,20 @@ msgstr "CDDB okno"
 msgid "CD Volume Control"
 msgstr "Kontrola hlasitosti CD"
 
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1276
+#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1292
 msgid "Playing"
 msgstr "Hrám"
 
-#: kscd.cpp:639 kscd.cpp:1290 kscd.cpp:1343 kscd.cpp:1752 kscd.cpp:1950
+#: kscd.cpp:639 kscd.cpp:1306 kscd.cpp:1359 kscd.cpp:1768 kscd.cpp:1966
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: <Neznámy>"
 
-#: kscd.cpp:670 kscd.cpp:1320
+#: kscd.cpp:670 kscd.cpp:1336
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:675 kscd.cpp:951 kscd.cpp:1272
+#: kscd.cpp:675 kscd.cpp:967 kscd.cpp:1288
 msgid "Random"
 msgstr "Náhod."
 
@@ -417,19 +417,19 @@ msgstr "Stra¹né..."
 msgid "Stopped"
 msgstr "Zastavené"
 
-#: kscd.cpp:914 kscd.cpp:1274
+#: kscd.cpp:930 kscd.cpp:1290
 msgid "Loop"
 msgstr "Dookola"
 
-#: kscd.cpp:926
+#: kscd.cpp:942
 msgid "Ejecting"
 msgstr "Vysúvam"
 
-#: kscd.cpp:1002
+#: kscd.cpp:1018
 msgid "kscd Configuraton"
 msgstr "Nastavenie kscd"
 
-#: kscd.cpp:1018
+#: kscd.cpp:1034
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -461,7 +461,7 @@ msgstr ""
 "konceptu CDDB. Pre viac informácií nav¹tívte http://www.cddb.com.\n"
 "\n"
 
-#: kscd.cpp:1031
+#: kscd.cpp:1047
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -471,7 +471,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1035
+#: kscd.cpp:1051
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -481,23 +481,23 @@ msgstr ""
 "za jeho prácu na http proxy kóde.\n"
 "\n"
 
-#: kscd.cpp:1091
+#: kscd.cpp:1107
 msgid "SMTP Setup"
 msgstr "Nastavenie SMTP"
 
-#: kscd.cpp:1092
+#: kscd.cpp:1108
 msgid "Kscd Options"
 msgstr "Mo¾nosti Kscd"
 
-#: kscd.cpp:1093
+#: kscd.cpp:1109
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1182 kscd.cpp:2082
+#: kscd.cpp:1198 kscd.cpp:2098
 msgid "Vol: %02d%%"
 msgstr "Hla: %02d%%"
 
-#: kscd.cpp:1220
+#: kscd.cpp:1236
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -508,51 +508,51 @@ msgstr ""
 "Prosím, uistite sa, ¾e máte práva na:\n"
 "%s"
 
-#: kscd.cpp:1331
+#: kscd.cpp:1347
 msgid "Ready"
 msgstr "Pripr."
 
-#: kscd.cpp:1374
+#: kscd.cpp:1390
 msgid "Ejected"
 msgstr "Vysunuté"
 
-#: kscd.cpp:1658
+#: kscd.cpp:1674
 msgid "Unable to get CDDB server list."
 msgstr "Nemô¾em získa» zoznam CDDB serverov."
 
-#: kscd.cpp:1802 kscd.cpp:1807
+#: kscd.cpp:1818 kscd.cpp:1823
 msgid "No matching CDDB entry found."
 msgstr "Nemô¾em nájs» CDDB polo¾ku."
 
-#: kscd.cpp:1831 kscd.cpp:1841
+#: kscd.cpp:1847 kscd.cpp:1857
 msgid "Error getting CDDB entry."
 msgstr "Chyba pri získavaní CDDB polo¾ky."
 
-#: kscd.cpp:1857 kscd.cpp:1867
+#: kscd.cpp:1873 kscd.cpp:1883
 msgid "CDDB query timed out."
 msgstr "CDDB otázke vypr¹al èas."
 
-#: kscd.cpp:2057
+#: kscd.cpp:2073
 msgid "Tra Rem"
 msgstr "Sto Zos"
 
-#: kscd.cpp:2061
+#: kscd.cpp:2077
 msgid "Tot Sec"
 msgstr "CD  Sek"
 
-#: kscd.cpp:2065
+#: kscd.cpp:2081
 msgid "Tot Rem"
 msgstr "CD  Zos"
 
-#: kscd.cpp:2070
+#: kscd.cpp:2086
 msgid "Tra Sec"
 msgstr "Sto Sek"
 
-#: kscd.cpp:2195
+#: kscd.cpp:2211
 msgid "Cannot start kscdmagic."
 msgstr "Nemô¾em spusti» kscdmagic."
 
-#: kscd.cpp:2210
+#: kscd.cpp:2226
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -560,15 +560,15 @@ msgstr ""
 "KSCD Magic skonèil s chybou.\n"
 "Ste si istý, ¾e ho máte správne nain¹talovaný?"
 
-#: kscd.cpp:2365
+#: kscd.cpp:2381
 msgid "Enter the local CDDB base Directory"
 msgstr "Zadajte hlavný lokálny prieèinok CDDB"
 
-#: kscd.cpp:2405
+#: kscd.cpp:2421
 msgid "-h: display commandline options\n"
 msgstr "-h: vypí¹ parametre príkazovej riadky\n"
 
-#: kscd.cpp:2406
+#: kscd.cpp:2422
 msgid "-d: enable debugging output.\n"
 msgstr "-d: povoµ ladiaci výstup (anglicky).\n"
 
