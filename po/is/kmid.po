@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-20 02:22+0100\n"
+"POT-Creation-Date: 1998-12-21 02:20+0100\n"
 "Last-Translator: Bjarni R. Einarsson <bre@mmedia.is>\n"
 "Language-Team: is <kde-isl@mmedia.is>\n"
 "MIME-Version: 1.0\n"
@@ -665,7 +665,7 @@ msgid "Lead 1 - Square Wave"
 msgstr ""
 
 #: instrname.i18n:87
-msgid "Lead 2 - Saw Ttooth"
+msgid "Lead 2 - Saw Tooth"
 msgstr ""
 
 #: instrname.i18n:88
