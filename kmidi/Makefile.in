@@ -24,11 +24,11 @@ INSTALL_DIR_PRIVATE = @INSTALL@ -d -m 0700
 
 prefix       = @prefix@
 BINDIR       = $(prefix)/bin
-PICSDIR      = $(prefix)/share/apps/kmidi/pics/
-ICONDIR      = $(prefix)/share/icons/
-DOCSDIR      = $(prefix)/share/doc/HTML/default/kmidi/
-DOCSDIRDE      = $(prefix)/share/doc/HTML/de/kmidi/
-APPSDIR      = $(prefix)/share/applnk/Multimedia/
+PICSDIR      = $(prefix)/share/apps/kmidi/pics
+ICONDIR      = $(prefix)/share/icons
+DOCSDIR      = $(prefix)/share/doc/HTML/en/kmidi
+DOCSDIRDE      = $(prefix)/share/doc/HTML/de/kmidi
+APPSDIR      = $(prefix)/share/applnk/Multimedia
 # Where to install the patches, config files, and MIDI files.
 # If you change this, it's a good idea to recompile the binary,
 # or you'll need to invoke timidity with the -L option.
