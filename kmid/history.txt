@@ -458,3 +458,19 @@ are extremely rare to find, as any song must include at least a tempo event)
 
 Tuesday 26-1-99
 - Removed ; after QOBJECT and fixed default midi map in consolekmid (not kmid)
+
+Saturday 6-3-99  (Applied on 2-4-99)
+- The sound driver in Linux kernels from the 2.2.x series work very different
+than the ones in 2.0.x so kmid was severely damaged. After several days of
+hacking (and after getting from A.Cox that this wasn't going to be fixed in the
+kernel) I've found a fix that even works in the 2.0.x kernels.
+ 
+Sunday 21-3-99   (Applied on 2-4-99)
+- Fixed the high pitch of AWE cards (thanks to Joseph H. Buehler and Takashi Iwai for
+ the indications)
+- Raised version number to 1.7
+
+Friday 2-4-99
+- Did a workaround for a bug in egcs which doesn't seem to optimize simple 
+return-a-value function as an inline function when using -O2 and it made kmid
+freeze under certain conditions when parsing some midi files.

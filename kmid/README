@@ -8,7 +8,7 @@
 				ConsoleKMID
 
 
-	This info is up to date if you have KMid version 1.5
+	This info is up to date if you have KMid version 1.7
 
 ________________________________________________		
 If you are looking for a KMid README file, then this is NOT the one you are
@@ -37,7 +37,7 @@ Index
    interface of KMid but it works to play midi files.
 
    If you have the rpm distribution, you will not find the consolekmid program
-   unless you also have the src.rpm distribution
+   unless you have compiled it from the src.rpm distribution
    
 
 2. Requirements of consoleKMid
@@ -52,15 +52,12 @@ Index
    KMid to work on FreeBSD
    If you sucessfully run KMid in other unices, please tell me !
 
-   Currently there's no support to GUS cards with the oss driver, I'm
-   looking to find people with GUS cards that want to help me to 
-   provide such support (either programming or testing), as I think that
-   if nobody has worried about it it's because there's no need for it ;-) 
+   Currently GUS cards make a little sound when using the oss driver, but are
+   not supported officially, I'm looking to find people with GUS cards that 
+   want to help me to provide such support (either programming or testing), 
+   as I think that if nobody has worried about it it's because there's no 
+   need for it ;-) 
     
-   I've also had reports of some people (4 at this moment), with a 
-   not-good-timing-when-playing problem, I would like to hear more about
-   it (especially someone who wants to help me in debugging this bug)
-
 3. Compiling consoleKMid
 -----------------
    Do a configure from the parent directory, then go to the player directory,
@@ -70,12 +67,14 @@ Index
    one (fm, awe, or anything else), edit the file main.cc and change the value
    of DEFAULT_DEVICE to the one you want, or specify the -d option as in :
 
-      consolekmid -d 0 mymidifile
+      consolekmid -d 1 mymidifile.mid
 
 4. Installing 
 -----------------
    No installing of consoleKMid is actually done, just copy the consoleKMid file
-   yourself to where you want (usually /usr/local/bin ).
+   yourself to where you want (usually /usr/local/bin ). To use the fm device,
+   you should specify in fmout.cc the path to where the fm patches are installed
+   ( /etc by default)
 
 5. Running
 --------------
@@ -113,10 +112,13 @@ Index
 	 
 8. To do list
 ---------------
-   Better AWE and GUS support and use Soundfonts
+   Support ALSA
+   GUS support is nearly done (and also SoftOSS) but still need little 
+	improvements
+   Better AWE support and use Soundfonts
    The KMidServer and make KMid use it.
 
 -------
-22-8-1998
+21-3-1999
 Antonio Larrosa Jimenez
-antlarr@arrakis.es
+larrosa@kde.org
