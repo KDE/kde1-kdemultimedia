@@ -76,6 +76,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   label1 = new QLabel(this);
   label1->setGeometry(20+XOFF,25+YOFF,135,25);
   label1->setText(klocale->translate("LED Color:"));
+  label1->setFixedSize( label1->sizeHint() );
 
   qframe1 = new QFrame(this);
   qframe1->setGeometry(155+XOFF,25+YOFF,30,25);
@@ -153,24 +154,28 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   ttcheckbox = new QCheckBox(klocale->translate("Show Tool Tips"), 
 			     this, "tooltipscheckbox");
   ttcheckbox->setGeometry(30+XOFF,245+YOFF,135, 15);
+  ttcheckbox->setFixedSize( ttcheckbox->sizeHint() );
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
 
   dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
 			       this, "dockcheckbox");
   dockcheckbox->setGeometry(30+XOFF,265+YOFF,200, 15);
+  dockcheckbox->setFixedSize( dockcheckbox->sizeHint() );
   dockcheckbox->setChecked(configdata.docking);
   connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
 
   cdAutoPlayCB = new QCheckBox(klocale->translate("Play on Tray Close"),
                                this, "cdAutoPlayCB");
   cdAutoPlayCB->setGeometry(30+XOFF, 285+YOFF, 200, 15);
+  cdAutoPlayCB->setFixedSize( cdAutoPlayCB->sizeHint() );
   cdAutoPlayCB->setChecked(configdata.autoplay);
   connect(cdAutoPlayCB, SIGNAL(clicked()), this, SLOT(autoPlayClicked()));
 
   dockOnMinimizeCB = new QCheckBox(klocale->translate("AutoDock on Minimize"),
                                    this, "dockOnMinimizeCB");
   dockOnMinimizeCB->setGeometry(30+XOFF, 305+YOFF, 200, 15);
+  dockOnMinimizeCB->setFixedSize( dockOnMinimizeCB->sizeHint() );
   dockOnMinimizeCB->setChecked(configdata.autodock);
   connect(dockOnMinimizeCB, SIGNAL(clicked()), this, SLOT(dockOnMinimizeClicked()));
   dockOnMinimizeCB->setEnabled(configdata.docking);
@@ -178,12 +183,14 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   stopOnExitCB = new QCheckBox(klocale->translate("Stop Playing on Exit"),
                                this, "stopOnExitCB");
   stopOnExitCB->setGeometry(30+XOFF, 325+YOFF, 200, 15);
+  stopOnExitCB->setFixedSize( stopOnExitCB->sizeHint() );
   stopOnExitCB->setChecked(configdata.stopexit);
   connect(stopOnExitCB, SIGNAL(clicked()), this, SLOT(stopOnExitClicked()));
 
   ejectOnFinishCB = new QCheckBox(klocale->translate("Eject on Finish"),
                                   this, "ejectOnFinishCB");
   ejectOnFinishCB->setGeometry(30+XOFF, 345+YOFF, 200, 15);
+  ejectOnFinishCB->setFixedSize( ejectOnFinishCB->sizeHint() );
   ejectOnFinishCB->setChecked(configdata.ejectonfinish);
   connect(ejectOnFinishCB, SIGNAL(clicked()), this, SLOT(ejectOnFinishClicked()));
 

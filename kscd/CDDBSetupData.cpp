@@ -42,6 +42,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_8->setMinimumSize( 10, 10 );
 	dlgedit_Label_8->setMaximumSize( 32767, 32767 );
 	dlgedit_Label_8->setText( klocale->translate("CDDB Base Directory") );
+        dlgedit_Label_8->setFixedSize( dlgedit_Label_8->sizeHint() );
 	dlgedit_Label_8->setAlignment( 289 );
 	dlgedit_Label_8->setMargin( -1 );
 
@@ -60,6 +61,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_9->setMinimumSize( 10, 10 );
 	dlgedit_Label_9->setMaximumSize( 32767, 32767 );
 	dlgedit_Label_9->setText( klocale->translate("Send CDDB submissions to:") );
+        dlgedit_Label_9->setFixedSize( dlgedit_Label_9->sizeHint() );
 	dlgedit_Label_9->setAlignment( 289 );
 	dlgedit_Label_9->setMargin( -1 );
 
@@ -80,6 +82,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_10->setMinimumSize( 10, 10 );
 	dlgedit_Label_10->setMaximumSize( 32767, 32767 );
 	dlgedit_Label_10->setText( klocale->translate("CDDB server:") );
+        dlgedit_Label_10->setFixedSize( dlgedit_Label_10->sizeHint() );
 	dlgedit_Label_10->setAlignment( 289 );
 	dlgedit_Label_10->setMargin( -1 );
 
@@ -110,6 +113,7 @@ CDDBSetupData::CDDBSetupData
 	remote_cddb_cb->setMinimumSize( 10, 10 );
 	remote_cddb_cb->setMaximumSize( 32767, 32767 );
 	remote_cddb_cb->setText( klocale->translate("Enable Remote CDDB") );
+        remote_cddb_cb->setFixedSize( remote_cddb_cb->sizeHint() );
 	remote_cddb_cb->setAutoRepeat( FALSE );
 	remote_cddb_cb->setAutoResize( FALSE );
 
@@ -135,6 +139,7 @@ CDDBSetupData::CDDBSetupData
 	cddb_http_cb->setMaximumSize( 32767, 32767 );
 	connect( cddb_http_cb, SIGNAL(toggled(bool)), SLOT(http_access_toggled(bool)) );
 	cddb_http_cb->setText( klocale->translate("Use HTTP proxy to access CDDB") );
+        cddb_http_cb->setFixedSize( cddb_http_cb->sizeHint() );
 	cddb_http_cb->setAutoRepeat( FALSE );
 	cddb_http_cb->setAutoResize( FALSE );
 
