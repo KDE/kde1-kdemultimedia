@@ -95,7 +95,7 @@ msgstr "Marcas"
 
 #: prefs.cpp:59
 msgid "Allow docking"
-msgstr ""
+msgstr "Permitir docking"
 
 #: prefs.cpp:81
 msgid "KMix Preferences"
