@@ -52,7 +52,7 @@ class CDDB:public QObject
 
 public:
 
-   CDDB(char *hostname=0, int port = 0, int timeout = 60);
+   CDDB(char *hostname=0, int port = 0, int timeout = 30);
    ~CDDB();
 
    enum { INIT, ERROR_INIT, HELLO, ERROR_HELLO, READY, QUERY, ERROR_QUERY,

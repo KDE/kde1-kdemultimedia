@@ -132,7 +132,7 @@ public slots:
 	void            CDDialogSelected();
 	void 		cycleplaytimemode();
 	void 		cycletimeout();
-	void 		get_cddb_info();
+	void 		get_cddb_info(bool);
 	void 		CDDialogDone();
 	void		getCDDBservers();
 	void		getCDDBserversDone();
@@ -247,7 +247,7 @@ private:
 	bool		cddb_remote_enabled;
 	bool 		use_kfm;
 	bool 		cddb_inexact_sentinel;
-
+	bool            updateDialog;
 public:
 
 	KSCD( QWidget *parent = 0, const char *name = 0 );
@@ -260,6 +260,7 @@ protected:
 	void setupPopups();
 	void startBrowser(char* querystring);
 	bool getArtist(QString& artist);
+	void get_pathlist(QStrList& _patlist);
 
 };
 

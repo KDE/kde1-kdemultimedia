@@ -32,6 +32,8 @@
 #include <kapp.h>
 #include "version.h"
 
+#include <sys/utsname.h>
+
 extern KApplication 	*mykapp;
 
 void cddb_decode(QString& str);
@@ -39,7 +41,7 @@ void cddb_encode(QString& str, QStrList &returnlist);
 bool cddb_playlist_decode(QStrList& playlist,QString&  value);
 void cddb_playlist_encode(QStrList& playlist,QString&  value);
 
-CDDB::CDDB(char *host=0, int _port=0,int _timeout=60){
+CDDB::CDDB(char *host, int _port,int _timeout){
 
 
   hostname  = host;
@@ -61,7 +63,6 @@ CDDB::CDDB(char *host=0, int _port=0,int _timeout=60){
 CDDB::~CDDB(){
 
   if(sock){
-    printf("~CDDB about to delete sock\n");
     delete sock;
     sock = 0L;
   }
@@ -141,15 +142,12 @@ void CDDB::cddb_connect_internal(){
   printf("CONNECTING ....\n");
 
    if(sock){
-     printf("About to delete sock\n");
      delete sock;
      sock = 0L;
    }
 
    // signal( SIGALRM , CDDB::sighandler );
    // setalarm();
-
-  //  TODO: sock error checking
 
   sock = new KSocket(hostname.data(),port);
 
@@ -182,7 +180,7 @@ void CDDB::cddb_timed_out_slot(){
   state = CDDB_TIMEDOUT;
   sock->enableRead(false);
   emit cddb_timed_out();
-  printf("SOCKED CONNECTION TIMED OUT\n");
+  printf("SOCKET CONNECTION TIMED OUT\n");
   cddb_close(sock);
 }
 
@@ -197,10 +195,9 @@ void CDDB::cddb_close(KSocket *socket){
   disconnect(socket,SIGNAL(readEvent(KSocket*)),this,SLOT(cddb_read(KSocket*)));
   disconnect(socket,SIGNAL(closeEvent(KSocket*)),this,SLOT(cddb_close(KSocket*)));
   socket->enableRead(false);
-  printf("SOCKED CONNECTION TERMINATED\n");
+  printf("SOCKET CONNECTION TERMINATED\n");
   connected = false;
   if(socket){
-    printf("cddb_close about to delete sock\n");
     delete socket;
     socket = 0L;
     sock = 0L;
@@ -326,17 +323,13 @@ void CDDB::do_state_machine(){
       else
 	readonly = false;
 
-      char hostn[256];
-      gethostname(hostn,255);
-      QString hostname = hostn;
+      struct utsname uts;
+      uname(&uts);
+      printf("LOCAL NODE: %s\n",uts.nodename);
 
-      if(hostname.isEmpty())
-	hostname = "localhost";
-
-      struct hostent *ent;
-      ent = gethostbyname(hostname.data());      
-
-      QString domainname = ent->h_name;
+      QString domainname;
+      domainname = uts.nodename;
+      domainname.detach();
 
       if(domainname.isEmpty())
 	domainname = "somemachine.nowhere.org";
@@ -356,8 +349,6 @@ void CDDB::do_state_machine(){
       hellostr += " \n";
 
       write(sock->socket(),hellostr.data(),hellostr.length());
-
-      //      printf("WROTE=%s\n",hellostr.data());
       state = HELLO;
 
     }
@@ -371,7 +362,7 @@ void CDDB::do_state_machine(){
     break;
 
   case HELLO:
-    //printf("HELLO\n");
+
     if(lastline.left(3) == QString("200")){
 
       state = READY;
@@ -379,7 +370,6 @@ void CDDB::do_state_machine(){
 	emit cddb_ready();
       else{
 	write(sock->socket(),"sites\n",6);
-	//	printf("WROTE=%s\n","sites\n");
 	state = SERVER_LIST_WAIT;
       }
 
@@ -394,19 +384,20 @@ void CDDB::do_state_machine(){
     break;
 
   case QUERY:
-    //printf("QUERY\n");
+
     if(respbuffer.left(3) == QString("200")){
       
       query_exact(lastline);
       respbuffer = "";
     }
     else if(respbuffer.left(3) == QString("211")){
+
       if(lastline.left(1) == QString(".")){
+
 	state = CDDB_DONE;
 	respbuffer.detach();
-	//	printf("Bernd1\n");
-	//printf("EMITTING CDDB_INEXACT_READ()\n");
 	emit cddb_inexact_read();
+
       }
       else{
 	state = INEX_READ;
@@ -414,44 +405,44 @@ void CDDB::do_state_machine(){
       }
     }
     else if(respbuffer.left(3) == QString("202")){
-	state = CDDB_DONE;
-	respbuffer.detach();
-	respbuffer = "";
-	cddb_close(sock);
-	emit cddb_no_info();
+
+      state = CDDB_DONE;
+      respbuffer.detach();
+      respbuffer = "";
+      cddb_close(sock);
+      emit cddb_no_info();
+
     }
     else{
+
       state = ERROR_QUERY;
       cddb_close(sock);
       emit cddb_failed();
       respbuffer = "";
-    }
 
+    }
 
     break;
 
   case INEX_READ:
-    //printf("INEX_READ\n");
+
     if(lastline.left(1) == QString(".")){
+
       state = CDDB_DONE;
       respbuffer.detach();
-      //printf("Bernd2\n");
-      //printf("EMITTING CDDB_INEXACT_READ()2\n");
       emit cddb_inexact_read();
-      //      sock->enableRead(false);
 
     }
     break;
 
   case CDDB_READ:
-    //printf("CDDB_READ\n");
+
     if(lastline.left(1) == QString(".")){
 
       QString readstring;
       readstring.sprintf("quit \n",category.data(),magicID);
 
       write(sock->socket(),readstring.data(),readstring.length());
-      //      printf("WROTE=%s\n",readstring.data());
 
       state = CDDB_DONE;
 
@@ -463,6 +454,7 @@ void CDDB::do_state_machine(){
       
     }    
     if(lastline.left(1) == "4"){
+
       state = ERROR_CDDB_READ;
       cddb_close(sock);
       emit cddb_failed();
@@ -480,7 +472,6 @@ void CDDB::do_state_machine(){
     }
     parse_serverlist();
     write(sock->socket(),"quit\n",6);
-    //    printf("WROTE=%s\n","quit\n");
     emit get_server_list_done();
     state = CDDB_DONE;
     break;

@@ -84,7 +84,7 @@ public slots:
 
 signals:
 
-    void cddb_query_signal();
+    void cddb_query_signal(bool);
     void dialog_done();
     void play_signal(int i);
 

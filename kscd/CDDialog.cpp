@@ -802,6 +802,6 @@ bool CDDialog::checkit(){
 
 void CDDialog::load(){
 
-  emit cddb_query_signal();
+  emit cddb_query_signal(true);
 
 }

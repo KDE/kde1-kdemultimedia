@@ -26,6 +26,7 @@ extern "C" {
 #include "struct.h"
 }
 
+#include <qdir.h>
 #include <kfm.h>
 
 #include "kscd.h"
@@ -129,6 +130,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
   cddb_inexact_sentinel =false;
   revision		= 1;
   use_kfm 		= true;
+  updateDialog          = false;
   drawPanel();
   loadBitmaps();
   setColors();
@@ -803,6 +805,10 @@ void KSCD::ejectClicked(){
   statuslabel->setText("Ejecting");
   qApp->processEvents();
   qApp->flushX();
+  artistlabel->setText("");
+  titlelabel->setText("");
+  tracktitlelist.clear();
+  extlist.clear();
   
   stop_cd();
   //  timer->stop();
@@ -1077,10 +1083,10 @@ void KSCD::cdMode(){
 
 	timer->stop(); 
 
-	// timer must be restarted when we are doen
+	// timer must be restarted when we are done
 	// with getting the cddb info
 
-      	get_cddb_info();
+      	get_cddb_info(false); // false == do not update dialog if open
 	songListCB->insertItem( QString( 0 ).sprintf("Track %02d",i + 1 ) );
 
       }
@@ -1138,7 +1144,7 @@ void KSCD::cdMode(){
 
       // timer must be restarted when we are doen
       // with getting the cddb info
-      get_cddb_info();
+      get_cddb_info(false); // false == do not update dialog if open
 		  
     }
 
@@ -1190,12 +1196,21 @@ void KSCD::setColors(){
   totaltimelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
   // nLEDs->setPalette( QPalette(colgrp,colgrp,colgrp) );
 
+
   queryled->setPalette( QPalette(colgrp,colgrp,colgrp) );
 
   for (int u = 0; u< 5;u++){
     trackTimeLED[u]->setLEDoffColor(background_color);
     trackTimeLED[u]->setLEDColor(led_color,background_color);
   }
+
+  titlelabel ->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  artistlabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  volumelabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  statuslabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  tracklabel ->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  totaltimelabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  artistlabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
 
 }
 
@@ -1280,7 +1295,7 @@ void KSCD::CDDialogSelected(){
   cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
 		  revision,playlist,pathlist,mailcmd);
 
-  connect(cddialog,SIGNAL(cddb_query_signal()),this,SLOT(get_cddb_info()));
+  connect(cddialog,SIGNAL(cddb_query_signal(bool)),this,SLOT(get_cddb_info(bool)));
   connect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
   connect(cddialog,SIGNAL(play_signal(int)),this,SLOT(trackSelected(int)));
   cddialog->show();
@@ -1291,7 +1306,7 @@ void KSCD::CDDialogDone(){
   
   disconnect(cddialog,SIGNAL(play_signal(int)),this,SLOT(trackSelected(int)));
   disconnect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
-  disconnect(cddialog,SIGNAL(cddb_query_signal()),this,SLOT(get_cddb_info()));
+  disconnect(cddialog,SIGNAL(cddb_query_signal(bool)),this,SLOT(get_cddb_info(bool)));
   delete cddialog;
   cddialog = 0L;
 
@@ -1321,8 +1336,9 @@ void KSCD::getCDDBserversDone(){
 
 }
 
-void KSCD::get_cddb_info(){
+void KSCD::get_cddb_info(bool _updateDialog){
 
+  updateDialog = _updateDialog;
 
   QTime dml;
   dml = dml.addSecs(cd->length);
@@ -1338,21 +1354,7 @@ void KSCD::get_cddb_info(){
   if(cddb == 0L)
     cddb = new CDDB();
 
-  pathlist.clear();
-  pathlist.append(cddbbasedir + "/rock/");
-  pathlist.append(cddbbasedir + "/blues/");
-  pathlist.append(cddbbasedir + "/classical/");
-  pathlist.append(cddbbasedir + "/jazz/");
-  pathlist.append(cddbbasedir + "/newage/");
-  pathlist.append(cddbbasedir + "/soundtrack/");
-  pathlist.append(cddbbasedir + "/reggae/");
-  pathlist.append(cddbbasedir + "/folk/");
-  pathlist.append(cddbbasedir + "/country/");
-  pathlist.append(cddbbasedir + "/misc/");
-  pathlist.append(cddbbasedir + "/data/");
-
-
-
+  get_pathlist(pathlist);
   cddb->setPathList(pathlist);
 
   connect(cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
@@ -1404,7 +1406,8 @@ void KSCD::get_cddb_info(){
 
     led_off();
     timer->start(1000);
-    if(cddialog)
+
+    if(cddialog && updateDialog)
       cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
 			revision,playlist,pathlist,mailcmd);
     playlistpointer = 0;
@@ -1437,6 +1440,7 @@ void KSCD::cddb_ready(){
 void KSCD::cddb_no_info(){
 
   titlelabel->setText("No matching CDDB entry found.");
+  artistlabel->setText("");
   titlelabeltimer->start(10000,TRUE); // 10 secs
 
   tracktitlelist.clear();
@@ -1467,6 +1471,7 @@ void KSCD::cddb_failed(){
     extlist.append("");
 
   titlelabel->setText("No matching CDDB entry found.");
+  artistlabel->setText("");
   titlelabeltimer->start(10000,TRUE); // 10 secs
 
   timer->start(1000);
@@ -1533,12 +1538,12 @@ void KSCD::cddb_done(){
 	  extlist.count(),cd->ntracks + 1);
  }
 
- if(tracktitlelist.count() > 0){
+ if(tracktitlelist.count() > 1){
    titlelabel->setText(tracktitlelist.at(1));
    artistlabel->setText(tracktitlelist.at(0));
  }
 
- if(cddialog)
+ if(cddialog && updateDialog)
    cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
 		  revision,playlist,pathlist,mailcmd);
 
@@ -1872,6 +1877,26 @@ void KSCD::startBrowser(char* querystring){
   }
   
 }
+
+void KSCD::get_pathlist(QStrList& _pathlist){
+  
+   QDir d;
+   QStrList list;
+
+   d.setFilter( QDir::Dirs);
+   d.setSorting( QDir::Size);
+   d.setPath(cddbbasedir.data());
+
+   _pathlist.clear();
+   list = *d.entryList();
+
+   for(uint i = 0; i < list.count(); i++){
+
+     _pathlist.append( QString (cddbbasedir + "/" +  list.at(i)));
+
+   }
+}
+
 
 int main ( int argc, char *argv[] ){
 
