@@ -41,6 +41,7 @@
 #include <qslider.h>
 #include <qtabdlg.h>
 #include <qtooltip.h> 
+#include <qpopmenu.h> 
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -71,102 +72,41 @@
 #include <mntent.h>
 #endif
 
+#include "ledlamp.h"
+#include "CDDialog.h"
+#include "CDDBSetup.h"
 #include <kapp.h>
 
 
 struct configstruct{
+
   QColor led_color;
   QColor background_color;
   bool   tooltips;
   QString cd_device;
+  QString mailcmd;
+  QString browsercmd;
+  bool	use_kfm;
 };
 
 
+class CDDB;
+
 class KSCD : public QDialog {
+
 	Q_OBJECT
-private:
-	// Buttons
-	QPushButton	*playPB;
-	QPushButton	*stopPB;
-	QPushButton	*prevPB;
-	QPushButton	*nextPB;
-	QPushButton	*fwdPB;
-	QPushButton	*bwdPB;
-	QPushButton	*quitPB;
-	QPushButton	*replayPB;
-	QPushButton	*ejectPB;
-	QPushButton	*aboutPB;
-	// LED 
 
-	QColor background_color;
-	QColor led_color;
-	BW_LED_Number	*trackTimeLED[6];
-	QLabel *statuslabel;
-	QLabel *titlelabel;
-	QLabel *volumelabel;
-	QLabel *tracklabel;
-
-//	QPushButton *databasebutton;
-	QPushButton *optionsbutton;
-	QPushButton *shufflebutton;
-	QPushButton		*volLA;
-	// Timer to update the screen 
-	QTimer		*timer;
-	QTimer		*initimer;
-	// Song List
-	QComboBox	*songListCB;
-	// Volume Control
-	QSlider		*volSB;
-	// CD volume
-	int		volChnl;
-	int		mixerFd;
-	int 	        volume;
-	QFrame 	*backdrop;
-	KConfig *config;
-	bool tooltips;
-	bool randomplay ;
-	bool looping;
-	bool volstartup;
-	bool cddrive_is_ok;
-	
-	QString cd_device_str;
-   // Private functions
-	QPushButton     *makeButton( int, int, int, int, const char * );
-
-	void		initWorkMan();
-//	void		checkMount();
-	void		drawPanel();
-	void		cleanUp();
-	void		loadBitmaps();
-	void 	 	setLEDs(QString symbols);
-	int 	        randomtrack();
-
-//TODO get rid of the mixe stuff 
-	void		initMixer( const char *mixer = "/dev/mixer" );
-
-	// These are the variables from workbone
-	int 		sss;
-	int 		sel_stat;
-	int 		dly;
-	int 		fastin;
-	int 		scmd;
-	int 		tmppos;
-	int 		save_track;
-	struct timeval 	mydelay;
-	struct mntent 	*mnt;
-	FILE 		*fp;
-
-public:
-	KSCD( QWidget *parent = 0, const char *name = 0 );
-
-
-protected:
-	void closeEvent( QCloseEvent *e );
+      // time display modes
+      enum { TRACK_SEC = 0, TRACK_REM = 1, TOTAL_SEC = 2, TOTAL_REM = 3};
 
 public slots:
 
-	void 	       setToolTips();
-	void 	       randomSelected();
+	void		togglequeryled();
+	void		cddb_done();
+	void	        cddb_ready();
+        void	        cddb_failed();
+	void 	        setToolTips();
+	void 	        randomSelected();
 	void 	        readSettings();
         void            writeSettings();
 	void 		setColors();
@@ -184,7 +124,145 @@ public slots:
 	void		trackSelected( int );
 	void		aboutClicked();
 	void		volChanged( int );
+	void 		cddb_inexact_read();
+	void		cddb_no_info();
+	void 		led_on();
+	void 		led_off();
+	void		titlelabeltimeout();
+	void            CDDialogSelected();
+	void 		cycleplaytimemode();
+	void 		cycletimeout();
+	void 		get_cddb_info();
+	void 		CDDialogDone();
+	void		getCDDBservers();
+	void		getCDDBserversDone();
+	void 		updateCurrentCDDBServer();
+	void 		performances(int);
+	void		purchases(int);
+	void		information(int);
+	void		showPopup();
+
+private:
+	CDDBSetup* 	setup;
+	CDDialog* 	cddialog;
+	QPushButton	*playPB;
+	QPushButton	*stopPB;
+	QPushButton	*prevPB;
+	QPushButton	*nextPB;
+	QPushButton	*fwdPB;
+	QPushButton	*bwdPB;
+	QPushButton	*quitPB;
+	QPushButton	*replayPB;
+	QPushButton	*ejectPB;
+	QPushButton	*aboutPB;
+	QPushButton	*infoPB;
+	QPopupMenu	*mainPopup;
+	QPopupMenu	*perfPopup;
+	QPopupMenu	*purchPopup;
+	QPopupMenu	*infoPopup;
+
+	QColor 		background_color;
+	QColor 		led_color;
+	BW_LED_Number	*trackTimeLED[6];
+	QLabel 		*statuslabel;
+	QLabel 		*titlelabel;
+	QLabel 		*artistlabel;
+	QLabel 		*volumelabel;
+	QLabel 		*tracklabel;
+	QLabel 		*totaltimelabel;
+	QLabel		*nLEDs;
+	QPushButton 	*optionsbutton;
+	QPushButton 	*shufflebutton;
+	QPushButton 	*cddbbutton;
+	QPushButton	*volLA;
+	QTimer		*timer;
+	QTimer		*titlelabeltimer;
+	QTimer		*queryledtimer;
+	QTimer		*initimer;
+	QTimer		*cycletimer;
+	QComboBox	*songListCB;
+	QSlider		*volSB;
+
+	int		volChnl;
+	int		mixerFd;
+	int 	        volume;
+	QFrame 		*backdrop;
+	LedLamp        *queryled;
+	KConfig 	*config;
+	bool 		tooltips;
+	bool 		randomplay ;
+	bool 		looping;
+	bool		cycle_flag;
+	QString		cycle_str;
+	bool 		volstartup;
+	bool 		cddrive_is_ok;
+	int 		time_display_mode;
+	QString cd_device_str;
+
+	QPushButton     *makeButton( int, int, int, int, const char * );
+
+	void		initWorkMan();
+//	void		checkMount();
+
+	void		drawPanel();
+	void		cleanUp();
+	void		loadBitmaps();
+	void 	 	setLEDs(QString symbols);
+	int 	        randomtrack();
+
+//TODO get rid of the mixe stuff 
+
+	void		initMixer( const char *mixer = "/dev/mixer" );
+
+// These are the variables from workbone
+
+	int 		sss;
+	int 		sel_stat;
+	int 		dly;
+	int 		fastin;
+	int 		scmd;
+	int 		tmppos;
+	int 		save_track;
+	struct timeval 	mydelay;
+	struct mntent 	*mnt;
+	FILE 		*fp;
+
+	CDDB 		*cddb;
+	QStrList        querylist;
+	QStrList        pathlist;
+	QStrList        discidlist;
+	QStrList	tracktitlelist;
+	QStrList	playlist;
+	int		playlistpointer;
+	QStrList	extlist;
+	int		revision;
+	QString	        category;
+	QString	        xmcd_data;
+	QString         cddbbasedir;
+	QStrList	cddbserverlist;
+	QString		current_server;
+	QString	        mailcmd;
+	QString  	submitaddress;
+	QString  	browsercmd;
+	bool		cddb_remote_enabled;
+	bool 		use_kfm;
+
+public:
+
+	KSCD( QWidget *parent = 0, const char *name = 0 );
+
+
+protected:
+
+	void closeEvent( QCloseEvent *e );
+	void playtime();
+	void setupPopups();
+	void startBrowser(char* querystring);
+	bool getArtist(QString& artist);
+
 };
+
+
 
 #endif
 

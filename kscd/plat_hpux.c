@@ -59,6 +59,16 @@ gen_get_trackcount(d, tracks)
 	return (wm_scsi2_get_trackcount(d, tracks));
 }
 
+int
+gen_get_trackinfocddb(d, track, min, sec, frm)
+	struct wm_drive	*d;
+	int    *min,*sec,*frm;
+{
+
+	return (wm_scsi2_get_trackinfocddb(d, track, min,sec,frm));
+
+}
+
 /*
  * Get the start time and mode (data or audio) of a track.
  */

@@ -146,6 +146,40 @@ gen_get_trackcount(d, tracks)
 	return (0);
 }
 
+
+int
+gen_get_trackinfocddb(d, track, min, sec, frm)
+	struct wm_drive	*d;
+	int    *min,*sec,*frm;
+{
+
+	struct cd_toc				toc;
+	struct cd_toc_header			hdr;
+	struct cd_toc_header_and_entries	toc_buffer;
+
+	if (ioctl(d->fd, CDROM_TOC_HEADER, &hdr))
+		return (-1);
+
+	bzero((char *)&toc_buffer, sizeof(toc_buffer));
+	toc.toc_address_format = CDROM_MSF_FORMAT;
+	toc.toc_starting_track = 0;
+	toc.toc_alloc_length = (u_short)(((hdr.th_data_len1 << 8) +
+					hdr.th_data_len0) & 0xfff) + 2;
+	toc.toc_buffer = (caddr_t)&toc_buffer;
+
+	if (ioctl(d->fd, CDROM_TOC_ENTRYS, &toc))
+		return (-1);
+
+	if (track == 0)
+		track = hdr.th_ending_track + 1;
+
+	*min =	toc_buffer.cdte[track - 1].te_absaddr.msf.m_units;
+	*sec =  toc_buffer.cdte[track - 1].te_absaddr.msf.s_units;
+	*frm =  toc_buffer.cdte[track - 1].te_absaddr.msf.f_units;
+	
+	return (0);
+}
+
 /*
  * Get the start time and mode (data or audio) of a track.
  *

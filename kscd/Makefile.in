@@ -16,16 +16,17 @@ ICONDIR  = $(prefix)/share/icons
 MINIDIR  = $(prefix)/share/icons/mini
 PICSDIR  = $(prefix)/share/apps/kscd/pics/
 APPSDIR = $(prefix)/share/applnk/Multimedia
-
+CDDBDIR = $(prefix)/share/apps/kscd/cddb/
 install = @INSTALL@
 INSTALL = $(install) -m 0755
 INSTALL_DATA = $(install) -m 0644
 INSTALL_DIR = $(install) -d -m 0755   
+INSTALL_CDDB_DIR = $(install) -d -m 0777   
 
 ###################################################################
 
 CXXFLAGS=	@CXXFLAGS@  -DHAVE_CONFIG_H -I..
-LDFLAGS	=	@LDFLAGS@ @all_libraries@ @LIBCDROM@ @LIBCDAUDIO@ @LIBSOCKET@ @LIBFPE@ -lkdecore -lkdeui  -lqt  -lX11 -lXext
+LDFLAGS	=	@LDFLAGS@ @all_libraries@ @LIBCDROM@ @LIBCDAUDIO@ @LIBSOCKET@ @LIBFPE@ -lkdecore -lkdeui -lkfm -lqt  -lX11 -lXext
 INCDIR	=	@all_includes@
 CXX	=	@CXX@
 MOC	=	@MOC@
@@ -37,23 +38,28 @@ CFLAGS	=
 
 ####### Files
 
-HEADER = kscd.h struct.h bwlednum.h 
+HEADER = kscd.h struct.h bwlednum.h ledlamp.h inexact.h CDDialog.h CDDialogData.h\
+	CDDBSetup.h CDDBSetupData.h
 
-SOURCES	= kscd.cpp configdlg.cpp  cdinfo.c\
+SOURCES	= kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp CDDialogData.cpp \
+	CDDBSetup.cpp CDDBSetupData.cpp\
+	inexact.cpp cdinfo.c\
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
 	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp
 
 SOURCES2=plat_sun_audio.c plat_sun_cdda.c cddaslave.c  
 
-OBJECTS	= kscd.o configdlg.o  cdinfo.o\
+OBJECTS	= kscd.o configdlg.o  ledlamp.o inexact.o cddb.o cdinfo.o\
+	CDDialog.o CDDialogData.o CDDBSetup.o CDDBSetupData.o\
 	plat_sun.o plat_hpux.o plat_linux.o plat_news.o \
 	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o \
 	plat_svr4.o plat_freebsd.o plat_osf1.o plat_irix.o bwlednum.o
 
 OBJECTS2=plat_sun_audio.o plat_sun_cdda.o cddaslave.o 
 
-SRCMETA	= kscd.moc bwlednum.moc configdlg.moc
+SRCMETA	= kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc inexact.moc\
+	CDDialog.moc CDDialogData.moc CDDBSetup.moc CDDBSetupData.moc
 
 TARGET1 = kscd
 TARGET2 = cddaslave
@@ -98,6 +104,17 @@ install: all
 	(cd docs && $(MAKE) install)
 	strip kscd
 	$(INSTALL_DIR) $(BINDIR)
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/rock
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/blues
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/classical
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/jazz
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/newage
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/soundtrack
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/reggae
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/folk
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/country
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/misc
+	$(INSTALL_CDDB_DIR) $(CDDBDIR)/data
 	$(INSTALL) $(TARGET1) $(BINDIR)
 	$(INSTALL) $(TARGET2) $(BINDIR)
 	$(INSTALL_DIR) $(ICONDIR)
@@ -131,6 +148,27 @@ bwlednum.moc: bwlednum.h
 
 configdlg.moc: configdlg.h
 	$(MOC) configdlg.h -o configdlg.moc
+
+cddb.moc: cddb.h
+	$(MOC) cddb.h -o cddb.moc
+
+ledlamp.moc: ledlamp.h
+	$(MOC) ledlamp.h -o ledlamp.moc
+
+inexact.moc: inexact.h
+	$(MOC) inexact.h -o inexact.moc
+
+CDDialog.moc: CDDialog.h
+	$(MOC) CDDialog.h -o CDDialog.moc
+
+CDDBSetup.moc: CDDBSetup.h
+	$(MOC) CDDBSetup.h -o CDDBSetup.moc
+
+CDDialogData.moc: CDDialogData.h
+	$(MOC) CDDialogData.h -o CDDialogData.moc
+
+CDDBSetupData.moc: CDDBSetupData.h
+	$(MOC) CDDBSetupData.h -o CDDBSetupData.moc
 
 
 

@@ -1,1 +1,20 @@
-o cddb
+o Why is the cdrom drive in the new version making noise once every minute?
+o Necessary changes to the other plat_XXX.c files to get cddb to work there too.
+
+o expand tabs in the title artis etc labels
+o Options:
+	remote cddb on/off
+
+o Decide what to do about looping. Currently looping means play the whole
+  cd over and over again.
+	
+o Dialogs:
+
+	cddb local categories/directories
+        cddb remote servers
+	cddb remote servers update
+        automatic save of unknown cddb entries on/off
+	
+o Web stuff
+        use netscape/kfm
+		

@@ -1,3 +1,6 @@
+
+#ifndef __CD_STRUC__
+#define __CD_STRUC__
 /* @(#)struct.h	1.17 2/24/94 */
 
 /*
@@ -50,6 +53,13 @@ struct playlist {
 	int	*list;		/* List of tracks */
 };
 
+struct toc {
+	int	min;
+	int	sec;
+	int	frame;
+        int     absframe;
+};
+
 struct cdinfo_wm {
 
   unsigned long magicID;	/*cddb magic disk id BERND*/
@@ -67,6 +77,7 @@ struct cdinfo_wm {
 	char	*otherrc;
 	char	*user;		/* Name of originating user */
 	struct cdinfo *next;	/* For browsers, etc. */
+        struct toc *cddbtoc;
 };
 
 /* The global variable "cd" points to the struct for the CD that's playing. */
@@ -98,6 +109,7 @@ struct wm_drive {
 	int	(*get_trackcount)();
 	int	(*get_cdlen)();
 	int	(*get_trackinfo)();
+	int	(*get_trackinfocddb)();
 	int	(*get_drive_status)();
 	int	(*get_volume)();
 	int	(*set_volume)();
@@ -116,6 +128,7 @@ int     gen_init(),
 	gen_get_trackcount(),
 	gen_get_cdlen(),
 	gen_get_trackinfo(),
+	gen_get_trackinfocddb(),
 	gen_get_drive_status(),
 	gen_get_volume(),
 	gen_set_volume(),
@@ -125,3 +138,6 @@ int     gen_init(),
 	gen_play(),
 	gen_eject();
 struct wm_drive *find_drive_struct();
+
+
+#endif

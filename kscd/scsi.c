@@ -234,6 +234,30 @@ wm_scsi2_play(d, sframe, eframe)
 			0));
 }
 
+/* pretty much the same as wm_scsi2_get_trackinf below
+   it fetches the min, sec, and frm adderss of the beginning of 
+  the track d
+  */
+
+int
+wm_scsi2_get_trackinfocddb(d, track, min,sec,frm)
+	struct wm_drive	*d;
+	int		track, *min,*sec,*frm;
+{
+	unsigned char	buf[12];	/* one track's worth of info */
+
+	if (sendscsi(d, buf, sizeof(buf), 1, SCMD_READ_TOC, 2,
+			0, 0, 0, 0, track, sizeof(buf) / 256,
+			sizeof(buf) % 256, 0))
+		return (-1);
+	
+	*min = buf[9];
+	*sec = buf[10];
+	*frm = buf[11];
+	return (0);
+}
+
+
 /*
  * Send a SCSI-2 READ TOC command to get the data for a particular track.
  * Fill in track information from the returned data.

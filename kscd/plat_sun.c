@@ -230,6 +230,28 @@ gen_get_trackcount(d, tracks)
 	return (0);
 }
 
+
+
+int
+gen_get_trackinfocddb(d, track, min, sec, frm)
+	struct wm_drive	*d;
+	int    *min,*sec,*frm;
+{
+	struct cdrom_tocentry	entry;
+
+	entry.cdte_track = track;
+	entry.cdte_format = CDROM_MSF;
+
+	if (ioctl(d->fd, CDROMREADTOCENTRY, &entry))
+		return (-1);
+	
+	*min =	entry.cdte_addr.msf.minute;
+	*sec =  entry.cdte_addr.msf.second;
+	*frm =  entry.cdte_addr.msf.frame;
+	
+	return (0);
+}
+
 /*
  * Get the start time and mode (data or audio) of a track.
  */

@@ -35,7 +35,7 @@ char *	cur_cdname;	/* Album name */
 char *	cur_trackname;	/* Take a guess */
 char	cur_contd;	/* Continued flag */
 char	cur_avoid;	/* Avoid flag */
-
+unsigned long  cur_magicID;
 int	exit_on_eject = 0;
 
 extern int cur_stopmode;

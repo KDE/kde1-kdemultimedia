@@ -143,6 +143,26 @@ gen_get_trackcount(d, tracks)
 	return 0;
 }
 
+
+int
+gen_get_trackinfocddb(d, track, min, sec, frm)
+	struct wm_drive	*d;
+	int    *min,*sec,*frm;
+{
+
+	
+	CDTRACKINFO i;
+	int ret = CDgettrackinfo(d->daux, track, &i);
+	if( ret == 0 )
+		return -1;
+
+	*min =	i.start_min;
+	*sec =  i.start_sec;
+	*frm =  i.start_frame;
+	
+	return (0);
+}
+
 /*
  * Get the start time and mode (data or audio) of a track.
  */

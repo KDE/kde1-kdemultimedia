@@ -58,6 +58,30 @@ gen_get_trackcount(d, tracks)
 	return (0);
 }
 
+int
+gen_get_trackinfocddb(d, track, min, sec, frm)
+	struct wm_drive	*d;
+	int    *min,*sec,*frm;
+{
+        int startframe;
+	struct CD_TOCinfo	hdr;
+	struct CD_TOCdata	ent;
+
+	hdr.strack = track;
+	hdr.ntrack = 1;
+	hdr.data = &ent;
+	if (CD_ReadTOC(d->fd, &hdr))
+		return (-1);
+
+	startframe = ent.baddr;
+
+	*min   = startframe/(60*75);
+	*sec   = startframe - *min * 60 * 75)/75;
+	*frm   = startframe - *min * 60 * 75 - *sec *75;
+	
+	return (0);
+}
+
 /*
  * Get the start time and mode (data or audio) of a track.
  */

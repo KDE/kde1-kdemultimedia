@@ -38,6 +38,9 @@
 #include <qframe.h>
 #include <qchkbox.h>
 #include <qlined.h>
+#include <qradiobt.h>
+#include <qbutton.h> 
+#include <qbttngrp.h> 
 #include <kcolordlg.h>
 
 
@@ -64,6 +67,9 @@ private slots:
   void help();
   void ttclicked();
   void device_changed(const char*);
+  void mail_changed(const char*);
+  void custombutton_clicked();
+  void kfmbutton_clicked();
 
 signals:
   void color_change();
@@ -100,6 +106,16 @@ private:
   
   QLabel *label5;
   QLineEdit *cd_device_edit;
+
+  QLabel *label6;
+  QLineEdit *mail_edit;
+
+  QButtonGroup *browserbox;
+
+  QRadioButton *kfmbutton;
+  QRadioButton *custombutton;
+
+  QLineEdit *custom_edit;
 
 };
 #endif

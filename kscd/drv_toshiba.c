@@ -25,6 +25,7 @@ struct wm_drive toshiba_proto = {
 	gen_get_trackcount,
 	gen_get_cdlen,
 	gen_get_trackinfo,
+	gen_get_trackinfocddb,
 	gen_get_drive_status,
 	tosh_get_volume,
 	tosh_set_volume,

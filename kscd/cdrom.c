@@ -55,6 +55,7 @@ int	intermittent_dev = 0;
 int	keep_open = 0;
 
 char	*cd_device = NULL;
+int     have_new_cd = 0;
 
 extern int cur_track, cur_index, cur_lasttrack, cur_firsttrack, cur_pos_abs,	
 	cur_frame, cur_pos_rel, cur_tracklen, cur_cdlen, cur_ntracks,	
@@ -63,6 +64,7 @@ extern int cur_track, cur_index, cur_lasttrack, cur_firsttrack, cur_pos_abs,
 extern enum cd_modes cur_cdmode;
 extern char *cur_artist, *cur_cdname, *cur_trackname;
 extern char	cur_contd, cur_avoid;
+extern unsigned long cur_magicID;
 
 struct wm_drive	drive = { -1, "", "", NULL, NULL };
 
@@ -95,6 +97,42 @@ find_drive_struct(vendor, model, rev)
 }
 
 
+int
+cddb_sum(int n)
+{
+	char	buf[12],
+		*p;
+	int	ret = 0;
+
+	/* For backward compatibility this algorithm must not change */
+	sprintf(buf, "%lu", n);
+	for (p = buf; *p != '\0'; p++)
+		ret += (*p - '0');
+
+	return (ret);
+}
+
+unsigned long
+cddb_discid()
+{
+	int	i,
+		t = 0,
+		n = 0;
+
+	/* For backward compatibility this algorithm must not change */
+	for (i = 0; i < thiscd.ntracks; i++)
+		n += cddb_sum((thiscd.cddbtoc[i].min * 60) + thiscd.cddbtoc[i].sec);
+
+	t = ((thiscd.cddbtoc[thiscd.ntracks].min * 60) 
+	     + thiscd.cddbtoc[thiscd.ntracks].sec) -
+	     ((thiscd.cddbtoc[0].min * 60) + thiscd.cddbtoc[0].sec);
+
+	return ((n % 0xff) << 24 | t << 8 | thiscd.ntracks);
+}
+
+
+
+
 
 /*
  * read_toc()
@@ -110,9 +148,11 @@ read_toc()
 {
 	struct playlist		*l;
 	int			i, pos;
+
 	unsigned long	magicid;
 	int t = 0;
 	int n = 0;
+	int tempframe = 0;
 
 	if ((drive.get_trackcount)(&drive, &thiscd.ntracks) < 0)
 	{
@@ -141,6 +181,12 @@ read_toc()
 		free(thiscd.trk);
 
 	thiscd.trk = malloc((thiscd.ntracks + 1) * sizeof(struct trackinfo));
+
+	if (thiscd.cddbtoc != NULL)
+		free(thiscd.cddbtoc);
+
+	thiscd.cddbtoc = malloc((thiscd.ntracks + 2) * sizeof(struct toc));
+
 	if (thiscd.trk == NULL)
 	{
 		perror("malloc");
@@ -195,6 +241,42 @@ read_toc()
 
 	thiscd.length = thiscd.trk[thiscd.ntracks].length;
 
+	for (i = 1; i <= thiscd.ntracks; i++)
+	{
+	  		if ((drive.get_trackinfocddb)(&drive, i , 
+					      &thiscd.cddbtoc[i-1].min,
+					      &thiscd.cddbtoc[i-1].sec,
+					      &thiscd.cddbtoc[i-1].frame
+					      ) < 0)
+		  {
+		    perror("CD cddb track info read");
+		    return (NULL);
+		  }
+			thiscd.cddbtoc[i-1].absframe = 
+			    thiscd.cddbtoc[i-1].min * 60 * 75 
+			  + thiscd.cddbtoc[i-1].sec * 75 
+			  + thiscd.cddbtoc[i-1].frame;
+			
+	}
+
+	if ((drive.get_cdlen)(&drive, &tempframe) < 0)
+	{
+		perror("CD cddb length read");
+		return (NULL);
+	}
+	
+	thiscd.cddbtoc[thiscd.ntracks].min   = tempframe/(60*75);
+	thiscd.cddbtoc[thiscd.ntracks].sec   = 
+                   (tempframe - thiscd.cddbtoc[thiscd.ntracks].min * 60 * 75)/75;
+
+	thiscd.cddbtoc[thiscd.ntracks].frame = 
+                   tempframe - thiscd.cddbtoc[thiscd.ntracks].min * 60 * 75
+	              - thiscd.cddbtoc[thiscd.ntracks].sec *75;
+
+	thiscd.cddbtoc[thiscd.ntracks].absframe = tempframe;
+
+	thiscd.magicID = cddb_discid();
+//	printf("%x\n",thiscd.magicID);
 	return (&thiscd);
 }
 
@@ -300,7 +382,10 @@ cd_status()
 		/*		load();*/ /*BERND*/
 		cur_artist = cd->artist;
 		cur_cdname = cd->cdname;
+		cur_magicID = cd->magicID;
 		cur_cdmode = STOPPED;
+		have_new_cd = 1;
+//printf("Setting have_new_cd to 1\n");
 		ret = 2;
 	}
 
@@ -670,6 +755,7 @@ struct wm_drive generic_proto = {
 	gen_get_trackcount,
 	gen_get_cdlen,
 	gen_get_trackinfo,
+	gen_get_trackinfocddb,
 	gen_get_drive_status,
 	gen_get_volume,
 	gen_set_volume,

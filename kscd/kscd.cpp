@@ -26,11 +26,16 @@ extern "C" {
 #include "struct.h"
 }
 
+#include <kfm.h>
+
 #include "kscd.h"
 #include "configdlg.h"
 #include "version.h"
 #include "config.h"
-
+#include "cddb.h"
+#include "inexact.h"
+#include "CDDialog.h"
+#include "CDDBSetup.h"
 #include "bitmaps/playpaus.xbm"
 #include "bitmaps/stop.xbm"
 #include "bitmaps/repeat.xbm"
@@ -38,8 +43,10 @@ extern "C" {
 #include "bitmaps/prevtrk.xbm"
 #include "bitmaps/ff.xbm"
 #include "bitmaps/rew.xbm"
+#include "bitmaps/info.xbm"
 #include "bitmaps/poweroff.xbm"
 #include "bitmaps/eject.xbm"
+#include "bitmaps/db.xbm"
 #include "bitmaps/logo.xbm"
 #include "bitmaps/shuffle.xbm"
 #include "bitmaps/options.xbm"
@@ -47,10 +54,15 @@ extern "C" {
 KApplication 	*mykapp;
 char 		tmptime[100];
 char 		*tottime;
-static void 	playtime (void);
+//static void 	playtime (void);
 void 		kcderror(char* title,char* message);
 void 		kcdworker(int );
 
+extern QTime framestoTime(int frames);
+extern void cddb_decode(QString& str);
+extern void cddb_encode(QString& str, QStrList &returnlist);
+extern void cddb_playlist_encode(QStrList& list,QString& playstr);
+extern bool cddb_playlist_decode(QStrList& list, QString& str);
 
 /************************************************************************
  new for workman: (BERND)
@@ -68,25 +80,26 @@ extern "C" {
 extern struct play *playlist ;
 extern struct cdinfo_wm thiscd, *cd ;
 extern char	*cd_device;
+extern int have_new_cd;
 
 extern int	cur_track;	/* Current track number, starting at 1 */
 extern int	cur_index;	/* Current index mark */
 extern int	cur_lasttrack ;	/* Last track to play in current chunk */
 extern int	cur_firsttrack;	/* First track of current chunk */
-int	cur_pos_abs;	/* Current absolute position in seconds */
-int	cur_frame;	/* Current frame number */
-int	cur_pos_rel;	/* Current track-relative position in seconds */
-int	cur_tracklen;	/* Length in seconds of current track */
-int	cur_cdlen;	/* Length in seconds of entire CD */
-int	cur_ntracks;	/* Number of tracks on CD (= tracks + sections) */
-int	cur_nsections;	/* Number of sections currently defined */
-extern  enum cd_modes	cur_cdmode;
-int	cur_listno;	/* Current index into the play list, if playing */
-char *	cur_artist;	/* Name of current CD's artist */
-char *	cur_cdname;	/* Album name */
-char *	cur_trackname;	/* Take a guess */
-char	cur_contd;	/* Continued flag */
-char	cur_avoid;	/* Avoid flag */
+int    cur_pos_abs;	/* Current absolute position in seconds */
+int    cur_frame;	/* Current frame number */
+int    cur_pos_rel;	/* Current track-relative position in seconds */
+int    cur_tracklen;	/* Length in seconds of current track */
+int    cur_cdlen;	/* Length in seconds of entire CD */
+int    cur_ntracks;	/* Number of tracks on CD (= tracks + sections) */
+int    cur_nsections;	/* Number of sections currently defined */
+extern enum cd_modes	cur_cdmode;
+int    cur_listno;	/* Current index into the play list, if playing */
+char  *cur_artist;	/* Name of current CD's artist */
+char  *cur_cdname;	/* Album name */
+char  *cur_trackname;	/* Take a guess */
+char   cur_contd;	/* Continued flag */
+char   cur_avoid;	/* Avoid flag */
 
 int cur_balance;
 int info_modified;
@@ -99,51 +112,67 @@ int mark_a, mark_b;
 *****************************************************************************/
 
 KSCD::KSCD( QWidget *parent, const char *name ) :
-	QDialog( parent, name )
-{
-        cd_device_str = "";
-        background_color = black;
-	led_color = green;
-	randomplay = false;
-	looping = false;
-	cddrive_is_ok = true;
-	tooltips = true;
+  QDialog( parent, name ){
 
-	drawPanel();
-	loadBitmaps();
-	setColors();
-	setToolTips();
+  cd_device_str        	= "";
+  background_color 	= black;
+  led_color 		= green;
+  randomplay 		= false;
+  looping 		= false;
+  cddrive_is_ok 		= true;
+  tooltips 		= true;
+  cycle_flag		= false;
+  cddb_remote_enabled   = true;
+  cddb 			= 0L;
+  setup 	       	= 0L;
+  time_display_mode 	= TRACK_SEC;
+  revision		= 1;
+  use_kfm 		= true;
+  drawPanel();
+  loadBitmaps();
+  setColors();
+  setToolTips();
+  
+  cddialog 	  = 0L;
+  timer 	  = new QTimer( this );
+  queryledtimer   = new QTimer( this );
+  titlelabeltimer = new QTimer( this );
+  initimer 	  = new QTimer( this );
+  cycletimer      = new QTimer( this );
+  
+  connect( initimer, SIGNAL(timeout()),this,  SLOT(initCDROM()) );
+  connect( queryledtimer, SIGNAL(timeout()),  SLOT(togglequeryled()) );
+  connect( titlelabeltimer, SIGNAL(timeout()),  SLOT(titlelabeltimeout()) );
+  connect( cycletimer, SIGNAL(timeout()),  SLOT(cycletimeout()) );
+  connect( timer, SIGNAL(timeout()),  SLOT(cdMode()) );
+  connect( playPB, SIGNAL(clicked()), SLOT(playClicked()) );
+  connect( stopPB, SIGNAL(clicked()), SLOT(stopClicked()) );
+  connect( prevPB, SIGNAL(clicked()), SLOT(prevClicked()) );
+  connect( nextPB, SIGNAL(clicked()), SLOT(nextClicked()) );
+  connect( fwdPB, SIGNAL(clicked()), SLOT(fwdClicked()) );
+  connect( bwdPB, SIGNAL(clicked()), SLOT(bwdClicked()) );
+  connect( quitPB, SIGNAL(clicked()), SLOT(quitClicked()) );	
+  connect( replayPB, SIGNAL(clicked()), SLOT(loopClicked()) );
+  connect( ejectPB, SIGNAL(clicked()), SLOT(ejectClicked()) );
+  connect( songListCB, SIGNAL(activated(int)), SLOT(trackSelected(int)));
+  connect( volSB, SIGNAL(valueChanged(int)), SLOT(volChanged(int)));
+  connect( aboutPB, SIGNAL(clicked()), SLOT(cycleplaytimemode()));
+  //connect( aboutPB, SIGNAL(clicked()), SLOT(aboutClicked()));
+  connect( optionsbutton, SIGNAL(clicked()), SLOT(aboutClicked()));
+  connect( shufflebutton, SIGNAL(clicked()), SLOT(randomSelected()));
+  connect( cddbbutton, SIGNAL(clicked()), SLOT(CDDialogSelected()));
+  connect(mykapp,SIGNAL(kdisplayPaletteChanged()),this,SLOT(setColors()));
+	
+  readSettings();
+  setColors();
+  initWorkMan();
 
-	timer = new QTimer( this );
-	connect( timer, SIGNAL(timeout()),  SLOT(cdMode()) );
-	connect( playPB, SIGNAL(clicked()), SLOT(playClicked()) );
-	connect( stopPB, SIGNAL(clicked()), SLOT(stopClicked()) );
-	connect( prevPB, SIGNAL(clicked()), SLOT(prevClicked()) );
-	connect( nextPB, SIGNAL(clicked()), SLOT(nextClicked()) );
-	connect( fwdPB, SIGNAL(clicked()), SLOT(fwdClicked()) );
-	connect( bwdPB, SIGNAL(clicked()), SLOT(bwdClicked()) );
-	connect( quitPB, SIGNAL(clicked()), SLOT(quitClicked()) );	
-	connect( replayPB, SIGNAL(clicked()), SLOT(loopClicked()) );
-	connect( ejectPB, SIGNAL(clicked()), SLOT(ejectClicked()) );
-	connect( songListCB, SIGNAL(activated(int)), SLOT(trackSelected(int)));
-	connect( volSB, SIGNAL(valueChanged(int)), SLOT(volChanged(int)));
-	connect( aboutPB, SIGNAL(clicked()), SLOT(aboutClicked()));
-	connect( optionsbutton, SIGNAL(clicked()), SLOT(aboutClicked()));
-	connect( shufflebutton, SIGNAL(clicked()), SLOT(randomSelected()));
-
-	connect(mykapp,SIGNAL(kdisplayPaletteChanged()),this,SLOT(setColors()));
-
-	readSettings();
-	setColors();
-	initWorkMan();
-
-	volstartup = TRUE;
-	volSB->setValue(volume);
-
-	initimer = new QTimer;
-	srandom(time(0L));
-	connect( initimer, SIGNAL(timeout()),this,  SLOT(initCDROM()) );
-	initimer->start(500,TRUE);
+  setupPopups();
+  volstartup = TRUE;
+  volSB->setValue(volume);
+  
+  srandom(time(0L));
+  initimer->start(500,TRUE);
 
 }
 
@@ -151,16 +180,16 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 // Initialize the variables only in WorkMan
 void KSCD::initWorkMan() {
 
-  mark_a= 0; 
-  mark_b = 0;
-  cur_balance = 10;
-  fastin = FALSE;
-  scmd = 0;
-  tmppos = 0;
-  save_track = 1;
-  thiscd.trk = NULL;
-  thiscd.lists = NULL;
-  tottime = tmptime;
+  mark_a	= 0; 
+  mark_b 	= 0;
+  cur_balance 	= 10;
+  fastin 	= FALSE;
+  scmd 		= 0;
+  tmppos 	= 0;
+  save_track 	= 1;
+  thiscd.trk 	= NULL;
+  thiscd.lists 	= NULL;
+  tottime 	= tmptime;
 
 }
 	
@@ -227,395 +256,515 @@ void KSCD::initCDROM(){
   if(cddrive_is_ok)
     volChanged(volume);
 
-  timer->start(1000);
-
+  //  timer->start(1000);
+  //  cdMode();
 }  
 
 
 QPushButton *KSCD::makeButton( int x, int y, int w, int h, const char *n ) 
 {
-	QPushButton *pb = new QPushButton( n, this );
-	pb->setGeometry( x, y, w, h );
-	return pb;
+  QPushButton *pb = new QPushButton( n, this );
+  pb->setGeometry( x, y, w, h );
+  return pb;
 }
 	
 void KSCD::drawPanel() 
 {
-	int ix = 0;
-	int iy = 0;
-	const int WIDTH = 100;
-	const int HEIGHT = 29;
-	const int SBARWIDTH = 180; //140
+  int ix = 0;
+  int iy = 0;
+  //	const int WIDTH = 100;
+  const int WIDTH = 90;
+  //	const int HEIGHT = 29;
+  const int HEIGHT = 27;
+  //	const int SBARWIDTH = 180; //140
+  const int SBARWIDTH = 220; //140
+  
+  setCaption( "kscd" );
+  aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, "About" );
+  
+  ix = 0;
+  iy += 2 * HEIGHT;
 
-	setCaption( "kscd" );
-	aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, "About" );
-
-	ix = 0;
-	iy += 2 * HEIGHT;
-	ejectPB = makeButton( ix, iy, WIDTH, HEIGHT, "Eject" );
-
-	iy += HEIGHT;
-	quitPB = makeButton( ix, iy, WIDTH, HEIGHT, "Quit" );
+  infoPB = makeButton( ix, iy, WIDTH/2, HEIGHT, "" );
+  ejectPB = makeButton( ix + WIDTH/2, iy, WIDTH/2, HEIGHT, "" );
+  
+  iy += HEIGHT;
+  quitPB = makeButton( ix, iy, WIDTH, HEIGHT, "Quit" );
 	
 
 
-	ix += WIDTH;
-	iy = 0;
-
-	backdrop = new QFrame(this);
-	backdrop->setGeometry(ix,iy,SBARWIDTH -2, 2* HEIGHT + HEIGHT /2 -1);
-
-
-	int D = 6;
-
-	//ix += 2 * SBARWIDTH / 7;
-	ix = WIDTH + 8;
-	for (int u = 0; u<5;u++){
-	  trackTimeLED[u] = new BW_LED_Number(this );	 
-	  trackTimeLED[u]->setGeometry( ix  + u*20, iy+8 +D, 23 ,  7*HEIGHT/5 );
-	  trackTimeLED[u]->setLEDoffColor(background_color);
-	  trackTimeLED[u]->setLEDColor(led_color,background_color);
-	}
-	
-	QString zeros("--:--");
-	setLEDs(zeros);
+  ix += WIDTH;
+  iy = 0;
+  
+  backdrop = new QFrame(this);
+  backdrop->setGeometry(ix,iy,SBARWIDTH -2, 2* HEIGHT + HEIGHT /2 -1);
+  
 
 
-	/*
-	titlelabel = new QLabel(this);
-	titlelabel->setGeometry(WIDTH + 10, iy + 50 , WIDTH + 60, 14);
-	titlelabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
-        titlelabel->setAlignment( AlignLeft );
-	titlelabel->setText("Sting / Ten Summoners");
-	*/
-
-	statuslabel = new QLabel(this);
-	statuslabel->setGeometry(WIDTH + 120, iy + 7 +D, 50, 14);
-	statuslabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
-        statuslabel->setAlignment( AlignLeft );
-	//	statuslabel->setText("Ready");
-
-	volumelabel = new QLabel(this);
-	volumelabel->setGeometry(WIDTH + 120, iy + 21+D, 50, 14);
-	volumelabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
-        volumelabel->setAlignment( AlignLeft );
-	volumelabel->setText("Vol: --");
-
-	tracklabel = new QLabel(this);
-	tracklabel->setGeometry(WIDTH + 120, iy + 35 +D, 50, 14);
-	tracklabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
-        tracklabel->setAlignment( AlignLeft );
-	tracklabel->setText("Trk: --");
-			      
-	/*
-	trackTimeLED = new QLEDNumber( this );
-	trackTimeLED->setGeometry( ix -10, iy+5, 100    , 2 * HEIGHT );// petit
-	trackTimeLED->display("");
-	trackTimeLED->setFrameStyle( QFrame::NoFrame );
-	*/
-
-	ix = WIDTH;
-	iy = HEIGHT + HEIGHT + HEIGHT/2;
-	// Volume control here
-
-	volSB = new QSlider( 0, 100, 5,  50, QSlider::Horizontal, this, "Slider" );
-	volSB->setGeometry( ix, iy, SBARWIDTH, HEIGHT/2 );
+  int D = 6;
+  
+  //ix += 2 * SBARWIDTH / 7;
+  ix = WIDTH + 8;
+  /*
+    nLEDs = new QLabel(this);
+    nLEDs->setGeometry(ix + 20,iy +5 + D, 100, 30);
+    nLEDs->setFont( QFont( "Helvetica", 26, QFont::Bold ) );
+    */
+  
+  for (int u = 0; u<5;u++){
+    trackTimeLED[u] = new BW_LED_Number(this );	 
+    trackTimeLED[u]->setGeometry( ix  + u*18, iy + D, 23 ,  30 );
+    trackTimeLED[u]->setLEDoffColor(background_color);
+    trackTimeLED[u]->setLEDColor(led_color,background_color);
+  }
+  
+  QString zeros("--:--");
+  setLEDs(zeros);
+  
+  artistlabel = new QLabel(this);
+  artistlabel->setGeometry(WIDTH + 5, iy + 38 , SBARWIDTH -15, 13);
+  artistlabel->setFont( QFont( "Helvetica", 10, QFont::Bold) );
+  artistlabel->setAlignment( AlignLeft );
+  artistlabel->setText("");
+  
+  titlelabel = new QLabel(this);
+  titlelabel->setGeometry(WIDTH + 5, iy + 50 , SBARWIDTH -15, 13);
+  titlelabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+  titlelabel->setAlignment( AlignLeft );
+  titlelabel->setText("");
 
 
-	iy += HEIGHT/2  +1;
+  statuslabel = new QLabel(this);
+  statuslabel->setGeometry(WIDTH + 110, iy  +D, 50, 14);
+  statuslabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+  statuslabel->setAlignment( AlignLeft );
+  //	statuslabel->setText("Ready");
 
+  queryled = new LedLamp(this);
+  queryled->move(WIDTH + 200, iy  +D +1 );
+  queryled->off();
+  queryled->hide();
+  
+  volumelabel = new QLabel(this);
+  volumelabel->setGeometry(WIDTH + 110, iy + 14 + D, 50, 14);
+  volumelabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+  volumelabel->setAlignment( AlignLeft );
+  volumelabel->setText("Vol: --");
+  
+  tracklabel = new QLabel(this);
+  tracklabel->setGeometry(WIDTH + 168, iy + 14 +D, 50, 14);
+  tracklabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+  tracklabel->setAlignment( AlignLeft );
+  tracklabel->setText("--/--");
+  
+  totaltimelabel = new QLabel(this);
+  totaltimelabel->setGeometry(WIDTH + 168, iy  +D, 50, 14);
+  totaltimelabel->setFont( QFont( "Helvetica", 10, QFont::Bold ) );
+  totaltimelabel->setAlignment( AlignLeft );
+  totaltimelabel->hide();
 
-	optionsbutton = new QPushButton( this );
-	optionsbutton->setGeometry( ix, iy, SBARWIDTH/4 +1 , HEIGHT );
-	optionsbutton->setFont( QFont( "helvetica", 12 ) );
+  /*
+    trackTimeLED = new QLEDNumber( this );
+    trackTimeLED->setGeometry( ix -10, iy+5, 100    , 2 * HEIGHT );// petit
+    trackTimeLED->display("");
+    trackTimeLED->setFrameStyle( QFrame::NoFrame );
+    */
+  
+  ix = WIDTH;
+  iy = HEIGHT + HEIGHT + HEIGHT/2;
+  // Volume control here
 
-	ix += SBARWIDTH/4;
-	shufflebutton = new QPushButton( this );
-	shufflebutton->setGeometry( ix +1, iy, SBARWIDTH/4-1 , HEIGHT );
-	shufflebutton->setFont( QFont( "helvetica", 12 ) );
+  volSB = new QSlider( 0, 100, 5,  50, QSlider::Horizontal, this, "Slider" );
+  volSB->setGeometry( ix, iy, SBARWIDTH, HEIGHT/2 );
+  
 
+  iy += HEIGHT/2  +1 ;
+  cddbbutton = new QPushButton( this );
+  cddbbutton->setGeometry( ix , iy, SBARWIDTH/10 *2 , HEIGHT );
+  cddbbutton->setFont( QFont( "helvetica", 12 ) );
+  
 
-	ix += SBARWIDTH/4;
-	songListCB = new QComboBox( this );
-	songListCB->setGeometry( ix, iy, SBARWIDTH/2, HEIGHT );
-	songListCB->setFont( QFont( "helvetica", 12 ) );
+  ix += SBARWIDTH/10*2;
+  shufflebutton = new QPushButton( this );
+  shufflebutton->setGeometry( ix , iy, SBARWIDTH/10 *2  , HEIGHT );
+  shufflebutton->setFont( QFont( "helvetica", 12 ) );
+  
+  ix += SBARWIDTH/10*2;
+  
+  optionsbutton = new QPushButton( this );
+  optionsbutton->setGeometry( ix, iy, SBARWIDTH/10 *2  , HEIGHT );
+  optionsbutton->setFont( QFont( "helvetica", 12 ) );
+  
 
-	iy = 0;
-	ix = WIDTH + SBARWIDTH;
-	playPB = makeButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" );
-
-	iy += HEIGHT;
-	stopPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Stop" );
-
-	ix += WIDTH / 2;
-	replayPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Replay" );
-
-	ix = WIDTH + SBARWIDTH;
-	iy += HEIGHT;
-	bwdPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Bwd" );
-
-	ix += WIDTH / 2;
-	fwdPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Fwd" );
-
-	ix = WIDTH + SBARWIDTH;
-	iy += HEIGHT;
-	prevPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Prev" );
-
-	ix += WIDTH / 2;
-	nextPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Next" );
-
-	this->adjustSize();
-	this->setFixedSize(this->width(),this->height());
+  ix += SBARWIDTH/10*2;
+  songListCB = new QComboBox( this );
+  songListCB->setGeometry( ix, iy, SBARWIDTH/10*4, HEIGHT );
+  songListCB->setFont( QFont( "helvetica", 12 ) );
+  
+  iy = 0;
+  ix = WIDTH + SBARWIDTH;
+  playPB = makeButton( ix, iy, WIDTH, HEIGHT, "Play/Pause" );
+  
+  iy += HEIGHT;
+  stopPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Stop" );
+  
+  ix += WIDTH / 2;
+  replayPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Replay" );
+  
+  ix = WIDTH + SBARWIDTH;
+  iy += HEIGHT;
+  bwdPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Bwd" );
+  
+  ix += WIDTH / 2;
+  fwdPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Fwd" );
+  
+  ix = WIDTH + SBARWIDTH;
+  iy += HEIGHT;
+  prevPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Prev" );
+  
+  ix += WIDTH / 2;
+  nextPB = makeButton( ix, iy, WIDTH / 2, HEIGHT, "Next" );
+  
+  this->adjustSize();
+  this->setFixedSize(this->width(),this->height());
 
 }
 
 void KSCD::loadBitmaps() {
-	QBitmap playBmp( playpause_width, playpause_height, playpause_bits,
-			 TRUE );
-	QBitmap stopBmp( stop_width, stop_height, stop_bits, TRUE );
-	QBitmap prevBmp( prevtrk_width, prevtrk_height, prevtrk_bits, TRUE );
-	QBitmap nextBmp( nexttrk_width, nexttrk_height, nexttrk_bits, TRUE );
-	QBitmap replayBmp( repeat_width, repeat_height, repeat_bits, TRUE );
-	QBitmap fwdBmp( ff_width, ff_height, ff_bits, TRUE );
-	QBitmap bwdBmp( rew_width, rew_height, rew_bits, TRUE );
-	QBitmap ejectBmp( eject_width, eject_height, eject_bits, TRUE );
-	QBitmap quitBmp( poweroff_width, poweroff_height, poweroff_bits, 
-			 TRUE );
 
-	QBitmap shuffleBmp( shuffle_width, shuffle_height, shuffle_bits, TRUE );
-	/*	QBitmap databaseBmp( db_width, db_height, db_bits, TRUE );*/
+  QBitmap playBmp( playpause_width, playpause_height, playpause_bits,TRUE );
+  QBitmap stopBmp( stop_width, stop_height, stop_bits, TRUE );
+  QBitmap prevBmp( prevtrk_width, prevtrk_height, prevtrk_bits, TRUE );
+  QBitmap nextBmp( nexttrk_width, nexttrk_height, nexttrk_bits, TRUE );
+  QBitmap replayBmp( repeat_width, repeat_height, repeat_bits, TRUE );
+  QBitmap fwdBmp( ff_width, ff_height, ff_bits, TRUE );
+  QBitmap bwdBmp( rew_width, rew_height, rew_bits, TRUE );
+  QBitmap ejectBmp( eject_width, eject_height, eject_bits, TRUE );
+  QBitmap infoBmp( info_width, info_height,info_bits, TRUE );
+  QBitmap quitBmp( poweroff_width, poweroff_height, poweroff_bits, TRUE );
+  QBitmap shuffleBmp( shuffle_width, shuffle_height, shuffle_bits, TRUE );
+  QBitmap databaseBmp( db_width, db_height, db_bits, TRUE );
+  QBitmap aboutBmp( logo_width, logo_height, logo_bits, TRUE );
+  QBitmap optionsBmp( options_width, options_height, options_bits, TRUE );
 
-	QBitmap aboutBmp( logo_width, logo_height, logo_bits, TRUE );
-	QBitmap optionsBmp( options_width, options_height, options_bits, TRUE );
+  playPB->setPixmap( playBmp );
+  stopPB->setPixmap( stopBmp );
+  prevPB->setPixmap( prevBmp );
+  nextPB->setPixmap( nextBmp );
+  replayPB->setPixmap( replayBmp );
+  fwdPB->setPixmap( fwdBmp );
+  bwdPB->setPixmap( bwdBmp );
+  ejectPB->setPixmap( ejectBmp );
+  infoPB->setPixmap( infoBmp );
+  quitPB->setPixmap( quitBmp );
+  aboutPB->setPixmap( aboutBmp );
+  shufflebutton->setPixmap( shuffleBmp );
+  cddbbutton->setPixmap( databaseBmp );
+  optionsbutton->setPixmap( optionsBmp );
 
-	playPB->setPixmap( playBmp );
-	stopPB->setPixmap( stopBmp );
-	prevPB->setPixmap( prevBmp );
-	nextPB->setPixmap( nextBmp );
-	replayPB->setPixmap( replayBmp );
-	fwdPB->setPixmap( fwdBmp );
-	bwdPB->setPixmap( bwdBmp );
-	ejectPB->setPixmap( ejectBmp );
-	quitPB->setPixmap( quitBmp );
-	aboutPB->setPixmap( aboutBmp );
-	shufflebutton->setPixmap( shuffleBmp );
-	/*	databasebutton->setPixmap( databaseBmp );*/
-	optionsbutton->setPixmap( optionsBmp );
 }
+
+
+void KSCD::setupPopups(){
+
+  mainPopup   = new QPopupMenu ();
+  perfPopup   = new QPopupMenu ();
+  purchPopup   = new QPopupMenu ();
+  infoPopup   = new QPopupMenu ();
+
+  purchPopup->insertItem("CD Now");
+  purchPopup->insertItem("CD Universe");
+
+  perfPopup->insertItem("Tourdates.com");
+
+  //  infoPopup->insertItem("Music Central");
+  infoPopup->insertItem("Ultimate Bandlist");
+  infoPopup->insertSeparator();
+  infoPopup->insertItem("Deja News");
+  infoPopup->insertItem("Excite");
+  infoPopup->insertItem("HotBot");
+  infoPopup->insertItem("Info Seek");
+  infoPopup->insertItem("Lycos");
+  infoPopup->insertItem("Magellan");
+  infoPopup->insertItem("Yahoo!");
+
+
+  mainPopup->insertItem (klocale->translate("Performances"), perfPopup);
+  connect( perfPopup, SIGNAL(activated(int)), SLOT(performances(int)) );
+
+  mainPopup->insertItem (klocale->translate("Purchases"), purchPopup);
+  connect( purchPopup, SIGNAL(activated(int)), SLOT(purchases(int)) );
+
+  mainPopup->insertItem (klocale->translate("Information"), infoPopup);
+  connect( infoPopup, SIGNAL(activated(int)), SLOT(information(int)) );
+  connect( infoPB, SIGNAL(clicked()), SLOT(showPopup()) );
+
+}
+
+void KSCD::showPopup(){
+
+  QPoint point = this->mapToGlobal (QPoint (0,0));
+
+  if(mainPopup)
+    mainPopup->popup(point);
+
+}
+
 
 void KSCD::setToolTips() 
 {
   if(tooltips){
-	QToolTip::add( playPB, 		"Play/Pause" );
-	QToolTip::add( stopPB, 		"Stop" );
-	QToolTip::add( replayPB, 	"Loop CD" );
-	QToolTip::add( songListCB, 	"Track Selection" );
-	QToolTip::add( fwdPB, 		"30 Secs Forward" );
-	QToolTip::add( bwdPB, 		"30 Secs Backward" );
-	QToolTip::add( nextPB, 		"Next Track" );
-	QToolTip::add( prevPB, 		"Previous Track" );
-	QToolTip::add( quitPB, 		"Exit Kscd" );
-	//	QToolTip::add( aboutPB, 	"Configure Kscd" );
-	QToolTip::add( optionsbutton, 	"Configure Kscd" );
-	QToolTip::add( ejectPB, 	"Eject CD" );
-	QToolTip::add( shufflebutton, 	"Random Play" );
-	QToolTip::add( volSB, 		"CD Volume Control" );
-  }
+
+    QToolTip::add( playPB, 		"Play/Pause" );
+    QToolTip::add( stopPB, 		"Stop" );
+    QToolTip::add( replayPB, 	"Loop CD" );
+    QToolTip::add( songListCB, 	"Track Selection" );
+    QToolTip::add( fwdPB, 		"30 Secs Forward" );
+    QToolTip::add( bwdPB, 		"30 Secs Backward" );
+    QToolTip::add( nextPB, 		"Next Track" );
+    QToolTip::add( prevPB, 		"Previous Track" );
+    QToolTip::add( quitPB, 		"Exit Kscd" );
+    QToolTip::add( aboutPB, 	"Cycle Time Display" );
+    QToolTip::add( optionsbutton, 	"Configure Kscd" );
+    QToolTip::add( ejectPB, 	"Eject CD" );
+    QToolTip::add( infoPB, 	"The Artist on the Web" );
+    QToolTip::add( shufflebutton, 	"Random Play" );
+    QToolTip::add( cddbbutton, 	"CDDB Dialog" );
+    QToolTip::add( volSB, 		"CD Volume Control" );
+  }	
   else{
-	QToolTip::remove( playPB);
-	QToolTip::remove( stopPB);
-	QToolTip::remove( replayPB);
-	QToolTip::remove( songListCB);
-	QToolTip::remove( fwdPB );
-	QToolTip::remove( bwdPB);
-	QToolTip::remove( nextPB );
-	QToolTip::remove( prevPB );
-	QToolTip::remove( quitPB );
-	//	QToolTip::remove( aboutPB );
-	QToolTip::remove( optionsbutton );
-	QToolTip::remove( ejectPB );
-	QToolTip::remove( shufflebutton );
-	QToolTip::remove( volSB );
+
+    QToolTip::remove( playPB);
+    QToolTip::remove( stopPB);
+    QToolTip::remove( replayPB);
+    QToolTip::remove( songListCB);
+    QToolTip::remove( fwdPB );
+    QToolTip::remove( bwdPB);
+    QToolTip::remove( nextPB );
+    QToolTip::remove( prevPB );
+    QToolTip::remove( quitPB );
+    QToolTip::remove( aboutPB );
+    QToolTip::remove( optionsbutton );
+    QToolTip::remove( ejectPB );
+    QToolTip::remove( infoPB );
+    QToolTip::remove( cddbbutton );
+    QToolTip::remove( shufflebutton );
+    QToolTip::remove( volSB );
   }
 
 }
 
-void KSCD::cleanUp() 
-{
-	if (thiscd.trk != NULL)
-    		delete thiscd.trk;
-  	signal (SIGINT, SIG_DFL);
+void KSCD::cleanUp(){
+
+  if (thiscd.trk != NULL)
+    delete thiscd.trk;
+  signal (SIGINT, SIG_DFL);
 
 }
 
-void KSCD::playClicked()
-{
+void KSCD::playClicked(){
 
-        qApp->processEvents();
-	qApp->flushX();
+
+  qApp->processEvents();
+  qApp->flushX();
 
 #ifdef NEW_BSD_PLAYCLICKED
-	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN  || cur_cdmode == BACK) {
+
+  if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN  || cur_cdmode == BACK) {
+
 #else
-	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN ) {
+
+  if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN ) {
+
 #endif
+    
+    statuslabel->setText( "Playing" );
+    songListCB->clear();
+    setLEDs( "00:00" );
 
-		int i;
+    for (int i = 0; i < cur_ntracks; i++){
+      songListCB->insertItem( QString( 0 ).sprintf( "Track %02d", i + 1 ) );
+    }
 
-		statuslabel->setText( "Playing" );
-		songListCB->clear();
-		setLEDs( "00:00" );
-		for (i = 0; i < cur_ntracks; i++)
-			songListCB->insertItem( 
-			 QString( 0 ).sprintf( "Track %02d", i + 1 ) );
-		qApp->processEvents();
-		qApp->flushX();
-		play_cd (save_track, 0, cur_ntracks + 1);
-	} else 
+    qApp->processEvents();
+    qApp->flushX();
+
+    if(playlist.count()>0){
+      if(playlistpointer >=(int) playlist.count())
+	playlistpointer = 0;
+      play_cd (atoi(playlist.at(playlistpointer)), 0, 
+	       atoi(playlist.at(playlistpointer)) + 1);
+      save_track = cur_track = atoi(playlist.at(playlistpointer));
+    }
+    else{
+      play_cd (save_track, 0, cur_ntracks + 1);
+    }
+    
+  } else 
+    
+    if (cur_cdmode == PLAYING || cur_cdmode == PAUSED) {
 	
-	  if (cur_cdmode == PLAYING || cur_cdmode == PAUSED) {
-	  
-	    switch (cur_cdmode) {
-	    
-	    case PLAYING:
-	      statuslabel->setText( "Pause" );
-	      break;
-	    
-	    case PAUSED:
-	      if(randomplay){
-		statuslabel->setText( "Random" );
-	      }
-	      else{
-		statuslabel->setText( "Playing" );
-	      }
-	      break;
-	   
-	    default:
-	      statuslabel->setText( "Strange...." );
-	      break;
-	    
-	    }
-	    
-	    pause_cd ();
-	    qApp->processEvents();
-	    qApp->flushX();
-	  
-	  }
+      switch (cur_cdmode) {
 	
-	cdMode();
-}
-
-void KSCD::stopClicked()
-{
-        looping = FALSE;
-	randomplay = FALSE;
-        statuslabel->setText("Stopped");
-        setLEDs("--:--");
-        qApp->processEvents();
-	qApp->flushX();
-
-	save_track = cur_track = 1;
-	stop_cd ();
-}
-
-void KSCD::prevClicked()
-{
-  //        statuslabel->setText("Previous");
-
-        setLEDs("00:00");
-        qApp->processEvents();
-	qApp->flushX();
-
-	cur_track--;
-	if (cur_track < 1)
-		cur_track = cur_ntracks;
-	if(randomplay)
-	  play_cd (cur_track, 0, cur_track + 1);
-	else
-	  play_cd (cur_track, 0, cur_ntracks + 1);
-}
-
-void KSCD::nextClicked()
-{
-  //    statuslabel->setText("Next");
-
-        setLEDs("00:00");
-        qApp->processEvents();
-	qApp->flushX();
-
+      case PLAYING:
+	statuslabel->setText( "Pause" );
+	break;
+	
+      case PAUSED:
 	if(randomplay){
-
-	  int j = randomtrack();
-	  QString str;
-	  str.sprintf("Trk: %02d",j );
-	  tracklabel->setText(str.data());
-	  qApp->processEvents();
-	  qApp->flushX();
-
-	  play_cd( j, 0, j + 1 );
-
+	  statuslabel->setText( "Random" );
 	}
 	else{
-	  if (cur_track == cur_ntracks)
-	    cur_track = 0;
-	  play_cd (cur_track + 1, 0, cur_ntracks + 1);
+	  statuslabel->setText( "Playing" );
 	}
+	break;
+	
+      default:
+	statuslabel->setText( "Strange...." );
+	break;
+	
+      }
+	
+      pause_cd ();
+      qApp->processEvents();
+      qApp->flushX();
+    }
+    
+  cdMode();
 }
 
-void KSCD::fwdClicked()
-{
-  //        statuslabel->setText("Forward");
+void KSCD::stopClicked(){
+
+  looping = FALSE;
+  randomplay = FALSE;
+  statuslabel->setText("Stopped");
+  setLEDs("--:--");
+  qApp->processEvents();
+  qApp->flushX();
+  
+  save_track = cur_track = 1;
+  playlistpointer = 0;
+  stop_cd ();
+
+}
+
+void KSCD::prevClicked(){
+
+  setLEDs("00:00");
+  qApp->processEvents();
+  qApp->flushX();
+  
+  if(playlist.count()>0){
+    playlistpointer--;
+    if(playlistpointer < 0 )
+      playlistpointer = playlist.count() -1;
+    cur_track = atoi(playlist.at(playlistpointer));
+  }
+  else{
+  cur_track--;
+  if (cur_track < 1)
+    cur_track = cur_ntracks;
+  }
+  if(randomplay){
+      play_cd (cur_track, 0, cur_track + 1);
+  }
+  else{
+    play_cd (cur_track, 0, cur_ntracks + 1);
+  }
+
+}
+
+void KSCD::nextClicked(){
 
 
-        qApp->processEvents();
-	qApp->flushX();
+  setLEDs("00:00");
+  qApp->processEvents();
+  qApp->flushX();
 
-	if (cur_cdmode == PLAYING) {
-		tmppos = cur_pos_rel + 30;
-		if (tmppos < thiscd.trk[cur_track - 1].length) {
-		    if(randomplay)
-		      play_cd (cur_track, tmppos, cur_track + 1);		  
-		    else
-		      play_cd (cur_track, tmppos, cur_ntracks + 1);
-		}
+  if(randomplay){
 
-	}
+    int j = randomtrack();
+    QString str;
+    str.sprintf("%02d/%02d",j,cd->ntracks );
+    tracklabel->setText(str.data());
+    
+    if(j < (int)tracktitlelist.count()){
+      titlelabel->setText(tracktitlelist.at(j));
+      artistlabel->setText(tracktitlelist.at(0));
+    }
+    qApp->processEvents();
+    qApp->flushX();
+    
+    play_cd( j, 0, j + 1 );
+    
+  }
+  else if(playlist.count() > 0){
+    if(playlistpointer < (int)playlist.count() - 1)
+      playlistpointer++;
+    else
+      playlistpointer = 0;
+
+    play_cd (atoi(playlist.at(playlistpointer)), 
+	     0, atoi(playlist.at(playlistpointer)) + 1);    
+    cur_track = atoi(playlist.at(playlistpointer));
+
+  }
+  else{
+    if (cur_track == cur_ntracks)
+      cur_track = 0;
+    play_cd (cur_track + 1, 0, cur_ntracks + 1);
+  }
+}
+
+void KSCD::fwdClicked(){
+
+  qApp->processEvents();
+  qApp->flushX();
+  
+  if (cur_cdmode == PLAYING) {
+    tmppos = cur_pos_rel + 30;
+    if (tmppos < thiscd.trk[cur_track - 1].length) {
+      if(randomplay || playlist.count() > 0)
+	play_cd (cur_track, tmppos, cur_track + 1);		  
+      else
+	play_cd (cur_track, tmppos, cur_ntracks + 1);
+    }
+  }
 }
 
 void KSCD::bwdClicked(){
 
-  //    statuslabel->setText("Backward");
-        qApp->processEvents();
-	qApp->flushX();
-
-	if (cur_cdmode == PLAYING) {
-		tmppos = cur_pos_rel - 30;
-		if(randomplay)
-		play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_track + 1);
-		else
-		play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_ntracks + 1);
-
-	}
-	cdMode();
+  qApp->processEvents();
+  qApp->flushX();
+  
+  if (cur_cdmode == PLAYING) {
+    tmppos = cur_pos_rel - 30;
+    if(randomplay || playlist.count() > 0)
+      play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_track + 1);
+    else
+      play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_ntracks + 1);
+    
+  }
+  cdMode();
 }
 
 void KSCD::quitClicked()
 {
-	randomplay = FALSE;
-        statuslabel->setText("");
-        setLEDs( "--:--" );
-
-        qApp->processEvents();
-	qApp->flushX();
-
-	stop_cd ();
-	// calling cd_status() after stop_cd() before exiting
-	//  keeps my cd_drive from locking up !!!
-	cd_status();
-	cd_status();
-	cleanUp();
-	writeSettings();
-	qApp->quit();
+  randomplay = FALSE;
+  statuslabel->setText("");
+  setLEDs( "--:--" );
+  
+  qApp->processEvents();
+  qApp->flushX();
+  
+  stop_cd ();
+  // calling cd_status() after stop_cd() before exiting
+  //  keeps my cd_drive from locking up !!!
+  cd_status();
+  cd_status();
+  cleanUp();
+  writeSettings();
+  qApp->quit();
 }
 
 void KSCD::closeEvent( QCloseEvent *e ){
@@ -628,10 +777,10 @@ void KSCD::closeEvent( QCloseEvent *e ){
 
 };
 
-void KSCD::loopClicked()
-{
+void KSCD::loopClicked(){
 
   randomplay = FALSE;
+
   if(looping){
     looping  = FALSE;
   }
@@ -639,13 +788,12 @@ void KSCD::loopClicked()
     if(cur_cdmode == PLAYING){
       looping = TRUE;
       statuslabel->setText("Loop");
-    }
-    
+    }    
   }
 }
 
-void KSCD::ejectClicked()
-{
+void KSCD::ejectClicked(){
+
   if(!cddrive_is_ok)
     return;
 
@@ -656,6 +804,7 @@ void KSCD::ejectClicked()
   qApp->flushX();
   
   stop_cd();
+  //  timer->stop();
   eject_cd(1);
 
 }
@@ -673,22 +822,34 @@ void KSCD::randomSelected(){
     
     int j = randomtrack();
     QString str;
-    str.sprintf("Trk: %02d",j );
+    str.sprintf("%02d/%02d",j,cd->ntracks );
     tracklabel->setText(str.data());
+    if(j < (int)tracktitlelist.count()){
+      titlelabel->setText(tracktitlelist.at(j));
+      artistlabel->setText(tracktitlelist.at(0));
+    }
+
     qApp->processEvents();
     qApp->flushX();
 
     play_cd( j, 0, j + 1 );
+    cur_track = j;
 
   }
 }
 
-void KSCD::trackSelected( int trk )
-{
+void KSCD::trackSelected( int trk ){
+
   randomplay = false;
   QString str;
-  str.sprintf("Trk: %02d",trk + 1);
+  str.sprintf("%02d/%02d",trk + 1,cd->ntracks );
   tracklabel->setText(str.data());
+
+  if(trk+1 < (int)tracktitlelist.count()){
+    titlelabel->setText(tracktitlelist.at(trk+1));
+    artistlabel->setText(tracktitlelist.at(0));
+  }
+
   setLEDs("00:00");
   qApp->processEvents();
   qApp->flushX();
@@ -696,36 +857,39 @@ void KSCD::trackSelected( int trk )
   cur_track = trk + 1;
   //  pause_cd();
   play_cd( cur_track, 0, cur_ntracks + 1 );
+
 }
 
-void KSCD::aboutClicked()
-{
+void KSCD::aboutClicked(){
 
   QTabDialog * tabdialog;
 
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
   tabdialog->setCaption( "kscd Configuraton" );
-  tabdialog->resize( 350, 350 );
+  tabdialog->resize( 400, 450 );
   tabdialog->setCancelButton();
 
   QWidget *about = new QWidget(tabdialog,"about");
 
   QGroupBox *box = new QGroupBox(about,"box");
   QLabel  *label = new QLabel(box,"label");
-  box->setGeometry(10,10,320,260);
-  label->setGeometry(130,30,165,200);
+  box->setGeometry(10,10,365,360);
+  label->setGeometry(170,30,165,300);
   label->setAlignment( AlignCenter);
   QString labelstring;
   labelstring = "kscd "KSCDVERSION"\n"\
-		 "Copyright (c) 1997\nBernd Johannes Wuebben\n"\
+		 "Copyright (c) 1997 \nBernd Johannes Wuebben\n"\
 		 "wuebben@math.cornell.edu\n"\
 		 "wuebben@kde.org\n\n"\
 		 "\nkscd  contains code from:\n"
                  "workman 1.4 beta 3\n"
                  "Copyright (c) Steven Grimm \n"\
-                 "koreth@hyperion.com\n"
-
-;
+                 "koreth@hyperion.com\n\n"\
+                 "Special thanks to Ti Kan and "\
+                 "Steve Scherf, the inventors of "\
+                 "the CDDB database concept. "\
+                 "Visit http://www.cddb.com for "\
+                 "more information on CDDB.";
 
   label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
   label->setText(labelstring.data());
@@ -735,7 +899,7 @@ void KSCD::aboutClicked()
   QPixmap pm((pixdir + "kscdlogo.xpm").data());
   QLabel *logo = new QLabel(box);
   logo->setPixmap(pm);
-  logo->setGeometry(20, 50, pm.width(), pm.height());
+  logo->setGeometry(40, 50, pm.width(), pm.height());
 
   ConfigDlg* dlg;
   struct configstruct config;
@@ -743,42 +907,75 @@ void KSCD::aboutClicked()
   config.led_color = led_color;
   config.tooltips = tooltips;
   config.cd_device = cd_device;
+  config.mailcmd = mailcmd.copy();
+  config.browsercmd = browsercmd.copy();
+  config.use_kfm    = use_kfm;
 
   dlg = new ConfigDlg(tabdialog,&config,"configdialg");
- 
-  tabdialog->addTab(dlg,"Configure");
+
+  setup = new CDDBSetup(tabdialog,"cddbsetupdialog");
+  connect(setup,SIGNAL(updateCDDBServers()),this,SLOT(getCDDBservers()));
+  connect(setup,SIGNAL(updateCurrentServer()),this,SLOT(updateCurrentCDDBServer()));
+  setup->insertData(cddbserverlist,cddbbasedir,
+		    submitaddress,current_server,cddb_remote_enabled);
+
+
+  tabdialog->addTab(setup,"CDDB");
+  tabdialog->addTab(dlg,"Kscd Options");
   tabdialog->addTab(about,"About");
+
+
   
   if(tabdialog->exec() == QDialog::Accepted){
     
     background_color = dlg->getData()->background_color;
     led_color = dlg->getData()->led_color;
     tooltips = dlg->getData()->tooltips;
+    mailcmd = dlg->getData()->mailcmd.copy();
+
+    browsercmd = dlg->getData()->browsercmd.copy();
+    use_kfm = dlg->getData()->use_kfm;
 
     if( (QString)cd_device != dlg->getData()->cd_device){
       cd_device_str = dlg->getData()->cd_device;
       cd_close();
       cd_device = cd_device_str.data();
-  }
+      
+    }
     cddrive_is_ok = true;
       
-
+    setup->getData(cddbserverlist,cddbbasedir,submitaddress,
+		   current_server,cddb_remote_enabled);
     setColors();
     setToolTips();
+
   }
 
+  disconnect(setup,SIGNAL(updateCDDBServers()),this,SLOT(getCDDBservers()));
+  disconnect(setup,SIGNAL(updateCurrentServer()),this,SLOT(updateCurrentCDDBServer()));
+
   delete dlg;
+  dlg = 0L;
+  delete setup;
+  setup = 0L;
   delete about;
-  delete tabdialog;
-  
+  delete tabdialog;  
 
 }
 
+void KSCD::updateCurrentCDDBServer(){
 
-void KSCD::volChanged( int vol )
-{
+  if(setup){
+    setup->getCurrentServer(current_server);
+    printf("set to %s\n",current_server.data());
+  }
+}
+
+void KSCD::volChanged( int vol ){
+
   if(volstartup)
     return;
+
   QString str;
   str.sprintf("Vol: %02d%%",vol);
   volumelabel->setText(str.data());
@@ -789,123 +986,181 @@ void KSCD::volChanged( int vol )
 
 int KSCD::randomtrack(){
 
-  int j;
-  j=1+(int) (((double)cur_ntracks) *rand()/(RAND_MAX+1.0)); 
-  return j;
+  if(playlist.count() > 0){
+
+    int j;
+    j=(int) (((double) playlist.count()  ) * rand()/(RAND_MAX+1.0)); 
+    playlistpointer = j;
+    return atoi(playlist.at(j));
+  }
+  else{
+
+    int j;
+    j=1+(int) (((double)cur_ntracks) *rand()/(RAND_MAX+1.0)); 
+    return j;
+  }
 }
 
-void KSCD::cdMode()
-{
-	static char *p = new char[10];
-	static bool damn = TRUE;
-	QString str;
+void KSCD::cdMode(){
 
-	sss = cd_status();
-	//	printf("status %d\n",sss);
-   	if(sss < 0){
-	   if(cddrive_is_ok){
-	     statuslabel->setText( "Error" );
-	     cddrive_is_ok = false;
-	     QString errstring;
-	     errstring.sprintf("CDROM read or access error.\n"\
-	     "Please make sure you have access permissions to:\n%s",cd_device);
-	     QMessageBox::warning(this,"Error",errstring.data());
-	   }
-	 return;
-	}
-	cddrive_is_ok = true; // cd drive ok
+  static char *p = new char[10];
+  static bool damn = TRUE;
+  QString str;
 
-	switch (cur_cdmode) {
-	case -1:         /* UNKNOWN */
-		cur_track = save_track = 1;
-		statuslabel->setText( "" ); // TODO how should I properly handle this
-		damn = TRUE;
-		break;
+  sss = cd_status();
 
-	case 0:         /* TRACK DONE */
-	       if( randomplay){
+  if(sss < 0){
+    if(cddrive_is_ok){
+      statuslabel->setText( "Error" );
+      cddrive_is_ok = false;
+      QString errstring;
+      errstring.sprintf("CDROM read or access error.\n"\
+			"Please make sure you have access permissions to:\n%s",cd_device);
+      QMessageBox::warning(this,"Error",errstring.data());
+    }
+    return;
+  }
+  cddrive_is_ok = true; // cd drive ok
+  
+  switch (cur_cdmode) {
+  case -1:         /* UNKNOWN */
+    cur_track = save_track = 1;
+    statuslabel->setText( "" ); // TODO how should I properly handle this
+    damn = TRUE;
+    break;
+    
+  case 0:         /* TRACK DONE */
+    if( randomplay){
+      
+      int j = randomtrack();
+      play_cd( j, 0, j + 1 );
+      
+    }
+    else if (playlist.count() > 0){
+      if(playlistpointer < (int)playlist.count() - 1)
+	playlistpointer++;
+      else
+	playlistpointer = 0;
+      play_cd(atoi(playlist.at(playlistpointer)),0,atoi(playlist.at(playlistpointer))+1);
+    }
+    else if (looping){
+      if (cur_track == cur_ntracks){
+	cur_track = 0;
+	play_cd (1, 0, cur_ntracks + 1);
+      }
+      
+    }
+    else{  
+      cur_track = save_track = 1;
+      statuslabel->setText( "" ); // TODO how should I properly handle this
+      damn = TRUE;
+    }
 
-		  int j = randomtrack();
-		  play_cd( j, 0, j + 1 );
-		 
-	       }
-	       else if (looping){
-		 if (cur_track == cur_ntracks){
-		   cur_track = 0;
-		   play_cd (1, 0, cur_ntracks + 1);
-		 }
+    break;
+    
+  case 1:         /* PLAYING */
+    playtime ();
+    if(randomplay)
+      statuslabel->setText( "Random" );
+    else if(looping)
+      statuslabel->setText("Loop");
+    else
+      statuslabel->setText( "Playing" );
+    
+    sprintf( p, "%02d  ", cur_track );
+    if(songListCB->count() == 0){
+      for (int i = 0; i < cur_ntracks; i++){
 
-	       }
-	       else{  
-		 cur_track = save_track = 1;
-		 statuslabel->setText( "" ); // TODO how should I properly handle this
-		 damn = TRUE;
-	       }
-		break;
+	// we are in here when we start kscd and 
+	// the cdplayer is already playing.	
 
-	case 1:         /* PLAYING */
-		playtime ();
-		if(randomplay)
-		  statuslabel->setText( "Random" );
-		else if(looping)
-		  statuslabel->setText("Loop");
-		else
-		  statuslabel->setText( "Playing" );
+	timer->stop(); 
 
-		sprintf( p, "%02d  ", cur_track );
-		if(songListCB->count() == 0){
-		  for (int i = 0; i < cur_ntracks; i++)
+	// timer must be restarted when we are doen
+	// with getting the cddb info
 
-		    // we are in here when we start kscd and 
-		    // the cdplayer is already playing.
+      	get_cddb_info();
+	songListCB->insertItem( QString( 0 ).sprintf("Track %02d",i + 1 ) );
 
-                        songListCB->insertItem( QString( 0 ).sprintf( 
-					    "Track %02d",i + 1 ) );
-		  songListCB->setCurrentItem( cur_track - 1 );
-		}
-		else{
-		  songListCB->setCurrentItem( cur_track - 1 );
-		}
-		str.sprintf("Trk: %02d",cur_track );
-		tracklabel->setText(str.data());
+      }
+      songListCB->setCurrentItem( cur_track - 1 );
+    }
+    else{
+      songListCB->setCurrentItem( cur_track - 1 );
+    }
+    str.sprintf("%02d/%02d",cur_track,cd->ntracks );
+    tracklabel->setText(str.data());
+    
+    if((cur_track < (int)tracktitlelist.count()) && (cur_track >= 0)){
+      titlelabel->setText(tracktitlelist.at(cur_track));
+      artistlabel->setText(tracktitlelist.at(0));
+    }
+    
+    setLEDs( tmptime );
+    damn = TRUE;
+    break;
 
-		setLEDs( tmptime );
-		damn = TRUE;
-		break;
-	case 2: /*FORWARD*/
-		break;
+  case 2: /*FORWARD*/
+    break;
+    
+  case 3:         /* PAUSED */
+    statuslabel->setText( "Pause" );
+    damn = TRUE;
+    break;
 
-	case 3:         /* PAUSED */
-		statuslabel->setText( "Pause" );
-		damn = TRUE;
-		break;
-	case 4:         /* STOPPED */
-	        int i;
-		if (damn) {
-			statuslabel->setText( "Ready" );
-			//			trackLED->display( "" );
-			setLEDs( "--:--" );
-			songListCB->clear();
-			for (i = 0; i < cur_ntracks; i++)
-                        songListCB->insertItem( 
-			   QString( 0 ).sprintf( "Track %02d", i + 1 ) 
-			   );
-			str.sprintf("Trk: %02d", cur_track >= 0 ? cur_track: 1);
-			tracklabel->setText(str.data());
-		}
-		damn = FALSE;
-		break;
-	case 5:         /* CDEJECT */
-		statuslabel->setText( "Ejected" );
-		songListCB->clear();
-		setLEDs( "--:--" );	
-		tracklabel->setText( "Trk: --" );
-		damn = TRUE;
-		break;
-	}
+  case 4:         /* STOPPED */
+    int i;
+    if (damn) {
+
+      statuslabel->setText( "Ready" );
+      setLEDs( "--:--" );
+      songListCB->clear();
+
+      for (i = 0; i < cur_ntracks; i++)
+	songListCB->insertItem( QString( 0 ).sprintf( "Track %02d", i + 1 ) );
+
+      int w = ((cur_track >= 0) ? cur_track : 1);
+
+      str.sprintf("%02d/%02d",cur_track >=0? cur_track :1 ,cd->ntracks );
+      tracklabel->setText(str.data());
+      
+      if( w < (int)tracktitlelist.count()){
+	titlelabel->setText(tracktitlelist.at( w ));
+	artistlabel->setText(tracktitlelist.at(0));
+      }
+      
+    }
+    damn = FALSE;
+    if(have_new_cd){
+
+      timer->stop(); 
+
+      // timer must be restarted when we are doen
+      // with getting the cddb info
+      get_cddb_info();
+		  
+    }
+
+    break;
+
+  case 5:         /* CDEJECT */
+    statuslabel->setText( "Ejected" );
+    songListCB->clear();
+    setLEDs( "--:--" );	
+    tracklabel->setText( "--/--" );
+    titlelabel->setText("");
+    artistlabel->setText("");
+    totaltimelabel->setText("");
+    totaltimelabel->lower();
+    damn = TRUE;
+
+    break;
+  }
 }
 
 void KSCD::setLEDs(QString symbols){
+
+  // nLEDs->setText(symbols);
 
   if(symbols.length() < 5){
     return;
@@ -915,115 +1170,706 @@ void KSCD::setLEDs(QString symbols){
     trackTimeLED[i]->display(symbols.data()[i]);
   }
 
+
 }
 
 
 void KSCD::setColors(){
 
-        backdrop->setBackgroundColor(background_color);
+  backdrop->setBackgroundColor(background_color);
+  
+  QColorGroup colgrp( led_color, background_color, led_color,led_color , led_color,
+		      led_color, white );
 
-	QColorGroup colgrp( led_color, background_color, led_color,led_color , led_color,
-			    led_color, white );
-	//	titlelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
-	volumelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
-	statuslabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
-	tracklabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  titlelabel ->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  artistlabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  volumelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  statuslabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  tracklabel ->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  totaltimelabel->setPalette( QPalette(colgrp,colgrp,colgrp) );
+  // nLEDs->setPalette( QPalette(colgrp,colgrp,colgrp) );
 
-	for (int u = 0; u< 5;u++){
-	  trackTimeLED[u]->setLEDoffColor(background_color);
-	  trackTimeLED[u]->setLEDColor(led_color,background_color);
-	}
+  queryled->setPalette( QPalette(colgrp,colgrp,colgrp) );
+
+  for (int u = 0; u< 5;u++){
+    trackTimeLED[u]->setLEDoffColor(background_color);
+    trackTimeLED[u]->setLEDColor(led_color,background_color);
+  }
 
 }
 
 
 void KSCD::readSettings(){
 
-	config = mykapp->getConfig();
+  config = mykapp->getConfig();
+  
+  volume = config->readNumEntry("Volume",40);
+  tooltips  = (bool) config->readNumEntry("ToolTips",1);
+  randomplay = (bool) config->readNumEntry("RandomPlay", 0);
+  use_kfm   = (bool) config->readNumEntry("Use_kfm_as_DefaultBrowser", 1);
+  cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
+  cd_device = cd_device_str.data();
 
-	volume = config->readNumEntry("Volume",40);
-	tooltips  = (bool) config->readNumEntry("ToolTips",1);
-	randomplay = (bool) config->readEntry("RandomPlay", 0);
-	cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
-	cd_device = cd_device_str.data();
+  mailcmd = config->readEntry("UnixMailCommand","mail -s \"%s\" ");
+  browsercmd = config->readEntry("CustomBroserCmd","netscape \"%s\" ");
 
-	QColor defaultback = black;
-	QColor defaultled = QColor(226,224,255);
-	background_color = config->readColorEntry("BackColor",&defaultback);	
-	led_color = config->readColorEntry("LEDColor",&defaultled);
+  QColor defaultback = black;
+  QColor defaultled = QColor(226,224,255);
+  background_color = config->readColorEntry("BackColor",&defaultback);	
+  led_color = config->readColorEntry("LEDColor",&defaultled);
 
+  config->setGroup("CDDB");
+  QString basedirdefault;
+  basedirdefault = mykapp->kdedir().copy();
+  basedirdefault += "/share/apps/kscd/cddb/";
 
+  cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
+  cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
+						    (int)true);
+  current_server = config->readEntry("CurrentServer","cddb.cddb.com 888");
+  submitaddress = config->readEntry("SubmitAddress","cddb-test@cddb.cddb.com");
+  int num;
+  num = config->readListEntry("SeverList",cddbserverlist,',');
+  if (num == 0)
+    cddbserverlist.append("cddb.cddb.com 888");
 }
 
 void KSCD::writeSettings(){
 		
-	config = mykapp->getConfig();
+  config = mykapp->getConfig();
 	
-	///////////////////////////////////////////////////
+  if(tooltips)
+    config->writeEntry("ToolTips", 1);
+  else
+    config->writeEntry("ToolTips", 0);
+  
+  if(randomplay)
+    config->writeEntry("RandomPlay", 1);
+  else
+    config->writeEntry("RandomPlay", 0);
+  
+  config->writeEntry("CDDevice",cd_device);
+  config->writeEntry("CustomBroserCmd",browsercmd);
+  config->writeEntry("Volume", volume);
+  config->writeEntry("BackColor",background_color);
+  config->writeEntry("LEDColor",led_color);
+  config->writeEntry("UnixMailCommand",mailcmd);
+  config->writeEntry("Use_kfm_as_DefaultBrowser", (int)use_kfm);
 
-	if(tooltips)
-	  config->writeEntry("ToolTips", 1);
-	else
-	  config->writeEntry("ToolTips", 0);
-
-	if(randomplay)
-	  config->writeEntry("RandomPlay", 1);
-	else
-	  config->writeEntry("RandomPlay", 0);
-
-	config->writeEntry("CDDevice",cd_device);
-	config->writeEntry("Volume", volume);
-	config->writeEntry("BackColor",background_color);
-	config->writeEntry("LEDColor",led_color);
-	config->sync();
-
+  config->setGroup("CDDB");
+  config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
+  config->writeEntry("LocalBaseDir",cddbbasedir);
+  config->writeEntry("SeverList",cddbserverlist);
+  config->writeEntry("SubmitAddress",submitaddress);
+  config->writeEntry("CurrentServer",current_server);
+  config->sync();
 	
 }
 
-int main ( int argc, char *argv[] )
-{
-	mykapp = new KApplication( argc, argv,"kscd" );
-	KSCD 		*k = new KSCD; 
+void KSCD::CDDialogSelected(){
 
-	cur_track = 1;
-	mykapp->enableSessionManagement(true);
-	mykapp->setWmCommand(argv[0]);      
-	mykapp->setTopWidget(k);
-	//	mykapp->setMainWidget( k );
-	k->show();
-	mykapp->exec();
+  if(cddialog)
+    return;
+
+  cddialog = new CDDialog();
+
+  cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
+		  revision,playlist,pathlist,mailcmd);
+
+  connect(cddialog,SIGNAL(cddb_query_signal()),this,SLOT(get_cddb_info()));
+  connect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
+  connect(cddialog,SIGNAL(play_signal(int)),this,SLOT(trackSelected(int)));
+  cddialog->show();
+
+}
+
+void KSCD::CDDialogDone(){
+  
+  disconnect(cddialog,SIGNAL(play_signal(int)),this,SLOT(trackSelected(int)));
+  disconnect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
+  disconnect(cddialog,SIGNAL(cddb_query_signal()),this,SLOT(get_cddb_info()));
+  delete cddialog;
+  cddialog = 0L;
+
+}
+
+void KSCD::getCDDBservers(){
+
+  led_on();
+  if(cddb == 0L)
+    cddb = new CDDB();
+
+  connect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+  cddb->cddbgetServerList(current_server);
+
+
+}
+
+void KSCD::getCDDBserversDone(){
+
+  led_off();
+  if(cddb){
+    disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+    cddb->serverList(cddbserverlist);
+    if(setup)
+      setup->insertServerList(cddbserverlist);
+  }
+
+}
+
+void KSCD::get_cddb_info(){
+
+
+  QTime dml;
+  dml = dml.addSecs(cd->length);
+
+  QString fmt;
+  if(dml.hour() > 0)
+    fmt.sprintf("%02d:%02d:%02d",dml.hour(),dml.minute(),dml.second());
+  else
+    fmt.sprintf("%02d:%02d",dml.minute(),dml.second());
+
+  totaltimelabel->setText(fmt.data());
+
+  if(cddb == 0L)
+    cddb = new CDDB();
+
+  pathlist.clear();
+  pathlist.append(cddbbasedir + "/rock/");
+  pathlist.append(cddbbasedir + "/blues/");
+  pathlist.append(cddbbasedir + "/classical/");
+  pathlist.append(cddbbasedir + "/jazz/");
+  pathlist.append(cddbbasedir + "/newage/");
+  pathlist.append(cddbbasedir + "/soundtrack/");
+  pathlist.append(cddbbasedir + "/reggae/");
+  pathlist.append(cddbbasedir + "/folk/");
+  pathlist.append(cddbbasedir + "/country/");
+  pathlist.append(cddbbasedir + "/misc/");
+  pathlist.append(cddbbasedir + "/data/");
+
+
+
+  cddb->setPathList(pathlist);
+
+  connect(cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
+  connect(cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
+  connect(cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
+  connect(cddb,SIGNAL(cddb_inexact_read()),this,SLOT(cddb_inexact_read()));
+  connect(cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
+
+  led_on();
+
+  bool res = cddb->local_query(
+			       cd->magicID,
+			       xmcd_data,
+			       tracktitlelist,
+			       extlist,
+			       category,
+			       discidlist,
+			       revision,
+			       playlist
+			       );
+
+  if(!res && !cddb_remote_enabled){
+    have_new_cd = false;
+    cddb_no_info();
+    return;
+  }
+
+  if(!res){
+    printf("DOING REMOTE QUERY\n");
+    cddb->cddb_connect(current_server);
+  }
+  else{
+
+    printf("LOCAL SUCESS\n");
+    if((int)tracktitlelist.count() != (cd->ntracks + 1)){
+      printf("WARNING LOCAL QUERY tracktitleslist.count = %d != cd->ntracks +1 = %d\n",
+	     tracktitlelist.count(),cd->ntracks + 1);
+    }
+
+    if((int)extlist.count() != (cd->ntracks + 1)){
+      printf("WARNING LOCAL QUERYextlist.count = %d != cd->ntracks +1 = %d\n",
+	     extlist.count(),cd->ntracks + 1);
+    }
+
+    if(tracktitlelist.count() > 1){
+      titlelabel->setText(tracktitlelist.at(1));
+      artistlabel->setText(tracktitlelist.at(0));
+    }
+
+    led_off();
+    timer->start(1000);
+    if(cddialog)
+      cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
+			revision,playlist,pathlist,mailcmd);
+    playlistpointer = 0;
+  }
+
+  have_new_cd = false;
+
 }
 
 
-void playtime()
-{
-  	static int mymin;
-  	static int mysec;
-  	int tmp = 0;
+void KSCD::cddb_ready(){
 
-  	if (cur_pos_rel > 0 && (tmp = cur_pos_rel % 60) == mysec)
-    		return;
-  	mysec = tmp;
-  	mymin = cur_pos_rel / 60;
-	sprintf( tmptime, "%02d:%02d", mymin, mysec );
+  if(!cddb || !cd)
+    return;
 
-  	return;
+  querylist.clear();
+  tracktitlelist.clear();
+  extlist.clear();
+  QString num;
+
+  for(int i = 0 ; i < cd->ntracks; i++){
+    querylist.append(num.sprintf("%d",cd->cddbtoc[i].absframe));
+  }
+  querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
+  
+  cddb->queryCD(cd->magicID,querylist);
+
 }
+
+void KSCD::cddb_no_info(){
+
+  titlelabel->setText("No matching CDDB entry found.");
+  titlelabeltimer->start(10000,TRUE); // 10 secs
+
+  tracktitlelist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    tracktitlelist.append("");
+
+  extlist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    extlist.append("");
+
+  timer->start(1000);
+  led_off();
+
+}
+
+void KSCD::cddb_failed(){
+
+
+  //  titlelabel->setText("CDDB Query failed.");
+  //  titlelabeltimer->start(5000,TRUE);
+
+  tracktitlelist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    tracktitlelist.append("");
+
+  extlist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    extlist.append("");
+
+  titlelabel->setText("No matching CDDB entry found.");
+  titlelabeltimer->start(10000,TRUE); // 10 secs
+
+  timer->start(1000);
+  led_off();
+
+}
+
+void KSCD::cddb_inexact_read(){
+
+  QStrList inexact_list;
+  cddb->get_inexact_list(inexact_list);
+
+  InexactDialog *dialog;
+  dialog = new InexactDialog(0,"inexactDialog",true);
+  dialog->insertList(inexact_list);
+
+  if(dialog->exec() != QDialog::Accepted){
+    //delete cddb;
+    //cddb = 0L;
+    timer->start(1000);
+    led_off();
+    return;
+  }
+
+  QString pick;
+  dialog->getSelection(pick);
+  delete dialog;
+
+  printf("SELECTED=%s\n",pick.data());
+
+  if(pick.isEmpty()){
+    //delete cddb;
+    //cddb = 0L;
+    timer->start(1000);
+    led_off();
+  }
+
+  pick = "200 " + pick;
+  cddb->query_exact(pick);
+
+}
+
+void KSCD::cddb_done(){
+
+  if(!cddb)
+    return;
+
+ cddb->getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);
+ playlistpointer = 0;
+
+ if((int)tracktitlelist.count() != (cd->ntracks + 1)){
+   printf("WARNING tracktitleslist.coutn = %d != cd->ntracks +1 = %d\n",
+	  tracktitlelist.count(),cd->ntracks + 1);
+ }
+
+ if((int)extlist.count() != (cd->ntracks + 1)){
+   printf("WARNING extlist.coutn = %d != cd->ntracks +1 = %d\n",
+	  extlist.count(),cd->ntracks + 1);
+ }
+
+ if(tracktitlelist.count() > 0){
+   titlelabel->setText(tracktitlelist.at(1));
+   artistlabel->setText(tracktitlelist.at(0));
+ }
+
+ if(cddialog)
+   cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
+		  revision,playlist,pathlist,mailcmd);
+
+  led_off();
+  timer->start(1000);
+
+}
+
+void KSCD::led_off(){
+
+  queryledtimer->stop();
+  queryled->off();
+  queryled->hide();
+  totaltimelabel->raise();
+  totaltimelabel->show();
+
+}
+
+void KSCD::led_on(){
+
+  totaltimelabel->hide();
+  totaltimelabel->lower();
+  queryledtimer->start(800);
+  queryled->off();
+  queryled->show();
+  mykapp->processEvents();
+  mykapp->flushX();
+
+}
+
+void KSCD::togglequeryled(){
+
+  queryled->show();
+  queryled->toggle();
+
+}
+
+void KSCD::titlelabeltimeout(){
+
+  // clear the cddb error message on the title label.
+  titlelabeltimer->stop();
+  titlelabel->setText("");
+
+}
+
+void KSCD::playtime()
+{
+  static int mymin;
+  static int mysec;
+  int tmp = 0;
+  
+  switch(time_display_mode){
+
+  case TRACK_REM:
+
+    tmp = cur_tracklen - cur_pos_rel;
+    mysec = tmp % 60;
+    mymin = tmp / 60;
+    break;
+
+  case TOTAL_SEC:
+    
+    mysec = cur_pos_abs % 60;
+    mymin = cur_pos_abs / 60;
+    break;
+
+  case TOTAL_REM:
+
+    tmp = cur_cdlen - cur_pos_abs;
+    mysec = tmp % 60;
+    mymin = tmp / 60;
+
+    break;
+    
+  case TRACK_SEC:
+  default:
+
+    if (cur_pos_rel > 0 && (tmp = cur_pos_rel % 60) == mysec)
+      return;
+    mysec = tmp;
+    mymin = cur_pos_rel / 60;
+
+    break;
+  }
+  	
+
+  sprintf( tmptime, "%02d:%02d", mymin, mysec );
+  return;
+
+}
+
+void KSCD::cycleplaytimemode(){
+
+
+  cycletimer->stop();
+
+  if (++time_display_mode > 3)
+    time_display_mode = 0;
+  playtime();
+  setLEDs( tmptime );  
+
+
+  switch(time_display_mode){
+
+  case TRACK_REM:
+    volumelabel->setText("Tra Rem");
+    break;
+
+  case TOTAL_SEC:
+    volumelabel->setText("Tot Sec");
+    break;
+
+  case TOTAL_REM:
+    volumelabel->setText("Tot Rem");
+    break;
+    
+  case TRACK_SEC:
+  default:
+    volumelabel->setText("Tra Sec");
+    break;
+  }  
+
+  cycletimer->start(3000,TRUE);
+
+}
+
+void KSCD::cycletimeout(){
+  
+  cycletimer->stop();
+  QString str;
+  str.sprintf("Vol: %02d%%",volume);
+  volumelabel->setText(str.data());
+
+}
+
+
+bool  KSCD::getArtist(QString& artist){
+
+  if((int)tracktitlelist.count()== 0){
+    return false;
+  }
+
+  artist = tracktitlelist.at(0);
+
+  int pos;
+  pos = artist.find("/",0,true);
+  if(pos != -1)
+    artist = artist.left(pos);
+
+  artist = artist.stripWhiteSpace();
+  return true;
+
+}
+
+void  KSCD::performances(int i){
+
+  printf("preformances %d\n",i);
+
+  QString artist;
+  QString str;
+
+  if(!getArtist(artist))
+     return;
+
+  switch(i){
+  case 0:
+      str = str.sprintf(
+      "http://www.tourdates.com/cgi-bin/search.cgi?type=Artist&search=%s",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  default:
+    break;
+  }
+
+}
+
+void  KSCD::purchases(int i){
+
+  printf("purchases %d\n",i);
+
+  QString artist;
+  QString str;
+
+  if(!getArtist(artist))
+     return;
+
+  switch(i){
+  case 0:
+      str = str.sprintf(
+      "http://cdnow.com/switch/from=sr-288025/target=buyweb_products/artfs=%s",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+  case 1:
+      str = str.sprintf(
+      "http://www.cduniverse.com/cgi-bin/cdubin.exe/rlinka/ean=%s/frm=lk_DiscPlay/",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  default:
+    break;
+  }
+
+}
+
+void KSCD::information(int i){
+
+  printf("Information %d\n",i);
+
+  QString artist;
+  QString str;
+
+  if(!getArtist(artist))
+     return;
+
+  switch(i){
+    /*  case 0:
+      str = str.sprintf(
+"http://musiccentral.msn.com/MCGen/ReEntry?theurl=http%%3A//musiccentral.msn.com/Search/DoFullSearch%%3FArtists%3Don%%26Albums%3D%%26Songs%%3D%%26ArticleTitles%3D%%26FullText%3D%%26strInput%%3D%s",
+      artist.data());
+      startBrowser(str.data());
+      printf("%s\n",str.data());
+
+    break;*/
+  case 0:
+      str = str.sprintf(
+      "http://www.ubl.com/find/form?SEARCH=%s",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+
+  case 2:
+      str = str.sprintf(
+"http://x8.dejanews.com/dnquery.xp?QRY=%s&defaultOp=AND&svcclass=dncurrent&maxhits=20&ST=QS&format=terse&DBS=2",
+
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 3:
+      str = str.sprintf(
+			"http://www.excite.com/search.gw?c=web&search=%s&trace=a",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 4:
+      str = str.sprintf(
+"http://www.search.hotbot.com/hResult.html?SW=web&SM=MC&MT=%s&DC=10&DE=2&RG=NA&_v=2",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 5:
+      str = str.sprintf(
+      "http://www.infoseek.com/Titles?qt=%s&col=WW&sv=IS&lk=ip-noframes&nh=10",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 6:
+      str = str.sprintf(
+      "http://www.lycos.com/cgi-bin/pursuit?cat=lycos&query=%s",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 7:
+      str = str.sprintf(
+      "http://www.mckinley.com/search.gw?search=%s&c=web&look=magellan",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  case 8:
+      str = str.sprintf(
+			"http://search.yahoo.com/bin/search?p=%s",
+      artist.data());
+      startBrowser(str.data());
+
+    break;
+
+  default:
+    break;
+  }
+
+}
+
+void KSCD::startBrowser(char* querystring){
+
+  if(use_kfm){
+
+    KFM* kfm = new KFM();
+    kfm->openURL( querystring );
+    delete kfm;
+
+  }
+  else{
+
+  }
+  
+}
+
+int main ( int argc, char *argv[] ){
+
+  mykapp = new KApplication( argc, argv,"kscd" );
+  KSCD 	*k = new KSCD; 
+
+  cur_track = 1;
+
+  mykapp->enableSessionManagement(true);
+  mykapp->setWmCommand(argv[0]);      
+  mykapp->setTopWidget(k);
+  mykapp->setMainWidget( k );
+  k->show();
+
+  mykapp->exec();
+}
+
+
+
 
 void kcderror(char* title,char* message){
 
   QMessageBox::message(title,message);
 
 }
-
-/*
-void kcdworker(int ){
-  
-  usleep(100000);
-  printf("working\n");
-
-}
-*/
 
 #include "kscd.moc"
 

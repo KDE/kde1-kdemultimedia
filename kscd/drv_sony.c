@@ -26,6 +26,7 @@ struct wm_drive sony_proto = {
 	gen_get_trackcount,
 	gen_get_cdlen,
 	gen_get_trackinfo,
+	gen_get_trackinfocddb,
 	gen_get_drive_status,
 	sony_get_volume,
 	sony_set_volume,

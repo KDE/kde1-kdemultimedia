@@ -1,0 +1,127 @@
+DlgEdit:v1.2:Dialog:
+Dialog {
+	ClassHeader {CDDBSetup.h}
+	ClassSource {CDDBSetup.cpp}
+	ClassName {CDDBSetup}
+	DataHeader {CDDBSetupData.h}
+	DataSource {CDDBSetupData.cpp}
+	DataName {CDDBSetupData}
+	WindowBaseClass {QWidget}
+}
+WidgetLayout {
+		Rect {5 102 385 420}
+		Grid {5}
+
+GroupBox {
+		Title {}
+		Alignment {Left}
+		Style {49}
+		Rect {10 10 365 360}
+		Name {GroupBox_1}
+}
+Label {
+		Text {CDDB Base Directory}
+		AutoResize {FALSE}
+		Margin {-1}
+		Rect {20 55 160 20}
+		Name {Label_8}
+}
+LineEdit {
+		Text {}
+		EchoMode {Normal}
+		MaxLength {32767}
+		FrameShown {TRUE}
+		Rect {20 75 340 28}
+		Name {LineEdit_4}
+		Variable {basedir_edit}
+}
+Label {
+		Text {Send CDDB submissions to:}
+		AutoResize {FALSE}
+		Margin {-1}
+		Rect {20 115 210 20}
+		Name {Label_9}
+}
+LineEdit {
+		Text {cddb-test@xmcd.com}
+		EchoMode {Normal}
+		MaxLength {32767}
+		FrameShown {TRUE}
+		Rect {20 135 240 28}
+		Name {LineEdit_5}
+		Variable {submit_edit}
+}
+ListBox {
+		Item {cddb.cddb.com 888}
+		DragSelect {TRUE}
+		AutoScroll {TRUE}
+		ScrollBar {FALSE}
+		AutoScrollBar {TRUE}
+		BottomScrollBar {FALSE}
+		AutoBottomScrollBar {TRUE}
+		SmoothScrolling {TRUE}
+		Style {51}
+		LineWidth {2}
+		Rect {20 225 240 135}
+		Name {ListBox_2}
+		Variable {server_listbox}
+}
+Label {
+		Text {CDDB server}
+		AutoResize {FALSE}
+		Margin {-1}
+		Rect {20 175 235 20}
+		Name {Label_10}
+}
+PushButton {
+		ToggleButton {FALSE}
+		Default {FALSE}
+		AutoDefault {FALSE}
+		Text {Update}
+		AutoRepeat {FALSE}
+		AutoResize {FALSE}
+		Rect {270 230 90 25}
+		Name {PushButton_7}
+		Variable {update_button}
+}
+Label {
+		Text {}
+		AutoResize {FALSE}
+		Margin {-1}
+		Style {51}
+		LineWidth {2}
+		Rect {20 195 240 28}
+		Name {Label_4}
+		Variable {current_server_label}
+}
+CheckBox {
+		Checked {FALSE}
+		Text {Enable Remote CDDB}
+		AutoRepeat {FALSE}
+		AutoResize {FALSE}
+		Rect {25 20 230 30}
+		Name {CheckBox_1}
+		Variable {remote_cddb_cb}
+}
+PushButton {
+		ToggleButton {FALSE}
+		Default {FALSE}
+		AutoDefault {FALSE}
+		Text {Defaults}
+		AutoRepeat {FALSE}
+		AutoResize {FALSE}
+		Rect {270 280 90 25}
+		Name {PushButton_2}
+		Variable {defaults_button}
+}
+PushButton {
+		ToggleButton {FALSE}
+		Default {FALSE}
+		AutoDefault {FALSE}
+		Text {Help}
+		AutoRepeat {FALSE}
+		AutoResize {FALSE}
+		Rect {270 335 90 25}
+		Name {PushButton_3}
+		Variable {help_button}
+}}

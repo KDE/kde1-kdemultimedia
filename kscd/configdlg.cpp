@@ -17,7 +17,7 @@
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- *General Public License for more details.
+ * General Public License for more details.
  *
  * You should have received a copy of the GNU General Public
  * License along with this program; if not, write to the Free
@@ -41,12 +41,16 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.led_color = green;
   configdata.tooltips = true;
   configdata.cd_device ="/dev/cdrom";
-  
+  configdata.cd_device ="mail -s \"%s\" ";
+
   if(data){
     configdata.background_color = data->background_color;
     configdata.led_color = data->led_color;
     configdata.tooltips = data->tooltips;
     configdata.cd_device = data->cd_device;
+    configdata.mailcmd = data->mailcmd;
+    configdata.browsercmd = data->browsercmd;
+    configdata.use_kfm = data->use_kfm;
   }
 
   colors_changed = false;
@@ -54,7 +58,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   setCaption("Configure kscd");
 
   box = new QGroupBox(this, "box");
-  box->setGeometry(10,10,320,260);
+  box->setGeometry(10,10,365,360);
 
 
   label1 = new QLabel(this);
@@ -67,7 +71,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   qframe1->setBackgroundColor(configdata.led_color);
 
   button1 = new QPushButton(this);
-  button1->setGeometry(205,25,100,25);
+  button1->setGeometry(255,25,100,25);
   button1->setText("Change");
   connect(button1,SIGNAL(clicked()),this,SLOT(set_led_color()));
 
@@ -81,12 +85,12 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   qframe2->setBackgroundColor(configdata.background_color);
 
   button2 = new QPushButton(this);
-  button2->setGeometry(205,65,100,25);
+  button2->setGeometry(255,65,100,25);
   button2->setText("Change");
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
   button3 = new QPushButton(this);
-  button3->setGeometry(205,200,100,25);
+  button3->setGeometry(255,330,100,25);
   button3->setText("Help");
   connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 
@@ -95,7 +99,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   label5->setText("CDROM Device:");
 
   cd_device_edit = new QLineEdit(this);
-  cd_device_edit->setGeometry(155,110,150,25);
+  cd_device_edit->setGeometry(155,110,200,25);
   cd_device_edit->setText(configdata.cd_device);
   connect(cd_device_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(device_changed(const char*)));  
@@ -107,13 +111,55 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
 #endif
 
+  label6 = new QLabel(this);
+  label6->setGeometry(20,150,135,25);
+  label6->setText("Unix mail command:");
+
+  mail_edit = new QLineEdit(this);
+  mail_edit->setGeometry(155,150,200,25);
+  mail_edit->setText(configdata.mailcmd);
+  connect(mail_edit,SIGNAL(textChanged(const char*)),
+	  this,SLOT(mail_changed(const char*)));  
+
+  browserbox = new  QButtonGroup("WWW-Browser",this,"wwwbox");
+  browserbox->setGeometry(20,190,338,120);
+
+  kfmbutton = new QRadioButton("Use kfm as Browser",browserbox,"kfmbutton");
+  kfmbutton->move(10,20);
+  kfmbutton->adjustSize();
+  kfmbutton->setChecked(configdata.use_kfm);
+  connect(kfmbutton,SIGNAL(clicked()),this,SLOT(kfmbutton_clicked()));
+
+  custombutton = new QRadioButton("Use Custom Browser:",browserbox,"custombutton");
+  custombutton->move(10,50);
+  custombutton->adjustSize();
+  custombutton->setChecked(!configdata.use_kfm);
+  connect(custombutton,SIGNAL(clicked()),this,SLOT(custombutton_clicked()));
+
+  custom_edit = new QLineEdit(browserbox,"customedit");
+  custom_edit->setText(data->browsercmd);
+  custom_edit->setEnabled(!configdata.use_kfm);
+  custom_edit->setGeometry(30,80,198,28);
+
   ttcheckbox = new QCheckBox("Show Tool Tips", this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30,160,135,25);
+  ttcheckbox->setGeometry(30,320,135,25);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
+  
+}
 
-  
-  
+
+void ConfigDlg::custombutton_clicked(){
+
+    configdata.use_kfm = false;
+    custom_edit->setEnabled(!configdata.use_kfm);
+}
+
+
+void ConfigDlg::kfmbutton_clicked(){
+
+    configdata.use_kfm = true;
+    custom_edit->setEnabled(!configdata.use_kfm);
 }
 
 
@@ -126,6 +172,11 @@ void ConfigDlg::okbutton() {
 void ConfigDlg::device_changed(const char* dev) {
 
   configdata.cd_device = dev;
+}
+
+void ConfigDlg::mail_changed(const char* dev) {
+
+  configdata.mailcmd = dev;
 }
 
 void ConfigDlg::ttclicked(){
@@ -163,7 +214,8 @@ void ConfigDlg::set_background_color(){
 }
 
 struct configstruct * ConfigDlg::getData(){
-  
+
+  configdata.browsercmd = custom_edit->text();
   return &configdata;
 
 }

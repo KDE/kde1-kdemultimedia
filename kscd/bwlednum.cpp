@@ -200,6 +200,8 @@ void BW_LED_Number::drawSymbol( QPainter *p,char s,bool repaint ){
   
   //  printf("drawSymbol repaint = %d\n",repaint);
 
+ s = s;
+
  QPoint  pos;
   
  int xSegment_Length, ySegment_Length, Segment_Length, xAdvance;   
@@ -207,11 +209,16 @@ void BW_LED_Number::drawSymbol( QPainter *p,char s,bool repaint ){
 
  space = 1;
 
- xSegment_Length  = width()*5/((5 + space) + space);
+ xSegment_Length  = width()*5/((5 + space) + space) ;
+
  ySegment_Length   = height()*5/12;
+
  Segment_Length   = ySegment_Length > xSegment_Length ? xSegment_Length : ySegment_Length;
- xAdvance = Segment_Length*( 5 + space )/5 +1 ; 
- Xoffset  = ( width() - xAdvance + Segment_Length/5 )/2;
+
+ xAdvance = Segment_Length*( 5 + space )/5 +1  ;  
+
+ // Xoffset  = ( width() - xAdvance + Segment_Length/5 )/2; // origininal
+ Xoffset  = ( width() - xAdvance + Segment_Length/4 )/2;
  Yoffset  = ( height() - Segment_Length*2 )/2;
   
  pos = QPoint( Xoffset , Yoffset );	
@@ -311,8 +318,10 @@ void BW_LED_Number::drawSegment( const QPoint &pos, char seg_number, QPainter &p
     lightColor = g.light();
     darkColor  = g.dark();
   }
-  int Width = (int) Segment_Length/5;
-  
+
+  //  int Width = (int) Segment_Length/5 ; // original
+  int Width = (int) Segment_Length/4;
+
   
   QBrush brush(g.light()); 
   QPointArray pts;
