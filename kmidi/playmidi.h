@@ -46,13 +46,15 @@ typedef struct {
 #define ME_TONE_BANK	15
 
 #define ME_LYRIC	16
-
+#define ME_REVERBERATION	91
+#define ME_CHORUSDEPTH		93
 #define ME_EOT		99
 
 typedef struct {
   int
     bank, program, volume, sustain, panning, pitchbend, expression, 
     mono, /* one note only on this channel -- not implemented yet */
+    reverberation, chorusdepth,
     pitchsens;
   /* chorus, reverb... Coming soon to a 300-MHz, eight-way superscalar
      processor near you */
@@ -78,7 +80,7 @@ typedef struct {
     envelope_volume, envelope_target, envelope_increment,
     tremolo_sweep, tremolo_sweep_position,
     tremolo_phase, tremolo_phase_increment,
-    vibrato_sweep, vibrato_sweep_position;
+    vibrato_sweep, vibrato_sweep_position, vibrato_depth;
   
   final_volume_t left_mix, right_mix;
 
