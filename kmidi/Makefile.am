@@ -34,6 +34,26 @@ noinst_HEADERS = kmidi.h  playlist.h bwlednum.h configdlg.h\
 SRCMETA = kmidi.moc  playlist.moc bwlednum.moc configdlg.moc log.moc
 DISTCLEANSOURCES = $(SRCMETA)
 
+kmidi.cpp: kmidi.moc
+kmidi.moc: kmidi.h
+	$(MOC) -o kmidi.moc kmidi.h
+
+bwlednum.cpp: bwlednum.moc
+bwlednum.moc: bwlednum.h
+	$(MOC) -o bwlednum.moc bwlednum.h
+
+configdlg.cpp: configdlg.moc
+configdlg.moc: configdlg.h
+	$(MOC) -o configdlg.moc configdlg.h
+
+log.cpp: log.moc
+log.moc: log.h
+	$(MOC) -o log.moc log.h
+
+playlist.cpp: playlist.moc
+playlist.moc: playlist.h
+	$(MOC) -o playlist.moc playlist.h
+
 SUBDIRS = docs config
 
 appsdir = $(kde_appsdir)/Multimedia
