@@ -211,18 +211,18 @@ void KMediaWin::pllClicked()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  cerr << "Called PosChanged(" << new_pos << ")\n";
+  //cerr << "Called PosChanged(" << new_pos << ")\n";
   // Remember new position, in case it's a a user initiated position change.
   if (newPosValid)
   {
     newPos = new_pos;
-    cerr << "Changing to new position\n";
+    //cerr << "Changing to new position\n";
     (KeysChunk->pos_new) = newPos;
     EventCounterRaise(&(KeysChunk->posnew),1);
   }
   else {
     newPosValid = true;
-    cerr << "Ignoring changedPosition()\n";
+    //cerr << "Ignoring changedPosition()\n";
   }
 }
 

@@ -222,15 +222,15 @@ void KMediaWin::createMenu()
 
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
-  Mfile->insertItem( i18n("New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
-  Mfile->insertItem( i18n("Quit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
+  Mfile->insertItem( i18n("&New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
+  Mfile->insertItem( i18n("E&xit")    ,  this, SLOT(quit())   , CTRL+Key_Q  );
 
   QPopupMenu *Moptions = new QPopupMenu;
   CHECK_PTR( Moptions );
   //  Moptions->insertItem( i18n("Hide Menu"), this, SLOT(hideMenu()));
-  Moptions->insertItem( i18n("Mixer"), this, SLOT(launchMixer()));
+  Moptions->insertItem( i18n("&Mixer"), this, SLOT(launchMixer()));
   Moptions->insertSeparator();
-  Moptions->insertItem( i18n("Preferences"), this, SLOT(showOpts()));
+  Moptions->insertItem( i18n("&Preferences"), this, SLOT(showOpts()));
 
   QPopupMenu *Mhelp = new QPopupMenu;
   CHECK_PTR( Mhelp );
