@@ -842,11 +842,10 @@ wmcd_open(d)
 		else if (errno != ENXIO)
 		{
 			perror(cd_device);
-			exit(1);
 		}
 
-		/* No CD in drive. */
-		return (1);
+		/* Can not access CDROM device */
+		return (-1);
 	}
 
 	if (warned)

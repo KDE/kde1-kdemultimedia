@@ -206,6 +206,7 @@ read_toc()
  *	0	No CD in drive.
  *	1	CD in drive.
  *	2	CD has just been inserted (TOC has been read)
+ *      < 0     if the cdrom device can not be accessed
  *
  * Updates cur_track, cur_pos_rel, cur_pos_abs and other variables.
  */
@@ -228,7 +229,7 @@ cd_status()
 	if (status < 0)
 		return (status);
 	if (status > 0)
-		return (0);
+		return (status);
 
 	/* If the user hit the stop button, don't pass PLAYING as oldmode. */
 	if (cur_cdmode == STOPPED)

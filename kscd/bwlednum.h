@@ -8,6 +8,17 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.2  1997/08/15 22:51:26  wuebben
+ * *** empty log message ***
+ *
+ * Revision 1.2  1997/08/15 22:42:54  wuebben
+ * Bernd -- Version 0.4
+ * o Support for cdda on Solaris
+ * o Support for Irix
+ * o New interactive configuration script
+ * o  lot of header, define and configuration changes. -- Keep your
+ *   fingers crossed .... ;-)
+ *
  * Revision 1.1  1997/08/14 23:51:07  wuebben
  * Initial revision
  *

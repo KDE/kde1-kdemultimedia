@@ -23,6 +23,12 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 #include <fcntl.h>
 #include <sys/param.h>
 #include <sys/stat.h>
+
+/* this is for glibc 2.x which defines the ust structure in ustat.h not stat.h */
+#ifdef __GLIBC__
+#include <sys/ustat.h>
+#endif
+
 #include <sys/time.h>
 #include <string.h>
 #include <sys/ioctl.h>
@@ -489,8 +495,8 @@ wmcd_open(d)
 			}
 		}
 
-		/* No CD in drive. */
-		return (1);
+		/* CDROM can not be accessed */
+		return (-1);
 	}
 
 	if (warned)

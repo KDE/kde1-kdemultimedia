@@ -112,7 +112,7 @@ void ConfigDlg::ttclicked(){
 void ConfigDlg::help(){
 
   if(mykapp)
-    mykapp->invokeHTMLHelp("kscd/kscd.html","");
+    mykapp->invokeHTMLHelp("","");
 }
 
 void ConfigDlg::cancelbutton() {

@@ -574,8 +574,8 @@ wmcd_open(d)
 			exit(1);
 		}
 
-		/* No CD in drive. */
-		return (1);
+		/* Can not access CDROM drive */
+		return (-1);
 	}
 
 	if (warned)

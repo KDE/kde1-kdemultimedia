@@ -104,6 +104,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 	led_color = green;
 	randomplay = false;
 	looping = false;
+	cddrive_is_ok = true;
 	tooltips = true;
 	initWorkMan();
 
@@ -222,8 +223,11 @@ void KSCD::initCDROM(){
 
   cdMode();
   volstartup = FALSE;
-  volChanged(volume);
+  if(cddrive_is_ok)
+    volChanged(volume);
+
   timer->start(1000);
+
 }  
 
 
@@ -641,14 +645,17 @@ void KSCD::loopClicked()
 
 void KSCD::ejectClicked()
 {
-    looping = FALSE;
-    randomplay = FALSE;
-    statuslabel->setText("Ejecting");
-    qApp->processEvents();
-    qApp->flushX();
+  if(!cddrive_is_ok)
+    return;
+
+  looping = FALSE;
+  randomplay = FALSE;
+  statuslabel->setText("Ejecting");
+  qApp->processEvents();
+  qApp->flushX();
   
-    stop_cd();
-    eject_cd(1);
+  stop_cd();
+  eject_cd(1);
 
 }
 
@@ -783,6 +790,16 @@ void KSCD::cdMode()
 	QString str;
 
 	sss = cd_status();
+   	if(sss < 0){
+	   if(cddrive_is_ok){
+		   QMessageBox::information(this,
+		   "Sorry","CD-rom read or access error !\n"\
+		   "Please make sure you have permission access the device.");
+		   cddrive_is_ok = false;
+	   }
+	 return;
+	}
+	cddrive_is_ok = true; // cd drive ok
 
 	switch (cur_cdmode) {
 	case -1:         /* UNKNOWN */
@@ -941,7 +958,7 @@ void KSCD::readSettings(){
 	  randomplay = FALSE;
 
 	QColor defaultback = black;
-	QColor defaultled = QColor(226,224,255);
+	QColor defaultled = green;
 
 
 	background_color = config->readColorEntry("BackColor",&defaultback);	

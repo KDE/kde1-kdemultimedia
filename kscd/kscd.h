@@ -56,6 +56,11 @@
 #include <fcntl.h>
 #include <sys/ioctl.h>
 
+/* this is for glibc 2.x which the ust structure in ustat.h not stat.h */
+#ifdef __GLIBC__
+#include <sys/ustat.h>
+#endif
+
 #ifdef __FreeBSD__
 #include <sys/param.h>
 #include <sys/ucred.h>
@@ -121,7 +126,8 @@ private:
 	bool randomplay ;
 	bool looping;
 	bool volstartup;
-	// Private functions
+	bool cddrive_is_ok;
+   // Private functions
 	QPushButton     *makeButton( int, int, int, int, const char * );
 
 	void		initWorkMan();

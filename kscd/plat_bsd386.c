@@ -15,6 +15,12 @@ static char *ident = "@(#)plat_bsd386.c	1.6 12/26/93";
 #include <fcntl.h>
 #include <sys/param.h>
 #include <sys/stat.h>
+
+/* this is for glibc 2.x which the ust structure in ustat.h not stat.h */
+#ifdef __GLIBC__
+#include <sys/ustat.h>
+#endif
+
 #include <sys/time.h>
 #include <string.h>
 #include <sys/cdrom.h>
@@ -409,7 +415,7 @@ wmcd_open(d)
 	if ((aux = cdopen(cd_device)) == NULL)
 	{
 		fprintf(stderr, "No cdrom found by libcdrom\n");
-		exit(1);
+		retrun(-1);
 	}
 
 	if ((daux = malloc(sizeof(struct pause_info))) == NULL)

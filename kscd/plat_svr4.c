@@ -274,11 +274,10 @@ wmcd_open(d)
 		else if (errno != EINTR)
 		{
 			perror(cd_device);
-			exit(1);
 		}
 
-		/* No CD in drive. (Is this true also for svr4 ? XXX ) */
-		return (1);
+		/* can not acces CDROM device */
+		return (-1);
 	}
 
 	if (warned)
@@ -294,7 +293,7 @@ wmcd_open(d)
 	if (wm_scsi_get_drive_type(d, vendor, model, rev) < 0)
 	{
 		perror("Cannot inquiry drive for it's type");
-		exit(1);
+		return (-1);
 	}
 	*d = *(find_drive_struct(vendor, model, rev));
 	/*	about_set_drivetype(d->vendor, d->model, rev);*/

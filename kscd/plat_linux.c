@@ -15,6 +15,10 @@ static char *ident = "@(#)plat_linux.c	1.8 5/14/94";
 #include <sys/param.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+/* this is for glibc 2.x which defines ust structure in ustat.h not stat.h */
+#ifdef __GLIBC__
+#include <sys/ustat.h>
+#endif
 
 #include <linux/cdrom.h>
 #include "struct.h"
@@ -125,7 +129,8 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 #endif
 	
 	/* If we can't get status, the CD is ejected, so default to that. */
-	*mode = EJECTED;
+	/*	*mode = EJECTED;*/
+	*mode = UNKNOWN;
 
 	/* Is the device open? */
 	if (d->fd < 0)
@@ -519,11 +524,10 @@ wmcd_open(d)
 		else if (errno != ENXIO)
 		{
 			perror(cd_device);
-			exit(1);
 		}
 
-		/* No CD in drive. */
-		return (1);
+		/* CD device couldn't be opened */
+		return (-1);
 	}
 
 	if (warned)

@@ -6,6 +6,9 @@
  * $Id$
  * 
  * $Log$
+ * Revision 1.4  1997/10/25 15:15:34  wuebben
+ * Bernd: fixed the segfault error if you had no permiision to access the cdrom
+ * drive
  *
  * Revision 1.2  1997/08/15 22:51:25  wuebben
  * *** empty log message ***
@@ -189,7 +192,7 @@ void BW_LED_Number::display(char s ){
 void BW_LED_Number::setSmallLED(bool a_boolean){
 
  smallLED = a_boolean;
-void BW_LED_Number::drawSymbol( QPainter *p,char /*s*/,bool repaint ){
+
 }
 
 

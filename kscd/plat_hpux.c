@@ -16,6 +16,12 @@ static char *ident = "@(#)plat_hpux.c	1.8 4/13/95";
 #include <fcntl.h>
 #include <sys/param.h>
 #include <sys/stat.h>
+
+/* this is for glibc 2.x which the ust structure in ustat.h not stat.h */
+#ifdef __GLIBC__
+#include <sys/ustat.h>
+#endif
+
 #include <sys/time.h>
 #include <sys/scsi.h>
 #include <ustat.h>
@@ -264,8 +270,8 @@ wmcd_open(d)
 			exit(1);
 		}
 
-		/* No CD in drive. */
-		return (1);
+		/* Can not access CDROM drive */
+		return (-1);
 	}
 
 	/* Prepare the device to receive raw SCSI commands. */

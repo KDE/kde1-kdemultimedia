@@ -1,11 +1,15 @@
 # KDE Config File
 [KDE Desktop Entry]
-Exec=kscd
-Icon=kscd.xpm
-DocPath=kscd/kscd.html
-Comment=A CD Player
+Comment[C]=A CD Player
 Comment[pl]=Prosty odtwarzacz p³yt CD
-Terminal=0
-Type=Application
-Name=CD Player
+BinaryPattern=kscd;
+Protocols=
+Name[C]=CD Player
 Name[pl]=Odtwarzacz CD
+Exec=kscd
+DocPath=kscd/kscd.html
+Icon=kscd.xpm
+TerminalOptions=
+Path=
+Type=Application
+Terminal=0
