@@ -254,6 +254,7 @@ void KSCD::drawPanel()
     const int SBARWIDTH = 220; //140
 
     setCaption( "kscd" );
+    setCaption( kapp->getCaption());
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, klocale->translate("About") );
 
     ix = 0;
