@@ -471,9 +471,15 @@ static int ctl_read(int32 *valp)
 static int cmsg(int type, int verbosity_level, char *fmt, ...)
 {
   va_list ap;
+  int flagnl = 1;
   if ((type==CMSG_TEXT || type==CMSG_INFO || type==CMSG_WARNING) &&
       ctl.verbosity<verbosity_level)
     return 0;
+  if (*fmt == '~')
+   {
+     flagnl = 0;
+     fmt++;
+   }
   va_start(ap, fmt);
   if (!ctl.opened)
     {
@@ -510,7 +516,7 @@ static int cmsg(int type, int verbosity_level, char *fmt, ...)
 	{
 	default:
 	  vwprintw(msgwin, fmt, ap);
-	  wprintw(msgwin, "\n");
+	  if (flagnl) wprintw(msgwin, "\n");
 	  wrefresh(msgwin);
 	  break;
 
