@@ -232,11 +232,11 @@ msgstr "Reproduzir ao Fechar Drive"
 
 #: configdlg.cpp:169
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Auto-Embutir ao Minimizar"
 
 #: configdlg.cpp:175
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Parar a Reprodução ao Sair"
 
 #: docking.cpp:75 kscd.cpp:557
 msgid "Play/Pause"
@@ -280,32 +280,30 @@ msgstr "Por favor selecione um Título de Disco ou pressione Cancelar"
 
 #: kscd.cpp:223
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Registro foi submetido com sucesso"
 
 #: kscd.cpp:233
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Erro na obtenção de registro do CDDB."
+msgstr "Erro ao conectar com servidor."
 
 #: kscd.cpp:236
 msgid "Not connected."
-msgstr ""
+msgstr "Não conectado."
 
 #: kscd.cpp:239
-#, fuzzy
 msgid "Connection timed out."
-msgstr "Consulta CDDB demorou demais."
+msgstr "Conexão expirou."
 
 #: kscd.cpp:242
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Tempo esgotado para interação com servidor."
 
 #: kscd.cpp:245
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
-msgstr ""
+msgstr "Servidor respondeu:\n\"%s\""
 
 #: kscd.cpp:247
 #, c-format
@@ -313,7 +311,7 @@ msgid ""
 "Error #%d sending message via SMTP.\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Erro #%d ao mandar mensagem via SMTP.\n\n%s"
 
 #: kscd.cpp:376
 msgid "Vol: --"
@@ -485,7 +483,7 @@ msgstr ""
 
 #: kscd.cpp:1085
 msgid "SMTP Setup"
-msgstr ""
+msgstr "Configuração do SMTP"
 
 #: kscd.cpp:1086
 msgid "Kscd Options"
@@ -588,15 +586,15 @@ msgstr "Brilho do MAGIC:"
 
 #: smtpconfig.cpp:14
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Habilitar submissão via SMTP"
 
 #: smtpconfig.cpp:21
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "Endereço SMTP:Porta"
 
 #: smtpconfig.cpp:39
 msgid "Your Email Address"
-msgstr ""
+msgstr "Seu endereço Email"
 
 #~ msgid "Exit Kscd"
 #~ msgstr "Sair do Kscd"
