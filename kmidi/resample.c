@@ -696,12 +696,14 @@ void pre_resample(Sample * sp)
     "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
   };
 
+  a = ((double) (sp->sample_rate) * freq_table[(int) (sp->note_to_use)]) /
+    ((double) (sp->root_freq) * play_mode->rate);
+  if (a<1.0) return;
+
   ctl->cmsg(CMSG_INFO, VERB_DEBUG, " * pre-resampling for note %d (%s%d)",
 	    sp->note_to_use,
 	    note_name[sp->note_to_use % 12], (sp->note_to_use & 0x7F) / 12);
 
-  a = ((double) (sp->sample_rate) * freq_table[(int) (sp->note_to_use)]) /
-    ((double) (sp->root_freq) * play_mode->rate);
   newlen = sp->data_length / a;
   dest = newdata = safe_malloc(newlen >> (FRACTION_BITS - 1));
 
