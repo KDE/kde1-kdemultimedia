@@ -6,7 +6,8 @@ Standards-Version: 2.5.0
 
 Package: kdemultimedia
 Architecture: any
-Depends: ${shlibs:Depends}, kdebase, cddb
+Depends: ${shlibs:Depends}, cddb
+Suggests: kdebase
 Description: KDE multimedia package
  This is a collection of kde programs related to multimedia :
   kmix - a mixer,

@@ -25,6 +25,10 @@ $(BUILDDIR)/build-stamp:
 
 clean: debian-clean
 	-rm -rf $(BUILDDIR)
+	-rm -f debian/files
+	-rm -f debian/substvars
+	-rm -f debian/menu
+	-rm -f configure
 	dh_clean -k
 
 debian-clean:
@@ -51,16 +55,17 @@ binary-arch:	build
 	echo "DOCKING=1" >> debian/tmp/etc/kde/kscdrc
 	perl -w debian/kderules
 	dh_movefiles
-	dh_undocumented `cat debian/man-pages`
+	dh_undocumented 
 	dh_installdocs
 	dh_installmenu
-	dh_installchangelogs ChangeLog
+	dh_installchangelogs 
 	dh_strip
 	dh_compress
 	dh_fixperms
 	chown root.cdrom debian/tmp/usr/bin/kscd
 	chmod 2755 debian/tmp/usr/bin/kscd
 	dh_suidregister
+	dh_makeshlibs
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol
