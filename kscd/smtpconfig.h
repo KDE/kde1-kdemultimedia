@@ -25,6 +25,7 @@ public:
 
 public slots:
     void commitData();
+    void enableClicked();
     
 signals:
 

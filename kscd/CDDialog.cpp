@@ -264,8 +264,9 @@ void CDDialog::extIB(){
   QString text;
   dialog->getSelection(text);
 
-  ext_list.insert( item, text );
-  ext_list.remove( item + 1 );
+//  ext_list.insert( item, text );
+  ext_list.remove(item + 1);
+  ext_list.insert(item + 1, text);
 
   delete dialog;
 

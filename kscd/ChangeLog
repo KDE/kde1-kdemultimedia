@@ -1,8 +1,14 @@
-1998-11-06  Sam Maloney  <thufir@illogic.ml.org>
+1998-11-08 Robert Bossecker <Robert.Bossecker@fresenius.de>
 
-	* Made smtpMailer a global widget, so it could mail in background.
-	* Fixed problem were after submitting a record via SMTP, and 
-	  having an error, if one tried to exit Kscd, it would close all 
+	* Fixed problem with editing EXT info, where if you edited track
+	  x, it would (stupidly) modify x-1. If editing track 1, it would
+	  modify the extinfo for the Title.
+
+1998-11-06 Sam Maloney <thufir@illogic.ml.org>
+
+	* Made smtpMailer a global widget, so it could mail in background. 
+	* Fixed problem were after submitting a record via SMTP, and
+	  having an error, if one tried to exit Kscd, it would close all
 	  widgets, but be stuck in while loop.
 	* Added error/success reporting of SMTP submissions.
 	* Fixed problem with Local Cache, where it would ignore leading

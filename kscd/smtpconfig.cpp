@@ -14,6 +14,7 @@ SMTPConfig::SMTPConfig(QWidget *parent=0, const char *name=0, struct SMTPConfigD
     enableCB = new QCheckBox(klocale->translate("Enable submission via SMTP"), this, "enableCB");
     enableCB->setGeometry(20, 20, 200, 15);
     enableCB->setChecked(configData->enabled);
+    connect(enableCB, SIGNAL(clicked()), this, SLOT(enableClicked()));
 
     serverHostLabel = new QLabel(this, "serverHostLabel");
     serverHostLabel->setGeometry(20, 40, 130, 25);
@@ -22,6 +23,7 @@ SMTPConfig::SMTPConfig(QWidget *parent=0, const char *name=0, struct SMTPConfigD
     serverHostEdit = new QLineEdit(this, "serverHostEdit");
     serverHostEdit->setGeometry(155, 40, 300, 25);
     serverHostEdit->setText(configData->serverHost.data());
+    serverHostEdit->setEnabled(configData->enabled);
 
     serverPortLabel = new QLabel(this, "serverPortLabel");
     serverPortLabel->setGeometry(460, 40, 10, 25);
@@ -30,6 +32,7 @@ SMTPConfig::SMTPConfig(QWidget *parent=0, const char *name=0, struct SMTPConfigD
     serverPortEdit = new QLineEdit(this, "serverPortEdit");
     serverPortEdit->setGeometry(475, 40, 45, 25);
     serverPortEdit->setText(configData->serverPort.data());
+    serverPortEdit->setEnabled(configData->enabled);
 
     senderAddressLabel = new QLabel(this, "senderAddressLabel");
     senderAddressLabel->setGeometry(20, 70, 130, 25);
@@ -38,6 +41,7 @@ SMTPConfig::SMTPConfig(QWidget *parent=0, const char *name=0, struct SMTPConfigD
     senderAddressEdit = new QLineEdit(this, "senderAddressEdit");
     senderAddressEdit->setGeometry(155, 70, 365, 25);
     senderAddressEdit->setText(configData->senderAddress.data());
+    senderAddressEdit->setEnabled(configData->enabled);
 }
 
 void SMTPConfig::commitData(void)
@@ -48,4 +52,13 @@ void SMTPConfig::commitData(void)
     configData->senderAddress = senderAddressEdit->text();
 }
 
+void SMTPConfig::enableClicked(void)
+{
+    bool c;
+
+    c = enableCB->isChecked();
+    serverHostEdit->setEnabled(c);
+    serverPortEdit->setEnabled(c);
+    senderAddressEdit->setEnabled(c);
+}
 #include <smtpconfig.moc>
