@@ -432,11 +432,13 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
   QString formatstr;
   formatstr = mailcmd + " cddb-test@cddb.cddb.com";
+    //formatstr = mailcmd + " cddb-test@cddb.cddb.com";
 
 
   QString cmd;
   //  cmd = cmd.sprintf("mail -s \"%s\" cddb-test@cddb.cddb.com",subject.data());
-  cmd = cmd.sprintf(formatstr.data(),subject.data());
+  //  cmd = cmd.sprintf("sendmail wuebben@math.cornell.edu");
+  cmd = cmd.sprintf(formatstr.data(),subject.data()); 
 		    
 
   mailpipe = popen(cmd.data(),"w");
@@ -467,13 +469,13 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
   QString s;
 
-  to << "Content-Transfer-Encoding: quoted-printable\n";
+  //to << "Content-Transfer-Encoding: quoted-printable\n";
 
 
   while ( !ti.eof() ) {
     s = ti.readLine();
     if(!ti.eof()){
-      mimetranslate(s);
+      //  mimetranslate(s);
       to << s.data() << '\n';
     }
   }	  
@@ -555,7 +557,7 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   magic.sprintf("%08x",cdinfo.magicID);
   bool have_magic_already = false;
 
-  // Steve and Ti contacted me and sait they have changed the cddb upload specs
+  // Steve and Ti contacted me and said they have changed the cddb upload specs
   // Now, an uploaded entry must only contain one DISCID namely the one corresponding
   // to the CD the user actually owns.
   if( !upload ){
