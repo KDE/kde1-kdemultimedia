@@ -5,6 +5,7 @@ prefix  = @prefix@
 kde_libraries = @kde_libraries@
 qt_libraries = @qt_libraries@
 top_builddir = ..
+exec_prefix = @exec_prefix@
 LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@
 topdir = @topdir@

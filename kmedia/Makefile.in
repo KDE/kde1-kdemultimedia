@@ -12,6 +12,7 @@ LDFLAGS	= @LDFLAGS@ @all_libraries@ -lkdecore -lkdeui -lqt -lXext -lX11 -lmediat
 
 top_builddir = ..
 kde_libraries = @kde_libraries@
+exec_prefix = @exec_prefix@
 qt_libraries = @qt_libraries@
 LIBTOOL = @LIBTOOL@
 KDE_RPATH = @KDE_RPATH@

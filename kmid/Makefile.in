@@ -24,6 +24,7 @@ INSTALL_DIR_PRIVATE = $(install) -d -m 0700
 
 prefix = @prefix@
 install_root = @install_root@
+exec_prefix = @exec_prefix@
 BINDIR = @kde_bindir@
 DATADIR = @kde_datadir@/kmid
 
