@@ -19,7 +19,7 @@ msgstr "&Tiques Liga/Desliga"
 
 #: kmix.cpp:524 kmix.cpp:642
 msgid "&Options..."
-msgstr ""
+msgstr "&Opções..."
 
 #: kmix.cpp:533
 msgid ""
@@ -56,9 +56,8 @@ msgid "&Right"
 msgstr "&Direita"
 
 #: kmix.cpp:641
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Barra de menu"
+msgstr "&Mostrar barra de menu"
 
 #: kmix.cpp:686
 msgid "Un&mute"
