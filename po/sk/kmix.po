@@ -23,7 +23,7 @@ msgstr "&Skry» menu"
 
 #: kmix.cpp:428
 msgid "&Tickmarks On/Off"
-msgstr "S&tupnica zapnú»/vypnú»"
+msgstr "Zapnú»/vypnú» z&naèkovanie"
 
 #: kmix.cpp:442
 msgid ""
@@ -59,11 +59,11 @@ msgstr "Vp&ravo"
 
 #: kmix.cpp:553
 msgid "Un&mute"
-msgstr "Vypnú» tl&menie"
+msgstr "Zapnú» zv&uk"
 
 #: kmix.cpp:555
 msgid "&Mute"
-msgstr "Stl&mi»"
+msgstr "&Vypnú» zvuk"
 
 #: kmix.cpp:558
 msgid "&Split"
@@ -95,7 +95,7 @@ msgstr "Menu"
 
 #: prefs.cpp:56
 msgid "Tickmarks"
-msgstr "Stupnica"
+msgstr "Znaèkovanie"
 
 #: prefs.cpp:61
 msgid "Allow docking"
@@ -121,5 +121,3 @@ msgstr "Zobrazova»"
 msgid "Split"
 msgstr "Rozdeli»"
 
-#~ msgid "Restore"
-#~ msgstr "Obnovi»"

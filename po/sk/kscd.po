@@ -504,8 +504,3 @@ msgstr "Vý¹ka Magic okna:"
 msgid "MAGIC Brightness:"
 msgstr "Svetlos» Magic:"
 
-#~ msgid "Stop"
-#~ msgstr "Zastavi»"
-
-#~ msgid "Restore"
-#~ msgstr "Obnovi»"

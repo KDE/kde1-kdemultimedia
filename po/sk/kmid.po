@@ -195,7 +195,7 @@ msgstr "Tempo :"
 #: kmidclient.cpp:231
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
-msgstr "Súbor %s neexistuje alebo ho nemô¾em otvori»."
+msgstr "Súbor %s neexistuje alebo sa nedá otvori»."
 
 #: kmidclient.cpp:234
 #, c-format
@@ -207,7 +207,7 @@ msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
-"Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tentosúbor na "
+"Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tento súbor na "
 "adresu antlarr@arrakis.es."
 
 #: kmidclient.cpp:238

@@ -19,7 +19,7 @@ msgstr "Pozícia v prehrávanom zázname"
 
 #: kmediawin.cpp:138
 msgid "Eject medium"
-msgstr "Vysuò médium"
+msgstr "Vysunú» médium"
 
 #: kmediawin.cpp:142
 msgid "Previous track"
