@@ -97,7 +97,6 @@ msgid "&Font Change ..."
 msgstr "Mudar &Fonte ..."
 
 #: kmidframe.cpp:145
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "Configuração do &Midi..."
 
@@ -348,9 +347,8 @@ msgid "Change Collection Name"
 msgstr "Mudar Nome da Colecção"
 
 #: channel.cpp:75
-#, fuzzy
 msgid "Channel"
-msgstr "Cancelar"
+msgstr "Canal"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
@@ -401,9 +399,8 @@ msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Apagar"
+msgstr ""
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -810,9 +807,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Ficheiro"
+msgstr ""
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -868,17 +864,16 @@ msgstr ""
 
 #: instrname.i18n:130
 msgid "Telephone"
-msgstr ""
+msgstr "Telefone"
 
 #: instrname.i18n:131
 msgid "Helicopter"
-msgstr ""
+msgstr "Helicoptero"
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pausa"
+msgstr "Aplauso"
 
 #: instrname.i18n:133
 msgid "Gunshot"
-msgstr ""
+msgstr "Tiro"

@@ -503,9 +503,3 @@ msgstr "Altura da Janela Mágica:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Brilho MÁGICO:"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"
-
-#~ msgid "Restore"
-#~ msgstr "Restaurar"
