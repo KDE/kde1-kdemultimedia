@@ -346,7 +346,7 @@ typedef char int8;
 #define CONFIG_FILE	TIMID_DIR##"/timidity.cfg"
 #else
 #ifndef CONFIG_FILE
-#define CONFIG_FILE "/usr/local/kde/share/apps/kmidi/config/timidity.cfg"
+#define CONFIG_FILE DEFAULT_PATH##"/timidity.cfg"
 #endif
 #endif
 
