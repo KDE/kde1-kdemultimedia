@@ -2,7 +2,6 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Guðmundur Erlingsson <gudmuner@lexis.hi.is>, 1999.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "POT-Creation-Date: 1999-04-03 02:43+0200\n"
@@ -197,15 +196,15 @@ msgstr "%d biti %s %s"
 
 #: kmidi.cpp:1363
 msgid "sig"
-msgstr ""
+msgstr "sig"
 
 #: kmidi.cpp:1363
 msgid "usig"
-msgstr ""
+msgstr "usig"
 
 #: kmidi.cpp:1364
 msgid "uLaw"
-msgstr ""
+msgstr "uLaw"
 
 #: kmidi.cpp:1364
 msgid "Linear"
