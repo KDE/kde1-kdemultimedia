@@ -1,7 +1,5 @@
 # KTranslator Generated File
-
 # KTranslator Generated File
-
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -283,9 +281,7 @@ msgstr "Minimalizálás"
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr ""
-"Nincs pontos találat. Válassza ki a CD-t az alábbi"
-"listából."
+msgstr "Nincs pontos találat. Válassza ki a CD-t az alábbilistából."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -467,8 +463,8 @@ msgstr ""
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
 "Külön köszönet Ti Kan-nek és Steve Scherf-nek, a CDDB adatbázis \n"
-"feltalálóinak. Látogassa meg a http://www.cddb.com -ot további CDDB információkért.\n"
-""
+"feltalálóinak. Látogassa meg a http://www.cddb.com -ot további CDDB "
+"információkért.\n"
 
 #: kscd.cpp:1021
 msgid ""
@@ -478,7 +474,6 @@ msgid ""
 msgstr ""
 "KSCD Varázslat a Synaesthesia-n alapszik,  szerzõje: Paul Harrison \n"
 "<pfh@yoyo.cc.monash.edu.au>\n"
-""
 
 #: kscd.cpp:1025
 msgid ""
@@ -488,7 +483,6 @@ msgid ""
 msgstr ""
 "Köszönet  Vadim Zaliva-nak  <lord@crocodile.org>\n"
 "a http proxy kódon végzett munkáért.\n"
-""
 
 #: kscd.cpp:1080
 msgid "SMTP Setup"
