@@ -82,7 +82,7 @@ uninstall:
 	rm -f $(MIMEDIR)/xmcd.kdelnk
 
 messages:
-	@XGETTEXT@ -C --keyword=translate *.cpp -x../../kdelibs/po/kde.pot && mv messages.po ../po/kscd.pot   
+	$(XGETTEXT) -C --keyword=translate *.cpp -x../../kdelibs/po/kde.pot && mv messages.po ../po/kscd.pot   
 
 ####### Explicit dependencies
 
