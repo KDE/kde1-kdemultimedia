@@ -512,9 +512,3 @@ msgstr "Høyde på magisk vindu:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC-lysstyrke:"
-
-#~ msgid "Stop"
-#~ msgstr "Stopp"
-
-#~ msgid "Restore"
-#~ msgstr "Gjenopprett"

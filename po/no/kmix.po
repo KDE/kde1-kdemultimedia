@@ -120,6 +120,3 @@ msgstr "Vis"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Splitt"
-
-#~ msgid "Restore"
-#~ msgstr "Gjenopprett"
