@@ -60,8 +60,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   setCaption(klocale->translate("Configure kscd"));
 
   box = new QGroupBox(this, "box");
-  box->setGeometry(10,10,365,418);
-
+  box->setGeometry(10,10,520,420);
 
   label1 = new QLabel(this);
   label1->setGeometry(20,25,135,25);

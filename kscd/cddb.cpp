@@ -693,10 +693,9 @@ void CDDB::parse_serverlist_entry()
     {
         sscanf(lastline.data(),"%s %s %s %s",serv,proto,po,extra);
         tempstr = tempstr.sprintf("%s %s %s %s",serv,proto,po,extra);
-        transport tr=decodeTransport(proto);
-        if(tr==CDDBP || tr==CDDBHTTP)
-            serverlist.append(tempstr.data());
-        // ignore otherwsie - unksuported protocol.
+//         transport tr=decodeTransport(proto);
+//         if(tr==CDDBP || tr==CDDBHTTP)
+        serverlist.append(tempstr.data());
     }
 }
 

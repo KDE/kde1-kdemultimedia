@@ -52,7 +52,7 @@ MGConfigDlg::MGConfigDlg(QWidget *parent=0,
   setCaption(klocale->translate("Magic Kscd"));
 
   box = new QGroupBox(this, "box");
-  box->setGeometry(10,10,365,418);
+  box->setGeometry(10,10,520,420);
 
   label1 = new QLabel(this);
   label1->setGeometry(20,25,155,25);

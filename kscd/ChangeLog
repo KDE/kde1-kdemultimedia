@@ -1,3 +1,9 @@
+1998-05-12  Vadim Zaliva  <lord@crocodile.org>
+
+	* Options dialog made wider
+	* In CDDB setup dialog added list of email serves. 
+	* Getting SMTP servers from list of servers.
+
 1998-04-29  Vadim Zaliva  <lord@crocodile.org>
 
 	* Corrected problem with not saving "UnixMailCommand" option which was disabling CDDB submissions.

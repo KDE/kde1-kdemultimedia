@@ -11,7 +11,7 @@ Dialog {
 }
 WidgetLayout {
 InitialPos {-1 -1}
-Size {385 465}
+Size {535 435}
 MinSize {0 0}
 MaxSize {32767 32767}
 Grid {5}
@@ -20,7 +20,7 @@ GroupBox {
 		Title {}
 		Alignment {Left}
 		Style {49}
-		Rect {10 10 365 420}
+		Rect {10 10 520 420}
 		Name {GroupBox_1}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}
@@ -41,7 +41,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {32767}
 		FrameShown {TRUE}
-		Rect {20 140 340 28}
+		Rect {20 140 495 28}
 		Name {LineEdit_4}
 		Variable {basedir_edit}
 		LayoutStatus {NoLayout}
@@ -52,20 +52,8 @@ Label {
 		Text {Send CDDB submissions to:}
 		AutoResize {FALSE}
 		Margin {-1}
-		Rect {20 180 210 20}
+		Rect {275 180 210 20}
 		Name {Label_9}
-		LayoutStatus {NoLayout}
-		MinimumSize {10 10}
-		MaximumSize {32767 32767}
-}
-LineEdit {
-		Text {cddb-test@xmcd.com}
-		EchoMode {Normal}
-		MaxLength {32767}
-		FrameShown {TRUE}
-		Rect {20 200 240 28}
-		Name {LineEdit_5}
-		Variable {submit_edit}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}
 		MaximumSize {32767 32767}
@@ -83,7 +71,7 @@ ListBox {
 		MultiSelection {FALSE}
 		Style {51}
 		LineWidth {2}
-		Rect {20 290 240 135}
+		Rect {20 230 240 155}
 		Name {ListBox_2}
 		Variable {server_listbox}
 		LayoutStatus {NoLayout}
@@ -91,10 +79,10 @@ ListBox {
 		MaximumSize {32767 32767}
 }
 Label {
-		Text {CDDB server}
+		Text {CDDB server:}
 		AutoResize {FALSE}
 		Margin {-1}
-		Rect {20 240 235 20}
+		Rect {20 180 235 20}
 		Name {Label_10}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}
@@ -107,7 +95,7 @@ PushButton {
 		Text {Update}
 		AutoRepeat {FALSE}
 		AutoResize {FALSE}
-		Rect {270 295 90 25}
+		Rect {35 400 90 25}
 		Name {PushButton_7}
 		Variable {update_button}
 		LayoutStatus {NoLayout}
@@ -120,7 +108,7 @@ Label {
 		Margin {-1}
 		Style {51}
 		LineWidth {2}
-		Rect {20 260 240 28}
+		Rect {20 200 240 28}
 		Name {Label_4}
 		Variable {current_server_label}
 		LayoutStatus {NoLayout}
@@ -132,7 +120,7 @@ CheckBox {
 		Text {Enable Remote CDDB}
 		AutoRepeat {FALSE}
 		AutoResize {FALSE}
-		Rect {25 15 230 30}
+		Rect {20 15 230 30}
 		Name {CheckBox_1}
 		Variable {remote_cddb_cb}
 		LayoutStatus {NoLayout}
@@ -146,7 +134,7 @@ PushButton {
 		Text {Defaults}
 		AutoRepeat {FALSE}
 		AutoResize {FALSE}
-		Rect {270 345 90 25}
+		Rect {230 400 90 25}
 		Name {PushButton_2}
 		Variable {defaults_button}
 		LayoutStatus {NoLayout}
@@ -160,7 +148,7 @@ PushButton {
 		Text {Help}
 		AutoRepeat {FALSE}
 		AutoResize {FALSE}
-		Rect {270 400 90 25}
+		Rect {420 400 90 25}
 		Name {PushButton_3}
 		Variable {help_button}
 		LayoutStatus {NoLayout}
@@ -172,7 +160,7 @@ CheckBox {
 		Text {Use HTTP proxy to access CDDB}
 		AutoRepeat {FALSE}
 		AutoResize {FALSE}
-		Rect {25 40 230 30}
+		Rect {20 40 230 30}
 		Name {CheckBox_2}
 		Variable {cddb_http_cb}
 		Signal {[Protected]  toggled --> http_access_toggled  (bool)}
@@ -185,7 +173,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {5}
 		FrameShown {TRUE}
-		Rect {315 75 45 30}
+		Rect {470 75 45 30}
 		Name {LineEdit_6}
 		Variable {proxy_port_ef}
 		LayoutStatus {NoLayout}
@@ -197,7 +185,7 @@ LineEdit {
 		EchoMode {Normal}
 		MaxLength {32767}
 		FrameShown {TRUE}
-		Rect {70 75 230 30}
+		Rect {70 75 385 30}
 		Name {LineEdit_7}
 		Variable {proxy_host_ef}
 		LayoutStatus {NoLayout}
@@ -208,7 +196,7 @@ Label {
 		Text {HTTP://}
 		AutoResize {FALSE}
 		Margin {-1}
-		Rect {25 75 45 30}
+		Rect {20 75 45 30}
 		Name {Label_12}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}
@@ -218,8 +206,40 @@ Label {
 		Text {:}
 		AutoResize {FALSE}
 		Margin {-1}
-		Rect {305 75 10 30}
+		Rect {460 75 10 30}
 		Name {Label_13}
+		LayoutStatus {NoLayout}
+		MinimumSize {10 10}
+		MaximumSize {32767 32767}
+}
+ListBox {
+		Item {cddb-test@xmcd.com}
+		DragSelect {TRUE}
+		AutoScroll {TRUE}
+		ScrollBar {FALSE}
+		AutoScrollBar {TRUE}
+		BottomScrollBar {FALSE}
+		AutoBottomScrollBar {TRUE}
+		SmoothScrolling {TRUE}
+		MultiSelection {FALSE}
+		Style {51}
+		LineWidth {2}
+		Rect {275 230 240 155}
+		Name {ListBox_3}
+		Variable {submission_listbox}
+		LayoutStatus {NoLayout}
+		MinimumSize {10 10}
+		MaximumSize {32767 32767}
+}
+Label {
+		Text {}
+		AutoResize {FALSE}
+		Margin {-1}
+		Style {51}
+		LineWidth {2}
+		Rect {275 200 240 30}
+		Name {Label_14}
+		Variable {current_submit_label}
 		LayoutStatus {NoLayout}
 		MinimumSize {10 10}
 		MaximumSize {32767 32767}

@@ -34,6 +34,7 @@
 
 #include <ksock.h>
 
+#define DEFAULT_SUBMIT_EMAIL "xmcd-cddb@amb.org"
 #define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
 #define DEFAULT_CDDBHTTP_SERVER "cddb.moonsoft.com http 80 /~cddb/cddb.cgi"
 
@@ -63,6 +64,9 @@ class CDDB:public QObject
     } CDDBState;
     
     typedef enum { REGULAR=100, SERVER_LIST_GET=101 } CDDBMode;
+
+    typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
+    static transport decodeTransport(const char *);
 
     bool  isConnected() {return connected;};
 
@@ -119,11 +123,8 @@ class CDDB:public QObject
     void        send_http_command(QString &command);
     bool        next_token();
     
-    typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;
     transport protocol;
-    transport decodeTransport(const char *);
-    
-    
+        
  public slots:
 
     void	 cddb_connect(QString& server);

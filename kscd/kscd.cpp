@@ -861,7 +861,7 @@ void KSCD::aboutClicked(){
 
     tabdialog = new QTabDialog(0,"tabdialog",TRUE);
     tabdialog->setCaption( "kscd Configuraton" );
-    tabdialog->resize( 400, 510 );
+    tabdialog->resize(559, 512);
     tabdialog->setCancelButton();
 
     QWidget *about = new QWidget(tabdialog,"about");
@@ -869,18 +869,16 @@ void KSCD::aboutClicked(){
     QGroupBox *box = new QGroupBox(about,"box");
     QLabel  *label = new QLabel(box,"label");
 
-    box->setGeometry(10,10,365,418);
+    box->setGeometry(10,10,520,420);
 
-    label->setGeometry(160,30,195,300);
+    label->setGeometry(160,30,340,300);
     label->setAlignment( AlignCenter);
     QString labelstring;
     labelstring = "kscd "KSCDVERSION"\n"\
-        "Copyright (c) 1997-98 \nBernd Johannes Wuebben\n"\
-        "wuebben@kde.org\n\n"\
+        "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"\
         "kscd  contains code from:\n"
         "workman 1.4 beta 3\n"
-        "Copyright (c) Steven Grimm \n"\
-        "koreth@hyperion.com\n\n"\
+        "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"\
         "Special thanks to Ti Kan and "\
         "Steve Scherf, the inventors of "\
         "the CDDB database concept. "\
@@ -888,7 +886,7 @@ void KSCD::aboutClicked(){
         "more information on CDDB.\n\n"
 #ifdef KSCDMAGIC
         "KSCD Magic based on Synaesthesia by "\
-        "Paul Harrison pfh@yoyo.cc.monash.edu.au"
+        "Paul Harrison <pfh@yoyo.cc.monash.edu.au>"
 #endif
         ;
 
