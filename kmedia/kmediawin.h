@@ -29,6 +29,7 @@ class KMediaWin : public KTopLevelWidget
   Q_OBJECT
 public:
   KMediaWin(QWidget *parent, const char* name);
+  ~KMediaWin();
 
   MdCh_STAT	*StatChunk;
   uint32	*StatStatPtr;
