@@ -1,5 +1,5 @@
 
-SUBDIRS = cs de fr pl fi es pt ro
+SUBDIRS = cs de fr pl fi es pt ro it
 
 APPS = kmedia kmix
 
