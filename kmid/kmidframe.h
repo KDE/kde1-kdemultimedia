@@ -41,6 +41,7 @@ class KConfig;
 class kmidClient;
 class KToolBar;
 class KDNDDropZone;
+class KAccel;
 
 class kmidFrame : public KTopLevelWidget
 {
@@ -64,6 +65,7 @@ private:
     QPopupMenu *m_options;
     QPopupMenu *m_help;
 
+    KAccel *kKeysAccel;
 protected:
     int autoAddSongToCollection(char *filename=NULL,int setactive=1);
 
@@ -100,6 +102,7 @@ public slots:
     void options_ShowChannelView();
     void options_ChannelViewOptions();
     void options_FontChange();
+    void options_KeyConfig();
     void options_MidiSetup();
     void spacePressed();
 

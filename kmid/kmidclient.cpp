@@ -37,7 +37,7 @@
 #include <kurl.h>
 #include <qlabel.h>
 #include <qkeycode.h>
-#include <kkeyconf.h>
+//#include <kkeyconf.h>
 #include <kcombo.h>
 
 #include "kmidclient.moc"
@@ -118,18 +118,8 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
         typeoftextevents=1;
 	kdispt=new KDisplayText(this,"KaraokeWindow");
         kdispt->move(((visiblevolumebar)?25:5),10+timebar->height()+timetags->height()+5+tempoLCD->height()+10);
-	
-	kKeys->addKey("Scroll down karaoke",Key_Down);
-	kKeys->addKey("Scroll up karaoke",Key_Up);
-	kKeys->addKey("Scroll page down karaoke",Key_PageDown);
-	kKeys->addKey("Scroll page up karaoke",Key_PageUp);
-	kKeys->registerWidget("KaraokeWindow",this);
-	kKeys->connectFunction("KaraokeWindow","Scroll up karaoke",kdispt,SLOT(ScrollUp()));
-	kKeys->connectFunction("KaraokeWindow","Scroll down karaoke",kdispt,SLOT(ScrollDown()));
-	kKeys->connectFunction("KaraokeWindow","Scroll page down karaoke",kdispt,SLOT(ScrollPageDown()));
-	kKeys->connectFunction("KaraokeWindow","Scroll page up karaoke",kdispt,SLOT(ScrollPageUp()));
 
-	timer4timebar=new QTimer(this);	
+        timer4timebar=new QTimer(this);	
 	connect (timer4timebar,SIGNAL(timeout()),this,SLOT(timebarUpdate()));
 	timer4events=new QTimer(this);	
 	connect (timer4events,SIGNAL(timeout()),this,SLOT(processSpecialEvent()));

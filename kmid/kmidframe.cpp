@@ -39,7 +39,9 @@
 #include <kurl.h>
 #include <drag.h>
 #include <kfontdialog.h>
-#include <kkeyconf.h>
+//#include <kkeyconf.h>
+#include <kaccel.h>
+#include <kkeydialog.h>
 #include "midicfgdlg.h"
 #include "collectdlg.h"
 #include "channelcfgdlg.h"
@@ -49,259 +51,292 @@
 
 
 kmidFrame::kmidFrame(const char *name)
-	:KTopLevelWidget(name)
+    :KTopLevelWidget(name)
 {
-	kmidclient=new kmidClient(this,"KMidClient");
-	kmidclient->songType(1);
-	kmidclient->show();
-	setView(kmidclient,FALSE);
+    kmidclient=new kmidClient(this,"KMidClient");
+    kmidclient->songType(1);
+    kmidclient->show();
+    setView(kmidclient,FALSE);
+    
+    donttoggle=FALSE;
+    
+    kKeysAccel=new KAccel(this);
+    kKeysAccel->insertItem(i18n("Play/Pause"),"Play/Pause", Key_Space);
+    kKeysAccel->connectItem("Play/Pause", this, SLOT(spacePressed()));
+    kKeysAccel->insertItem(i18n("Stop"),"Stop", Key_Backspace);
+    kKeysAccel->connectItem("Stop",kmidclient,SLOT(song_Stop()));
+    kKeysAccel->insertItem(i18n("Previous Song"),"Previous Song", Key_Left);
+    kKeysAccel->connectItem("Previous Song",kmidclient,SLOT(song_PlayPrevSong()));
+    kKeysAccel->insertItem(i18n("Next Song"),"Next Song", Key_Right);
+    kKeysAccel->connectItem("Next Song",kmidclient,SLOT(song_PlayNextSong()));
+    kKeysAccel->insertItem(i18n("See &Text events"),"See Text events",Key_1);
+    kKeysAccel->connectItem("See Text events",this,SLOT(options_Text()));
+    kKeysAccel->insertItem(i18n("See &Lyrics events"),"See Lyrics events",Key_2);
+    kKeysAccel->connectItem("See Lyrics events",this,SLOT(options_Lyrics()));
+    kKeysAccel->insertItem(i18n("Scroll down karaoke"),"Scroll down karaoke",Key_Down);
+    kKeysAccel->connectItem("Scroll down karaoke",kmidclient->getKDisplayText(),SLOT(ScrollDown()));
+    kKeysAccel->insertItem(i18n("Scroll up karaoke"),"Scroll up karaoke",Key_Up);
+    kKeysAccel->connectItem("Scroll up karaoke",kmidclient->getKDisplayText(),SLOT(ScrollUp()));
+    kKeysAccel->insertItem(i18n("Scroll page down karaoke"),"Scroll page down karaoke",Key_PageDown);
+    kKeysAccel->connectItem("Scroll page down karaoke",kmidclient->getKDisplayText(),SLOT(ScrollPageDown()));
+    kKeysAccel->insertItem(i18n("Scroll page up karaoke"),"Scroll page up karaoke",Key_PageUp);
+    kKeysAccel->connectItem("Scroll page up karaoke",kmidclient->getKDisplayText(),SLOT(ScrollPageUp()));
 
-        donttoggle=FALSE;
+    kKeysAccel->readSettings();
+
+    m_file = new QPopupMenu;
+    m_file->insertItem( i18n("&Open ..."), this, 
+                        SLOT(file_Open()), CTRL+Key_O );
+    m_file->insertSeparator();
+    m_file->insertItem( i18n("&Save Lyrics ..."), this, 
+                        SLOT(file_SaveLyrics()) );
+    m_file->insertSeparator();
+    m_file->insertItem( i18n("&Quit"), qApp, SLOT(quit()), CTRL+Key_Q );
+    m_song = new QPopupMenu;
+    m_song->setCheckable(TRUE);
+    m_song->insertItem( i18n("&Play"), kmidclient, 
+                        SLOT(song_Play()) /*, Key_Space*/ );
+    kKeysAccel->changeMenuAccel(m_song,0,"Play/Pause");
+    m_song->insertItem( i18n("P&ause"), this, SLOT(song_Pause()) );
+    m_song->insertItem( i18n("&Stop"), kmidclient, SLOT(song_Stop()) ,
+                        kKeysAccel->currentKey("Stop"));
+    m_song->insertSeparator();
+    m_song->insertItem( i18n("P&revious Song"), kmidclient, 
+                        SLOT(song_PlayPrevSong()) , kKeysAccel->currentKey("Previous Song"));
+    m_song->insertItem( i18n("&Next Song"), kmidclient, 
+                        SLOT(song_PlayNextSong()) , kKeysAccel->currentKey("Next Song"));
+    m_song->insertSeparator();
+    m_song->insertItem( i18n("&Loop"), this, SLOT(song_Loop()) );
+    m_song->setId(7,7);
+    m_song->setItemChecked(7,FALSE);
+    
+    m_collections = new QPopupMenu;
+    m_collections->setCheckable(TRUE);
+    m_collections->insertItem( i18n("&Organize ..."), this, SLOT(collect_organize()));
+    m_collections->setId(0,0);
+    m_collections->insertSeparator();
+    m_collections->insertItem( i18n("In order mode"), this, SLOT(collect_inOrder()));
+    m_collections->setId(2,2);
+    m_collections->setItemChecked(2,TRUE);
+    m_collections->insertItem( i18n("Shuffle mode"), this, SLOT(collect_shuffle()));
+    m_collections->setId(3,3);
+    m_collections->setItemChecked(3,FALSE);
+    m_collections->insertSeparator();
+    m_collections->insertItem( i18n("AutoAdd to Collection"), this, SLOT(collect_autoadd()));
+    m_collections->setId(5,5);
+    m_collections->setItemChecked(5,FALSE);
+    
+    m_options = new QPopupMenu;
+    m_options->setCheckable(TRUE);
+    m_options->insertItem( i18n("&General Midi file"), this, 
+                           SLOT(options_GM()) );
+    m_options->setId(0,0);
+    m_options->setItemChecked(0,TRUE);
+    m_options->insertItem( i18n("&MT-32 file"), this, 
+                           SLOT(options_MT32()) );
+    m_options->setId(1,1);
+    m_options->setItemChecked(1,FALSE);
+    m_options->insertSeparator();
+    m_options->insertItem( i18n("See &Text events"), this, 
+                           SLOT(options_Text()),kKeysAccel->currentKey("See Text Events") );
+    m_options->setId(3,3);
+    m_options->setItemChecked(3,TRUE);
+    kKeysAccel->changeMenuAccel(m_options,3,"See Text events");
+
+    m_options->insertItem( i18n("See &Lyrics events"), this, 
+                           SLOT(options_Lyrics()),kKeysAccel->currentKey("See Lyrics Events") );
+    m_options->setId(4,4);
+    m_options->setItemChecked(4,FALSE);
+    kKeysAccel->changeMenuAccel(m_options,4,"See Lyrics events");
+    
+    m_options->insertItem( i18n("&Automatic Text chooser"), this, 
+                           SLOT(options_AutomaticText()) );
+    m_options->setId(5,5);
+    m_options->setItemChecked(5,TRUE);
+    m_options->insertSeparator();
+    
+    m_options->insertItem( i18n("Show &Volume Bar"), this,
+                           SLOT(options_ShowVolumeBar()) );
+    m_options->setId(7,7);
+    m_options->setItemChecked(7,FALSE);
+    
+    m_options->insertItem( i18n("Show &Channel View"), this,
+                           SLOT(options_ShowChannelView()) );
+    m_options->setId(8,8);
+    m_options->setItemChecked(8,FALSE);
+    
+    m_options->insertItem( i18n("Channel View &Options"), this,
+                           SLOT(options_ChannelViewOptions()) );
+    
+    m_options->insertSeparator();
+    m_options->insertItem( i18n("&Font Change ...") , this, 
+                           SLOT(options_FontChange()));
+    m_options->insertItem( i18n("Configure &Keys ...") , this,
+                           SLOT(options_KeyConfig()));
+    m_options->insertSeparator();
+    m_options->insertItem( i18n("Midi &Setup ...") , this,
+                           SLOT(options_MidiSetup()));
+    
+    char aboutstring[500];
+    sprintf(aboutstring,
+            i18n("%s\n\n" \
+                 "(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n" \
+                 "Malaga (Spain)\n\n" \
+                 "Midi/Karaoke file player\n\n" \
+                 "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n" \
+                 "This is free software, and you are welcome to redistribute it\n" \
+                 "under certain conditions\n"), VERSION_TXT );
+    m_help = (KApplication::getKApplication())->getHelpMenu(true, aboutstring);
+    
+    menu = new KMenuBar(this);
+    menu->insertItem(i18n("&File"),m_file);
+    menu->insertItem(i18n("&Song"),m_song);
+    menu->insertItem(i18n("&Collections"),m_collections);
+    menu->insertItem(i18n("&Options"),m_options);
+    menu->insertSeparator();
+    menu->insertItem(i18n("&Help"),m_help);
+    menu->show();
+    setMenu(menu);
+    
+    toolbar=new KToolBar(this);
+    
+    toolbar->insertButton(Icon("kmid_prev.xpm"),1,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Previous Song"));
+    toolbar->insertButton(Icon("kmid_frewind.xpm"),2,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Rewind"));
+    toolbar->insertButton(Icon("kmid_stop.xpm"),3,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Stop"));
+    toolbar->insertButton(Icon("kmid_pause.xpm"),4,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Pause"));
+    toolbar->setToggle(4,TRUE);
+    toolbar->insertButton(Icon("kmid_play.xpm"),5,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Play"));
+    toolbar->insertButton(Icon("kmid_fforward.xpm"),6,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Forward"));
+    toolbar->insertButton(Icon("kmid_next.xpm"),7,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Next Song"));
+    
+    toolbar->insertSeparator();
+    
+    toolbar->insertButton(Icon("kmid_chn.xpm"),8,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Show Channel View"));
+    toolbar->setToggle(8,TRUE);
+    
+    toolbar->insertButton(Icon("kmid_volume.xpm"),9,
+                          SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+                          i18n("Show Volume Bar"));
+    toolbar->setToggle(9,TRUE);
+    
+    addToolBar(toolbar);
+    
+    KConfig *kcfg=(KApplication::getKApplication())->getConfig();
+    kcfg->setGroup("KMid");
+    if (kcfg->readNumEntry("TypeOfTextEvents",5)==5)
+        options_Lyrics();
+    else
+        options_Text();
+    if (kcfg->readNumEntry("TypeOfMidiFile",0)==0)
+        options_GM();
+    else
+        options_MT32();
+    if ((kcfg->readNumEntry("Loop",0))==0)
+    {
+        m_song->setItemChecked(7,FALSE);
+        kmidclient->setSongLoop(0);
+    }
+    else
+    {
+        m_song->setItemChecked(7,TRUE);
+        kmidclient->setSongLoop(1);
+    };
+    if (kcfg->readNumEntry("ShowVolumeBar",0)==1)
+    {
+        m_options->setItemChecked(7,TRUE);
+        kmidclient->visibleVolumeBar(1);
+        toolbar->toggleButton(9);
+    };
+    
+    if (kcfg->readNumEntry("CollectionPlayMode",0)==0)
+        collect_inOrder();
+    else
+        collect_shuffle();
+    
+    m_collections->setItemChecked(5,
+                                  (kcfg->readNumEntry("AutoAddToCollection",0)==1)? TRUE :FALSE);
+    m_options->setItemChecked(5,
+                              (kcfg->readNumEntry("AutomaticTextEventChooser",1)==1)?TRUE:FALSE);
+    
+    KDNDDropZone * dropZone = new KDNDDropZone( this , DndURL);
+    connect( dropZone, SIGNAL( dropAction( KDNDDropZone *) ),
+             this, SLOT( slotDropEvent( KDNDDropZone *) ) );
+    
+    connect( kmidclient, SIGNAL( mustRechooseTextEvent() ),
+             this, SLOT( rechooseTextEvent() ) );
+    
+    connect( kmidclient, SIGNAL( song_stopPause() ),
+             this, SLOT( song_stopPause() ) );
+    
+    connect( kmidclient, SIGNAL( channelView_Destroyed() ),
+             this, SLOT( channelViewDestroyed() ) );
+    
+    if ((kapp->argc()>1)&&(kapp->argv()[1][0]!='-'))
+    {
+        printf("Opening command line file...\n");
+        int backautoadd=kcfg->readNumEntry("AutoAddToCollection",0);
+        kcfg->writeEntry("AutoAddToCollection",0);
         
-	m_file = new QPopupMenu;
-	m_file->insertItem( i18n("&Open ..."), this, 
-						SLOT(file_Open()), CTRL+Key_O );
-	m_file->insertSeparator();
-	m_file->insertItem( i18n("&Save Lyrics ..."), this, 
-						SLOT(file_SaveLyrics()) );
-	m_file->insertSeparator();
-	m_file->insertItem( i18n("&Quit"), qApp, SLOT(quit()), CTRL+Key_Q );
-	m_song = new QPopupMenu;
-	m_song->setCheckable(TRUE);
-	m_song->insertItem( i18n("&Play"), kmidclient, 
-					SLOT(song_Play()) /*, Key_Space*/ );
-	m_song->insertItem( i18n("P&ause"), this, SLOT(song_Pause()) );
-	m_song->insertItem( i18n("&Stop"), kmidclient, SLOT(song_Stop()) ,
-								Key_Backspace);
-	m_song->insertSeparator();
-	m_song->insertItem( i18n("P&revious Song"), kmidclient, 
-		SLOT(song_PlayPrevSong()) , Key_Left);
-	m_song->insertItem( i18n("&Next Song"), kmidclient, 
-		SLOT(song_PlayNextSong()) , Key_Right);
-	m_song->insertSeparator();
-	m_song->insertItem( i18n("&Loop"), this, SLOT(song_Loop()) );
-	m_song->setId(7,7);
-	m_song->setItemChecked(7,FALSE);
-
-	m_collections = new QPopupMenu;
-	m_collections->setCheckable(TRUE);
-	m_collections->insertItem( i18n("&Organize ..."), this, SLOT(collect_organize()));
-	m_collections->setId(0,0);
-	m_collections->insertSeparator();
-	m_collections->insertItem( i18n("In order mode"), this, SLOT(collect_inOrder()));
-	m_collections->setId(2,2);
-	m_collections->setItemChecked(2,TRUE);
-	m_collections->insertItem( i18n("Shuffle mode"), this, SLOT(collect_shuffle()));
-	m_collections->setId(3,3);
-	m_collections->setItemChecked(3,FALSE);
-	m_collections->insertSeparator();
-	m_collections->insertItem( i18n("AutoAdd to Collection"), this, SLOT(collect_autoadd()));
-	m_collections->setId(5,5);
-	m_collections->setItemChecked(5,FALSE);
-
-	m_options = new QPopupMenu;
-	m_options->setCheckable(TRUE);
-	m_options->insertItem( i18n("&General Midi file"), this, 
-					SLOT(options_GM()) );
-	m_options->setId(0,0);
-	m_options->setItemChecked(0,TRUE);
-	m_options->insertItem( i18n("&MT-32 file"), this, 
-					SLOT(options_MT32()) );
-	m_options->setId(1,1);
-	m_options->setItemChecked(1,FALSE);
-	m_options->insertSeparator();
-	m_options->insertItem( i18n("See &Text events"), this, 
-					SLOT(options_Text()),Key_1 );
-	m_options->setId(3,3);
-	m_options->setItemChecked(3,TRUE);
-	m_options->insertItem( i18n("See &Lyrics events"), this, 
-					SLOT(options_Lyrics()) , Key_2);
-	m_options->setId(4,4);
-	m_options->setItemChecked(4,FALSE);
-
-	m_options->insertItem( i18n("&Automatic Text chooser"), this, 
-					SLOT(options_AutomaticText()) );
-	m_options->setId(5,5);
-	m_options->setItemChecked(5,TRUE);
-	m_options->insertSeparator();
-
-	m_options->insertItem( i18n("Show &Volume Bar"), this,
-					SLOT(options_ShowVolumeBar()) );
-	m_options->setId(7,7);
-	m_options->setItemChecked(7,FALSE);
-
-        m_options->insertItem( i18n("Show &Channel View"), this,
-					SLOT(options_ShowChannelView()) );
-	m_options->setId(8,8);
-	m_options->setItemChecked(8,FALSE);
-
-        m_options->insertItem( i18n("Channel View &Options"), this,
-					SLOT(options_ChannelViewOptions()) );
-
-        m_options->insertSeparator();
-	m_options->insertItem( i18n("&Font Change ...") , this, 
-					SLOT(options_FontChange()));
-	m_options->insertSeparator();
-	m_options->insertItem( i18n("Midi &Setup ...") , this,
-					SLOT(options_MidiSetup()));
-
-	char aboutstring[500];
-	sprintf(aboutstring,
-   i18n("%s\n\n" \
-   "(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n" \
-   "Malaga (Spain)\n\n" \
-   "Midi/Karaoke file player\n\n" \
-   "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n" \
-   "This is free software, and you are welcome to redistribute it\n" \
-   "under certain conditions\n"), VERSION_TXT );
-	m_help = (KApplication::getKApplication())->getHelpMenu(true, aboutstring);
-
-	menu = new KMenuBar(this);
-	menu->insertItem(i18n("&File"),m_file);
-	menu->insertItem(i18n("&Song"),m_song);
-	menu->insertItem(i18n("&Collections"),m_collections);
-	menu->insertItem(i18n("&Options"),m_options);
-	menu->insertSeparator();
-	menu->insertItem(i18n("&Help"),m_help);
-	menu->show();
-	setMenu(menu);
-
-	toolbar=new KToolBar(this);
-
-	toolbar->insertButton(Icon("kmid_prev.xpm"),1,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Previous Song"));
-	toolbar->insertButton(Icon("kmid_frewind.xpm"),2,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Rewind"));
-	toolbar->insertButton(Icon("kmid_stop.xpm"),3,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Stop"));
-	toolbar->insertButton(Icon("kmid_pause.xpm"),4,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Pause"));
-	toolbar->setToggle(4,TRUE);
-	toolbar->insertButton(Icon("kmid_play.xpm"),5,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Play"));
-	toolbar->insertButton(Icon("kmid_fforward.xpm"),6,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Forward"));
-	toolbar->insertButton(Icon("kmid_next.xpm"),7,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Next Song"));
-
-        toolbar->insertSeparator();
-
-        toolbar->insertButton(Icon("kmid_chn.xpm"),8,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Show Channel View"));
-	toolbar->setToggle(8,TRUE);
-
-        toolbar->insertButton(Icon("kmid_volume.xpm"),9,
-		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
-		i18n("Show Volume Bar"));
-	toolbar->setToggle(9,TRUE);
-
-	addToolBar(toolbar);
-
-	KConfig *kcfg=(KApplication::getKApplication())->getConfig();
-	kcfg->setGroup("KMid");
-	if (kcfg->readNumEntry("TypeOfTextEvents",5)==5)
-		options_Lyrics();
-	    else
-		options_Text();
-	if (kcfg->readNumEntry("TypeOfMidiFile",0)==0)
-		options_GM();
-	    else
-		options_MT32();
-        if ((kcfg->readNumEntry("Loop",0))==0)
-		{
-		m_song->setItemChecked(7,FALSE);
-		kmidclient->setSongLoop(0);
-		}
-	   else
-		{
-		m_song->setItemChecked(7,TRUE);
-		kmidclient->setSongLoop(1);
-		};
-	if (kcfg->readNumEntry("ShowVolumeBar",0)==1)
-            {
-            m_options->setItemChecked(7,TRUE);
-            kmidclient->visibleVolumeBar(1);
-            toolbar->toggleButton(9);
-            };
-
-        if (kcfg->readNumEntry("CollectionPlayMode",0)==0)
-		collect_inOrder();
-	    else
-		collect_shuffle();
-
-	m_collections->setItemChecked(5,
-	    (kcfg->readNumEntry("AutoAddToCollection",0)==1)? TRUE :FALSE);
-	m_options->setItemChecked(5,
-	    (kcfg->readNumEntry("AutomaticTextEventChooser",1)==1)?TRUE:FALSE);
-
-	KDNDDropZone * dropZone = new KDNDDropZone( this , DndURL);
-	connect( dropZone, SIGNAL( dropAction( KDNDDropZone *) ),
-		this, SLOT( slotDropEvent( KDNDDropZone *) ) );
-
-	connect( kmidclient, SIGNAL( mustRechooseTextEvent() ),
-		this, SLOT( rechooseTextEvent() ) );
-
-	connect( kmidclient, SIGNAL( song_stopPause() ),
-		this, SLOT( song_stopPause() ) );
-
-        connect( kmidclient, SIGNAL( channelView_Destroyed() ),
-		this, SLOT( channelViewDestroyed() ) );
-
-        if ((kapp->argc()>1)&&(kapp->argv()[1][0]!='-'))
-            {
-	    printf("Opening command line file...\n");
-	    int backautoadd=kcfg->readNumEntry("AutoAddToCollection",0);
-	    kcfg->writeEntry("AutoAddToCollection",0);
-
-            char ttt[40];
-            sprintf(ttt,"%d",kapp->argc());
-	    int i=1;
-	    int c=autoAddSongToCollection((kapp->argv())[i],1);
+        char ttt[40];
+        sprintf(ttt,"%d",kapp->argc());
+        int i=1;
+        int c=autoAddSongToCollection((kapp->argv())[i],1);
+        i++;
+        while (i<kapp->argc()) 
+        {
+            autoAddSongToCollection((kapp->argv())[i],0);
             i++;
-	    while (i<kapp->argc()) 
-		{
-                autoAddSongToCollection((kapp->argv())[i],0);
-		i++;
-		};
-
-	    kmidclient->setActiveCollection(c);
-
-///	    kmidclient->openURL((kapp->argv())[1]);
-/*	    if ((kcfg->readNumEntry("AutomaticTextEventChooser",1))==1)
-	      {
-	      if (kmidclient->ChooseTypeOfTextEvents()==1)
-	            options_Text();
-	          else
-	            options_Lyrics();
-	      }*/
-            if (kmidclient->midiFileName()!=NULL) kmidclient->song_Play();
-	    kcfg->writeEntry("AutoAddToCollection",backautoadd);
-            };
-
-	kKeys->addKey("Play/Pause",Key_Space);
-	kKeys->registerWidget("KMidFrame",this);
-	kKeys->connectFunction("KMidFrame","Play/Pause",this,SLOT(spacePressed()));
+        };
+        
+        kmidclient->setActiveCollection(c);
+        
+        ///	    kmidclient->openURL((kapp->argv())[1]);
+        /*	    if ((kcfg->readNumEntry("AutomaticTextEventChooser",1))==1)
+         {
+         if (kmidclient->ChooseTypeOfTextEvents()==1)
+         options_Text();
+         else
+         options_Lyrics();
+         }*/
+        if (kmidclient->midiFileName()!=NULL) kmidclient->song_Play();
+        kcfg->writeEntry("AutoAddToCollection",backautoadd);
+    };
+        /*
+         kKeys->addKey("Play/Pause",Key_Space);
+         kKeys->registerWidget("KMidFrame",this);
+         kKeys->connectFunction("KMidFrame","Play/Pause",this,SLOT(spacePressed()));
+         */
+    kKeysAccel->writeSettings(kcfg);
 };
 
 kmidFrame::~kmidFrame()
 {
-delete kmidclient;
-
-delete m_file;
-delete m_song;
-delete m_options;
-delete m_help;
-delete menu;
-delete toolbar;
-
+    delete kmidclient;
+    
+    delete m_file;
+    delete m_song;
+    delete m_options;
+    delete m_help;
+    delete menu;
+    delete toolbar;
+    
+    delete kKeysAccel;
 };
 
 void kmidFrame::file_Open()
@@ -692,4 +727,9 @@ void kmidFrame::options_ChannelViewOptions()
     {
         kmidclient->getChannelView()->lookMode(ChannelViewConfigDialog::selectedmode);
     };
+};
+
+void kmidFrame::options_KeyConfig()
+{
+    KKeyDialog::configureKeys( kKeysAccel );
 };

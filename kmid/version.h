@@ -24,7 +24,7 @@
 // is, you will see the letter changing of colors, but no music. Really, you
 // would get music if it is possible, but by defining this, many synchronization
 // routines will be turned off.
-//#define MODE_DEMO_ONLYVISUAL
+#define MODE_DEMO_ONLYVISUAL
 
 
 // And now, DEBUG messages :
