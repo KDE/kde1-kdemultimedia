@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8\n"
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: 1999-03-04 23:30+0100\n"
 "Last-Translator: Francois-Xavier DURANCEAU "
 "<Francois-Xavier.Duranceau@loria.fr>\n"
@@ -18,27 +18,27 @@ msgstr ""
 msgid "CDDB Base Directory"
 msgstr "Répertoire de base CDDB :"
 
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "Envoyer les contributions CDDB à :"
 
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "Serveur CDDB :"
 
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "Actualiser"
 
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "Activer CDDB distante"
 
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "Défaut"
 
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "Utiliser un proxy HTTP pour accéder à CDDB"
 
@@ -199,51 +199,51 @@ msgstr "Configuration de kscd"
 msgid "LED Color:"
 msgstr "Couleur des LED :"
 
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "Couleur du fond :"
 
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "Périphérique CDROM :"
 
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Commande de mail :"
 
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "Navigateur WWW"
 
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "Utiliser kfm comme navigateur"
 
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "Utiliser un navigateur personnalisé :"
 
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "Afficher les bulles d'aide"
 
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "Activer l'insertion dans le panneau"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr "Lecture lors de la fermeture de la trappe"
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr "Insérer dans le panneau au lieu d'Icônifier"
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr "Arrêter la lecture à la sortie"
 
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 msgid "Eject on Finish"
 msgstr "Ejecter à la fin"
 

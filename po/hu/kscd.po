@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 1.1\n"
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: Tue Mar 2 1999 12:59:12+0100\n"
 "Last-Translator: Marcell Lengyel <miketkf@yahoo.com>\n"
 "Language-Team: Hungarian <hu@li.org>\n"
@@ -20,27 +20,27 @@ msgstr ""
 msgid "CDDB Base Directory"
 msgstr "CDDB Kiinduló Könyvtár"
 
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "CDDB küldemények fogadója:"
 
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "CDDB kiszolgáló:"
 
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "Frissít"
 
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "Távoli CDDB Engedélyezés"
 
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "Alapértékek"
 
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "CDDB elérés HTTP proxy-n keresztül"
 
@@ -201,51 +201,51 @@ msgstr "Kscd konfigurálás"
 msgid "LED Color:"
 msgstr "LED színe:"
 
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "Háttér szín:"
 
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "CDROM Eszköz:"
 
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Unix mail parancs:"
 
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "WWW-Böngészõ"
 
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "Használja kfm-et böngészéshez"
 
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "Használjon más böngészõt:"
 
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "Mutassa a tippeket"
 
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "KPanelbe dokkolás engedélyezés"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr "Lejátszás a tálca becsukásakor"
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr "Minimalizáláskor autómatikus dokkolás"
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr "Lejátszás megáll kilépéskor"
 
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 msgid "Eject on Finish"
 msgstr "Lökje ki a lemezt, ha vége van"
 

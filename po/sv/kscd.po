@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscs revision 1.4\n"
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: 1998-08-26 16:53+SET\n"
 "Last-Translator: Christer Gustavsson <f93-cgn@sm.luth.se>\n"
 "Language-Team: Swedish <LL@li.org>\n"
@@ -15,32 +15,32 @@ msgid "CDDB Base Directory"
 msgstr "CDDB Baskatalog"
 
 # CDDBSetupData.cpp:62
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "Sänd CDDB bidrag till:"
 
 # CDDBSetupData.cpp:82
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "CDDB server:"
 
 # CDDBSetupData.cpp:90
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "Uppdatera"
 
 # CDDBSetupData.cpp:108
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "Använd CDDB"
 
 # CDDBSetupData.cpp:116
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "Standardvärden"
 
 # CDDBSetupData.cpp:133
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "Använd HTTP-proxy för att komma åt CDDB"
 
@@ -231,59 +231,59 @@ msgid "LED Color:"
 msgstr "LED-färg:"
 
 # configdlg.cpp:82
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "Bakgrunds färger:"
 
 # configdlg.cpp:101
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "CDROM-enhet:"
 
 # configdlg.cpp:118
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Unix postkommando:"
 
 # configdlg.cpp:126
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "WWW-bläddrare"
 
 # configdlg.cpp:129
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "Använd kfm som bläddrare"
 
 # configdlg.cpp:136
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "Använd egen bläddrare:"
 
 # configdlg.cpp:148
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "Visa verktydstips"
 
 # configdlg.cpp:154
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "Aktivera KPanel-dockning"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr ""
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr ""
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr ""
 
 # kscd.cpp:796
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 msgid "Eject on Finish"
 msgstr "Mata ut vid avslut"
 

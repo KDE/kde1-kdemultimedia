@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd \n"
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: 1999-01-14 23:48+0100\n"
 "Last-Translator: Piotr Roszatycki <dexter@fnet.pl>\n"
 "Content-Type: text/plain; charset=iso-8859-2\n"
@@ -10,27 +10,27 @@ msgstr ""
 msgid "CDDB Base Directory"
 msgstr "Katalog CDDB"
 
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "Wysy³aj zapytania CDDB do:"
 
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "Serwer CDDB:"
 
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "Uaktualnij"
 
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "W³±cz zdalny CDDB"
 
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "Domy¶lne"
 
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "U¿yj HTTP proxy do po³±czeñ CDDB"
 
@@ -191,51 +191,51 @@ msgstr "Konfiguruj kscd"
 msgid "LED Color:"
 msgstr "Kolor LED:"
 
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "Kolor t³a:"
 
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "Urz±dzenie CDROM:"
 
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Polecenie dla poczty:"
 
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "Przegl±darka WWW"
 
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "U¿yj kfm jako przegl±darki"
 
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "U¿yj dowolnej przegl±darki:"
 
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "Pokazuj podpowiedzi"
 
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "W³±cz dokowanie"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr "Automatycznie odtwarzaj"
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr "Dokuj przy minizalizacji"
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr "Zatrzymaj po wyj¶ciu"
 
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 msgid "Eject on Finish"
 msgstr "Wyrzuæ na koniec"
 

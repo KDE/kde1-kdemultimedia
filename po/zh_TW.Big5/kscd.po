@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yu-Ting Kuo <Beta2000@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,32 +20,32 @@ msgid "CDDB Base Directory"
 msgstr "CDDB 主目錄"
 
 # CDDBSetupData.cpp:62
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "將 CDDB 的資料送到:"
 
 # CDDBSetupData.cpp:82
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "CDDB 伺服器:"
 
 # CDDBSetupData.cpp:90
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "更新"
 
 # CDDBSetupData.cpp:108
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "允許\遠端的 CDDB"
 
 # CDDBSetupData.cpp:116
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "內定"
 
 # CDDBSetupData.cpp:133
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "用 HTTP 來連線到 CDDB"
 
@@ -235,59 +235,59 @@ msgid "LED Color:"
 msgstr "LED 顏色:"
 
 # configdlg.cpp:82
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "背景顏色:"
 
 # configdlg.cpp:101
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "CDROM 裝置:"
 
 # configdlg.cpp:118
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Unix 中信件的指令:"
 
 # configdlg.cpp:126
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "WWW 瀏覽器"
 
 # configdlg.cpp:129
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "用 kfm 來當瀏覽器"
 
 # configdlg.cpp:136
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "使用自定的瀏覽器:"
 
 # configdlg.cpp:148
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "顯示提示"
 
 # configdlg.cpp:154
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "允許\ KPanel 自動排列"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr ""
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr ""
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr ""
 
 # kscd.cpp:796
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 #, fuzzy
 msgid "Eject on Finish"
 msgstr "退出中"

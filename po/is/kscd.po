@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1999-03-18 02:52+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: 1999-01-03 13:12+0100\n"
 "Last-Translator: Logi Ragnarsson <logir@hi.is>\n"
 "Language-Team: is\n"
@@ -12,27 +12,27 @@ msgstr ""
 msgid "CDDB Base Directory"
 msgstr "Grunnmappa fyrir CDDB"
 
-#: CDDBSetupData.cpp:62
+#: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
 msgstr "Senda CDDB færslur til:"
 
-#: CDDBSetupData.cpp:82
+#: CDDBSetupData.cpp:84
 msgid "CDDB server:"
 msgstr "CDDB þjónn:"
 
-#: CDDBSetupData.cpp:90
+#: CDDBSetupData.cpp:93
 msgid "Update"
 msgstr "Uppfæra"
 
-#: CDDBSetupData.cpp:112
+#: CDDBSetupData.cpp:115
 msgid "Enable Remote CDDB"
 msgstr "Nota CDDB yfir net"
 
-#: CDDBSetupData.cpp:120
+#: CDDBSetupData.cpp:124
 msgid "Defaults"
 msgstr "Sjálfgefin gildi"
 
-#: CDDBSetupData.cpp:137
+#: CDDBSetupData.cpp:141
 msgid "Use HTTP proxy to access CDDB"
 msgstr "Nota HTTP sel í samskiptum við CDDB þjón"
 
@@ -189,51 +189,51 @@ msgstr "Stilla kscd"
 msgid "LED Color:"
 msgstr "Skjálitur"
 
-#: configdlg.cpp:92
+#: configdlg.cpp:93
 msgid "Background Color:"
 msgstr "Bakgrunnslitur"
 
-#: configdlg.cpp:106
+#: configdlg.cpp:107
 msgid "CDROM Device:"
 msgstr "Geisladrif:"
 
-#: configdlg.cpp:123
+#: configdlg.cpp:124
 msgid "Unix mail command:"
 msgstr "Póstskipun:"
 
-#: configdlg.cpp:131
+#: configdlg.cpp:132
 msgid "WWW-Browser"
 msgstr "Vefflakkari"
 
-#: configdlg.cpp:134
+#: configdlg.cpp:135
 msgid "Use kfm as Browser"
 msgstr "Nota kfm sem vefflakara"
 
-#: configdlg.cpp:141
+#: configdlg.cpp:142
 msgid "Use Custom Browser:"
 msgstr "Nota annan vefflakkara"
 
-#: configdlg.cpp:153
+#: configdlg.cpp:154
 msgid "Show Tool Tips"
 msgstr "Sýna vísbendingar"
 
-#: configdlg.cpp:159
+#: configdlg.cpp:161
 msgid "Enable KPanel Docking"
 msgstr "Hleypa á spjaldið"
 
-#: configdlg.cpp:165
+#: configdlg.cpp:168
 msgid "Play on Tray Close"
 msgstr "Spila við lokun skúffu"
 
-#: configdlg.cpp:171
+#: configdlg.cpp:175
 msgid "AutoDock on Minimize"
 msgstr "Setja í spjald við lágmörkun"
 
-#: configdlg.cpp:178
+#: configdlg.cpp:183
 msgid "Stop Playing on Exit"
 msgstr "Lokun forrits stöðvar afspilun"
 
-#: configdlg.cpp:184
+#: configdlg.cpp:190
 msgid "Eject on Finish"
 msgstr "Spýti út"
 
