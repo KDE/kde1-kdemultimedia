@@ -1,4 +1,4 @@
-#ifdef linux
+#ifdef __linux__
 
 #define SYMBOLSWIDTH 586
 #define SYMBOLSHEIGHT 50

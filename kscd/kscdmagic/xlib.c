@@ -23,7 +23,7 @@
  */
 
 
-#ifdef linux
+#ifdef __linux__
 
 
 #define X11_DRIVER

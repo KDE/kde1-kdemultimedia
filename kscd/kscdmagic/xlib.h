@@ -20,7 +20,7 @@
  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
 
-#ifdef linux
+#ifdef __linux__
 
 #include "magicconf.h"
 

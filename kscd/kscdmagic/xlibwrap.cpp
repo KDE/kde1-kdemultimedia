@@ -23,7 +23,7 @@
 */
 
 
-#ifdef linux
+#ifdef __linux__
 
 #include <string.h>
 

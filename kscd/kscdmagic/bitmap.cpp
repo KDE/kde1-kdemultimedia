@@ -33,7 +33,7 @@ void bitmapPut(
   int srcX,int srcY,int destX, int destY, int width,int height) {
 */
 
-#ifdef linux
+#ifdef __linux__
 
 #include "bitmap.h"
 #include "symbol.h"

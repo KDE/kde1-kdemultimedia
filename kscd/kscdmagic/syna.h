@@ -31,7 +31,7 @@
 #ifndef __SYNA_H__
 #define __SYNA_H__
 
-#ifdef linux
+#ifdef __linux__
 
 #include "magicconf.h"
 

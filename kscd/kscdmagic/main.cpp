@@ -29,7 +29,7 @@
 
 */
 
-#ifdef linux 
+#ifdef __linux__
 
 #include <stdlib.h>      
 #include <signal.h>
@@ -44,8 +44,6 @@
 
 #include "magicconf.h"
 #include "syna.h"
-#include "alphabet.h"
-
 
 volatile short *data;
 unsigned char *output;
