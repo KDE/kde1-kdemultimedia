@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,33 +14,279 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: CDDBSetupData.cpp:44
-msgid "CDDB Base Directory"
-msgstr "CDDB-juurihakemisto"
+#: kscd.cpp:330
+msgid "Vol: --"
+msgstr "Ään: --"
 
-#: CDDBSetupData.cpp:62
-msgid "Send CDDB submissions to:"
-msgstr "Lähetä CDDB-tietueet:"
+#: kscd.cpp:475
+msgid "Performances"
+msgstr "Esitykset"
 
-#: CDDBSetupData.cpp:82
-msgid "CDDB server:"
-msgstr "CDDB-palvelin:"
+#: kscd.cpp:478
+msgid "Purchases"
+msgstr "Ostopaikat"
 
-#: CDDBSetupData.cpp:90
-msgid "Update"
-msgstr "Päivitä"
+#: kscd.cpp:485
+msgid "KSCD Magic"
+msgstr "KSCD Magic"
 
-#: CDDBSetupData.cpp:108
-msgid "Enable Remote CDDB"
-msgstr "Salli etä-CDDB"
+#: docking.cpp:72 kscd.cpp:509
+msgid "Play/Pause"
+msgstr "Soita/Paussi"
 
-#: CDDBSetupData.cpp:116
-msgid "Defaults"
-msgstr "Oletukset"
+#: kscd.cpp:511
+msgid "Loop CD"
+msgstr "Toista CD:tä"
 
-#: CDDBSetupData.cpp:133
-msgid "Use HTTP proxy to access CDDB"
-msgstr "Käytä HTTP-proxyä CDDB:n kanssa"
+#: kscd.cpp:512
+msgid "Track Selection"
+msgstr "Kappaleen valinta"
+
+#: kscd.cpp:513
+msgid "30 Secs Forward"
+msgstr "30 sekuntia eteen"
+
+#: kscd.cpp:514
+msgid "30 Secs Backward"
+msgstr "30 sekuntia taakse"
+
+#: kscd.cpp:515
+msgid "Next Track"
+msgstr "Seuraava kappale"
+
+#: kscd.cpp:516
+msgid "Previous Track"
+msgstr "Edellinen kappale"
+
+#: kscd.cpp:517
+msgid "Exit Kscd"
+msgstr "Lopeta Kscd"
+
+#: kscd.cpp:518
+msgid "Cycle Time Display"
+msgstr "Aikanäyttö"
+
+#: kscd.cpp:519
+msgid "Configure Kscd"
+msgstr "Aseta Kscd:tä"
+
+#: kscd.cpp:520
+msgid "Eject CD"
+msgstr "Poista CD"
+
+#: kscd.cpp:521
+msgid "The Artist on the Web"
+msgstr "Artisti verkossa"
+
+#: kscd.cpp:522
+msgid "Random Play"
+msgstr "Satunnainen soitto"
+
+#: kscd.cpp:523
+msgid "CDDB Dialog"
+msgstr "CDDB-Valintaikkuna"
+
+#: kscd.cpp:524
+msgid "CD Volume Control"
+msgstr "CD äänenvoimakkuus"
+
+#: kscd.cpp:575 kscd.cpp:612 kscd.cpp:1130
+msgid "Playing"
+msgstr "Soitan"
+
+#: kscd.cpp:580 kscd.cpp:1138 kscd.cpp:1176
+#, c-format
+msgid "Track %02d"
+msgstr "Kappale %02d"
+
+#: kscd.cpp:604 kscd.cpp:1163
+msgid "Pause"
+msgstr "Paussi"
+
+#: kscd.cpp:609 kscd.cpp:830 kscd.cpp:1126
+msgid "Random"
+msgstr "Satunnainen"
+
+#: kscd.cpp:617
+msgid "Strange...."
+msgstr "Outo..."
+
+#: kscd.cpp:634
+msgid "Stopped"
+msgstr "Pysäytetty"
+
+#: kscd.cpp:796 kscd.cpp:1128
+msgid "Loop"
+msgstr "Silmukka"
+
+#: kscd.cpp:808
+msgid "Ejecting"
+msgstr "Poistan levyä"
+
+#: kscd.cpp:881
+msgid "kscd Configuraton"
+msgstr "kscd Asetukset"
+
+#: kscd.cpp:897
+msgid ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd  contains code from:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
+"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
+"\n"
+msgstr ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd sisältää koodia:\n"
+"workman 1.4 beta 3:ta\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Erikoiskiitokset: Ti Kan ja Steve Scherf, CDDB-tietokannan kehittämisestä. "
+"Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
+"\n"
+
+#: kscd.cpp:909
+msgid ""
+"KSCD Magic based on Synaesthesia by Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+msgstr ""
+"KSCD Magic pohjautuu Paul Harrisonin Synaesthesiaan  "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+
+#: kscd.cpp:913
+msgid ""
+"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+"for his work on the http proxy code.\n"
+msgstr ""
+"Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
+"hänen työstään proxy-koodin kanssa.\n"
+
+#: kscd.cpp:959
+msgid "Kscd Options"
+msgstr "Kscd optiot"
+
+#: kscd.cpp:960
+msgid "Kscd Magic"
+msgstr "Kscd Magic"
+
+#: kscd.cpp:1041 kscd.cpp:1834
+msgid "Vol: %02d%%"
+msgstr "Ään: %02d%%"
+
+#: kscd.cpp:1079
+#, c-format
+msgid ""
+"CDROM read or access error.\n"
+"Please make sure you have access permissions to:\n"
+"%s"
+msgstr ""
+"CDROM luku tai käyttövirhe.\n"
+"Varmista että sinulla on käyttöoikeudet laitteeseen:\n"
+"%s"
+
+#: kscd.cpp:1171
+msgid "Ready"
+msgstr "Valmis"
+
+#: kscd.cpp:1203
+msgid "Ejected"
+msgstr "Ei levyä"
+
+#: kscd.cpp:1459
+msgid "Unable to get CDDB server list."
+msgstr "En saa CDDB-palvelinlistaa."
+
+#: kscd.cpp:1581 kscd.cpp:1616
+msgid "No matching CDDB entry found."
+msgstr "Ei yhteensopivaa CDDB-tietuetta."
+
+#: kscd.cpp:1637
+msgid "CDDB query timed out."
+msgstr "CDDB-hakuaika loppui."
+
+#: kscd.cpp:1809
+msgid "Tra Rem"
+msgstr "Kap Jäl"
+
+#: kscd.cpp:1813
+msgid "Tot Sec"
+msgstr "Yht Sek"
+
+#: kscd.cpp:1817
+msgid "Tot Rem"
+msgstr "Yht Jäl"
+
+#: kscd.cpp:1822
+msgid "Tra Sec"
+msgstr "Kap Sek"
+
+#: kscd.cpp:1947
+msgid "Cannot start kscdmagic."
+msgstr "En saa käynnistettyä kscdmagic:a."
+
+#: kscd.cpp:1962
+msgid ""
+"KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr ""
+"KSCD Magic lopetti epänormaalisti.\n"
+"Oletko varma, että se on asennettu?"
+
+#: kscd.cpp:2143
+msgid "-h: display commandline options\n"
+msgstr "-h: näytä komentorivioptiot\n"
+
+#: kscd.cpp:2144
+msgid "-d: enable debugging output.\n"
+msgstr "-d: debuggaustiedot.\n"
+
+#: configdlg.cpp:61
+msgid "Configure kscd"
+msgstr "Aseta kscd:tä"
+
+#: configdlg.cpp:68
+msgid "LED Color:"
+msgstr "LED:n väri:"
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Taustaväri:"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "CDROM Laite:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Unix-postikomento:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr "WWW-selain"
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "Käytä kfm:ää selaimena"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Käytä omaa selainta:"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Näytä vihjeet"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "Käytä Kpaneliin upotusta"
 
 #: CDDialog.cpp:55
 msgid "CD Database Editor"
@@ -191,57 +437,37 @@ msgstr "Levyn ID"
 msgid "Upload"
 msgstr "Siirrä"
 
-#: configdlg.cpp:61
-msgid "Configure kscd"
-msgstr "Aseta kscd:tä"
+#: CDDBSetupData.cpp:44
+msgid "CDDB Base Directory"
+msgstr "CDDB-juurihakemisto"
 
-#: configdlg.cpp:68
-msgid "LED Color:"
-msgstr "LED:n väri:"
+#: CDDBSetupData.cpp:62
+msgid "Send CDDB submissions to:"
+msgstr "Lähetä CDDB-tietueet:"
 
-#: configdlg.cpp:82
-msgid "Background Color:"
-msgstr "Taustaväri:"
+#: CDDBSetupData.cpp:82
+msgid "CDDB server:"
+msgstr "CDDB-palvelin:"
 
-#: configdlg.cpp:101
-msgid "CDROM Device:"
-msgstr "CDROM Laite:"
+#: CDDBSetupData.cpp:90
+msgid "Update"
+msgstr "Päivitä"
 
-#: configdlg.cpp:118
-msgid "Unix mail command:"
-msgstr "Unix-postikomento:"
+#: CDDBSetupData.cpp:108
+msgid "Enable Remote CDDB"
+msgstr "Salli etä-CDDB"
 
-#: configdlg.cpp:126
-msgid "WWW-Browser"
-msgstr "WWW-selain"
+#: CDDBSetupData.cpp:116
+msgid "Defaults"
+msgstr "Oletukset"
 
-#: configdlg.cpp:129
-msgid "Use kfm as Browser"
-msgstr "Käytä kfm:ää selaimena"
-
-#: configdlg.cpp:136
-msgid "Use Custom Browser:"
-msgstr "Käytä omaa selainta:"
-
-#: configdlg.cpp:148
-msgid "Show Tool Tips"
-msgstr "Näytä vihjeet"
-
-#: configdlg.cpp:154
-msgid "Enable KPanel Docking"
-msgstr "Käytä Kpaneliin upotusta"
-
-#: docking.cpp:72 kscd.cpp:507
-msgid "Play/Pause"
-msgstr "Soita/Paussi"
+#: CDDBSetupData.cpp:133
+msgid "Use HTTP proxy to access CDDB"
+msgstr "Käytä HTTP-proxyä CDDB:n kanssa"
 
 #: docking.cpp:75
 msgid "Backward"
 msgstr "Taakse"
-
-#: docking.cpp:76
-msgid "Next"
-msgstr "Seuraava"
 
 #: docking.cpp:77
 msgid "Previous"
@@ -265,236 +491,6 @@ msgstr "Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevasta listasta."
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Valitse Levyn otsikko tai paina Peruuta"
 
-#: kscd.cpp:328
-msgid "Vol: --"
-msgstr "Ään: --"
-
-#: kscd.cpp:473
-msgid "Performances"
-msgstr "Esitykset"
-
-#: kscd.cpp:476
-msgid "Purchases"
-msgstr "Ostopaikat"
-
-#: kscd.cpp:483
-msgid "KSCD Magic"
-msgstr "KSCD Magic"
-
-#: kscd.cpp:509
-msgid "Loop CD"
-msgstr "Toista CD:tä"
-
-#: kscd.cpp:510
-msgid "Track Selection"
-msgstr "Kappaleen valinta"
-
-#: kscd.cpp:511
-msgid "30 Secs Forward"
-msgstr "30 sekuntia eteen"
-
-#: kscd.cpp:512
-msgid "30 Secs Backward"
-msgstr "30 sekuntia taakse"
-
-#: kscd.cpp:513
-msgid "Next Track"
-msgstr "Seuraava kappale"
-
-#: kscd.cpp:514
-msgid "Previous Track"
-msgstr "Edellinen kappale"
-
-#: kscd.cpp:515
-msgid "Exit Kscd"
-msgstr "Lopeta Kscd"
-
-#: kscd.cpp:516
-msgid "Cycle Time Display"
-msgstr "Aikanäyttö"
-
-#: kscd.cpp:517
-msgid "Configure Kscd"
-msgstr "Aseta Kscd:tä"
-
-#: kscd.cpp:518
-msgid "Eject CD"
-msgstr "Poista CD"
-
-#: kscd.cpp:519
-msgid "The Artist on the Web"
-msgstr "Artisti verkossa"
-
-#: kscd.cpp:520
-msgid "Random Play"
-msgstr "Satunnainen soitto"
-
-#: kscd.cpp:521
-msgid "CDDB Dialog"
-msgstr "CDDB-Valintaikkuna"
-
-#: kscd.cpp:522
-msgid "CD Volume Control"
-msgstr "CD äänenvoimakkuus"
-
-#: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-msgid "Playing"
-msgstr "Soitan"
-
-#: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
-#, c-format
-msgid "Track %02d"
-msgstr "Kappale %02d"
-
-#: kscd.cpp:602 kscd.cpp:1151
-msgid "Pause"
-msgstr "Paussi"
-
-#: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-msgid "Random"
-msgstr "Satunnainen"
-
-#: kscd.cpp:615
-msgid "Strange...."
-msgstr "Outo..."
-
-#: kscd.cpp:632
-msgid "Stopped"
-msgstr "Pysäytetty"
-
-#: kscd.cpp:784 kscd.cpp:1116
-msgid "Loop"
-msgstr "Silmukka"
-
-#: kscd.cpp:796
-msgid "Ejecting"
-msgstr "Poistan levyä"
-
-#: kscd.cpp:869
-msgid "kscd Configuraton"
-msgstr "kscd Asetukset"
-
-#: kscd.cpp:885
-msgid ""
-"Copyright (c) 1997-98 \n"
-"Bernd Johannes Wuebben <wuebben@kde.org>\n"
-"\n"
-"kscd  contains code from:\n"
-"workman 1.4 beta 3\n"
-"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
-"\n"
-"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
-"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
-"\n"
-msgstr ""
-"Copyright (c) 1997-98 \n"
-"Bernd Johannes Wuebben <wuebben@kde.org>\n"
-"\n"
-"kscd sisältää koodia:\n"
-"workman 1.4 beta 3:ta\n"
-"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
-"\n"
-"Erikoiskiitokset: Ti Kan ja Steve Scherf, CDDB-tietokannan kehittämisestä. "
-"Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
-"\n"
-
-#: kscd.cpp:897
-msgid ""
-"KSCD Magic based on Synaesthesia by Paul Harrison "
-"<pfh@yoyo.cc.monash.edu.au>\n"
-"\n"
-msgstr ""
-"KSCD Magic pohjautuu Paul Harrisonin Synaesthesiaan  "
-"<pfh@yoyo.cc.monash.edu.au>\n"
-"\n"
-
-#: kscd.cpp:901
-msgid ""
-"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
-"for his work on the http proxy code.\n"
-msgstr ""
-"Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
-"hänen työstään proxy-koodin kanssa.\n"
-
-#: kscd.cpp:947
-msgid "Kscd Options"
-msgstr "Kscd optiot"
-
-#: kscd.cpp:948
-msgid "Kscd Magic"
-msgstr "Kscd Magic"
-
-#: kscd.cpp:1029 kscd.cpp:1822
-msgid "Vol: %02d%%"
-msgstr "Ään: %02d%%"
-
-#: kscd.cpp:1067
-#, c-format
-msgid ""
-"CDROM read or access error.\n"
-"Please make sure you have access permissions to:\n"
-"%s"
-msgstr ""
-"CDROM luku tai käyttövirhe.\n"
-"Varmista että sinulla on käyttöoikeudet laitteeseen:\n"
-"%s"
-
-#: kscd.cpp:1159
-msgid "Ready"
-msgstr "Valmis"
-
-#: kscd.cpp:1191
-msgid "Ejected"
-msgstr "Ei levyä"
-
-#: kscd.cpp:1447
-msgid "Unable to get CDDB server list."
-msgstr "En saa CDDB-palvelinlistaa."
-
-#: kscd.cpp:1569 kscd.cpp:1604
-msgid "No matching CDDB entry found."
-msgstr "Ei yhteensopivaa CDDB-tietuetta."
-
-#: kscd.cpp:1625
-msgid "CDDB query timed out."
-msgstr "CDDB-hakuaika loppui."
-
-#: kscd.cpp:1797
-msgid "Tra Rem"
-msgstr "Kap Jäl"
-
-#: kscd.cpp:1801
-msgid "Tot Sec"
-msgstr "Yht Sek"
-
-#: kscd.cpp:1805
-msgid "Tot Rem"
-msgstr "Yht Jäl"
-
-#: kscd.cpp:1810
-msgid "Tra Sec"
-msgstr "Kap Sek"
-
-#: kscd.cpp:1935
-msgid "Cannot start kscdmagic."
-msgstr "En saa käynnistettyä kscdmagic:a."
-
-#: kscd.cpp:1950
-msgid ""
-"KSCD Magic exited abnormally.\n"
-"Are you sure kscdmagic is installed?"
-msgstr ""
-"KSCD Magic lopetti epänormaalisti.\n"
-"Oletko varma, että se on asennettu?"
-
-#: kscd.cpp:2131
-msgid "-h: display commandline options\n"
-msgstr "-h: näytä komentorivioptiot\n"
-
-#: kscd.cpp:2132
-msgid "-d: enable debugging output.\n"
-msgstr "-d: debuggaustiedot.\n"
-
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"
 msgstr "Magic Kscd"
@@ -510,3 +506,6 @@ msgstr "Magic-ikkunan korkeus:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC kirkkaus:"
+
+#~ msgid "Next"
+#~ msgstr "Seuraava"

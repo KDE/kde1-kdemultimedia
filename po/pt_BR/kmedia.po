@@ -51,7 +51,6 @@ msgstr ""
 "Reprodutor de mídia para o Ambiente de Trabalho KDE.\n"
 "Este programa está incluso na Licença Pública GNU.\n"
 
-
 #: kmediawin.cpp:245
 msgid "About KMedia "
 msgstr "Sobre o KMedia"

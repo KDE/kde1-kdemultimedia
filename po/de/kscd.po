@@ -1,37 +1,268 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-01-24 18:50+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
-#: CDDBSetupData.cpp:44
-msgid "CDDB Base Directory"
-msgstr "CDDB Basisverzeichnis"
+#: kscd.cpp:330
+msgid "Vol: --"
+msgstr ""
 
-#: CDDBSetupData.cpp:62
-msgid "Send CDDB submissions to:"
-msgstr "CDDB-Einträge senden an:"
+#: kscd.cpp:475
+msgid "Performances"
+msgstr "Touren und Auftritte"
 
-#: CDDBSetupData.cpp:82
-msgid "CDDB server:"
-msgstr "CDDB-Server:"
+#: kscd.cpp:478
+msgid "Purchases"
+msgstr "Kaufgelegenheiten"
 
-#: CDDBSetupData.cpp:90
-msgid "Update"
-msgstr "Auffrischen"
+#: kscd.cpp:485
+msgid "KSCD Magic"
+msgstr ""
 
-#: CDDBSetupData.cpp:108
-msgid "Enable Remote CDDB"
-msgstr "Remote-CDDB ermöglichen"
+#: docking.cpp:72 kscd.cpp:509
+msgid "Play/Pause"
+msgstr ""
 
-#: CDDBSetupData.cpp:116
-msgid "Defaults"
-msgstr "Standard"
+#: kscd.cpp:511
+msgid "Loop CD"
+msgstr "Wiederholen"
 
-#: CDDBSetupData.cpp:133
-msgid "Use HTTP proxy to access CDDB"
-msgstr "HTTP-Proxy für CDDB-Zugriff"
+#: kscd.cpp:512
+msgid "Track Selection"
+msgstr "Track-Auswahl"
+
+#: kscd.cpp:513
+msgid "30 Secs Forward"
+msgstr "30 Sek. vorwärts"
+
+#: kscd.cpp:514
+msgid "30 Secs Backward"
+msgstr "30 Sek. zurück"
+
+#: kscd.cpp:515
+msgid "Next Track"
+msgstr "Nächster Track"
+
+#: kscd.cpp:516
+msgid "Previous Track"
+msgstr "Vorheriger Track"
+
+#: kscd.cpp:517
+msgid "Exit Kscd"
+msgstr "Kscd beenden"
+
+#: kscd.cpp:518
+msgid "Cycle Time Display"
+msgstr "Zeitanzeige ändern"
+
+#: kscd.cpp:519
+msgid "Configure Kscd"
+msgstr "Kscd konfigurieren"
+
+#: kscd.cpp:520
+msgid "Eject CD"
+msgstr "CD auswerfen"
+
+#: kscd.cpp:521
+msgid "The Artist on the Web"
+msgstr "Der Künstler im Web"
+
+#: kscd.cpp:522
+msgid "Random Play"
+msgstr "Zufallsspiel"
+
+#: kscd.cpp:523
+msgid "CDDB Dialog"
+msgstr "CDDB-Dialog"
+
+#: kscd.cpp:524
+msgid "CD Volume Control"
+msgstr "Lautstärkeregler"
+
+#: kscd.cpp:575 kscd.cpp:612 kscd.cpp:1130
+msgid "Playing"
+msgstr "Spiele"
+
+#: kscd.cpp:580 kscd.cpp:1138 kscd.cpp:1176
+#, c-format
+msgid "Track %02d"
+msgstr ""
+
+#: kscd.cpp:604 kscd.cpp:1163
+msgid "Pause"
+msgstr ""
+
+#: kscd.cpp:609 kscd.cpp:830 kscd.cpp:1126
+msgid "Random"
+msgstr "Zufall"
+
+#: kscd.cpp:617
+msgid "Strange...."
+msgstr "Merkwürdig..."
+
+#: kscd.cpp:634
+msgid "Stopped"
+msgstr "Angehalten"
+
+#: kscd.cpp:796 kscd.cpp:1128
+msgid "Loop"
+msgstr "Schleife"
+
+#: kscd.cpp:808
+msgid "Ejecting"
+msgstr "Werfe aus"
+
+#: kscd.cpp:881
+msgid "kscd Configuraton"
+msgstr "Kscd konfiguration"
+
+#: kscd.cpp:897
+msgid ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd  contains code from:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
+"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
+"\n"
+msgstr ""
+
+#: kscd.cpp:909
+msgid ""
+"KSCD Magic based on Synaesthesia by Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+msgstr ""
+
+#: kscd.cpp:913
+msgid ""
+"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+"for his work on the http proxy code.\n"
+msgstr ""
+
+#: kscd.cpp:959
+msgid "Kscd Options"
+msgstr "Kscd Optionen"
+
+#: kscd.cpp:960
+msgid "Kscd Magic"
+msgstr ""
+
+#: kscd.cpp:1041 kscd.cpp:1834
+msgid "Vol: %02d%%"
+msgstr ""
+
+#: kscd.cpp:1079
+#, c-format
+msgid ""
+"CDROM read or access error.\n"
+"Please make sure you have access permissions to:\n"
+"%s"
+msgstr ""
+"CD-ROM Lese- oder Zugriffsfehler.\n"
+"Bitte stellen Sie sicher, daß Sie Zugriffsberechtigung haben auf:\n"
+"%s"
+
+#: kscd.cpp:1171
+msgid "Ready"
+msgstr "Bereit"
+
+#: kscd.cpp:1203
+msgid "Ejected"
+msgstr "Ausgeworfen"
+
+#: kscd.cpp:1459
+msgid "Unable to get CDDB server list."
+msgstr "Kann die CDDB-Serverliste nicht bekommen."
+
+#: kscd.cpp:1581 kscd.cpp:1616
+msgid "No matching CDDB entry found."
+msgstr "Kein passender CDDB-Eintrag gefunden."
+
+#: kscd.cpp:1637
+msgid "CDDB query timed out."
+msgstr "CDDB-Abfrage: Zeitüberschreitung."
+
+#: kscd.cpp:1809
+msgid "Tra Rem"
+msgstr "Tra Übr"
+
+#: kscd.cpp:1813
+msgid "Tot Sec"
+msgstr "Ges Sek"
+
+#: kscd.cpp:1817
+msgid "Tot Rem"
+msgstr "Ges Übr"
+
+#: kscd.cpp:1822
+msgid "Tra Sec"
+msgstr "Tra Sek"
+
+#: kscd.cpp:1947
+msgid "Cannot start kscdmagic."
+msgstr "Kann kscdmagic nicht starten."
+
+#: kscd.cpp:1962
+msgid ""
+"KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr ""
+"KSCD Magic abnormal beendet.\n"
+"Sind Sie sicher, daß kscdmagic installiert ist?"
+
+#: kscd.cpp:2143
+msgid "-h: display commandline options\n"
+msgstr "-h: Kommandozeilenparameter anzeigen\n"
+
+#: kscd.cpp:2144
+msgid "-d: enable debugging output.\n"
+msgstr "-d: Debug-Ausgaben anzeigen.\n"
+
+#: configdlg.cpp:61
+msgid "Configure kscd"
+msgstr "Kscd konfigurieren"
+
+#: configdlg.cpp:68
+msgid "LED Color:"
+msgstr "LED-Farbe:"
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Hintergrundfarbe:"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "CDROM-Gerät:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Unix Mail-Kommando:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr ""
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "KFM als Browser benutzen"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Anderer Browser:"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Menühilfen"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "In KPanel eindocken"
 
 #: CDDialog.cpp:55
 msgid "CD Database Editor"
@@ -180,57 +411,37 @@ msgstr ""
 msgid "Upload"
 msgstr "Übertragen"
 
-#: configdlg.cpp:61
-msgid "Configure kscd"
-msgstr "Kscd konfigurieren"
+#: CDDBSetupData.cpp:44
+msgid "CDDB Base Directory"
+msgstr "CDDB Basisverzeichnis"
 
-#: configdlg.cpp:68
-msgid "LED Color:"
-msgstr "LED-Farbe:"
+#: CDDBSetupData.cpp:62
+msgid "Send CDDB submissions to:"
+msgstr "CDDB-Einträge senden an:"
 
-#: configdlg.cpp:82
-msgid "Background Color:"
-msgstr "Hintergrundfarbe:"
+#: CDDBSetupData.cpp:82
+msgid "CDDB server:"
+msgstr "CDDB-Server:"
 
-#: configdlg.cpp:101
-msgid "CDROM Device:"
-msgstr "CDROM-Gerät:"
+#: CDDBSetupData.cpp:90
+msgid "Update"
+msgstr "Auffrischen"
 
-#: configdlg.cpp:118
-msgid "Unix mail command:"
-msgstr "Unix Mail-Kommando:"
+#: CDDBSetupData.cpp:108
+msgid "Enable Remote CDDB"
+msgstr "Remote-CDDB ermöglichen"
 
-#: configdlg.cpp:126
-msgid "WWW-Browser"
-msgstr ""
+#: CDDBSetupData.cpp:116
+msgid "Defaults"
+msgstr "Standard"
 
-#: configdlg.cpp:129
-msgid "Use kfm as Browser"
-msgstr "KFM als Browser benutzen"
-
-#: configdlg.cpp:136
-msgid "Use Custom Browser:"
-msgstr "Anderer Browser:"
-
-#: configdlg.cpp:148
-msgid "Show Tool Tips"
-msgstr "Menühilfen"
-
-#: configdlg.cpp:154
-msgid "Enable KPanel Docking"
-msgstr "In KPanel eindocken"
-
-#: docking.cpp:72 kscd.cpp:507
-msgid "Play/Pause"
-msgstr ""
+#: CDDBSetupData.cpp:133
+msgid "Use HTTP proxy to access CDDB"
+msgstr "HTTP-Proxy für CDDB-Zugriff"
 
 #: docking.cpp:75
 msgid "Backward"
 msgstr "Zurück"
-
-#: docking.cpp:76
-msgid "Next"
-msgstr "Nächster"
 
 #: docking.cpp:77
 msgid "Previous"
@@ -256,221 +467,6 @@ msgstr ""
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Bitte wählen Sie einen CD-Titel oder wählen Sie Abbrechen"
 
-#: kscd.cpp:328
-msgid "Vol: --"
-msgstr ""
-
-#: kscd.cpp:473
-msgid "Performances"
-msgstr "Touren und Auftritte"
-
-#: kscd.cpp:476
-msgid "Purchases"
-msgstr "Kaufgelegenheiten"
-
-#: kscd.cpp:483
-msgid "KSCD Magic"
-msgstr ""
-
-#: kscd.cpp:509
-msgid "Loop CD"
-msgstr "Wiederholen"
-
-#: kscd.cpp:510
-msgid "Track Selection"
-msgstr "Track-Auswahl"
-
-#: kscd.cpp:511
-msgid "30 Secs Forward"
-msgstr "30 Sek. vorwärts"
-
-#: kscd.cpp:512
-msgid "30 Secs Backward"
-msgstr "30 Sek. zurück"
-
-#: kscd.cpp:513
-msgid "Next Track"
-msgstr "Nächster Track"
-
-#: kscd.cpp:514
-msgid "Previous Track"
-msgstr "Vorheriger Track"
-
-#: kscd.cpp:515
-msgid "Exit Kscd"
-msgstr "Kscd beenden"
-
-#: kscd.cpp:516
-msgid "Cycle Time Display"
-msgstr "Zeitanzeige ändern"
-
-#: kscd.cpp:517
-msgid "Configure Kscd"
-msgstr "Kscd konfigurieren"
-
-#: kscd.cpp:518
-msgid "Eject CD"
-msgstr "CD auswerfen"
-
-#: kscd.cpp:519
-msgid "The Artist on the Web"
-msgstr "Der Künstler im Web"
-
-#: kscd.cpp:520
-msgid "Random Play"
-msgstr "Zufallsspiel"
-
-#: kscd.cpp:521
-msgid "CDDB Dialog"
-msgstr "CDDB-Dialog"
-
-#: kscd.cpp:522
-msgid "CD Volume Control"
-msgstr "Lautstärkeregler"
-
-#: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-msgid "Playing"
-msgstr "Spiele"
-
-#: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
-#, c-format
-msgid "Track %02d"
-msgstr ""
-
-#: kscd.cpp:602 kscd.cpp:1151
-msgid "Pause"
-msgstr ""
-
-#: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-msgid "Random"
-msgstr "Zufall"
-
-#: kscd.cpp:615
-msgid "Strange...."
-msgstr "Merkwürdig..."
-
-#: kscd.cpp:632
-msgid "Stopped"
-msgstr "Angehalten"
-
-#: kscd.cpp:784 kscd.cpp:1116
-msgid "Loop"
-msgstr "Schleife"
-
-#: kscd.cpp:796
-msgid "Ejecting"
-msgstr "Werfe aus"
-
-#: kscd.cpp:869
-msgid "kscd Configuraton"
-msgstr "Kscd konfiguration"
-
-#: kscd.cpp:885
-msgid ""
-"Copyright (c) 1997-98 \n"
-"Bernd Johannes Wuebben <wuebben@kde.org>\n"
-"\n"
-"kscd  contains code from:\n"
-"workman 1.4 beta 3\n"
-"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
-"\n"
-"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
-"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
-"\n"
-msgstr ""
-
-#: kscd.cpp:897
-msgid ""
-"KSCD Magic based on Synaesthesia by Paul Harrison "
-"<pfh@yoyo.cc.monash.edu.au>\n"
-"\n"
-msgstr ""
-
-#: kscd.cpp:901
-msgid ""
-"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
-"for his work on the http proxy code.\n"
-msgstr ""
-
-#: kscd.cpp:947
-msgid "Kscd Options"
-msgstr "Kscd Optionen"
-
-#: kscd.cpp:948
-msgid "Kscd Magic"
-msgstr ""
-
-#: kscd.cpp:1029 kscd.cpp:1822
-msgid "Vol: %02d%%"
-msgstr ""
-
-#: kscd.cpp:1067
-#, c-format
-msgid ""
-"CDROM read or access error.\n"
-"Please make sure you have access permissions to:\n"
-"%s"
-msgstr ""
-"CD-ROM Lese- oder Zugriffsfehler.\n"
-"Bitte stellen Sie sicher, daß Sie Zugriffsberechtigung haben auf:\n"
-"%s"
-
-#: kscd.cpp:1159
-msgid "Ready"
-msgstr "Bereit"
-
-#: kscd.cpp:1191
-msgid "Ejected"
-msgstr "Ausgeworfen"
-
-#: kscd.cpp:1447
-msgid "Unable to get CDDB server list."
-msgstr "Kann die CDDB-Serverliste nicht bekommen."
-
-#: kscd.cpp:1569 kscd.cpp:1604
-msgid "No matching CDDB entry found."
-msgstr "Kein passender CDDB-Eintrag gefunden."
-
-#: kscd.cpp:1625
-msgid "CDDB query timed out."
-msgstr "CDDB-Abfrage: Zeitüberschreitung."
-
-#: kscd.cpp:1797
-msgid "Tra Rem"
-msgstr "Tra Übr"
-
-#: kscd.cpp:1801
-msgid "Tot Sec"
-msgstr "Ges Sek"
-
-#: kscd.cpp:1805
-msgid "Tot Rem"
-msgstr "Ges Übr"
-
-#: kscd.cpp:1810
-msgid "Tra Sec"
-msgstr "Tra Sek"
-
-#: kscd.cpp:1935
-msgid "Cannot start kscdmagic."
-msgstr "Kann kscdmagic nicht starten."
-
-#: kscd.cpp:1950
-msgid ""
-"KSCD Magic exited abnormally.\n"
-"Are you sure kscdmagic is installed?"
-msgstr ""
-"KSCD Magic abnormal beendet.\n"
-"Sind Sie sicher, daß kscdmagic installiert ist?"
-
-#: kscd.cpp:2131
-msgid "-h: display commandline options\n"
-msgstr "-h: Kommandozeilenparameter anzeigen\n"
-
-#: kscd.cpp:2132
-msgid "-d: enable debugging output.\n"
-msgstr "-d: Debug-Ausgaben anzeigen.\n"
-
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"
 msgstr ""
@@ -486,3 +482,6 @@ msgstr "Höhe des Magic-Fensters"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC Helligkeit:"
+
+#~ msgid "Next"
+#~ msgstr "Nächster"

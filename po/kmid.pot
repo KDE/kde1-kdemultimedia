@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,99 +14,123 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
+#: kmidframe.cpp:64
+msgid "Play/Pause"
 msgstr ""
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
 msgstr ""
 
-#: kmidframe.cpp:68
-msgid "&Quit"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
 msgstr ""
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr ""
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr ""
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr ""
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr ""
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr ""
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr ""
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr ""
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr ""
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr ""
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr ""
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr ""
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr ""
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr ""
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr ""
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr ""
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr ""
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr ""
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr ""
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr ""
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr ""
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr ""
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr ""
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr ""
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr ""
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr ""
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr ""
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr ""
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr ""
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr ""
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr ""
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr ""
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 msgid "Midi &Setup ..."
 msgstr ""
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -121,125 +145,88 @@ msgid ""
 "under certain conditions\n"
 msgstr ""
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr ""
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr ""
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr ""
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr ""
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr ""
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr ""
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr ""
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr ""
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr ""
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr ""
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr ""
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr ""
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr ""
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr ""
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
 msgstr ""
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr ""
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr ""
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr ""
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr ""
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr ""
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr ""
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr ""
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr ""
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr ""
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -249,28 +236,12 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr ""
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr ""
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr ""
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr ""
 
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
-msgstr ""
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr ""
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
 msgstr ""
 
 #: collectdlg.cpp:39
@@ -283,26 +254,6 @@ msgstr ""
 
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
-msgstr ""
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr ""
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr ""
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr ""
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr ""
-
-#: collectdlg.cpp:98
-msgid "Remove"
 msgstr ""
 
 #: collectdlg.cpp:151
@@ -334,7 +285,7 @@ msgstr ""
 msgid "Change Collection Name"
 msgstr ""
 
-#: channel.cpp:75
+#: channel.cpp:89
 msgid "Channel"
 msgstr ""
 

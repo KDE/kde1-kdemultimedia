@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter<epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -9,19 +9,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: docking.cpp:153
-msgid "Minimize"
-msgstr "Minimizar"
-
-#: kmix.cpp:438
+#: kmix.cpp:444
 msgid "&Hide Menubar"
 msgstr "&Esconder Barra de Menu"
 
-#: kmix.cpp:441
+#: kmix.cpp:447
 msgid "&Tickmarks On/Off"
 msgstr "&Tiques Liga/Desliga"
 
-#: kmix.cpp:455
+#: kmix.cpp:461
+#, fuzzy
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -30,7 +27,8 @@ msgid ""
 "This program is in the GPL.\n"
 "SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"and Lennart Augustsson (augustss@cs.chalmers.se)."
+"and Lennart Augustsson (augustss@cs.chalmers.se).\n"
+"ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
 "(C) 1997 por Christian Esken (esken@kde.org).\n"
@@ -41,35 +39,35 @@ msgstr ""
 "Ajustes para *BSD por Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "e Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:474
+#: kmix.cpp:481
 msgid "&Left"
 msgstr "&Esquerda"
 
-#: kmix.cpp:475
+#: kmix.cpp:482
 msgid "&Center"
 msgstr "&Centro"
 
-#: kmix.cpp:476
+#: kmix.cpp:483
 msgid "&Right"
 msgstr "&Direita"
 
-#: kmix.cpp:563
+#: kmix.cpp:570
 msgid "Un&mute"
 msgstr "&Ligar"
 
-#: kmix.cpp:565
+#: kmix.cpp:572
 msgid "&Mute"
 msgstr "&Desligar"
 
-#: kmix.cpp:568
+#: kmix.cpp:575
 msgid "&Split"
 msgstr "&Dividir"
 
-#: kmix.cpp:570
+#: kmix.cpp:577
 msgid "Un&split"
 msgstr "&Juntar"
 
-#: kmix.cpp:572
+#: kmix.cpp:579
 msgid "&RecSource"
 msgstr "&Fonte de Som"
 
@@ -116,3 +114,7 @@ msgstr "Mostrar"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Dividir"
+
+#: docking.cpp:153
+msgid "Minimize"
+msgstr "Minimizar"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-11 13:50+0100\n"
 "Last-Translator: Christian Esken <esken@kde.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -10,19 +10,16 @@ msgstr ""
 "Content-Transfer-Encoding: ISO-8859-1\n"
 "Translator: Christian Esken <esken@kde.org>\n"
 
-#: docking.cpp:153
-msgid "Minimize"
-msgstr "Minimieren"
-
-#: kmix.cpp:438
+#: kmix.cpp:444
 msgid "&Hide Menubar"
 msgstr "&Menü verstecken"
 
-#: kmix.cpp:441
+#: kmix.cpp:447
 msgid "&Tickmarks On/Off"
 msgstr "&Skalen An/Aus"
 
-#: kmix.cpp:455
+#: kmix.cpp:461
+#, fuzzy
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -31,7 +28,8 @@ msgid ""
 "This program is in the GPL.\n"
 "SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"and Lennart Augustsson (augustss@cs.chalmers.se)."
+"and Lennart Augustsson (augustss@cs.chalmers.se).\n"
+"ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
 "(C) Christian Esken (esken@kde.org) 1997.\n"
@@ -42,35 +40,35 @@ msgstr ""
 "*BSD-Anpassungen von Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "und Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:474
+#: kmix.cpp:481
 msgid "&Left"
 msgstr "&Links"
 
-#: kmix.cpp:475
+#: kmix.cpp:482
 msgid "&Center"
 msgstr "&Mitte"
 
-#: kmix.cpp:476
+#: kmix.cpp:483
 msgid "&Right"
 msgstr "&Rechts"
 
-#: kmix.cpp:563
+#: kmix.cpp:570
 msgid "Un&mute"
 msgstr "M&ute aus"
 
-#: kmix.cpp:565
+#: kmix.cpp:572
 msgid "&Mute"
 msgstr "&Mute an"
 
-#: kmix.cpp:568
+#: kmix.cpp:575
 msgid "&Split"
 msgstr "&Trennen"
 
-#: kmix.cpp:570
+#: kmix.cpp:577
 msgid "Un&split"
 msgstr "&Verbinden"
 
-#: kmix.cpp:572
+#: kmix.cpp:579
 msgid "&RecSource"
 msgstr "&Aufnahme-Quelle"
 
@@ -117,6 +115,10 @@ msgstr "Zeige"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Trennen"
+
+#: docking.cpp:153
+msgid "Minimize"
+msgstr "Minimieren"
 
 #~ msgid "Restore"
 #~ msgstr "Wiederherstellen"

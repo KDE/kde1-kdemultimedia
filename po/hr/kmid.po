@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-14 20:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -14,99 +14,124 @@ msgstr ""
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "&Otvori ..."
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "Pauziraj"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "&Spremi Stihove ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "Prethodna Pjesma"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "&Zavr¹i"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "Slijedeæa Pjesma"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "&Sviraj"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "P&auziraj"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "&Stani"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "P&rethodna Pjesma"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "S&lijedeæa Pjesma"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "&Kru¾i"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "&Organiziraj ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "Normalni redoslijed"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "Sluèajni redoslijed"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "AutoDodaj kolekciji"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&Opæa Midi datoteka"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 datoteka"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "Gledaj &tekstualne dogaðaje (events)"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "Gledaj &stihovne dogaðaje (events)"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "&Spremi Stihove ..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "&Sviraj"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "P&auziraj"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "&Stani"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "P&rethodna Pjesma"
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "S&lijedeæa Pjesma"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "&Kru¾i"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "&Organiziraj ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "Normalni redoslijed"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "Sluèajni redoslijed"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "AutoDodaj kolekciji"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "&Opæa Midi datoteka"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32 datoteka"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "&Automatski izbor teksta"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr "Prika¾i &jaèinu zvuka"
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr "Prika¾i &Kanale"
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr "&Opcije za prikaz kanala"
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "&Promjena Pisma ..."
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 msgid "Midi &Setup ..."
 msgstr "&Postava Midija ..."
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -121,67 +146,35 @@ msgid ""
 "under certain conditions\n"
 msgstr ""
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "&Datoteka"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "&Pjesma"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "&Kolekcije"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "P&ode¹avanja"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "Pomoæ"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "Prethodna Pjesma"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "Premotaj"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "Zaustavi"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "Pauziraj"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "Sviraj"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "Naprijed"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "Slijedeæa Pjesma"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr "Prika¾i kanale"
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr "Prika¾i jaèinu zvuka"
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "Gre¹ka"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -189,7 +182,7 @@ msgstr ""
 "Ne mogu otvoriti /dev/sequencer kako bih dobio informacij\n"
 "Najvjerojatnije ga koristi neki drugi program"
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -198,26 +191,21 @@ msgstr ""
 "Datoteka %s veæ postoji\n"
 "®elite li zbilja spremiti preko nje ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "Upozorenje"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Datoteka %s ne postoji ili je ne mogu otvoriti"
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Datoteka %s nije midi datoteka"
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -225,27 +213,27 @@ msgstr ""
 "Broj tikova po èetvrtinki je negativan, molim po¹aljite datoteku na "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "Nema dovoljno memorije !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "Ova datoteka je o¹teæena ili nije ispravno "
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "Nepoznata poruka o gre¹ci"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "Morate prvo uèitati datoteku prije nego je odsvirate"
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "Pjesma veæ svira"
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -257,14 +245,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "Podesi Midi ureðaje"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "U redu"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "Poni¹ti"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "Izaberite midi ureðaj koji ¾elite koristiti :"
@@ -272,14 +252,6 @@ msgstr "Izaberite midi ureðaj koji ¾elite koristiti :"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "Koristi midi mapu :"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "Ni¹ta"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "Potra¾i..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -292,26 +264,6 @@ msgstr "Dostupne kolekcije :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Pjesme u izabranoj kolekciji:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "Novi"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "Kopiraj"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "Pobri¹i"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "Dodaj"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "Ukloni"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -342,7 +294,7 @@ msgstr "Unesite novo ime za izabranu kolekciju"
 msgid "Change Collection Name"
 msgstr "Promijenite ime kolekcije"
 
-#: channel.cpp:75
+#: channel.cpp:89
 msgid "Channel"
 msgstr "Kanal"
 
@@ -873,3 +825,57 @@ msgstr "Pljesak"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr "Pucanj"
+
+#~ msgid "&Open ..."
+#~ msgstr "&Otvori ..."
+
+#~ msgid "&Quit"
+#~ msgstr "&Zavr¹i"
+
+#~ msgid "&File"
+#~ msgstr "&Datoteka"
+
+#~ msgid "&Options"
+#~ msgstr "P&ode¹avanja"
+
+#~ msgid "&Help"
+#~ msgstr "Pomoæ"
+
+#~ msgid "Stop"
+#~ msgstr "Zaustavi"
+
+#~ msgid "Forward"
+#~ msgstr "Naprijed"
+
+#~ msgid "Error"
+#~ msgstr "Gre¹ka"
+
+#~ msgid "Warning"
+#~ msgstr "Upozorenje"
+
+#~ msgid "OK"
+#~ msgstr "U redu"
+
+#~ msgid "Cancel"
+#~ msgstr "Poni¹ti"
+
+#~ msgid "None"
+#~ msgstr "Ni¹ta"
+
+#~ msgid "Browse..."
+#~ msgstr "Potra¾i..."
+
+#~ msgid "New"
+#~ msgstr "Novi"
+
+#~ msgid "Copy"
+#~ msgstr "Kopiraj"
+
+#~ msgid "Delete"
+#~ msgstr "Pobri¹i"
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
+
+#~ msgid "Remove"
+#~ msgstr "Ukloni"

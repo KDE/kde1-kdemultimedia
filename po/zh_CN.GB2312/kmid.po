@@ -1,106 +1,131 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 ) \n"
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "打开[&O] ..."
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "暂停"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "保存歌词[&S] ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "前一首歌曲"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "退出[&Q]"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "下一首歌曲"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "播放[&P]"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "暂停[&P]"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "停止[&S]"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "前一首歌[&R]"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "下一首歌[&N]"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "循环[&L]"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "调整顺序[&O] ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "顺序方式"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "乱序方式"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "自动添加到收藏集中"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "通用 Midi 文件[&G]"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 文件"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "处理文本事件[&T]"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "处理歌词事件[&L]"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "保存歌词[&S] ..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "播放[&P]"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "暂停[&P]"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "停止[&S]"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "前一首歌[&R]"
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "下一首歌[&N]"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "循环[&L]"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "调整顺序[&O] ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "顺序方式"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "乱序方式"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "自动添加到收藏集中"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "通用 Midi 文件[&G]"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32 文件"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "自动文本选择[&A]"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr ""
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr ""
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "更改字体[&F] ..."
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 #, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Midi 设置 ..."
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -125,67 +150,35 @@ msgstr ""
 "This is free software, and you are welcome to redistribute it\n"
 "under certain conditions\n"
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "文件[&F]"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "歌曲[&S]"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "收藏集[&C]"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "选项[&O]"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "帮助[&H]"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "前一首歌曲"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "回绕"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "停止"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "暂停"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "播放"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "向前"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "下一首歌曲"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr ""
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "错误"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -193,7 +186,7 @@ msgstr ""
 "不能打开 /dev/sequencer 来取得某些信息\n"
 "也许另外一个程序正在使用它"
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -202,26 +195,21 @@ msgstr ""
 "文件 %s 已经存在\n"
 "你要覆写它吗 ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "警告"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "拍子 :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "文件 %s 不存在或不能打开"
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "文件 %s 不是一个 midi 文件"
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -229,27 +217,27 @@ msgstr ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "内存不够 !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "这个文件损坏了或者没有做好"
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "未知的错误消息"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "你首先要载入一个文件才能播放它"
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "已经有一首歌曲正在播放"
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -261,14 +249,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "配置 Midi 设备"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "确定"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "取消"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "选择你要使用的 midi 设备:"
@@ -276,14 +256,6 @@ msgstr "选择你要使用的 midi 设备:"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "使用 midi 映射表:"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "无"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "浏览..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -296,26 +268,6 @@ msgstr "可用的收藏集 :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "在选中的收藏集中的歌曲:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "新建"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "复制"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "删除"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "添加剂"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "去除"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -346,7 +298,7 @@ msgstr "输入选中的收藏集的新名字"
 msgid "Change Collection Name"
 msgstr "改变收藏集的名字"
 
-#: channel.cpp:75
+#: channel.cpp:89
 #, fuzzy
 msgid "Channel"
 msgstr "取消"
@@ -881,3 +833,57 @@ msgstr "暂停"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
+
+#~ msgid "&Open ..."
+#~ msgstr "打开[&O] ..."
+
+#~ msgid "&Quit"
+#~ msgstr "退出[&Q]"
+
+#~ msgid "&File"
+#~ msgstr "文件[&F]"
+
+#~ msgid "&Options"
+#~ msgstr "选项[&O]"
+
+#~ msgid "&Help"
+#~ msgstr "帮助[&H]"
+
+#~ msgid "Stop"
+#~ msgstr "停止"
+
+#~ msgid "Forward"
+#~ msgstr "向前"
+
+#~ msgid "Error"
+#~ msgstr "错误"
+
+#~ msgid "Warning"
+#~ msgstr "警告"
+
+#~ msgid "OK"
+#~ msgstr "确定"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "None"
+#~ msgstr "无"
+
+#~ msgid "Browse..."
+#~ msgstr "浏览..."
+
+#~ msgid "New"
+#~ msgstr "新建"
+
+#~ msgid "Copy"
+#~ msgstr "复制"
+
+#~ msgid "Delete"
+#~ msgstr "删除"
+
+#~ msgid "Add"
+#~ msgstr "添加剂"
+
+#~ msgid "Remove"
+#~ msgstr "去除"

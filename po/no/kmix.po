@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-22 21:53+0100\n"
 "Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
 "Language-Team: no\n"
@@ -13,19 +13,16 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO_8859-1\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: docking.cpp:153
-msgid "Minimize"
-msgstr "Minimer"
-
-#: kmix.cpp:438
+#: kmix.cpp:444
 msgid "&Hide Menubar"
 msgstr "&Skjul menylinje"
 
-#: kmix.cpp:441
+#: kmix.cpp:447
 msgid "&Tickmarks On/Off"
 msgstr "&Målestreker på/av"
 
-#: kmix.cpp:455
+#: kmix.cpp:461
+#, fuzzy
 msgid ""
 "\n"
 "(C) 1997 by Christian Esken (esken@kde.org).\n"
@@ -34,7 +31,8 @@ msgid ""
 "This program is in the GPL.\n"
 "SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
-"and Lennart Augustsson (augustss@cs.chalmers.se)."
+"and Lennart Augustsson (augustss@cs.chalmers.se).\n"
+"ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 "\n"
 "(C) 1997 av Christian Esken (esken@kde.org).\n"
@@ -45,35 +43,35 @@ msgstr ""
 "*BSD fikset av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "og Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:474
+#: kmix.cpp:481
 msgid "&Left"
 msgstr "&Venstre"
 
-#: kmix.cpp:475
+#: kmix.cpp:482
 msgid "&Center"
 msgstr "&Senter"
 
-#: kmix.cpp:476
+#: kmix.cpp:483
 msgid "&Right"
 msgstr "&Høyre"
 
-#: kmix.cpp:563
+#: kmix.cpp:570
 msgid "Un&mute"
 msgstr "Ingen &demping"
 
-#: kmix.cpp:565
+#: kmix.cpp:572
 msgid "&Mute"
 msgstr "&Demping"
 
-#: kmix.cpp:568
+#: kmix.cpp:575
 msgid "&Split"
 msgstr "&Splitt"
 
-#: kmix.cpp:570
+#: kmix.cpp:577
 msgid "Un&split"
 msgstr "S&lutt på splitt"
 
-#: kmix.cpp:572
+#: kmix.cpp:579
 msgid "&RecSource"
 msgstr "Mottager&kilde"
 
@@ -120,3 +118,7 @@ msgstr "Vis"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Splitt"
+
+#: docking.cpp:153
+msgid "Minimize"
+msgstr "Minimer"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,100 +14,125 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "開啟[&O] ..."
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "暫停"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "儲存歌詞[&S] ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "前一首"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "離開[&Q]"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "下一首"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "播放[&P]"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "暫停[&a]"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "停止[&S]"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "前一首[&r]"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "下一首[&N]"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "循環[&L]"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "整理[&O] ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "順序播放"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "亂數選曲"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "自動加入到收集中"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&General Midi 檔案"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 檔案"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "顯示文字[&T]"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "顯示歌詞[&L]"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "儲存歌詞[&S] ..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "播放[&P]"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "暫停[&a]"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "停止[&S]"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "前一首[&r]"
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "下一首[&N]"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "循環[&L]"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "整理[&O] ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "順序播放"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "亂數選曲"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "自動加入到收集中"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "&General Midi 檔案"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32 檔案"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "自動文字選取[A]"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr ""
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr ""
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "更換字型[&F]"
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 #, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Midi 設定 ..."
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -131,67 +156,35 @@ msgstr ""
 "comes with ABSOLUTELY NO WARRANTY; 請參照 COPYING 檔中的保証細節\n"
 "此程式是免費軟體，您可以合法的將它散播給它人\n"
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "檔案[&F]"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "歌曲[&S]"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "收集[&S]"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "選項[&O]"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "說明[&H]"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "前一首"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "倒帶"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "停止"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "暫停"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "播放"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "快轉"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "下一首"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr ""
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "錯誤"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -199,7 +192,7 @@ msgstr ""
 "無法開啟 /dev/sequencer 來取得資料\n"
 "可能有其它程式正在使用它"
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -208,52 +201,47 @@ msgstr ""
 "檔案 %s 已經存在\n"
 "您要覆蓋\這個檔案嗎?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "警告"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "速度 :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "無法開啟檔案 %s 或該檔不存在"
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "檔案 %s 不是一個 MIDI 檔"
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr "這個檔案的四分音符“滴答”數為負數，請將此檔傳到 antlarr@arrakis.es"
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "記憶體不足 !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "這個檔案已經損壞或是沒有建立好"
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "未知的錯誤"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "在播放之前請先載入一個檔案"
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "一首曲子已經在播放中"
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -265,14 +253,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "設定 Midi 裝置"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "確定"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "取消"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "請選擇您想要使用的 MIDI 裝置 :"
@@ -280,14 +260,6 @@ msgstr "請選擇您想要使用的 MIDI 裝置 :"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "使用此 MIDI 對照:"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "無"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "瀏覽..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -300,26 +272,6 @@ msgstr "已經有的收集 :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "在目前這個收集中的歌曲:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "新建"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "複製"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "刪除"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "加入"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "移除"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -350,7 +302,7 @@ msgstr "請輸入一個新的名稱給這個收集"
 msgid "Change Collection Name"
 msgstr "更改收集的名稱"
 
-#: channel.cpp:75
+#: channel.cpp:89
 #, fuzzy
 msgid "Channel"
 msgstr "取消"
@@ -885,3 +837,57 @@ msgstr "暫停"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
+
+#~ msgid "&Open ..."
+#~ msgstr "開啟[&O] ..."
+
+#~ msgid "&Quit"
+#~ msgstr "離開[&Q]"
+
+#~ msgid "&File"
+#~ msgstr "檔案[&F]"
+
+#~ msgid "&Options"
+#~ msgstr "選項[&O]"
+
+#~ msgid "&Help"
+#~ msgstr "說明[&H]"
+
+#~ msgid "Stop"
+#~ msgstr "停止"
+
+#~ msgid "Forward"
+#~ msgstr "快轉"
+
+#~ msgid "Error"
+#~ msgstr "錯誤"
+
+#~ msgid "Warning"
+#~ msgstr "警告"
+
+#~ msgid "OK"
+#~ msgstr "確定"
+
+#~ msgid "Cancel"
+#~ msgstr "取消"
+
+#~ msgid "None"
+#~ msgstr "無"
+
+#~ msgid "Browse..."
+#~ msgstr "瀏覽..."
+
+#~ msgid "New"
+#~ msgstr "新建"
+
+#~ msgid "Copy"
+#~ msgstr "複製"
+
+#~ msgid "Delete"
+#~ msgstr "刪除"
+
+#~ msgid "Add"
+#~ msgstr "加入"
+
+#~ msgid "Remove"
+#~ msgstr "移除"

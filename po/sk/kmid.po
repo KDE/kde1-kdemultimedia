@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-03-20 12:20 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Slovak <bednar@isternet.sk>\n"
@@ -9,103 +9,126 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-2\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "&Otvori» ..."
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "Pauza"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "&Ulo¾i» slová..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "Predchádzajúca pieseò"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "&Koniec"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "Nasledujúca pieseò"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "&Hra»"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "P&auza"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "&Stop"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "P&redchádzajúca pesnièka"
-
-### Komentár: Navrhujem vôbec zameni» "pesnièka" za skladba, úplne v¹ade
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "&Nasledujúca pesnièka"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "Dooko&la"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "&Spravova» ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "Hra» v poradí"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "Náhodné poradie"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "Automaticky pridáva»"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&V¹eobecný Midi súbor"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 súbor"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "&Textové udalosti"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "Udalosti v slovách"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "&Ulo¾i» slová..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "&Hra»"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "P&auza"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "&Stop"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "P&redchádzajúca pesnièka"
+
+# ## Komentár: Navrhujem vôbec zameni» "pesnièka" za skladba, úplne v¹ade
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "&Nasledujúca pesnièka"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "Dooko&la"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "&Spravova» ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "Hra» v poradí"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "Náhodné poradie"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "Automaticky pridáva»"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "&V¹eobecný Midi súbor"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32 súbor"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "&Automaticky vybera» text"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr "Ukáza» nasta&venie hlasitosti"
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr "Ukáza» &kanály"
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr "Nastavi» z&obrazenia kanálov"
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "&Zmena písma ..."
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 msgid "Midi &Setup ..."
 msgstr "&Nastavi» Midi.."
 
-### Prípadne "&Nastavenie Midi..."
-
-#: kmidframe.cpp:150
+# ## Prípadne "&Nastavenie Midi..."
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -130,67 +153,35 @@ msgstr ""
 "súbor COPYING. Toto je voµne ¹íriteµný softvér a privítame, keï ho budete\n"
 "¹íri» za daných podmienok\n"
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "&Súbor"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "&Pieseò"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "&Zbierky"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "&Mo¾nosti"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "&Pomocník"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "Predchádzajúca pieseò"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "Spä»"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "Stop"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "Pauza"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "Hra»"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "Vpred"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "Nasledujúca pieseò"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr "Ukáza» kanály"
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr "Ukáza» hlasitos»"
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "Chyba"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -198,9 +189,8 @@ msgstr ""
 "Nemô¾em otvori» /dev/sequencer aby som získal\n"
 "niektoré informácie. Mo¾no ho pou¾íva iný program."
 
-### Chýba Ti èiarka za /dev/sequencer...
-
-#: kmidframe.cpp:639 kmidframe.cpp:640
+# ## Chýba Ti èiarka za /dev/sequencer...
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -209,26 +199,21 @@ msgstr ""
 "Súbor %s u¾ existuje\n"
 "Chcete ho prepísa» ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "Varovanie"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Súbor %s neexistuje alebo sa nedá otvori»."
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Súbor %s nie je midi súbor."
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -236,30 +221,29 @@ msgstr ""
 "Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tento súbor na "
 "adresu antlarr@arrakis.es."
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "Nedostatok pamäte !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "Tento súbor je po¹kodený alebo zle urobený."
 
-### Navrhujem zameni» "zle urobený" za "zle vygenerovaný". Urobený znie
-### divne :-)
-
-#: kmidclient.cpp:260
+# ## Navrhujem zameni» "zle urobený" za "zle vygenerovaný". Urobený znie
+# ## divne :-)
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "Neznáma chyba"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "Musíte naèíta» súbor pred hraním."
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "U¾ hrá pesnièka."
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -271,14 +255,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "Konfigurácia midi zariadení"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "OK"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "Zru¹i»"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "Zvoµte midi zariadenie :"
@@ -286,14 +262,6 @@ msgstr "Zvoµte midi zariadenie :"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "Pou¾i» midi mapu :"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "®iadnu"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "Listova»..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -306,26 +274,6 @@ msgstr "Dostupné zbierky :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Piesne vo zvolenej zbierke:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "Nová"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "Kopírova»"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "Zmaza»"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "Prida»"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "Odstráni»"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -356,7 +304,7 @@ msgstr "Zadajte nový názov pre zvolenú zbierku"
 msgid "Change Collection Name"
 msgstr "Zmeni» názov zbierky"
 
-#: channel.cpp:75
+#: channel.cpp:89
 msgid "Channel"
 msgstr "Kanál"
 
@@ -392,10 +340,9 @@ msgstr "Veµký elektronický klavír"
 msgid "Honky-Tonk"
 msgstr "Klavír Honky-Tonk"
 
-### Nemohol som vymyslie» nijaký nový rozumný preklad, slovenèina na to nemá
-### výraz.
+# ## Nemohol som vymyslie» nijaký nový rozumný preklad, slovenèina na to nemá
+# ## výraz.
 #: instrname.i18n:10
-
 msgid "Rhodes Piano"
 msgstr "Zvonèekový klavír"
 
@@ -447,13 +394,11 @@ msgstr "Cimbal"
 msgid "Hammond Organ"
 msgstr "Hammond Organ"
 
-### On sa tak fakt volá, je to toti¾ druh syntezátora, ktorý je postavený v
-### tvare hracieho stola organu. Vyu¾ívaný najmä v jazze.
-
+# ## On sa tak fakt volá, je to toti¾ druh syntezátora, ktorý je postavený v
+# ## tvare hracieho stola organu. Vyu¾ívaný najmä v jazze.
 #: instrname.i18n:23
 msgid "Percussive Organ"
 msgstr "Perkusívny organ"
-
 
 #: instrname.i18n:24
 msgid "Rock Organ"
@@ -471,8 +416,7 @@ msgstr "Verklík"
 msgid "Accordion"
 msgstr "Akordeón"
 
-### Medzi nami hudobníkmi sa mu hovorí " ¹µaktrafón ".
-
+# ## Medzi nami hudobníkmi sa mu hovorí " ¹µaktrafón ".
 #: instrname.i18n:28
 msgid "Harmonica"
 msgstr "Ústna harmonika"
@@ -781,10 +725,9 @@ msgstr "FX 2 - Soundtrack"
 msgid "FX 3 - Crystal"
 msgstr "FX 3 - Kry¹táµ"
 
-### Ak pí¹e¹ "kri¹táµ" s makkým µ na konci, ZÁSADNE je tam aj
-### mäkké i. Ak pí¹e¹ kry¹tál s tvrdým l na konci, je v slove
-### ypsislon. Tu potrebuje¹ tvar kri¹táµ.
-
+# ## Ak pí¹e¹ "kri¹táµ" s makkým µ na konci, ZÁSADNE je tam aj
+# ## mäkké i. Ak pí¹e¹ kry¹tál s tvrdým l na konci, je v slove
+# ## ypsislon. Tu potrebuje¹ tvar kri¹táµ.
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
 msgstr "FX 4 - Atmosféra"
@@ -901,3 +844,56 @@ msgstr "Potlesk"
 msgid "Gunshot"
 msgstr "Streµba"
 
+#~ msgid "&Open ..."
+#~ msgstr "&Otvori» ..."
+
+#~ msgid "&Quit"
+#~ msgstr "&Koniec"
+
+#~ msgid "&File"
+#~ msgstr "&Súbor"
+
+#~ msgid "&Options"
+#~ msgstr "&Mo¾nosti"
+
+#~ msgid "&Help"
+#~ msgstr "&Pomocník"
+
+#~ msgid "Stop"
+#~ msgstr "Stop"
+
+#~ msgid "Forward"
+#~ msgstr "Vpred"
+
+#~ msgid "Error"
+#~ msgstr "Chyba"
+
+#~ msgid "Warning"
+#~ msgstr "Varovanie"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Cancel"
+#~ msgstr "Zru¹i»"
+
+#~ msgid "None"
+#~ msgstr "®iadnu"
+
+#~ msgid "Browse..."
+#~ msgstr "Listova»..."
+
+#~ msgid "New"
+#~ msgstr "Nová"
+
+#~ msgid "Copy"
+#~ msgstr "Kopírova»"
+
+#~ msgid "Delete"
+#~ msgstr "Zmaza»"
+
+#~ msgid "Add"
+#~ msgstr "Prida»"
+
+#~ msgid "Remove"
+#~ msgstr "Odstráni»"

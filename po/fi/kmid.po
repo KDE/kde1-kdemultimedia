@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "Content-Type: text/plain; charset=\n"
 "Date: 1998-04-03 19:18:58+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
@@ -8,100 +8,125 @@ msgstr ""
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "&Avaa ..."
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "Play/Pause"
+msgstr "Tauko"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "&Tallenna sanat ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "Edellinen kappale"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "&Lopeta"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "Seuraava kappale"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "&Soita"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "&Tauko"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "P&ys‰yt‰"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "&Edellinen kappale"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "Se&uraava kappale"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "S&ilmukoi"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "&J‰rjest‰ ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "J‰rjestyksess‰"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "Sekoitettuna"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "Lis‰‰ automaattisesti kokoelmiin"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&General Midi tiedosto"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32 tiedosto"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "N‰yt‰ &Tekstitapahtumat"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "N‰yt‰ &sanatapahtumat"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr ""
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr ""
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "&Tallenna sanat ..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "&Soita"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "&Tauko"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "P&ys‰yt‰"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "&Edellinen kappale"
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "Se&uraava kappale"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "S&ilmukoi"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "&J‰rjest‰ ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "J‰rjestyksess‰"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "Sekoitettuna"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "Lis‰‰ automaattisesti kokoelmiin"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "&General Midi tiedosto"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32 tiedosto"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "&Automaattinen tekstinvalitsin"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr ""
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr ""
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "&Kirjasimen vaihtaminen ..."
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr ""
+
+#: kmidframe.cpp:177
 #, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Midi asetukset ..."
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -126,67 +151,35 @@ msgstr ""
 "This is free software, and you are welcome to redistribute it\n"
 "under certain conditions\n"
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "&Tiedosto"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "&Kappale"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "K&okoelmat"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "&Asetukset"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "&Ohje"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "Edellinen kappale"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "Takaisin"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "Pys‰yt‰"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "Tauko"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "Soita"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "Eteen"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "Seuraava kappale"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr ""
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "Virhe"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -194,7 +187,7 @@ msgstr ""
 "En saanut avattua /dev/sequencer -laitetta.\n"
 "Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -203,52 +196,47 @@ msgstr ""
 "Tiedosto %s on jo olemassa\n"
 "Haluatko kirjoittaa sen p‰‰lle?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "Varoitus"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Tiedostoa %s ei ole olemassa tai sit‰ ei saada avattua"
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Tiedosto %s ei ole miditiedosto"
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "Muistia ei ole tarpeeksi !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "T‰m‰ tiedosto on viallinen tai huonosti rakennettu"
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "Tuntematon virhe"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "Sinun on ladattava tiedosto ennen sen soittamista"
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "Kappaletta soitetaan jo"
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -260,14 +248,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "Aseta Midi-laitteita"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "OK"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "Peruuta"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "Valitse midilaite jota haluat k‰ytt‰‰ :"
@@ -275,14 +255,6 @@ msgstr "Valitse midilaite jota haluat k‰ytt‰‰ :"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "K‰yt‰ midikarttaa :"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "Ei mik‰‰n"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "Selaa..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -295,26 +267,6 @@ msgstr "Olemassaolevat kokoelmat :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Kappaleet valitussa kokoelmassa:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "Uusi"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "Kopioi"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "Tuhoa"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "Lis‰‰"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "Poista"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -345,7 +297,7 @@ msgstr "Anna uusi nimi kokoelmalle"
 msgid "Change Collection Name"
 msgstr "Vaihda kokoelman nime‰"
 
-#: channel.cpp:75
+#: channel.cpp:89
 #, fuzzy
 msgid "Channel"
 msgstr "Peruuta"
@@ -880,3 +832,57 @@ msgstr "Tauko"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
+
+#~ msgid "&Open ..."
+#~ msgstr "&Avaa ..."
+
+#~ msgid "&Quit"
+#~ msgstr "&Lopeta"
+
+#~ msgid "&File"
+#~ msgstr "&Tiedosto"
+
+#~ msgid "&Options"
+#~ msgstr "&Asetukset"
+
+#~ msgid "&Help"
+#~ msgstr "&Ohje"
+
+#~ msgid "Stop"
+#~ msgstr "Pys‰yt‰"
+
+#~ msgid "Forward"
+#~ msgstr "Eteen"
+
+#~ msgid "Error"
+#~ msgstr "Virhe"
+
+#~ msgid "Warning"
+#~ msgstr "Varoitus"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Cancel"
+#~ msgstr "Peruuta"
+
+#~ msgid "None"
+#~ msgstr "Ei mik‰‰n"
+
+#~ msgid "Browse..."
+#~ msgstr "Selaa..."
+
+#~ msgid "New"
+#~ msgstr "Uusi"
+
+#~ msgid "Copy"
+#~ msgstr "Kopioi"
+
+#~ msgid "Delete"
+#~ msgstr "Tuhoa"
+
+#~ msgid "Add"
+#~ msgstr "Lis‰‰"
+
+#~ msgid "Remove"
+#~ msgstr "Poista"

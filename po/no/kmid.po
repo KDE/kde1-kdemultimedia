@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-09-17 14:48+0200\n"
+"POT-Creation-Date: 1998-10-01 13:39+0200\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
 "Language-Team: no \n"
@@ -201,17 +201,17 @@ msgstr ""
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:250
+#: kmidclient.cpp:258
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Filen %s eksisterer ikke eller kan ikke åpnes"
 
-#: kmidclient.cpp:253
+#: kmidclient.cpp:261
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Filen %s er ikke en midifil"
 
-#: kmidclient.cpp:255
+#: kmidclient.cpp:263
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -219,27 +219,27 @@ msgstr ""
 "Merking pr kvart note er negativ, vennligst, send denne fil til "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:257
+#: kmidclient.cpp:265
 msgid "Not enough memory !!"
 msgstr "Ikke nok minne !!"
 
-#: kmidclient.cpp:259
+#: kmidclient.cpp:267
 msgid "This file is corrupted or not well built"
 msgstr "Denne fil er dårlig eller ikke skikkelig laget"
 
-#: kmidclient.cpp:260
+#: kmidclient.cpp:268
 msgid "Unknown error message"
 msgstr "Ukjent feil melding"
 
-#: kmidclient.cpp:441
+#: kmidclient.cpp:452
 msgid "You must load a file before playing it"
 msgstr "Du må laste inn en fil før du kan avspille den"
 
-#: kmidclient.cpp:447
+#: kmidclient.cpp:458
 msgid "A song is already being played"
 msgstr "En sang spilles allerede"
 
-#: kmidclient.cpp:453
+#: kmidclient.cpp:464
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
