@@ -234,17 +234,17 @@ void KDisplayText::calculatePositions(void)
 
 void KDisplayText::paintEvent(QPaintEvent *)
 {
-    if (linked_list==NULL) return;
-    if (nlines>nvisiblelines)
-        textscrollbar->setRange(1,nlines-nvisiblelines+1);
-    else
-        textscrollbar->setRange(1,1);
-    
     if (qpaint==NULL)
     {
         qpaint=new QPainter(this);
         qpaint->setFont(*qtextfont);
     };
+    if (linked_list==NULL) {drawFrame();return;};
+    if (nlines>nvisiblelines)
+        textscrollbar->setRange(1,nlines-nvisiblelines+1);
+    else
+        textscrollbar->setRange(1,1);
+    
     int i=0;
     qpaint->setPen(QColor(255,255,0));
     int colorplayed=1;
@@ -281,8 +281,34 @@ void KDisplayText::paintEvent(QPaintEvent *)
         };
         i++;
         tmpl=tmpl->next;
-    };
+    }
+    
+    drawFrame();
+
     qpaint->setPen(QColor(255,255,0));
+    
+};
+
+void KDisplayText::drawFrame(void)
+{
+    int w=width();
+    if (textscrollbar!=0L) w=textscrollbar->x();
+    QColorGroup qcg=colorGroup();
+    qpaint->setPen(qcg.light());
+    qpaint->drawLine(0,height()-1,w-1,height()-1);
+    qpaint->drawLine(w-1,0,w-1,height()-1);
+    qpaint->setPen(qcg.background());
+    qpaint->drawLine(1,height()-2,w-2,height()-2);
+    qpaint->drawLine(w-2,1,w-2,height()-2);
+    qpaint->setPen(qcg.mid());
+    qpaint->drawLine(0,0,0,height()-1);
+    qpaint->drawLine(0,0,w-1,0);
+    qpaint->setPen(qcg.dark());
+    qpaint->drawLine(1,1,1,height()-2);
+    qpaint->drawLine(1,1,w-2,1);
+//    qpaint->setPen(QColor(0,0,0));
+//    qpaint->drawRect(2,2,w-4,height()-4);
+
 };
 
 void KDisplayText::resizeEvent(QResizeEvent *)

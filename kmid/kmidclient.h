@@ -71,7 +71,7 @@ private:
     NoteArray *noteArray;
 
     int	itsme;
-
+    bool shuttingdown;
     int visiblevolumebar;
     
     char *midifile_opened;
@@ -131,6 +131,8 @@ public:
     void visibleVolumeBar(int i); // 1 shows it, and 0 hides it
     //    int  isVisibleVolumeBar(void) {return visiblevolumebar;};
     void visibleChannelView(int i);
+
+    void shuttingDown(void);
 
     ulong timeOfNextEvent(int *type=NULL);
     void rethinkNextEvent(void);

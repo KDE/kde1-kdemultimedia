@@ -79,6 +79,9 @@ protected:
     double oldvalue;
     double defaultValue;
 
+    double minValue;
+    double maxValue;
+
     void drawVerticalBar(QPainter *qpaint,int x,int y,int w,int h,int d);
     void drawHorizBar(QPainter *qpaint,int x,int y,int w,int h,int d);
     void drawDigit(QPainter *qpaint,int x,int y,int w,int h,digit d);
@@ -95,6 +98,10 @@ public:
     void setValue(double v);
     double getValue(void) { return value; };
     double getOldValue(void) { return oldvalue; };
+
+    double getMinValue(void) { return minValue;};
+    double getMaxValue(void) { return maxValue;};
+    void setRange(double min, double max);
 
     void setLCDBackgroundColor (int r,int g,int b);
     void setLCDColor (int r,int g,int b);

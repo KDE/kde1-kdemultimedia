@@ -64,6 +64,7 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     collectionplaylist=NULL;
     channelView=NULL;
     noteArray=NULL;
+    shuttingdown=false;
     
     KApplication *kappl;
     kappl=KApplication::getKApplication();
@@ -101,6 +102,7 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     tempoLCD->setValue(120);
     tempoLCD->display(120);
     currentTempo=120;
+    tempoLCD->setRange(3,999);
     tempoLCD->setDefaultValue(120);
     tempoLCD->setUserSetDefaultValue(true);
     tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,83,28);
@@ -862,16 +864,23 @@ void kmidClient::song_Pause()
     };
 };
 
+void kmidClient::shuttingDown(void)
+{
+    shuttingdown=true;
+    song_Stop();
+};
 
 void kmidClient::song_Stop()
 {
-    for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
-    if (channelView!=NULL) channelView->reset();
-    tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
-    currentTempo=tempoLCD->getValue();
-    tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
+    if (!shuttingdown)
+    {
+        for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
+        if (channelView!=NULL) channelView->reset();
+        tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
+        currentTempo=tempoLCD->getValue();
+        tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
+    }
     
-
 #ifndef MODE_DEMO_ONLYVISUAL
     if (pctl->playing==0) return;
 #endif
@@ -881,7 +890,7 @@ void kmidClient::song_Stop()
 #endif
     if (playerProcessID!=0)
     {
-        int r=kill(playerProcessID,SIGTERM);
+        kill(playerProcessID,SIGTERM);
 	printf("Killing\n");
         waitpid(playerProcessID, NULL, 0);
         playerProcessID=0;
@@ -1260,7 +1269,7 @@ void kmidClient::visibleVolumeBar(int i)
     resizeEvent(NULL);
 };
 
-void kmidClient::visibleChannelView(int i)
+void kmidClient::visibleChannelView(int )
 {
     if (channelView==NULL)
     {
@@ -1278,6 +1287,8 @@ void kmidClient::visibleChannelView(int i)
         };
         channelView->show();
         connect(channelView,SIGNAL(signalToKMidClient(int *)),this,SLOT(communicationFromChannelView(int *)));
+	connect(kapp,SIGNAL(shutDown()),parentWidget(),SLOT(shuttingDown()));
+
     }
     else
     {
@@ -1355,9 +1366,9 @@ void kmidClient::changeTempo(double value)
         return;
     };
 
-//#ifdef KMidDEBUG
+#ifdef KMidDEBUG
     printf("Change tempo to %g\n",value);
-//#endif
+#endif
     int autocontplaying=0;
 
     if ((pctl->playing==1)&&(pctl->paused==0)) autocontplaying=1;
@@ -1367,47 +1378,34 @@ void kmidClient::changeTempo(double value)
     {
         song_Pause();
     }
-//    printf("a\n");
 
 //    double ratio=(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo)/(value);
 //    double ratio=(tempoLCD->getOldValue()*pctl->ratioTempo)/(value);
     double ratio=(currentTempo*pctl->ratioTempo)/value;
 
-    /*
-    if ((int)(ratio*10000)!=10000) tempoLCD->setLCDBackgroundColor (90,0,0);
-    else tempoLCD->setLCDBackgroundColor (0,0,0);
-    */
     char s[20];
     sprintf(s,"%g",ratio);
     if (strcmp(s,"1")!=0) tempoLCD->setLCDColor (255,100,100);
     else tempoLCD->setLCDColor (100,255,100);
+#ifdef KMidDEBUG
     printf("ratio : (%.9g = %g ) tempo now : %g , new tempo %g\n",ratio,ratio,tempoToMetronomeTempo(pctl->tempo),value);
     printf("OldValue : %g , value %g\n",tempoLCD->getOldValue(),value);
+#endif
     
-        
-
-    //    printf("ratio %g  , pctl->tempo %ld , value %d\n",ratio,pctl->tempo ,value);
-    /*
-    pausedatmillisec=10;
-    pctl->ratioTempo=1.434231992;
-    ratio=1.6029648469;
-    printf("pausedat : %ld\n",pausedatmillisec);
-    */
     if (pctl->paused==1)
     {
         pausedatmillisec=(long)(((double)pausedatmillisec/pctl->ratioTempo)*ratio);
+#ifdef KMidDEBUG
+        printf("pausedat : %ld\n",pausedatmillisec);
+#endif
     }
-//    printf("pausedat : %ld\n",pausedatmillisec);
-
     Player->changeTempoRatio(ratio);
-//    printf("b\n");
 
     timebar->setRange(0,(int)(Player->Info()->millisecsTotal));
     timebar->setValue(pausedatmillisec);
     timetags->repaint(TRUE);
 
     kdispt->ClearEv(false);
-//    printf("c\n");
 
     noteArray=Player->getNoteArray();
     spev=Player->takeSpecialEvents();
@@ -1421,21 +1419,15 @@ void kmidClient::changeTempo(double value)
         };
         spev=spev->next;
     };
-//    printf("d\n");
     
     kdispt->calculatePositions();
     kdispt->CursorToHome();
-//    printf("d2 : pausedatmillisec %ld\n",pausedatmillisec);
     if (pctl->paused==1)
         moveEventPointersTo(pausedatmillisec);
     
-//    kdispt->repaint(TRUE);
-        
-//    printf("e\n");
     if (autocontplaying)
     {
         song_Pause();
     };
-//    printf("f\n");
     
 };

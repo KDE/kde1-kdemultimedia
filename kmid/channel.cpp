@@ -43,8 +43,6 @@ KMidChannel::KMidChannel(int chn,QWidget *parent) : QWidget (parent)
     penW = new QPen (white);
     penT = new QPen (colorGroup().background());
 
-    setBackgroundColor(colorGroup().background());
-
     KConfig *kcfg=KApplication::getKApplication()->getConfig();
     kcfg->setGroup("KMid");
     QFont *qtextfontdefault=new QFont("lucida",18,QFont::Bold,TRUE);

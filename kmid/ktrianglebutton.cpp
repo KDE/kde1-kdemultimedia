@@ -20,7 +20,7 @@
     Send comments and bug fixes to antlarr@arrakis.es
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
-    Note: This widget was copied from KButton as found in the kdelibs/kdeui
+    Note: This widget was based on KButton as found in the kdelibs/kdeui
     KButton was originally copyrighted by Torben Weis (weis@kde.org)
     and Matthias Ettrich (ettrich@kde.org) on 1997
      
@@ -93,17 +93,6 @@ void KTriangleButton::paint( QPainter *painter )
   
   if (dir==Right)
   {
-/*      int x=width()/4;
-      int y=height()/4;
-      int l=y*2;
-      while (l>0)
-      {
-          painter->drawLine(x,y,x,y+l);
-          x++;
-          y++;
-          l-=2;
-          };
- */
       int x=width()/4;
       int y=height()/6;
       int l=height()-y*2;
@@ -112,24 +101,13 @@ void KTriangleButton::paint( QPainter *painter )
       double m=(double)(l/2)/maxi;
       while (i<=maxi)
       {
-          painter->drawLine(x,y+i*m,x,y+l-i*m);
+          painter->drawLine(x,y+(int)(i*m),x,y+l-(int)(i*m));
           x++;
           i++;
       };
   }
   else if (dir==Left)
   {
-/*      int x=width()*3/4;
-      int y=height()/4;
-      int l=y*2;
-      while (l>0)
-      {
-          painter->drawLine(x,y,x,y+l);
-          x--;
-          y++;
-          l-=2;
-      };
-*/
       int x=width()/4;
       int y=height()/6;
       int l=height()-y*2;
@@ -139,7 +117,7 @@ void KTriangleButton::paint( QPainter *painter )
       double m=(double)(l/2)/maxi;
       while (i<=maxi)
       {
-          painter->drawLine(x,y+i*m,x,y+l-i*m);
+          painter->drawLine(x,y+(int)(i*m),x,y+l-(int)(i*m));
           x--;
           i++;
       };
@@ -151,7 +129,6 @@ void KTriangleButton::paint( QPainter *painter )
 void KTriangleButton::mousePressEvent(QMouseEvent *e)
 {
     QButton::mousePressEvent(e);
-//    tresholdTimer=true;
     usingTimer=true;
     startTimer(500);
     timeCount=0;

@@ -513,7 +513,11 @@ void kmidFrame::slotDropEvent( KDNDDropZone * _dropZone )
 
 void kmidFrame::shuttingDown()
 {
-   if (kmidclient->isPlaying()==1) kmidclient->song_Stop();
+   if (kmidclient->isPlaying()==1) 
+   {
+//      kmidclient->song_Stop();
+      kmidclient->shuttingDown();
+   };
 };
 
 void kmidFrame::saveProperties(KConfig *kcfg)

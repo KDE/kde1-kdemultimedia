@@ -388,3 +388,12 @@ Wednesday 16-9-98
 
 Thursday 1-10-98
 - Fixed some problems
+
+Thursday 15-10-98
+- FIXED !!!
+The long awaited fix has arrived for songs keeping playing after X11' logout
+when channelview was actived.
+Now also the ChannelView change its colors when the user change the
+global colors, kdisptext paints a frame over the karaoke text,
+KLCDNumber only accepts a range of values (from 3 to 999)
+

@@ -35,6 +35,8 @@ KLCDNumber::KLCDNumber(int _numDigits,QWidget *parent,char *name)
     setUserChangeValue=false;
     numDigits=_numDigits;
     value=0;
+    minValue=0;
+    maxValue=1000;
     oldvalue=-1;
     //    setPalette( QPalette (QColor(0,0,0)));
     upBtn=NULL;
@@ -52,6 +54,8 @@ KLCDNumber::KLCDNumber(bool _setUserChangeValue,int _numDigits,QWidget *parent,c
     setUserChangeValue=_setUserChangeValue;
     numDigits=_numDigits;
     value=0;
+    minValue=0;
+    maxValue=1000;
     oldvalue=-1;
 //    setBackgroundColor(QColor(0,0,0));
 //    setPalette( QPalette (QColor(0,0,0)));
@@ -181,7 +185,12 @@ if (d.md) drawHorizBar (qpaint,x,y+h/2,w,w/5,2);
 void KLCDNumber::setValue(double v)
 {
     oldvalue=value;
-    value=v;
+    if (v<minValue)
+        value=minValue;
+    else if (v>maxValue)
+        value=maxValue;
+    else
+        value=v;
 
 }
 
@@ -206,7 +215,6 @@ void KLCDNumber::paintEvent ( QPaintEvent * )
     char *s=new char[numDigits+1];
 
     sprintf(s,"%g",value);
-    printf("(%s)\n",s);
     char *f=s;
     while ((*f!=0)&&(*f!='.')) f++;
     *f=0;
@@ -310,8 +318,6 @@ void KLCDNumber::mousePressEvent (QMouseEvent *e)
 void KLCDNumber::timerEvent(QTimerEvent *)
 {
     killTimers();
-    if (doubleclicked==false)
-        printf("************************ 1 click\n");
     doubleclicked=false;
 
 }
@@ -319,7 +325,6 @@ void KLCDNumber::timerEvent(QTimerEvent *)
 
 void KLCDNumber::defaultValueClicked()
 {
-    printf("************************ 2 click\n");
     if (setUserDefaultValue)
     {
         display( defaultValue );
@@ -331,11 +336,16 @@ void KLCDNumber::setLCDBackgroundColor(int r,int g,int b)
 {
     backgcolor=QColor(r,g,b);
     repaint(FALSE);
-};
+}
 
 void KLCDNumber::setLCDColor(int r,int g,int b)
 {
-    printf("***\n");
     LCDcolor=QColor(r,g,b);
     repaint(FALSE);
-};
+}
+
+void KLCDNumber::setRange(double min, double max)
+{
+    minValue=min;
+    maxValue=max;
+}

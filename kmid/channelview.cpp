@@ -30,6 +30,7 @@
 
 ChannelView::ChannelView(void) : KTMainWindow("ChannelView")
 {
+    setCaption(i18n("ChannelView"));
     for (int i=0;i<16;i++)
     {
         if (lookMode()==0)
@@ -39,24 +40,23 @@ ChannelView::ChannelView(void) : KTMainWindow("ChannelView")
         connect(Channel[i],SIGNAL(signalToKMidClient(int *)),this,SLOT(slottokmidclient(int *)));
         Channel[i]->setGeometry(5,5+i*CHANNELHEIGHT,width()-20,CHANNELHEIGHT);
         Channel[i]->show();
-    };
+    }
     scrollbar=new QScrollBar(1,16,1,1,1,QScrollBar::Vertical,this,"Channelscrollbar");
     connect(scrollbar,SIGNAL(valueChanged(int)),this,SLOT(ScrollChn(int)));
     setScrollBarRange();
-    setBackgroundColor(colorGroup().background());
     
-};
+}
 
 ChannelView::~ChannelView()
 {
 
-};
+}
 
 void ChannelView::closeEvent(QCloseEvent *e)
 {
     emit destroyMe();
     e->accept();
-};
+}
 
 void ChannelView::resizeEvent(QResizeEvent *)
 {
@@ -64,10 +64,10 @@ void ChannelView::resizeEvent(QResizeEvent *)
     for (int i=0;i<16;i++)
     {
         Channel[i]->setGeometry(5,5+(i-(scrollbar->value()-1))*CHANNELHEIGHT,width()-20,CHANNELHEIGHT);
-    };
+    }
     setScrollBarRange();
 
-};
+}
 
 void ChannelView::setScrollBarRange(void)
 {
@@ -76,34 +76,35 @@ void ChannelView::setScrollBarRange(void)
     scrollbar->setRange(1,16-nvisiblechannels+1);
    else
     scrollbar->setRange(1,1);
-};
+}
 
 void ChannelView::ScrollChn(int v)
 {
     for (int i=0;i<16;i++)
     {
         Channel[i]->move(5,5+(i-(v-1))*CHANNELHEIGHT);
-    };
-};
+    }
+}
 
 void ChannelView::noteOn(int chn,int note)
 {
     Channel[chn]->noteOn(note);
-};
+}
+
 void ChannelView::noteOff(int chn,int note)
 {
     Channel[chn]->noteOff(note);
-};
+}
 
 void ChannelView::changeInstrument(int chn,int pgm)
 {
     Channel[chn]->changeInstrument(pgm);
-};
+}
 
 void ChannelView::changeForceState(int chn,bool i)
 {
     Channel[chn]->changeForceState(i);
-};
+}
 
 
 void ChannelView::reset(int level)
@@ -111,8 +112,8 @@ void ChannelView::reset(int level)
     for (int i=0;i<16;i++)
     {
         Channel[i]->reset(level);
-    };
-};
+    }
+}
 
 int ChannelView::lookmode=0;
 
@@ -124,7 +125,7 @@ int ChannelView::lookMode(void)
     lookmode=kcfg->readNumEntry("ChannelViewLookMode",0);
 
     return lookmode;
-};
+}
 
 void ChannelView::lookMode(int i)
 {
@@ -151,11 +152,11 @@ void ChannelView::lookMode(int i)
         Channel[i]->setGeometry(5,5+(i-(scrollbar->value()-1))*CHANNELHEIGHT,width()-20,CHANNELHEIGHT);
         Channel[i]->loadState(tmp,&pgm);
         Channel[i]->show();
-    };
+    }
 
-};
+}
 
 void ChannelView::slottokmidclient(int *data)
 {
     emit signalToKMidClient(data);
-};
+}
