@@ -1,3 +1,4 @@
+
 /* 
   Synaesthesia - program to display sound graphically
   Copyright (C) 1997  Paul Francis Harrison
@@ -172,13 +173,21 @@ void screenShow(void) {
         register unsigned int const v = 
              mapping[((r1&0xe0)>>5)|((r1&0xe000)>>10)]
             |mapping[((r1&0xe00000)>>21)|((r1&0xe0000000)>>26)]*256U; 
+
         *(ptr1++) = v | 
              mapping[((r2&0xe0)>>5)|((r2&0xe000)>>10)]*65536U
             |mapping[((r2&0xe00000)>>21)|((r2&0xe0000000)>>26)]*16777216U; 
-          ( ((r2 & 0x000000e0) << 0-5 + 16)
+
+	/* 
+	   ( ((r2 & 0x000000e0) << 0-5 + 16)
+
           | ((r2 & 0x0000e000) << 3-13 + 16)
+
           | ((r2 & 0x00e00000) << 8-21 + 16)
+
           | ((r2 & 0xe0000000) >> 29-12 - 16));
+
+	*/
       } 
 
       else 
@@ -199,6 +208,7 @@ void screenShow(void) {
           | ((r1 & 0x0000f000) >> 8)
           | ((r1 & 0x00f00000) >> 12)
           | ((r1 & 0xf0000000) >> 16);
+
         *(ptr1++) = v | 
           ( ((r2 & 0x000000f0) << 12)
           | ((r2 & 0x0000f000) << 8)
