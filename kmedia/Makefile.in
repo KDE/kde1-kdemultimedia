@@ -61,7 +61,7 @@ TARGET	=	kmedia
 
 ######### build rules ################
 
-all: .depend $(TARGET)
+all: $(TARGET) # .depend
 
 
 $(TARGET): $(SRCMETA) $(OBJECTS) $(OBJNLS)
@@ -75,13 +75,13 @@ clean:
 distclean: clean
 	rm -f Makefile
 
-.depend: $(SRCS)
-	@if test ! -f .depend ; then $(MAKE) depend ; fi
+#.depend: $(SRCS)
+#	@if test ! -f .depend ; then $(MAKE) depend ; fi
 
-depend:
-	@echo "Creating dependencies."
-	@makedepend $(INCDIRS) $(SRCS)
-	touch .depend
+#depend:
+#	@echo "Creating dependencies."
+#	@makedepend $(INCDIRS) $(SRCS)
+#	touch .depend
 
 install: $(TARGET) install-appdir install-icons # install-nls
 	$(INSTALL_DIR) $(BINDIR)

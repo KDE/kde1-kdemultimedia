@@ -90,7 +90,7 @@ void KMediaWin::ejectClicked()
 {
 }
 
-void KMediaWin::trackSelected( int trk )
+void KMediaWin::trackSelected( int /*trk*/ )
 {
 }
 
@@ -101,13 +101,10 @@ void KMediaWin::onDrop( KDNDDropZone* _zone )
 {
   QStrList strlist;
   KURL *url;
-  char *str;
 
-//  fprintf(stderr, "URLs dropped on KMedia!\n");
   strlist = _zone->getURLList();
 
   url = new KURL( strlist.first() );
-//  fprintf(stderr, "%s\n",url->path());
   FileNameSet( FnamChunk, url->path());
 
   launchPlayer(url->path());
@@ -192,9 +189,8 @@ void KMediaWin::TimerFunctions()
 
 
 
-void KMediaWin::PosChanged( int new_pos )
+void KMediaWin::PosChanged( int /*new_pos*/ )
 {
-//  fprintf(stderr,"New Position is %i.\n", new_pos);
 }
 
 
