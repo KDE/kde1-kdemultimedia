@@ -147,6 +147,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     use_kfm 		= true;
     docking 		= true;
     autoplay = false;
+    autodock = false;
     updateDialog          = false;
     ejectedBefore = false;
 
@@ -958,6 +959,7 @@ void KSCD::aboutClicked(){
     config.use_kfm    = use_kfm;
     config.docking    = docking;
     config.autoplay   = autoplay;
+    config.autodock = autodock;
 
     dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
@@ -1000,6 +1002,7 @@ void KSCD::aboutClicked(){
         use_kfm = dlg->getData()->use_kfm;
         docking = dlg->getData()->docking;
         autoplay = dlg->getData()->autoplay;
+        autodock = dlg->getData()->autodock;
         
         if( (QString)cd_device != dlg->getData()->cd_device){
             cd_device_str = dlg->getData()->cd_device;
@@ -1326,6 +1329,7 @@ void KSCD::readSettings()
     use_kfm    = (bool) config->readNumEntry("USEKFM", 1);
     docking    = (bool) config->readNumEntry("DOCKING", 1);
     autoplay = (bool) config->readNumEntry("AUTOPLAY", 0);
+    autodock = (bool) config->readNumEntry("AUTODOCK", 0);
     mailcmd    =        config->readEntry("UnixMailCommand","/bin/mail -s \"%s\"");
 
 #ifdef DEFAULT_CD_DEVICE
@@ -1430,6 +1434,7 @@ void KSCD::writeSettings(){
     config->writeEntry("USEKFM", (int)use_kfm); 
     config->writeEntry("DOCKING", (int)docking);
     config->writeEntry("AUTOPLAY", (int)autoplay);
+    config->writeEntry("AUTODOCK", (int)autodock);
     config->writeEntry("CDDevice",cd_device);
     config->writeEntry("CustomBroserCmd",browsercmd);
     config->writeEntry("Volume", volume);

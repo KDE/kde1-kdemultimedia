@@ -47,6 +47,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.mailcmd = "mail -s \"%s\" ";
   configdata.docking = true;
   configdata.autoplay = false;
+  configdata.autodock = false;
 
   if(data){
     configdata.background_color = data->background_color;
@@ -58,6 +59,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
     configdata.use_kfm = data->use_kfm;
     configdata.docking = data->docking;
     configdata.autoplay = data->autoplay;
+    configdata.autodock = data->autodock;
   }
 
   colors_changed = false;
@@ -161,6 +163,12 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   cdAutoPlayCB->setGeometry(30+XOFF, 285+YOFF, 200, 15);
   cdAutoPlayCB->setChecked(configdata.autoplay);
   connect(cdAutoPlayCB, SIGNAL(clicked()), this, SLOT(autoPlayClicked()));
+
+  dockOnMinimizeCB = new QCheckBox(klocale->translate("AutoDock on Minimize"),
+                                   this, "dockOnMinimizeCB");
+  dockOnMinimizeCB->setGeometry(30+XOFF, 305+YOFF, 200, 15);
+  dockOnMinimizeCB->setChecked(configdata.autodock);
+  connect(dockOnMinimizeCB, SIGNAL(clicked()), this, SLOT(dockOnMinimizeClicked()));
   
   button3 = new QPushButton(this);
   button3->setGeometry( 420, 400, 90, 25 );
@@ -223,6 +231,14 @@ void ConfigDlg::autoPlayClicked(){
         configdata.autoplay = TRUE;
     else
         configdata.autoplay = FALSE;
+}
+
+void ConfigDlg::dockOnMinimizeClicked()
+{
+    if(dockOnMinimizeCB->isChecked())
+        configdata.autodock = TRUE;
+    else
+        configdata.autodock = FALSE;
 }
 
 void ConfigDlg::help(){

@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <klocale.h>
 
+#include <qkeycode.h>
 #include <qregexp.h> 
 #include <qdatetm.h> 
 #include <qtstream.h> 
@@ -84,9 +85,15 @@ CDDialog::~CDDialog(){
       delete [] cdinfo.cddbtoc;
 }
 
+void CDDialog::closeEvent(QCloseEvent*)
+{
+    emit dialog_done();
+}
 
-void CDDialog::closeEvent(QCloseEvent* ){
-
+void CDDialog::keyPressEvent(QKeyEvent *e)
+{
+    if(e->state() == 0 && e->key() == Key_Escape)
+        emit dialog_done();
 }
 
 void CDDialog::ok(){
@@ -95,7 +102,6 @@ void CDDialog::ok(){
 
 
 }
-
 
 void CDDialog::play(int i){
 

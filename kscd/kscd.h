@@ -91,6 +91,7 @@ struct configstruct{
   bool	use_kfm;
   bool	docking;
   bool  autoplay;
+  bool autodock;
 };
 
 struct mgconfigstruct{
@@ -267,6 +268,7 @@ private:
 	bool 		use_kfm;
         bool            docking;
         bool            autoplay;
+        bool autodock;
 	bool 		cddb_inexact_sentinel;
         bool            updateDialog;
         bool ejectedBefore;
@@ -277,12 +279,12 @@ public:
 
 protected:
 
-	void closeEvent( QCloseEvent *e );
-	void playtime();
-	void setupPopups();
-	void startBrowser(char* querystring);
-	bool getArtist(QString& artist);
-	void get_pathlist(QStrList& _patlist);
+    void closeEvent( QCloseEvent *e );
+    void playtime();
+    void setupPopups();
+    void startBrowser(char* querystring);
+    bool getArtist(QString& artist);
+    void get_pathlist(QStrList& _patlist);
 
 };
 

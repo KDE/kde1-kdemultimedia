@@ -68,6 +68,7 @@ private slots:
   void ttclicked();
   void dockclicked();
   void autoPlayClicked();
+  void dockOnMinimizeClicked();
   void device_changed(const char*);
   void mail_changed(const char*);
   void custombutton_clicked();
@@ -107,6 +108,7 @@ private:
   QCheckBox *ttcheckbox;
   QCheckBox *dockcheckbox;
   QCheckBox *cdAutoPlayCB;
+  QCheckBox *dockOnMinimizeCB;
   
   QLabel *label5;
   QLineEdit *cd_device_edit;
