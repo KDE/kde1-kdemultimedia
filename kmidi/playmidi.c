@@ -147,6 +147,7 @@ static void reset_midi(void)
       channel[i].panning=NO_PANNING;
       channel[i].pitchsens=2;
       channel[i].bank=0; /* tone bank or drum set */
+      channel[i].kit=0;
     }
   reset_voices();
 }
@@ -524,7 +525,8 @@ static void start_note(MidiEvent *e, int i)
   int played_note;
 
 #ifndef ADAGIO
-  if (ISDRUMCHANNEL(e->channel))
+  if (ISDRUMCHANNEL(e->channel) || channel[e->channel].kit)
+  /*if (ISDRUMCHANNEL(e->channel))*/
     {
       if (!(ip=drumset[channel[e->channel].bank]->tone[e->a].instrument))
 	{
@@ -950,6 +952,7 @@ static void seek_forward(int32 until_time)
 	  
 	case ME_PROGRAM:
 	  if (ISDRUMCHANNEL(current_event->channel))
+  	  /*if (ISDRUMCHANNEL(current_event->channel) || !channel[current_event->channel].kit)*/
 	    /* Change drum set */
 	    channel[current_event->channel].bank=current_event->a;
 	  else
@@ -974,6 +977,12 @@ static void seek_forward(int32 until_time)
 	      
 	case ME_TONE_BANK:
 	  channel[current_event->channel].bank=current_event->a;
+	  break;
+	  
+	case ME_TONE_KIT:
+	  if (current_event->a != 127)
+	  channel[current_event->channel].bank=current_event->a;
+	  channel[current_event->channel].kit=current_event->a;
 	  break;
 	  
 	case ME_EOT:
@@ -1247,6 +1256,7 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 
 	    case ME_PROGRAM:
 	      if (ISDRUMCHANNEL(current_event->channel))
+  	      /*if (ISDRUMCHANNEL(current_event->channel) || !channel[current_event->channel].kit)*/
 		{
 		  /* Change drum set */
 		  channel[current_event->channel].bank=current_event->a;
@@ -1280,6 +1290,12 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      
 	    case ME_TONE_BANK:
 	      channel[current_event->channel].bank=current_event->a;
+	      break;
+
+	    case ME_TONE_KIT:
+	      if (current_event->a != 127)
+	      channel[current_event->channel].bank=current_event->a;
+	      channel[current_event->channel].kit=current_event->a;
 	      break;
 
 	    case ME_EOT:
@@ -1335,7 +1351,6 @@ int load_gm(char *name, int gm_num, int prog, int tpgm, int reverb, int main_vol
 
   if (gm_num < 0) return 0;
 
-/* why is this 0? */
   bank=tonebank[0];
 
   bank->tone[prog].name=
