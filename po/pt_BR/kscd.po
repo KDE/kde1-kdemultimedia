@@ -239,9 +239,8 @@ msgid "Stop Playing on Exit"
 msgstr "Parar a Reprodução ao Sair"
 
 #: configdlg.cpp:183
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Ejetando"
+msgstr "Ejetar ao Terminar"
 
 #: docking.cpp:75 kscd.cpp:561
 msgid "Play/Pause"
