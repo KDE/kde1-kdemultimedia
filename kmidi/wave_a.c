@@ -26,7 +26,6 @@
 #ifdef __WIN32__
 #include <stdlib.h>
 #include <io.h>
-#include <string.h>
 #else
 #include <unistd.h>
 #endif
@@ -36,6 +35,8 @@
 #ifdef __FreeBSD__
 #include <stdio.h>
 #endif
+
+#include <string.h>
 
 #include "config.h"
 #include "output.h"
