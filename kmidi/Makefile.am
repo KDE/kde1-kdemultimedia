@@ -104,4 +104,6 @@ uninstall:
 	rm -f $(TIMID_DIR)/patch/nylongt2.pat
 
 
+messages:
+	
 
