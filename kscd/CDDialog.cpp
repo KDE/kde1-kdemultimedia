@@ -353,21 +353,22 @@ void CDDialog::upload(){
     return;
 
   switch( QMessageBox::information( this,"Message",
-      "The submission you are about to make will go to the test server\n"\
-      "cddb-test@cddb.com. This is because this is the first release of\n"\
-      "the cddb addition to Kscd and we need to avoid corruption\n"\
-      "of the remote cddb data bases due to possible bugs in this first\n"\
-      "release of the cddb addition to Kscd.\n"\
-      "Since we need about a 100 error free test submissions\n"\
-      "before we will be granted write acces to the 'true' cddb databases, I would\n"\
-      "like you to upload as many test submissions as possible. You don't need to\n"\
-      "try to find a CD that is not in the database ( thought that would be helpful )\n"\
-      "It suffices to submit existing entries with Kscd.\n"\
-      "After submission you should receive a mail notifying you of success or\n"\
-      "or failure of your submission. Should you receive a failure notice\n"\
-      "please forward the failure report to me: <wuebben@kde.org>\n"\
-      "Check back often for the availablity of a fully enabled version of kscd.\n"\
-      "Thank you for your support.\n",
+
+"The submission you are about to make will go to the test server\n"\
+"cddb-test@cddb.com. This is because this is the first release of\n"\
+"the cddb addition to Kscd and I need to avoid corruption\n"\
+"of the remote cddb data bases due to possible bugs in Kscd.\n"\
+"Since we need about a 100 error free test submissions\n"\
+"before we will be granted write acces to the 'true' cddb databases, 
+I would like you ask you to upload as many test submissions as possible.\n"\
+"You don't need to try to find a CD that is not in the database \n"\
+"(thought that would be helpful),it suffices to submit existing\n"\
+"entries with Kscd.\n"\
+"After submission you should receive a mail notifying you of success or\n"\
+"or failure of your submission. Should you receive a failure notice\n"\
+"please forward the failure report to me: <wuebben@kde.org>\n"\
+"Check back often for the availablity of a fully enabled version of kscd.\n"\
+"Thank you for your support.\n",
 				    "OK",
 				    "Cancel",
 				    0,
@@ -391,11 +392,17 @@ void CDDialog::upload(){
   QStrList catlist;
   QString submitcat;
 
-  for(int i = 0; i < (int)pathlist.count();i++){
-    QString temp;
-    getCategoryFromPathName(pathlist.at(i),temp);
-    catlist.append(temp);
-  }
+  catlist.append("rock");
+  catlist.append("classical");
+  catlist.append("jazz");
+  catlist.append("soundtrack");
+  catlist.append("newage");
+  catlist.append("blues");
+  catlist.append("folk");
+  catlist.append("country");
+  catlist.append("reggae");
+  catlist.append("misc");
+  catlist.append("data");
 
   dialog->insertList(catlist);
   dialog->setErrorString("Please select a Category or press Cancel");
