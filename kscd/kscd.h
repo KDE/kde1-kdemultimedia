@@ -103,6 +103,7 @@ public slots:
 
 	void		togglequeryled();
 	void		cddb_done();
+	void		cddb_timed_out();
 	void	        cddb_ready();
         void	        cddb_failed();
 	void 	        setToolTips();
@@ -136,6 +137,7 @@ public slots:
 	void 		CDDialogDone();
 	void		getCDDBservers();
 	void		getCDDBserversDone();
+	void            getCDDBserversFailed();
 	void 		updateCurrentCDDBServer();
 	void 		performances(int);
 	void		purchases(int);

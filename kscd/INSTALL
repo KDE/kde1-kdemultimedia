@@ -4,14 +4,7 @@ Kscd-Install:
 For a quick installation type the following at your command prompt:
 
 >./configure
-
-If you are experiencing trouble getting kscd to work on a non-Linux platform
-please study the original Workman documentation in the docs directory of
-the kscd distribution. The original makefiles are in the makefiles subdirectory
-and may prove to be of help too.
-then,
-
->make
+> make
 
 This will start the KSCD configuration script. Please choose your platform
 and answer the questions posed. The configuration script will create

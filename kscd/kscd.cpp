@@ -53,11 +53,13 @@ extern "C" {
 #include "bitmaps/options.xbm"
 
 KApplication 	*mykapp;
+bool             debugflag = false;
 char 		tmptime[100];
 char 		*tottime;
 //static void 	playtime (void);
 void 		kcderror(char* title,char* message);
 void 		kcdworker(int );
+
 //void 		parseargs(char* buf, char** args);
 extern QTime framestoTime(int frames);
 extern void cddb_decode(QString& str);
@@ -869,6 +871,9 @@ void KSCD::trackSelected( int trk ){
 
 void KSCD::aboutClicked(){
 
+  QString server_copy;
+  server_copy = current_server.copy();
+
   QTabDialog * tabdialog;
 
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
@@ -957,6 +962,12 @@ void KSCD::aboutClicked(){
     setToolTips();
 
   }
+  else{
+    // reset the current server in case we played with it ...
+
+    current_server = server_copy.copy();
+    if(debugflag) printf("RESETTING SERVER TO: %s\n",current_server.data());
+  }
 
   disconnect(setup,SIGNAL(updateCDDBServers()),this,SLOT(getCDDBservers()));
   disconnect(setup,SIGNAL(updateCurrentServer()),this,SLOT(updateCurrentCDDBServer()));
@@ -974,7 +985,7 @@ void KSCD::updateCurrentCDDBServer(){
 
   if(setup){
     setup->getCurrentServer(current_server);
-    printf("set to %s\n",current_server.data());
+    if(debugflag) printf("SET SERVER TO: %s\n",current_server.data());
   }
 }
 
@@ -1239,7 +1250,7 @@ void KSCD::readSettings(){
   cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
 						    (int)true);
   current_server = config->readEntry("CurrentServer","cddb.cddb.com 888");
-  submitaddress = config->readEntry("SubmitAddress","cddb-test@cddb.cddb.com");
+  submitaddress = config->readEntry("CDDBSubmitAddress","xmcd-cddb@amb.org");
   int num;
   num = config->readListEntry("SeverList",cddbserverlist,',');
   if (num == 0)
@@ -1273,7 +1284,7 @@ void KSCD::writeSettings(){
   config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
   config->writeEntry("LocalBaseDir",cddbbasedir);
   config->writeEntry("SeverList",cddbserverlist);
-  config->writeEntry("SubmitAddress",submitaddress);
+  config->writeEntry("CDDBSubmitAddress",submitaddress);
   config->writeEntry("CurrentServer",current_server);
   config->sync();
 	
@@ -1287,7 +1298,7 @@ void KSCD::CDDialogSelected(){
   cddialog = new CDDialog();
 
   cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-		  revision,playlist,pathlist,mailcmd);
+		  revision,playlist,pathlist,mailcmd,submitaddress);
 
   connect(cddialog,SIGNAL(cddb_query_signal(bool)),this,SLOT(get_cddb_info(bool)));
   connect(cddialog,SIGNAL(dialog_done()),this,SLOT(CDDialogDone()));
@@ -1313,16 +1324,30 @@ void KSCD::getCDDBservers(){
     cddb = new CDDB();
 
   connect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+  connect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
+
   cddb->cddbgetServerList(current_server);
+  
+}
 
+void KSCD::getCDDBserversFailed(){
 
+  led_off();
+  if(cddb){
+   disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+   disconnect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
+  }
+  titlelabel->setText("Unable to get CDDB server list.");
+  artistlabel->setText("");
+  titlelabeltimer->start(10000,TRUE); // 10 secs
 }
 
 void KSCD::getCDDBserversDone(){
 
   led_off();
   if(cddb){
-    disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+   disconnect(cddb,SIGNAL(get_server_list_done()),this,SLOT(getCDDBserversDone()));
+   disconnect(cddb,SIGNAL(get_server_list_failed()),this,SLOT(getCDDBserversFailed()));
     cddb->serverList(cddbserverlist);
     if(setup)
       setup->insertServerList(cddbserverlist);
@@ -1354,6 +1379,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
   connect(cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
   connect(cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
   connect(cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
+  connect(cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
   connect(cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
   connect(cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
 
@@ -1377,19 +1403,22 @@ void KSCD::get_cddb_info(bool _updateDialog){
   }
 
   if(!res){
-    printf("DOING REMOTE QUERY\n");
+
+    if (debugflag) printf("STARTING REMOTE QUERY\n");
     cddb->cddb_connect(current_server);
   }
   else{
 
-    printf("SUCCEEDED LOCALLY\n");
+    if (debugflag) printf("FOUND RECORD LOCALLY\n");
     if((int)tracktitlelist.count() != (cd->ntracks + 1)){
-      printf("WARNING LOCAL QUERY tracktitleslist.count = %d != cd->ntracks +1 = %d\n",
-	     tracktitlelist.count(),cd->ntracks + 1);
+      if(debugflag) printf(
+	"WARNING LOCAL QUERY tracktitleslist.count = %d != cd->ntracks +1 = %d\n",
+	tracktitlelist.count(),cd->ntracks + 1
+	);
     }
 
     if((int)extlist.count() != (cd->ntracks + 1)){
-      printf("WARNING LOCAL QUERYextlist.count = %d != cd->ntracks +1 = %d\n",
+      if (debugflag )printf("WARNING LOCAL QUERYextlist.count = %d != cd->ntracks +1 = %d\n",
 	     extlist.count(),cd->ntracks + 1);
     }
 
@@ -1403,7 +1432,7 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
     if(cddialog && updateDialog)
       cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-			revision,playlist,pathlist,mailcmd);
+			revision,playlist,pathlist,mailcmd,submitaddress);
     playlistpointer = 0;
   }
 
@@ -1480,6 +1509,27 @@ void KSCD::cddb_failed(){
   cddb_inexact_sentinel =false;
 }
 
+void KSCD::cddb_timed_out(){
+
+  tracktitlelist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    tracktitlelist.append("");
+
+  extlist.clear();
+  for(int i = 0 ; i <= cd->ntracks; i++)
+    extlist.append("");
+
+  discidlist.clear();
+
+  titlelabel->setText("CDDB query timed out.");
+  artistlabel->setText("");
+  titlelabeltimer->start(10000,TRUE); // 10 secs
+
+  timer->start(1000);
+  led_off();
+  cddb_inexact_sentinel =false;
+}
+
 void KSCD::mycddb_inexact_read(){
 
   if(cddb_inexact_sentinel == true)
@@ -1494,6 +1544,7 @@ void KSCD::mycddb_inexact_read(){
   dialog->insertList(inexact_list);
 
   if(dialog->exec() != QDialog::Accepted){
+    cddb->close_connection();
     timer->start(1000);
     led_off();
     return;
@@ -1525,12 +1576,12 @@ void KSCD::cddb_done(){
  playlistpointer = 0;
 
  if((int)tracktitlelist.count() != (cd->ntracks + 1)){
-   printf("WARNING tracktitleslist.coutn = %d != cd->ntracks +1 = %d\n",
+   if(debugflag) printf("WARNING tracktitleslist.coutn = %d != cd->ntracks +1 = %d\n",
 	  tracktitlelist.count(),cd->ntracks + 1);
  }
 
  if((int)extlist.count() != (cd->ntracks + 1)){
-   printf("WARNING extlist.coutn = %d != cd->ntracks +1 = %d\n",
+   if (debugflag )printf("WARNING extlist.coutn = %d != cd->ntracks +1 = %d\n",
 	  extlist.count(),cd->ntracks + 1);
  }
 
@@ -1541,7 +1592,7 @@ void KSCD::cddb_done(){
 
  if(cddialog && updateDialog)
    cddialog->setData(cd,tracktitlelist,extlist,discidlist,xmcd_data,category,
-		  revision,playlist,pathlist,mailcmd);
+		  revision,playlist,pathlist,mailcmd,submitaddress);
 
   led_off();
   timer->start(1000);
@@ -1695,7 +1746,7 @@ bool  KSCD::getArtist(QString& artist){
 
 void  KSCD::performances(int i){
 
-  printf("preformances %d\n",i);
+  if (debugflag )printf("preformances %d\n",i);
 
   QString artist;
   QString str;
@@ -1723,7 +1774,7 @@ void  KSCD::performances(int i){
 
 void  KSCD::purchases(int i){
 
-  printf("purchases %d\n",i);
+  if (debugflag) printf("purchases %d\n",i);
 
   QString artist;
   QString str;
@@ -1744,7 +1795,7 @@ void  KSCD::purchases(int i){
     break;
   case 1:
       str = str.sprintf(
-      "http://www.cduniverse.com/cgi-bin/cdubin.exe/rlinka/ean=%s/frm=lk_DiscPlay/",
+      "http://www.cduniverse.com/cgi-bin/cdubin.exe/rlinka/ean=%s",
       artist.data());
       startBrowser(str.data());
 
@@ -1758,7 +1809,7 @@ void  KSCD::purchases(int i){
 
 void KSCD::information(int i){
 
-  printf("Information %d\n",i);
+  if (debugflag) printf("Information %d\n",i);
 
   QString artist;
   QString str;
@@ -1903,22 +1954,38 @@ void KSCD::get_pathlist(QStrList& _pathlist){
 }
 
 
-int main ( int argc, char *argv[] ){
+int main( int argc, char *argv[] ){
 
   mykapp = new KApplication( argc, argv,"kscd" );
   KSCD 	*k = new KSCD; 
 
   cur_track = 1;
+  debugflag = false;
 
+  for(int i = 0; i < argc; i++){
+
+    if(strcmp(argv[i],"-d") == 0){
+       debugflag = true;
+       printf("DEBUG MODE ON\n");
+    }
+
+    if(strcmp(argv[i],"-h") == 0){
+      printf("KSCD "KSCDVERSION\
+	     " Copyright 1997-98 Bernd Johannes Wuebben wuebben@kde.org\n");
+      printf("-h: display commandline options\n");
+      printf("-d: enable debugging output.\n");
+      exit(0);
+    }
+  }
+    
   mykapp->enableSessionManagement(true);
   mykapp->setWmCommand(argv[0]);      
   mykapp->setTopWidget(k);
   mykapp->setMainWidget( k );
   k->show();
 
-  mykapp->exec();
+  return mykapp->exec();
 }
-
 
 
 

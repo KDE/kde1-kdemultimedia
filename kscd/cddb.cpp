@@ -40,6 +40,7 @@ void cddb_decode(QString& str);
 void cddb_encode(QString& str, QStrList &returnlist);
 bool cddb_playlist_decode(QStrList& playlist,QString&  value);
 void cddb_playlist_encode(QStrList& playlist,QString&  value);
+extern bool debugflag;
 
 CDDB::CDDB(char *host, int _port,int _timeout){
 
@@ -116,6 +117,7 @@ void CDDB::cddbgetServerList(QString& _server){
 
   starttimer.start(100,TRUE);
   mode = SERVERLISTGET;
+  if(debugflag) printf("GETTING SERVERLIST\n");
 
 }
 
@@ -139,7 +141,7 @@ void CDDB::cddb_connect_internal(){
   starttimer.stop();
   timeouttimer.start(timeout*1000,TRUE);
 
-  printf("CONNECTING ....\n");
+  if (debugflag) printf("CONNECTING ....\n");
 
    if(sock){
      delete sock;
@@ -156,7 +158,14 @@ void CDDB::cddb_connect_internal(){
   if( sock == 0L || sock->socket() < 0){
 
     timeouttimer.stop();
-    emit cddb_failed();
+
+    if(debug) printf("CONNECT FAILED\n");
+
+    if( mode == REGULAR )
+      emit cddb_failed();      
+    else // mode == SERVERLISTGET
+      emit get_server_list_failed();
+
     return;    
 
   }
@@ -169,7 +178,7 @@ void CDDB::cddb_connect_internal(){
   connect(sock,SIGNAL(closeEvent(KSocket*)),this,SLOT(cddb_close(KSocket*)));
   sock->enableRead(true);
 
-  printf("CONNECTED\n");
+  if (debugflag) printf("CONNECTED\n");
 
 
 }
@@ -177,10 +186,16 @@ void CDDB::cddb_connect_internal(){
 void CDDB::cddb_timed_out_slot(){
 
   timeouttimer.stop();
-  state = CDDB_TIMEDOUT;
+
   sock->enableRead(false);
-  emit cddb_timed_out();
-  printf("SOCKET CONNECTION TIMED OUT\n");
+
+  if( mode == REGULAR )
+    emit cddb_timed_out();
+  else // mode == SERVERLISTGET
+   emit get_server_list_failed();
+
+  state = CDDB_TIMEDOUT;
+  if (debugflag) printf("SOCKET CONNECTION TIMED OUT\n");
   cddb_close(sock);
 }
 
@@ -189,13 +204,21 @@ int CDDB::getState(){
   return state;
 }
 
+// called externally if we want to close or interrupt the cddb connection
+void CDDB::close_connection(){
+ 
+  if(sock)
+    cddb_close(sock);
+  sock = 0L;
+
+}
 void CDDB::cddb_close(KSocket *socket){
 
   timeouttimer.stop();
   disconnect(socket,SIGNAL(readEvent(KSocket*)),this,SLOT(cddb_read(KSocket*)));
   disconnect(socket,SIGNAL(closeEvent(KSocket*)),this,SLOT(cddb_close(KSocket*)));
   socket->enableRead(false);
-  printf("SOCKET CONNECTION TERMINATED\n");
+  if (debugflag) printf("SOCKET CONNECTION TERMINATED\n");
   connected = false;
   if(socket){
     delete socket;
@@ -245,7 +268,7 @@ void CDDB::isolate_lastline(){
   if(!lastline.isEmpty())
     do_state_machine();
   else
-    printf("WARNING CDDB LASTLINE EMPTY\n");
+    if (debugflag) printf("WARNING CDDB LASTLINE EMPTY\n");
 
 };
 
@@ -266,6 +289,8 @@ void  CDDB::queryCD(unsigned long _magicID,QStrList& querylist){
   }
   str += "\n";
 
+  timeouttimer.stop();
+  timeouttimer.start(timeout*1000,TRUE);
   write(sock->socket(),str.data(),str.length());
   //  printf("WROTE:%s\n",str.data());
   state  = QUERY;
@@ -295,9 +320,12 @@ void CDDB::query_exact(QString line){
       //      readstring.sprintf("cddb read %s %lx \n",category.data(),magicID);
       readstring.sprintf("cddb read %s %s \n",category.data(),magicstr.data());
       if(sock == 0L || sock ->socket() < 0){
-	printf("sock = 0L!!!\n");
+	if (debugflag) printf("sock = 0L!!!\n");
 	return;
       }
+
+      timeouttimer.stop();
+      timeouttimer.start(timeout*1000,TRUE);
 
       write(sock->socket(),readstring.data(),readstring.length());
       //printf("WROTE=%s\n",readstring.data());
@@ -325,7 +353,7 @@ void CDDB::do_state_machine(){
 
       struct utsname uts;
       uname(&uts);
-      printf("LOCAL NODE: %s\n",uts.nodename);
+      if (debugflag) printf("LOCAL NODE: %s\n",uts.nodename);
 
       QString domainname;
       domainname = uts.nodename;
@@ -355,6 +383,7 @@ void CDDB::do_state_machine(){
     else{
       state = ERROR_INIT;	
       cddb_close(sock);
+      if(debugflag) printf("ERROR_INIT\n");
       emit cddb_failed();
     }
 
@@ -377,6 +406,7 @@ void CDDB::do_state_machine(){
     else{
       state = ERROR_HELLO;
       cddb_close(sock);
+      if(debugflag) printf("ERROR_HELLO\n");
       emit cddb_failed();
     }
 
@@ -396,6 +426,7 @@ void CDDB::do_state_machine(){
 
 	state = CDDB_DONE;
 	respbuffer.detach();
+	timeouttimer.stop();
 	emit cddb_inexact_read();
 
       }
@@ -417,6 +448,7 @@ void CDDB::do_state_machine(){
 
       state = ERROR_QUERY;
       cddb_close(sock);
+      if(debugflag) printf("ERROR_QUERY\n");
       emit cddb_failed();
       respbuffer = "";
 
@@ -430,6 +462,7 @@ void CDDB::do_state_machine(){
 
       state = CDDB_DONE;
       respbuffer.detach();
+      timeouttimer.stop();
       emit cddb_inexact_read();
 
     }
@@ -439,23 +472,26 @@ void CDDB::do_state_machine(){
 
     if(lastline.left(1) == QString(".")){
 
-      QString readstring;
-      readstring.sprintf("quit \n",category.data(),magicID);
-
-      write(sock->socket(),readstring.data(),readstring.length());
-
-      state = CDDB_DONE;
 
       respbuffer.detach();
       // Let's strip the first line and the trainling \r.\n\r
       int nl = respbuffer.find("\n",0,true);
       respbuffer = respbuffer.mid(nl+1,respbuffer.length()- nl -4);
+
+      QString readstring;
+      readstring.sprintf("quit \n");
+
+      write(sock->socket(),readstring.data(),readstring.length());
+
+      state = CDDB_DONE;
+
       emit cddb_done();
       
     }    
     if(lastline.left(1) == "4"){
 
       state = ERROR_CDDB_READ;
+      if(debugflag) printf("ERROR_CDDB_READ\n");
       cddb_close(sock);
       emit cddb_failed();
     }
@@ -469,11 +505,14 @@ void CDDB::do_state_machine(){
       // Let's strip the first line and the trainling \r.\n\r
       int nl = respbuffer.find("\n",0,true);
       respbuffer = respbuffer.mid(nl+1,respbuffer.length()- nl -4);
+      parse_serverlist();
+      if(debugflag) printf("GOT SERVERLIST\n");
+      write(sock->socket(),"quit\n",6);
+      cddb_close(sock);
+      emit get_server_list_done();
+      state = CDDB_DONE;
     }
-    parse_serverlist();
-    write(sock->socket(),"quit\n",6);
-    emit get_server_list_done();
-    state = CDDB_DONE;
+
     break;
 
   default:
@@ -561,7 +600,7 @@ bool CDDB::local_query(
 
   for(int i = 0 ; i <(int) pathlist.count(); i++){
 
-    printf("Checking %s\n",pathlist.at(i));
+    if (debugflag) printf("Checking %s\n",pathlist.at(i));
 
     if(checkDir(magicID,pathlist.at(i))){
       getCategoryFromPathName(pathlist.at(i),category);
@@ -652,7 +691,7 @@ void CDDB::getData(
     revision = revstr.toInt(&ok);
     if(!ok)
       revision = 1;
-    printf("REVISION %d\n",revision);
+    if (debugflag) printf("REVISION %d\n",revision);
   }
     
   // lets get all DISCID's in the data. Remeber there can be many DISCID's on
@@ -673,10 +712,10 @@ void CDDB::getData(
       discidtemp = data.mid(pos1 + 7,pos2- pos1 -7);
     }
     else{
-      printf("ANOMALY 1\n");
+      if (debugflag) printf("ANOMALY 1\n");
     }
 
-    printf("DISCDID %s\n",discidtemp.data());
+    if (debugflag) printf("DISCDID %s\n",discidtemp.data());
 
     pos1 = 0;
     while((pos2 = discidtemp.find(",",pos1,true)) != -1){
@@ -686,7 +725,7 @@ void CDDB::getData(
 	temp3 = discidtemp.mid(pos1,pos2-pos1);
       }
       else{
-	printf("ANOMALY 2\n");
+	if (debugflag) printf("ANOMALY 2\n");
       }
 
       temp3 = temp3.stripWhiteSpace();
@@ -707,7 +746,7 @@ void CDDB::getData(
 
   }// end get DISCID's
 
-  printf("FOUND %d DISCID's\n",discidlist.count());
+  if (debugflag) printf("FOUND %d DISCID's\n",discidlist.count());
 
   // Get the DTITLE
 
@@ -779,7 +818,7 @@ bool CDDB::getValue(QString& key,QString& value, QString& data){
       value += data.mid(pos1 + key.length(), pos2 - pos1 - key.length());
     }
     else{
-      printf("GET VALUE ANOMALY 1\n");
+      if (debugflag) printf("GET VALUE ANOMALY 1\n");
     }
     pos1 = pos1 + 1;
   }

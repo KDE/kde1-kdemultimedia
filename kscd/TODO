@@ -1,1 +1,4 @@
-connect->isConnected() and consequences 		
+* connect->isConnected() and consequences
+* auto save of cddb entries
+* fix html encoding
+* make cddb timout configurable

@@ -10,8 +10,8 @@
 
 <title>The Kscd Handbook
 <author>Bernd Johannes Wuebben, <tt/wuebben@kde.org/
-<date>Version 0.4, Aug 14, 1997
-<abstract>This Handbook describes Kdscd Version 0.4
+<date>Version 0.8, Jan 17, 1997
+<abstract>This Handbook describes Kdscd Version 0.8
 
 <!-- Table of contents -->
 <toc>
@@ -22,33 +22,9 @@
 <sect>Introduction
 
 <p>
-Version 0.4:
 
-Kscd now features a new installation script. Support for Irix and Sun/Solaris
-cdda was added.
-<p>
-Version 0.3:
-
-The most notable technical change is
-that kscd is no longer based on workbone. I have given it a new engine
-taken from the <url url="http://www.midwinter.com/workman/index.html"
-name="workman">
-a well known cd player for various Unix platforms  written by 
-<url url="mailto:koreth@midwinter.com" name="Stephen Grimm">.
-
-Due to the workman engine, Kscd 0.3 in contrast to Kscd 0.2 should compile and 
-work properly on a variety of
-different Unix platforms. Unfortunately this has also
-complicated the compilation and installation procedure a bit. 
-
-Having introduced a number of changes to the workman sources, Kscd is now 
-for the most common platform, a Linux with an IDE cdrom, a faster, more 
-responsive player, than any other player I know of under Unix and Windows 95. 
-Incidentally, Kscd is also the first player under Unix which doesn't hang my 
-personal cdrom drive on exit. 
-
-
-<bf/BTW:/ Kscd stands for "The KDE Project's small/simple CD player".
+Kscd is a fast, CDDB enabled cd player for the Unix platform.
+Kscd stands for "The KDE Project's small/simple CD player". 
 
 
 <p>
@@ -56,22 +32,40 @@ I hope you will enjoy this cd-player,
 <p>
 <tt>Bernd Johannes Wuebben</tt>
 <p>
-<htmlurl url="mailto:wuebben@kde.org" name="wuebben@kde.org">
+<tt><htmlurl url="mailto:wuebben@kde.org" name="wuebben@kde.org"></tt>
 <p>
 
+<sect>Supported Platforms<p>
+
+KSCD explicitely supports the following platforms: 
+
+<itemize>
+<item>Linux 
+<item>FreeBSD 
+<item>NetBSD 
+<item>BSD386 
+<item>Sun 
+<item>Solaris (including cdda support) 
+<item>HPUX 
+<item>SGI Irix (including cdda support) 
+<item>Sony NEWS 
+<item>OSF/1 
+<item>Ultrix 
+</itemize>
+and should compile on many others with few modifications.
+
+<p>
 <sect>Installation
 <p>
 <sect1>How to obtain Kscd
 <p>
-Kscd is an application for the KDE project <url url="http://www.kde.org">.
-Kscd can be found on <url url="ftp://ftp.kde.org/pub/kde/">, the main ftp site
-of the KDE project.
+Kscd is part of the kdemultimedia package available at 
+KDE project <url url="http://www.kde.org">.
 
 <sect1>Requirements
 <p>
-In order to successfully compile Kscd, you need the latest versions of <tt> libkdecore</tt>
-and <tt> libkdeui</tt>. All required libraries as well as Kscd itself can be found
-on <url url="ftp://ftp.kde.org/pub/kde/">. 
+In order to successfully compile Kscd, you need the latest versions of the KDE libraries as well as the Qt C++ library.All required libraries as well as Kscd 
+itself can be found on <url url="ftp://ftp.kde.org/pub/kde/">. 
 
 
 
@@ -82,46 +76,60 @@ In order to compile and install Kscd on your system, type the following in the b
 directory of the Kscd distribution:
 <tscreen><verb>
 % ./configure
-</verb></tscreen>
-
-
-If you are experiencing trouble getting kscd to work on a non-Linux platform
-please study the original Workman documentation in the docs directory of
-the kscd distribution. They contain quite a bit of information and may prove to 
-be very helpful. The original makefiles are in the makefiles subdirectory
-and should also be of interest in case of trouble. <p>
-
-<p>
-Please inform me of any modification you had to undertake to the current 
-distribution in  order to get things to work on your platform. I will then 
-include those changes in future versions of kscd.
-
-<p>
-<tscreen><verb>
 % make
-</verb></tscreen>
-
-This will start the KSCD configuration script. Please choose your platform
-and answer the questions posed. The configuration script will create
-the file "config.h" in the kscd directory. If you should experience
-problems with the script you can rename the file "config.h.std" to
-"config.h" and edit it to suit your platform.
-
-<tscreen><verb>
 % make install
 </verb></tscreen>
 
-<bf/Again:/ Should you run into problems, please report them to me. 
-
+<p>
+Please inform me of any modification you had to undertake in order to
+get KSCD to compile on your platform.
+<p>
 <sect>Onscreen Fundamentals
 <p>
 
-Sorry, not written yet. I am sure however that you will have no trouble operating
-Kscd.
+I am sure however that you will have no trouble operating KSCD, otherwise,
+write up what was difficult to understand and I will include it here..
 
-<sect>Questions and answers
-
-
+<sect>CDDB Support<p>
+Kscd by default installs its cddb database files in 
+<tt>KDEIDR/share/apps/kscd/cddb</tt>. You can create as many category subdirectories
+as you like. However, when uploading only the
+offical cddb categories are displayed. The default upload address is
+<tt>xmcd-cddb@amb.org</tt>. For more information about CDDB visit the
+CDDB <htmlurl url="http://www.cddb.com" name="homepage">.
 
 <p>
+<sect>Questions and answers
+If you experience trouble in particular with the cddb functionality try the
+start kscd as <tt>kscd -d</tt> and observer the debug output.
+<p>
+
+<sect>Thanks<p>
+Special thanks to Ti Kan and Steve Scherf, the inventors of 
+the CDDB database concept. Visit <htmlurl url="http://www.cddb.com" name="www.cddb.com"> 
+for  more information on CDDB.;  
+
+<p>
+<sect>Copyright<p>
+<tscreen><verb>
+Kscd Copyright (c) 1997,1998  Bernd Johannes Wuebben wuebben@kde.org
+
+kscd contains code from:
+workman 1.4 beta 3 Copyright (c) Steven Grimm koreth@hyperion.com   
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+</verb></tscreen>
 </article>

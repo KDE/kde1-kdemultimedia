@@ -39,6 +39,7 @@ extern void cddb_decode(QString& str);
 extern void cddb_encode(QString& str, QStrList &returnlist);
 extern void cddb_playlist_encode(QStrList& list,QString& playstr);
 extern bool cddb_playlist_decode(QStrList& list, QString& str);
+extern bool debugflag;
 
 extern KApplication 	*mykapp;
 
@@ -112,7 +113,8 @@ void CDDialog::setData(
 		       int& rev,
 		       QStrList& _playlist,
 		       QStrList& _pathlist,
-		       QString& _mailcmd
+		       QString& _mailcmd,
+		       QString& _submitaddress
 		       ){
 
     int ntr, etr;
@@ -126,6 +128,7 @@ void CDDialog::setData(
     playlist	= _playlist;
     pathlist    = _pathlist;
     mailcmd	= _mailcmd.copy();
+    submitaddress = _submitaddress.copy();
 
     ntr = track_list.count();
     etr = ext_list.count();
@@ -355,6 +358,7 @@ void CDDialog::upload(){
   if(!checkit())
     return;
 
+  /*
   switch( QMessageBox::information( this,"Message",
 
 "The submission you are about to make will go to the test server\n"\
@@ -384,7 +388,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
     break;
   }
 
-
+  */
 
 
   InexactDialog *dialog;
@@ -433,9 +437,12 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   FILE* mailpipe;
 
   QString formatstr;
-  formatstr = mailcmd + " cddb-test@cddb.cddb.com";
-    //formatstr = mailcmd + " cddb-test@cddb.cddb.com";
+  //  formatstr = mailcmd + " cddb-test@cddb.cddb.com";
+  formatstr = mailcmd;
+  formatstr += " ";
+  formatstr += submitaddress;
 
+  if (debugflag ) printf("Submitting cddb entry: %s\n",formatstr.data());
 
   QString cmd;
   //  cmd = cmd.sprintf("mail -s \"%s\" cddb-test@cddb.cddb.com",subject.data());
@@ -488,7 +495,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   //  file2.close();   // *****
 
   unlink(tempfile.data());
-  printf("DONE SENDING\n");
+  if ( debugflag ) printf("DONE SENDING\n");
 }
 
 
@@ -600,11 +607,13 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   QTextStream t(&file);
 
   t << "# xmcd CD database file\n";
+
+  if(!upload)
   t << "# Copyright (C) 1997 - 1998  Bernd Johannes Wuebben\n";
 
   QString datestr;
   datestr = QDateTime::currentDateTime().toString();
-  tmp = tmp.sprintf("# Generated: %s\n",datestr.data());
+  tmp = tmp.sprintf("# Generated: %s by KSCD\n",datestr.data());
   t << tmp.data();
 
   t << "# \n";

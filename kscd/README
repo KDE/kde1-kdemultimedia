@@ -1,3 +1,15 @@
+Sat Jan 17 17:50:37 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* KSCD 0.8
+	* CDDB submissions enabled.
+
+
+Remember if kscd seems to have trouble with your cd drive, do a 'make clean'
+then 'make' and answer the questions posed by the kscd-script to configure
+kscd suitable for your cdrom drive. 
+
+Bernd
+
 KSCD 0.6
 ========
 

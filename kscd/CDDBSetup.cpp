@@ -51,7 +51,7 @@ CDDBSetup::CDDBSetup
   connect(remote_cddb_cb,SIGNAL(toggled(bool)),
 	  this,SLOT(enable_remote_cddb(bool)));
 
-  submit_edit->setEnabled(false);
+  //  submit_edit->setEnabled(false);
 
 
 }
@@ -66,7 +66,7 @@ void CDDBSetup::set_current_server(int i){
 
   current_server_string = server_listbox->text(i);
   current_server_label->setText(current_server_string.data());
-
+  emit updateCurrentServer();
 }
 
 void CDDBSetup::basedir_changed(const char* str){
@@ -87,7 +87,7 @@ void CDDBSetup::submitaddress_changed(const char* str){
 void CDDBSetup::help(){
 
   if(mykapp)
-    mykapp->invokeHTMLHelp("kscd/kscd.html","#cddb");
+    mykapp->invokeHTMLHelp("kscd/kscd.html","");
 
 }
 
@@ -105,7 +105,7 @@ void CDDBSetup::insertData(const QStrList& _serverlist,
   basedir_edit->setText(basedirstring);
 
   submitaddressstring = _submitaddress.copy();
-  //submit_edit->setText(submitaddressstring);
+  submit_edit->setText(submitaddressstring);
   current_server_string = _current_server.copy();
   current_server_label->setText(current_server_string.data());
   remote_cddb_cb->setChecked(remote_enabled);
@@ -124,8 +124,8 @@ void CDDBSetup::set_defaults(){
   basedirstring += "/share/apps/kscd/cddb/";
   basedir_edit->setText(basedirstring);
 
-  submitaddressstring = "cddb-test@xmcd.com";
-  //submit_edit->setText(submitaddressstring);
+  submitaddressstring = "xmcd-cddb@amb.org";
+  submit_edit->setText(submitaddressstring);
   current_server_string = "cddb.cddb.com 888";
   current_server_label->setText(current_server_string.data());
   remote_cddb_cb->setChecked(true);

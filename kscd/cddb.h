@@ -52,7 +52,7 @@ class CDDB:public QObject
 
 public:
 
-   CDDB(char *hostname=0, int port = 0, int timeout = 30);
+   CDDB(char *hostname=0, int port = 0, int timeout = 60);
    ~CDDB();
 
    enum { INIT, ERROR_INIT, HELLO, ERROR_HELLO, READY, QUERY, ERROR_QUERY,
@@ -77,6 +77,7 @@ public:
    bool 	getValue(QString& key,QString& value, QString& data);
    void 	serverList(QStrList& list);
    void 	cddbgetServerList(QString& server);
+   void         close_connection();
 
 static void     sighandler(int sig);
 static void 	setalarm();
@@ -117,6 +118,7 @@ signals:
    void         cddb_inexact_read();
    void 	cddb_no_info();
    void		get_server_list_done();
+   void         get_server_list_failed();
 private:
 
    QTimer 	starttimer;

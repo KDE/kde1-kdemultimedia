@@ -60,7 +60,8 @@ public:
 		 int& revision,
 		 QStrList& playlist,
 		 QStrList& pathlist,
-		 QString& _mailcmd
+		 QString& _mailcmd,
+		 QString& _submitaddress
 		 );
 
     bool checkit();
@@ -97,6 +98,7 @@ private:
     QString  	xmcd_data;
     QStrList 	discidlist;
     int      	revision;
+    QString     submitaddress;
     QString 	category;
     QString	mailcmd;
     QString     playorder;
