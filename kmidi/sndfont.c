@@ -802,7 +802,7 @@ fprintf(stderr,"Adding note #%d drumset %d to %s (%d), bank %d.\n", keynote, pre
 	panning = bank->tone[program].pan;
 	amp = bank->tone[program].amp;
 	strip_loop = bank->tone[program].strip_loop;
-	strip_envelope = bank->tone[program].strip_envelope;
+	/*strip_envelope = bank->tone[program].strip_envelope;*/
 	strip_tail = bank->tone[program].strip_tail;
 	if (!strip_envelope) strip_envelope = (banknum == 128);
 #endif
@@ -1281,41 +1281,50 @@ static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp)
 #ifndef SF_SUPPRESS_VIBRATO
 /*----------------------------------------------------------------
  * vibrato (LFO2) conversion
+ * (note: my changes to Takashi's code are unprincipled --gl)
  *----------------------------------------------------------------*/
 
 static void convert_vibrato(Layer *lay, SFInfo *sf, SampleList *sp)
 {
-	int32 shift, freq;
+	int32 shift=0, freq=0;
 
-	if (!lay->set[SF_lfo2ToPitch])
-		return;
+	if (lay->set[SF_lfo2ToPitch]) {
+		shift = lay->set[SF_lfo2ToPitch];
+		if (lay->set[SF_freqLfo2]) freq = lay->val[SF_freqLfo2];
+	}
+	else if (lay->set[SF_lfo1ToPitch]) {
+		shift = lay->set[SF_lfo1ToPitch];
+		if (lay->set[SF_freqLfo1]) freq = lay->val[SF_freqLfo1];
+	}
+
+	if (!shift) return;
+	if (!freq) return;
 
 	/* pitch shift in cents (= 1/100 semitone) */
-	shift = lay->val[SF_lfo2ToPitch];
 	if (sf->version == 1)
 		shift = (1200 * shift / 64 + 1) / 2;
 
 	/* cents to linear; 400cents = 256 */
-	sp->v.vibrato_depth = (int8)((int32)shift * 256 / 400);
+	/*sp->v.vibrato_depth = (int8)((int32)shift * 256 / 400);*/
+	sp->v.vibrato_depth = shift * 400 / 64;
 
 	/* frequency in mHz */
-	if (lay->set[SF_freqLfo2]) {
+	if (!freq) {
 		if (sf->version == 1)
 			freq = TO_MHZ(-725);
 		else
 			freq = 0;
 	} else {
-		freq = lay->val[SF_freqLfo2];
-		if (freq > 0 && sf->version == 1)
+		if (sf->version == 1)
 			freq = (int)(3986.0 * log10((double)freq) - 7925.0);
-		freq = TO_MHZ(freq);
+		else freq = TO_HZ(freq);
 	}
 	/* convert mHz to control ratio */
 	sp->v.vibrato_control_ratio = freq *
 		(VIBRATO_RATE_TUNING * play_mode->rate) /
-		(2 * VIBRATO_SAMPLE_INCREMENTS);
+		(2 * 1000 * VIBRATO_SAMPLE_INCREMENTS);
 
-	sp->v.vibrato_sweep_increment = 0;
+	sp->v.vibrato_sweep_increment = 74;
 }
 #endif
 
