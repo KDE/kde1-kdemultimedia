@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
 "POT-Creation-Date: 1998-11-05 02:17+0100\n"
-"PO-Revision-Date: 1998-10-24 23:43 CEST\n"
+"PO-Revision-Date: 1998-11-05 09:06+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -56,9 +56,8 @@ msgid "&Right"
 msgstr "Vp&ravo"
 
 #: kmix.cpp:606
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Menu"
+msgstr "&Zobrazovat menu"
 
 #: kmix.cpp:650
 msgid "Un&mute"
