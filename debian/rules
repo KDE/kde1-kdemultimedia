@@ -44,6 +44,10 @@ binary-arch:	build
 
 binary-arch2:
 	make install 
+	rm -r debian/tmp/usr/share/apps/kscd/cddb/
+	mkdir -p debian/tmp/etc/kde
+	echo "[CDDB]" > debian/tmp/etc/kde/kscdrc
+	echo "LocalBaseDir=/var/lib/cddb/" >> debian/tmp/etc/kde/kscdrc
 	perl -w debian/kderules
 	dh_movefiles
 	dh_undocumented `cat debian/man-pages`
