@@ -95,7 +95,6 @@ install: all
 	$(INSTALL_DATA) ./docs/kscd-2.html $(DOCSDIR)
 	$(INSTALL_DATA) ./docs/kscd-3.html $(DOCSDIR)
 	$(INSTALL_DATA) ./docs/kscd-4.html $(DOCSDIR)
-	$(INSTALL_DATA) ./docs/kscd.tex $(DOCSDIR)
 	$(INSTALL_DIR) $(PIXDIR)
 	$(INSTALL_DATA) kscd.xpm $(PIXDIR)
 	$(INSTALL_DIR) $(APPSDIR)
