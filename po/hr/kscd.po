@@ -1,9 +1,16 @@
+# Copyright (C) 1998 Free Software Foundation, Inc.
+# Vladimir Vuksan <vuksan@veus.hr>, 1998
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
-"PO-Revision-Date: 1998-01-24 18:50+0100\n"
+"Project-Id-Version: kdemultimedia\n"
+"POT-Creation-Date: 1998-05-13 12:05+0200\n"
+"PO-Revision-Date: 1998-10-15 15:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
+"Language-Team: Croatian <hr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"        
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
@@ -224,16 +231,15 @@ msgstr "Dozvoli pristajanje na ploèu"
 
 #: configdlg.cpp:159
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Sviraj prilikom zatvaranja vrata"
 
 #: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Sviraj/Pauza"
 
 #: docking.cpp:74
-#, fuzzy
 msgid "Forward"
-msgstr "30 sekundi naprijed"
+msgstr "Naprijed"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -308,9 +314,8 @@ msgid "Previous Track"
 msgstr "Prethodna pjesma"
 
 #: kscd.cpp:522
-#, fuzzy
 msgid "Dock Kscd"
-msgstr "Magic Kscd"
+msgstr "Pristani Kscd"
 
 #: kscd.cpp:523
 msgid "Cycle Time Display"
@@ -378,7 +383,6 @@ msgid "kscd Configuraton"
 msgstr "kscd postava"
 
 #: kscd.cpp:912
-#, fuzzy
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -395,6 +399,11 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"Odr¾ava:\n"
+"     Sam Maloney <thufir@illogic.ml.org>\n"
+"kscd (>=1.2.1) sadr¾i kod iz:\n"
+"\n"
+"kscd 1.2.0 (odvojeno od)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
@@ -417,7 +426,6 @@ msgstr ""
 "\n"
 
 #: kscd.cpp:931
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -433,6 +441,7 @@ msgid ""
 "tweek, and configuration fixes.\n"
 "\n"
 msgstr ""
+
 
 #: kscd.cpp:986
 msgid "Kscd Options"
@@ -474,9 +483,8 @@ msgid "No matching CDDB entry found."
 msgstr "Ne mogu naæi podatke za ovaj CD"
 
 #: kscd.cpp:1693 kscd.cpp:1703
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "Ne mogu naæi podatke za ovaj CD"
+msgstr "Gre¹ka prilikom dobivanja CDDB podataka."
 
 #: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."
@@ -484,7 +492,7 @@ msgstr "Istek vremena za CDDB upit."
 
 #: kscd.cpp:1919
 msgid "Tra Rem"
-msgstr "Tra Ostalo"
+msgstr "Pje Ostatak"
 
 #: kscd.cpp:1923
 msgid "Tot Sec"
@@ -496,7 +504,7 @@ msgstr "Uku Ostalo"
 
 #: kscd.cpp:1932
 msgid "Tra Sec"
-msgstr "Tra Sek"
+msgstr "Pje Sek"
 
 #: kscd.cpp:2057
 msgid "Cannot start kscdmagic."
@@ -533,9 +541,3 @@ msgstr "Visina Magic prozora:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Svjetlina Magica:"
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Zatvori Kscd"
-
-#~ msgid "Track %02d"
-#~ msgstr "Traka %02d"

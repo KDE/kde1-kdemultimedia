@@ -233,16 +233,15 @@ msgstr "Käytä Kpaneliin upotusta"
 
 #: configdlg.cpp:159
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Soita kelkan sulkeuduttua"
 
 #: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
 #: docking.cpp:74
-#, fuzzy
 msgid "Forward"
-msgstr "30 sekuntia eteen"
+msgstr "Eteen"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -315,9 +314,8 @@ msgid "Previous Track"
 msgstr "Edellinen kappale"
 
 #: kscd.cpp:522
-#, fuzzy
 msgid "Dock Kscd"
-msgstr "Magic Kscd"
+msgstr "Upota Kscd"
 
 #: kscd.cpp:523
 msgid "Cycle Time Display"
@@ -354,7 +352,7 @@ msgstr "Soitan"
 #: kscd.cpp:592 kscd.cpp:1173 kscd.cpp:1221 kscd.cpp:1614 kscd.cpp:1812
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: <tuntematon>"
 
 #: kscd.cpp:623 kscd.cpp:1202
 msgid "Pause"
@@ -385,7 +383,6 @@ msgid "kscd Configuraton"
 msgstr "kscd Asetukset"
 
 #: kscd.cpp:912
-#, fuzzy
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -402,15 +399,19 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
+"Ylläpitää:\n"
+"     Sam Maloney <thufir@illogic.ml.org>\n"
+"kscd (>=1.2.1) sisältää koodia seuraavista lähteistä:\n"
+"\n"
+"kscd 1.2.0\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"kscd sisältää koodia:\n"
-"workman 1.4 beta 3:ta\n"
+"workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Erikoiskiitokset: Ti Kan ja Steve Scherf, CDDB-tietokannan kehittämisestä. "
-"Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
+"Erikoiskiitokset Ti Kan:lle ja Steve Scherf:lle, CDDB:n tietokannan "
+"keksijöille. Tutustu http://www.cddb.com osoitteeseen saadaksesi lisätietoa CDDB:tä.\n"
 "\n"
 
 #: kscd.cpp:927
@@ -424,14 +425,13 @@ msgstr ""
 "\n"
 
 #: kscd.cpp:931
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 "\n"
 msgstr ""
 "Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
-"hänen työstään proxy-koodin kanssa.\n"
+"hänen työstään http proxy-koodin kanssa.\n"
 
 #: kscd.cpp:934
 msgid ""
@@ -440,6 +440,10 @@ msgid ""
 "tweek, and configuration fixes.\n"
 "\n"
 msgstr ""
+"Kiitokset Sam Maloney:lle <thufir@illogic.ml.org>\n"
+"Monista CDDB virheiden korjauksista, paikallisesta CDDB-völimuistista, ja kappale "
+"virityksistä, ja asetuskorjauksista.\n"
+"\n"
 
 #: kscd.cpp:986
 msgid "Kscd Options"
@@ -481,9 +485,8 @@ msgid "No matching CDDB entry found."
 msgstr "Ei yhteensopivaa CDDB-tietuetta."
 
 #: kscd.cpp:1693 kscd.cpp:1703
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "Ei yhteensopivaa CDDB-tietuetta."
+msgstr "Virhe haettaessa CDDB-tietuetta."
 
 #: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."

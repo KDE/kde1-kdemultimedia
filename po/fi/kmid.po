@@ -125,7 +125,7 @@ msgid "Midi &Setup ..."
 msgstr "&Midi asetukset ..."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -142,10 +142,12 @@ msgid ""
 msgstr ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
 "Malaga (Espanja)\n"
 "\n"
 "Midi/Karaoke soittaja\n"
+"KMid:n kotisivu löytyy osoitteesta : http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 "This is free software, and you are welcome to redistribute it\n"
@@ -173,7 +175,7 @@ msgstr "Soita"
 
 #: kmidframe.cpp:225
 msgid "Forward"
-msgstr ""
+msgstr "Eteen"
 
 #: kmidframe.cpp:234
 msgid "Show Channel View"
@@ -262,7 +264,7 @@ msgstr "Käytä midikarttaa :"
 
 #: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
 msgid "None"
-msgstr ""
+msgstr "Ei mikään"
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -278,7 +280,7 @@ msgstr "Kappaleet valitussa kokoelmassa:"
 
 #: collectdlg.cpp:81
 msgid "New"
-msgstr ""
+msgstr "Uusi"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
