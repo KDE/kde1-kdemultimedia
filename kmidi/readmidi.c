@@ -129,7 +129,7 @@ static int metatext(int type, int leng, char *mess)
 	    }
 	    else {
 		meta_string[n] = (isprint(c) || isspace(c)) ? c : '.';
-		if (c == '\012') continued_flag = 1;
+		if (c == '\012' || c == '\015') continued_flag = 1;
 		if (c == '\015') meta_string[n] = '\012';
 	    }
 	}
@@ -455,13 +455,14 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
   int32 sample_cum, samples_to_do, at, st, dt, counting_time;
   struct meta_text_type *meta = meta_text_list;
 
-  int current_bank[16], current_set[16], current_program[16]; 
+  int current_bank[16], current_set[16], current_kit[16], current_program[16]; 
   /* Or should each bank have its own current program? */
 
   for (i=0; i<16; i++)
     {
       current_bank[i]=0;
       current_set[i]=0;
+      current_kit[i]=0;
       current_program[i]=default_program;
     }
 
@@ -500,10 +501,22 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
       else switch (meep->event.type)
 	{
 	case ME_PROGRAM:
-	  if (ISDRUMCHANNEL(meep->event.channel))
+	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
 	    {
 	      if (drumset[meep->event.a]) /* Is this a defined drumset? */
 		new_value=meep->event.a;
+	      else if (current_kit[meep->event.channel] && drumset[ current_kit[meep->event.channel] ])
+		{
+		  new_value=meep->event.a=current_kit[meep->event.channel];
+		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		       "Using XG kit %d", meep->event.a);
+		}
+	      else if (current_kit[meep->event.channel] == 64 && drumset[56])
+		{
+		  new_value=meep->event.a=current_kit[meep->event.channel] = 56;
+		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		       "Using XG SFX %d", meep->event.a);
+		}
 	      else
 		{
 		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
@@ -529,7 +542,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	case ME_NOTEON:
 	  if (counting_time)
 	    counting_time=1;
-	  if (ISDRUMCHANNEL(meep->event.channel))
+	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
 	    {
 	      /* Mark this instrument to be loaded */
 	      if (!(drumset[current_set[meep->event.channel]]
@@ -552,20 +565,20 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	  break;
 
 	case ME_TONE_KIT:
-	  if (meep->event.a == 127)
+	  if (!meep->event.a || meep->event.a == 127)
 	    {
-	      if (drumset[0]) /* Is this a defined drumset? */
-		new_value=0;
-	      else
-		{
-		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		       "Drum set 0 is undefined");
-		  new_value=meep->event.a=0;
-		}
-	      if (current_set[meep->event.channel] != new_value)
-		current_set[meep->event.channel]=new_value;
+	      new_value=meep->event.a;
+	      if (current_kit[meep->event.channel] != new_value)
+		current_kit[meep->event.channel]=new_value;
 	      else 
 		skip_this_event=1;
+	      break;
+	    }
+	  else if (meep->event.a != 64 && meep->event.a != 126)
+	    {
+	      ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		   "XG kit %d is impossible", meep->event.a);
+	      skip_this_event=1;
 	      break;
 	    }
 	  if (drumset[meep->event.a]) /* Is this a defined tone bank? */
@@ -573,17 +586,19 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	  else 
 	    {
 	      ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		   "Drumset %d is undefined", meep->event.a);
-	      new_value=meep->event.a=0;
+		   "XG kit %d is undefined", meep->event.a);
+	      new_value=meep->event.a=127;
 	    }
-	  if (current_set[meep->event.channel]!=new_value)
-	    current_set[meep->event.channel]=new_value;
+	  if (current_kit[meep->event.channel]!=new_value)
+	   {
+	    current_kit[meep->event.channel]=new_value;
+	   }
 	  else
 	    skip_this_event=1;
 	  break;
 
 	case ME_TONE_BANK:
-	  if (ISDRUMCHANNEL(meep->event.channel))
+	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
 	    {
 	      skip_this_event=1;
 	      break;
