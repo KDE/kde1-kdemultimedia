@@ -21,6 +21,19 @@
 #   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+# the following is borrowed from configure 
+if (echo "testing\c"; echo 1,2,3) | grep c >/dev/null; then
+  # Stardent Vistra SVR4 grep lacks -e, says ghazi@caip.rutgers.edu.
+  if (echo -n testing; echo 1,2,3) | sed s/-n/xn/ | grep xn >/dev/null; then
+    ac_n= ac_c='
+' ac_t='        '
+  else
+    ac_n=-n ac_c= ac_t=
+  fi
+else
+  ac_n= ac_c='\c' ac_t=
+fi
+
 config_file="config.h"
 ORG_CONFIG="config.h.std"
 
@@ -48,7 +61,7 @@ echo
 echo   "            Bernd Johannes Wuebben <wuebben@kde.org>"
 echo    "=================================================================="
 echo  
-echo  -n  "            Please chose acccording to your platform:"
+echo  $ac_n  "            Please chose acccording to your platform:$ac_c"
 
 read platform
 
@@ -86,7 +99,7 @@ write_config_header
 echo "#ifdef linux " >> $config_file
 echo "" >> $config_file
 
-echo -n "Please specify your cdrom device [/dev/cdrom]:"
+echo $ac_n "Please specify your cdrom device [/dev/cdrom]:$ac_c"
 
 read device
 if [ "$device" = "" ]
@@ -105,7 +118,7 @@ echo "a very fast and responsive cd player for an average IDE CDROM drive."
 echo "Answer NO to the next question unless you have problems getting kscd"
 echo "to work."
 echo
-echo -n "Revert to original Workman behavior? (y/n) [n]:"
+echo $ac_n "Revert to original Workman behavior? (y/n) [n]:$ac_c"
 
 read workman
 
@@ -122,7 +135,7 @@ echo "should try answering YES to the next question. Please peruse the "
 echo "documents in the spbcd directory of this distribution for more "
 echo "information about theses modifications."
 echo
-echo -n "Enable SBPCD_HACK? (y/n) [n]:"
+echo $ac_n "Enable SBPCD_HACK? (y/n) [n]:$ac_c"
 
 read sbpcd
 
@@ -135,7 +148,7 @@ echo
 echo "If and only if you have an SCSI cdrom drive you should probably"
 echo "answer YES to the next question"
 echo
-echo -n "Enable LINUX_SCSI_PASSTHROUGH? (y/n) [n]:"
+echo $ac_n "Enable LINUX_SCSI_PASSTHROUGH? (y/n) [n]:$ac_c"
 
 read scsi
 
@@ -149,7 +162,7 @@ echo "Feel free to play with the parameters MINVOLUME and MAXVOLUME"
 echo "until volume adjustment works to your satisfaction."
 echo "Note: Some CDROM device only support a range from 128 to 255."
 echo
-echo -n "MIN_VOLUME [0]:"
+echo $ac_n "MIN_VOLUME [0]:$ac_c"
 
 read MINVOLUME
 if [ "$MINVOLUME" = "" ]
@@ -161,7 +174,7 @@ echo "You entered $MINVOLUME "
 echo "#define MIN_VOLUME $MINVOLUME " >> $config_file 
 
 echo
-echo -n "MAX_VOLUME [255]:"
+echo $ac_n "MAX_VOLUME [255]:$ac_c"
 
 read MAXVOLUME
 if [ "$MAXVOLUME" = "" ]
@@ -178,7 +191,7 @@ echo "you might want to try answering YES to the next question."
 echo "Enabling 'Curved Volume' will give you a square root like"
 echo "volume slider - volume curve."
 echo
-echo -n "Enable CURVED_VOLUME? (y/n) [n]:"
+echo $ac_n "Enable CURVED_VOLUME? (y/n) [n]:$ac_c"
 
 read curved
 
@@ -205,7 +218,7 @@ echo "" >> $config_file
 echo "#if defined(sgi)" >> $config_file
 echo "" >> $config_file
 
-echo -n "Please specify your cdrom device [/dev/scsi/sc0d6l0]:"
+echo $ac_n "Please specify your cdrom device [/dev/scsi/sc0d6l0]:$ac_c"
 
 read device
 if [ "$device" = "" ]
@@ -216,7 +229,7 @@ fi
 echo "Your choice was: $device"
 echo "#define DEFAULT_CD_DEVICE   \"$device\"  " >> $config_file
 
-echo -n "Enable CDDA? (y/n) [y]:"
+echo $ac_n "Enable CDDA? (y/n) [y]:$ac_c"
 
 read curved
 
@@ -244,7 +257,7 @@ echo "" >> $config_file
 echo "#if defined(hpux) || defined (__hpux)" >> $config_file
 echo "" >> $config_file
 
-echo -n "Please specify your cdrom device [/dev/rscsi]:"
+echo $ac_n "Please specify your cdrom device [/dev/rscsi]:$ac_c"
 
 read device
 if [ "$device" = "" ]
@@ -277,7 +290,7 @@ echo "#ifdef __bsdi__ " >> $config_file
 echo 
 echo "Please answer YES to the next question if you have a Sound Blaster cdrom."
 echo
-echo -n "Define SOUNDBALSTER? (y/n) [n]:"
+echo $ac_n "Define SOUNDBALSTER? (y/n) [n]:$ac_c"
 
 read soundblaster
 
@@ -303,7 +316,7 @@ echo "" >> $config_file
 echo "#if defined(__FreeBSD__) || defined(__NetBSD__)" >> $config_file
 echo "" >> $config_file
 
-echo -n "Please specify your cdrom device [/dev/rmatcd0c]:"
+echo $ac_n "Please specify your cdrom device [/dev/rmatcd0c]:$ac_c"
 
 read device
 if [ "$device" = "" ]
@@ -320,7 +333,7 @@ echo "Please let me know whether answering yes or no to the next"
 echo "question will give you a better functioning cd player."
 echo "Users of NetBSD might want to experiment with this too."
 echo
-echo -n "Define NEW_BSD_PLAYCLICKED? (y/n) [y]:"
+echo $ac_n "Define NEW_BSD_PLAYCLICKED? (y/n) [y]:$ac_c"
 
 read free_play_clicked
 
@@ -347,7 +360,7 @@ echo "" >> $config_file
 echo "#if defined(sun) || defined(__sun__)  " >> $config_file
 echo "" >> $config_file
 
-echo -n "Are you compiling on Solaris 2.x? (y/n) [y]:"
+echo $ac_n "Are you compiling on Solaris 2.x? (y/n) [y]:$ac_c"
 read solaris
 
 case "$solaris" in
@@ -366,7 +379,7 @@ echo "You need to enable the internal audio device if you wish"
 echo "to get sound from your workstation, as opposed to only from"
 echo "the head-phone jack of your CDROM."
 echo ""
-echo -n "Activate internal audio device (CODEC)? (y/n) [y]:"
+echo $ac_n "Activate internal audio device (CODEC)? (y/n) [y]:$ac_c"
 
 read codec
 
@@ -383,7 +396,7 @@ if [ "$solaris" = "y" ]
 then
   echo
   echo "Do you wish to enable digital audio capablilites on drives that"
-  echo -n "support it? (y/n) [y]:"
+  echo $ac_n "support it? (y/n) [y]:$ac_c"
   read cdda
 
   case "$cdda" in
@@ -403,7 +416,7 @@ echo "Feel free to play with the parameters MINVOLUME and MAXVOLUME"
 echo "until volume adjustment works to your satisfaction."
 echo "Note: Some CDROM device only support a range from 128 to 255."
 echo
-echo -n "MIN_VOLUME [128]:"
+echo $ac_n "MIN_VOLUME [128]:$ac_c"
 
 read MINVOLUME
 if [ "$MINVOLUME" = "" ]
@@ -415,7 +428,7 @@ echo "You entered $MINVOLUME "
 echo "#define MIN_VOLUME $MINVOLUME " >> $config_file 
 
 echo
-echo -n "MAX_VOLUME [255]:"
+echo $ac_n "MAX_VOLUME [255]:$ac_c"
 
 read MAXVOLUME
 if [ "$MAXVOLUME" = "" ]
@@ -432,7 +445,7 @@ echo "you might want to try answering YES to the next question."
 echo "Enabling 'Curved Volume' will give you a square root like"
 echo "volume slider - volume curve."
 echo
-echo -n "Enable CURVED_VOLUME? (y/n) [n]:"
+echo $ac_n "Enable CURVED_VOLUME? (y/n) [n]:$ac_c"
 
 read curved
 
@@ -469,7 +482,7 @@ echo "   #include <newsiodev/scsireg.h>"
 echo 
 echo "c)  both of the above"
 echo ""
-echo -n "Please choose a,b or c. [c]:"
+echo $ac_n "Please choose a,b or c. [c]:$ac_c"
 
 read sony_include
 
@@ -492,7 +505,7 @@ case "$sony_include" in
 esac
 
 echo 
-echo -n "Please specify your cdrom device [/dev/rsd/b0i6u0p2\0]:"
+echo $ac_n "Please specify your cdrom device [/dev/rsd/b0i6u0p2\0]:$ac_c"
 
 read device
 if [ "$device" = "" ]
@@ -510,7 +523,7 @@ echo "Feel free to play with the parameters MINVOLUME and MAXVOLUME"
 echo "until volume adjustment works to your satisfaction."
 echo "Don't forget to let me know the result of your experiments."
 echo
-echo -n "MIN_VOLUME [128]:"
+echo $ac_n "MIN_VOLUME [128]:$ac_c"
 
 read MINVOLUME
 if [ "$MINVOLUME" = "" ]
@@ -522,7 +535,7 @@ echo "You entered $MINVOLUME "
 echo "#define MIN_VOLUME $MINVOLUME " >> $config_file 
 
 echo
-echo -n "MAX_VOLUME [255]:"
+echo $ac_n "MAX_VOLUME [255]:$ac_c"
 
 read MAXVOLUME
 if [ "$MAXVOLUME" = "" ]
@@ -567,7 +580,7 @@ echo "   #include <io/cam/scsi_all.h>"
 echo ""
 echo "c)  both of the above"
 echo ""
-echo -n "Please choose a,b or c. [a]:"
+echo $ac_n "Please choose a,b or c. [a]:$ac_c"
 
 read ultrix_include
 
@@ -608,7 +621,7 @@ echo "Feel free to play with the parameters MINVOLUME and MAXVOLUME"
 echo "until volume adjustment works to your satisfaction."
 echo "Don't forget to let me know the result of your experiments."
 echo
-echo -n "MIN_VOLUME [128]:"
+echo $ac_n "MIN_VOLUME [128]:$ac_c"
 
 read MINVOLUME
 if [ "$MINVOLUME" = "" ]
@@ -620,7 +633,7 @@ echo "You entered $MINVOLUME "
 echo "#define MIN_VOLUME $MINVOLUME " >> $config_file 
 
 echo
-echo -n "MAX_VOLUME [255]:"
+echo $ac_n "MAX_VOLUME [255]:$ac_c"
 
 read MAXVOLUME
 if [ "$MAXVOLUME" = "" ]
@@ -654,7 +667,7 @@ echo "If you have trouble look at plat_osf1.c and let me know what needs to be"
 echo "changed."
 
 echo ""
-echo -n "Press [Enter] to continue."
+echo $ac_n "Press [Enter] to continue.$ac_c"
 read dummy
 
 echo "" >> $config_file
@@ -679,7 +692,7 @@ write_config_header
 echo "" >> $config_file
 echo "#if defined(SVR4) && !defined(sun) && !defined(__sun__)" >> $config_file
 
-echo -n "Please specify your cdrom device [/dev/rcdrom/cd0]:"
+echo $ac_n "Please specify your cdrom device [/dev/rcdrom/cd0]:$ac_c"
 
 read device
 if [ "$device" = "" ]
