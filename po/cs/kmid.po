@@ -1,0 +1,326 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmid\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"PO-Revision-Date: 1998-06-20 19:18 CEST\n"
+"Last-Translator: Miroslav Flísr <flidr@kky.zcu.cz>\n"
+"Language-Team: czech <flidr@kky.zcu.cz>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: kmidframe.cpp:61
+msgid "&Open ..."
+msgstr "&Otevøít ..."
+
+#: kmidframe.cpp:64
+msgid "&Save Lyrics ..."
+msgstr "U&lo¾it text..."
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "&Ukonèit"
+
+#: kmidframe.cpp:70
+msgid "&Play"
+msgstr "&Hrát"
+
+#: kmidframe.cpp:72
+msgid "P&ause"
+msgstr "P&auza"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "&Stop"
+
+#: kmidframe.cpp:76
+msgid "P&revious Song"
+msgstr "P&øedchozí písnièka"
+
+#: kmidframe.cpp:78
+msgid "&Next Song"
+msgstr "&Následující písnièka"
+
+#: kmidframe.cpp:81
+msgid "&Loop"
+msgstr "Doko&la"
+
+#: kmidframe.cpp:87
+msgid "&Organize ..."
+msgstr "&Spravovat ..."
+
+#: kmidframe.cpp:90
+msgid "In order mode"
+msgstr "Hrát v poøadí"
+
+#: kmidframe.cpp:93
+msgid "Shuffle mode"
+msgstr "Náhodné poøadí"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr "Automaticky pøidávat"
+
+#: kmidframe.cpp:104
+msgid "&General Midi file"
+msgstr "&V¹eobecný Midi soubor"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr "&MT-32 soubor"
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr "&Textové události"
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr "Události ve slovech"
+
+#: kmidframe.cpp:122
+msgid "&Automatic Text chooser"
+msgstr "&Automaticky vybýrat text"
+
+#: kmidframe.cpp:127
+msgid "&Font Change ..."
+msgstr "&Zmìna písma ..."
+
+#: kmidframe.cpp:130
+msgid "&Midi Setup ..."
+msgstr "&Nastavit Midi.."
+
+#: kmidframe.cpp:135
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Pøehrávaè souboru Midi/Karaoke\n"
+"\n"
+"KMid je dodáván BEZ JAKÉKOLI ZÁRUKY. Pro bli¾¹í podrobnosti se podívejte\n"
+"do souboru COPYING. Toto je volnì ¹íøitelný software a pøivítáme, kdy¾ \n"
+"ho budete ¹íøit za daných podmínek\n"
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "&Soubor"
+
+#: kmidframe.cpp:147
+msgid "&Song"
+msgstr "&Píseò"
+
+#: kmidframe.cpp:148
+msgid "&Collections"
+msgstr "&Kolekce"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "&Mo¾nosti"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "&Nápovìda"
+
+#: kmidframe.cpp:160
+msgid "Previous Song"
+msgstr "Predchozí píseò"
+
+#: kmidframe.cpp:163
+msgid "Rewind"
+msgstr "Zpìt"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "Stop"
+
+#: kmidframe.cpp:169
+msgid "Pause"
+msgstr "Pauza"
+
+#: kmidframe.cpp:173
+msgid "Play"
+msgstr "Hrát"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "Vpøed"
+
+#: kmidframe.cpp:179
+msgid "Next Song"
+msgstr "Nasledující píseò"
+
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
+msgid "Error"
+msgstr "Chyba"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+"Není mo¾né otevøít /dev/sequencer k získání\n"
+"nìjaké informace. Pravdìpodobnì ho pou¾ívá jiný program."
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+#, c-format
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"Soubor %s ji¾ existuje\n"
+"Chcete ho pøepsat ?"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
+msgid "Warning"
+msgstr "Varování"
+
+#: kmidclient.cpp:88
+msgid "Tempo :"
+msgstr "Tempo :"
+
+#: kmidclient.cpp:231
+#, c-format
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "Soubor %s neexistuje nebo ho není mo¾né otevøít."
+
+#: kmidclient.cpp:234
+#, c-format
+msgid "The file %s is not a midi file"
+msgstr "Soubor %s není je midi souborem."
+
+#: kmidclient.cpp:236
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr "Poèet taktù na ètvrtinovou notu je negativní, prosím po¹lete tento soubor na adresu antlarr@arrakis.es."
+
+#: kmidclient.cpp:238
+msgid "Not enough memory !!"
+msgstr "Nedostatek pamìti !!"
+
+#: kmidclient.cpp:240
+msgid "This file is corrupted or not well built"
+msgstr "Tento soubor je po¹kozený nebo ¹patnì vytvoøený."
+
+#: kmidclient.cpp:241
+msgid "Unknown error message"
+msgstr "Neznámá chyba"
+
+#: kmidclient.cpp:316
+msgid "You must load a file before playing it"
+msgstr "Je nutné nahrát soubor pøed pøehráváním."
+
+#: kmidclient.cpp:322
+msgid "A song is already being played"
+msgstr "Píseò je ji¾ pøehrávána."
+
+#: kmidclient.cpp:328
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+"Není mo¾né otevøít /dev/sequencer.\n"
+"Pravdìpodobnì ho pou¾ívá jiný program."
+
+#: midicfgdlg.cpp:37
+msgid "Configure Midi devices"
+msgstr "Konfigurace midi zaøízení"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "OK"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "Zru¹it"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr "Zvotte midi zaøízení :"
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr "Pou¾ít midi mapu :"
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "®ádnou"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "Listovat..."
+
+#: collectdlg.cpp:39
+msgid "Collections Manager"
+msgstr "Správce kolekcí"
+
+#: collectdlg.cpp:47
+msgid "Available collections :"
+msgstr "Dostupné kolekce :"
+
+#: collectdlg.cpp:67
+msgid "Songs in selected collection:"
+msgstr "Písnì ve zvolené kolekci:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Nová"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "Kopírovat"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "Smazat"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "Pøidat"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "Odstranit"
+
+#: collectdlg.cpp:151
+msgid "Enter the name of the new collection"
+msgstr "Zadejte název nové kolekce"
+
+#: collectdlg.cpp:152
+msgid "New Collection"
+msgstr "Nová kolekce"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
+msgid "The name '%s' is already used"
+msgstr "Název '%s' je ji¾ pou¾itý."
+
+#: collectdlg.cpp:177
+msgid "Enter the name of the copy collection"
+msgstr "Zadejte název zkopírované kolekce"
+
+#: collectdlg.cpp:178
+msgid "Copy Collection"
+msgstr "Kopírovat kolekci"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr "Zadejte nový název pro zvolenou kolekci"
+
+#: collectdlg.cpp:220
+msgid "Change Collection Name"
+msgstr "Zmìnit název kolekce"
