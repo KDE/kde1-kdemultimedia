@@ -219,6 +219,7 @@
 # else
 # error No byte sex defined
 # endif
+# include <features.h>
 # if (__GLIBC__ >= 2)
 #  include <errno.h> /* needed for glibc 2 */
 #  include <math.h>
