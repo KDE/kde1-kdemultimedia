@@ -65,7 +65,7 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
 
   InitialDelay = -1;
   RepeatSpeed  =  1;
-  posChangeValid = false;
+  newPosValid = false;
 
   timer = new QTimer( this );
   timerFn = new QTimer( this );

@@ -93,7 +93,7 @@ signals:
   void		lastWindowClosed();
 
 public slots:
-void endSelMediapos()  { posChangeValid=true; };
+  void		endSelMediapos();
   void		playClicked();
   void		stopClicked();
   void		prevClicked();
@@ -129,7 +129,8 @@ private:
   uint32	status_old;
   uint32	status, supp_keys_now;
   uint32	pos_old, max_old;
-  bool	posChangeValid;
+  bool	newPosValid;   // -<- Communication between
+  uint32	newPos;	       //  -<- PosChanged() and endSelMediapso()
 
   QPixmap	playpauseBmp, playpause_playBmp, playpause_bothBmp;
   int32		SuppKeysOld;

@@ -22,7 +22,7 @@
 
 #include "prefs.h"
 #include "prefs.moc"
-#include "kmedia.h"
+//#include "kmediaui.h"
 
 Preferences::Preferences( QWidget *parent ) :
    QDialog( parent )

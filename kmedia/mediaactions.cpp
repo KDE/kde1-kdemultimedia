@@ -19,7 +19,7 @@
 // $Id$
 // Mediatool actions
 
-#include "kmedia.h"
+#include "kmediawin.h"
 
 
 void KMediaWin::playClicked()

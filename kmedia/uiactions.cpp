@@ -24,7 +24,8 @@
 #include <unistd.h>
 #include <kmisc.h>
 #include <klocale.h>
-#include "kmedia.h"
+#include "kmediaui.h"
+#include "kmediawin.h"
 #include "version.h"
 
 extern KApplication	*globalKapp;
@@ -210,10 +211,18 @@ void KMediaWin::pllClicked()
 
 void KMediaWin::PosChanged( int new_pos )
 {
-  if (posChangeValid) {
-    // OK, it's a user initiated position change.
-    posChangeValid = false;
-    (KeysChunk->pos_new) = new_pos;
+  cerr << "Called PosChanged()\n";
+  // Remember new position, in case it's a a user initiated position change.
+  newPosValid = true;
+  newPos = new_pos;
+}
+
+void KMediaWin::endSelMediapos()
+{
+  if (newPosValid) {
+    cerr << "Changing to new psoition\n";
+    newPosValid=false;
+    (KeysChunk->pos_new) = newPos;
     EventCounterRaise(&(KeysChunk->posnew),1);
   }
 }
