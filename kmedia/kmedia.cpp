@@ -40,9 +40,7 @@ KApplication	*globalKapp;
 
 void sigchld_handler(int /*signal*/)
 {
- pid_t status;
-
- waitpid(-1, &status, WNOHANG);
+ waitpid(-1, NULL, WNOHANG);
 }
 
 int main ( int argc, char *argv[] )
