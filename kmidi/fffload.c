@@ -3,6 +3,7 @@
  *   they refer to.  The routine load_fff_patch is adapted from "load_instrument",
  *   which is Copyright (C) 1995 Tuukka Toivonen <toivonen@clinet.fi>.
  *		-- Greg Lee, lee@Hawaii.edu, June, 1997.
+ * $Id$
  */
 
 #include <stdio.h>
@@ -13,7 +14,12 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <strings.h>
+
+#ifdef __FreeBSD__
+#include <stdlib.h>
+#else
 #include <malloc.h>
+#endif
 
 #include "config.h"
 #include "common.h"
