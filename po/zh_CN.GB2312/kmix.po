@@ -3,22 +3,22 @@ msgstr ""
 "Project-Id-Version: kcmkpanel\n"
 "POT-Creation-Date: 1998-06-16 14:34+0200\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
-"Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
+"Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
 #: docking.cpp:166
 msgid "Minimize"
-msgstr ""
+msgstr "最小化"
 
+#
 #: kmix.cpp:425
-#, fuzzy
 msgid "&Hide Menubar"
-msgstr "隐藏菜单条"
+msgstr "隐藏菜单条[&H]"
 
+#
 #: kmix.cpp:428
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "刻度显示 开/关"
+msgstr "刻度显示[&T] 开/关"
 
 #: kmix.cpp:442
 msgid ""
@@ -58,7 +58,7 @@ msgstr "分割[&S]"
 
 #: kmix.cpp:560
 msgid "Un&split"
-msgstr "不分割[&S]"
+msgstr "解除分割[&S]"
 
 #: kmix.cpp:562
 msgid "&RecSource"
@@ -92,10 +92,10 @@ msgstr "允许内嵌"
 msgid "KMix Preferences"
 msgstr "KMix 偏好设定"
 
+#
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "混音器频道设定 (未保存)"
+msgstr "混音器通道设定"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -108,7 +108,7 @@ msgstr "显示"
 #: prefs.cpp:115
 #, fuzzy
 msgid "Split"
-msgstr "分割[&S]"
+msgstr "分割"
 
 #~ msgid "&Options"
 #~ msgstr "选项[&O]"

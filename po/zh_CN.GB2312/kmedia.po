@@ -1,103 +1,109 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"POT-Creation-Date: 1998-06-18 23:29+0200\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
-"Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
+"Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
 
-#: kmediawin.cpp:132
+#: kmediawin.cpp:162
 msgid "Playback position"
 msgstr "播放位置"
 
-#: kmediawin.cpp:138
+#: kmediawin.cpp:168
 msgid "Eject medium"
 msgstr "退出媒体"
 
-#: kmediawin.cpp:142
+#: kmediawin.cpp:172
 msgid "Previous track"
 msgstr "前一轨"
 
-#: kmediawin.cpp:147
+#: kmediawin.cpp:177
 msgid "Backward"
 msgstr "回退"
 
-#: kmediawin.cpp:152
-msgid "Stop"
-msgstr "停止"
-
-#: kmediawin.cpp:156
+#: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "播放/暂停"
 
-#: kmediawin.cpp:161
-msgid "Forward"
-msgstr "往前"
-
-#: kmediawin.cpp:166
+#: kmediawin.cpp:200
 msgid "Next track"
 msgstr "下一轨"
 
-#: kmediawin.cpp:196
-msgid "New view"
-msgstr "新窗口"
-
-#: kmediawin.cpp:197
-msgid "Exit"
-msgstr "结束"
-
-#: kmediawin.cpp:202
-msgid "Mixer"
+#: kmediawin.cpp:231
+#, fuzzy
+msgid "&Mixer"
 msgstr "混音器"
 
-#: kmediawin.cpp:204
-msgid "Preferences"
+#: kmediawin.cpp:233
+#, fuzzy
+msgid "&Preferences"
 msgstr "偏好设定"
 
-#: kmediawin.cpp:208
-msgid "&Contents"
-msgstr "内容[&C]"
+#: kmediawin.cpp:241
+msgid ""
+"\n"
+"(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Media player for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+msgstr ""
 
-#: kmediawin.cpp:210
-msgid "&About"
-msgstr "有关[&A]"
+#: kmediawin.cpp:245
+msgid "About KMedia "
+msgstr ""
 
-#: kmediawin.cpp:214
-msgid "&File"
-msgstr "文件[&F]"
-
-#: kmediawin.cpp:215
-msgid "&Options"
-msgstr "选项[&O]"
-
-#: kmediawin.cpp:217
-msgid "&Help"
-msgstr "帮助[&H]"
-
-#: kmediawin.cpp:272
+#: kmediawin.cpp:308
 msgid "Exited"
 msgstr "已退出"
 
-#: kmediawin.cpp:273
+#: kmediawin.cpp:309
 msgid "Init"
 msgstr "初始化"
 
-#: kmediawin.cpp:274
+#: kmediawin.cpp:310
 msgid "Busy"
 msgstr "忙"
 
-#: kmediawin.cpp:275
+#: kmediawin.cpp:311
 msgid "Playing"
 msgstr "播放中"
 
-#: kmediawin.cpp:276
+#: kmediawin.cpp:312
 msgid "Paused"
 msgstr "已暂停"
 
-#: kmediawin.cpp:277
+#: kmediawin.cpp:313
 msgid "Ready"
 msgstr "完成"
 
-#: kmediawin.cpp:278
+#: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "没有定义"
+
+#~ msgid "Stop"
+#~ msgstr "停止"
+
+#~ msgid "Forward"
+#~ msgstr "往前"
+
+#~ msgid "New view"
+#~ msgstr "新窗口"
+
+#~ msgid "Exit"
+#~ msgstr "结束"
+
+#~ msgid "&Contents"
+#~ msgstr "内容[&C]"
+
+#~ msgid "&About"
+#~ msgstr "有关[&A]"
+
+#~ msgid "&File"
+#~ msgstr "文件[&F]"
+
+#~ msgid "&Options"
+#~ msgstr "选项[&O]"
+
+#~ msgid "&Help"
+#~ msgstr "帮助[&H]"
