@@ -379,6 +379,8 @@ static int vc_alloc(int j)
 
   if (lowest != -1)
     {
+      int cl = voice[lowest].clone_voice;
+
       /* This can still cause a click, but if we had a free voice to
 	 spare for ramping down this note, we wouldn't need to kill it
 	 in the first place... Still, this needs to be fixed. Perhaps
@@ -386,10 +388,10 @@ static int vc_alloc(int j)
       
       cut_notes++;
       voice[lowest].status=VOICE_FREE;
-      if (voice[lowest].clone_voice >= 0) {
-	if (voice[lowest].velocity == voice[ voice[lowest].clone_voice ].velocity)
-	   voice[ voice[lowest].clone_voice ].status=VOICE_FREE;
-	else voice[ voice[lowest].clone_voice ].clone_voice=-1;
+      if (cl >= 0) {
+	if (voice[lowest].velocity == voice[cl].velocity)
+	   voice[cl].status=VOICE_FREE;
+	else voice[cl].clone_voice=-1;
       }
     }
 #ifdef ADAGIO
@@ -466,6 +468,7 @@ static void clone_voice(int v, MidiEvent *e)
 	if (voice[w].panning < 64) voice[w].panning = 127;
 	else voice[w].panning = 0;
 	voice[w].velocity /= 2;
+	voice[w].velocity = (voice[w].velocity * reverb) / 128;
   }
   played_note = voice[w].sample->note_to_use;
   if (!played_note) played_note = e->a & 0x7f;
@@ -486,6 +489,7 @@ static void clone_voice(int v, MidiEvent *e)
 		voice[w].vibrato_depth = 6;
 		voice[w].vibrato_sweep = 74;
 	}
+	voice[w].velocity = (voice[w].velocity * chorus) / 128;
 	voice[w].vibrato_sweep = chorus/2;
 	voice[w].vibrato_depth /= 2;
 	if (!voice[w].vibrato_depth) voice[w].vibrato_depth = 2;
@@ -497,8 +501,20 @@ static void clone_voice(int v, MidiEvent *e)
   }
   recompute_freq(w);
   recompute_amp(w);
-  recompute_envelope(w);
-  apply_envelope_to_amp(w);
+  if (voice[w].sample->modes & MODES_ENVELOPE)
+    {
+      /* Ramp up from 0 */
+      voice[w].envelope_stage=0;
+      voice[w].envelope_volume=0;
+      voice[w].control_counter=0;
+      recompute_envelope(w);
+      apply_envelope_to_amp(w);
+    }
+  else
+    {
+      voice[w].envelope_increment=0;
+      apply_envelope_to_amp(w);
+    }
 }
 
 static void start_note(MidiEvent *e, int i)
@@ -626,22 +642,14 @@ static void note_on(MidiEvent *e)
 {
   int i=voices, lowest=-1; 
   int32 lv=0x7FFFFFFF, v;
-#ifdef ADAGIO
-  int current_polyphony = 0;
-#endif
+
+  current_polyphony = 0;
 
   while (i--)
     {
       if (voice[i].status == VOICE_FREE)
 	lowest=i; /* Can't get a lower volume than silence */
-/**
-      else if (voice[i].channel==e->channel && 
-	       (voice[i].note==e->a || channel[voice[i].channel].mono))
-	kill_note(i);
-**/
-#ifdef ADAGIO
 	else current_polyphony++;
-#endif
     }
 
 #ifdef ADAGIO
@@ -659,9 +667,7 @@ static void note_on(MidiEvent *e)
   while (i--)
     {
       if ((voice[i].status!=VOICE_ON) &&
-/** #ifdef ADAGIO **/
       	(voice[i].status != VOICE_FREE) &&
-/** #endif **/
 	  (voice[i].status!=VOICE_DIE))
 	{
 	  v=voice[i].left_mix;
@@ -677,6 +683,7 @@ static void note_on(MidiEvent *e)
 
   if (lowest != -1)
     {
+      int cl = voice[lowest].clone_voice;
       /* This can still cause a click, but if we had a free voice to
 	 spare for ramping down this note, we wouldn't need to kill it
 	 in the first place... Still, this needs to be fixed. Perhaps
@@ -684,10 +691,10 @@ static void note_on(MidiEvent *e)
       
       cut_notes++;
       voice[lowest].status=VOICE_FREE;
-      if (voice[lowest].clone_voice >= 0) {
-	if (voice[lowest].velocity == voice[ voice[lowest].clone_voice ].velocity)
-	   voice[ voice[lowest].clone_voice ].status=VOICE_FREE;
-	else voice[ voice[lowest].clone_voice ].clone_voice=-1;
+      if (cl >= 0) {
+	if (voice[lowest].velocity == voice[cl].velocity)
+	   voice[cl].status=VOICE_FREE;
+	else voice[cl].clone_voice=-1;
       }
       ctl->note(lowest);
 #ifdef ADAGIO
