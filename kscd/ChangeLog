@@ -1,3 +1,7 @@
+Tue Jan 13 03:24:49 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
+
+	* applied Sebestyen Zoltan <szoli@digo.inf.elte.hu> FreeBSD patch.
+
 Thu Jan  1 19:08:22 1998  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
 
 	* Monster commit: Commit cddb and web integration additions
