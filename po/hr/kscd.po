@@ -18,7 +18,7 @@ msgstr "CDDB poèetni direktorij"
 
 #: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
-msgstr "©aljite CDDB priloge na:"
+msgstr "©alji CDDB priloge na:"
 
 #: CDDBSetupData.cpp:84
 msgid "CDDB server:"
@@ -231,15 +231,15 @@ msgstr "Dozvoli pristajanje na ploèu"
 
 #: configdlg.cpp:168
 msgid "Play on Tray Close"
-msgstr "Sviraj prilikom zatvaranja vrata"
+msgstr "Pokreni sviranje nakon ubacivanja CDa"
 
 #: configdlg.cpp:175
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Auto.pristani prilikom smanjivanja prozora "
 
 #: configdlg.cpp:183
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Zaustavi sviranje kod izlaska"
 
 #: configdlg.cpp:190
 msgid "Eject on Finish"
@@ -287,7 +287,7 @@ msgstr "Izaberite ime diska ili pritisnite Poni¹ti"
 
 #: kscd.cpp:226
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Zapis uspje¹no poslan"
 
 #: kscd.cpp:236
 msgid "Error connecting to server."
@@ -295,7 +295,7 @@ msgstr "Gre¹ka prilikom spajanja na poslu¾itelj."
 
 #: kscd.cpp:239
 msgid "Not connected."
-msgstr ""
+msgstr "Niste spojeni."
 
 #: kscd.cpp:242
 msgid "Connection timed out."
@@ -327,7 +327,7 @@ msgstr ""
 
 #: kscd.cpp:378
 msgid "Vol: --"
-msgstr "Jaèina: --"
+msgstr "Glasnoæa: --"
 
 #: kscd.cpp:528
 msgid "Performances"
@@ -395,7 +395,7 @@ msgstr "CDDB dijalog"
 
 #: kscd.cpp:577
 msgid "CD Volume Control"
-msgstr "Jaèina zvuka CDa"
+msgstr "Glasnoæa zvuka CDa"
 
 #: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1279
 msgid "Playing"
@@ -435,7 +435,6 @@ msgid "kscd Configuraton"
 msgstr "kscd postava"
 
 #: kscd.cpp:1008
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -461,7 +460,7 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Zahvale Ti Kanu i Steve Scherfu, izumiteljima CDDB koncepta.Posjetite "
+"Posebne zahvale Ti Kanu i Steve Scherfu, izumiteljima CDDB koncepta.Posjetite "
 "http://www.cddb.com za dodatne informacije o CDDBu.\n"
 "\n"
 
@@ -486,7 +485,7 @@ msgstr ""
 
 #: kscd.cpp:1080
 msgid "SMTP Setup"
-msgstr ""
+msgstr "SMTP postava"
 
 #: kscd.cpp:1081
 msgid "Kscd Options"
@@ -498,7 +497,7 @@ msgstr "Kscd Magic"
 
 #: kscd.cpp:1185 kscd.cpp:2085
 msgid "Vol: %02d%%"
-msgstr "Jaèina: %02d%%"
+msgstr "Glasnoæa: %02d%%"
 
 #: kscd.cpp:1223
 #, c-format
@@ -513,11 +512,11 @@ msgstr ""
 
 #: kscd.cpp:1334
 msgid "Ready"
-msgstr "Gotov"
+msgstr "Spreman"
 
 #: kscd.cpp:1377
 msgid "Ejected"
-msgstr "Izbaèen"
+msgstr "Nema CD"
 
 #: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
@@ -537,7 +536,7 @@ msgstr "Istek vremena za CDDB upit."
 
 #: kscd.cpp:2060
 msgid "Tra Rem"
-msgstr "Pje Ostatak"
+msgstr "Pje Ostalo"
 
 #: kscd.cpp:2064
 msgid "Tot Sec"
@@ -593,15 +592,12 @@ msgstr "Svjetlina Magica:"
 
 #: smtpconfig.cpp:37
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Dozvoli priloge preko SMTP"
 
 #: smtpconfig.cpp:44
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP adresa:port"
 
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
-msgstr ""
-
-#~ msgid "Dock Kscd"
-#~ msgstr "Pristani Kscd"
+msgstr "Va¹a e-mail adresa"
