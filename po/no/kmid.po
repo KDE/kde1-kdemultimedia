@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-09-17 14:48+0200\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
 "Language-Team: no \n"
@@ -11,99 +11,123 @@ msgstr ""
 "Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp "
 "midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp\n"
 
-#: kmidframe.cpp:62
-msgid "&Open ..."
-msgstr "Å&pne ..."
+#: kmidframe.cpp:64
+msgid "Play/Pause"
+msgstr "Spill/Pause"
 
-#: kmidframe.cpp:65
-msgid "&Save Lyrics ..."
-msgstr "&Lagre sangtekster ..."
+#: kmidframe.cpp:68 kmidframe.cpp:205
+msgid "Previous Song"
+msgstr "Forrige sang"
 
-#: kmidframe.cpp:68
-msgid "&Quit"
-msgstr "&Avslutt"
+#: kmidframe.cpp:70 kmidframe.cpp:224
+msgid "Next Song"
+msgstr "Neste sang"
 
-#: kmidframe.cpp:71
-msgid "&Play"
-msgstr "Spi&ll"
-
-#: kmidframe.cpp:73
-msgid "P&ause"
-msgstr "&Pause"
-
-#: kmidframe.cpp:74
-msgid "&Stop"
-msgstr "&Stopp"
-
-#: kmidframe.cpp:77
-msgid "P&revious Song"
-msgstr "&Forrige sang"
-
-#: kmidframe.cpp:79
-msgid "&Next Song"
-msgstr "&Neste sang"
-
-#: kmidframe.cpp:82
-msgid "&Loop"
-msgstr "&Gå i sløyfe"
-
-#: kmidframe.cpp:88
-msgid "&Organize ..."
-msgstr "&Organiser ..."
-
-#: kmidframe.cpp:91
-msgid "In order mode"
-msgstr "I rekkefølgemodus"
-
-#: kmidframe.cpp:94
-msgid "Shuffle mode"
-msgstr "Blandetmodus"
-
-#: kmidframe.cpp:98
-msgid "AutoAdd to Collection"
-msgstr "Automatisk tillegg til samling"
-
-#: kmidframe.cpp:104
-msgid "&General Midi file"
-msgstr "&General-midi-fil"
-
-#: kmidframe.cpp:108
-msgid "&MT-32 file"
-msgstr "&MT-32-fil"
-
-#: kmidframe.cpp:113
+#: kmidframe.cpp:72 kmidframe.cpp:140
 msgid "See &Text events"
 msgstr "Se &tekstbegivenhet"
 
-#: kmidframe.cpp:117
+#: kmidframe.cpp:74 kmidframe.cpp:146
 msgid "See &Lyrics events"
 msgstr "Se &sangtekstbegivenhet"
 
-#: kmidframe.cpp:122
+#: kmidframe.cpp:76
+msgid "Scroll down karaoke"
+msgstr "Rull ned-karaoke"
+
+#: kmidframe.cpp:78
+msgid "Scroll up karaoke"
+msgstr "Rull opp-karaoke"
+
+#: kmidframe.cpp:80
+msgid "Scroll page down karaoke"
+msgstr "Rull side ned-karaoke"
+
+#: kmidframe.cpp:82
+msgid "Scroll page up karaoke"
+msgstr "Rull side opp-karaoke"
+
+#: kmidframe.cpp:91
+msgid "&Save Lyrics ..."
+msgstr "&Lagre sangtekster ..."
+
+#: kmidframe.cpp:97
+msgid "&Play"
+msgstr "Spi&ll"
+
+#: kmidframe.cpp:100
+msgid "P&ause"
+msgstr "&Pause"
+
+#: kmidframe.cpp:101
+msgid "&Stop"
+msgstr "&Stopp"
+
+#: kmidframe.cpp:104
+msgid "P&revious Song"
+msgstr "&Forrige sang"
+
+#: kmidframe.cpp:106
+msgid "&Next Song"
+msgstr "&Neste sang"
+
+#: kmidframe.cpp:109
+msgid "&Loop"
+msgstr "&Gå i sløyfe"
+
+#: kmidframe.cpp:115
+msgid "&Organize ..."
+msgstr "&Organiser ..."
+
+#: kmidframe.cpp:118
+msgid "In order mode"
+msgstr "I rekkefølgemodus"
+
+#: kmidframe.cpp:121
+msgid "Shuffle mode"
+msgstr "Blandetmodus"
+
+#: kmidframe.cpp:125
+msgid "AutoAdd to Collection"
+msgstr "Automatisk tillegg til samling"
+
+#: kmidframe.cpp:131
+msgid "&General Midi file"
+msgstr "&General-midi-fil"
+
+#: kmidframe.cpp:135
+msgid "&MT-32 file"
+msgstr "&MT-32-fil"
+
+#: kmidframe.cpp:152
 msgid "&Automatic Text chooser"
 msgstr "&Automtisk tekstvelger"
 
-#: kmidframe.cpp:128
+#: kmidframe.cpp:158
 msgid "Show &Volume Bar"
 msgstr "Vis &lydstyrkelinje"
 
-#: kmidframe.cpp:133
+#: kmidframe.cpp:163
 msgid "Show &Channel View"
 msgstr "Vis &kanalvisning"
 
-#: kmidframe.cpp:138
+#: kmidframe.cpp:168
 msgid "Channel View &Options"
 msgstr "Kanalvisnings&valg"
 
-#: kmidframe.cpp:142
+#: kmidframe.cpp:172
 msgid "&Font Change ..."
 msgstr "&Endring av skrifttype ..."
 
-#: kmidframe.cpp:145
+#: kmidframe.cpp:174
+msgid "Configure &Keys ..."
+msgstr "Konfigurere &taster ..."
+
+#: kmidframe.cpp:177
 msgid "Midi &Setup ..."
 msgstr "Midi-opp&sett ..."
 
-#: kmidframe.cpp:150
+#: kmidframe.cpp:182
 #, c-format
 msgid ""
 "%s\n"
@@ -128,67 +152,35 @@ msgstr ""
 "Dette er fri programvare, and du må gjerne distribuere det videre\n"
 "på visse betingelser\n"
 
-#: kmidframe.cpp:160
-msgid "&File"
-msgstr "&Fil"
-
-#: kmidframe.cpp:161
+#: kmidframe.cpp:193
 msgid "&Song"
 msgstr "&Sang"
 
-#: kmidframe.cpp:162
+#: kmidframe.cpp:194
 msgid "&Collections"
 msgstr "S&amlinger"
 
-#: kmidframe.cpp:163
-msgid "&Options"
-msgstr "&Valg"
-
-#: kmidframe.cpp:165
-msgid "&Help"
-msgstr "&Hjelp"
-
-#: kmidframe.cpp:173
-msgid "Previous Song"
-msgstr "Forrige sang"
-
-#: kmidframe.cpp:176
+#: kmidframe.cpp:208
 msgid "Rewind"
 msgstr "Spol tilbake"
 
-#: kmidframe.cpp:179
-msgid "Stop"
-msgstr "Stopp"
-
-#: kmidframe.cpp:182
+#: kmidframe.cpp:214
 msgid "Pause"
 msgstr "Pause"
 
-#: kmidframe.cpp:186
+#: kmidframe.cpp:218
 msgid "Play"
 msgstr "Spill"
 
-#: kmidframe.cpp:189
-msgid "Forward"
-msgstr "Fremover"
-
-#: kmidframe.cpp:192
-msgid "Next Song"
-msgstr "Neste sang"
-
-#: kmidframe.cpp:198
+#: kmidframe.cpp:230
 msgid "Show Channel View"
 msgstr "Vi kanalvisning"
 
-#: kmidframe.cpp:203
+#: kmidframe.cpp:235
 msgid "Show Volume Bar"
 msgstr "Vi lydstyrkelinje"
 
-#: kmidclient.cpp:262 kmidclient.cpp:451 kmidframe.cpp:520
-msgid "Error"
-msgstr "Feil"
-
-#: kmidframe.cpp:520
+#: kmidframe.cpp:555
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -196,7 +188,7 @@ msgstr ""
 "Kunne ikke åpne /dev/sequencer for å få noe info\n"
 "Det er antagelig et annet program som bruker den"
 
-#: kmidframe.cpp:639 kmidframe.cpp:640
+#: kmidframe.cpp:674 kmidframe.cpp:675
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -205,12 +197,7 @@ msgstr ""
 "Fil %s eksisterer allerede\n"
 "Ønsker du å skrive over den ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:438
-#: kmidclient.cpp:444 kmidframe.cpp:641
-msgid "Warning"
-msgstr "Advarsel"
-
-#: kmidclient.cpp:93
+#: kmidclient.cpp:94
 msgid "Tempo :"
 msgstr "Tempo :"
 
@@ -244,15 +231,15 @@ msgstr "Denne fil er dårlig eller ikke skikkelig laget"
 msgid "Unknown error message"
 msgstr "Ukjent feil melding"
 
-#: kmidclient.cpp:439
+#: kmidclient.cpp:441
 msgid "You must load a file before playing it"
 msgstr "Du må laste inn en fil før du kan avspille den"
 
-#: kmidclient.cpp:445
+#: kmidclient.cpp:447
 msgid "A song is already being played"
 msgstr "En sang spilles allerede"
 
-#: kmidclient.cpp:451
+#: kmidclient.cpp:453
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -264,14 +251,6 @@ msgstr ""
 msgid "Configure Midi devices"
 msgstr "Konfigurer midi-enheter"
 
-#: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
-msgid "OK"
-msgstr "OK"
-
-#: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
-msgid "Cancel"
-msgstr "Avbryt"
-
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
 msgstr "Velg midi enhet du ønsker å bruke :"
@@ -279,14 +258,6 @@ msgstr "Velg midi enhet du ønsker å bruke :"
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
 msgstr "Bruk midi map :"
-
-#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
-msgid "None"
-msgstr "Ingen"
-
-#: midicfgdlg.cpp:89
-msgid "Browse..."
-msgstr "Bla igjennom..."
 
 #: collectdlg.cpp:39
 msgid "Collections Manager"
@@ -299,26 +270,6 @@ msgstr "Tilgjengelige samlinger :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Sanger i utvalgte samling:"
-
-#: collectdlg.cpp:81
-msgid "New"
-msgstr "Ny"
-
-#: collectdlg.cpp:85
-msgid "Copy"
-msgstr "Kopier"
-
-#: collectdlg.cpp:89
-msgid "Delete"
-msgstr "Slett"
-
-#: collectdlg.cpp:94
-msgid "Add"
-msgstr "Legg til"
-
-#: collectdlg.cpp:98
-msgid "Remove"
-msgstr "Fjern"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -349,7 +300,7 @@ msgstr "Oppgi det nye navn for den valgte samling"
 msgid "Change Collection Name"
 msgstr "Endre samlingsnavn"
 
-#: channel.cpp:75
+#: channel.cpp:89
 msgid "Channel"
 msgstr "Kanal"
 
@@ -371,23 +322,23 @@ msgstr "3D - fylt"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
-msgstr ""
+msgstr "Akustisk flygel"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
-msgstr ""
+msgstr "Sterkt akustisk piano"
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
-msgstr ""
+msgstr "Elektriskt flygel"
 
 #: instrname.i18n:9
 msgid "Honky-Tonk"
-msgstr ""
+msgstr "Bule"
 
 #: instrname.i18n:10
 msgid "Rhodes Piano"
-msgstr ""
+msgstr "Rhodes-piano"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
@@ -395,11 +346,11 @@ msgstr ""
 
 #: instrname.i18n:12
 msgid "Harpsichord"
-msgstr ""
+msgstr "Cembalo"
 
 #: instrname.i18n:13
 msgid "Clavinet"
-msgstr ""
+msgstr "Klarinett"
 
 #: instrname.i18n:14
 msgid "Celesta"
@@ -407,15 +358,15 @@ msgstr "Celeste"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
-msgstr ""
+msgstr "Klokkespill"
 
 #: instrname.i18n:16
 msgid "Music Box"
-msgstr ""
+msgstr "Spilledåse"
 
 #: instrname.i18n:17
 msgid "Vibraphone"
-msgstr ""
+msgstr "Vibrafon"
 
 #: instrname.i18n:18
 msgid "Marimba"
@@ -427,11 +378,11 @@ msgstr ""
 
 #: instrname.i18n:20
 msgid "Tubular Bells"
-msgstr ""
+msgstr "Rørklokker"
 
 #: instrname.i18n:21
 msgid "Dulcimer"
-msgstr ""
+msgstr "Cymbal"
 
 #: instrname.i18n:22
 msgid "Hammond Organ"
@@ -439,51 +390,51 @@ msgstr ""
 
 #: instrname.i18n:23
 msgid "Percussive Organ"
-msgstr ""
+msgstr "Perkusjonsorgel"
 
 #: instrname.i18n:24
 msgid "Rock Organ"
-msgstr ""
+msgstr "Rock-orgel"
 
 #: instrname.i18n:25
 msgid "Church Organ"
-msgstr ""
+msgstr "Kirkeorgel"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
-msgstr ""
+msgstr "Harmonium"
 
 #: instrname.i18n:27
 msgid "Accordion"
-msgstr ""
+msgstr "Trekkspill"
 
 #: instrname.i18n:28
 msgid "Harmonica"
-msgstr ""
+msgstr "Munnspill"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
-msgstr ""
+msgstr "Tango-trekkspill"
 
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
-msgstr ""
+msgstr "Akustisk gitar (nylon)"
 
 #: instrname.i18n:31
 msgid "Acoustic Guitar (Steel)"
-msgstr ""
+msgstr "Akustisk gitar (stål)"
 
 #: instrname.i18n:32
 msgid "Electric Guitar (Jazz)"
-msgstr ""
+msgstr "Elektrisk gitar (jazz)"
 
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
-msgstr ""
+msgstr "Elektrisk gitar (ren)"
 
 #: instrname.i18n:34
 msgid "Electric Guitar (Muted)"
-msgstr ""
+msgstr "Elektrisk gitar (dempet)"
 
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
@@ -491,7 +442,7 @@ msgstr ""
 
 #: instrname.i18n:36
 msgid "Distortion Guitar"
-msgstr ""
+msgstr "Fordreiet gitar"
 
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
@@ -499,15 +450,15 @@ msgstr ""
 
 #: instrname.i18n:38
 msgid "Acoustic Bass"
-msgstr ""
+msgstr "Akustisk bass"
 
 #: instrname.i18n:39
 msgid "Electric Bass (Finger)"
-msgstr ""
+msgstr "Elektrisk bass (finger)"
 
 #: instrname.i18n:40
 msgid "Electric Bass (Pick)"
-msgstr ""
+msgstr "Elektrisk bass (hakke)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
@@ -523,27 +474,27 @@ msgstr ""
 
 #: instrname.i18n:44
 msgid "Synth Bass 1"
-msgstr ""
+msgstr "Synth-bass 1"
 
 #: instrname.i18n:45
 msgid "Synth Bass 2"
-msgstr ""
+msgstr "Synth-bass 2"
 
 #: instrname.i18n:46
 msgid "Violin"
-msgstr ""
+msgstr "Fionlin"
 
 #: instrname.i18n:47
 msgid "Viola"
-msgstr ""
+msgstr "Bratsj"
 
 #: instrname.i18n:48
 msgid "Cello"
-msgstr ""
+msgstr "Cello"
 
 #: instrname.i18n:49
 msgid "Contrabass"
-msgstr ""
+msgstr "Kontrabass"
 
 #: instrname.i18n:50
 msgid "Tremolo Strings"
@@ -551,11 +502,11 @@ msgstr ""
 
 #: instrname.i18n:51
 msgid "Pizzicato Strings"
-msgstr ""
+msgstr "Pizzicato-strenger"
 
 #: instrname.i18n:52
 msgid "Orchestral Harp"
-msgstr ""
+msgstr "Orkesterharpe"
 
 #: instrname.i18n:53
 msgid "Timpani"
@@ -563,23 +514,23 @@ msgstr ""
 
 #: instrname.i18n:54
 msgid "String Ensemble 1"
-msgstr ""
+msgstr "Strengsamspill 1"
 
 #: instrname.i18n:55
 msgid "String Ensemble 2"
-msgstr ""
+msgstr "Strengsamspill 2"
 
 #: instrname.i18n:56
 msgid "Synth Strings 1"
-msgstr ""
+msgstr "Synth-strenger 1"
 
 #: instrname.i18n:57
 msgid "Synth Strings 2"
-msgstr ""
+msgstr "Synth-strenger 2"
 
 #: instrname.i18n:58
 msgid "Choir Aahs"
-msgstr ""
+msgstr "Kor-A'er"
 
 #: instrname.i18n:59
 msgid "Voice Oohs"
@@ -595,23 +546,23 @@ msgstr ""
 
 #: instrname.i18n:62
 msgid "Trumpet"
-msgstr ""
+msgstr "Trompet"
 
 #: instrname.i18n:63
 msgid "Trombone"
-msgstr ""
+msgstr "Basun"
 
 #: instrname.i18n:64
 msgid "Tuba"
-msgstr ""
+msgstr "Tuba"
 
 #: instrname.i18n:65
 msgid "Muted Trumpet"
-msgstr ""
+msgstr "Dempet trompet"
 
 #: instrname.i18n:66
 msgid "French Horn"
-msgstr ""
+msgstr "Fransk horn"
 
 #: instrname.i18n:67
 msgid "Brass Section"
@@ -627,55 +578,55 @@ msgstr ""
 
 #: instrname.i18n:70
 msgid "Soprano Sax"
-msgstr ""
+msgstr "Sopran-saksofon"
 
 #: instrname.i18n:71
 msgid "Alto Sax"
-msgstr ""
+msgstr "Alt-saksofon"
 
 #: instrname.i18n:72
 msgid "Tenor Sax"
-msgstr ""
+msgstr "Tenor-saksofon"
 
 #: instrname.i18n:73
 msgid "Baritone Sax"
-msgstr ""
+msgstr "Barytone-saksofon"
 
 #: instrname.i18n:74
 msgid "Oboe"
-msgstr ""
+msgstr "Obo"
 
 #: instrname.i18n:75
 msgid "English Horn"
-msgstr ""
+msgstr "Engelsk horn"
 
 #: instrname.i18n:76
 msgid "Bassoon"
-msgstr ""
+msgstr "Fagott"
 
 #: instrname.i18n:77
 msgid "Clarinet"
-msgstr ""
+msgstr "Klarinett"
 
 #: instrname.i18n:78
 msgid "Piccolo"
-msgstr ""
+msgstr "Pikkolo"
 
 #: instrname.i18n:79
 msgid "Flute"
-msgstr ""
+msgstr "Fløyte"
 
 #: instrname.i18n:80
 msgid "Recorder"
-msgstr ""
+msgstr "Blokkfløyte"
 
 #: instrname.i18n:81
 msgid "Pan Flute"
-msgstr ""
+msgstr "Pan-fløyte"
 
 #: instrname.i18n:82
 msgid "Blown Bottle"
-msgstr ""
+msgstr "Blåseflaske"
 
 #: instrname.i18n:83
 msgid "Shakuhachi"
@@ -683,11 +634,11 @@ msgstr ""
 
 #: instrname.i18n:84
 msgid "Whistle"
-msgstr ""
+msgstr "Fløyte"
 
 #: instrname.i18n:85
 msgid "Ocarina"
-msgstr ""
+msgstr "Leirgjøk"
 
 #: instrname.i18n:86
 msgid "Lead 1 - Square Wave"
@@ -723,11 +674,11 @@ msgstr ""
 
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
-msgstr ""
+msgstr "Blokk 1 - Ny tid"
 
 #: instrname.i18n:95
 msgid "Pad 2 - Warm"
-msgstr ""
+msgstr "Blokk 2 - Ivrig"
 
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
@@ -735,15 +686,15 @@ msgstr ""
 
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
-msgstr ""
+msgstr "Blokk 4 - Kor"
 
 #: instrname.i18n:98
 msgid "Pad 5 - Bow"
-msgstr ""
+msgstr "Blokk 5 - bue"
 
 #: instrname.i18n:99
 msgid "Pad 6 - Metallic"
-msgstr ""
+msgstr "Blokk 6 - metallisk"
 
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
@@ -755,23 +706,23 @@ msgstr ""
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
-msgstr ""
+msgstr "FX 1 - Regn"
 
 #: instrname.i18n:103
 msgid "FX 2 - Soundtrack"
-msgstr ""
+msgstr "FX 2 - lydspor"
 
 #: instrname.i18n:104
 msgid "FX 3 - Crystal"
-msgstr ""
+msgstr "Fx 3 - krystall"
 
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
-msgstr ""
+msgstr "FX 4 - stemning"
 
 #: instrname.i18n:106
 msgid "FX 5 - Brightness"
-msgstr ""
+msgstr "Fx 5 - glans"
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
@@ -779,19 +730,19 @@ msgstr ""
 
 #: instrname.i18n:108
 msgid "FX 7 - Echoes"
-msgstr ""
+msgstr "FX 7 - ekko"
 
 #: instrname.i18n:109
 msgid "FX 8 - Sci-fi"
-msgstr ""
+msgstr "FX 8 - fremtidsroman"
 
 #: instrname.i18n:110
 msgid "Sitar"
-msgstr ""
+msgstr "Sitar"
 
 #: instrname.i18n:111
 msgid "Banjo"
-msgstr ""
+msgstr "Banjo"
 
 #: instrname.i18n:112
 msgid "Shamisen"
@@ -807,11 +758,11 @@ msgstr ""
 
 #: instrname.i18n:115
 msgid "Bagpipe"
-msgstr ""
+msgstr "Sekkepipe"
 
 #: instrname.i18n:116
 msgid "Fiddle"
-msgstr ""
+msgstr "Fiolin"
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -827,7 +778,7 @@ msgstr ""
 
 #: instrname.i18n:120
 msgid "Steel Drum"
-msgstr ""
+msgstr "Ståltromme"
 
 #: instrname.i18n:121
 msgid "Wook Block"
@@ -843,11 +794,11 @@ msgstr ""
 
 #: instrname.i18n:124
 msgid "Synth Drum"
-msgstr ""
+msgstr "Synth-tromme"
 
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
-msgstr ""
+msgstr "Omvendt cymbal"
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
@@ -859,7 +810,7 @@ msgstr ""
 
 #: instrname.i18n:128
 msgid "Seashore"
-msgstr ""
+msgstr "Strand"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
