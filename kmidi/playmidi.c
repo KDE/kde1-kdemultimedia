@@ -170,7 +170,7 @@ static void reset_midi(void)
       channel[i].brightness=64,
       /*channel[i].kit=0;*/
       channel[i].sfx=0;
-      /* channel[i].transpose is initialized in readmidi.c */
+      /* channel[i].transpose and .kit are initialized in readmidi.c */
     }
   reset_voices();
 }
@@ -517,6 +517,11 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
   for (k = 0; k < VIBRATO_SAMPLE_INCREMENTS; k++)
     voice[w].vibrato_sample_increment[k] =
       voice[v].vibrato_sample_increment[k];
+  for (k=0; k<6; k++)
+    {
+	voice[w].envelope_rate[k]=voice[v].envelope_rate[k];
+	voice[w].envelope_offset[k]=voice[v].envelope_offset[k];
+    }
   voice[w].vibrato_phase = voice[v].vibrato_phase;
   voice[w].vibrato_depth = voice[w].sample->vibrato_depth;
   voice[w].vibrato_control_ratio = voice[w].sample->vibrato_control_ratio;
@@ -537,6 +542,7 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 	/*voice[w].echo_delay = 50 * (play_mode->rate/1000);*/
 	voice[w].echo_delay = (reverb>>2) * milli;
 /* 500, 250, 100, 50 too long; 25 pretty good */
+	voice[w].envelope_rate[3] /= 2;
 	if (XG_System_reverb_type >= 0) {
 	    int subtype = XG_System_reverb_type & 0x07;
 	    int rtype = XG_System_reverb_type >>3;
@@ -616,9 +622,9 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 		case 3: /* flanger */
 		  voice[w].vibrato_sweep = chorus * 4;
 		  break;
-		case 4: /* symphonic */
-		  voice[w].orig_frequency += (voice[w].orig_frequency/128) * chorus;
-		  voice[v].orig_frequency -= (voice[v].orig_frequency/128) * chorus;
+		case 4: /* symphonic : cf Children of the Night /128 bad, /1024 ok */
+		  voice[w].orig_frequency += (voice[w].orig_frequency/512) * chorus;
+		  voice[v].orig_frequency -= (voice[v].orig_frequency/512) * chorus;
 		  recompute_freq(v);
 		  break;
 		case 8: /* phaser */
@@ -651,8 +657,9 @@ static void start_note(MidiEvent *e, int i)
   Instrument *ip;
   int j, banknum;
   int played_note, drumpan=NO_PANNING;
+  int32 rt;
 
-  if (channel[e->channel].sfx) banknum=MAXBANK-1;
+  if (channel[e->channel].sfx) banknum=channel[e->channel].sfx;
   else banknum=channel[e->channel].bank;
 
 #ifndef ADAGIO
@@ -739,6 +746,52 @@ static void start_note(MidiEvent *e, int i)
   voice[i].vibrato_control_counter=voice[i].vibrato_phase=0;
   for (j=0; j<VIBRATO_SAMPLE_INCREMENTS; j++)
     voice[i].vibrato_sample_increment[j]=0;
+#ifdef RATE_ADJUST_DEBUG
+{
+int e_debug=0, f_debug=0;
+int32 r;
+if (channel[e->channel].releasetime!=64) e_debug=1;
+if (channel[e->channel].attacktime!=64) f_debug=1;
+if (e_debug) printf("ADJ release time by %d on %d\n", channel[e->channel].releasetime -64, e->channel);
+if (f_debug) printf("ADJ attack time by %d on %d\n", channel[e->channel].attacktime -64, e->channel);
+#endif
+
+  for (j=0; j<6; j++)
+    {
+	voice[i].envelope_rate[j]=voice[i].sample->envelope_rate[j];
+	voice[i].envelope_offset[j]=voice[i].sample->envelope_offset[j];
+#ifdef RATE_ADJUST_DEBUG
+if (f_debug) printf("\trate %d = %ld; offset = %ld\n", j,
+voice[i].envelope_rate[j],
+voice[i].envelope_offset[j]);
+#endif
+    }
+
+#ifdef RATE_ADJUST_DEBUG
+if (e_debug) {
+printf("(old rel time = %ld)\n",
+(voice[i].envelope_offset[2] - voice[i].envelope_offset[3]) / voice[i].envelope_rate[3]);
+r = voice[i].envelope_rate[3];
+r = r + ( (64-channel[e->channel].releasetime)*r ) / 100;
+voice[i].envelope_rate[3] = r;
+printf("(new rel time = %ld)\n",
+(voice[i].envelope_offset[2] - voice[i].envelope_offset[3]) / voice[i].envelope_rate[3]);
+}
+}
+#endif
+
+  if (channel[e->channel].attacktime!=64)
+    {
+	rt = voice[i].envelope_rate[1];
+	rt = rt + ( (64-channel[e->channel].attacktime)*rt ) / 100;
+	if (rt > 1000) voice[i].envelope_rate[1] = rt;
+    }
+  if (channel[e->channel].releasetime!=64)
+    {
+	rt = voice[i].envelope_rate[3];
+	rt = rt + ( (64-channel[e->channel].releasetime)*rt ) / 100;
+	if (rt > 1000) voice[i].envelope_rate[3] = rt;
+    }
 
   if (channel[e->channel].panning != NO_PANNING)
     voice[i].panning=channel[e->channel].panning;
@@ -1151,7 +1204,7 @@ static void seek_forward(int32 until_time)
 	case ME_TONE_KIT:
 	  if (current_event->a==SFX_BANKTYPE)
 		{
-		    channel[current_event->channel].sfx=SFX_BANKTYPE;
+		    channel[current_event->channel].sfx=SFXBANK;
 		    channel[current_event->channel].kit=0;
 		}
 	  else
@@ -1488,10 +1541,20 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 
 	    case ME_RELEASETIME:
 	      channel[current_event->channel].releasetime=current_event->a;
+/*
+if (current_event->a != 64)
+printf("release time %d on channel %d\n", channel[current_event->channel].releasetime,
+current_event->channel);
+*/
 	      break;
 
 	    case ME_ATTACKTIME:
 	      channel[current_event->channel].attacktime=current_event->a;
+/*
+if (current_event->a != 64)
+printf("attack time %d on channel %d\n", channel[current_event->channel].attacktime,
+current_event->channel);
+*/
 	      break;
 
 	    case ME_BRIGHTNESS:
@@ -1505,7 +1568,7 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	    case ME_TONE_KIT:
 	      if (current_event->a==SFX_BANKTYPE)
 		{
-		    channel[current_event->channel].sfx=SFX_BANKTYPE;
+		    channel[current_event->channel].sfx=SFXBANK;
 		    channel[current_event->channel].kit=0;
 		}
 	      else
