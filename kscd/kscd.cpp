@@ -148,6 +148,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     docking 		= true;
     autoplay = false;
     autodock = false;
+    stopexit = true;
     updateDialog          = false;
     ejectedBefore = false;
 
@@ -787,8 +788,9 @@ void KSCD::closeEvent( QCloseEvent *e ){
   
     qApp->processEvents();
     qApp->flushX();
-  
-    stop_cd ();
+
+    if(stopexit)
+        stop_cd ();
 
     cd_status();
     cd_status();
@@ -797,6 +799,31 @@ void KSCD::closeEvent( QCloseEvent *e ){
     writeSettings();
     //qApp->quit();
     e->accept();
+}
+
+void KSCD::focusOutEvent(QFocusEvent *e)
+{
+    qApp->processEvents();
+    qApp->flushX();
+    if(docking &&
+       autodock &&
+       dock_widget &&
+       e->lostFocus() == true &&
+       this->isVisible() == false &&
+       dock_widget->isToggled() == false){
+        if(debugflag)
+            printf("autodock Conditions = TRUE\n");
+        dock_widget->SaveKscdPosition();
+        this->show();
+        this->hide();
+    }else
+        if(debugflag){
+            printf("autodock Conditions = FALSE\n");
+            printf("docking = %d\nautodock = %d\ne->lostFocus() = %d\n"
+                   "this->isVisible() = %d\ndock_widget->isToggled = %d\n",
+                   docking, autodock, e->lostFocus(), this->isVisible(),
+                   dock_widget->isToggled());
+        }
 }
 
 void KSCD::loopClicked(){
@@ -960,6 +987,7 @@ void KSCD::aboutClicked(){
     config.docking    = docking;
     config.autoplay   = autoplay;
     config.autodock = autodock;
+    config.stopexit = stopexit;
 
     dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
@@ -1003,6 +1031,7 @@ void KSCD::aboutClicked(){
         docking = dlg->getData()->docking;
         autoplay = dlg->getData()->autoplay;
         autodock = dlg->getData()->autodock;
+        stopexit = dlg->getData()->stopexit;
         
         if( (QString)cd_device != dlg->getData()->cd_device){
             cd_device_str = dlg->getData()->cd_device;
@@ -1330,6 +1359,7 @@ void KSCD::readSettings()
     docking    = (bool) config->readNumEntry("DOCKING", 1);
     autoplay = (bool) config->readNumEntry("AUTOPLAY", 0);
     autodock = (bool) config->readNumEntry("AUTODOCK", 0);
+    stopexit = (bool)config->readNumEntry("STOPEXIT", 1);
     mailcmd    =        config->readEntry("UnixMailCommand","/bin/mail -s \"%s\"");
 
 #ifdef DEFAULT_CD_DEVICE
@@ -1435,6 +1465,7 @@ void KSCD::writeSettings(){
     config->writeEntry("DOCKING", (int)docking);
     config->writeEntry("AUTOPLAY", (int)autoplay);
     config->writeEntry("AUTODOCK", (int)autodock);
+    config->writeEntry("STOPEXIT", (int)stopexit);
     config->writeEntry("CDDevice",cd_device);
     config->writeEntry("CustomBroserCmd",browsercmd);
     config->writeEntry("Volume", volume);

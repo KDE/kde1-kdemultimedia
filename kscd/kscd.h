@@ -92,6 +92,7 @@ struct configstruct{
   bool	docking;
   bool  autoplay;
   bool autodock;
+  bool stopexit;
 };
 
 struct mgconfigstruct{
@@ -269,6 +270,7 @@ private:
         bool            docking;
         bool            autoplay;
         bool autodock;
+        bool stopexit;
 	bool 		cddb_inexact_sentinel;
         bool            updateDialog;
         bool ejectedBefore;
@@ -280,6 +282,7 @@ public:
 protected:
 
     void closeEvent( QCloseEvent *e );
+    void focusOutEvent(QFocusEvent *e);
     void playtime();
     void setupPopups();
     void startBrowser(char* querystring);

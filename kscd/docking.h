@@ -51,25 +51,26 @@ protected:
   void paintEvent(QPaintEvent *e);
 
 private slots:
-  void timeclick();
-  void toggle_window_state();
-  void play_pause();
-  void forward();
-  void backward();
-  void next();
-  void prev();
-  void eject();
-  void stop();
-  void mousePressEvent(QMouseEvent *e);
+    void toggle_window_state();
+    void timeclick();
+    void play_pause();
+    void forward();
+    void backward();
+    void next();
+    void prev();
+    void eject();
+    void stop();
+    void mousePressEvent(QMouseEvent *e);
 
 public slots:
-  void dock();
-  void undock();
-  void paintIcon();
+    void dock();
+    void undock();
+    void paintIcon();
 
 public:
-  const bool isDocked();
-  void SaveKscdPosition();
+    const bool isDocked();
+    const bool isToggled();
+    void SaveKscdPosition();
 
 private:
   bool docked;
@@ -79,6 +80,7 @@ private:
   QPopupMenu *popup_m;
   bool have_kscd_position;
   QPixmap cdsmall_pixmap;
+  bool toggled;
 
 };
 

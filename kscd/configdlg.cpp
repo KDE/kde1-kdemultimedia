@@ -48,6 +48,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.docking = true;
   configdata.autoplay = false;
   configdata.autodock = false;
+  configdata.stopexit = true;
 
   if(data){
     configdata.background_color = data->background_color;
@@ -60,6 +61,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
     configdata.docking = data->docking;
     configdata.autoplay = data->autoplay;
     configdata.autodock = data->autodock;
+    configdata.stopexit = data->stopexit;
   }
 
   colors_changed = false;
@@ -169,6 +171,12 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   dockOnMinimizeCB->setGeometry(30+XOFF, 305+YOFF, 200, 15);
   dockOnMinimizeCB->setChecked(configdata.autodock);
   connect(dockOnMinimizeCB, SIGNAL(clicked()), this, SLOT(dockOnMinimizeClicked()));
+
+  stopOnExitCB = new QCheckBox(klocale->translate("Stop Playing on Exit"),
+                               this, "stopOnExitCB");
+  stopOnExitCB->setGeometry(30+XOFF, 325+YOFF, 200, 15);
+  stopOnExitCB->setChecked(configdata.stopexit);
+  connect(stopOnExitCB, SIGNAL(clicked()), this, SLOT(stopOnExitClicked()));
   
   button3 = new QPushButton(this);
   button3->setGeometry( 420, 400, 90, 25 );
@@ -239,6 +247,14 @@ void ConfigDlg::dockOnMinimizeClicked()
         configdata.autodock = TRUE;
     else
         configdata.autodock = FALSE;
+}
+
+void ConfigDlg::stopOnExitClicked()
+{
+    if(stopOnExitCB->isChecked())
+        configdata.stopexit = TRUE;
+    else
+        configdata.stopexit = FALSE;
 }
 
 void ConfigDlg::help(){

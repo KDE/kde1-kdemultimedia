@@ -75,8 +75,7 @@ DockWidget::DockWidget(const char *name)
   popup_m->insertItem(klocale->translate("Backward"), this, SLOT(backward()));
   popup_m->insertItem(klocale->translate("Next"), this, SLOT(next()));
   popup_m->insertItem(klocale->translate("Previous"), this, SLOT(prev()));
-  popup_m->insertItem(klocale->translate("Eject"), 
-		      this, SLOT(eject()));
+  popup_m->insertItem(klocale->translate("Eject"), this, SLOT(eject()));
   popup_m->insertSeparator();
   toggleID = popup_m->insertItem(klocale->translate("Restore"),
 				 this, SLOT(toggle_window_state()));
@@ -192,6 +191,7 @@ void DockWidget::toggle_window_state() {
      QPoint point = k->mapToGlobal (QPoint (0,0));
      pos_x = point.x();
      pos_y = point.y();
+     toggled = true;
      k->hide();
     }
     else {
@@ -204,10 +204,16 @@ void DockWidget::toggle_window_state() {
 		     pos_y,
 		     k->width(),
 		     k->height());
-      
+
+      toggled = false;
       k->show();
     }
   }
+}
+
+const bool DockWidget::isToggled()
+{
+    return(toggled);
 }
 
 void DockWidget::SaveKscdPosition(){
