@@ -9,6 +9,7 @@ LDFLAGS	= $(all_libraries) $(KDE_RPATH)
 kscd_LDADD   = $(LIBCDROM) $(LIBCDAUDIO) $(LIBFPE) -lkfm -lkdeui \
 	-lkdecore -lqt  -lX11 -lXext $(LIBSOCKET)
 INCLUDES= $(all_includes)
+LINK    = $(CXXLINK)
 
 ####### Files
 
