@@ -90,6 +90,7 @@ struct configstruct{
   QString browsercmd;
   bool	use_kfm;
   bool	docking;
+  bool  autoplay;
 };
 
 struct mgconfigstruct{
@@ -152,7 +153,8 @@ public slots:
 	void 		performances(int);
 	void		purchases(int);
 	void		information(int);
-	void		showPopup();
+        void		showPopup();
+        void dockClicked();
 
 private:
 	CDDBSetup* 	setup;
@@ -163,7 +165,7 @@ private:
 	QPushButton	*nextPB;
 	QPushButton	*fwdPB;
 	QPushButton	*bwdPB;
-	QPushButton	*quitPB;
+	QPushButton	*dockPB;
 	QPushButton	*replayPB;
 	QPushButton	*ejectPB;
 	QPushButton	*aboutPB;
@@ -258,21 +260,24 @@ private:
 	QStrList	cddbserverlist;
 	QString		current_server;
 	QString	        mailcmd;
-	QString  	submitaddress;
+        QString  	submitaddress;
+        QStrList cddbsubmitlist;
 	QString  	browsercmd;
 	bool		cddb_remote_enabled;
 	bool 		use_kfm;
-	bool            docking;
+        bool            docking;
+        bool            autoplay;
 	bool 		cddb_inexact_sentinel;
-	bool            updateDialog;
+        bool            updateDialog;
+        bool ejectedBefore;
 public:
 
 	KSCD( QWidget *parent = 0, const char *name = 0 );
 
 
 protected:
-     bool event( QEvent* e);
-     void closeEvent( QCloseEvent* e);
+
+	void closeEvent( QCloseEvent *e );
 	void playtime();
 	void setupPopups();
 	void startBrowser(char* querystring);

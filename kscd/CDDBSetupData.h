@@ -45,7 +45,7 @@ protected:
     QLineEdit* basedir_edit;
     QListBox* server_listbox;
     QPushButton* update_button;
-    QLabel* current_server_label;
+    
     QCheckBox* remote_cddb_cb;
     QPushButton* defaults_button;
     QPushButton* help_button;
@@ -53,7 +53,14 @@ protected:
     QLineEdit* proxy_port_ef;
     QLineEdit* proxy_host_ef;
     QListBox* submission_listbox;
-    QLabel* current_submit_label;
+
+    QLineEdit *currentServerLE;
+    QPushButton *currentServerAddPB;
+    QPushButton *currentServerDelPB;
+
+    QLineEdit *currentSubmitLE;
+    QPushButton *currentSubmitAddPB;
+    QPushButton *currentSubmitDelPB;
 
 };
 

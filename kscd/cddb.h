@@ -35,7 +35,7 @@
 #include <ksock.h>
 
 #define DEFAULT_SUBMIT_EMAIL "xmcd-cddb@amb.org"
-//"root@localhost"
+#define DEFAULT_TEST_EMAIL "cddb-test@xmcd.com"
 #define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
 #define DEFAULT_CDDBHTTP_SERVER "cddb.moonsoft.com http 80 /~cddb/cddb.cgi"
 

@@ -449,9 +449,9 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   //  cmd = cmd.sprintf("sendmail wuebben@math.cornell.edu");
   cmd = cmd.sprintf("sendmail -tU");
   //  cmd = cmd.sprintf(formatstr.data(),subject.data());
-		    
-  if (debugflag ) printf(klocale->translate("Submitting cddb entry: %s\n"),cmd.data());
 
+  if (debugflag ) printf(klocale->translate("Submitting cddb entry: %s\n"),cmd.data());
+  
   FILE* mailpipe;
   mailpipe = popen(cmd.data(),"w");
 

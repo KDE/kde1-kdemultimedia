@@ -1,3 +1,13 @@
+KSCD 1.2.3
+==========
+
+        * Fixed DOCKING!
+
+Basically, this version finishes a whole lot more that has been
+missing/broken since the last version that bernd did, (1.2.0).
+
+ Sam Maloney, <thufir@illogic.ml.org>    
+
 KSCD 1.2.0t1
 ============
 
@@ -6,7 +16,7 @@ KSCD 1.2.0t1
 	* Server requests fixed.
 	* Local storing of CDDB records. (automatic)
 
-KSCD hasn't been broken and NOT updated, since the release of KDE 1.0, and
+KSCD have been broken and NOT updated, since the release of KDE 1.0, and
 that is a long time ago, so i decided to fix MAJOR problems with the CDDB
 code, now it is permitted to use and upload to the CDDB database.
 

@@ -80,7 +80,7 @@ uninstall:
 	rm -f $(MIMEDIR)/xmcd.kdelnk
 
 messages:
-	$(XGETTEXT) -C -ktranslate -ki18n -x $(includedir)/kde.pot $(kscd_SOURCES) && mv messages.po ../po/kscd.pot
+	@XGETTEXT@ -C --keyword=translate *.cpp -x../../kdelibs/po/kde.pot && mv messages.po ../po/kscd.pot   
 
 ####### Explicit dependencies
 
@@ -89,11 +89,11 @@ CDDBSetup.cpp: CDDBSetupData.moc
 CDDialog.cpp: CDDialog.moc
 CDDialog.cpp: CDDialogData.moc
 bwlednum.cpp: bwlednum.moc
-cddb.cpp: cddb.moc
+cddb.cpp: cddb.moc version.h
 configdlg.cpp: configdlg.moc
 docking.cpp: docking.moc
 inexact.cpp: inexact.moc
-kscd.cpp: kscd.moc config.h
+kscd.cpp: kscd.moc config.h version.h
 ledlamp.cpp: ledlamp.moc
 mgconfdlg.cpp: mgconfdlg.moc
 

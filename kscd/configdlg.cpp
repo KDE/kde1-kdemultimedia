@@ -30,6 +30,8 @@
 #include "configdlg.h"
 #define XOFF 75
 #define YOFF 30
+//#define XOFF 0
+//#define YOFF 0
 
 extern KApplication *mykapp;
 
@@ -42,8 +44,9 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   configdata.led_color = green;
   configdata.tooltips = true;
   configdata.cd_device ="/dev/cdrom";
-  configdata.cd_device ="mail -s \"%s\" ";
+  configdata.mailcmd = "mail -s \"%s\" ";
   configdata.docking = true;
+  configdata.autoplay = false;
 
   if(data){
     configdata.background_color = data->background_color;
@@ -54,6 +57,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
     configdata.browsercmd = data->browsercmd;
     configdata.use_kfm = data->use_kfm;
     configdata.docking = data->docking;
+    configdata.autoplay = data->autoplay;
   }
 
   colors_changed = false;
@@ -68,7 +72,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   label1->setText(klocale->translate("LED Color:"));
 
   qframe1 = new QFrame(this);
-  qframe1->setGeometry(155+XOFF,25+YOFF,30,25);	
+  qframe1->setGeometry(155+XOFF,25+YOFF,30,25);
   qframe1->setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   qframe1->setBackgroundColor(configdata.led_color);
 
@@ -78,30 +82,25 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   connect(button1,SIGNAL(clicked()),this,SLOT(set_led_color()));
 
   label2 = new QLabel(this);
-  label2->setGeometry(20+XOFF,65+YOFF,135,25);
+  label2->setGeometry(20+XOFF,55+YOFF,135,25);
   label2->setText(klocale->translate("Background Color:"));
 
   qframe2 = new QFrame(this);
-  qframe2->setGeometry(155+XOFF,65+YOFF,30,25);	
+  qframe2->setGeometry(155+XOFF,55+YOFF,30,25);
   qframe2->setFrameStyle(QFrame::WinPanel | QFrame::Sunken);
   qframe2->setBackgroundColor(configdata.background_color);
 
   button2 = new QPushButton(this);
-  button2->setGeometry(255+XOFF,65+YOFF,100,25);
+  button2->setGeometry(255+XOFF,55+YOFF,100,25);
   button2->setText(klocale->translate("Change"));
   connect(button2,SIGNAL(clicked()),this,SLOT(set_background_color()));
 
-  button3 = new QPushButton(this);
-  button3->setGeometry(255+XOFF,340+YOFF,100,25);
-  button3->setText(klocale->translate("Help"));
-  connect(button3,SIGNAL(clicked()),this,SLOT(help()));
-
   label5 = new QLabel(this);
-  label5->setGeometry(20+XOFF,110+YOFF,135,25);
+  label5->setGeometry(20+XOFF,85+YOFF,135,25);
   label5->setText(klocale->translate("CDROM Device:"));
 
   cd_device_edit = new QLineEdit(this);
-  cd_device_edit->setGeometry(155+XOFF,110+YOFF,200,25);
+  cd_device_edit->setGeometry(155+XOFF,85+YOFF,200,25);
   cd_device_edit->setText(configdata.cd_device);
   connect(cd_device_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(device_changed(const char*)));  
@@ -114,18 +113,18 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 #endif
 
   label6 = new QLabel(this);
-  label6->setGeometry(20+XOFF,150+YOFF,135,25);
+  label6->setGeometry(20+XOFF,115+YOFF,135,25);
   label6->setText(klocale->translate("Unix mail command:"));
 
   mail_edit = new QLineEdit(this);
-  mail_edit->setGeometry(155+XOFF,150+YOFF,200,25);
+  mail_edit->setGeometry(155+XOFF,115+YOFF,200,25);
   mail_edit->setText(configdata.mailcmd);
   connect(mail_edit,SIGNAL(textChanged(const char*)),
 	  this,SLOT(mail_changed(const char*)));  
 
   browserbox = new  QButtonGroup(klocale->translate("WWW-Browser"),this,"wwwbox");
-  browserbox->setGeometry(20+XOFF,190+YOFF,338,130);
-
+//  browserbox->setGeometry(20+XOFF,145+YOFF,338,130);
+  browserbox->setGeometry(20+XOFF,145+YOFF,338, 95);
   kfmbutton = new QRadioButton(klocale->translate("Use kfm as Browser"),
 			       browserbox,"kfmbutton");
   kfmbutton->move(10,20);
@@ -135,7 +134,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   custombutton = new QRadioButton(klocale->translate("Use Custom Browser:"),
 				  browserbox,"custombutton");
-  custombutton->move(10,50);
+  custombutton->move(10,40);
   custombutton->adjustSize();
   custombutton->setChecked(!configdata.use_kfm);
   connect(custombutton,SIGNAL(clicked()),this,SLOT(custombutton_clicked()));
@@ -143,20 +142,31 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
   custom_edit = new QLineEdit(browserbox,"customedit");
   custom_edit->setText(data->browsercmd);
   custom_edit->setEnabled(!configdata.use_kfm);
-  custom_edit->setGeometry(30,80,198+70,28);
+  custom_edit->setGeometry(30,60,198+70,25);
 
   ttcheckbox = new QCheckBox(klocale->translate("Show Tool Tips"), 
 			     this, "tooltipscheckbox");
-  ttcheckbox->setGeometry(30+XOFF,355+YOFF,135,20);
+  ttcheckbox->setGeometry(30+XOFF,245+YOFF,135, 15);
   ttcheckbox->setChecked(configdata.tooltips);
   connect(ttcheckbox,SIGNAL(clicked()),this,SLOT(ttclicked()));
 
   dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
 			       this, "dockcheckbox");
-  dockcheckbox->setGeometry(30+XOFF,330+YOFF,200,20);
+  dockcheckbox->setGeometry(30+XOFF,265+YOFF,200, 15);
   dockcheckbox->setChecked(configdata.docking);
   connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
+
+  cdAutoPlayCB = new QCheckBox(klocale->translate("Play on Tray Close"),
+                               this, "cdAutoPlayCB");
+  cdAutoPlayCB->setGeometry(30+XOFF, 285+YOFF, 200, 15);
+  cdAutoPlayCB->setChecked(configdata.autoplay);
+  connect(cdAutoPlayCB, SIGNAL(clicked()), this, SLOT(autoPlayClicked()));
   
+  button3 = new QPushButton(this);
+  button3->setGeometry( 420, 400, 90, 25 );
+  //button3->setGeometry(255+XOFF,340+YOFF,100,25);
+  button3->setText(klocale->translate("Help"));
+  connect(button3,SIGNAL(clicked()),this,SLOT(help()));
 }
 
 
@@ -207,6 +217,14 @@ void ConfigDlg::dockclicked(){
     configdata.docking = FALSE;
 
 }
+
+void ConfigDlg::autoPlayClicked(){
+    if(cdAutoPlayCB->isChecked())
+        configdata.autoplay = TRUE;
+    else
+        configdata.autoplay = FALSE;
+}
+
 void ConfigDlg::help(){
 
   if(mykapp)

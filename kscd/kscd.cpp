@@ -47,13 +47,12 @@ extern "C" {
 #include "bitmaps/ff.xbm"
 #include "bitmaps/rew.xbm"
 #include "bitmaps/info.xbm"
-#include "bitmaps/poweroff.xbm"
+//#include "bitmaps/dock.xbm"
 #include "bitmaps/eject.xbm"
 #include "bitmaps/db.xbm"
 #include "bitmaps/logo.xbm"
 #include "bitmaps/shuffle.xbm"
 #include "bitmaps/options.xbm"
-#include <kwm.h>
 
 KApplication 	*mykapp;
 KSCD 	         *k;
@@ -117,8 +116,10 @@ int cur_playnew;
 int mark_a, mark_b;
     char cddbbasedirtext[4096];
 
+int cddb_error = 0;
+    
 /****************************************************************************
-				The GUI part
+				The GUI part 
 *****************************************************************************/
 
 KSCD::KSCD( QWidget *parent, const char *name ) :
@@ -145,20 +146,22 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     revision		= 1;
     use_kfm 		= true;
     docking 		= true;
+    autoplay = false;
     updateDialog          = false;
+    ejectedBefore = false;
 
     drawPanel();
     loadBitmaps();
     setColors();
     setToolTips();
-
+  
     cddialog 	  = 0L;
     timer 	  = new QTimer( this );
     queryledtimer   = new QTimer( this );
     titlelabeltimer = new QTimer( this );
     initimer 	  = new QTimer( this );
     cycletimer      = new QTimer( this );
-
+  
     connect( initimer, SIGNAL(timeout()),this,  SLOT(initCDROM()) );
     connect( queryledtimer, SIGNAL(timeout()),  SLOT(togglequeryled()) );
     connect( titlelabeltimer, SIGNAL(timeout()),  SLOT(titlelabeltimeout()) );
@@ -170,7 +173,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     connect( nextPB, SIGNAL(clicked()), SLOT(nextClicked()) );
     connect( fwdPB, SIGNAL(clicked()), SLOT(fwdClicked()) );
     connect( bwdPB, SIGNAL(clicked()), SLOT(bwdClicked()) );
-    connect( quitPB, SIGNAL(clicked()), SLOT(quitClicked()) );	
+    connect( dockPB, SIGNAL(clicked()), SLOT(dockClicked()) );
     connect( replayPB, SIGNAL(clicked()), SLOT(loopClicked()) );
     connect( ejectPB, SIGNAL(clicked()), SLOT(ejectClicked()) );
     connect( songListCB, SIGNAL(activated(int)), SLOT(trackSelected(int)));
@@ -253,33 +256,32 @@ void KSCD::drawPanel()
     const int HEIGHT = 27;
     //	const int SBARWIDTH = 180; //140
     const int SBARWIDTH = 220; //140
-
+  
     setCaption( "kscd" );
-    setCaption( kapp->getCaption());
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, klocale->translate("About") );
-
+  
     ix = 0;
     iy += 2 * HEIGHT;
 
     infoPB = makeButton( ix, iy, WIDTH/2, HEIGHT, "" );
     ejectPB = makeButton( ix + WIDTH/2, iy, WIDTH/2, HEIGHT, "" );
-
+  
     iy += HEIGHT;
-    quitPB = makeButton( ix, iy, WIDTH, HEIGHT, klocale->translate("Quit") );
+    dockPB = makeButton( ix, iy, WIDTH, HEIGHT, klocale->translate("Quit") );
 	
 
 
     ix += WIDTH;
     iy = 0;
-
+  
     backdrop = new QFrame(this);
     backdrop->setGeometry(ix,iy,SBARWIDTH -2, 2* HEIGHT + HEIGHT /2 -1);
     backdrop->setFocusPolicy ( QWidget::NoFocus );
-
+  
 
 
     int D = 6;
-
+  
     //ix += 2 * SBARWIDTH / 7;
     ix = WIDTH + 8;
     /*
@@ -425,7 +427,7 @@ void KSCD::loadBitmaps() {
     QBitmap bwdBmp( rew_width, rew_height, rew_bits, TRUE );
     QBitmap ejectBmp( eject_width, eject_height, eject_bits, TRUE );
     QBitmap infoBmp( info_width, info_height,info_bits, TRUE );
-    QBitmap quitBmp( poweroff_width, poweroff_height, poweroff_bits, TRUE );
+//    QBitmap dockBmp( dock_width, dock_height, dock_bits, TRUE );
     QBitmap shuffleBmp( shuffle_width, shuffle_height, shuffle_bits, TRUE );
     QBitmap databaseBmp( db_width, db_height, db_bits, TRUE );
     QBitmap aboutBmp( logo_width, logo_height, logo_bits, TRUE );
@@ -440,7 +442,9 @@ void KSCD::loadBitmaps() {
     bwdPB->setPixmap( bwdBmp );
     ejectPB->setPixmap( ejectBmp );
     infoPB->setPixmap( infoBmp );
-    quitPB->setPixmap( quitBmp );
+    //   dockPB->setPixmap( dockBmp );
+    dockPB->setFont(QFont("helvetica", 12, QFont::Bold));
+    dockPB->setText("DOCK");
     aboutPB->setPixmap( aboutBmp );
     shufflebutton->setPixmap( shuffleBmp );
     cddbbutton->setPixmap( databaseBmp );
@@ -515,7 +519,7 @@ void KSCD::setToolTips()
         QToolTip::add( bwdPB, 		klocale->translate("30 Secs Backward") );
         QToolTip::add( nextPB, 		klocale->translate("Next Track") );
         QToolTip::add( prevPB, 		klocale->translate("Previous Track") );
-        QToolTip::add( quitPB, 		klocale->translate("Exit Kscd") );
+        QToolTip::add( dockPB, 		klocale->translate("Dock Kscd") );
         QToolTip::add( aboutPB, 	klocale->translate("Cycle Time Display") );
         QToolTip::add( optionsbutton, 	klocale->translate("Configure Kscd") );
         QToolTip::add( ejectPB, 	klocale->translate("Eject CD") );
@@ -534,7 +538,7 @@ void KSCD::setToolTips()
         QToolTip::remove( bwdPB);
         QToolTip::remove( nextPB );
         QToolTip::remove( prevPB );
-        QToolTip::remove( quitPB );
+        QToolTip::remove( dockPB );
         QToolTip::remove( aboutPB );
         QToolTip::remove( optionsbutton );
         QToolTip::remove( ejectPB );
@@ -745,27 +749,44 @@ void KSCD::bwdClicked(){
 
     qApp->processEvents();
     qApp->flushX();
-
+  
     if (cur_cdmode == PLAYING) {
         tmppos = cur_pos_rel - 30;
         if(randomplay || playlist.count() > 0)
             play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_track + 1);
         else
             play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_ntracks + 1);
-
+    
     }
     cdMode();
 }
 
-void KSCD::quitClicked(){
+void KSCD::quitClicked()
+{
+    emit dockClicked();
+}
+
+void KSCD::dockClicked()
+{
+
+    if(docking){
+        if(dock_widget)
+            dock_widget->SaveKscdPosition();
+        this->hide();
+    }
+    
+
+}
+
+void KSCD::closeEvent( QCloseEvent *e ){
 
     randomplay = FALSE;
     statuslabel->setText("");
     setLEDs( "--:--" );
-
+  
     qApp->processEvents();
     qApp->flushX();
-
+  
     stop_cd ();
 
     cd_status();
@@ -773,30 +794,9 @@ void KSCD::quitClicked(){
 
     cleanUp();
     writeSettings();
-    qApp->quit();
+    //qApp->quit();
+    e->accept();
 }
-
-
-bool KSCD::event( QEvent *e ){
-     if(e->type() == Event_Hide && docking){
-       if(dock_widget)
- 	dock_widget->SaveKscdPosition();
-       hide();
-       // a trick to remove the window from the taskbar (Matthias)
-       recreate(0,0, geometry().topLeft(), FALSE);
-       // set the icons again
-       KWM::setIcon(winId(), kapp->getIcon());
-       KWM::setMiniIcon(winId(), kapp->getMiniIcon());
-       return TRUE;
-     }
-     return QWidget::event(e);
-};
-
-void KSCD::closeEvent( QCloseEvent* e){
-    e->ignore();
-    quitClicked();
-}
-
 
 void KSCD::loopClicked(){
 
@@ -904,20 +904,23 @@ void KSCD::aboutClicked(){
 
     box->setGeometry(10,10,520,420);
 
-    label->setGeometry(160,30,340,350);
+    label->setGeometry(160,20,340,390);
     label->setAlignment( AlignCenter);
     QString labelstring;
     labelstring = "kscd "KSCDVERSION"\n";
     labelstring += klocale->translate(
-        "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"
-        "kscd  contains code from:\n"
-        "workman 1.4 beta 3\n"
-        "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"
-        "Special thanks to Ti Kan and "
-        "Steve Scherf, the inventors of "
-        "the CDDB database concept. "
-        "Visit http://www.cddb.com for "
-        "more information on CDDB.\n\n");
+                                      "Maintained by:\n     Sam Maloney <thufir@illogic.ml.org>\n"
+                                      "kscd (>=1.2.1) contains code from:\n\n"
+                                      "kscd 1.2.0 (branched from)\n"
+                                      "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"
+                                      "workman 1.4 beta 3\n"
+                                      "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"
+                                      "Special thanks to Ti Kan and "
+                                      "Steve Scherf, the inventors of "
+                                      "the CDDB database concept. "
+                                      "Visit http://www.cddb.com for "
+                                      "more information on CDDB.\n\n"
+                                     );
 
 #ifdef KSCDMAGIC
      labelstring += klocale->translate(
@@ -930,12 +933,13 @@ void KSCD::aboutClicked(){
      labelstring += klocale->translate(
                                        "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
                                        "For the many CDDB code bug fixes, local CDDB "
-                                       "record caching, and track tweek.\n\n");
-
+                                       "record caching, and track tweek, and configuration "
+                                       "fixes.\n\n");
+     
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
     label->setText(labelstring.data());
-
-    QString pixdir = mykapp->kde_datadir() + QString("/kscd/pics/");
+  
+    QString pixdir = mykapp->kde_datadir() + QString("/kscd/pics/"); 
 
     QPixmap pm((pixdir + "kscdlogo.xpm").data());
     QLabel *logo = new QLabel(box);
@@ -953,19 +957,23 @@ void KSCD::aboutClicked(){
     config.browsercmd = browsercmd.copy();
     config.use_kfm    = use_kfm;
     config.docking    = docking;
+    config.autoplay   = autoplay;
 
     dlg = new ConfigDlg(tabdialog,&config,"configdialg");
 
     setup = new CDDBSetup(tabdialog,"cddbsetupdialog");
     connect(setup,SIGNAL(updateCDDBServers()),this,SLOT(getCDDBservers()));
     connect(setup,SIGNAL(updateCurrentServer()),this,SLOT(updateCurrentCDDBServer()));
-    setup->insertData(cddbserverlist,cddbbasedir,
-                      submitaddress,current_server,
+    setup->insertData(cddbserverlist,
+                      cddbsubmitlist,
+                      cddbbasedir,
+                      submitaddress,
+                      current_server,
                       cddb_remote_enabled,
                       cddb.useHTTPProxy(),
                       cddb.getHTTPProxyHost(),
                       cddb.getHTTPProxyPort()
-    );
+    );                                      
 
     MGConfigDlg* mgdlg;
     struct mgconfigstruct mgconfig;
@@ -991,24 +999,26 @@ void KSCD::aboutClicked(){
         browsercmd = dlg->getData()->browsercmd.copy();
         use_kfm = dlg->getData()->use_kfm;
         docking = dlg->getData()->docking;
-
+        autoplay = dlg->getData()->autoplay;
+        
         if( (QString)cd_device != dlg->getData()->cd_device){
             cd_device_str = dlg->getData()->cd_device;
             cd_close();
             cd_device = cd_device_str.data();
-
+      
         }
         cddrive_is_ok = true;
-
+      
         magic_width = mgdlg->getData()->width;
         magic_height = mgdlg->getData()->height;
         magic_brightness = mgdlg->getData()->brightness;
-
+    
         bool cddb_proxy_enabled;
         QString cddb_proxy_host;
         int cddb_proxy_port;
 
         setup->getData(cddbserverlist,
+                       cddbsubmitlist,
                        cddbbasedir,
                        submitaddress,
                        current_server,
@@ -1233,7 +1243,8 @@ void KSCD::cdMode(){
             // timer must be restarted when we are doen
             // with getting the cddb info
             get_cddb_info(false); // false == do not update dialog if open
-		
+            if(autoplay && ejectedBefore)
+                playClicked();
         }
 
         break;
@@ -1248,6 +1259,7 @@ void KSCD::cdMode(){
         totaltimelabel->setText("");
         totaltimelabel->lower();
         damn = TRUE;
+        ejectedBefore = TRUE;
 
         break;
     }
@@ -1306,13 +1318,14 @@ void KSCD::setColors(){
 void KSCD::readSettings()
 {
     config = mykapp->getConfig();
-
+  
     config->setGroup("GENERAL");
     volume     = config->readNumEntry("Volume",40);
     tooltips   = (bool) config->readNumEntry("ToolTips",1);
     randomplay = (bool) config->readNumEntry("RandomPlay", 0);
     use_kfm    = (bool) config->readNumEntry("USEKFM", 1);
     docking    = (bool) config->readNumEntry("DOCKING", 1);
+    autoplay = (bool) config->readNumEntry("AUTOPLAY", 0);
     mailcmd    =        config->readEntry("UnixMailCommand","/bin/mail -s \"%s\"");
 
 #ifdef DEFAULT_CD_DEVICE
@@ -1387,11 +1400,16 @@ void KSCD::readSettings()
             // function in configuration - it does not notice if QStrList
             // String contents is changed.
             cddbserverlist=nlist;
-            if(debugflag)
+            if(debugflag) 
                 fprintf(stderr,"CDDB server list converted to new format and saved.\n");
             config->writeEntry("SeverList",cddbserverlist,',',true);
             config->sync();
         }
+    }
+    num = config->readListEntry("SubmitList", cddbsubmitlist, ',');
+    if(!num){
+        cddbsubmitlist.append(DEFAULT_SUBMIT_EMAIL);
+        cddbsubmitlist.append(DEFAULT_TEST_EMAIL);
     }
 }
 
@@ -1404,13 +1422,14 @@ void KSCD::writeSettings(){
         config->writeEntry("ToolTips", 1);
     else
         config->writeEntry("ToolTips", 0);
-
+  
     if(randomplay)
         config->writeEntry("RandomPlay", 1);
     else
-        config->writeEntry("RandomPlay", 0);
-    config->writeEntry("USEKFM", (int)use_kfm);
+        config->writeEntry("RandomPlay", 0); 
+    config->writeEntry("USEKFM", (int)use_kfm); 
     config->writeEntry("DOCKING", (int)docking);
+    config->writeEntry("AUTOPLAY", (int)autoplay);
     config->writeEntry("CDDevice",cd_device);
     config->writeEntry("CustomBroserCmd",browsercmd);
     config->writeEntry("Volume", volume);
@@ -1423,6 +1442,7 @@ void KSCD::writeSettings(){
     config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
     config->writeEntry("LocalBaseDir",cddbbasedir);
     config->writeEntry("SeverList",cddbserverlist);
+    config->writeEntry("SubmitList", cddbsubmitlist);
     config->writeEntry("CDDBSubmitAddress",submitaddress);
     config->writeEntry("CurrentServer",current_server);
     config->writeEntry("CDDBHTTPProxyEnabled",(int)cddb.useHTTPProxy());
@@ -1474,6 +1494,7 @@ void KSCD::getCDDBservers(){
     QString cddb_proxy_host;
     int     cddb_proxy_port;
     setup->getData(cddbserverlist,
+                   cddbsubmitlist,
                    cddbbasedir,
                    submitaddress,
                    current_server,
@@ -1531,12 +1552,12 @@ void KSCD::get_cddb_info(bool _updateDialog){
     cddb.setPathList(pathlist);
 
     if(!connected){
-    connect(&cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
-    connect(&cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
-    connect(&cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
-    connect(&cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
-    connect(&cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
-    connect(&cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
+        connect(&cddb,SIGNAL(cddb_ready()),this,SLOT(cddb_ready()));
+        connect(&cddb,SIGNAL(cddb_failed()),this,SLOT(cddb_failed()));
+        connect(&cddb,SIGNAL(cddb_done()),this,SLOT(cddb_done()));
+        connect(&cddb,SIGNAL(cddb_timed_out()),this,SLOT(cddb_timed_out()));
+        connect(&cddb,SIGNAL(cddb_inexact_read()),this,SLOT(mycddb_inexact_read()));
+        connect(&cddb,SIGNAL(cddb_no_info()),this,SLOT(cddb_no_info()));
         connected = 1;
     }
     led_on();
@@ -1609,6 +1630,8 @@ void KSCD::get_cddb_info(bool _updateDialog){
 
 int cddb_ready_bug = 0;
 void KSCD::cddb_ready(){
+    if(debugflag)
+        printf("cddb_ready() called\n");
 
     if(!cd)
         return;
@@ -1628,19 +1651,23 @@ void KSCD::cddb_ready(){
     }
 
     querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
-    cddb_inexact_sentinel =false;
+    cddb_inexact_sentinel =false;  
     cddb.queryCD(cd->magicID,querylist);
 
 }
 
 void KSCD::cddb_no_info(){
-//        cddb_ready_bug = 0;
+    //        cddb_ready_bug = 0;
+    if(debugflag)
+        printf("cddb_no_info() called\n");
+
     titlelabel->setText(klocale->translate("No matching CDDB entry found."));
-    artistlabel->setText("");
-    titlelabeltimer->start(10000,TRUE); // 10 secs
+//    artistlabel->setText("");
+//    titlelabeltimer->start(10000,TRUE); // 10 secs
 
     tracktitlelist.clear();
-    for(int i = 0 ; i <= cd->ntracks; i++)
+    tracktitlelist.append(klocale->translate("No matching CDDB entry found."));
+    for(int i = 0 ; i < cd->ntracks; i++)
         tracktitlelist.append("");
 
     extlist.clear();
@@ -1652,16 +1679,19 @@ void KSCD::cddb_no_info(){
     timer->start(1000);
     led_off();
     cddb_inexact_sentinel =false;
-
+//    cddb_error = 1;
 }
 
 void KSCD::cddb_failed(){
 
-    // TODO differentiate between those casees where the communcition really
+    // TODO differentiate between those casees where the communcition really 
     // failed and those where we just couldn't find anything
-//        cddb_ready_bug = 0;
+    //        cddb_ready_bug = 0;
+    if(debugflag)
+        printf("cddb_failed() called\n");
     tracktitlelist.clear();
-    for(int i = 0 ; i <= cd->ntracks; i++)
+    tracktitlelist.append(klocale->translate("Error getting CDDB entry."));
+    for(int i = 0 ; i < cd->ntracks; i++)
         tracktitlelist.append("");
 
     extlist.clear();
@@ -1670,19 +1700,23 @@ void KSCD::cddb_failed(){
 
     discidlist.clear();
 
-    titlelabel->setText(klocale->translate("No matching CDDB entry found."));
+    titlelabel->setText(klocale->translate("Error getting CDDB entry."));
     artistlabel->setText("");
-    titlelabeltimer->start(10000,TRUE); // 10 secs
+//    titlelabeltimer->start(10000,TRUE); // 10 secs
 
     timer->start(1000);
     led_off();
     cddb_inexact_sentinel =false;
+//    cddb_error = 1;
 }
 
 void KSCD::cddb_timed_out(){
 
-//    cddb_ready_bug = 0;
+    //    cddb_ready_bug = 0;
+    if(debugflag)
+        printf("cddb_timed_out() called\n");
     tracktitlelist.clear();
+    tracktitlelist.append(klocale->translate("CDDB query timed out."));
     for(int i = 0 ; i <= cd->ntracks; i++)
         tracktitlelist.append("");
 
@@ -1694,11 +1728,12 @@ void KSCD::cddb_timed_out(){
 
     titlelabel->setText(klocale->translate("CDDB query timed out."));
     artistlabel->setText("");
-    titlelabeltimer->start(10000,TRUE); // 10 secs
+//    titlelabeltimer->start(10000,TRUE); // 10 secs
 
     timer->start(1000);
     led_off();
     cddb_inexact_sentinel =false;
+//    cddb_error = 1;
 }
 
 void KSCD::mycddb_inexact_read(){
@@ -1741,18 +1776,19 @@ void KSCD::cddb_done()
 {
     cddb_inexact_sentinel =false;
 
+    if(debugflag)
+        printf("cddb_done() called\n");
 //    cddb_ready_bug = 0;
-
     cddb.getData(xmcd_data,tracktitlelist,extlist,category,discidlist,revision,playlist);
     playlistpointer = 0;
 
     if((int)tracktitlelist.count() != (cd->ntracks + 1)){
-        if(debugflag) printf("WARNING tracktitleslist.coutn = %d != cd->ntracks +1 = %d\n",
+        if(debugflag) printf("WARNING tracktitleslist.count = %d != cd->ntracks +1 = %d\n",
                              tracktitlelist.count(),cd->ntracks + 1);
     }
 
     if((int)extlist.count() != (cd->ntracks + 1)){
-        if (debugflag )printf("WARNING extlist.coutn = %d != cd->ntracks +1 = %d\n",
+        if (debugflag )printf("WARNING extlist.count = %d != cd->ntracks +1 = %d\n",
                               extlist.count(),cd->ntracks + 1);
     }
 
@@ -1778,11 +1814,10 @@ void KSCD::cddb_done()
 
 //    for (int i = 0; i < cur_ntracks; i++){
 //        songListCB->insertItem( QString( 0 ).sprintf( klocale->translate("Track %02d"), i + 1 ) );
-//    }
+    //    }
 
     led_off();
     timer->start(1000);
-
 }
 
 void KSCD::led_off(){

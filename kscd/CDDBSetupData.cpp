@@ -91,15 +91,19 @@ CDDBSetupData::CDDBSetupData
 	update_button->setAutoRepeat( FALSE );
 	update_button->setAutoResize( FALSE );
 
-	current_server_label = new QLabel( this, "Label_4" );
-	current_server_label->setGeometry( 20, 200, 240, 28 );
-	current_server_label->setMinimumSize( 10, 10 );
-	current_server_label->setMaximumSize( 32767, 32767 );
-	current_server_label->setFrameStyle( 51 );
-	current_server_label->setLineWidth( 2 );
-	current_server_label->setText( "" );
-	current_server_label->setAlignment( 289 );
-	current_server_label->setMargin( -1 );
+        currentServerLE = new QLineEdit(this, "currentServerLE");
+        currentServerLE->setGeometry(20, 200, 202, 28);
+        currentServerLE->setMinimumSize(10, 10);
+        currentServerLE->setMaximumSize(32767, 32767);
+        currentServerLE->setText("");
+
+        currentServerAddPB = new QPushButton(this, "currentServerAddPB");
+        currentServerAddPB->setGeometry(225, 200, 16, 28);
+        currentServerAddPB->setText("+");
+        
+        currentServerDelPB = new QPushButton(this, "currentServerDelPB");
+        currentServerDelPB->setGeometry(244, 200, 16, 28);
+        currentServerDelPB->setText("-");
 
 	remote_cddb_cb = new QCheckBox( this, "CheckBox_1" );
 	remote_cddb_cb->setGeometry( 20, 15, 270, 30 );
@@ -176,10 +180,24 @@ CDDBSetupData::CDDBSetupData
 	submission_listbox->setMaximumSize( 32767, 32767 );
 	submission_listbox->setFrameStyle( 51 );
 	submission_listbox->setLineWidth( 2 );
-	submission_listbox->insertItem( "cddb-test@xmcd.com" );
+        submission_listbox->insertItem( "cddb-test@xmcd.com" );
 	submission_listbox->setMultiSelection( FALSE );
 
-	current_submit_label = new QLabel( this, "Label_14" );
+        currentSubmitLE = new QLineEdit(this, "currentSubmitLE");
+        currentSubmitLE->setGeometry(275, 200, 202, 28);
+        currentSubmitLE->setMinimumSize(10, 10);
+        currentSubmitLE->setMaximumSize(32767, 32767);
+        currentSubmitLE->setText("");
+
+        currentSubmitAddPB = new QPushButton(this, "currentSubmitAddPB");
+        currentSubmitAddPB->setGeometry(480, 200, 16, 28);
+        currentSubmitAddPB->setText("+");
+        
+        currentSubmitDelPB = new QPushButton(this, "currentSubmitDelPB");
+        currentSubmitDelPB->setGeometry(499, 200, 16, 28);
+        currentSubmitDelPB->setText("-");
+
+/*	current_submit_label = new QLabel( this, "Label_14" );
 	current_submit_label->setGeometry( 275, 200, 240, 30 );
 	current_submit_label->setMinimumSize( 10, 10 );
 	current_submit_label->setMaximumSize( 32767, 32767 );
@@ -187,7 +205,8 @@ CDDBSetupData::CDDBSetupData
 	current_submit_label->setLineWidth( 2 );
 	current_submit_label->setText( "" );
 	current_submit_label->setAlignment( 289 );
-	current_submit_label->setMargin( -1 );
+        current_submit_label->setMargin( -1 );
+        */
 
 	resize( 535,435 );
 	setMinimumSize( 0, 0 );

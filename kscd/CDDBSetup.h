@@ -24,28 +24,30 @@ public:
     virtual ~CDDBSetup();
 
 public slots:
-        void serverlist_update();
+    void serverlist_update();
 
- void getData(QStrList& _serverlist,
-              QString& _basedir,
-              QString& _submitaddress,
-              QString& _current_server,
-              bool& _remote_enabled,
-              bool&    http_proxy_enabled,
-              QString  &http_proxy_host,
-              int      &http_proxy_port
- );
- 
- void insertData(const QStrList& _serverlist,
-                 const QString& _basedir,
-                 const QString& _submitaddress,
-                 const QString& _current_server, 
-                 const bool&    _remote_enabled,
-                 const bool&    http_proxy_enabled,
-                 const QString  &http_proxy_host,
-                 const int      &http_proxy_port
- );
- 
+    void getData(QStrList& _serverlist,
+                 QStrList& _submitlist,
+                 QString& _basedir,
+                 QString& _submitaddress,
+                 QString& _current_server,
+                 bool& _remote_enabled,
+                 bool&    http_proxy_enabled,
+                 QString  &http_proxy_host,
+                 int      &http_proxy_port
+                );
+
+    void insertData(const QStrList& _serverlist,
+                    const QStrList& _submitlist,
+                    const QString& _basedir,
+                    const QString& _submitaddress,
+                    const QString& _current_server,
+                    const bool&    _remote_enabled,
+                    const bool&    http_proxy_enabled,
+                    const QString  &http_proxy_host,
+                    const int      &http_proxy_port
+                   );
+
 protected slots:
    void help();
    void enable_remote_cddb(bool en);
@@ -54,6 +56,10 @@ protected slots:
    void set_current_submission_address(int i);
    void set_defaults();
    virtual void http_access_toggled(bool);
+   void insertSL();
+   void removeSL();
+   void insertSUL();
+   void removeSUL();
 
 signals:
    void updateCDDBServers();
@@ -68,7 +74,6 @@ private:
    QString basedirstring;
    QString submitaddressstring;
    QString current_server_string;
-
-    
+   QStrList submitlist;
 };
 #endif // CDDBSetup_included
