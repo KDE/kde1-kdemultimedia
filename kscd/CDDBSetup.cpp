@@ -170,7 +170,7 @@ void CDDBSetup::insertData(const QStrList& _serverlist,
 
     submitlist.clear();
     for(uint i = 0; i < _submitlist.count(); i++){
-        submitlist.append(_submitlist.at(i));
+        submitlist.append(QStrList(_submitlist).at(i));
     }
     
     insertServerList(_serverlist);

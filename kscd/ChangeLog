@@ -1,3 +1,13 @@
+1998-10-13  Sam Maloney  <thufir@illogic.ml.org>
+
+	* Fixed compilation problems some compilers will notice related to
+ 	last CDDB setup modifs
+	
+1998-10-09  Sam Maloney  <thufir@illogic.ml.org>
+
+	* Added "play on tray close" feature
+	* Many little fixes
+	
 1998-09-23  Sam Maloney  <thufir@illogic.ml.org>
 	
 	* Fixed submission of CDDB records, where it would not include a
