@@ -1,31 +1,23 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-01 13:39+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Date: 1998-10-09 15:28:35+0200\n"
+"From: Christian Esken <chris@magicon>\n"
+"Content-Type: text/plain; charset=\n"
+"Xgettext-Options: -C -ki18n -x /usr/local/kde/include/kde.pot\n"
+"Files: kcontextmenu.cpp kmix.cpp mixer.cpp prefs.cpp docking.cpp sets.cpp channel.cpp\n"
 
-#: kmix.cpp:444
+#: kmix.cpp:445
 msgid "&Hide Menubar"
 msgstr ""
 
-#: kmix.cpp:447
+#: kmix.cpp:448
 msgid "&Tickmarks On/Off"
 msgstr ""
 
-#: kmix.cpp:461
+#: kmix.cpp:462
 msgid ""
 "\n"
-"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
 "\n"
 "Sound mixer panel for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
@@ -35,35 +27,35 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 
-#: kmix.cpp:481
+#: kmix.cpp:482
 msgid "&Left"
 msgstr ""
 
-#: kmix.cpp:482
+#: kmix.cpp:483
 msgid "&Center"
 msgstr ""
 
-#: kmix.cpp:483
+#: kmix.cpp:484
 msgid "&Right"
 msgstr ""
 
-#: kmix.cpp:570
+#: kmix.cpp:571
 msgid "Un&mute"
 msgstr ""
 
-#: kmix.cpp:572
+#: kmix.cpp:573
 msgid "&Mute"
 msgstr ""
 
-#: kmix.cpp:575
+#: kmix.cpp:576
 msgid "&Split"
 msgstr ""
 
-#: kmix.cpp:577
+#: kmix.cpp:578
 msgid "Un&split"
 msgstr ""
 
-#: kmix.cpp:579
+#: kmix.cpp:580
 msgid "&RecSource"
 msgstr ""
 
