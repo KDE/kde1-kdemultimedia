@@ -1,0 +1,523 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"PO-Revision-Date: 1998-05-31 22:49+0100\n"
+"Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
+"Language-Team: no <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: CDDBSetupData.cpp:44
+msgid "CDDB Base Directory"
+msgstr "CDDB basekatalog"
+
+#: CDDBSetupData.cpp:62
+msgid "Send CDDB submissions to:"
+msgstr "Send CDDB data til:"
+
+#: CDDBSetupData.cpp:82
+msgid "CDDB server:"
+msgstr "CDDB tjener:"
+
+#: CDDBSetupData.cpp:90
+msgid "Update"
+msgstr "Oppdater"
+
+#: CDDBSetupData.cpp:108
+msgid "Enable Remote CDDB"
+msgstr "Ta i bruk Internet CDDB"
+
+#: CDDBSetupData.cpp:116
+msgid "Defaults"
+msgstr "Standardverdi"
+
+#: CDDBSetupData.cpp:133
+msgid "Use HTTP proxy to access CDDB"
+msgstr "Bruk HTTP proxy for tilgang til CDDB"
+
+#: CDDialog.cpp:55
+msgid "CD Database Editor"
+msgstr "CD database redigering"
+
+#: CDDialog.cpp:200
+#, c-format
+msgid ""
+"Total Time:\n"
+"%02d:%02d:%02d"
+msgstr ""
+"Total tid:\n"
+"%02d:%02d:%02d"
+
+#: CDDialog.cpp:202
+#, c-format
+msgid ""
+"Total Time:\n"
+" %02d:%02d"
+msgstr ""
+"Total tid:\n"
+" %02d:%02d"
+
+#: CDDialog.cpp:244
+msgid "Use this Editor to annotate this track"
+msgstr "Bruk denne tekstbehandler for å kommentere dette spor"
+
+#: CDDialog.cpp:269
+msgid "Use this Editor to annotate the title"
+msgstr "Bruk denne tekstbehandler for å kommentere tittelen"
+
+#: CDDialog.cpp:415 CDDialog.cpp:544
+msgid "Please select a Category or press Cancel"
+msgstr "Vennligst velg en kategori eller trykk Kanseller"
+
+#: CDDialog.cpp:416
+msgid "To which category does the CD belong?"
+msgstr "Hvilken kategori tilhører CD'en?"
+
+#: CDDialog.cpp:445
+#, c-format
+msgid "Submitting cddb entry: %s\n"
+msgstr "Oversender CDDB data: %s\n"
+
+#: CDDialog.cpp:457
+#, c-format
+msgid ""
+"Could not pipe contents into:\n"
+" %s"
+msgstr ""
+"Kunne ikke overføre (\"pipe\") innholdet til:\n"
+" %s"
+
+#: CDDialog.cpp:545
+msgid "Under which category would you like to store this CDDB entry?"
+msgstr "I hvilken kategori ønsker du å lagre disse CDDB-data?"
+
+#: CDDialog.cpp:595
+#, c-format
+msgid ""
+"Unable to write to file:\n"
+"%s\n"
+"Please check your permissions and make your category directories exist."
+msgstr ""
+"Ikke i stand til å skrive til fil:\n"
+"%s\n"
+"Vennligst sjekk dine adgangstillatelser og sørg for at din kategori kataloger eksisterer."
+
+#: CDDialog.cpp:600
+msgid "Kscd Error"
+msgstr "Kscd feil"
+
+#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+msgid "Invalid Database Entry"
+msgstr "Ugyldig database-opplysning"
+
+#: CDDialog.cpp:760
+msgid ""
+"The Disc Artist / Title field is not filled in.\n"
+"Please correct the entry and try again."
+msgstr ""
+"CD artist / tittel felt er ikke utfylt.\n"
+"Vennligst korriger opplysningen og prøv igjen."
+
+#: CDDialog.cpp:775
+msgid ""
+"The Disc Artist / Title field is not filled in correctly.\n"
+"Please separate the artist from the title of the CD with \n"
+"a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
+msgstr ""
+"CD artisten / tittelfeltet er ikke fylt ut korrekt.\n"
+"Vennligst separer artisten fra tittel til CD'en med \n"
+"en forlengs skråstrek, slik som i: Peter Gabriel / Greatest Hits\n"
+
+#: CDDialog.cpp:789 CDDialog.cpp:811
+msgid ""
+"Not all track titles can be empty.\n"
+"Please correct the entry and try again."
+msgstr "" 
+"Alle sportitler kan ikke være tomme.\n"
+"Vennligst korriger opplysningen og prøv igjen."
+
+
+#: CDDialog.cpp:821
+msgid "Internal Error"
+msgstr "Intern feil"
+
+#: CDDialog.cpp:822
+msgid ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Please email the author."
+msgstr ""
+"cdinfo.ntracks != title_list->telling() + 1\n"
+"Vennligst send email til forfatteren."
+
+#: CDDialog.cpp:851
+msgid "Invalid Playlist\n"
+msgstr "Ugyldig spilleliste\n"
+
+#: CDDialogData.cpp:74
+msgid "Load"
+msgstr "Last inn"
+
+#: CDDialogData.cpp:87
+msgid "Play List Editor"
+msgstr "Spilleliste tekstbehandler"
+
+#: CDDialogData.cpp:93
+msgid "Edit Track Title"
+msgstr "Rediger Tittelspor"
+
+#: CDDialogData.cpp:99
+msgid "Disc Artist / Title"
+msgstr "CD Artist / Tittel"
+
+#: CDDialogData.cpp:105
+msgid "Track / Time / Title"
+msgstr "Spor / Tid / Tittel"
+
+#: CDDialogData.cpp:111 CDDialogData.cpp:117
+msgid "Ext Info"
+msgstr "Ekstern Info"
+
+#: CDDialogData.cpp:133
+msgid "Disc ID"
+msgstr "CD ID"
+
+#: CDDialogData.cpp:145
+msgid "Upload"
+msgstr "Overfør"
+
+#: configdlg.cpp:61
+msgid "Configure kscd"
+msgstr "Konfigurer Kscd"
+
+#: configdlg.cpp:68
+msgid "LED Color:"
+msgstr "LED farge:" 
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Bakgrunnsfarge:"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "CDROM enhet:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Unix post kommando:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr "WWW-Browser"
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "Bruk Kfm som Browser"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Bruk egendefinert Browser:"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Vis verktøytips"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "Gjør mulig KPanel dokking"
+ 
+#: docking.cpp:72 kscd.cpp:507
+msgid "Play/Pause"
+msgstr "Spill/pause"
+
+#: docking.cpp:73 kscd.cpp:508
+msgid "Stop"
+msgstr "Stopp"
+
+#: docking.cpp:75
+msgid "Backward"
+msgstr "Bakover"
+
+#: docking.cpp:76
+msgid "Next"
+msgstr "Neste"
+
+#: docking.cpp:77
+msgid "Previous"
+msgstr "Forrige"
+
+#: docking.cpp:78
+msgid "Eject"
+msgstr "Kast ut"
+
+#: docking.cpp:81 docking.cpp:177
+msgid "Restore"
+msgstr "Gjenopprett"
+
+#: docking.cpp:175
+msgid "Minimize"
+msgstr "Minimer"
+
+#: inexact.cpp:54
+msgid ""
+"No exact match could be found. Please select the appropriate CD from the "
+"list of choices presented below."
+msgstr ""
+"Maken finnes ikke. Vennligst velg en passende CD fra "
+"listen av valgmuligheter vist nedenfor."
+
+#: inexact.cpp:57
+msgid "Please select a Disk Title or press Cancel"
+msgstr "Vennligst velg en CD tittel eller trykk Kanseller"
+
+#: kscd.cpp:328
+msgid "Vol: --"
+msgstr "Vol: --"
+
+#: kscd.cpp:473
+msgid "Performances"
+msgstr "Ytelser"
+
+#: kscd.cpp:476
+msgid "Purchases"
+msgstr "Innkjøp"
+
+#: kscd.cpp:483
+msgid "KSCD Magic"
+msgstr "KSCD Magic"
+
+#: kscd.cpp:509
+msgid "Loop CD"
+msgstr "La CD gå i sløyfe"
+
+#: kscd.cpp:510
+msgid "Track Selection"
+msgstr "Valg av spor"
+
+#: kscd.cpp:511
+msgid "30 Secs Forward"
+msgstr "30 sekunder framover"
+
+#: kscd.cpp:512
+msgid "30 Secs Backward"
+msgstr "30 sekunder bakover"
+
+#: kscd.cpp:513
+msgid "Next Track"
+msgstr "Neste spor"
+
+#: kscd.cpp:514
+msgid "Previous Track"
+msgstr "Forrige spor"
+
+#: kscd.cpp:515
+msgid "Exit Kscd"
+msgstr "Gå ut av Kscd"
+
+#: kscd.cpp:516
+msgid "Cycle Time Display"
+msgstr "Oppdater tidsvisning"
+
+#: kscd.cpp:517
+msgid "Configure Kscd"
+msgstr "Konfigurer Kscd"
+
+#: kscd.cpp:518
+msgid "Eject CD"
+msgstr "Kast ut CD"
+
+#: kscd.cpp:519
+msgid "The Artist on the Web"
+msgstr "Artisten på WWW"
+
+#: kscd.cpp:520
+msgid "Random Play"
+msgstr "Tilfeldig avspilling"
+
+#: kscd.cpp:521
+msgid "CDDB Dialog"
+msgstr "CDDB dialog"
+
+#: kscd.cpp:522
+msgid "CD Volume Control"
+msgstr "CD volumkontrol"
+
+#: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
+msgid "Playing"
+msgstr "Spiller"
+
+#: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
+#, c-format
+msgid "Track %02d"
+msgstr "Spor %02d"
+
+#: kscd.cpp:602 kscd.cpp:1151
+msgid "Pause"
+msgstr "Pause"
+
+#: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
+msgid "Random"
+msgstr "Tilfeldig"
+
+#: kscd.cpp:615
+msgid "Strange...."
+msgstr "Merkelig...."
+
+#: kscd.cpp:632
+msgid "Stopped"
+msgstr "Stoppet"
+
+#: kscd.cpp:784 kscd.cpp:1116
+msgid "Loop"
+msgstr "Sløyfe"
+
+#: kscd.cpp:796
+msgid "Ejecting"
+msgstr "Kaster ut"
+
+#: kscd.cpp:869
+msgid "kscd Configuraton"
+msgstr "Kscd konfigurasjon"
+
+#: kscd.cpp:885
+msgid ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd  contains code from:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
+"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
+"\n"
+msgstr ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"Kscd inneholder kode fra:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Takk til Ti Kan og Steve Scherf, oppfinnerne av CDDB "
+"database konseptet. Besøk http://www.cddb.com for mer info om CDDB.\n"
+"\n"
+
+#: kscd.cpp:897
+msgid ""
+"KSCD Magic based on Synaesthesia by Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+msgstr ""
+"KSCD Magic basert på Synaesthesia av Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+
+#: kscd.cpp:901
+msgid ""
+"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+"for his work on the http proxy code.\n"
+msgstr ""
+"Takk til Vadim Zaliva <lord@crocodile.org>\n"
+"for hans arbeid med http proxy koden.\n"
+
+#: kscd.cpp:947
+msgid "Kscd Options"
+msgstr "Kscd valg"
+
+#: kscd.cpp:948
+msgid "Kscd Magic"
+msgstr "Kscd Magic"
+
+#: kscd.cpp:1029 kscd.cpp:1822
+msgid "Vol: %02d%%"
+msgstr "Vol: %02d%%"
+
+#: kscd.cpp:1067
+#, c-format
+msgid ""
+"CDROM read or access error.\n"
+"Please make sure you have access permissions to:\n"
+"%s"
+msgstr ""
+"CDROM lese- eller adgangsfeil.\n"
+"Vennligst forsikre deg om at du har adgangstillatelser til:\n"
+"%s"
+
+#: kscd.cpp:1159
+msgid "Ready"
+msgstr "Klar"
+
+#: kscd.cpp:1191
+msgid "Ejected"
+msgstr "Kastet ut"
+
+#: kscd.cpp:1447
+msgid "Unable to get CDDB server list."
+msgstr "Ikke i stand til å få tak i CDDB tjenerliste."
+
+#: kscd.cpp:1569 kscd.cpp:1604
+msgid "No matching CDDB entry found."
+msgstr "Fant ikke lik CDDB opplysning."
+
+#: kscd.cpp:1625
+msgid "CDDB query timed out."
+msgstr "CDDB forespørsel gikk ut på tid."
+
+#: kscd.cpp:1797
+msgid "Tra Rem"
+msgstr "Tra Rem"
+
+#: kscd.cpp:1801
+msgid "Tot Sec"
+msgstr "Tot Sec"
+
+#: kscd.cpp:1805
+msgid "Tot Rem"
+msgstr "Tot Rem"
+
+#: kscd.cpp:1810
+msgid "Tra Sec"
+msgstr "Tra Sec"
+
+#: kscd.cpp:1935
+msgid "Cannot start kscdmagic."
+msgstr "Kan ikke starte Kscdmagic."
+
+#: kscd.cpp:1950
+msgid ""
+"KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr ""
+"Kscd Magic avsluttet unormalt.\n"
+"Er du sikker på at Kscd Magic er installert?"
+
+#: kscd.cpp:2131
+msgid "-h: display commandline options\n"
+msgstr "-h: vis kommandolinje-valg\n"
+
+#: kscd.cpp:2132
+msgid "-d: enable debugging output.\n"
+msgstr "-d: gjør mulig debugging av utdata.\n"
+
+#: mgconfdlg.cpp:52
+msgid "Magic Kscd"
+msgstr "Magisk Kscd"
+
+#: mgconfdlg.cpp:59
+msgid "Width of Magic Window:"
+msgstr "Bredde på magisk vindu:"
+
+#: mgconfdlg.cpp:71
+msgid "Height of Magic Window:"
+msgstr "Høyde på magisk vindu:"
+
+#: mgconfdlg.cpp:83
+msgid "MAGIC Brightness:"
+msgstr "MAGIC lysstyrke:"
