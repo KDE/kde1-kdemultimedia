@@ -284,9 +284,8 @@ msgstr ""
 
 # kscd.cpp:796
 #: configdlg.cpp:184
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Mata ut"
+msgstr "Mata ut vid avslut"
 
 # docking.cpp:72 kscd.cpp:507
 #: docking.cpp:73 kscd.cpp:562
@@ -295,9 +294,8 @@ msgstr "Spela/Paus"
 
 # kscd.cpp:511
 #: docking.cpp:75
-#, fuzzy
 msgid "Forward"
-msgstr "30 sek framåt"
+msgstr "Framåt"
 
 # docking.cpp:75
 #: docking.cpp:76
@@ -344,9 +342,8 @@ msgstr ""
 
 # kscd.cpp:1569 kscd.cpp:1604
 #: kscd.cpp:236
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Ingen matchande CDDB-post hittades."
+msgstr "Fel vid uppkopplingen mot servern."
 
 #: kscd.cpp:239
 msgid "Not connected."
@@ -354,9 +351,8 @@ msgstr ""
 
 # kscd.cpp:1625
 #: kscd.cpp:242
-#, fuzzy
 msgid "Connection timed out."
-msgstr "CDDB "
+msgstr "Uppkopplingen fick timeout"
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
@@ -429,7 +425,6 @@ msgstr "Föregående spår"
 
 # kscd.cpp:515
 #: kscd.cpp:570
-#, fuzzy
 msgid "Quit Kscd"
 msgstr "Avsluta kscd"
 
@@ -515,7 +510,6 @@ msgstr "kscd Konfiguration"
 
 # kscd.cpp:885
 #: kscd.cpp:1008
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -533,6 +527,9 @@ msgid ""
 msgstr ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"Ansvaret för programet övertaget av:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
 "\n"
 "kscd innehåller kod från:\n"
 "workman 1.4 beta 3\n"
@@ -553,7 +550,6 @@ msgstr ""
 
 # kscd.cpp:901
 #: kscd.cpp:1025
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -561,6 +557,7 @@ msgid ""
 msgstr ""
 "Tack till Vadim Zaliva <lord@crocodile.org>\n"
 "för hans arbete av http-proxykod.\n"
+"\n"
 
 #: kscd.cpp:1080
 msgid "SMTP Setup"
@@ -615,14 +612,13 @@ msgstr "Ingen matchande CDDB-post hittades."
 
 # kscd.cpp:1569 kscd.cpp:1604
 #: kscd.cpp:1834 kscd.cpp:1844
-#, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Ingen matchande CDDB-post hittades."
 
 # kscd.cpp:1625
 #: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
-msgstr "CDDB "
+msgstr "CDDB förfrågning fick timeout"
 
 # kscd.cpp:1797
 #: kscd.cpp:2060
@@ -660,9 +656,8 @@ msgstr ""
 
 # CDDBSetupData.cpp:44
 #: kscd.cpp:2368
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "CDDB Baskatalog"
+msgstr "Skriv in CDDBs baskatalog"
 
 # kscd.cpp:2131
 #: kscd.cpp:2422
@@ -705,12 +700,3 @@ msgstr ""
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr ""
-
-# mgconfdlg.cpp:52
-#, fuzzy
-#~ msgid "Dock Kscd"
-#~ msgstr "Magic Kscd"
-
-# kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
-#~ msgid "Track %02d"
-#~ msgstr "Spår %02d"
