@@ -3,11 +3,13 @@
 Comment[C]=A CD Player
 Comment[pl]=Prosty odtwarzacz p³yt CD
 Comment[fi]=CD Soitin
+Comment[hu]=CD lejátszó
 BinaryPattern=kscd;
 Protocols=
 Name[C]=CD Player
 Name[pl]=Odtwarzacz CD
 Name[fi]=CD Soitin
+Name[hu]=CD lejátszó
 Exec=kscd
 DocPath=kscd/kscd.html
 Icon=kscd.xpm

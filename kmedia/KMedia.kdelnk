@@ -15,7 +15,10 @@ Comment=Multimedia playing tool
 Comment[de]=Multimedia-Wiedergabe
 Comment[pl]=Narzêdzie do odtwarzania plików multimedialnych
 Comment[fi]=Multimedian soittotyökalu
+Comment[hu]=Multimédia lejátszó eszköz
 Name=Media Player
 Name[de]=Medienwiedergabe
 Name[pl]=Odtwarzacz
-Name[fi]Mediasoittaja
+Name[fi]=Mediasoittaja
+Name[hu]=Média lejátszó
+
