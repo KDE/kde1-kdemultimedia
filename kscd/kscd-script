@@ -729,6 +729,7 @@ n|N) sony_conf;;
 o|O) osf_conf;;
 u|U) ultrix_conf;;
 v|V) generic_svr_conf;;
+*)   linux_conf;;
 esac
 
 sleep 1

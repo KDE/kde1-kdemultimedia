@@ -726,12 +726,28 @@ bool CDDialog::checkit(){
 
     QMessageBox::warning(this,
 			 "Invalid Database Entry",
-			 "The Disc Artist / Title is not filled in.\n"\
+			 "The Disc Artist / Title field is not filled in.\n"\
 			 "Please correct the entry and try again."
 			 );
      return false;
   }
 
+
+
+
+  int pos;
+  pos = title.find("/",0,true);
+  if(pos == -1){
+
+    QMessageBox::warning(this,
+			 "Invalid Database Entry",
+			 "The Disc Artist / Title field is not filled in correctly.\n"\
+			 "Please separate the artist from the title of the CD with \n"\
+			 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
+			 );
+     return false;
+
+  }
 
   
 
