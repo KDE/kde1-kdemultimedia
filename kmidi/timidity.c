@@ -42,6 +42,8 @@ int getopt(int, char **, char *);
 #include <unistd.h>
 #endif
 
+#include <errno.h>
+
 #include "config.h"
 #include "common.h"
 #include "instrum.h"

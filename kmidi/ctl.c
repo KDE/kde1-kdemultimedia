@@ -32,7 +32,7 @@
 #include <sys/ioctl.h>
 #include <sys/ipc.h>
 #include <sys/shm.h>
-
+#include <errno.h>
 
 #include "config.h"
 #include "common.h"

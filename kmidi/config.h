@@ -357,3 +357,10 @@ typedef char int8;
   #include <errno.h>
   #define PI 3.14159265358979323846
 #endif
+
+#ifdef __FreeBSD__
+#include <math.h>
+#ifndef PI
+#define PI M_PI
+#endif
+#endif

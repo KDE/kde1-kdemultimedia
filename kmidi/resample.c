@@ -22,8 +22,11 @@
 
 #include <math.h>
 #include <stdio.h>
+#ifdef __FreeBSD__
+#include <stdlib.h>
+#else
 #include <malloc.h>
-
+#endif
 #include "config.h"
 #include "common.h"
 #include "instrum.h"
