@@ -385,6 +385,17 @@ static int read_config_file(char *name)
 	  }
 	  cfg_condition = -1;
 	}
+      /******* voices ********/
+		else if(!strcmp(w[0], "voices"))
+	{
+	  if (words < 2)
+		 {
+	      fprintf(stderr, "%s: line %d: No number given after \"voices\"\n", name, line);
+	      return -2;
+		 }
+	  voices=atoi(w[1]);
+	  if (voices > MAX_VOICES) voices = MAX_VOICES;
+	}
 
       /******* default ********/
 		else if (!strcmp(w[0], "default"))
@@ -736,7 +747,7 @@ options.  I moved it down. --gl
   if (!read_config_file(CONFIG_FILE))
 	 got_a_configuration=1;
 */
-  command_cutoff_allowed = 0;
+  command_cutoff_allowed = 1;
 
   while ((c=getopt(argc, argv, "UI:P:L:c:A:C:ap:fo:O:s:Q:FD:hi:#:q"
 #if defined(AU_LINUX) || defined(AU_WIN32)
@@ -748,7 +759,7 @@ options.  I moved it down. --gl
 			))>0)
 	 switch(c)
 		{
-		case 'q': command_cutoff_allowed=1; break;
+		case 'q': command_cutoff_allowed=0; break;
 		case 'U': free_instruments_afterwards=1; break;
 		case 'L': add_to_pathlist(optarg); try_config_again=1; break;
 		case 'c':
