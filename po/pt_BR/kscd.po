@@ -164,7 +164,7 @@ msgstr "Editor de PlayList"
 
 #: CDDialogData.cpp:93
 msgid "Edit Track Title"
-msgstr "Editar Faixa do Título"
+msgstr "Editar Título da Trilha"
 
 #: CDDialogData.cpp:99
 msgid "Disc Artist / Title"
