@@ -26,6 +26,8 @@
 
 #include "inexact.h"
 #include "stdio.h"
+#include <klocale.h>
+#include <kapp.h>
 
 
 InexactDialog::InexactDialog(QWidget *parent, const char *name,bool _listbox)
@@ -49,10 +51,10 @@ InexactDialog::InexactDialog(QWidget *parent, const char *name,bool _listbox)
   text = new QLabel(this,"textlabel");
   text->setAlignment(WordBreak|AlignCenter);
 
-  text->setText("No exact match could be found. Please select the appropriate"\
-		" CD from the list of choices presented below.");
+  text->setText(klocale->translate("No exact match could be found. Please select the appropriate"\
+		" CD from the list of choices presented below."));
 
-  errorstring = "Please select a Disk Title or press Cancel";
+  errorstring = klocale->translate("Please select a Disk Title or press Cancel");
 
   statuslabel = new QLabel( this, "statuslabel" );
   
@@ -64,12 +66,12 @@ InexactDialog::InexactDialog(QWidget *parent, const char *name,bool _listbox)
 
   cancel_button = new QPushButton(this,"cancel_button");
   cancel_button->setGeometry(330,340,70,30);
-  cancel_button->setText("Cancel");
+  cancel_button->setText(klocale->translate("Cancel"));
   cancel_button->setFocus();
 
   ok_button = new QPushButton(this,"ok_button");
   ok_button->setGeometry(250,340,70,30);
-  ok_button->setText("Ok");
+  ok_button->setText(klocale->translate("Ok"));
   //  ok_button->setFocus();
 
 

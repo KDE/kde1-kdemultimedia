@@ -16,6 +16,8 @@
 
 #include <qlabel.h>
 #include <qgrpbox.h>
+#include <klocale.h>
+#include <kapp.h>
 
 CDDBSetupData::CDDBSetupData
 (
@@ -39,7 +41,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_8->setGeometry( 20, 120, 160, 20 );
 	dlgedit_Label_8->setMinimumSize( 10, 10 );
 	dlgedit_Label_8->setMaximumSize( 32767, 32767 );
-	dlgedit_Label_8->setText( "CDDB Base Directory" );
+	dlgedit_Label_8->setText( klocale->translate("CDDB Base Directory") );
 	dlgedit_Label_8->setAlignment( 289 );
 	dlgedit_Label_8->setMargin( -1 );
 
@@ -57,7 +59,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_9->setGeometry( 275, 180, 210, 20 );
 	dlgedit_Label_9->setMinimumSize( 10, 10 );
 	dlgedit_Label_9->setMaximumSize( 32767, 32767 );
-	dlgedit_Label_9->setText( "Send CDDB submissions to:" );
+	dlgedit_Label_9->setText( klocale->translate("Send CDDB submissions to:") );
 	dlgedit_Label_9->setAlignment( 289 );
 	dlgedit_Label_9->setMargin( -1 );
 
@@ -77,7 +79,7 @@ CDDBSetupData::CDDBSetupData
 	dlgedit_Label_10->setGeometry( 20, 180, 235, 20 );
 	dlgedit_Label_10->setMinimumSize( 10, 10 );
 	dlgedit_Label_10->setMaximumSize( 32767, 32767 );
-	dlgedit_Label_10->setText( "CDDB server:" );
+	dlgedit_Label_10->setText( klocale->translate("CDDB server:") );
 	dlgedit_Label_10->setAlignment( 289 );
 	dlgedit_Label_10->setMargin( -1 );
 
@@ -85,7 +87,7 @@ CDDBSetupData::CDDBSetupData
 	update_button->setGeometry( 35, 400, 90, 25 );
 	update_button->setMinimumSize( 10, 10 );
 	update_button->setMaximumSize( 32767, 32767 );
-	update_button->setText( "Update" );
+	update_button->setText( klocale->translate("Update") );
 	update_button->setAutoRepeat( FALSE );
 	update_button->setAutoResize( FALSE );
 
@@ -100,10 +102,10 @@ CDDBSetupData::CDDBSetupData
 	current_server_label->setMargin( -1 );
 
 	remote_cddb_cb = new QCheckBox( this, "CheckBox_1" );
-	remote_cddb_cb->setGeometry( 20, 15, 230, 30 );
+	remote_cddb_cb->setGeometry( 20, 15, 270, 30 );
 	remote_cddb_cb->setMinimumSize( 10, 10 );
 	remote_cddb_cb->setMaximumSize( 32767, 32767 );
-	remote_cddb_cb->setText( "Enable Remote CDDB" );
+	remote_cddb_cb->setText( klocale->translate("Enable Remote CDDB") );
 	remote_cddb_cb->setAutoRepeat( FALSE );
 	remote_cddb_cb->setAutoResize( FALSE );
 
@@ -111,7 +113,7 @@ CDDBSetupData::CDDBSetupData
 	defaults_button->setGeometry( 230, 400, 90, 25 );
 	defaults_button->setMinimumSize( 10, 10 );
 	defaults_button->setMaximumSize( 32767, 32767 );
-	defaults_button->setText( "Defaults" );
+	defaults_button->setText( klocale->translate("Defaults") );
 	defaults_button->setAutoRepeat( FALSE );
 	defaults_button->setAutoResize( FALSE );
 
@@ -119,7 +121,7 @@ CDDBSetupData::CDDBSetupData
 	help_button->setGeometry( 420, 400, 90, 25 );
 	help_button->setMinimumSize( 10, 10 );
 	help_button->setMaximumSize( 32767, 32767 );
-	help_button->setText( "Help" );
+	help_button->setText( klocale->translate("Help"));
 	help_button->setAutoRepeat( FALSE );
 	help_button->setAutoResize( FALSE );
 

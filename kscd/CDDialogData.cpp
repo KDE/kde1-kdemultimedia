@@ -16,6 +16,8 @@
 
 #include <qframe.h>
 #include <qlabel.h>
+#include <klocale.h>
+#include <kapp.h>
 
 CDDialogData::CDDialogData
 (
@@ -63,56 +65,56 @@ CDDialogData::CDDialogData
 
 	save_button = new QPushButton( this, "save_button" );
 	save_button->setGeometry( 15, 425, 85, 25 );
-	save_button->setText( "Save" );
+	save_button->setText( klocale->translate("Save") );
 	save_button->setAutoRepeat( FALSE );
 	save_button->setAutoResize( FALSE );
 
 	load_button = new QPushButton( this, "PushButton_3" );
 	load_button->setGeometry( 185, 425, 85, 25 );
-	load_button->setText( "Load" );
+	load_button->setText( klocale->translate("Load") );
 	load_button->setAutoRepeat( FALSE );
 	load_button->setAutoResize( FALSE );
 
 	ok_button = new QPushButton( this, "PushButton_4" );
 	ok_button->setGeometry( 355, 425, 85, 25 );
-	ok_button->setText( "Close" );
+	ok_button->setText( klocale->translate("Close") );
 	ok_button->setAutoRepeat( FALSE );
 	ok_button->setAutoResize( FALSE );
 
 	QLabel* tmpQLabel;
 	tmpQLabel = new QLabel( this, "Label_2" );
 	tmpQLabel->setGeometry( 105, 355, 185, 20 );
-	tmpQLabel->setText( "Play List Editor" );
+	tmpQLabel->setText( klocale->translate("Play List Editor") );
 	tmpQLabel->setAlignment( 292 );
 	tmpQLabel->setMargin( -1 );
 
 	tmpQLabel = new QLabel( this, "Label_3" );
 	tmpQLabel->setGeometry( 100, 295, 185, 20 );
-	tmpQLabel->setText( "Edit Track Title" );
+	tmpQLabel->setText( klocale->translate("Edit Track Title") );
 	tmpQLabel->setAlignment( 292 );
 	tmpQLabel->setMargin( -1 );
 
 	tmpQLabel = new QLabel( this, "Label_4" );
 	tmpQLabel->setGeometry( 100, 15, 185, 20 );
-	tmpQLabel->setText( "Disc Artist / Title" );
+	tmpQLabel->setText( klocale->translate("Disc Artist / Title") );
 	tmpQLabel->setAlignment( 292 );
 	tmpQLabel->setMargin( -1 );
 
 	tmpQLabel = new QLabel( this, "Label_5" );
 	tmpQLabel->setGeometry( 100, 90, 185, 20 );
-	tmpQLabel->setText( "Track / Time / Title" );
+	tmpQLabel->setText( klocale->translate("Track / Time / Title") );
 	tmpQLabel->setAlignment( 292 );
 	tmpQLabel->setMargin( -1 );
 
 	ext_info_title_button = new QPushButton( this, "PushButton_5" );
 	ext_info_title_button->setGeometry( 360, 35, 85, 25 );
-	ext_info_title_button->setText( "Ext Info" );
+	ext_info_title_button->setText( klocale->translate("Ext Info") );
 	ext_info_title_button->setAutoRepeat( FALSE );
 	ext_info_title_button->setAutoResize( FALSE );
 
 	ext_info_button = new QPushButton( this, "extinfo_button" );
 	ext_info_button->setGeometry( 360, 110, 85, 25 );
-	ext_info_button->setText( "Ext Info" );
+	ext_info_button->setText( klocale->translate("Ext Info") );
 	ext_info_button->setAutoRepeat( FALSE );
 	ext_info_button->setAutoResize( FALSE );
 
@@ -128,7 +130,7 @@ CDDialogData::CDDialogData
 
 	tmpQLabel = new QLabel( this, "Label_7" );
 	tmpQLabel->setGeometry( 355, 155, 90, 20 );
-	tmpQLabel->setText( "Disc ID" );
+	tmpQLabel->setText( klocale->translate("Disc ID") );
 	tmpQLabel->setAlignment( 292 );
 	tmpQLabel->setMargin( -1 );
 
@@ -140,7 +142,7 @@ CDDialogData::CDDialogData
 
 	upload_button = new QPushButton( this, "PushButton_8" );
 	upload_button->setGeometry( 360, 255, 85, 25 );
-	upload_button->setText( "Upload" );
+	upload_button->setText( klocale->translate("Upload") );
 	upload_button->setAutoRepeat( FALSE );
 	upload_button->setAutoResize( FALSE );
 

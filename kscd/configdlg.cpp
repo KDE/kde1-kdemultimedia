@@ -65,7 +65,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   label1 = new QLabel(this);
   label1->setGeometry(20+XOFF,25+YOFF,135,25);
-  label1->setText("LED Color:");
+  label1->setText(klocale->translate("LED Color:"));
 
   qframe1 = new QFrame(this);
   qframe1->setGeometry(155+XOFF,25+YOFF,30,25);	
@@ -153,7 +153,7 @@ ConfigDlg::ConfigDlg(QWidget *parent=0, struct configstruct *data = 0,const char
 
   dockcheckbox = new QCheckBox(klocale->translate("Enable KPanel Docking"), 
 			       this, "dockcheckbox");
-  dockcheckbox->setGeometry(30+XOFF,330+YOFF,160,20);
+  dockcheckbox->setGeometry(30+XOFF,330+YOFF,200,20);
   dockcheckbox->setChecked(configdata.docking);
   connect(dockcheckbox,SIGNAL(clicked()),this,SLOT(dockclicked()));
   

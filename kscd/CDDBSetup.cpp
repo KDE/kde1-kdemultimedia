@@ -111,7 +111,7 @@ void CDDBSetup::insertData(const QStrList& _serverlist,
     current_submit_label->setText(submitaddressstring);
     current_server_string = _current_server.copy();
     current_server_label->setText(current_server_string.data());
-    remote_cddb_cb->setChecked(remote_enabled);
+    remote_cddb_cb->setChecked(remote_disabled);
     cddb_http_cb->setChecked(http_proxy_enabled);
     proxy_host_ef->setText(http_proxy_host);
     char port_str[40];

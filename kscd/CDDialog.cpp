@@ -14,6 +14,7 @@
 #include "version.h"
 
 #include <unistd.h>
+#include <klocale.h>
 
 #include <qregexp.h> 
 #include <qdatetm.h> 
@@ -51,7 +52,7 @@ CDDialog::CDDialog
 	:
 	Inherited( parent, name )
 {
-	setCaption( "CD Database Editor" );
+	setCaption( klocale->translate("CD Database Editor") );
 
 	cdinfo.magicID = 0;	/*cddb magic disk id BERND*/
 	cdinfo.ntracks = 0;	/* Number of tracks on the disc */
@@ -196,9 +197,9 @@ void CDDialog::setData(
 
     QString temp2;
     if(dl.hour() > 0)
-      temp2.sprintf("Total Time:\n%02d:%02d:%02d",dl.hour(),dl.minute(),dl.second());
+      temp2.sprintf(klocale->translate("Total Time:\n%02d:%02d:%02d"),dl.hour(),dl.minute(),dl.second());
     else
-      temp2.sprintf("Total Time:\n %02d:%02d",dl.minute(),dl.second());
+      temp2.sprintf(klocale->translate("Total Time:\n %02d:%02d"),dl.minute(),dl.second());
     total_time_label->setText(temp2);
 
     QString 	fmt;
@@ -240,7 +241,7 @@ void CDDialog::extIB(){
 
   InexactDialog *dialog;
   dialog = new InexactDialog(0,"dialog",false);
-  dialog->setTitle("Use this Editor to annotate this track");
+  dialog->setTitle((char *)klocale->translate("Use this Editor to annotate this track"));
 
   dialog->insertText(ext_list.at(item + 1));
   
@@ -265,7 +266,7 @@ void CDDialog::extITB(){
   InexactDialog *dialog;
   dialog = new InexactDialog(0,"dialog",false);
   dialog->insertText(ext_list.at(0));
-  dialog->setTitle("Use this Editor to annotate the title");
+  dialog->setTitle((char *)klocale->translate("Use this Editor to annotate the title"));
   
   if(dialog->exec() != QDialog::Accepted){
     delete dialog;
@@ -359,8 +360,9 @@ void CDDialog::upload(){
     return;
 
   /*
-  switch( QMessageBox::information( this,"Message",
+  switch( QMessageBox::information( this,klocale->translate("Message"),
 
+klocale->translate(
 "The submission you are about to make will go to the test server\n"\
 "cddb-test@cddb.com. This is because this is the first release of\n"\
 "the cddb addition to Kscd and I need to avoid corruption\n"\
@@ -375,9 +377,9 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 "or failure of your submission. Should you receive a failure notice\n"\
 "please forward the failure report to me: <wuebben@kde.org>\n"\
 "Check back often for the availablity of a fully enabled version of kscd.\n"\
-"Thank you for your support.\n",
-				    "OK",
-				    "Cancel",
+"Thank you for your support.\n"),
+				    klocale->translate("OK"),
+				    klocale->translate("Cancel"),
 				    0,
 				    1 ) ){
 
@@ -412,8 +414,8 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   catlist.append("data");
 
   dialog->insertList(catlist);
-  dialog->setErrorString("Please select a Category or press Cancel");
-  dialog->setTitle("To which category does the CD belong?");
+  dialog->setErrorString((char *)klocale->translate("Please select a Category or press Cancel"));
+  dialog->setTitle((char *)klocale->translate("To which category does the CD belong?"));
   if(dialog->exec() != QDialog::Accepted){
     delete dialog;
     return;
@@ -442,7 +444,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
   formatstr += " ";
   formatstr += submitaddress;
 
-  if (debugflag ) printf("Submitting cddb entry: %s\n",formatstr.data());
+  if (debugflag ) printf(klocale->translate("Submitting cddb entry: %s\n"),formatstr.data());
 
   QString cmd;
   //  cmd = cmd.sprintf("mail -s \"%s\" cddb-test@cddb.cddb.com",subject.data());
@@ -454,7 +456,7 @@ I would like you ask you to upload as many test submissions as possible.\n"\
 
   if(mailpipe == NULL){
     QString str;
-    str.sprintf("Could not pipe contents into:\n %s",cmd.data());
+    str.sprintf(klocale->translate("Could not pipe contents into:\n %s"),cmd.data());
 
     QMessageBox::critical(
 			  this,
@@ -541,8 +543,8 @@ void CDDialog::save(){
   }
 
   dialog->insertList(pathlist);
-  dialog->setErrorString("Please select a Category or press Cancel");
-  dialog->setTitle("Under which category would you like to store this CDDB entry?");
+  dialog->setErrorString((char *)klocale->translate("Please select a Category or press Cancel"));
+  dialog->setTitle((char *)klocale->translate("Under which category would you like to store this CDDB entry?"));
 
   if(dialog->exec() != QDialog::Accepted){
     delete dialog;
@@ -592,12 +594,12 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
     
     QString str;
     str.sprintf(
-		"Unable to write to file:\n%s\nPlease check"\
-		"your permissions and make your category directories exist.",
+		klocale->translate("Unable to write to file:\n%s\nPlease check "\
+		"your permissions and make your category directories exist."),
 		path.data());
 
     QMessageBox::warning(this,
-			 "Kscd Error",
+			 klocale->translate("Kscd Error"),
 			 str.data()
 			 );
     return;
@@ -756,9 +758,9 @@ bool CDDialog::checkit(){
   if(title.isEmpty()){
 
     QMessageBox::warning(this,
-			 "Invalid Database Entry",
-			 "The Disc Artist / Title field is not filled in.\n"\
-			 "Please correct the entry and try again."
+			 klocale->translate("Invalid Database Entry"),
+			 klocale->translate("The Disc Artist / Title field is not filled in.\n"\
+			 "Please correct the entry and try again.")
 			 );
      return false;
   }
@@ -771,11 +773,11 @@ bool CDDialog::checkit(){
   if(pos == -1){
 
     QMessageBox::warning(this,
-			 "Invalid Database Entry",
-			 "The Disc Artist / Title field is not filled in correctly.\n"\
+			 klocale->translate("Invalid Database Entry"),
+			 klocale->translate("The Disc Artist / Title field is not filled in correctly.\n"\
 			 "Please separate the artist from the title of the CD with \n"\
 			 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
-			 );
+			 ));
      return false;
 
   }
@@ -785,10 +787,10 @@ bool CDDialog::checkit(){
   if(track_list.count() < 2){
 
     QMessageBox::warning(this,
-			 "Invalid Database Entry",
-			 "Not all track titles can be empty.\n"\
+			 klocale->translate("Invalid Database Entry"),
+			 klocale->translate("Not all track titles can be empty.\n"\
 			 "Please correct the entry and try again."
-			 );
+			 ));
      return false;
   }
 
@@ -807,10 +809,10 @@ bool CDDialog::checkit(){
   if(!have_nonempty_title){
 
     QMessageBox::warning(this,
-			 "Invalid Database Entry",
-			 "Not all track titles can be empty.\n"\
+			 klocale->translate("Invalid Database Entry"),
+			 klocale->translate("Not all track titles can be empty.\n"\
 			 "Please correct the entry and try again."
-			 );
+			 ));
      return false;
 
   }
@@ -818,10 +820,10 @@ bool CDDialog::checkit(){
   if(cdinfo.ntracks +1 != (int)track_list.count() ){
 
     QMessageBox::critical(this,
-			 "Internal Error",
-			 "cdinfo.ntracks != title_list->count() + 1\n"
+			 klocale->translate("Internal Error"),
+			 klocale->translate("cdinfo.ntracks != title_list->count() + 1\n"
 			 "Please email the author."
-			 );
+			 ));
      return false;
   }
 
@@ -847,8 +849,8 @@ bool CDDialog::checkit(){
 
   if(!ret){
       QMessageBox::warning(this,
-			 "Error",
-			 "Invalid Playlist\n"
+			 klocale->translate("Error"),
+			 klocale->translate("Invalid Playlist\n")
 			 );
       return false;
   }
