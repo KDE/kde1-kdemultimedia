@@ -2,7 +2,7 @@
 /*
 
   kscdmagic 1.0   Bernd Johannes Wuebben <wuebben@kde.org>
-  $ Id: $
+  $Id$
 
   based on:
  

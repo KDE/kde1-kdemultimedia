@@ -28,7 +28,9 @@ template <
   class DestType,
   DestType (*transfer)(SrcType,DestType)
 >
+
 struct BitmapPut {
+
 static void go(
   SrcType *src, int srcWidth, int srcHeight, 
   DestType *dest, int destWidth, int destHeight,

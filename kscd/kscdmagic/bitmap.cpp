@@ -21,17 +21,7 @@
     27 Bond St., Mt. Waverley, 3149, Melbourne, Australia
 */
 
-/*
-template <
-  class SrcType,
-  class DestType,
-  DestType (*transfer)(SrcType,DestType)
->
-void bitmapPut(
-  SrcType *src, int srcWidth, srcHeight, 
-  DestType *dest, int destWidth, int destHeight,
-  int srcX,int srcY,int destX, int destY, int width,int height) {
-*/
+
 
 #ifdef __linux__
 
@@ -75,38 +65,53 @@ struct Entry {
   unsigned char blue;
 
   Entry(unsigned char b,unsigned char r) : red(r), blue(b) { }
+
 };
 
-Entry maxBlue(unsigned char src,Entry dest) 
-  { return Entry(src > dest.blue ? src : dest.blue,dest.red); }
-Entry halfBlue(unsigned char src,Entry dest) 
-  { return Entry(src/2 > dest.blue ? src/2 : dest.blue,dest.red); }
-Entry maxRed(unsigned char src,Entry dest) 
-  { return Entry(dest.blue,src > dest.red ? src : dest.red); }
-Entry halfRed(unsigned char src,Entry dest) 
-  { return Entry(dest.blue,src/2 > dest.red ? src/2 : dest.red); }
+Entry maxBlue(unsigned char src,Entry dest) { 
+    return Entry(src > dest.blue ? src : dest.blue,dest.red); 
+}
+
+Entry halfBlue(unsigned char src,Entry dest) { 
+    return Entry(src/2 > dest.blue ? src/2 : dest.blue,dest.red); 
+}
+
+Entry maxRed(unsigned char src,Entry dest) { 
+    return Entry(dest.blue,src > dest.red ? src : dest.red); 
+}
+
+Entry halfRed(unsigned char src,Entry dest) { 
+  return Entry(dest.blue,src/2 > dest.red ? src/2 : dest.red); 
+}
 
 template <Entry (*transfer)(unsigned char,Entry)>
+
 struct PutSymbol {
-  static void go(int x,int y,int id) {
-    BitmapPut<unsigned char,Entry,transfer>
-     ::go(
-            Symbols,SYMBOLSWIDTH,SYMBOLSHEIGHT,
+ 
+    static void go(int x,int y,int id) {
+
+	BitmapPut<unsigned char,Entry,transfer>::go(
+	    Symbols,SYMBOLSWIDTH,SYMBOLSHEIGHT,
             (Entry*)output,outWidth,outHeight,
             span[id][0],0,
             x-(span[id][1]-span[id][0]>>1),y,
             span[id][1]-span[id][0],SYMBOLSHEIGHT);
   }
+
 };
 
 void putSymbol(int x,int y,int id,TransferType typ) {
-  switch(typ) {
-    case HalfBlue : PutSymbol<halfBlue>::go(x,y,id); break;
-    case MaxBlue : PutSymbol<maxBlue>::go(x,y,id); break;
-    case HalfRed  :  PutSymbol<halfRed>::go(x,y,id); break;
-    case MaxRed  :  PutSymbol<maxRed>::go(x,y,id); break;
+
+    switch(typ) {
+
+    case HalfBlue  : PutSymbol <halfBlue>::go(x,y,id); break;
+    case MaxBlue   : PutSymbol <maxBlue> ::go(x,y,id); break;
+    case HalfRed   : PutSymbol <halfRed> ::go(x,y,id); break;
+    case MaxRed    : PutSymbol <maxRed>  ::go(x,y,id); break;
+
     default      : error("Invalid transfer operation.\n");
-  }
+
+    }
 }
 
 #endif
