@@ -121,7 +121,7 @@ extern int load_missing_instruments(void);
 extern void free_instruments(void);
 extern int set_default_instrument(char *name);
 
-extern void init_soundfont(char *fname, int order);
+extern void init_soundfont(char *fname, int order, int oldbank, int newbank);
 Instrument *load_soundfont(int order, int bank, int preset, int keynote);
 void exclude_soundfont(int bank, int preset, int keynote);
 void order_soundfont(int bank, int preset, int keynote, int order);

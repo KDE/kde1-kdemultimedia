@@ -22,7 +22,7 @@ typedef struct _tsamplenames {
 
 typedef struct _tpresethdr {
 	char name[20];
-	uint16 preset, bank, bagNdx;
+	uint16 preset, sub_preset, bank, sub_bank, bagNdx;
 	/*int lib, genre, morphology;*/ /* reserved */
 } tpresethdr;
 

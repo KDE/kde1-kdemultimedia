@@ -212,7 +212,9 @@ static void load_preset_header(int size, SFInfo *sf, FILE *fd)
 	for (i = 0; i < sf->nrpresets; i++) {
 		READSTR(sf->presethdr[i].name, fd);
 		READW(&sf->presethdr[i].preset, fd);
+		sf->presethdr[i].sub_preset = sf->presethdr[i].preset;
 		READW(&sf->presethdr[i].bank, fd);
+		sf->presethdr[i].sub_bank = sf->presethdr[i].bank;
 		READW(&sf->presethdr[i].bagNdx, fd);
 		SKIPDW(fd); /* lib */
 		SKIPDW(fd); /* genre */
