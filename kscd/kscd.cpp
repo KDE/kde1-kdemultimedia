@@ -897,11 +897,9 @@ void KSCD::aboutClicked(){
         "KSCD Magic based on Synaesthesia by "
         "Paul Harrison <pfh@yoyo.cc.monash.edu.au>\n\n");
 #endif
-        "Thanks to Vadim Zaliva <lord@crocodile.org>\n"\
-        "for his work on the http proxy code.\n"
-      
-
-        ;
+     labelstring += klocale->translate(
+        "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+        "for his work on the http proxy code.\n") ;
 
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
     label->setText(labelstring.data());
