@@ -185,31 +185,31 @@ extern dockinginprogress;
 void DockWidget::toggle_window_state() {
 
   // restore/hide connect-window
-  if(k != 0L)  {
-    if (k->isVisible()){
+    if(k != 0L)  {
+        if (k->isVisible()){
+            dockinginprogress = true;
+            QPoint point = k->mapToGlobal (QPoint (0,0));
+            pos_x = point.x();
+            pos_y = point.y();
+            toggled = true;
+            k->hide();
+        }
+        else {
 
-     QPoint point = k->mapToGlobal (QPoint (0,0));
-     pos_x = point.x();
-     pos_y = point.y();
-     toggled = true;
-     k->hide();
+            if(!have_kscd_position)
+                SaveKscdPosition();
+
+            k->setGeometry(
+                           pos_x,
+                           pos_y,
+                           k->width(),
+                           k->height());
+
+            toggled = false;
+            k->show();
+            dockinginprogress = false;
+        }
     }
-    else {
-
-      if(!have_kscd_position)
-	SaveKscdPosition();
-
-      k->setGeometry(
-		     pos_x, 
-		     pos_y,
-		     k->width(),
-		     k->height());
-
-      toggled = false;
-      k->show();
-	dockinginprogress = false;
-    }
-  }
 }
 
 const bool DockWidget::isToggled()
