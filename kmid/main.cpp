@@ -30,6 +30,7 @@
 #include "version.h"
 //#include <locale.h>
 #include <klocale.h>
+#include <kmsgbox.h>
 
 int main(int argc, char **argv)
 {

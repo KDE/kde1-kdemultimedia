@@ -339,3 +339,19 @@ Saturday 20-6-98
 Sunday 21-6-98
 - Wow, KDE-1.0 is finally here, and it is REAL, so I will prepare very quickly
 KMid 1.0 before the freeze of kdemultimedia.
+
+Saturday 4-7-98
+- Just finished exams :-), and I've implemented the (long awaited feature of a)
+volume bar.
+
+Sunday 5-7-98
+- I'm doing a channel view in which you can see the keys being pressed
+and released, it's very nice :-)
+
+Monday 6-7-98
+- Using the (still hot) shutDown signal (the most awaited thing for
+kmid)
+
+Monday 13-7-98
+- I've restructured the Channel view, it's much nicer and allows for easier
+expansion. It also shows the used instrument

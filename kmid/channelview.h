@@ -1,7 +1,7 @@
 /**************************************************************************
 
-    midfile.h  - function which reads a midi file,and creates the track classes
-    Copyright (C) 1997,98  Antonio Larrosa Jimenez
+    channelview.h - The ChannelView dialog
+    Copyright (C) 1998  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,36 +21,53 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#ifndef _MIDFILE_H
-#define _MIDFILE_H
 
-#include "dattypes.h"
-#include "track.h"
-#include <stdio.h>
+#ifndef CHANNELVIEW_H
+#define CHANNELVIEW_H
 
-struct midifileinfo
+#include <qwidget.h>
+#include <qscrbar.h>
+#include "channel.h"
+
+
+class ChannelView : public QWidget
 {
-int format;
-int ntracks;
-int ticksPerCuarterNote;
+    Q_OBJECT
+private:
+    KMidChannel *Channel[16];
+    int nvisiblechannels;
+
+    virtual void resizeEvent(QResizeEvent *);
+    virtual void closeEvent(QCloseEvent *e);
+    
+public:
+	ChannelView(void);
+	~ChannelView();
+
+        void setScrollBarRange(void);
+
+        void noteOn(int chn,int note);
+        void noteOff(int chn,int note);
+        void changeInstrument(int chn,int pgm);
+
+        void reset(void);
+
+        static int lookMode(void);
+
+        void lookMode(int i);
+
+public slots:
+    void ScrollChn(int i);
+
+signals:
+    void destroyMe();
+
+private:
+    QScrollBar *scrollbar;
 
 
-ulong ticksTotal;
-double millisecsTotal;
-ulong ticksPlayed;
+    static int lookmode;
 
-int patchesUsed[256]; // 0 - it's not used
-                     // 1 - it's used only once
-                     // 2 - if it's used twice
-                     // 3 - if it's used three times
-                     // and so on
+
 };
-
-double tempoToMetronomeTempo(ulong x);
-
-track **readMidiFile(char *name,midifileinfo *info,int &ok);
-
-void parsePatchesUsed(track **Tracks,midifileinfo *info,int gm);
-
-int fsearch(FILE *fh,const char *text,long *ptr=NULL);
 #endif

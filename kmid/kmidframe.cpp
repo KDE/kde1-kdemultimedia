@@ -42,7 +42,11 @@
 #include <kkeyconf.h>
 #include "midicfgdlg.h"
 #include "collectdlg.h"
+#include "channelcfgdlg.h"
+#include "channelview.h"
 #include "version.h"
+
+
 
 kmidFrame::kmidFrame(const char *name)
 	:KTopLevelWidget(name)
@@ -52,6 +56,8 @@ kmidFrame::kmidFrame(const char *name)
 	kmidclient->show();
 	setView(kmidclient,FALSE);
 
+        donttoggle=FALSE;
+        
 	m_file = new QPopupMenu;
 	m_file->insertItem( i18n("&Open ..."), this, 
 						SLOT(file_Open()), CTRL+Key_O );
@@ -93,7 +99,6 @@ kmidFrame::kmidFrame(const char *name)
 	m_collections->setId(5,5);
 	m_collections->setItemChecked(5,FALSE);
 
-
 	m_options = new QPopupMenu;
 	m_options->setCheckable(TRUE);
 	m_options->insertItem( i18n("&General Midi file"), this, 
@@ -119,10 +124,25 @@ kmidFrame::kmidFrame(const char *name)
 	m_options->setId(5,5);
 	m_options->setItemChecked(5,TRUE);
 	m_options->insertSeparator();
+
+	m_options->insertItem( i18n("Show &Volume Bar"), this,
+					SLOT(options_ShowVolumeBar()) );
+	m_options->setId(7,7);
+	m_options->setItemChecked(7,FALSE);
+
+        m_options->insertItem( i18n("Show &Channel View"), this,
+					SLOT(options_ShowChannelView()) );
+	m_options->setId(8,8);
+	m_options->setItemChecked(8,FALSE);
+
+        m_options->insertItem( i18n("Channel View &Options"), this,
+					SLOT(options_ChannelViewOptions()) );
+
+        m_options->insertSeparator();
 	m_options->insertItem( i18n("&Font Change ...") , this, 
 					SLOT(options_FontChange()));
 	m_options->insertSeparator();
-	m_options->insertItem( i18n("&Midi Setup ...") , this, 
+	m_options->insertItem( i18n("Midi &Setup ...") , this,
 					SLOT(options_MidiSetup()));
 
 	char aboutstring[500];
@@ -171,6 +191,18 @@ kmidFrame::kmidFrame(const char *name)
 		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
 		i18n("Next Song"));
 
+        toolbar->insertSeparator();
+
+        toolbar->insertButton(Icon("kmid_chn.xpm"),8,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Show Channel View"));
+	toolbar->setToggle(8,TRUE);
+
+        toolbar->insertButton(Icon("kmid_volume.xpm"),9,
+		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
+		i18n("Show Volume Bar"));
+	toolbar->setToggle(9,TRUE);
+
 	addToolBar(toolbar);
 
 	KConfig *kcfg=(KApplication::getKApplication())->getConfig();
@@ -183,7 +215,7 @@ kmidFrame::kmidFrame(const char *name)
 		options_GM();
 	    else
 		options_MT32();
-	if ((kcfg->readNumEntry("Loop",0))==0)
+        if ((kcfg->readNumEntry("Loop",0))==0)
 		{
 		m_song->setItemChecked(7,FALSE);
 		kmidclient->setSongLoop(0);
@@ -193,7 +225,14 @@ kmidFrame::kmidFrame(const char *name)
 		m_song->setItemChecked(7,TRUE);
 		kmidclient->setSongLoop(1);
 		};
-	if (kcfg->readNumEntry("CollectionPlayMode",0)==0)
+	if (kcfg->readNumEntry("ShowVolumeBar",0)==1)
+            {
+            m_options->setItemChecked(7,TRUE);
+            kmidclient->visibleVolumeBar(1);
+            toolbar->toggleButton(9);
+            };
+
+        if (kcfg->readNumEntry("CollectionPlayMode",0)==0)
 		collect_inOrder();
 	    else
 		collect_shuffle();
@@ -213,18 +252,23 @@ kmidFrame::kmidFrame(const char *name)
 	connect( kmidclient, SIGNAL( song_stopPause() ),
 		this, SLOT( song_stopPause() ) );
 
+        connect( kmidclient, SIGNAL( channelView_Destroyed() ),
+		this, SLOT( channelViewDestroyed() ) );
+
         if ((kapp->argc()>1)&&(kapp->argv()[1][0]!='-'))
             {
 	    printf("Opening command line file...\n");
 	    int backautoadd=kcfg->readNumEntry("AutoAddToCollection",0);
 	    kcfg->writeEntry("AutoAddToCollection",0);
 
+            char ttt[40];
+            sprintf(ttt,"%d",kapp->argc());
 	    int i=1;
 	    int c=autoAddSongToCollection((kapp->argv())[i],1);
-	    i++;
+            i++;
 	    while (i<kapp->argc()) 
 		{
-		autoAddSongToCollection((kapp->argv())[i],0);
+                autoAddSongToCollection((kapp->argv())[i],0);
 		i++;
 		};
 
@@ -265,7 +309,7 @@ void kmidFrame::file_Open()
 char name[200];
 name[0]=0;
 QString filename;
-filename=KFileDialog::getOpenFileName(0,"*.*",this,name);
+filename=KFileDialog::getOpenFileName(0,"*.kar *.mid",this,name);
 if (!filename.isNull())
         {
 	char *s=new char[filename.length()+10];
@@ -310,9 +354,9 @@ switch (i)
     case (5) : kmidclient->song_Play();break;
     case (6) : kmidclient->song_Forward();break;
     case (7) : kmidclient->song_PlayNextSong();break; 
+    case (8) : donttoggle=TRUE;options_ShowChannelView();donttoggle=FALSE;break;
+    case (9) : donttoggle=TRUE;options_ShowVolumeBar();donttoggle=FALSE;break;
     };
-
-
 };
 
 void kmidFrame::options_GM()
@@ -433,7 +477,6 @@ void kmidFrame::shuttingDown()
    if (kmidclient->isPlaying()==1) kmidclient->song_Stop();
 };
 
-
 void kmidFrame::saveProperties(KConfig *kcfg)
 {
 kmidclient->saveCollections();
@@ -446,22 +489,6 @@ kcfg->writeEntry("Playing",play);
 
 void kmidFrame::readProperties(KConfig *kcfg)
 {
-/*
-char *c=new char [strlen((const char *)kcfg->readEntry("File",NULL))+1];
-strcpy(c,(const char *)kcfg->readEntry("File",NULL));
-kmidclient->openURL(c);
-
-KConfig *kconfig=KApplication::getKApplication()->getConfig();
-kconfig->setGroup("KMid");
-if ((kconfig->readNumEntry("AutomaticTextEventChooser",1))==1)
-    {
-    if (kmidclient->ChooseTypeOfTextEvents()==1)
-	  options_Text();
-	else
-	  options_Lyrics();  
-    }
-*/
-
 int activecol=kcfg->readNumEntry("ActiveCollection",0);
 int activesong=kcfg->readNumEntry("ActiveSong",0);
 int wasplaying=kcfg->readNumEntry("Playing",0);
@@ -623,4 +650,46 @@ void kmidFrame::spacePressed()
 {
 if (!kmidclient->isPlaying()) kmidclient->song_Play();
    else song_Pause();
+};
+void kmidFrame::options_ShowVolumeBar()
+{
+KConfig *kcfg=KApplication::getKApplication()->getConfig();
+kcfg->setGroup("KMid");
+int i=kcfg->readNumEntry("ShowVolumeBar",0);
+i=(i==1) ? 0 : 1; 
+kcfg->writeEntry("ShowVolumeBar",i);
+m_options->setItemChecked(7,(i==1) ? TRUE : FALSE);
+if (donttoggle==FALSE) toolbar->toggleButton(9);
+kmidclient->visibleVolumeBar(i);
+};
+
+void kmidFrame::options_ShowChannelView()
+{
+    int i=(kmidclient->getChannelView()==NULL)?0:1;
+    i=(i==1) ? 0 : 1; 
+    m_options->setItemChecked(8,(i==1) ? TRUE : FALSE);
+    if (donttoggle==FALSE) toolbar->toggleButton(8);
+    kmidclient->visibleChannelView(i);
+
+    if (kmidclient->getChannelView()!=NULL)
+        connect (kmidclient->getChannelView(),SIGNAL(destroyMe()),this,SLOT(channelViewDestroyed()));
+};
+
+void kmidFrame::channelViewDestroyed()
+{
+    kmidclient->channelViewDestroyed();
+    int i=(kmidclient->getChannelView()==NULL)?0:1;
+    m_options->setItemChecked(8,(i==1) ? TRUE : FALSE);
+    toolbar->toggleButton(8);
+};
+
+void kmidFrame::options_ChannelViewOptions()
+{
+    ChannelViewConfigDialog *dlg;
+    
+    dlg=new ChannelViewConfigDialog(NULL,"ChannelViewConfigDialog");
+    if (dlg->exec() == QDialog::Accepted) 
+    {
+        kmidclient->getChannelView()->lookMode(ChannelViewConfigDialog::selectedmode);
+    };
 };

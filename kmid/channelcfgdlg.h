@@ -1,7 +1,7 @@
 /**************************************************************************
 
-    midfile.h  - function which reads a midi file,and creates the track classes
-    Copyright (C) 1997,98  Antonio Larrosa Jimenez
+    channelcfgdlg.h  - The channel view config dialog
+    Copyright (C) 1998  Antonio Larrosa Jimenez
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -21,36 +21,30 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#ifndef _MIDFILE_H
-#define _MIDFILE_H
+#include <qdialog.h>
 
-#include "dattypes.h"
-#include "track.h"
-#include <stdio.h>
-
-struct midifileinfo
+class QButtonGroup;
+class QPushButton;
+class QRadioButton;
+class ChannelViewConfigDialog : public QDialog
 {
-int format;
-int ntracks;
-int ticksPerCuarterNote;
+    Q_OBJECT
 
+public:
+    
+    ChannelViewConfigDialog(QWidget *parent,const char *name);
+    
+private:
+    QButtonGroup *qbg;
+    QRadioButton *rb0;
+    QRadioButton *rb1;
+    
+    QPushButton *ok;
+    QPushButton *cancel;
+    
+public slots:
+    void modeselected(int idx);
 
-ulong ticksTotal;
-double millisecsTotal;
-ulong ticksPlayed;
-
-int patchesUsed[256]; // 0 - it's not used
-                     // 1 - it's used only once
-                     // 2 - if it's used twice
-                     // 3 - if it's used three times
-                     // and so on
+public:
+    static int selectedmode;
 };
-
-double tempoToMetronomeTempo(ulong x);
-
-track **readMidiFile(char *name,midifileinfo *info,int &ok);
-
-void parsePatchesUsed(track **Tracks,midifileinfo *info,int gm);
-
-int fsearch(FILE *fh,const char *text,long *ptr=NULL);
-#endif

@@ -55,6 +55,8 @@ private:
 
     int playerProcessID;
     PlayerController *pctl;
+    
+    int donttoggle;
 
     QPopupMenu *m_file;
     QPopupMenu *m_song;
@@ -94,6 +96,9 @@ public slots:
     void options_Text();
     void options_Lyrics();
     void options_AutomaticText();
+    void options_ShowVolumeBar();
+    void options_ShowChannelView();
+    void options_ChannelViewOptions();
     void options_FontChange();
     void options_MidiSetup();
     void spacePressed();
@@ -102,8 +107,9 @@ public slots:
  
     void rechooseTextEvent();
 
+    void channelViewDestroyed();
     void shuttingDown();
-    
+
 private:
     KMenuBar *menu;
     kmidClient *kmidclient;

@@ -33,6 +33,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include "player/slman.h"
+#include "player/notearray.h"
 #include "version.h"
 
 class DeviceManager;
@@ -43,6 +44,7 @@ class KConfig;
 class QLCDNumber;
 class QLabel;
 class KCombo;
+class ChannelView;
 
 class kmidClient : public QWidget
 {
@@ -61,13 +63,16 @@ private:
     QTimer *timer4timebar;
     QTimer *timer4events;
 
-    timeval begintv;
+//    timeval begintv;
     ulong beginmillisec;
     ulong pausedatmillisec;
     SpecialEvent *spev;
+    NoteArray *noteArray;
 
     int	itsme;
 
+    int visiblevolumebar;
+    
     char *midifile_opened;
     int hasbeenopened;
 
@@ -122,6 +127,17 @@ public:
     void setSongLoop(int i);
     void setCollectionPlayMode(int i);
 
+    void visibleVolumeBar(int i); // 1 shows it, and 0 hides it
+    //    int  isVisibleVolumeBar(void) {return visiblevolumebar;};
+    void visibleChannelView(int i);
+
+    ulong timeOfNextEvent(int *type=NULL);
+    void rethinkNextEvent(void);
+            // Recalculates time of next event and updates the timer4events according to it
+
+
+    void moveEventPointersTo(ulong ms);
+
 protected:
     void resizeEvent(QResizeEvent *qre);
 
@@ -139,14 +155,17 @@ public slots:
 
     void timebarUpdate();
     void timebarChange(int i);
-
+    void volumebarChange(int i);
     void selectSong(int i);
 
     void processSpecialEvent();
 
+    void channelViewDestroyed();
+
 signals:
     void mustRechooseTextEvent();
     void song_stopPause();
+    void channelView_Destroyed();
     
 public:
     void saveLyrics(FILE *fh);
@@ -154,13 +173,20 @@ public:
     DeviceManager *devman(void) {return Midi;};
     void setMidiDevice(int i);
     void setMidiMapFilename(char *mapfilename);
+
+    ChannelView *getChannelView(void) { return channelView; };
 private:
     KSlider *timebar;
     KSliderTime *timetags;
+    QSlider *volumebar;
+
     QLCDNumber *tempoLCD;
     KDisplayText *kdispt;
     QLabel *qlabelTempo;
     KCombo *comboSongs;
+
+    ChannelView *channelView;
+
 };
 
 char *extractFilename(const char *in,char *out); // returns a pointer to out

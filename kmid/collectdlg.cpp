@@ -241,7 +241,7 @@ if (currentsl==NULL) return;
 char name[200];
 name[0]=0;
 QString filename;
-filename=KFileDialog::getOpenFileName(0,"*.*",this,name);
+filename=KFileDialog::getOpenFileName(0,"*.kar *.mid",this,name);
 if (filename.isNull()) return;
 int id=currentsl->AddSong(filename);
 if (id==-1)

@@ -6,14 +6,16 @@ LDADD = player/libplayer.a -lkdeui -lkdecore -lkfile -lkfm -lqt -lXext -lX11
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp \
-	randomlist.cpp main.cpp 
+	randomlist.cpp channelview.cpp channel.cpp \
+	channel3d.cpp channel4d.cpp channelcfgdlg.cpp instrname.cpp main.cpp 
 
 noinst_HEADERS = *.h
 
 PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
 
 SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc \
-	 midicfgdlg.moc collectdlg.moc kaskdlg.moc
+	 midicfgdlg.moc collectdlg.moc kaskdlg.moc channelview.moc \
+         channel.moc channel3d.moc channel4d.moc channelcfgdlg.moc
 
 DISTCLEANFILES = $(SRCMETA) ./.deps/* ./.deps/.P
 
@@ -33,7 +35,10 @@ icondir = $(kde_icondir)
 fmpatches_DATA = std.sb drums.sb std.o3 drums.o3
 fmpatchesdir = $(kde_datadir)/kmid/fm
 
-EXTRA_DIST = $(applnk_DATA) $(mime_DATA) $(icon_DATA) $(fmpatches_DATA) mini-kmid.xpm
+pics_DATA = keyboard.xpm
+picsdir = $(kde_datadir)/kmid/pics
+
+EXTRA_DIST = $(applnk_DATA) $(mime_DATA) $(icon_DATA) $(fmpatches_DATA) mini-kmid.xpm $(pics_DATA)
 
 %.moc: %.h
 	$(MOC) $< -o $@
@@ -52,9 +57,27 @@ kslidertime.cpp:kslidertime.moc
 
 kdisptext.cpp:kdisptext.moc
 
+channelview.cpp:channelview.moc
 
-messages:
-	$(XGETTEXT) -C -ki18n $(kmid_SOURCES) && mv messages.po ../po/kmid.pot
+channel.cpp:channel.moc
+
+channel3d.cpp:channel3d.moc
+
+channel4d.cpp:channel4d.moc
+
+channelcfgdlg.cpp:channelcfgdlg.moc
+
+instrname.i18n:
+	echo "/* This is an automatically generated file" > instrname.i18n
+	echo " * DO NOT EDIT !!!" >> instrname.i18n
+	echo " * To create this file run : ""make instrname.i18n"" " >> instrname.i18n
+	echo " */" >> instrname.i18n
+	echo "" >> instrname.i18n
+	awk -f instrfilter.awk instrname.cpp >> instrname.i18n
+
+
+messages: instrname.i18n
+	$(XGETTEXT) -C -ki18n $(kmid_SOURCES) instrname.i18n && mv messages.po ../po/kmid.pot
 
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)

@@ -233,55 +233,55 @@ while (!fin)
 
 void KDisplayText::paintEvent(QPaintEvent *)
 {
-if (linked_list==NULL) return;
-if (nlines>nvisiblelines)
-    textscrollbar->setRange(1,nlines-nvisiblelines+1);
-   else
-    textscrollbar->setRange(1,1);
-
-if (qpaint==NULL)
+    if (linked_list==NULL) return;
+    if (nlines>nvisiblelines)
+        textscrollbar->setRange(1,nlines-nvisiblelines+1);
+    else
+        textscrollbar->setRange(1,1);
+    
+    if (qpaint==NULL)
     {
-    qpaint=new QPainter(this);
-    qpaint->setFont(*qtextfont);
+        qpaint=new QPainter(this);
+        qpaint->setFont(*qtextfont);
     };
-int i=0;
-qpaint->setPen(QColor(255,255,0));
-int colorplayed=1;
-if (cursor==NULL) colorplayed=0; // Thus, the program doesn't change the color
-kdispt_line *tmpl=first_line;
-kdispt_ev *tmp;
-KConfig *kcfg=KApplication::getKApplication()->getConfig();
-kcfg->setGroup("KMid");
-typeoftextevents=kcfg->readNumEntry("TypeOfTextEvents",1);
+    int i=0;
+    qpaint->setPen(QColor(255,255,0));
+    int colorplayed=1;
+    if (cursor==NULL) colorplayed=0; // Thus, the program doesn't change the color
+    kdispt_line *tmpl=first_line;
+    kdispt_ev *tmp;
+    KConfig *kcfg=KApplication::getKApplication()->getConfig();
+    kcfg->setGroup("KMid");
+    typeoftextevents=kcfg->readNumEntry("TypeOfTextEvents",1);
 #ifdef KDISPTEXTDEBUG
-printf("events displayed %d\n",typeoftextevents);
+    printf("events displayed %d\n",typeoftextevents);
 #endif
-while ((i<nvisiblelines)&&(tmpl!=NULL))
+    while ((i<nvisiblelines)&&(tmpl!=NULL))
     {
-    tmpl->ypos=(tmpl->num-first_line->num+1)*qfmetr->lineSpacing();
-    tmp=tmpl->ev;
-    while ((tmp!=NULL)&&(tmp->spev->type!=typeoftextevents)) tmp=tmp->next;
-    while (tmp!=NULL)
-        {
-	if ( colorplayed && 
-//	(tmp->spev->absmilliseconds>=cursor->spev->absmilliseconds))
-	(tmp->spev->id>=cursor->spev->id))
-		{
-		qpaint->setPen(QColor(0,0,0));
-		colorplayed=0;
-		};	
-	
-        if (IsLineFeed(tmp->spev->text[0],tmp->spev->type))
-            qpaint->drawText(tmp->xpos,tmpl->ypos,&tmp->spev->text[1]);
-           else
-            qpaint->drawText(tmp->xpos,tmpl->ypos,tmp->spev->text);
-	tmp=tmp->next;
+        tmpl->ypos=(tmpl->num-first_line->num+1)*qfmetr->lineSpacing();
+        tmp=tmpl->ev;
         while ((tmp!=NULL)&&(tmp->spev->type!=typeoftextevents)) tmp=tmp->next;
+        while (tmp!=NULL)
+        {
+            if ( colorplayed && 
+                 //	(tmp->spev->absmilliseconds>=cursor->spev->absmilliseconds))
+                 (tmp->spev->id>=cursor->spev->id))
+            {
+                qpaint->setPen(QColor(0,0,0));
+                colorplayed=0;
+            };	
+            
+            if (IsLineFeed(tmp->spev->text[0],tmp->spev->type))
+                qpaint->drawText(tmp->xpos,tmpl->ypos,&tmp->spev->text[1]);
+            else
+                qpaint->drawText(tmp->xpos,tmpl->ypos,tmp->spev->text);
+            tmp=tmp->next;
+            while ((tmp!=NULL)&&(tmp->spev->type!=typeoftextevents)) tmp=tmp->next;
         };
-    i++;
-    tmpl=tmpl->next;
+        i++;
+        tmpl=tmpl->next;
     };
-qpaint->setPen(QColor(255,255,0));
+    qpaint->setPen(QColor(255,255,0));
 };
 
 void KDisplayText::resizeEvent(QResizeEvent *)
