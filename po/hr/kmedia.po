@@ -67,7 +67,7 @@ msgstr "&Sadr¾aj"
 
 #: kmediawin.cpp:210
 msgid "&About"
-msgstr "%O programu"
+msgstr "&O programu"
 
 #: kmediawin.cpp:214
 msgid "&File"
@@ -99,7 +99,7 @@ msgstr "Sviram"
 
 #: kmediawin.cpp:276
 msgid "Paused"
-msgstr "Èekam"
+msgstr "Zaustavljen"
 
 #: kmediawin.cpp:277
 msgid "Ready"
