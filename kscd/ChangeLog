@@ -1,3 +1,7 @@
+1998-04-17  Vadim Zaliva  <lord@crocodile.org>
+
+	* User and domain name now calculated once, not per each request.
+
 1998-04-16  Vadim Zaliva  <lord@crocodile.org>
 	
 	* Tested with Netscape Proxy

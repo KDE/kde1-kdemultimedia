@@ -68,6 +68,22 @@ CDDB::CDDB(char *host, int _port,int _timeout)
 
     use_http_proxy=false;
 
+
+    // get current user/host name
+    struct utsname uts;
+
+    uname(&uts);
+    domainname = uts.nodename;
+    domainname.detach();
+    
+    if(domainname.isEmpty())
+	domainname = "somemachine.nowhere.org";
+      
+    pw = getpwuid(getuid());
+    if (pw)
+	username = pw->pw_name;
+    else
+	username = "anonymous";
 }
 
 CDDB::~CDDB()
@@ -239,24 +255,7 @@ void CDDB::send_http_command(QString &command)
     QString request;
     QString prt;
     QString identification;
-    struct utsname uts;
-    QString domainname;
-    QString username;
     
-    //TODO: We should get user/host name informations only once per session.
-    uname(&uts);
-    domainname = uts.nodename;
-    domainname.detach();
-    
-    if(domainname.isEmpty())
-	domainname = "somemachine.nowhere.org";
-      
-    pw = getpwuid(getuid());
-    if (pw)
-	username = pw->pw_name;
-    else
-	username = "anonymous";
-
     identification="&hello="+username+"+"+domainname+"+Kscd+"+KSCDVERSION+"&proto=3";
 
     prt.setNum(port);
@@ -486,31 +485,6 @@ void CDDB::do_state_machine()
 	if((lastline.left(3) == QString("201")) ||(lastline.left(3) == QString("200")) )
         {
 	    QString hellostr;
-	    QString username;
-
-	    if(lastline.left(3) == QString("201"))
-		readonly = true;
-	    else
-		readonly = false;
-
-	    struct utsname uts;
-	    uname(&uts);
-	    if (debugflag) 
-                fprintf(stderr,"LOCAL NODE: %s\n",uts.nodename);
-
-	    QString domainname;
-	    domainname = uts.nodename;
-	    domainname.detach();
-
-	    if(domainname.isEmpty())
-		domainname = "somemachine.nowhere.org";
-
-	    pw = getpwuid(getuid());
-
-	    if (pw)
-		username = pw->pw_name;
-	    else
-		username = "anonymous";
 
 	    // cddb hello username hostname clientname version
 	    hellostr.sprintf("cddb hello %s %s Kscd ",username.data(),
