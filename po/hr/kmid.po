@@ -36,19 +36,19 @@ msgstr "Gledaj &stihovne dogaðaje (events)"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr ""
+msgstr "Odmotaj dolje karaoke"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr ""
+msgstr "Odmotaj gore karaoke"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr ""
+msgstr "Odmotaj karaoke jednu stranicu dolje"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr ""
+msgstr "Odmotaj karaoke jednu stranicu gore"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -124,7 +124,7 @@ msgstr "&Promjena Pisma ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr ""
+msgstr "Postavi tip&ke"
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
@@ -146,6 +146,18 @@ msgid ""
 "This is free software, and you are welcome to redistribute it\n"
 "under certain conditions\n"
 msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
+"Malaga (©panjolska)\n"
+"\n"
+"Sviraè Midi/Karaoke datoteka\n"
+"Internet stranica KMid-a: http://www.arrakis.es/~rlarrosa/kmid.html\n"
+"\n" 
+"KMid dolazi bez IKAKVE GARANCIJE; za detalje pogeldajte datoteku COPYING\n" 
+"Ovo je slobodni program i dopu¹teno Vam je njegova ¹irenje\n"
+"pod odreðenim uvjetima\n"
 
 #: kmidframe.cpp:197
 msgid "&Song"
@@ -198,7 +210,7 @@ msgstr ""
 
 #: kmidclient.cpp:96
 msgid "Tempo :"
-msgstr "Tempo :"
+msgstr "Ritam :"
 
 #: kmidclient.cpp:272
 #, c-format
@@ -224,7 +236,7 @@ msgstr "Nema dovoljno memorije !!"
 
 #: kmidclient.cpp:281
 msgid "This file is corrupted or not well built"
-msgstr "Ova datoteka je o¹teæena ili nije ispravno "
+msgstr "Ova datoteka je o¹teæena ili nije ispravna "
 
 #: kmidclient.cpp:282
 msgid "Unknown error message"
@@ -329,7 +341,7 @@ msgstr "3D izgled"
 
 #: channelcfgdlg.cpp:28
 msgid "3D - filled"
-msgstr ""
+msgstr "3D - ispunjen"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
@@ -337,7 +349,7 @@ msgstr "Akustièni koncertni klavir"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
-msgstr ""
+msgstr "Jasan akustièni klavir"
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
@@ -345,7 +357,7 @@ msgstr "Elektrièni koncertni klavir"
 
 #: instrname.i18n:9
 msgid "Honky-Tonk"
-msgstr ""
+msgstr "Honky-Tonk"
 
 #: instrname.i18n:10
 msgid "Rhodes Piano"
@@ -353,7 +365,7 @@ msgstr "Rhodes klavir"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
-msgstr ""
+msgstr "Zborni klavir"
 
 #: instrname.i18n:12
 msgid "Harpsichord"
@@ -361,7 +373,7 @@ msgstr "Klavièembalo"
 
 #: instrname.i18n:13
 msgid "Clavinet"
-msgstr ""
+msgstr "Klarinet"
 
 #: instrname.i18n:14
 msgid "Celesta"
@@ -377,27 +389,27 @@ msgstr "Muzièka kutija"
 
 #: instrname.i18n:17
 msgid "Vibraphone"
-msgstr ""
+msgstr "Vibrafon"
 
 #: instrname.i18n:18
 msgid "Marimba"
-msgstr ""
+msgstr "Marimba"
 
 #: instrname.i18n:19
 msgid "Xylophone"
-msgstr ""
+msgstr "ksilofon"
 
 #: instrname.i18n:20
 msgid "Tubular Bells"
-msgstr ""
+msgstr "Tubular Bells"
 
 #: instrname.i18n:21
 msgid "Dulcimer"
-msgstr ""
+msgstr "Cimbale"
 
 #: instrname.i18n:22
 msgid "Hammond Organ"
-msgstr ""
+msgstr "Hammond orgulje"
 
 #: instrname.i18n:23
 msgid "Percussive Organ"
@@ -413,11 +425,11 @@ msgstr "Crkvene orgulje"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
-msgstr ""
+msgstr "Orgulje (cijevi)"
 
 #: instrname.i18n:27
 msgid "Accordion"
-msgstr ""
+msgstr "Harmonika"
 
 #: instrname.i18n:28
 msgid "Harmonica"
@@ -425,7 +437,7 @@ msgstr "Usna harmonika"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
-msgstr ""
+msgstr "Harmonika za tango"
 
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
@@ -441,23 +453,23 @@ msgstr "Elektrièna gitara (D¾ez)"
 
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
-msgstr ""
+msgstr "Elektrièna girara (èista)"
 
 #: instrname.i18n:34
 msgid "Electric Guitar (Muted)"
-msgstr ""
+msgstr "Elektrièna gitara (prigu¹ena)"
 
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
-msgstr ""
+msgstr "Elektrièna gitara (overdrive)"
 
 #: instrname.i18n:36
 msgid "Distortion Guitar"
-msgstr ""
+msgstr "Elektrièna gitara (distortion)"
 
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
-msgstr ""
+msgstr "Guitar Harmonics"
 
 #: instrname.i18n:38
 msgid "Acoustic Bass"
@@ -469,7 +481,7 @@ msgstr "Elektrièni Bas (Prst)"
 
 #: instrname.i18n:40
 msgid "Electric Bass (Pick)"
-msgstr ""
+msgstr "Elektrièni bas (Pick)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
@@ -501,7 +513,7 @@ msgstr "Viola"
 
 #: instrname.i18n:48
 msgid "Cello"
-msgstr ""
+msgstr "Æelo"
 
 #: instrname.i18n:49
 msgid "Contrabass"
@@ -517,7 +529,7 @@ msgstr ""
 
 #: instrname.i18n:52
 msgid "Orchestral Harp"
-msgstr ""
+msgstr "Harfa"
 
 #: instrname.i18n:53
 msgid "Timpani"
@@ -573,7 +585,7 @@ msgstr ""
 
 #: instrname.i18n:66
 msgid "French Horn"
-msgstr ""
+msgstr "Fransucki rog"
 
 #: instrname.i18n:67
 msgid "Brass Section"
@@ -609,7 +621,7 @@ msgstr "Oboa"
 
 #: instrname.i18n:75
 msgid "English Horn"
-msgstr ""
+msgstr "Engleski rog"
 
 #: instrname.i18n:76
 msgid "Bassoon"
@@ -753,7 +765,7 @@ msgstr ""
 
 #: instrname.i18n:111
 msgid "Banjo"
-msgstr ""
+msgstr "Bend¾o"
 
 #: instrname.i18n:112
 msgid "Shamisen"
@@ -813,7 +825,7 @@ msgstr ""
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
-msgstr ""
+msgstr "Zvuk praga gitare"
 
 #: instrname.i18n:127
 msgid "Breath Noise"
@@ -825,7 +837,7 @@ msgstr "Morska obala"
 
 #: instrname.i18n:129
 msgid "Bird Tweet"
-msgstr ""
+msgstr "Cvrkut ptica"
 
 #: instrname.i18n:130
 msgid "Telephone"
