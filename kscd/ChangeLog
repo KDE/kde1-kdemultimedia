@@ -1,3 +1,10 @@
+1998-04-14  Vadim Zaliva  <lord@crocodile.org>
+
+	* GUI added for setting HTTP proxy to access CDDB. 
+	* Config options added for HTTP proxy stuff
+	* most includes from cddb.h moved to cddb.cpp,kscd.cpp
+	* new version #1.1.1
+
 Tue Apr 14 05:17:36 1998  Bernd Johannes Wuebben  <wuebben@math.cornell.edu>
 
 	* layout corrections for kscd magic dialog 

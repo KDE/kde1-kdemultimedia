@@ -29,21 +29,13 @@
 #ifndef _CDDB_H_
 #define _CDDB_H_
 
-#include <netdb.h>
-#include <pwd.h>
-#include <stdio.h>
-#include <sys/types.h>
-#include <unistd.h>
-
-
-#include <qregexp.h> 
-#include <qlist.h>
+#include <qtimer.h>
 #include <qstring.h>
 #include <qstrlist.h>
 
 #include <ksock.h>
 
-#include "kscd.h"
+#define DEFAULT_CDDB_SERVER "www.cddb.com cddbp 8880 -"
 
 class CDDB:public QObject
 {

@@ -23,16 +23,25 @@
  * Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
  */
+
 #include <qtstream.h> 
 #include <qfile.h>
 #include <qdir.h>
 #include <qfileinf.h> 
+#include <qregexp.h> 
 #include "cddb.h"
 #include <sys/time.h>
 #include <kapp.h>
 #include "version.h"
 
 #include <sys/utsname.h>
+
+#include <netdb.h>
+#include <pwd.h>
+#include <stdio.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 extern KApplication 	*mykapp;
 
@@ -1011,7 +1020,7 @@ bool CDDB::normalize_server_list_entry(QString &entry)
     {
 	// old format
 	sprintf(extra,"%s cddbp %s -",serv, proto);
-	entry=strdup(extra);
+	entry=extra;
 	return true;
     } else
     {

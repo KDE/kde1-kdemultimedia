@@ -27,6 +27,7 @@ extern "C" {
 }
 
 #include <qdir.h>
+#include <qregexp.h> 
 #include <kfm.h>
 
 #include "docking.h"
@@ -136,6 +137,9 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
 
   cycle_flag		= false;
   cddb_remote_enabled   = true;
+  cddb_proxy_enabled    = false;
+  cddb_proxy_host       = 0L;
+  cddb_proxy_port       = 0;
   cddb 			= 0L;
   setup 	       	= 0L;
   time_display_mode 	= TRACK_SEC;
@@ -913,7 +917,7 @@ void KSCD::aboutClicked(){
 
   tabdialog = new QTabDialog(0,"tabdialog",TRUE);
   tabdialog->setCaption( "kscd Configuraton" );
-  tabdialog->resize( 400, 450 );
+  tabdialog->resize( 400, 510 );
   tabdialog->setCancelButton();
 
   QWidget *about = new QWidget(tabdialog,"about");
@@ -970,7 +974,12 @@ void KSCD::aboutClicked(){
   connect(setup,SIGNAL(updateCDDBServers()),this,SLOT(getCDDBservers()));
   connect(setup,SIGNAL(updateCurrentServer()),this,SLOT(updateCurrentCDDBServer()));
   setup->insertData(cddbserverlist,cddbbasedir,
-		    submitaddress,current_server,cddb_remote_enabled);
+		    submitaddress,current_server,
+		    cddb_remote_enabled,
+		    cddb_proxy_enabled,
+		    cddb_proxy_host,
+		    cddb_proxy_port
+  );
 
   MGConfigDlg* mgdlg;
   struct mgconfigstruct mgconfig;
@@ -1009,8 +1018,15 @@ void KSCD::aboutClicked(){
     magic_height = mgdlg->getData()->height;
     magic_brightness = mgdlg->getData()->brightness;
 
-    setup->getData(cddbserverlist,cddbbasedir,submitaddress,
-		   current_server,cddb_remote_enabled);
+    setup->getData(cddbserverlist,
+		   cddbbasedir,
+		   submitaddress,
+		   current_server,
+		   cddb_remote_enabled,
+		   cddb_proxy_enabled,
+		   cddb_proxy_host,
+		   cddb_proxy_port
+    );
     setColors();
     setToolTips();
 
@@ -1317,7 +1333,12 @@ void KSCD::readSettings(){
   cddbbasedir = config->readEntry("LocalBaseDir",basedirdefault.data());
   cddb_remote_enabled = (bool) config->readNumEntry("CDDBRemoteEnabled",
 						    (int)true);
-  current_server = config->readEntry("CurrentServer","www.cddb.com cddbp 8880 -");
+  cddb_proxy_enabled = (bool) config->readNumEntry("CDDBHTTPProxyEnabled",
+						   (int)false);
+  cddb_proxy_host = config->readEntry("HTTPProxyHost","");
+  cddb_proxy_port = config->readNumEntry("HTTPProxyPort",0);
+  
+  current_server = config->readEntry("CurrentServer",DEFAULT_CDDB_SERVER);
   //Let's check if it is in old format and if so, convert it to new one:
   if(CDDB::normalize_server_list_entry(current_server))
   {
@@ -1329,7 +1350,7 @@ void KSCD::readSettings(){
   int num;
   num = config->readListEntry("SeverList",cddbserverlist,',');
   if (num == 0)
-      cddbserverlist.append("www.cddb.com cddbp 8880 -");
+      cddbserverlist.append(DEFAULT_CDDB_SERVER);
   else
   {
       //Let's check if it is in old format and if so, convert it to new one:
@@ -1386,7 +1407,9 @@ void KSCD::writeSettings(){
   config->writeEntry("SeverList",cddbserverlist);
   config->writeEntry("CDDBSubmitAddress",submitaddress);
   config->writeEntry("CurrentServer",current_server);
-
+  config->writeEntry("CDDBHTTPProxyEnabled",(int)cddb_proxy_enabled);
+  config->writeEntry("HTTPProxyHost",cddb_proxy_host);
+  config->writeEntry("HTTPProxyPort",cddb_proxy_port);
 
   config->setGroup("MAGIC");
   config->writeEntry("magicwidth",magic_width);
