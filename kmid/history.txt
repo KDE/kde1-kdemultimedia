@@ -412,3 +412,6 @@ Saturday 24-10-98
 
 Sunday 25-10-98
 - Fixed a serious bug I introduced in the previous commitment
+
+Monday 2-11-98
+- Fixed some problems
