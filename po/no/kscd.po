@@ -575,9 +575,8 @@ msgstr ""
 "Er du sikker på at Kscd Magic er installert?"
 
 #: kscd.cpp:2352
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "CDDB-basekatalog"
+msgstr "Skriv inn katalog for lokal CDDB-base"
 
 #: kscd.cpp:2392
 msgid "-h: display commandline options\n"
