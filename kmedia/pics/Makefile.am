@@ -5,6 +5,8 @@ pics_DATA = eject.xbm ff.xbm kmedia.xpm kmedia_mini.xpm lock.xbm \
 
 picsdir = $(kde_datadir)/kmedia/pics
 
+EXTRA_DIST = $(pics_DATA) kmedia_mini.xpm
+
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) kmedia_mini.xpm $(kde_minidir)/kmedia.xpm

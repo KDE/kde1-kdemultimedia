@@ -13,7 +13,8 @@ INCLUDES= $(all_includes)
 ####### Files
 
 noinst_HEADERS = kscd.h struct.h bwlednum.h ledlamp.h inexact.h \
-	CDDialog.h CDDialogData.h CDDBSetup.h CDDBSetupData.h mgconfdlg.h
+	CDDialog.h CDDialogData.h CDDBSetup.h CDDBSetupData.h mgconfdlg.h \
+	configdlg.h cddb.h version.h docking.h wmcdda.h
 
 kscd_SOURCES = kscd.cpp configdlg.cpp cddb.cpp ledlamp.cpp CDDialog.cpp \
 	CDDialogData.cpp CDDBSetup.cpp CDDBSetupData.cpp docking.cpp \
@@ -40,12 +41,14 @@ TARGET3 = kscdmagic
 config.h: kscd-script 
 	$(SHELL) ./kscd-script
 
-SUBDIRS = docs kscdmagic
+SUBDIRS = docs kscdmagic bitmaps sbpcdhack
 
 CDDB_DIRS = rock blues classical jazz newage soundtrack \
 	reggae folk country misc data
 
 bin_SCRIPTS = workman2cddb.pl
+
+EXTRA_DIST = kscd.xpm mini-kscd.xpm kscdlogo.xpm xmcd.kdelnk kscd.kdelnk kscd-script $(bin_SCRIPTS) config.h.std
 
 install-data-local:
 	for i in $(CDDB_DIRS); do \

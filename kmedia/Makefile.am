@@ -16,7 +16,7 @@ kmedia_LDFLAGS = $(LDFLAGS) $(KDE_RPATH)
 BUILTSOURCES = kmediaui.moc kmediawin.moc prefs.moc
 DISTCLEANFILES = kmediaui.moc kmediawin.moc prefs.moc
 
-
+EXTRA_DIST = KMedia.kdelnk VERSION
 
 kmediaui.cpp: kmediaui.moc
 kmediaui.moc: kmediaui.h
@@ -32,6 +32,8 @@ prefs.moc: prefs.h
 
 version.h: VERSION
 	sed "s/0/#define APP_VERSION 0/" <VERSION >version.h
+
+uiactions.cpp: version.h
 
 install-data-local: 
 	$(mkinstalldirs) $(APPSDIR)

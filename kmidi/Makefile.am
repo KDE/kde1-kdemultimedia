@@ -31,7 +31,8 @@ kmidi_SOURCES = kmidi.cpp  playlist.cpp bwlednum.cpp configdlg.cpp log.cpp\
 
 noinst_HEADERS = kmidi.h  playlist.h bwlednum.h configdlg.h\
 	config.h common.h readmidi.h playmidi.h resample.h mix.h instrum.h \
-	tables.h controls.h output.h filter.h log.h
+	tables.h controls.h output.h filter.h log.h version.h filepic.h \
+	cduppic.h constants.h folderpic.h sbk.h sflayer.h
 
 SRCMETA = kmidi.moc  playlist.moc bwlednum.moc configdlg.moc log.moc
 DISTCLEANSOURCES = $(SRCMETA)
@@ -56,7 +57,7 @@ playlist.cpp: playlist.moc
 playlist.moc: playlist.h
 	$(MOC) -o playlist.moc playlist.h
 
-SUBDIRS = docs config
+SUBDIRS = docs config bitmaps patch
 
 appsdir = $(kde_appsdir)/Multimedia
 apps_DATA = KMidi.kdelnk
@@ -67,6 +68,8 @@ icon_DATA = kmidi.xpm
 picsdir = $(kde_datadir)/kmidi/pics
 pics_DATA = kmidilogo.xpm
 
+EXTRA_DIST = $(apps_DATA) $(icon_DATA) $(pics_DATA) kmidi-mini.xpm
+
 
 install-data-local:
 	$(mkinstalldirs) $(TIMID_DIR)
@@ -76,7 +79,7 @@ install-data-local:
 
 	$(mkinstalldirs) $(kde_minidir)
 	$(INSTALL_DATA) kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
-	
+
 	@echo ""
 	@echo "Important:"
 	@echo "=========="	

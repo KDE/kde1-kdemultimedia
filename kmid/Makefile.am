@@ -8,6 +8,8 @@ kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp \
 	randomlist.cpp main.cpp 
 
+noinst_HEADERS = *.h
+
 PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
 
 SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc \
@@ -30,6 +32,8 @@ icondir = $(kde_icondir)
 
 fmpatches_DATA = std.sb drums.sb std.o3 drums.o3
 fmpatchesdir = $(kde_datadir)/kmid/fm
+
+EXTRA_DIST = $(applnk_DATA) $(mime_DATA) $(icon_DATA) $(fmpatches_DATA) mini-kmid.xpm
 
 %.moc: %.h
 	$(MOC) $< -o $@
