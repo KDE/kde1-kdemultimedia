@@ -1,8 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -64,11 +59,11 @@ msgstr "Preferenze"
 
 #: kmediawin.cpp:208
 msgid "&Contents"
-msgstr "Contenuti"
+msgstr "&Contenuti"
 
 #: kmediawin.cpp:210
 msgid "&About"
-msgstr "Info"
+msgstr "&Info"
 
 #: kmediawin.cpp:214
 msgid "&File"

@@ -1,8 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -18,15 +13,13 @@ msgstr ""
 msgid "Minimize"
 msgstr ""
 
-#: kmix.cpp:425
-#, fuzzy
+#: kmix.cpp:425y
 msgid "&Hide Menubar"
-msgstr "Nascondi barra menu"
+msgstr "&Nascondi Barra menu"
 
 #: kmix.cpp:428
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "Graduatori On/Off"
+msgstr "&Graduatori On/Off"
 
 #: kmix.cpp:442
 msgid ""
@@ -101,9 +94,8 @@ msgid "KMix Preferences"
 msgstr "Preferenze KMix"
 
 #: prefs.cpp:96
-#, fuzzy
 msgid "Mixer channel setup"
-msgstr "Configurazione canali mixer (non salvata)"
+msgstr "Configurazione canali mixer"
 
 #: prefs.cpp:103
 msgid "Device"
@@ -114,27 +106,5 @@ msgid "Show"
 msgstr "Mostra"
 
 #: prefs.cpp:115
-#, fuzzy
 msgid "Split"
-msgstr "Dividi"
-
-#~ msgid "&Options"
-#~ msgstr "&Opzioni"
-
-#~ msgid "&Quit"
-#~ msgstr "&Esci"
-
-#~ msgid "&Contents"
-#~ msgstr "&Contenuti"
-
-#~ msgid "&About"
-#~ msgstr "&Info"
-
-#~ msgid "&About Qt..."
-#~ msgstr "Info sulle Qt.."
-
-#~ msgid "&File"
-#~ msgstr "&File"
-
-#~ msgid "&Help"
-#~ msgstr "&Aiuto"
+msgstr "Separa"
