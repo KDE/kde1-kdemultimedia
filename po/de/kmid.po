@@ -1,0 +1,325 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmid\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"PO-Revision-Date: 1998-07-30 23:00+MET\n"
+"Last-Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
+"Language-Team: german <kde-i18n@kde.org>\n"
+
+#: kmidframe.cpp:61
+msgid "&Open ..."
+msgstr "Ö&ffnen ..."
+
+#: kmidframe.cpp:64
+msgid "&Save Lyrics ..."
+msgstr "Lied &speichern ..."
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "&Ende"
+
+#: kmidframe.cpp:70
+msgid "&Play"
+msgstr "&Abspielen"
+
+#: kmidframe.cpp:72
+msgid "P&ause"
+msgstr "&Pause"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "&Stop"
+
+#: kmidframe.cpp:76
+msgid "P&revious Song"
+msgstr "&Vorheriges Lied"
+
+#: kmidframe.cpp:78
+msgid "&Next Song"
+msgstr "&Nächstes Lied"
+
+#: kmidframe.cpp:81
+msgid "&Loop"
+msgstr "&Dauerlauf"
+
+#: kmidframe.cpp:87
+msgid "&Organize ..."
+msgstr "&Organisieren ..."
+
+#: kmidframe.cpp:90
+msgid "In order mode"
+msgstr "Der Reihe nach"
+
+#: kmidframe.cpp:93
+msgid "Shuffle mode"
+msgstr "Shuffle Modus"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr "Automatisches Hinzufügen zur Sammlung"
+
+#: kmidframe.cpp:104
+msgid "&General Midi file"
+msgstr "&General Midi Datei"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr "&MT-32 Datei"
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr "&Textereignisse"
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr "&Liedereignisse"
+
+#: kmidframe.cpp:122
+msgid "&Automatic Text chooser"
+msgstr "&Automatische Textauswahl"
+
+#: kmidframe.cpp:127
+msgid "&Font Change ..."
+msgstr "&Zeichensatz ..."
+
+#: kmidframe.cpp:130
+msgid "&Midi Setup ..."
+msgstr "&Midi Setup ..."
+
+#: kmidframe.cpp:135
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+"%s\n"
+"\n"
+"(C) 1997/8 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spanien)\n"
+"\n"
+"Midi/Karaoke Spieler\n"
+"\n"
+"KMid kommt mit ABSOLUT KEINER GARANTIE; genaueres in der Datei COPYING\n"
+"Dieses Programm ist freie Software und Sie dürfen sie unter gewissen\n"
+"Bedingungen weiter verteilen\n"
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "&Datei"
+
+#: kmidframe.cpp:147
+msgid "&Song"
+msgstr "&Lied"
+
+#: kmidframe.cpp:148
+msgid "&Collections"
+msgstr "&Sammlung"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "&Optionen"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "&Hilfe"
+
+#: kmidframe.cpp:160
+msgid "Previous Song"
+msgstr "Vorhergehendes Lied"
+
+#: kmidframe.cpp:163
+msgid "Rewind"
+msgstr "Zurück"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "Anhalten"
+
+#: kmidframe.cpp:169
+msgid "Pause"
+msgstr "Pause"
+
+#: kmidframe.cpp:173
+msgid "Play"
+msgstr "Abspielen"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "Vorwärts"
+
+#: kmidframe.cpp:179
+msgid "Next Song"
+msgstr "Nächstes Lied"
+
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
+msgid "Error"
+msgstr "Fehler"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+"Konnte /dev/sequencer nicht öffnen, um einige Informationen\n"
+"zu erhalten. Vermutlich wird er von einem anderen Programm gebraucht."
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+#, c-format
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"Die Datei %s existiert bereits\n"
+"Wollen Sie sie überschreiben ?"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
+msgid "Warning"
+msgstr "Warnung"
+
+#: kmidclient.cpp:88
+msgid "Tempo :"
+msgstr "Tempo :"
+
+#: kmidclient.cpp:231
+#, c-format
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "Die Datei %s existiert nicht oder kann nicht geöffnet werden"
+
+#: kmidclient.cpp:234
+#, c-format
+msgid "The file %s is not a midi file"
+msgstr "Die Datei %s ist keine Midi-Datei"
+
+#: kmidclient.cpp:236
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+"Ticks pro Viertelnote sind negativ, bitte senden Sie diese "
+"Datei an antlarr@arrakis.es"
+
+#: kmidclient.cpp:238
+msgid "Not enough memory !!"
+msgstr "Nicht genügend Speicher !!"
+
+#: kmidclient.cpp:240
+msgid "This file is corrupted or not well built"
+msgstr "Diese Datei ist defekt oder nicht richtig aufgebaut"
+
+#: kmidclient.cpp:241
+msgid "Unknown error message"
+msgstr "Unbekannte Fehlermeldung"
+
+#: kmidclient.cpp:316
+msgid "You must load a file before playing it"
+msgstr "Sie müssen eine Datei laden bevor Sie sie abspielen können"
+
+#: kmidclient.cpp:322
+msgid "A song is already being played"
+msgstr "Es wird bereits ein Lied gespielt"
+
+#: kmidclient.cpp:328
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+"Konnte /dev/sequencer nicht öffnen\n"
+"Wahrscheinlich wird er von einem anderen Programm gebraucht"
+
+#: midicfgdlg.cpp:37
+msgid "Configure Midi devices"
+msgstr "Konfigurieren der Midi-Geräte"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "Ok"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr "Wählen Sie ein Midi-Gerät aus:"
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr "Benutze mide map :"
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "Kein"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "Durchsuchen ..."
+
+#: collectdlg.cpp:39
+msgid "Collections Manager"
+msgstr "Sammlungsmanager"
+
+#: collectdlg.cpp:47
+msgid "Available collections :"
+msgstr "Vorhandene Sammlungen :"
+
+#: collectdlg.cpp:67
+msgid "Songs in selected collection:"
+msgstr "Lieder in der gewählten Sammlung"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Neu"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "Kopieren"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "Löschen"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "Entfernen"
+
+#: collectdlg.cpp:151
+msgid "Enter the name of the new collection"
+msgstr "Bitte geben Sie den Namen der neuen Sammlung ein"
+
+#: collectdlg.cpp:152
+msgid "New Collection"
+msgstr "Neue Sammlung"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
+msgid "The name '%s' is already used"
+msgstr "Der Name '%s' ist bereits vergeben"
+
+#: collectdlg.cpp:177
+msgid "Enter the name of the copy collection"
+msgstr "Geben Sie den Namen der neuen Sammlung an"
+
+#: collectdlg.cpp:178
+msgid "Copy Collection"
+msgstr "Kopiensammlung"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr "Geben Sie den neuen Namen für die gewählte Sammlung ein"
+
+#: collectdlg.cpp:220
+msgid "Change Collection Name"
+msgstr "Ändern des Sammlungsnamen"
