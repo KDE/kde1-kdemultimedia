@@ -78,6 +78,7 @@ public slots:
   void		fwdReleased();
   void		bwdClicked();
   void		bwdReleased();
+  void		pllClicked();
   void		quitClicked();
   void		TimerFunctions();
   void		ejectClicked();
@@ -120,6 +121,7 @@ private:
   QPushButton	*nextPB;	// Next track
   QPushButton	*fwdPB;		// "Fast" forward
   QPushButton	*bwdPB;		// "Fast" rewind
+  QPushButton   *pllPB;         // "Playlist" lookup
   QPushButton	*quitPB;	// Quit button
   QPushButton	*ejectPB;	// Eject button
 

@@ -149,6 +149,9 @@ void KMediaWin::createPanel()
   connect( bwdPB, 	SIGNAL(pressed()), 	SLOT(bwdClicked()) );
   connect( bwdPB, 	SIGNAL(released()), 	SLOT(bwdReleased()) );
 
+  pllPB = createButton (2000, iy,   2,      2, "Pll",                  ("KDE"));
+  connect(  pllPB,      SIGNAL(clicked()),      SLOT(pllClicked()) );
+
   ix += WIDTH;
   stopPB = createButton( ix, iy, WIDTH, HEIGHT, "Stop" , klocale->translate("Stop") );
   connect( stopPB, 	SIGNAL(clicked()), 	SLOT(stopClicked()) );

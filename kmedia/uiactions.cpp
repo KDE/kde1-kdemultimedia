@@ -188,7 +188,11 @@ void KMediaWin::TimerFunctions()
 }
 
 
-
+void KMediaWin::pllClicked()
+{
+   char PlayLoopInfo[]="playlist loop";
+   QMessageBox::about( this, "Playlist Loop", PlayLoopInfo);
+}
 
 void KMediaWin::PosChanged( int /*new_pos*/ )
 {

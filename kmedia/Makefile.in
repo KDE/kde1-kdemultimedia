@@ -61,7 +61,6 @@ $(TARGET): $(SRCMETA) $(OBJECTS) $(OBJNLS)
 clean:
 	rm -f *.o *.bak .depend *~ *% #*
 	rm -f $(SRCMETA) $(TARGET)
-	rm -f *.mo
 
 distclean: clean
 	rm -f Makefile
