@@ -21,6 +21,7 @@ Comment[pt]=Ferramenta multimédia
 Comment[cs]=Multimediální pøehrávaè
 Comment[sk]=Multimediálny prehrávaè
 Comment[hr]=Multimedija uslu¾ni program
+Comment[sv]=Upspelnings verktyg för multimedia
 Name=Media Player
 Name[fr]=Platine multimédia
 Name[de]=Medienwiedergabe
@@ -30,3 +31,5 @@ Name[hu]=Média lejátszó
 Name[cs]=Pøehrávaè médií
 Name[sk]=Prehrávaè médií
 Name[hr]=Media Player
+Namn[sv]= Mediaspelaren
+
