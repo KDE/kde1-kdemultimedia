@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "kmidi"
 msgstr ""
 
-#: kmidi.cpp:354 kmidi.cpp:854 kmidi.cpp:862
+#: kmidi.cpp:354 kmidi.cpp:837 kmidi.cpp:845
 msgid "Song --/--"
 msgstr ""
 
@@ -110,8 +110,8 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:608
-#: kmidi.cpp:653
+#: kmidi.cpp:513 kmidi.cpp:530 kmidi.cpp:562 kmidi.cpp:568 kmidi.cpp:602
+#: kmidi.cpp:639
 msgid "Playing"
 msgstr ""
 
@@ -123,19 +123,19 @@ msgstr ""
 msgid "Paused"
 msgstr ""
 
-#: kmidi.cpp:585 kmidi.cpp:879 kmidi.cpp:1104
+#: kmidi.cpp:585 kmidi.cpp:862 kmidi.cpp:1087
 msgid "Ready"
 msgstr ""
 
-#: kmidi.cpp:708
+#: kmidi.cpp:691
 msgid "Looping"
 msgstr ""
 
-#: kmidi.cpp:759
+#: kmidi.cpp:742
 msgid "kmidi Configuraton"
 msgstr ""
 
-#: kmidi.cpp:776
+#: kmidi.cpp:759
 #, c-format
 msgid ""
 "KMidi %s\n"
@@ -150,74 +150,74 @@ msgid ""
 "toivonen@clinet.fi\n"
 msgstr ""
 
-#: kmidi.cpp:803
+#: kmidi.cpp:786
 msgid "Configure"
 msgstr ""
 
-#: kmidi.cpp:852
+#: kmidi.cpp:835
 msgid "ERROR"
 msgstr ""
 
-#: kmidi.cpp:853
+#: kmidi.cpp:836
 msgid "Can't open Output Device."
 msgstr ""
 
-#: kmidi.cpp:1024
+#: kmidi.cpp:1007
 #, c-format
 msgid ""
 "%s\n"
 "is not readable or doesn't exist."
 msgstr ""
 
-#: kmidi.cpp:1025
+#: kmidi.cpp:1008
 msgid "KMidi Warning"
 msgstr ""
 
-#: kmidi.cpp:1106
+#: kmidi.cpp:1089
 #, c-format
 msgid "Song: --/%02d"
 msgstr ""
 
-#: kmidi.cpp:1378
+#: kmidi.cpp:1361
 #, c-format
 msgid "%d bit %s %s"
 msgstr ""
 
-#: kmidi.cpp:1380
+#: kmidi.cpp:1363
 msgid "sig"
 msgstr ""
 
-#: kmidi.cpp:1380
+#: kmidi.cpp:1363
 msgid "usig"
 msgstr ""
 
-#: kmidi.cpp:1381
+#: kmidi.cpp:1364
 msgid "uLaw"
 msgstr ""
 
-#: kmidi.cpp:1381
+#: kmidi.cpp:1364
 msgid "Linear"
 msgstr ""
 
-#: kmidi.cpp:1383
+#: kmidi.cpp:1366
 #, c-format
 msgid "%d Hz %s"
 msgstr ""
 
-#: kmidi.cpp:1385
+#: kmidi.cpp:1368
 msgid "Mono"
 msgstr ""
 
-#: kmidi.cpp:1385
+#: kmidi.cpp:1368
 msgid "Stereo"
 msgstr ""
 
-#: kmidi.cpp:1409
+#: kmidi.cpp:1392
 #, c-format
 msgid "Song: %02d/%02d"
 msgstr ""
 
-#: kmidi.cpp:1411
+#: kmidi.cpp:1394
 msgid "Song: --/--"
 msgstr ""
 
