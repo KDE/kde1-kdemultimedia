@@ -21,8 +21,7 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-
-#include "collectdlg.moc"
+#include "collectdlg.h"
 #include <qpushbt.h>
 #include <qlistbox.h>
 #include <qlabel.h> 

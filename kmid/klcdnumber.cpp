@@ -21,7 +21,7 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#include "klcdnumber.moc"
+#include "klcdnumber.h"
 #include <qpainter.h>
 #include <stdio.h>
 #include "ktrianglebutton.h"

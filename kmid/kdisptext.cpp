@@ -21,6 +21,7 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
+#include "kdisptext.h"
 #include <qpainter.h>
 #include <qfont.h>
 #include <qfontmet.h>
@@ -29,7 +30,6 @@
 #include <kconfig.h>
 #include "version.h"
 
-#include "kdisptext.moc"
 
 #define NUMPREVLINES 2
 

@@ -21,6 +21,7 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
+#include "kmidclient.h"
 #include <qkeycode.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -40,7 +41,6 @@
 //#include <kkeyconf.h>
 #include <kcombo.h>
 
-#include "kmidclient.moc"
 #include "klcdnumber.h"
 
 #include "player/midimapper.h"

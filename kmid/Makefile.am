@@ -2,7 +2,7 @@
 INCLUDES = $(all_includes)
 
 LDFLAGS	= $(all_libraries) $(KDE_RPATH)
-LDADD = player/libplayer.a         $(LIB_KFILE)
+LDADD = player/libplayer.a $(LIB_KFILE)
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
 	 kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp \
@@ -10,19 +10,14 @@ kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
          channel.cpp channel3d.cpp channel4d.cpp channelcfgdlg.cpp \
          instrname.cpp rhythmview.cpp main.cpp 
 
-noinst_HEADERS = *.h
 
 PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o \
 	dattypes.o midistat.o deviceman.o synthout.o
 
-SRCMETA = kmidframe.moc kmidclient.moc kdisptext.moc kslidertime.moc \
-	 klcdnumber.moc ktrianglebutton.moc midicfgdlg.moc collectdlg.moc \
-         kaskdlg.moc channelview.moc channel.moc channel3d.moc channel4d.moc \
-         channelcfgdlg.moc
-
 DISTCLEANFILES = $(SRCMETA) ./.deps/* ./.deps/.P
 
 bin_PROGRAMS = kmid
+kmid_METASOURCES = USE_AUTOMOC
 
 SUBDIRS = player toolbarxpm maps examples doc
 
@@ -42,37 +37,6 @@ pics_DATA = keyboard.xpm button1.xpm button2.xpm
 picsdir = $(kde_datadir)/kmid/pics
 
 EXTRA_DIST = $(applnk_DATA) $(mime_DATA) $(icon_DATA) $(fmpatches_DATA) mini-kmid.xpm $(pics_DATA)
-
-%.moc: %.h
-	$(MOC) $< -o $@
-
-kmidclient.cpp:kmidclient.moc
-
-kmidframe.cpp:kmidframe.moc
-
-kaskdlg.cpp:kaskdlg.moc
-
-collectdlg.cpp:collectdlg.moc
-
-midicfgdlg.cpp:midicfgdlg.moc
-
-kslidertime.cpp:kslidertime.moc
-
-klcdnumber.cpp:klcdnumber.moc
-
-ktrianglebutton.cpp:ktrianglebutton.moc
-
-kdisptext.cpp:kdisptext.moc
-
-channelview.cpp:channelview.moc
-
-channel.cpp:channel.moc
-
-channel3d.cpp:channel3d.moc
-
-channel4d.cpp:channel4d.moc
-
-channelcfgdlg.cpp:channelcfgdlg.moc
 
 instrname.i18n: instrname.cpp
 	echo "/* This is an automatically generated file" > instrname.i18n
@@ -103,3 +67,7 @@ install-data-local:
 	@echo ""
 	@echo "PS: I will not be liable for any flood during the use of kmid ;-)"
 	@echo "*********************************************"
+
+uninstall-local:
+	-rm -f $(kde_minidir)/kmid.xpm
+

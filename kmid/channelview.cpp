@@ -22,7 +22,7 @@
 
 ***************************************************************************/
 
-#include "channelview.moc"
+#include "channelview.h"
 #include "channel3d.h"
 #include "channel4d.h"
 #include <kapp.h>

@@ -22,7 +22,7 @@
 
 ***************************************************************************/
 
-#include "channel.moc"
+#include "channel.h"
 #include <qpainter.h>
 #include <stdlib.h>
 #include <kapp.h>

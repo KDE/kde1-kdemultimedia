@@ -25,7 +25,7 @@
     and Matthias Ettrich (ettrich@kde.org) on 1997
      
 ***************************************************************************/
-#include "ktrianglebutton.moc"
+#include "ktrianglebutton.h"
 #include <qpainter.h>
 #include <qdrawutil.h>
 

@@ -21,8 +21,8 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#include "kmidframe.moc"
 
+#include <kmidframe.h>
 #include <qkeycode.h>
 #include <stdio.h>
 #include <kfiledialog.h>

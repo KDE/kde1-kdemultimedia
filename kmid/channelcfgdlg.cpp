@@ -1,5 +1,5 @@
-#include "channelcfgdlg.moc"
 #include "channelview.h"
+#include "channelcfgdlg.h"
 #include <qpushbt.h>
 #include <qbttngrp.h>
 #include <qradiobt.h>

@@ -21,7 +21,7 @@
     or to Antonio Larrosa, Rio Arnoya, 10 5B, 29006 Malaga, Spain
 
 ***************************************************************************/
-#include "kslidertime.moc"
+#include "kslidertime.h"
 #include <qwidget.h>
 #include <qpainter.h>
 #include <stdio.h>
