@@ -222,13 +222,14 @@ static int sysex(int32 len)
 	  }
 	else if (adhi == 2 && adlo == 1)
 	 {
+	    if (dtb==8) dtb=3;
 	    switch (cd)
 	      {
 		case 0x00:
-		  XG_System_reverb_type=dta;
+		  XG_System_reverb_type=(dta<<3)+dtb;
 		  break;
 		case 0x20:
-		  XG_System_chorus_type=dta-64;
+		  XG_System_chorus_type=((dta-64)<<3)+dtb;
 		  break;
 		case 0x40:
 		  XG_System_variation_type=dta;
@@ -260,14 +261,43 @@ static int sysex(int32 len)
 	  {
       	    ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "GS System On", len);
 	    GS_System_On=1;
-      	    return 0;
 	  }
-	if (dta==0x15)
+	else if (dta==0x15 && (cd&0xf0)==0x10)
 	  {
 	    int chan=cd&0x0f;
-	    if (dtc<=0x14) channel[chan].kit=127;
+	    if (!chan) chan=9;
+	    else if (chan<10) chan--;
+	    channel[chan].kit=dtb;
 	  }
-      /*ctl->cmsg(CMSG_TEXT, VERB_VERBOSE, "GS sysex", len);*/
+	else if (cd==0x01) switch(dta)
+	  {
+	    case 0x30:
+		switch(dtb)
+		  {
+		    case 0: XG_System_reverb_type=16+0; break;
+		    case 1: XG_System_reverb_type=16+1; break;
+		    case 2: XG_System_reverb_type=16+2; break;
+		    case 3: XG_System_reverb_type= 8+0; break;
+		    case 4: XG_System_reverb_type= 8+1; break;
+		    case 5: XG_System_reverb_type=32+0; break;
+		    case 6: XG_System_reverb_type=8*17; break;
+		    case 7: XG_System_reverb_type=8*18; break;
+		  }
+		break;
+	    case 0x38:
+		switch(dtb)
+		  {
+		    case 0: XG_System_chorus_type= 8+0; break;
+		    case 1: XG_System_chorus_type= 8+1; break;
+		    case 2: XG_System_chorus_type= 8+2; break;
+		    case 3: XG_System_chorus_type= 8+4; break;
+		    case 4: XG_System_chorus_type=  -1; break;
+		    case 5: XG_System_chorus_type= 8*3; break;
+		    case 6: XG_System_chorus_type=  -1; break;
+		    case 7: XG_System_chorus_type=  -1; break;
+		  }
+		break;
+	  }
       return 0;
     }
   return 0;
@@ -382,7 +412,8 @@ static MidiEventList *read_midi_event(void)
 	    case 0: /* Note off */
 	      fread(&b, 1,1, fp);
 	      b &= 0x7F;
-	      MIDIEVENT(at, ME_NOTEOFF, lastchan, a,b);
+	      /*MIDIEVENT(at, ME_NOTEOFF, lastchan, a,b);*/
+	      MIDIEVENT(at, ME_NOTEON, lastchan, a,0);
 
 	    case 1: /* Note on */
 	      fread(&b, 1,1, fp);
@@ -633,7 +664,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
       current_bank[i]=0;
       current_banktype[i]=0;
       current_set[i]=0;
-      current_kit[i]=0;
+      current_kit[i]=channel[i].kit;
       current_program[i]=default_program;
     }
 
@@ -672,7 +703,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
       else switch (meep->event.type)
 	{
 	case ME_PROGRAM:
-	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	  if (current_kit[meep->event.channel])
 	    {
 	      if (current_kit[meep->event.channel]==126)
 		{
@@ -718,7 +749,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	case ME_NOTEON:
 	  if (counting_time)
 	    counting_time=1;
-	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	  if (current_kit[meep->event.channel])
 	    {
 	      int dnote=meep->event.a;
 
@@ -787,7 +818,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	      break;
 	    }
 
-	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	  if (current_kit[meep->event.channel])
 	    {
 	      skip_this_event=1;
 	      break;
@@ -809,7 +840,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 
 
 	case ME_TONE_BANK:
-	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	  if (current_kit[meep->event.channel])
 	    {
 	      skip_this_event=1;
 	      break;
@@ -882,7 +913,12 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
   memset(&drumchorusdepth,-1,sizeof(drumchorusdepth));
   memset(&drumreverberation,-1,sizeof(drumreverberation));
   memset(&drumpanpot,NO_PANNING,sizeof(drumpanpot));
-  for (i=0; i<MAXCHAN; i++) channel[i].transpose = 0;
+  for (i=0; i<MAXCHAN; i++)
+     {
+	channel[i].transpose = 0;
+	if (ISDRUMCHANNEL(i)) channel[i].kit = 127;
+	else channel[i].kit = 0;
+     }
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
     {
