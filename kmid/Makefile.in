@@ -64,7 +64,7 @@ $(TARGET): $(SRCMETA) $(OBJECTS) $(PLAYEROBJECTS)
 	$(LIBTOOL) -mode=link $(CXX) $(OBJECTS) $(PLAYEROBJECTS) -o $(TARGET) $(LDFLAGS) $(KDE_RPATH)
 
 $(PLAYEROBJECTS):
-	(cd player && make all_copy && cd ..)
+	(cd player && $(MAKE) all_copy && cd ..)
 
 install:
 	install.sh	
@@ -72,7 +72,7 @@ install:
 
 clean:
 	echo "Exiting directory ..."
-	(cd player && make clean && cd ..)
+	(cd player && $(MAKE) clean && cd ..)
 	rm -f *.o *.bak *~ *% #*
 	rm -f $(SRCMETA) $(TARGET)
 
