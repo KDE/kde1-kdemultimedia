@@ -86,6 +86,8 @@ static int open_output(void)
       return -1;
     }
 
+  fcntl(fd,F_SETFD,1);
+   
   /* They can't mean these */
   dpm.encoding &= ~(PE_ULAW|PE_BYTESWAP);
 
