@@ -1,107 +1,103 @@
-
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1997-08-30 17:11+0200\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Christian Esken <chris@kde.org>\n"
 
-#: kmediawin.cpp:126
+#: kmediawin.cpp:132
 msgid "Playback position"
 msgstr "Playback-Position"
 
-#: kmediawin.cpp:132
+#: kmediawin.cpp:138
 msgid "Eject medium"
 msgstr "Auswerfen"
 
-#: kmediawin.cpp:136
+#: kmediawin.cpp:142
 msgid "Previous track"
 msgstr "Vorheriger Titel"
 
-#: kmediawin.cpp:141
+#: kmediawin.cpp:147
 msgid "Backward"
 msgstr "Zurück"
 
-#: kmediawin.cpp:146
+#: kmediawin.cpp:152
 msgid "Stop"
 msgstr "Stop"
 
-#: kmediawin.cpp:150
+#: kmediawin.cpp:156
 msgid "Play/Pause"
 msgstr "Start/Pause"
 
-#: kmediawin.cpp:155
+#: kmediawin.cpp:161
 msgid "Forward"
 msgstr "Vorwärts"
 
-#: kmediawin.cpp:160
+#: kmediawin.cpp:166
 msgid "Next track"
 msgstr "Nächster Titel"
 
-#: kmediawin.cpp:197
+#: kmediawin.cpp:196
 msgid "New view"
 msgstr "Neues Fenster"
 
-#: kmediawin.cpp:198
+#: kmediawin.cpp:197
 msgid "Exit"
 msgstr "Beenden"
 
 #: kmediawin.cpp:202
-msgid "Hide Menu"
-msgstr "Menü verstecken"
-
-#: kmediawin.cpp:203
 msgid "Mixer"
 msgstr "Mixer"
 
-#: kmediawin.cpp:205
+#: kmediawin.cpp:204
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: kmediawin.cpp:209
+#: kmediawin.cpp:208
 msgid "&Contents"
 msgstr "&Inhalt"
 
-#: kmediawin.cpp:211
+#: kmediawin.cpp:210
 msgid "&About"
 msgstr "&Über"
 
-#: kmediawin.cpp:215
+#: kmediawin.cpp:214
 msgid "&File"
 msgstr "&Datei"
 
-#: kmediawin.cpp:216
+#: kmediawin.cpp:215
 msgid "&Options"
 msgstr "&Optionen"
 
-#: kmediawin.cpp:218
+#: kmediawin.cpp:217
 msgid "&Help"
 msgstr "&Hilfe"
 
-#: kmediawin.cpp:285
+#: kmediawin.cpp:272
 msgid "Exited"
 msgstr "Beendet"
 
-#: kmediawin.cpp:286
+#: kmediawin.cpp:273
 msgid "Init"
 msgstr "Init"
 
-#: kmediawin.cpp:287
+#: kmediawin.cpp:274
 msgid "Busy"
 msgstr "Aktiv"
 
-#: kmediawin.cpp:288
+#: kmediawin.cpp:275
 msgid "Playing"
 msgstr "Spielt"
 
-#: kmediawin.cpp:289
+#: kmediawin.cpp:276
 msgid "Paused"
 msgstr "Pause"
 
-#: kmediawin.cpp:290
+#: kmediawin.cpp:277
 msgid "Ready"
 msgstr "Bereit"
 
-#: kmediawin.cpp:291
+#: kmediawin.cpp:278
 msgid "Undefined"
 msgstr "Undefiniert"
+

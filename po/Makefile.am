@@ -1,17 +1,24 @@
 
 SUBDIRS = cs de fr pl fi
 
-# TODO: This does not any longer work
+APPS = kmedia
+
 merge:
-	@catalogs='$(POFILES)'; \
-	for cat in $$catalogs; do \
-	name=`echo $$cat | sed -e 's/^.._//' `; \
-	echo $$cat $$name; \
-	msgmerge $$cat $$name > $$cat.new ; \
-	if diff $$cat $$cat.new; then \
-		rm $$cat.new;  \
-	else  \
-		mv $$cat.new $$cat ; \
-	fi; \
+	@apps='$(APPS)'; \
+	langs='$(SUBDIRS)'; \
+	for cat in $$apps; do \
+	  for lang in $$langs; do \
+	    if test -r $$lang/$$cat.po; then \
+	      echo $$cat; \
+	      msgmerge -o $$cat.new $$lang/$$cat.po $$cat.pot; \
+	      if test -s $$cat.new && diff $$lang/$$cat.po $$cat.new; then \
+	        rm $$cat.new;  \
+ 	      else  \
+		mv $$cat.new $$lang/$$cat.po ; \
+	    fi; \
+	  fi ;\
+         done ;\
 	done
+
+messages:
 
