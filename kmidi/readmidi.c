@@ -293,7 +293,11 @@ static MidiEventList *read_midi_event(void)
 		       Also, some MIDI files use 0 as some sort of
 		       continuous controller. This will cause lots of
 		       warnings about undefined tone banks. */
-		  case 0: control=ME_TONE_KIT; break;
+		  case 0:
+		    if (!b || b == 127 || b == 64 || b == 126)
+		    	control=ME_TONE_KIT;
+		    else control=ME_TONE_BANK;
+		    break;
 		  case 32: control=ME_TONE_BANK; break;
 
 		  case 100: nrpn=0; rpn_msb[lastchan]=b; break;
@@ -520,7 +524,7 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	      else
 		{
 		  ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		       "Drum set %d is undefined", meep->event.a);
+		       "Drum set %d is undefined (kit %d)", meep->event.a,current_kit[meep->event.channel]);
 		  new_value=meep->event.a=0;
 		}
 	      if (current_set[meep->event.channel] != new_value)
@@ -599,6 +603,12 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 
 	case ME_TONE_BANK:
 	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	    {
+	      skip_this_event=1;
+	      break;
+	    }
+	  /* Need a better way! */
+	  if (!meep->event.a && current_bank[meep->event.channel])
 	    {
 	      skip_this_event=1;
 	      break;
