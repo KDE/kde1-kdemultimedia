@@ -1,7 +1,7 @@
+# KTranslator Generated File
+
 msgid ""
 msgstr ""
-"Project-Id-Version: kmidi VERSION\n"
-"POT-Creation-Date: 1999-01-18 02:16+0100\n"
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # Merényi Miklós <mermik@medgyaszay-veszprem.sulinet.hu>, 1999.
@@ -131,7 +131,8 @@ msgstr ""
 "Midi/Karaoke lejátszó \n"
 "\n"
 "A KMid programmal SEMMIFÉLE GARANCIA NEM JÁR; a részletekrõl a COPYING fájlban olvashasz\n"
-"Ez a program meghatározott feltételek mellett szabadon terjeszthtõ.\n" #: kmidframe.cpp:160
+"Ez a program meghatározott feltételek mellett szabadon terjeszthtõ.\n"
+
 msgid "&File"
 msgstr "&Fájl"
 
@@ -161,7 +162,7 @@ msgstr "Vissza"
 
 #: kmidframe.cpp:179
 msgid "Stop"
-msgstr "Stop"
+msgstr "Állj"
 
 #: kmidframe.cpp:182
 msgid "Pause"
@@ -233,6 +234,8 @@ msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
+"A negyed-hangonkénti ütem negatív, kérlek küldd el ezt a fájlt a "
+"antlarr@arrakis.es címre"
 
 #: kmidclient.cpp:257
 msgid "Not enough memory !!"
@@ -268,7 +271,7 @@ msgstr "Midi-eszközök beállítása"
 
 #: channelcfgdlg.cpp:15 collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
 msgid "OK"
-msgstr ""
+msgstr "Rendben"
 
 #: channelcfgdlg.cpp:18 collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
 msgid "Cancel"
@@ -280,7 +283,7 @@ msgstr "Válaszd ki, melyik midi-eszközt akarod használni?"
 
 #: midicfgdlg.cpp:67
 msgid "A következõ midi-map használata :"
-msgstr ""
+msgstr "A következõ midi-map használata :"
 
 #: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
 msgid "None"
@@ -361,7 +364,7 @@ msgstr "Csatorna-nézet Beállításai"
 
 #: channelcfgdlg.cpp:22
 msgid "Choose look mode"
-msgstr ""
+msgstr "Kinézet választó"
 
 #: channelcfgdlg.cpp:23
 msgid "3D look"
@@ -373,7 +376,7 @@ msgstr "3D - kitöltött"
 
 #: instrname.i18n:6
 msgid "Akkusztikus Nagyzongora"
-msgstr ""
+msgstr "Akkusztikus Nagyzongora"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
@@ -461,7 +464,7 @@ msgstr ""
 
 #: instrname.i18n:28
 msgid "Harmonica"
-msgstr "Harmonika"
+msgstr "Harmónika"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
@@ -509,7 +512,7 @@ msgstr "Basszusgitár (Ujj)"
 
 #: instrname.i18n:40
 msgid "Basszusgitár (Pengetõ)"
-msgstr ""
+msgstr "Basszusgitár (Pengetõ)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
@@ -553,7 +556,7 @@ msgstr "Vonósok (Tremoló)"
 
 #: instrname.i18n:51
 msgid "Vonósok (Pizzicato)"
-msgstr ""
+msgstr "Vonósok (Pizzicato)"
 
 #: instrname.i18n:52
 msgid "Orchestral Harp"
