@@ -272,8 +272,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Mehrere Treffer wurden gefunden. Bitte wählen Sie die "
-"richtige CD aus der untenstehenden Liste"
+"Mehrere Treffer wurden gefunden. Bitte wählen Sie die richtige CD aus der "
+"untenstehenden Liste"
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
