@@ -22,17 +22,6 @@
 
  */
 
-/*
- * plat_freebsd.c
- *
- * FreeBSD-specific drive control routines.
- *
- * Todd Pfaff, 3/20/94
- *
- * 11/26/95: Modified to work under FreeBSD 2.x
- *           by Donald Burr <d_burr@ix.netcom.com>
- *
- */
 #include "config.h"
 
 #if defined(__FreeBSD__) || defined(__NetBSD__)
@@ -51,7 +40,6 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 #include <string.h>
 #include <sys/ioctl.h>
 #include <sys/cdio.h>
-#include <sys/scsiio.h>
 
 #ifdef __NetBSD__
 
@@ -61,10 +49,6 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 
 #include "/sys/scsi/scsi_all.h"
 #include "/sys/scsi/scsi_cd.h"
-
-#else
-#include <scsi.h>
-#include <sys/scsiio.h>
 #endif
 
 #include "struct.h"
