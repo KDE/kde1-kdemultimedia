@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd\n"
-"POT-Creation-Date: 1998-12-16 02:08+0100\n"
+"POT-Creation-Date: 1998-12-17 02:06+0100\n"
 "PO-Revision-Date: 1998-05-18 12:00+0000\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 
@@ -239,32 +239,32 @@ msgstr ""
 msgid "Eject on Finish"
 msgstr "A Ejectar"
 
-#: docking.cpp:75 kscd.cpp:562
+#: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "Tocar/Pausar"
 
-#: docking.cpp:77
+#: docking.cpp:75
 #, fuzzy
 msgid "Forward"
 msgstr "Avançar 30 Segs"
 
-#: docking.cpp:78
+#: docking.cpp:76
 msgid "Backward"
 msgstr "Recuar"
 
-#: docking.cpp:79
+#: docking.cpp:77
 msgid "Next"
 msgstr "Próxima"
 
-#: docking.cpp:80
+#: docking.cpp:78
 msgid "Previous"
 msgstr "Anterior"
 
-#: docking.cpp:81
+#: docking.cpp:79
 msgid "Eject"
 msgstr "Ejectar"
 
-#: docking.cpp:177
+#: docking.cpp:169
 msgid "Minimize"
 msgstr "Minimizar"
 
@@ -390,20 +390,20 @@ msgstr "Diálogo do CDDB"
 msgid "CD Volume Control"
 msgstr "Controlo do Volume"
 
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1293
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
 msgid "Playing"
 msgstr "A Tocar"
 
-#: kscd.cpp:640 kscd.cpp:1307 kscd.cpp:1360 kscd.cpp:1769 kscd.cpp:1967
+#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:671 kscd.cpp:1337
+#: kscd.cpp:671 kscd.cpp:1308
 msgid "Pause"
 msgstr "Pausa"
 
-#: kscd.cpp:676 kscd.cpp:968 kscd.cpp:1289
+#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
 msgid "Random"
 msgstr "Aleatório"
 
@@ -415,19 +415,19 @@ msgstr "Estranho..."
 msgid "Stopped"
 msgstr "Parado"
 
-#: kscd.cpp:931 kscd.cpp:1291
+#: kscd.cpp:902 kscd.cpp:1262
 msgid "Loop"
 msgstr "Ciclo"
 
-#: kscd.cpp:943
+#: kscd.cpp:914
 msgid "Ejecting"
 msgstr "A Ejectar"
 
-#: kscd.cpp:1019
+#: kscd.cpp:990
 msgid "kscd Configuraton"
 msgstr "Configuração do kscd"
 
-#: kscd.cpp:1035
+#: kscd.cpp:1006
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -456,7 +456,7 @@ msgstr ""
 "Visite http://www.cddb.com para mais informações acerca do CDDB.\n"
 "\n"
 
-#: kscd.cpp:1048
+#: kscd.cpp:1019
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -465,7 +465,7 @@ msgstr ""
 "KSCD Mágico é baseado no Synaesthesia por Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
 
-#: kscd.cpp:1052
+#: kscd.cpp:1023
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -475,23 +475,23 @@ msgstr ""
 "Agradecimentos a Vadim Zaliva <lord@crocodile.org>\n"
 "pelo ser trabalho no código de proxy http.\n"
 
-#: kscd.cpp:1108
+#: kscd.cpp:1079
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1109
+#: kscd.cpp:1080
 msgid "Kscd Options"
 msgstr "Opções do Kscd"
 
-#: kscd.cpp:1110
+#: kscd.cpp:1081
 msgid "Kscd Magic"
 msgstr "Kscd Mágico"
 
-#: kscd.cpp:1199 kscd.cpp:2099
+#: kscd.cpp:1170 kscd.cpp:2070
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
-#: kscd.cpp:1237
+#: kscd.cpp:1208
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -502,52 +502,52 @@ msgstr ""
 "Verique que tem permissões de acesso a:\n"
 "%s"
 
-#: kscd.cpp:1348
+#: kscd.cpp:1319
 msgid "Ready"
 msgstr "Pronto"
 
-#: kscd.cpp:1391
+#: kscd.cpp:1362
 msgid "Ejected"
 msgstr "Ejectado"
 
-#: kscd.cpp:1675
+#: kscd.cpp:1646
 msgid "Unable to get CDDB server list."
 msgstr "Não foi possivel obter a lista de servidores CDDB."
 
-#: kscd.cpp:1819 kscd.cpp:1824
+#: kscd.cpp:1790 kscd.cpp:1795
 msgid "No matching CDDB entry found."
 msgstr "Nenhuma entrada encontrada no CDDB."
 
-#: kscd.cpp:1848 kscd.cpp:1858
+#: kscd.cpp:1819 kscd.cpp:1829
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "Nenhuma entrada encontrada no CDDB."
 
-#: kscd.cpp:1874 kscd.cpp:1884
+#: kscd.cpp:1845 kscd.cpp:1855
 msgid "CDDB query timed out."
 msgstr "Acesso CDDB timed out."
 
-#: kscd.cpp:2074
+#: kscd.cpp:2045
 msgid "Tra Rem"
 msgstr "Fai Fal"
 
-#: kscd.cpp:2078
+#: kscd.cpp:2049
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2082
+#: kscd.cpp:2053
 msgid "Tot Rem"
 msgstr "Tot Fal"
 
-#: kscd.cpp:2087
+#: kscd.cpp:2058
 msgid "Tra Sec"
 msgstr "Fai Sec"
 
-#: kscd.cpp:2212
+#: kscd.cpp:2183
 msgid "Cannot start kscdmagic."
 msgstr "Não consegui iniciar kscdmagic."
 
-#: kscd.cpp:2227
+#: kscd.cpp:2198
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -555,16 +555,16 @@ msgstr ""
 "KSCD Mágico saiu anormalmente.\n"
 "Tem a certeza que ele está instalado?"
 
-#: kscd.cpp:2382
+#: kscd.cpp:2353
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "Directory do CDDB"
 
-#: kscd.cpp:2436
+#: kscd.cpp:2407
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opções da linha de comandos\n"
 
-#: kscd.cpp:2437
+#: kscd.cpp:2408
 msgid "-d: enable debugging output.\n"
 msgstr "-d: activar depuração.\n"
 

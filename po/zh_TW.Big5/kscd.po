@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-16 02:08+0100\n"
+"POT-Creation-Date: 1998-12-17 02:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yu-Ting Kuo <Beta2000@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,38 +293,38 @@ msgid "Eject on Finish"
 msgstr "退出中"
 
 # docking.cpp:72 kscd.cpp:507
-#: docking.cpp:75 kscd.cpp:562
+#: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "播放/暫停"
 
 # kscd.cpp:511
-#: docking.cpp:77
+#: docking.cpp:75
 #, fuzzy
 msgid "Forward"
 msgstr "向後 30 秒"
 
 # docking.cpp:75
-#: docking.cpp:78
+#: docking.cpp:76
 msgid "Backward"
 msgstr "迴轉"
 
 # docking.cpp:76
-#: docking.cpp:79
+#: docking.cpp:77
 msgid "Next"
 msgstr "下一首"
 
 # docking.cpp:77
-#: docking.cpp:80
+#: docking.cpp:78
 msgid "Previous"
 msgstr "前一首"
 
 # docking.cpp:78
-#: docking.cpp:81
+#: docking.cpp:79
 msgid "Eject"
 msgstr "退出"
 
 # docking.cpp:175
-#: docking.cpp:177
+#: docking.cpp:169
 msgid "Minimize"
 msgstr "最小化"
 
@@ -471,22 +471,22 @@ msgid "CD Volume Control"
 msgstr "CD 音量控制"
 
 # kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1293
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
 msgid "Playing"
 msgstr "播放中"
 
-#: kscd.cpp:640 kscd.cpp:1307 kscd.cpp:1360 kscd.cpp:1769 kscd.cpp:1967
+#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
 # kscd.cpp:602 kscd.cpp:1151
-#: kscd.cpp:671 kscd.cpp:1337
+#: kscd.cpp:671 kscd.cpp:1308
 msgid "Pause"
 msgstr "暫停"
 
 # kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
-#: kscd.cpp:676 kscd.cpp:968 kscd.cpp:1289
+#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
 msgid "Random"
 msgstr "亂數播放"
 
@@ -501,22 +501,22 @@ msgid "Stopped"
 msgstr "停止"
 
 # kscd.cpp:784 kscd.cpp:1116
-#: kscd.cpp:931 kscd.cpp:1291
+#: kscd.cpp:902 kscd.cpp:1262
 msgid "Loop"
 msgstr "循環"
 
 # kscd.cpp:796
-#: kscd.cpp:943
+#: kscd.cpp:914
 msgid "Ejecting"
 msgstr "退出中"
 
 # kscd.cpp:869
-#: kscd.cpp:1019
+#: kscd.cpp:990
 msgid "kscd Configuraton"
 msgstr "kscd 設定"
 
 # kscd.cpp:885
-#: kscd.cpp:1035
+#: kscd.cpp:1006
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -545,7 +545,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:897
-#: kscd.cpp:1048
+#: kscd.cpp:1019
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -556,7 +556,7 @@ msgstr ""
 "\n"
 
 # kscd.cpp:901
-#: kscd.cpp:1052
+#: kscd.cpp:1023
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -566,27 +566,27 @@ msgstr ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 
-#: kscd.cpp:1108
+#: kscd.cpp:1079
 msgid "SMTP Setup"
 msgstr ""
 
 # kscd.cpp:947
-#: kscd.cpp:1109
+#: kscd.cpp:1080
 msgid "Kscd Options"
 msgstr "Kscd 選項"
 
 # kscd.cpp:948
-#: kscd.cpp:1110
+#: kscd.cpp:1081
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
 # kscd.cpp:1029 kscd.cpp:1822
-#: kscd.cpp:1199 kscd.cpp:2099
+#: kscd.cpp:1170 kscd.cpp:2070
 msgid "Vol: %02d%%"
 msgstr "音量: %02d%%"
 
 # kscd.cpp:1067
-#: kscd.cpp:1237
+#: kscd.cpp:1208
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -598,78 +598,78 @@ msgstr ""
 "%s"
 
 # kscd.cpp:1159
-#: kscd.cpp:1348
+#: kscd.cpp:1319
 msgid "Ready"
 msgstr "就緒"
 
 # kscd.cpp:1191
-#: kscd.cpp:1391
+#: kscd.cpp:1362
 msgid "Ejected"
 msgstr "已退出"
 
 # kscd.cpp:1447
-#: kscd.cpp:1675
+#: kscd.cpp:1646
 msgid "Unable to get CDDB server list."
 msgstr "無法取得 CDDB 伺服器的列表。"
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1819 kscd.cpp:1824
+#: kscd.cpp:1790 kscd.cpp:1795
 msgid "No matching CDDB entry found."
 msgstr "找不到符合的 CDDB 資料"
 
 # kscd.cpp:1569 kscd.cpp:1604
-#: kscd.cpp:1848 kscd.cpp:1858
+#: kscd.cpp:1819 kscd.cpp:1829
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "找不到符合的 CDDB 資料"
 
 # kscd.cpp:1625
-#: kscd.cpp:1874 kscd.cpp:1884
+#: kscd.cpp:1845 kscd.cpp:1855
 msgid "CDDB query timed out."
 msgstr "搜尋 CDDB 超過時間限制。"
 
 # kscd.cpp:1797
-#: kscd.cpp:2074
+#: kscd.cpp:2045
 msgid "Tra Rem"
 msgstr "Tra Rem"
 
 # kscd.cpp:1801
-#: kscd.cpp:2078
+#: kscd.cpp:2049
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
 # kscd.cpp:1805
-#: kscd.cpp:2082
+#: kscd.cpp:2053
 msgid "Tot Rem"
 msgstr "Tot Rem"
 
 # kscd.cpp:1810
-#: kscd.cpp:2087
+#: kscd.cpp:2058
 msgid "Tra Sec"
 msgstr "Tra Sec"
 
 # kscd.cpp:1935
-#: kscd.cpp:2212
+#: kscd.cpp:2183
 msgid "Cannot start kscdmagic."
 msgstr "無法啟動 kscdmagic."
 
-#: kscd.cpp:2227
+#: kscd.cpp:2198
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
 msgstr ""
 
 # CDDBSetupData.cpp:44
-#: kscd.cpp:2382
+#: kscd.cpp:2353
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB 主目錄"
 
-#: kscd.cpp:2436
+#: kscd.cpp:2407
 msgid "-h: display commandline options\n"
 msgstr ""
 
-#: kscd.cpp:2437
+#: kscd.cpp:2408
 msgid "-d: enable debugging output.\n"
 msgstr ""
 

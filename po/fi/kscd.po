@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-16 02:08+0100\n"
+"POT-Creation-Date: 1998-12-17 02:06+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Kim Enkovaara <kim.enkovaara@iki.fi>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -248,31 +248,31 @@ msgstr "Lopeta soitto lopetettaessa"
 msgid "Eject on Finish"
 msgstr "Poistan levyä"
 
-#: docking.cpp:75 kscd.cpp:562
+#: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "Soita/Paussi"
 
-#: docking.cpp:77
+#: docking.cpp:75
 msgid "Forward"
 msgstr "Eteen"
 
-#: docking.cpp:78
+#: docking.cpp:76
 msgid "Backward"
 msgstr "Taakse"
 
-#: docking.cpp:79
+#: docking.cpp:77
 msgid "Next"
 msgstr "Seuraava"
 
-#: docking.cpp:80
+#: docking.cpp:78
 msgid "Previous"
 msgstr "Edellinen"
 
-#: docking.cpp:81
+#: docking.cpp:79
 msgid "Eject"
 msgstr "Poista levy"
 
-#: docking.cpp:177
+#: docking.cpp:169
 msgid "Minimize"
 msgstr "Pienennä"
 
@@ -399,20 +399,20 @@ msgstr "CDDB-Valintaikkuna"
 msgid "CD Volume Control"
 msgstr "CD äänenvoimakkuus"
 
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1293
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
 msgid "Playing"
 msgstr "Soitan"
 
-#: kscd.cpp:640 kscd.cpp:1307 kscd.cpp:1360 kscd.cpp:1769 kscd.cpp:1967
+#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr "%02d: <tuntematon>"
 
-#: kscd.cpp:671 kscd.cpp:1337
+#: kscd.cpp:671 kscd.cpp:1308
 msgid "Pause"
 msgstr "Paussi"
 
-#: kscd.cpp:676 kscd.cpp:968 kscd.cpp:1289
+#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
 msgid "Random"
 msgstr "Satunnainen"
 
@@ -424,19 +424,19 @@ msgstr "Outo..."
 msgid "Stopped"
 msgstr "Pysäytetty"
 
-#: kscd.cpp:931 kscd.cpp:1291
+#: kscd.cpp:902 kscd.cpp:1262
 msgid "Loop"
 msgstr "Silmukka"
 
-#: kscd.cpp:943
+#: kscd.cpp:914
 msgid "Ejecting"
 msgstr "Poistan levyä"
 
-#: kscd.cpp:1019
+#: kscd.cpp:990
 msgid "kscd Configuraton"
 msgstr "kscd Asetukset"
 
-#: kscd.cpp:1035
+#: kscd.cpp:1006
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -469,7 +469,7 @@ msgstr ""
 "CDDB:tä.\n"
 "\n"
 
-#: kscd.cpp:1048
+#: kscd.cpp:1019
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -479,7 +479,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1052
+#: kscd.cpp:1023
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -488,23 +488,23 @@ msgstr ""
 "Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
 "hänen työstään http proxy-koodin kanssa.\n"
 
-#: kscd.cpp:1108
+#: kscd.cpp:1079
 msgid "SMTP Setup"
 msgstr "SMTP Asetukset"
 
-#: kscd.cpp:1109
+#: kscd.cpp:1080
 msgid "Kscd Options"
 msgstr "Kscd optiot"
 
-#: kscd.cpp:1110
+#: kscd.cpp:1081
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1199 kscd.cpp:2099
+#: kscd.cpp:1170 kscd.cpp:2070
 msgid "Vol: %02d%%"
 msgstr "Ään: %02d%%"
 
-#: kscd.cpp:1237
+#: kscd.cpp:1208
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -515,51 +515,51 @@ msgstr ""
 "Varmista että sinulla on käyttöoikeudet laitteeseen:\n"
 "%s"
 
-#: kscd.cpp:1348
+#: kscd.cpp:1319
 msgid "Ready"
 msgstr "Valmis"
 
-#: kscd.cpp:1391
+#: kscd.cpp:1362
 msgid "Ejected"
 msgstr "Ei levyä"
 
-#: kscd.cpp:1675
+#: kscd.cpp:1646
 msgid "Unable to get CDDB server list."
 msgstr "En saa CDDB-palvelinlistaa."
 
-#: kscd.cpp:1819 kscd.cpp:1824
+#: kscd.cpp:1790 kscd.cpp:1795
 msgid "No matching CDDB entry found."
 msgstr "Ei yhteensopivaa CDDB-tietuetta."
 
-#: kscd.cpp:1848 kscd.cpp:1858
+#: kscd.cpp:1819 kscd.cpp:1829
 msgid "Error getting CDDB entry."
 msgstr "Virhe haettaessa CDDB-tietuetta."
 
-#: kscd.cpp:1874 kscd.cpp:1884
+#: kscd.cpp:1845 kscd.cpp:1855
 msgid "CDDB query timed out."
 msgstr "CDDB-hakuaika loppui."
 
-#: kscd.cpp:2074
+#: kscd.cpp:2045
 msgid "Tra Rem"
 msgstr "Kap Jäl"
 
-#: kscd.cpp:2078
+#: kscd.cpp:2049
 msgid "Tot Sec"
 msgstr "Yht Sek"
 
-#: kscd.cpp:2082
+#: kscd.cpp:2053
 msgid "Tot Rem"
 msgstr "Yht Jäl"
 
-#: kscd.cpp:2087
+#: kscd.cpp:2058
 msgid "Tra Sec"
 msgstr "Kap Sek"
 
-#: kscd.cpp:2212
+#: kscd.cpp:2183
 msgid "Cannot start kscdmagic."
 msgstr "En saa käynnistettyä kscdmagic:a."
 
-#: kscd.cpp:2227
+#: kscd.cpp:2198
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -567,15 +567,15 @@ msgstr ""
 "KSCD Magic lopetti epänormaalisti.\n"
 "Oletko varma, että se on asennettu?"
 
-#: kscd.cpp:2382
+#: kscd.cpp:2353
 msgid "Enter the local CDDB base Directory"
 msgstr "Anna CDDB-juurihakemisto"
 
-#: kscd.cpp:2436
+#: kscd.cpp:2407
 msgid "-h: display commandline options\n"
 msgstr "-h: näytä komentorivioptiot\n"
 
-#: kscd.cpp:2437
+#: kscd.cpp:2408
 msgid "-d: enable debugging output.\n"
 msgstr "-d: debuggaustiedot.\n"
 

@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: kmid\n"
 "POT-Creation-Date: 1998-12-12 02:09+0100\n"
 "PO-Revision-Date: 1998-12-14 22:45+MET\n"
-"Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
 "Last-Translator: Thomas Diehl <th_diehl@csi.com>\n"
 "Language-Team: german <kde-i18n@kde.org>\n"
+"Translator: Gregor Zumstein <zumstein@ssd.ethz.ch>\n"
 
 #: kmidframe.cpp:64
 msgid "Play/Pause"
@@ -124,6 +124,7 @@ msgid "Midi &Setup ..."
 msgstr "Midi &Setup..."
 
 #: kmidframe.cpp:184
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -147,7 +148,8 @@ msgstr ""
 "Midi/Karaoke Datei-Abspieler\n"
 "KMid's Homepage: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
-"KMid kommt ABSOLUT OHNE GARANTIE; zu Einzelheiten bitte Datei COPYING beachten.\n"
+"KMid kommt ABSOLUT OHNE GARANTIE; zu Einzelheiten bitte Datei COPYING "
+"beachten.\n"
 "Dies ist freie Software, Sie dürfen Sie gern weitergeben, wenn Sie gewisse\n"
 "Bedingungen beachten.\n"
 
