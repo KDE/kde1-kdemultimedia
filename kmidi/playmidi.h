@@ -43,10 +43,16 @@ typedef struct {
 #define ME_ALL_SOUNDS_OFF	12
 #define ME_RESET_CONTROLLERS	13
 #define ME_ALL_NOTES_OFF	14
-#define ME_TONE_BANK	15
 
+#define ME_TONE_BANK	15
 #define ME_LYRIC	16
 #define ME_TONE_KIT	17
+
+#define ME_HARMONICCONTENT	71
+#define ME_RELEASETIME		72
+#define ME_ATTACKTIME		73
+#define ME_BRIGHTNESS		74
+
 #define ME_REVERBERATION	91
 #define ME_CHORUSDEPTH		93
 #define ME_EOT		99
@@ -55,7 +61,7 @@ typedef struct {
   int
     bank, kit, program, volume, sustain, panning, pitchbend, expression, 
     mono, /* one note only on this channel -- not implemented yet */
-    reverberation, chorusdepth,
+    reverberation, chorusdepth, harmoniccontent, releasetime, attacktime, brightness,
     pitchsens;
   /* chorus, reverb... Coming soon to a 300-MHz, eight-way superscalar
      processor near you */
@@ -81,7 +87,8 @@ typedef struct {
     envelope_volume, envelope_target, envelope_increment,
     tremolo_sweep, tremolo_sweep_position,
     tremolo_phase, tremolo_phase_increment,
-    vibrato_sweep, vibrato_sweep_position, vibrato_depth;
+    vibrato_sweep, vibrato_sweep_position, vibrato_depth,
+    echo_delay;
   
   final_volume_t left_mix, right_mix;
 
@@ -111,6 +118,10 @@ typedef struct {
 
 #ifndef ADAGIO
 extern Channel channel[16];
+extern char drumvolume[16][128];
+extern char drumpanpot[16][128];
+extern char drumreverberation[16][128];
+extern char drumchorusdepth[16][128];
 #else /* ADAGIO */
 extern Channel channel[MAX_TONE_VOICES];
 #endif /* ADAGIO */
@@ -120,6 +131,10 @@ extern int32 control_ratio, amp_with_poly, amplification;
 extern int32 drumchannels;
 extern int adjust_panning_immediately;
 extern int voices;
+
+extern int GM_System_On;
+extern int XG_System_On;
+extern int GS_System_On;
 
 #define ISDRUMCHANNEL(c) ((drumchannels & (1<<(c))))
 
@@ -131,3 +146,4 @@ extern void dumb_pass_playing_list(int number_of_files, char *list_of_files[]);
 #ifdef ADAGIO
 extern int play_midi(unsigned char *, unsigned char *, int);
 #endif /* ADAGIO */
+extern int read_config_file(char *name);
