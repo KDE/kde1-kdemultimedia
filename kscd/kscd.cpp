@@ -54,6 +54,8 @@ extern "C" {
 #include "bitmaps/shuffle.xbm"
 #include "bitmaps/options.xbm"
 
+#include <kwm.h>
+
 KApplication 	*mykapp;
 KSCD 	         *k;
 DockWidget*     dock_widget;
@@ -119,9 +121,9 @@ int mark_a, mark_b;
     char cddbbasedirtext[4096];
 
 int cddb_error = 0;
-    
+
 /****************************************************************************
-				The GUI part 
+				The GUI part
 *****************************************************************************/
 
 KSCD::KSCD( QWidget *parent, const char *name ) :
@@ -155,19 +157,19 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     updateDialog          = false;
     ejectedBefore = false;
     currentlyejected = false;
-    
+
     drawPanel();
     loadBitmaps();
     setColors();
     setToolTips();
-  
+
     cddialog 	  = 0L;
     timer 	  = new QTimer( this );
     queryledtimer   = new QTimer( this );
     titlelabeltimer = new QTimer( this );
     initimer 	  = new QTimer( this );
     cycletimer      = new QTimer( this );
-  
+
     connect( initimer, SIGNAL(timeout()),this,  SLOT(initCDROM()) );
     connect( queryledtimer, SIGNAL(timeout()),  SLOT(togglequeryled()) );
     connect( titlelabeltimer, SIGNAL(timeout()),  SLOT(titlelabeltimeout()) );
@@ -296,16 +298,16 @@ void KSCD::drawPanel()
     const int HEIGHT = 27;
     //	const int SBARWIDTH = 180; //140
     const int SBARWIDTH = 220; //140
-  
+
     setCaption( "kscd" );
     aboutPB = makeButton( ix, iy, WIDTH, 2 * HEIGHT, klocale->translate("About") );
-  
+
     ix = 0;
     iy += 2 * HEIGHT;
 
     infoPB = makeButton( ix, iy, WIDTH/2, HEIGHT, "" );
     ejectPB = makeButton( ix + WIDTH/2, iy, WIDTH/2, HEIGHT, "" );
-  
+
     iy += HEIGHT;
     dockPB = makeButton( ix, iy, WIDTH, HEIGHT, klocale->translate("Quit") );
 	
@@ -313,15 +315,15 @@ void KSCD::drawPanel()
 
     ix += WIDTH;
     iy = 0;
-  
+
     backdrop = new QFrame(this);
     backdrop->setGeometry(ix,iy,SBARWIDTH -2, 2* HEIGHT + HEIGHT /2 -1);
     backdrop->setFocusPolicy ( QWidget::NoFocus );
-  
+
 
 
     int D = 6;
-  
+
     //ix += 2 * SBARWIDTH / 7;
     ix = WIDTH + 8;
     /*
@@ -638,7 +640,7 @@ void KSCD::playClicked()
 //        }
 
 
-        
+
         qApp->processEvents();
         qApp->flushX();
 
@@ -789,14 +791,14 @@ void KSCD::bwdClicked(){
 
     qApp->processEvents();
     qApp->flushX();
-  
+
     if (cur_cdmode == PLAYING) {
         tmppos = cur_pos_rel - 30;
         if(randomplay || playlist.count() > 0)
             play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_track + 1);
         else
             play_cd (cur_track, tmppos > 0 ? tmppos : 0, cur_ntracks + 1);
-    
+
     }
     cdMode();
 }
@@ -815,7 +817,7 @@ void KSCD::dockClicked()
             dock_widget->SaveKscdPosition();
         this->hide();
     }
-    
+
 
 }
 
@@ -824,7 +826,7 @@ void KSCD::closeEvent( QCloseEvent *e ){
     randomplay = FALSE;
     statuslabel->setText("");
     setLEDs( "--:--" );
-  
+
     qApp->processEvents();
     qApp->flushX();
 
@@ -840,32 +842,49 @@ void KSCD::closeEvent( QCloseEvent *e ){
     e->accept();
 }
 
-void KSCD::focusOutEvent(QFocusEvent *e)
-{
-    qApp->processEvents();
-    qApp->flushX();
-    if(!dockinginprogress &&
-       docking &&
-       autodock &&
-       dock_widget &&
-       e->lostFocus() == true &&
-       this->isVisible() == false &&
-       dock_widget->isToggled() == false){
-        if(debugflag)
-            printf("autodock Conditions = TRUE\n");
-        dock_widget->SaveKscdPosition();
-        this->show();
-        this->hide();
-    }else
-        if(debugflag){
-            printf("autodock Conditions = FALSE\n");
-            printf("docking = %d\nautodock = %d\ne->lostFocus() = %d\n"
-                   "this->isVisible() = %d\ndock_widget->isToggled = %d\n",
-                   docking, autodock, e->lostFocus(), this->isVisible(),
-                   dock_widget->isToggled());
-        }
-//    dockinginprogress = false;
+bool KSCD::event( QEvent *e ){
+     if(e->type() == Event_Hide && autodock){
+        sleep(1); // give kwm some time..... ugly I know.
+        if (!KWM::isIconified(winId())) // maybe we are just on another desktop 
+   	    return FALSE;
+       if(dock_widget)
+ 	dock_widget->SaveKscdPosition();
+       // a trick to remove the window from the taskbar (Matthias)
+       recreate(0,0, geometry().topLeft(), FALSE);
+       // set the icons again
+       KWM::setIcon(winId(), kapp->getIcon());
+       KWM::setMiniIcon(winId(), kapp->getMiniIcon());
+       return TRUE;
+     }
+     return QWidget::event(e);
 }
+
+// void KSCD::focusOutEvent(QFocusEvent *e)
+// {
+//     qApp->processEvents();
+//     qApp->flushX();
+//     if(!dockinginprogress &&
+//        docking &&
+//        autodock &&
+//        dock_widget &&
+//        e->lostFocus() == true &&
+//        this->isVisible() == false &&
+//        dock_widget->isToggled() == false){
+//         if(debugflag)
+//             printf("autodock Conditions = TRUE\n");
+//         dock_widget->SaveKscdPosition();
+//         this->show();
+//         this->hide();
+//     }else
+//         if(debugflag){
+//             printf("autodock Conditions = FALSE\n");
+//             printf("docking = %d\nautodock = %d\ne->lostFocus() = %d\n"
+//                    "this->isVisible() = %d\ndock_widget->isToggled = %d\n",
+//                    docking, autodock, e->lostFocus(), this->isVisible(),
+//                    dock_widget->isToggled());
+//         }
+// //    dockinginprogress = false;
+// }
 
 void KSCD::loopClicked(){
 
@@ -1007,11 +1026,11 @@ void KSCD::aboutClicked(){
                                        "For the many CDDB code bug fixes, local CDDB "
                                        "record caching, and track tweek, and configuration "
                                        "fixes.\n\n");
-     
+
     label->setAlignment(AlignLeft|WordBreak|ExpandTabs);
     label->setText(labelstring.data());
-  
-    QString pixdir = mykapp->kde_datadir() + QString("/kscd/pics/"); 
+
+    QString pixdir = mykapp->kde_datadir() + QString("/kscd/pics/");
 
     QPixmap pm((pixdir + "kscdlogo.xpm").data());
     QLabel *logo = new QLabel(box);
@@ -1047,7 +1066,7 @@ void KSCD::aboutClicked(){
                       cddb.useHTTPProxy(),
                       cddb.getHTTPProxyHost(),
                       cddb.getHTTPProxyPort()
-    );                                      
+    );
 
     MGConfigDlg* mgdlg;
     struct mgconfigstruct mgconfig;
@@ -1057,7 +1076,7 @@ void KSCD::aboutClicked(){
     mgdlg = new MGConfigDlg(tabdialog,&mgconfig,"mgconfigdialg");
 
     smtpconfig = new SMTPConfig(tabdialog, "smtpconfig", &smtpConfigData);
-    
+
     tabdialog->addTab(setup,"CDDB");
     tabdialog->addTab(smtpconfig, klocale->translate("SMTP Setup"));
     tabdialog->addTab(dlg,klocale->translate("Kscd Options"));
@@ -1068,7 +1087,7 @@ void KSCD::aboutClicked(){
 
     if(tabdialog->exec() == QDialog::Accepted){
         smtpconfig->commitData();
-        
+
         background_color = dlg->getData()->background_color;
         led_color = dlg->getData()->led_color;
         tooltips = dlg->getData()->tooltips;
@@ -1080,19 +1099,19 @@ void KSCD::aboutClicked(){
         autoplay = dlg->getData()->autoplay;
         autodock = dlg->getData()->autodock;
         stopexit = dlg->getData()->stopexit;
-        
+
         if( (QString)cd_device != dlg->getData()->cd_device){
             cd_device_str = dlg->getData()->cd_device;
             cd_close();
             cd_device = cd_device_str.data();
-      
+
         }
         cddrive_is_ok = true;
-      
+
         magic_width = mgdlg->getData()->width;
         magic_height = mgdlg->getData()->height;
         magic_brightness = mgdlg->getData()->brightness;
-    
+
         bool cddb_proxy_enabled;
         QString cddb_proxy_host;
         int cddb_proxy_port;
@@ -1199,7 +1218,7 @@ void KSCD::cdMode(){
         currentlyejected = true;
     else
         currentlyejected = false;
-    
+
     switch (cur_cdmode) {
     case -1:         /* UNKNOWN */
         cur_track = save_track = 1;
@@ -1405,7 +1424,7 @@ void KSCD::setColors(){
 void KSCD::readSettings()
 {
     config = mykapp->getConfig();
-  
+
     config->setGroup("GENERAL");
     volume     = config->readNumEntry("Volume",40);
     tooltips   = (bool) config->readNumEntry("ToolTips",1);
@@ -1495,7 +1514,7 @@ void KSCD::readSettings()
             // function in configuration - it does not notice if QStrList
             // String contents is changed.
             cddbserverlist=nlist;
-            if(debugflag) 
+            if(debugflag)
                 fprintf(stderr,"CDDB server list converted to new format and saved.\n");
             config->writeEntry("SeverList",cddbserverlist,',',true);
             config->sync();
@@ -1517,12 +1536,12 @@ void KSCD::writeSettings(){
         config->writeEntry("ToolTips", 1);
     else
         config->writeEntry("ToolTips", 0);
-  
+
     if(randomplay)
         config->writeEntry("RandomPlay", 1);
     else
-        config->writeEntry("RandomPlay", 0); 
-    config->writeEntry("USEKFM", (int)use_kfm); 
+        config->writeEntry("RandomPlay", 0);
+    config->writeEntry("USEKFM", (int)use_kfm);
     config->writeEntry("DOCKING", (int)docking);
     config->writeEntry("AUTOPLAY", (int)autoplay);
     config->writeEntry("AUTODOCK", (int)autodock);
@@ -1539,7 +1558,7 @@ void KSCD::writeSettings(){
     config->writeEntry("serverHost", smtpConfigData.serverHost);
     config->writeEntry("serverPort", smtpConfigData.serverPort);
     config->writeEntry("senderAddress", smtpConfigData.senderAddress);
-    
+
     config->setGroup("CDDB");
     config->writeEntry("CDDBRemoteEnabled",(int)cddb_remote_enabled);
     config->writeEntry("LocalBaseDir",cddbbasedir);
@@ -1753,7 +1772,7 @@ void KSCD::cddb_ready(){
     }
 
     querylist.append(num.sprintf("%d",cd->cddbtoc[cd->ntracks].absframe/75));
-    cddb_inexact_sentinel =false;  
+    cddb_inexact_sentinel =false;
     cddb.queryCD(cd->magicID,querylist);
 
 }
@@ -1786,7 +1805,7 @@ void KSCD::cddb_no_info(){
 
 void KSCD::cddb_failed(){
 
-    // TODO differentiate between those casees where the communcition really 
+    // TODO differentiate between those casees where the communcition really
     // failed and those where we just couldn't find anything
     //        cddb_ready_bug = 0;
     if(debugflag)

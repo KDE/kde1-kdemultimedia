@@ -164,10 +164,10 @@ public slots:
 
 private:
     CDDBSetup       *setup;
-    
+
     SMTPConfig      *smtpconfig;
     SMTPConfig::SMTPConfigData  smtpConfigData;
-    
+
     CDDialog        *cddialog;
     QPushButton	    *playPB;
     QPushButton	    *stopPB;
@@ -291,7 +291,8 @@ public:
 protected:
 
     void closeEvent( QCloseEvent *e );
-    void focusOutEvent(QFocusEvent *e);
+    bool event( QEvent *e );
+    //    void focusOutEvent(QFocusEvent *e);
     void playtime();
     void setupPopups();
     void startBrowser(char* querystring);
