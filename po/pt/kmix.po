@@ -112,6 +112,3 @@ msgstr "Mostrar"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Dividir"
-
-#~ msgid "Restore"
-#~ msgstr "Restaurar"
