@@ -37,6 +37,8 @@ msgstr "&Stop"
 msgid "P&revious Song"
 msgstr "P&redchádzajúca pesnièka"
 
+### Komentár: Navrhujem vôbec zameni» "pesnièka" za skladba, úplne v¹ade
+
 #: kmidframe.cpp:79
 msgid "&Next Song"
 msgstr "&Nasledujúca pesnièka"
@@ -100,6 +102,8 @@ msgstr "&Zmena písma ..."
 #: kmidframe.cpp:145
 msgid "Midi &Setup ..."
 msgstr "&Nastavi» Midi.."
+
+### Prípadne "&Nastavenie Midi..."
 
 #: kmidframe.cpp:150
 #, c-format
@@ -194,6 +198,8 @@ msgstr ""
 "Nemô¾em otvori» /dev/sequencer aby som získal\n"
 "niektoré informácie. Mo¾no ho pou¾íva iný program."
 
+### Chýba Ti èiarka za /dev/sequencer...
+
 #: kmidframe.cpp:639 kmidframe.cpp:640
 #, c-format
 msgid ""
@@ -237,6 +243,9 @@ msgstr "Nedostatok pamäte !!"
 #: kmidclient.cpp:259
 msgid "This file is corrupted or not well built"
 msgstr "Tento súbor je po¹kodený alebo zle urobený."
+
+### Navrhujem zameni» "zle urobený" za "zle vygenerovaný". Urobený znie
+### divne :-)
 
 #: kmidclient.cpp:260
 msgid "Unknown error message"
@@ -369,387 +378,396 @@ msgstr "3D - plnený"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
-msgstr ""
+msgstr "Veµký akustický klavír"
 
 #: instrname.i18n:7
 msgid "Bright Acoustic Piano"
-msgstr ""
+msgstr "Jasný akustický klavír"
 
 #: instrname.i18n:8
 msgid "Electric Grand Piano"
-msgstr ""
+msgstr "Veµký elektronický klavír"
 
 #: instrname.i18n:9
 msgid "Honky-Tonk"
-msgstr ""
+msgstr "Klavír Honky-Tonk"
 
+### Nemohol som vymyslie» nijaký nový rozumný preklad, slovenèina na to nemá
+### výraz.
 #: instrname.i18n:10
+
 msgid "Rhodes Piano"
-msgstr ""
+msgstr "Zvonèekový klavír"
 
 #: instrname.i18n:11
 msgid "Chorused Piano"
-msgstr ""
+msgstr "Ozvuèený klavír"
 
 #: instrname.i18n:12
 msgid "Harpsichord"
-msgstr ""
+msgstr "Èembalo"
 
 #: instrname.i18n:13
 msgid "Clavinet"
-msgstr ""
+msgstr "Spinet"
 
 #: instrname.i18n:14
 msgid "Celesta"
-msgstr ""
+msgstr "Èelesta"
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
-msgstr ""
+msgstr "Zvonkohra"
 
 #: instrname.i18n:16
 msgid "Music Box"
-msgstr ""
+msgstr "Hracia skrinka"
 
 #: instrname.i18n:17
 msgid "Vibraphone"
-msgstr ""
+msgstr "Vibrafón"
 
 #: instrname.i18n:18
 msgid "Marimba"
-msgstr ""
+msgstr "Marimba"
 
 #: instrname.i18n:19
 msgid "Xylophone"
-msgstr ""
+msgstr "Xylofón"
 
 #: instrname.i18n:20
 msgid "Tubular Bells"
-msgstr ""
+msgstr "Zvony"
 
 #: instrname.i18n:21
 msgid "Dulcimer"
-msgstr ""
+msgstr "Cimbal"
 
 #: instrname.i18n:22
 msgid "Hammond Organ"
-msgstr ""
+msgstr "Hammond Organ"
+
+### On sa tak fakt volá, je to toti¾ druh syntezátora, ktorý je postavený v
+### tvare hracieho stola organu. Vyu¾ívaný najmä v jazze.
 
 #: instrname.i18n:23
 msgid "Percussive Organ"
-msgstr ""
+msgstr "Perkusívny organ"
+
 
 #: instrname.i18n:24
 msgid "Rock Organ"
-msgstr ""
+msgstr "Rockový organ"
 
 #: instrname.i18n:25
 msgid "Church Organ"
-msgstr ""
+msgstr "Chrámový organ"
 
 #: instrname.i18n:26
 msgid "Reed Organ"
-msgstr ""
+msgstr "Verklík"
 
 #: instrname.i18n:27
 msgid "Accordion"
-msgstr ""
+msgstr "Akordeón"
+
+### Medzi nami hudobníkmi sa mu hovorí " ¹µaktrafón ".
 
 #: instrname.i18n:28
 msgid "Harmonica"
-msgstr ""
+msgstr "Ústna harmonika"
 
 #: instrname.i18n:29
 msgid "Tango Accordion"
-msgstr ""
+msgstr "Tangový akordeón"
 
 #: instrname.i18n:30
 msgid "Acoustic Guitar (Nylon)"
-msgstr ""
+msgstr "Akustická gitara (nylonové struny)"
 
 #: instrname.i18n:31
 msgid "Acoustic Guitar (Steel)"
-msgstr ""
+msgstr "Akustická gitara (kovové struny)"
 
 #: instrname.i18n:32
 msgid "Electric Guitar (Jazz)"
-msgstr ""
+msgstr "Elektrická jazzová gitara"
 
 #: instrname.i18n:33
 msgid "Electric Guitar (Clean)"
-msgstr ""
+msgstr "Elektrická gitara"
 
 #: instrname.i18n:34
 msgid "Electric Guitar (Muted)"
-msgstr ""
+msgstr "Elektrická tlmená gitara"
 
 #: instrname.i18n:35
 msgid "Overdriven Guitar"
-msgstr ""
+msgstr "Elektrická gitara - overdrive"
 
 #: instrname.i18n:36
 msgid "Distortion Guitar"
-msgstr ""
+msgstr "Elektrická gitara - distortion"
 
 #: instrname.i18n:37
 msgid "Guitar Harmonics"
-msgstr ""
+msgstr "Gitarové fla¾olety"
 
 #: instrname.i18n:38
 msgid "Acoustic Bass"
-msgstr ""
+msgstr "Akustický bas"
 
 #: instrname.i18n:39
 msgid "Electric Bass (Finger)"
-msgstr ""
+msgstr "Elektrický bas (bez brnkátka)"
 
 #: instrname.i18n:40
 msgid "Electric Bass (Pick)"
-msgstr ""
+msgstr "Elektrický bas (s brnkátkom)"
 
 #: instrname.i18n:41
 msgid "Fretless Bass"
-msgstr ""
+msgstr "Bas bez pra¾cov"
 
 #: instrname.i18n:42
 msgid "Slap Bass 1"
-msgstr ""
+msgstr "Slapovaný bas 1"
 
 #: instrname.i18n:43
 msgid "Slap Bass 2"
-msgstr ""
+msgstr "Slapovaný bas 2"
 
 #: instrname.i18n:44
 msgid "Synth Bass 1"
-msgstr ""
+msgstr "Syntetický bas 1"
 
 #: instrname.i18n:45
 msgid "Synth Bass 2"
-msgstr ""
+msgstr "Syntetický bas 2"
 
 #: instrname.i18n:46
 msgid "Violin"
-msgstr ""
+msgstr "Husle"
 
 #: instrname.i18n:47
 msgid "Viola"
-msgstr ""
+msgstr "Viola"
 
 #: instrname.i18n:48
 msgid "Cello"
-msgstr ""
+msgstr "Violonèelo"
 
 #: instrname.i18n:49
 msgid "Contrabass"
-msgstr ""
+msgstr "Kontrabas"
 
 #: instrname.i18n:50
 msgid "Tremolo Strings"
-msgstr ""
+msgstr "Sláèiky - tremolo"
 
 #: instrname.i18n:51
 msgid "Pizzicato Strings"
-msgstr ""
+msgstr "Sláèiky - pizzicato"
 
 #: instrname.i18n:52
 msgid "Orchestral Harp"
-msgstr ""
+msgstr "Harfa"
 
 #: instrname.i18n:53
 msgid "Timpani"
-msgstr ""
+msgstr "Tympany"
 
 #: instrname.i18n:54
 msgid "String Ensemble 1"
-msgstr ""
+msgstr "Sláèikový orchester 1"
 
 #: instrname.i18n:55
 msgid "String Ensemble 2"
-msgstr ""
+msgstr "Sláèikový orchester 2"
 
 #: instrname.i18n:56
 msgid "Synth Strings 1"
-msgstr ""
+msgstr "Umelé sláèiky 1"
 
 #: instrname.i18n:57
 msgid "Synth Strings 2"
-msgstr ""
+msgstr "Umelé sláèiky 2"
 
 #: instrname.i18n:58
 msgid "Choir Aahs"
-msgstr ""
+msgstr "Zborové ááá"
 
 #: instrname.i18n:59
 msgid "Voice Oohs"
-msgstr ""
+msgstr "Zborové óóó"
 
 #: instrname.i18n:60
 msgid "Synth Voice"
-msgstr ""
+msgstr "Syntetický hlas"
 
 #: instrname.i18n:61
 msgid "Orchestra Hit"
-msgstr ""
+msgstr "Orchestrálny akcent"
 
 #: instrname.i18n:62
 msgid "Trumpet"
-msgstr ""
+msgstr "Trúbka"
 
 #: instrname.i18n:63
 msgid "Trombone"
-msgstr ""
+msgstr "Trombón"
 
 #: instrname.i18n:64
 msgid "Tuba"
-msgstr ""
+msgstr "Tuba"
 
 #: instrname.i18n:65
 msgid "Muted Trumpet"
-msgstr ""
+msgstr "Trúbka s dusítkom"
 
 #: instrname.i18n:66
 msgid "French Horn"
-msgstr ""
+msgstr "Francúzsky roh"
 
 #: instrname.i18n:67
 msgid "Brass Section"
-msgstr ""
+msgstr "Dychové nástroje"
 
 #: instrname.i18n:68
 msgid "Synth Brass 1"
-msgstr ""
+msgstr "Umelé dychy 1"
 
 #: instrname.i18n:69
 msgid "Synth Brass 2"
-msgstr ""
+msgstr "Umelé dychy 2"
 
 #: instrname.i18n:70
 msgid "Soprano Sax"
-msgstr ""
+msgstr "Sopránsaxofón"
 
 #: instrname.i18n:71
 msgid "Alto Sax"
-msgstr ""
+msgstr "Altsaxofón"
 
 #: instrname.i18n:72
 msgid "Tenor Sax"
-msgstr ""
+msgstr "Tenorsaxofón"
 
 #: instrname.i18n:73
 msgid "Baritone Sax"
-msgstr ""
+msgstr "Barytónsaxofón"
 
 #: instrname.i18n:74
 msgid "Oboe"
-msgstr ""
+msgstr "Hoboj"
 
 #: instrname.i18n:75
 msgid "English Horn"
-msgstr ""
+msgstr "Anglický roh"
 
 #: instrname.i18n:76
 msgid "Bassoon"
-msgstr ""
+msgstr "Fagot"
 
 #: instrname.i18n:77
 msgid "Clarinet"
-msgstr ""
+msgstr "Klarinet"
 
 #: instrname.i18n:78
 msgid "Piccolo"
-msgstr ""
+msgstr "Pikola"
 
 #: instrname.i18n:79
 msgid "Flute"
-msgstr ""
+msgstr "Flauta"
 
 #: instrname.i18n:80
 msgid "Recorder"
-msgstr ""
+msgstr "Záznamník"
 
 #: instrname.i18n:81
 msgid "Pan Flute"
-msgstr ""
+msgstr "Panova flauta"
 
 #: instrname.i18n:82
 msgid "Blown Bottle"
-msgstr ""
+msgstr "Hra na fµa¹i"
 
 #: instrname.i18n:83
 msgid "Shakuhachi"
-msgstr ""
+msgstr "Shakuhachi"
 
 #: instrname.i18n:84
 msgid "Whistle"
-msgstr ""
+msgstr "Pískanie"
 
 #: instrname.i18n:85
 msgid "Ocarina"
-msgstr ""
+msgstr "Okarina"
 
 #: instrname.i18n:86
 msgid "Lead 1 - Square Wave"
-msgstr ""
+msgstr "Tón 1 - Pravouhlý signál"
 
 #: instrname.i18n:87
 msgid "Lead 2 - Saw Ttooth"
-msgstr ""
+msgstr "Tón 2 - Trojuholníkový signál"
 
 #: instrname.i18n:88
 msgid "Lead 3 - Calliope"
-msgstr ""
+msgstr "Tón 3 - Parná pí¹»ala"
 
 #: instrname.i18n:89
 msgid "Lead 4 - Chiflead"
-msgstr ""
+msgstr "Tón 4- Prefukovaná pí¹»ala"
 
 #: instrname.i18n:90
 msgid "Lead 5 - Charang"
-msgstr ""
+msgstr "Tón 5 - Charang"
 
 #: instrname.i18n:91
 msgid "Lead 6 - Voice"
-msgstr ""
+msgstr "Tón 6 - Hlas"
 
 #: instrname.i18n:92
 msgid "Lead 7 - Fifths"
-msgstr ""
+msgstr "Tón 7 - Kvinty"
 
 #: instrname.i18n:93
 msgid "Lead 8 - Bass+Lead"
-msgstr ""
+msgstr "Tón 8 - Bas+Vý¹ky"
 
 #: instrname.i18n:94
 msgid "Pad 1 - New Age"
-msgstr ""
+msgstr "Zvuk 1 - Nový vek"
 
 #: instrname.i18n:95
 msgid "Pad 2 - Warm"
-msgstr ""
+msgstr "Zvuk 2 - Teplo"
 
 #: instrname.i18n:96
 msgid "Pad 3 - Polysynth"
-msgstr ""
+msgstr "Zvuk 3 - Syntetika"
 
 #: instrname.i18n:97
 msgid "Pad 4 - Choir"
-msgstr ""
+msgstr "Zvuk 4 - Chór"
 
 #: instrname.i18n:98
 msgid "Pad 5 - Bow"
-msgstr ""
+msgstr "Zvuk 5 - Ohyb"
 
 #: instrname.i18n:99
 msgid "Pad 6 - Metallic"
-msgstr ""
+msgstr "Zvuk 6 - Kov"
 
 #: instrname.i18n:100
 msgid "Pad 7 - Halo"
-msgstr ""
+msgstr "Zvuk 7 - Haló"
 
 #: instrname.i18n:101
 msgid "Pad 8 - Sweep"
-msgstr ""
+msgstr "Zvuk 8 - ©írenie"
 
 #: instrname.i18n:102
 msgid "FX 1 - Rain"
@@ -763,13 +781,17 @@ msgstr "FX 2 - Soundtrack"
 msgid "FX 3 - Crystal"
 msgstr "FX 3 - Kry¹táµ"
 
+### Ak pí¹e¹ "kri¹táµ" s makkým µ na konci, ZÁSADNE je tam aj
+### mäkké i. Ak pí¹e¹ kry¹tál s tvrdým l na konci, je v slove
+### ypsislon. Tu potrebuje¹ tvar kri¹táµ.
+
 #: instrname.i18n:105
 msgid "FX 4 - Atmosphere"
-msgstr "FX 4 - atmosféra"
+msgstr "FX 4 - Atmosféra"
 
 #: instrname.i18n:106
 msgid "FX 5 - Brightness"
-msgstr ""
+msgstr "FX 5 - Priezraènos»"
 
 #: instrname.i18n:107
 msgid "FX 6 - Goblins"
@@ -785,7 +807,7 @@ msgstr "FX 8 - Sci-fi"
 
 #: instrname.i18n:110
 msgid "Sitar"
-msgstr ""
+msgstr "Sitar"
 
 #: instrname.i18n:111
 msgid "Banjo"
@@ -793,63 +815,63 @@ msgstr "Bend¾o"
 
 #: instrname.i18n:112
 msgid "Shamisen"
-msgstr ""
+msgstr "Shamisen"
 
 #: instrname.i18n:113
 msgid "Koto"
-msgstr ""
+msgstr "Koto"
 
 #: instrname.i18n:114
 msgid "Kalimba"
-msgstr ""
+msgstr "Kalimba"
 
 #: instrname.i18n:115
 msgid "Bagpipe"
-msgstr ""
+msgstr "Gajdy"
 
 #: instrname.i18n:116
 msgid "Fiddle"
-msgstr ""
+msgstr "Country-husle"
 
 #: instrname.i18n:117
 msgid "Shannai"
-msgstr ""
+msgstr "Shannai"
 
 #: instrname.i18n:118
 msgid "Tinkle Bell"
-msgstr ""
+msgstr "Jasné zvonèeky"
 
 #: instrname.i18n:119
 msgid "Agogo"
-msgstr ""
+msgstr "Agogo"
 
 #: instrname.i18n:120
 msgid "Steel Drum"
-msgstr ""
+msgstr "©umivý bubon"
 
 #: instrname.i18n:121
 msgid "Wook Block"
-msgstr ""
+msgstr "Drevené palièky"
 
 #: instrname.i18n:122
 msgid "Taiko Drum"
-msgstr ""
+msgstr "Bubon Taiko"
 
 #: instrname.i18n:123
 msgid "Melodic Tom"
-msgstr ""
+msgstr "Bubon Melodický Tom"
 
 #: instrname.i18n:124
 msgid "Synth Drum"
-msgstr ""
+msgstr "Bubon Synth"
 
 #: instrname.i18n:125
 msgid "Reverse Cymbal"
-msgstr ""
+msgstr "Reverzovaný èinel"
 
 #: instrname.i18n:126
 msgid "Guitar Fret Noise"
-msgstr ""
+msgstr "Kåzanie po hmatníku gitary"
 
 #: instrname.i18n:127
 msgid "Breath Noise"
@@ -878,3 +900,4 @@ msgstr "Potlesk"
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr "Streµba"
+
