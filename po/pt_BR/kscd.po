@@ -228,16 +228,15 @@ msgstr "Permitir embutir em KPanel"
 
 #: configdlg.cpp:159
 msgid "Play on Tray Close"
-msgstr ""
+msgstr "Reproduzir ao Fechar Drive"
 
 #: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Tocar/Pausa"
 
 #: docking.cpp:74
-#, fuzzy
 msgid "Forward"
-msgstr "30 Seg Adiante"
+msgstr "Adiante"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -312,9 +311,8 @@ msgid "Previous Track"
 msgstr "Faixa anterior"
 
 #: kscd.cpp:522
-#, fuzzy
 msgid "Dock Kscd"
-msgstr "Magic Kscd"
+msgstr "Embutir Kscd"
 
 #: kscd.cpp:523
 msgid "Cycle Time Display"
@@ -351,7 +349,7 @@ msgstr "Tocando"
 #: kscd.cpp:592 kscd.cpp:1173 kscd.cpp:1221 kscd.cpp:1614 kscd.cpp:1812
 #, c-format
 msgid "%02d: <Unknown>"
-msgstr ""
+msgstr "%02d: <Desconhecido>"
 
 #: kscd.cpp:623 kscd.cpp:1202
 msgid "Pause"
@@ -382,7 +380,6 @@ msgid "kscd Configuraton"
 msgstr "Configuração do kscd"
 
 #: kscd.cpp:912
-#, fuzzy
 msgid ""
 "Maintained by:\n"
 "     Sam Maloney <thufir@illogic.ml.org>\n"
@@ -421,7 +418,6 @@ msgstr ""
 "\n"
 
 #: kscd.cpp:931
-#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -437,6 +433,10 @@ msgid ""
 "tweek, and configuration fixes.\n"
 "\n"
 msgstr ""
+"Agradecimentos a Sam Maloney <thufir@illogic.ml.org>\n"
+"Pelos muitos consertos nos códigos do CDDB, do cache local do CDDB, trilhas, "
+"e da configuração.\n"
+"\n"
 
 #: kscd.cpp:986
 msgid "Kscd Options"
@@ -478,9 +478,8 @@ msgid "No matching CDDB entry found."
 msgstr "Nenhum registro CDDB encontrado."
 
 #: kscd.cpp:1693 kscd.cpp:1703
-#, fuzzy
 msgid "Error getting CDDB entry."
-msgstr "Nenhum registro CDDB encontrado."
+msgstr "Erro na obtenção de registro do CDDB."
 
 #: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."

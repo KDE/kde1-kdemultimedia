@@ -126,7 +126,6 @@ msgid "Midi &Setup ..."
 msgstr "Config &Midi ..."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -147,6 +146,7 @@ msgstr ""
 "Málaga (Espanha)\n"
 "\n"
 "Midi/Karaoke file player\n"
+"Página do KMid: http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid vem sem ABSOLUTAMENTE NENHUMA GARANTIA; para os detalhes veja\n"
 "o arquivo COPYING\n"
