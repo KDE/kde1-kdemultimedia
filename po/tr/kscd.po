@@ -1,0 +1,524 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 1.0\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"PO-Revision-Date: 1998-08-01 12:00+0000\n"
+"Last-Translator: F. Kaðan Gürkaynak <kgf@wpi.edu>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ISO 8859-9\n"
+
+#: CDDBSetupData.cpp:44
+msgid "CDDB Base Directory"
+msgstr "Temel CDDB Dizini"
+
+#: CDDBSetupData.cpp:62
+msgid "Send CDDB submissions to:"
+msgstr "CDDB katkýlarýný buraya gönder:"
+
+#: CDDBSetupData.cpp:82
+msgid "CDDB server:"
+msgstr "CDDB sunucusu:"
+
+#: CDDBSetupData.cpp:90
+msgid "Update"
+msgstr "Güncelle"
+
+#: CDDBSetupData.cpp:108
+msgid "Enable Remote CDDB"
+msgstr "CDDB eriþimine izin ver"
+
+#: CDDBSetupData.cpp:116
+msgid "Defaults"
+msgstr "Öntanýmlar"
+
+#: CDDBSetupData.cpp:133
+msgid "Use HTTP proxy to access CDDB"
+msgstr "CDDB eriþimi için HTTP kuklasý kullan"
+
+#: CDDialog.cpp:55
+msgid "CD Database Editor"
+msgstr "CD Veritabaný Düzenleyicisi"
+
+#: CDDialog.cpp:200
+#, c-format
+msgid ""
+"Total Time:\n"
+"%02d:%02d:%02d"
+msgstr ""
+"Toplam Zaman:\n"
+"%02d:%02d:%02d"
+
+
+#: CDDialog.cpp:202
+#, c-format
+msgid ""
+"Total Time:\n"
+" %02d:%02d"
+msgstr ""
+"Toplam Zaman:\n"
+" %02d:%02d"
+
+#: CDDialog.cpp:244
+msgid "Use this Editor to annotate this track"
+msgstr "Bu düzenleyici ile þarkýya isim ver"
+
+#: CDDialog.cpp:269
+msgid "Use this Editor to annotate the title"
+msgstr "Bu düzenleyici ile albüme isim ver"
+
+#: CDDialog.cpp:417 CDDialog.cpp:546
+msgid "Please select a Category or press Cancel"
+msgstr "Lütfen bir grup seçin ya da vazgeçin"
+
+#: CDDialog.cpp:418
+msgid "To which category does the CD belong?"
+msgstr "CD hangi gruba ait?"
+
+#: CDDialog.cpp:447
+#, c-format
+msgid "Submitting cddb entry: %s\n"
+msgstr "CDDB verisini gönderiyorum: %s\n"
+
+#: CDDialog.cpp:459
+#, c-format
+msgid ""
+"Could not pipe contents into:\n"
+" %s"
+msgstr ""
+"Ýçindekileri yönlendiremedim:\n"
+" %s"
+
+
+#: CDDialog.cpp:547
+msgid "Under which category would you like to store this CDDB entry?"
+msgstr "Bu CDDB girdisini hangi grup altýnda saklamak istiyorsunuz?"
+
+#: CDDialog.cpp:597
+#, c-format
+msgid ""
+"Unable to write to file:\n"
+"%s\n"
+"Please check your permissions and make your category directories exist."
+msgstr ""
+"%s\n"
+"dosyasýna yazýlamadý\n"
+"Dosya eriþim haklarý izin vermiyor olabilir, grup dizinleriniz olmayabilir."
+
+
+
+#: CDDialog.cpp:602
+msgid "Kscd Error"
+msgstr "Kscd Hatasý"
+
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
+msgid "Invalid Database Entry"
+msgstr "Geçersiz Veritabaný Girdisi"
+
+#: CDDialog.cpp:762
+msgid ""
+"The Disc Artist / Title field is not filled in.\n"
+"Please correct the entry and try again."
+msgstr ""
+"Sanatçý/Albüm Adý bölümü doldurulmamýþ.\n"
+"Bilgiyi girip yeniden deneyin."
+
+
+#: CDDialog.cpp:777
+msgid ""
+"The Disc Artist / Title field is not filled in correctly.\n"
+"Please separate the artist from the title of the CD with \n"
+"a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
+msgstr ""
+"Sanatçý/Albüm adý kýsmý doðru doldurulmamýþ. Lütfen sanatçý\n"
+"ile albüm adýný bir bölü iþareti ile ayýrýn. Örnek olarak: \n"
+"Hasan Cihat Örter / re-formation\n"
+
+
+#: CDDialog.cpp:791 CDDialog.cpp:813
+msgid ""
+"Not all track titles can be empty.\n"
+"Please correct the entry and try again."
+msgstr ""
+"Tüm þarký isimleri boþ olamaz.\n"
+"Lütfen düzeltip tekrar deneyin."
+
+#: CDDialog.cpp:823
+msgid "Internal Error"
+msgstr "Dahili Hata"
+
+#: CDDialog.cpp:824
+msgid ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Please email the author."
+msgstr ""
+"cdinfo.ntracks != title_list->count() + 1\n"
+"Lütfen yazara haber verin."
+
+
+#: CDDialog.cpp:853
+msgid "Invalid Playlist\n"
+msgstr "Geçersiz Çalma listesi\n"
+
+#: CDDialogData.cpp:74
+msgid "Load"
+msgstr "Yükle"
+
+#: CDDialogData.cpp:87
+msgid "Play List Editor"
+msgstr "Çalma Listesi Düzenleyicisi"
+
+#: CDDialogData.cpp:93
+msgid "Edit Track Title"
+msgstr "Þarký Ýsmi Gir"
+
+#: CDDialogData.cpp:99
+msgid "Disc Artist / Title"
+msgstr "Sanatçý / Albüm Ýsmi"
+
+#: CDDialogData.cpp:105
+msgid "Track / Time / Title"
+msgstr "Þarký / Zaman / Ýsmi"
+
+#: CDDialogData.cpp:111 CDDialogData.cpp:117
+msgid "Ext Info"
+msgstr "Ek Bilgi"
+
+#: CDDialogData.cpp:133
+msgid "Disc ID"
+msgstr "Disc ID"
+
+#: CDDialogData.cpp:145
+msgid "Upload"
+msgstr "Gönder"
+
+#: configdlg.cpp:61
+msgid "Configure kscd"
+msgstr "kscd yapýlandýr"
+
+#: configdlg.cpp:68
+msgid "LED Color:"
+msgstr "LED Rengi:"
+
+#: configdlg.cpp:82
+msgid "Background Color:"
+msgstr "Arkaplan Rengi:"
+
+#: configdlg.cpp:101
+msgid "CDROM Device:"
+msgstr "CDROM aygýtý:"
+
+#: configdlg.cpp:118
+msgid "Unix mail command:"
+msgstr "Unix mail komutu:"
+
+#: configdlg.cpp:126
+msgid "WWW-Browser"
+msgstr "Að tarayýcýsý"
+
+#: configdlg.cpp:129
+msgid "Use kfm as Browser"
+msgstr "Tarayýcý olarak kfm kullan"
+
+#: configdlg.cpp:136
+msgid "Use Custom Browser:"
+msgstr "Baþka Tarayýcý Kullan"
+
+#: configdlg.cpp:148
+msgid "Show Tool Tips"
+msgstr "Ýpuçlarýný Göster"
+
+#: configdlg.cpp:154
+msgid "Enable KPanel Docking"
+msgstr "Kpanel'e Eklemeye Ýzin Ver"
+
+#: docking.cpp:72 kscd.cpp:507
+msgid "Play/Pause"
+msgstr "Çal/Bekle"
+
+#: docking.cpp:75
+msgid "Backward"
+msgstr "Geri"
+
+#: docking.cpp:76
+msgid "Next"
+msgstr "Sonraki"
+
+#: docking.cpp:77
+msgid "Previous"
+msgstr "Önceki"
+
+#: docking.cpp:78
+msgid "Eject"
+msgstr "CD çýkar"
+
+#: docking.cpp:175
+msgid "Minimize"
+msgstr "Simgeleþtir"
+
+#: inexact.cpp:54
+msgid ""
+"No exact match could be found. Please select the appropriate CD from the "
+"list of choices presented below."
+msgstr ""
+"Tam bir eþleme saðlanamadý. Lütfen uygun CD'yi aþaðýda yer alan seçenekler"
+"arasýndan seçin."
+
+#: inexact.cpp:57
+msgid "Please select a Disk Title or press Cancel"
+msgstr "Ya bir disk seçin ya da Vazgeç tuþuna basýn"
+
+#: kscd.cpp:328
+msgid "Vol: --"
+msgstr "Ses: --"
+
+#: kscd.cpp:473
+msgid "Performances"
+msgstr "Gösteriler"
+
+#: kscd.cpp:476
+msgid "Purchases"
+msgstr "Satýþlar"
+
+#: kscd.cpp:483
+msgid "KSCD Magic"
+msgstr "KSCD Magic"
+
+#: kscd.cpp:509
+msgid "Loop CD"
+msgstr "Tekrarla"
+
+#: kscd.cpp:510
+msgid "Track Selection"
+msgstr "Þarký Seçimi"
+
+#: kscd.cpp:511
+msgid "30 Secs Forward"
+msgstr "30 sn. Ýleri"
+
+#: kscd.cpp:512
+msgid "30 Secs Backward"
+msgstr "30 sn. Geri"
+
+#: kscd.cpp:513
+msgid "Next Track"
+msgstr "Sonraki Þarký"
+
+#: kscd.cpp:514
+msgid "Previous Track"
+msgstr "Önceki Þarký"
+
+#: kscd.cpp:515
+msgid "Exit Kscd"
+msgstr "Kscd'den Çýkýþ"
+
+#: kscd.cpp:516
+msgid "Cycle Time Display"
+msgstr "Döngü Zamaný Göstergesi"
+
+#: kscd.cpp:517
+msgid "Configure Kscd"
+msgstr "Kscd Yapýlandýrmasý"
+
+#: kscd.cpp:518
+msgid "Eject CD"
+msgstr "CD'yi çýkar"
+
+#: kscd.cpp:519
+msgid "The Artist on the Web"
+msgstr "Sanatçýyý aðda tara"
+
+#: kscd.cpp:520
+msgid "Random Play"
+msgstr "Rasgele Çal"
+
+#: kscd.cpp:521
+msgid "CDDB Dialog"
+msgstr "CDDB Penceresi"
+
+#: kscd.cpp:522
+msgid "CD Volume Control"
+msgstr "CD Ses Denetimi"
+
+#: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
+msgid "Playing"
+msgstr "Çalýyor"
+
+#: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
+#, c-format
+msgid "Track %02d"
+msgstr "Þarký %02d"
+
+#: kscd.cpp:602 kscd.cpp:1151
+msgid "Pause"
+msgstr "Bekle"
+
+#: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
+msgid "Random"
+msgstr "Rastgele"
+
+#: kscd.cpp:615
+msgid "Strange...."
+msgstr "Garip...."
+
+#: kscd.cpp:632
+msgid "Stopped"
+msgstr "Durdu"
+
+#: kscd.cpp:784 kscd.cpp:1116
+msgid "Loop"
+msgstr "Döngü"
+
+#: kscd.cpp:796
+msgid "Ejecting"
+msgstr "CD Geri Veriliyor"
+
+#: kscd.cpp:869
+msgid "kscd Configuraton"
+msgstr "kscd Yapýlandýrmasý"
+
+#: kscd.cpp:885
+msgid ""
+"Copyright (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd  contains code from:\n"
+"workman 1.4 beta 3\n"
+"Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"Special thanks to Ti Kan and Steve Scherf, the inventors of the CDDB "
+"database concept. Visit http://www.cddb.com for more information on CDDB.\n"
+"\n"
+msgstr ""
+"Telif Hakký (c) 1997-98 \n"
+"Bernd Johannes Wuebben <wuebben@kde.org>\n"
+"\n"
+"kscd, workman 1.4 beta 3\n"
+"içinden kýsýmlar içermektedir.\n"
+"Telif Hakký (c) Steven Grimm <koreth@hyperion.com>\n"
+"\n"
+"CDDB veri tabanýný geliþtiren Ti Kan ve Steve Scherf, teþekkürler "
+"CDDB hakkýnda bilgi için http://www.cddb.com adresine bakýn\n"
+"\n"
+
+
+#: kscd.cpp:897
+msgid ""
+"KSCD Magic based on Synaesthesia by Paul Harrison "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+msgstr ""
+"KSCD Magic Paul Harrison'un Synaesthesia'sýna ayanmaktadýr "
+"<pfh@yoyo.cc.monash.edu.au>\n"
+"\n"
+
+#: kscd.cpp:901
+msgid ""
+"Thanks to Vadim Zaliva <lord@crocodile.org>\n"
+"for his work on the http proxy code.\n"
+msgstr ""
+"Vadim Zaliva'ya <lord@crocodile.org>\n"
+"http kukla konusundaki yarýmlarý için teþekkürler\n"
+
+
+#: kscd.cpp:947
+msgid "Kscd Options"
+msgstr "Kscd Seçenekleri"
+
+#: kscd.cpp:948
+msgid "Kscd Magic"
+msgstr "Kscd Magic"
+
+#: kscd.cpp:1029 kscd.cpp:1822
+msgid "Vol: %02d%%"
+msgstr "Ses: %02d%%"
+
+#: kscd.cpp:1067
+#, c-format
+msgid ""
+"CDROM read or access error.\n"
+"Please make sure you have access permissions to:\n"
+"%s"
+msgstr ""
+"CDROM okuma veya eriþim hatasý.\n"
+"%s\n"
+"Eriþim haklarýnýzý kontrol edin"
+
+#: kscd.cpp:1159
+msgid "Ready"
+msgstr "Hazýr"
+
+#: kscd.cpp:1191
+msgid "Ejected"
+msgstr "Dýþarý verildi"
+
+#: kscd.cpp:1447
+msgid "Unable to get CDDB server list."
+msgstr "CDDB sunucu dökümünü alamýyorum."
+
+#: kscd.cpp:1569 kscd.cpp:1604
+msgid "No matching CDDB entry found."
+msgstr "CDDB veritabanýnda bir eþleme bulunamadý."
+
+#: kscd.cpp:1625
+msgid "CDDB query timed out."
+msgstr "CDDB sorgusu zamaný doldu"
+
+#: kscd.cpp:1797
+msgid "Tra Rem"
+msgstr "Þar Kal"
+
+#: kscd.cpp:1801
+msgid "Tot Sec"
+msgstr "Top San"
+
+#: kscd.cpp:1805
+msgid "Tot Rem"
+msgstr "Top Kal"
+
+#: kscd.cpp:1810
+msgid "Tra Sec"
+msgstr "Þar San"
+
+#: kscd.cpp:1935
+msgid "Cannot start kscdmagic."
+msgstr "kscdmagic baþlatýlamýyor"
+
+#: kscd.cpp:1950
+msgid ""
+"KSCD Magic exited abnormally.\n"
+"Are you sure kscdmagic is installed?"
+msgstr ""
+"KSCD Magic anormal þekilde sonlandý.\n"
+"Yüklü olduðundan emin misiniz?"
+
+
+#: kscd.cpp:2131
+msgid "-h: display commandline options\n"
+msgstr "-h: komut satýrý seçeneklerini göster\n"
+
+#: kscd.cpp:2132
+msgid "-d: enable debugging output.\n"
+msgstr "-d: hata ayýklama çýktýsý.\n"
+
+#: mgconfdlg.cpp:52
+msgid "Magic Kscd"
+msgstr "Magic Kscd"
+
+#: mgconfdlg.cpp:59
+msgid "Width of Magic Window:"
+msgstr "Magic Penceresinin Geniþliði"
+
+#: mgconfdlg.cpp:71
+msgid "Height of Magic Window:"
+msgstr "Magic Penceresinin Yüksekliði"
+
+#: mgconfdlg.cpp:83
+msgid "MAGIC Brightness:"
+msgstr "MAGIC Parlaklýðý:"
