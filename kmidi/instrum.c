@@ -56,10 +56,10 @@ static ToneBank standard_tonebank;
 #endif /* ADAGIO */
 ToneBank 
 #ifndef ADAGIO
-  *tonebank[128]={&standard_tonebank},
-  *drumset[128]={&standard_drumset};
+  *tonebank[MAXBANK]={&standard_tonebank},
+  *drumset[MAXBANK]={&standard_drumset};
 #else /* ADAGIO */
-  *tonebank[MAX_TONE_VOICES]={&standard_tonebank};
+  *tonebank[1]={&standard_tonebank};
 #endif /* ADAGIO */
 
 /* This is a special instrument, used for all melodic programs */
@@ -106,7 +106,7 @@ static void free_bank(int b)
   int i;
 #ifndef ADAGIO
   ToneBank *bank=((dr) ? drumset[b] : tonebank[b]);
-  for (i=0; i<128; i++)
+  for (i=0; i<MAXPROG; i++)
 #else /* ADAGIO */
   ToneBank *bank= tonebank[b];
   for (i=0; i<MAX_TONE_VOICES; i++)
@@ -271,7 +271,7 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
 #endif
 
   if (!name) return 0;
-  
+
   /* Open patch file */
   if (!(fp=open_file(name, 1, OF_NORMAL)))
     {
@@ -620,7 +620,7 @@ static Instrument *load_instrument(char *name, int font_type, int percussion,
       sp->data = safe_malloc(sp->data_length);
       if (1 != fread(sp->data, sp->data_length, 1, fp))
 	goto fail;
-      
+
       if (!(sp->modes & MODES_16BIT)) /* convert to 16-bit data */
 	{
 	  int32 i=sp->data_length;
@@ -782,7 +782,7 @@ static int fill_bank(int b)
       return 0;
     }
   #ifndef ADAGIO
-  for (i=0; i<128; i++)
+  for (i=0; i<MAXPROG; i++)
   #else /* ADAGIO */
   for (i=0; i<MAX_TONE_VOICES; i++)
   #endif /* ADAGIO */
@@ -871,7 +871,7 @@ int load_missing_instruments(void)
   int errors=0;
   errors+=fill_bank(0);
 #else
-  int i=128,errors=0;
+  int i=MAXBANK,errors=0;
   while (i--)
     {
       if (tonebank[i])
@@ -885,7 +885,7 @@ int load_missing_instruments(void)
 
 void free_instruments(void)
 {
-  int i=128;
+  int i=MAXBANK;
   while(i--)
     {
       if (tonebank[i])

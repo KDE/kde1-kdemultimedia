@@ -427,7 +427,7 @@ int read_config_file(char *name)
 	      return -2;
 		 }
 	  if (!drumset[i])
-	    {
+	         {
 	      drumset[i]=safe_malloc(sizeof(ToneBank));
 			memset(drumset[i], 0, sizeof(ToneBank));
 		 }
@@ -459,14 +459,31 @@ int read_config_file(char *name)
 	  if (!tonebank[i])
 		 {
 			tonebank[i]=safe_malloc(sizeof(ToneBank));
-	      memset(tonebank[i], 0, sizeof(ToneBank));
-	    }
+	      		memset(tonebank[i], 0, sizeof(ToneBank));
+	         }
 	  banknum=i;
 	  bank=tonebank[i];
 	  if (words > 2)
 		{
 			if (!strcmp(w[2], "sbk")) font_type = FONT_SBK;
 			else if (!strcmp(w[2], "fff")) font_type = FONT_FFF;
+		}
+	}
+      /******* sfx ********/
+		else if (!strcmp(w[0], "sfx"))
+	{
+	  i=MAXBANK-1;
+	  if (!tonebank[i])
+		 {
+			tonebank[i]=safe_malloc(sizeof(ToneBank));
+	      		memset(tonebank[i], 0, sizeof(ToneBank));
+	         }
+	  banknum=i;
+	  bank=tonebank[i];
+	  if (words > 1)
+		{
+			if (!strcmp(w[1], "sbk")) font_type = FONT_SBK;
+			else if (!strcmp(w[1], "fff")) font_type = FONT_FFF;
 		}
 	}
       /******* fff ********/
@@ -492,7 +509,7 @@ int read_config_file(char *name)
 	{
 	      int sf_order = 0;
 	      int sf_oldbank, sf_newbank = banknum;
-	      if (bank && bank == drumset[banknum]) sf_newbank += 128;
+	      if (bank && bank == drumset[banknum]) sf_newbank += 256;
 	      sf_oldbank = sf_newbank;
 	      if (words < 2) {
 		      fprintf(stderr, "%s: line %d: No soundfont file given\n", 

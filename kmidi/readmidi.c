@@ -55,6 +55,32 @@ static int32 at;
    large multiples, so it's simpler to have two roomy ints */
 static int32 sample_increment, sample_correction; /*samples per MIDI delta-t*/
 
+unsigned char sfxdrum1[100] = {
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,48,49,47,50,
+0,46,0,0,0,0,0,0,0,0,
+0,0,44,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,79,80,
+81,82,83,84,0,0,0,0,0,0,
+0,0,0,0,76,77,78,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+};
+
+unsigned char sfxdrum2[100] = {
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,59,60,41,
+42,46,0,0,0,0,0,0,0,0,
+0,0,63,64,65,66,67,68,69,69,
+72,70,0,0,0,0,0,0,52,53,
+54,56,57,58,0,0,0,0,0,0,
+0,0,0,0,73,74,75,71,0,0,
+0,0,0,0,0,0,0,0,0,0
+};
+
 /* Computes how many (fractional) samples one MIDI delta-time unit contains */
 static void compute_sample_increment(int32 tempo, int32 divisions)
 {
@@ -288,7 +314,7 @@ static int dumpstring(int32 len, char *label, int type)
 static MidiEventList *read_midi_event(void)
 {
   static uint8 laststatus, lastchan;
-  static uint8 nrpn=0, rpn_msb[16], rpn_lsb[16]; /* one per channel */
+  static uint8 nrpn=0, rpn_msb[MAXCHAN], rpn_lsb[MAXCHAN]; /* one per channel */
   uint8 me, type, a,b,c;
   int32 len;
   MidiEventList *new;
@@ -598,12 +624,14 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
   int32 sample_cum, samples_to_do, at, st, dt, counting_time;
   struct meta_text_type *meta = meta_text_list;
 
-  int current_bank[16], current_set[16], current_kit[16], current_program[16]; 
+  int current_bank[MAXCHAN], current_banktype[MAXCHAN], current_set[MAXCHAN],
+    current_kit[MAXCHAN], current_program[MAXCHAN]; 
   /* Or should each bank have its own current program? */
 
-  for (i=0; i<16; i++)
+  for (i=0; i<MAXCHAN; i++)
     {
       current_bank[i]=0;
+      current_banktype[i]=0;
       current_set[i]=0;
       current_kit[i]=0;
       current_program[i]=default_program;
@@ -646,6 +674,11 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	case ME_PROGRAM:
 	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
 	    {
+	      if (current_kit[meep->event.channel]==126)
+		{
+		  if (meep->event.a) current_kit[meep->event.channel]=125;
+		  break;
+		}
 	      if (drumset[meep->event.a]) /* Is this a defined drumset? */
 		new_value=meep->event.a;
 	      else if (current_kit[meep->event.channel] && drumset[ current_kit[meep->event.channel] ])
@@ -687,6 +720,14 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	    counting_time=1;
 	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
 	    {
+	      int dnote=meep->event.a;
+
+	      if (dnote>99) dnote=0;
+	      if (current_kit[meep->event.channel]==125)
+		meep->event.a=sfxdrum2[dnote];
+	      else if (current_kit[meep->event.channel]==126)
+		meep->event.a=sfxdrum1[dnote];
+
 	      /* Mark this instrument to be loaded */
 	      if (!(drumset[current_set[meep->event.channel]]
 		    ->tone[meep->event.a].instrument))
@@ -696,13 +737,19 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 	    }
 	  else
 	    {
-	      if (current_program[meep->event.channel]==SPECIAL_PROGRAM)
+	      int chan=meep->event.channel;
+	      int banknum;
+
+	      if (current_banktype[chan]) banknum=MAXBANK-1;
+	      else banknum=current_bank[chan];
+
+	      if (current_program[chan]==SPECIAL_PROGRAM)
 		break;
 	      /* Mark this instrument to be loaded */
-	      if (!(tonebank[current_bank[meep->event.channel]]
-		    ->tone[current_program[meep->event.channel]].instrument))
-		tonebank[current_bank[meep->event.channel]]
-		  ->tone[current_program[meep->event.channel]].instrument=
+	      if (!(tonebank[banknum]
+		    ->tone[current_program[chan]].instrument))
+		tonebank[banknum]
+		  ->tone[current_program[chan]].instrument=
 		    MAGIC_LOAD_INSTRUMENT;
 	    }
 	  break;
@@ -717,28 +764,49 @@ static MidiEvent *groom_list(int32 divisions,int32 *eventsp,int32 *samplesp)
 		skip_this_event=1;
 	      break;
 	    }
-	  else if (meep->event.a != 64 && meep->event.a != 126)
+	  else if (meep->event.a == 126)
+	    {
+	      if (drumset[57]) /* Is this a defined tone bank? */
+	        new_value=meep->event.a;
+	      else
+		{
+	          ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
+		   "XG rhythm kit %d is undefined", meep->event.a);
+	          skip_this_event=1;
+	          break;
+		}
+	      current_set[meep->event.channel]=57;
+	      current_kit[meep->event.channel]=new_value;
+	      break;
+	    }
+	  else if (meep->event.a != SFX_BANKTYPE)
 	    {
 	      ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
 		   "XG kit %d is impossible", meep->event.a);
 	      skip_this_event=1;
 	      break;
 	    }
-	  if (drumset[meep->event.a]) /* Is this a defined tone bank? */
-	    new_value=meep->event.a;
+
+	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
+	    {
+	      skip_this_event=1;
+	      break;
+	    }
+	  if (tonebank[MAXBANK-1]) /* Is this a defined tone bank? */
+	    new_value=SFX_BANKTYPE;
 	  else 
 	    {
 	      ctl->cmsg(CMSG_WARNING, VERB_VERBOSE,
-		   "XG kit %d is undefined", meep->event.a);
-	      new_value=meep->event.a=127;
+		   "XG Sfx bank is undefined");
+	      skip_this_event=1;
+	      break;
 	    }
-	  if (current_kit[meep->event.channel]!=new_value)
-	   {
-	    current_kit[meep->event.channel]=new_value;
-	   }
+	  if (current_banktype[meep->event.channel]!=new_value)
+	    current_banktype[meep->event.channel]=new_value;
 	  else
 	    skip_this_event=1;
 	  break;
+
 
 	case ME_TONE_BANK:
 	  if (ISDRUMCHANNEL(meep->event.channel) || current_kit[meep->event.channel])
@@ -814,7 +882,7 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
   memset(&drumchorusdepth,-1,sizeof(drumchorusdepth));
   memset(&drumreverberation,-1,sizeof(drumreverberation));
   memset(&drumpanpot,NO_PANNING,sizeof(drumpanpot));
-  for (i=0; i<16; i++) channel[i].transpose = 0;
+  for (i=0; i<MAXCHAN; i++) channel[i].transpose = 0;
 
   if ((fread(tmp,1,4,fp) != 4) || (fread(&len,4,1,fp) != 1))
     {

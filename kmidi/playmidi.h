@@ -58,9 +58,11 @@ typedef struct {
 #define ME_CHORUSDEPTH		93
 #define ME_EOT		99
 
+#define SFX_BANKTYPE	64
+
 typedef struct {
   int
-    bank, kit, program, volume, sustain, panning, pitchbend, expression, 
+    bank, kit, sfx, program, volume, sustain, panning, pitchbend, expression, 
     mono, /* one note only on this channel -- not implemented yet */
     reverberation, chorusdepth, harmoniccontent, releasetime, attacktime, brightness,
     pitchsens;
@@ -119,12 +121,15 @@ typedef struct {
 #define PANNED_CENTER 3
 /* Anything but PANNED_MYSTERY only uses the left volume */
 
+#define MAXCHAN 16
+#define MAXNOTE 128
+
 #ifndef ADAGIO
-extern Channel channel[16];
-extern char drumvolume[16][128];
-extern char drumpanpot[16][128];
-extern char drumreverberation[16][128];
-extern char drumchorusdepth[16][128];
+extern Channel channel[MAXCHAN];
+extern char drumvolume[MAXCHAN][MAXNOTE];
+extern char drumpanpot[MAXCHAN][MAXNOTE];
+extern char drumreverberation[MAXCHAN][MAXNOTE];
+extern char drumchorusdepth[MAXCHAN][MAXNOTE];
 #else /* ADAGIO */
 extern Channel channel[MAX_TONE_VOICES];
 #endif /* ADAGIO */

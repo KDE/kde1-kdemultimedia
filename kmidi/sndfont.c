@@ -174,14 +174,11 @@ void init_soundfont(char *fname, int order, int oldbank, int newbank)
 		int bank = sfinfo.presethdr[i].bank;
 		int preset = sfinfo.presethdr[i].preset;
 		if (oldbank != newbank) {
-			if (newbank >= 128 && bank == 128 && preset == oldbank) {
-				preset = sfinfo.presethdr[i].sub_preset = newbank - 128;
+			if (newbank >= 256 && bank == 128 && preset == oldbank) {
+				preset = sfinfo.presethdr[i].sub_preset = newbank - 256;
 			}
 			else if (bank == oldbank) bank = sfinfo.presethdr[i].sub_bank = newbank;
 		}
-		/*if (is_excluded(bank, preset, -1))
-			continue;*/
-/*fprintf(stderr,"(init) file %s, bank %d, preset %d, order %d\n", sfrec.fname, bank, preset, order);*/
 		parse_preset(&sfrec, &sfinfo, i, order);
 	}
 

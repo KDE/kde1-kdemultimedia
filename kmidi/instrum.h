@@ -94,10 +94,12 @@ typedef struct {
 /* A hack to delay instrument loading until after reading the
    entire MIDI file. */
 #define MAGIC_LOAD_INSTRUMENT ((Instrument *)(-1))
+#define MAXPROG 128
+#define MAXBANK 129
 
 typedef struct {
 #ifndef ADAGIO
-  ToneBankElement tone[128];
+  ToneBankElement tone[MAXPROG];
 #else /* ADAGIO */
   ToneBankElement tone[MAX_TONE_VOICES];
 #endif /* ADAGIO */

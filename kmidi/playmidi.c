@@ -72,11 +72,11 @@ static unsigned max_polyphony = 0;
 #endif
 
 #ifndef ADAGIO
-Channel channel[16];
-char drumvolume[16][128];
-char drumpanpot[16][128];
-char drumreverberation[16][128];
-char drumchorusdepth[16][128];
+Channel channel[MAXCHAN];
+char drumvolume[MAXCHAN][MAXNOTE];
+char drumpanpot[MAXCHAN][MAXNOTE];
+char drumreverberation[MAXCHAN][MAXNOTE];
+char drumchorusdepth[MAXCHAN][MAXNOTE];
 #else /* ADAGIO */
 static void read_seq(unsigned char *from, unsigned char *to);
 Channel channel[MAX_TONE_VOICES];
@@ -169,6 +169,7 @@ static void reset_midi(void)
       channel[i].attacktime=64,
       channel[i].brightness=64,
       channel[i].kit=0;
+      channel[i].sfx=0;
       /* channel[i].transpose is initialized in readmidi.c */
     }
   reset_voices();
@@ -620,13 +621,16 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 static void start_note(MidiEvent *e, int i)
 {
   Instrument *ip;
-  int j;
+  int j, banknum;
   int played_note, drumpan=NO_PANNING;
+
+  if (channel[e->channel].sfx) banknum=MAXBANK-1;
+  else banknum=channel[e->channel].bank;
 
 #ifndef ADAGIO
   if (ISDRUMCHANNEL(e->channel) || channel[e->channel].kit)
     {
-      if (!(ip=drumset[channel[e->channel].bank]->tone[e->a].instrument))
+      if (!(ip=drumset[banknum]->tone[e->a].instrument))
 	{
 	  if (!(ip=drumset[0]->tone[e->a].instrument))
 	    return; /* No instrument? Then we can't play. */
@@ -655,7 +659,7 @@ static void start_note(MidiEvent *e, int i)
 #endif
       if (channel[e->channel].program==SPECIAL_PROGRAM)
 	ip=default_instrument;
-      else if (!(ip=tonebank[channel[e->channel].bank]->
+      else if (!(ip=tonebank[banknum]->
 		 tone[channel[e->channel].program].instrument))
 	{
 	  if (!(ip=tonebank[0]->tone[channel[e->channel].program].instrument))
@@ -1118,11 +1122,16 @@ static void seek_forward(int32 until_time)
 	  break;
 	  
 	case ME_TONE_KIT:
-	/*
-	  if (current_event->a != 127)
-	  channel[current_event->channel].bank=current_event->a;
-	*/
-	  channel[current_event->channel].kit=current_event->a;
+	  if (current_event->a==SFX_BANKTYPE)
+		{
+		    channel[current_event->channel].sfx=SFX_BANKTYPE;
+		    channel[current_event->channel].kit=0;
+		}
+	  else
+		{
+		    channel[current_event->channel].sfx=0;
+		    channel[current_event->channel].kit=current_event->a;
+		}
 	  break;
 	  
 	case ME_EOT:
@@ -1415,7 +1424,9 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
   	      if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
 		{
 		  /* Change drum set */
-		  channel[current_event->channel].bank=current_event->a;
+		  if (channel[current_event->channel].kit==126)
+		  	channel[current_event->channel].bank=57;
+		  else channel[current_event->channel].bank=current_event->a;
 		}
 	      else
 		{
@@ -1465,7 +1476,16 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_TONE_KIT:
-	      channel[current_event->channel].kit=current_event->a;
+	      if (current_event->a==SFX_BANKTYPE)
+		{
+		    channel[current_event->channel].sfx=SFX_BANKTYPE;
+		    channel[current_event->channel].kit=0;
+		}
+	      else
+		{
+		    channel[current_event->channel].sfx=0;
+		    channel[current_event->channel].kit=current_event->a;
+		}
 	      break;
 
 	    case ME_EOT:
