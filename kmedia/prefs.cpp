@@ -28,7 +28,7 @@ Preferences::Preferences( QWidget *parent ) :
    QDialog( parent )
 {
    int tabwidth = 300, tabheight = 200;
-   int devNum = 0;  // Default
+   devNum = 0;  // Default
 
    tabctl = new KTabCtl( this );
    
@@ -58,7 +58,7 @@ Preferences::Preferences( QWidget *parent ) :
    rb2_4->move( 10, 40 );
    rb2_5 = new QRadioButton( "Device 2", grpbox2 );
    rb2_5->move( 10, 65 );
-   QLabel *lbl2_1 = new QLabel( "NOT IMPLEMENTED YET!!!",
+   QLabel *lbl2_1 = new QLabel( "",
 				page2 );
    lbl2_1->setAlignment( AlignLeft );
    lbl2_1->adjustSize();
