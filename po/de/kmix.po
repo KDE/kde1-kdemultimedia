@@ -98,6 +98,10 @@ msgstr "Menü"
 msgid "Tickmarks"
 msgstr "Skalen"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix Einstellungen"

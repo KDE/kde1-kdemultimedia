@@ -120,4 +120,3 @@ msgstr "Zariadenie"
 #: prefs.cpp:97
 msgid "Show"
 msgstr "Zobrazova»"
-

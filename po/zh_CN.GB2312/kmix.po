@@ -88,6 +88,10 @@ msgstr "菜单"
 msgid "Tickmarks"
 msgstr "刻度显示"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix 偏好设定"

@@ -95,6 +95,10 @@ msgstr "Menu"
 msgid "Tickmarks"
 msgstr "Stupnice"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "Nastavení Kmixu"

@@ -88,6 +88,10 @@ msgstr "Pasek menu"
 msgid "Tickmarks"
 msgstr "Podpowiedzi"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "W³a¶ciwo¶ci KMix"

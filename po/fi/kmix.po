@@ -96,6 +96,10 @@ msgstr "Valikkorivi"
 msgid "Tickmarks"
 msgstr "Merkit"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix asetukset"

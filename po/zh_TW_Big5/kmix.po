@@ -95,6 +95,10 @@ msgstr "選單"
 msgid "Tickmarks"
 msgstr "刻度顯示"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "KMix 功\能設定"

@@ -93,6 +93,10 @@ msgstr "Barra de menu"
 msgid "Tickmarks"
 msgstr "Marcas"
 
+#: prefs.cpp:59
+msgid "Allow docking"
+msgstr ""
+
 #: prefs.cpp:81
 msgid "KMix Preferences"
 msgstr "Preferências do KMix"
