@@ -1,0 +1,23 @@
+Sun Sep 21 15:51:34 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* fought with autconf to get support for 
+
+	  Linux
+	  FreeBSD
+	  DEC OSF/1
+	  HP_UX
+	  SUN
+	  SUN SOLARIS
+
+	 going. Imporved docs, bug fixes.
+
+Wed Jul 23 21:45:52 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* fixed playlist bugs.
+
+Sun Jul 20 20:14:38 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* autoplay of commandline midis ( useful for netscape )
+	* replace of '_'  with ' ' and  chop off .mid and .MID extensions in the
+	  file name display.
+

@@ -1,0 +1,79 @@
+KMidi 0.3
+=========
+
+New: Support for the following platforms:
+
+     o Linux
+     o FreeBSD
+     o DEC OSF/1
+     o HP_UX
+     o SUN 
+     o SUN SOLARIS
+
+and of course bug fixes ;-)
+
+Bernd
+wuebben@kde.org
+
+     
+KMidi 0.2
+
+This is the first public release of KMidi a midi to
+wav player/converter. 
+
+If you have  already given up on midi on Linux/Unix try this! Without
+expensive hard-ware such as a Gravis-Ultra sound or Sound-Blaster AWE 64
+you will get fantastic sound comparable to what you get with the above
+mentioned hard-ware. FOR FREE!
+
+The catch:
+
+a) KMidi will use your CPU time: anywhere from 10 to 90% on my Pentium 120
+   at 32000 Hz. Typically about 30%, but it depends on the particular midi 
+   played. If you have a weaker machine, simply use the commandline options to
+   reduce the sample frequency. You should be able to get very decent
+   sound even on a 486 without straining your CPU.
+
+b) You need the sound patches. You can get a full set of general midi
+   sound patches  at any  ultra sound archive. Typical storage requirements
+   around 10 megs. 
+
+Belive me for the sound you are going to get this is a small price to pay!
+
+KMidi uses Tuukka Toivonen's  timidity 0.2i engine 
+Copyright (C) 1995 Tuukka Toivonen <toivonen@clinet.fi>  
+together with Takashi Iwai latest  sound font patches 
+( This means you can also use sound fonts with KMidi)
+
+Where to get patches:
+(see also the html documentation)
+
+Check out the timidiy home-page (see below) which has a number of links and 
+recommendations. Patches can also be found packaged as deb or rpm modules in 
+the Redhat and Debian  contribution directories. 
+
+TimidityPage:
+http://www.clinet.fi/~toivonen/timidity/
+
+Takahis's Page:
+http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/midi.html#TiMidity
+
+I realize this is a rough release, and I am sure that if you try
+hard enough you will be able to get KMidi to crash, but I think
+KMidi is already more than usable and will hopefull give you hours
+of fun. Rememeber Midi files are typically around 50k or leas and
+are therefore so easily downloaded that you will never run out of great midi's
+to play.
+
+TODO:
+
+o Make the myriad of command line options available through a configuration
+  dialog.
+o Elaborate visual display of notes played ( This one is going to be FUN!!!)
+
+
+Best Regard,
+Bernd
+wuebben@kde.org
+wuebben@math.cornell.edu
+

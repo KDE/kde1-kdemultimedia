@@ -1,0 +1,13 @@
+# KDE Config File
+[KDE Desktop Entry]
+BinaryPattern=kmidi;
+Protocols=file;ftp;http;tar;cgi;
+MimeType=audio/x-midi;
+Comment=A Midi Player
+DocPath=kmidi/kmidi.html
+Exec=kmidi
+Icon=kmidi.xpm
+TerminalOptions=
+Path=
+Type=Application
+Terminal=0
