@@ -58,7 +58,7 @@ msgstr "Sekoitettuna"
 
 #: kmidframe.cpp:97
 msgid "AutoAdd to Collection"
-msgstr "Automaattisesti lis‰‰ kokoelmiin"
+msgstr "Lis‰‰ automaattisesti kokoelmiin"
 
 #: kmidframe.cpp:104
 msgid "&General Midi file"
@@ -170,7 +170,7 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"En saanut avattua /dev/sequencer tiedon saamiseksi.\n"
+"En saanut avattua /dev/sequencer -laitetta.\n"
 "Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
 
 #: kmidframe.cpp:615 kmidframe.cpp:616
@@ -180,7 +180,7 @@ msgid ""
 "Do you want to overwrite it ?"
 msgstr ""
 "Tiedosto %s on jo olemassa\n"
-"Haluatko ylikirjoittaa sen ?"
+"Haluatko kirjoittaa sen p‰‰lle?"
 
 #: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
 #: kmidclient.cpp:321 kmidframe.cpp:617
@@ -232,12 +232,12 @@ msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
 msgstr ""
-"En saanut avattua /dev/sequencer tiedon saamiseksi.\n"
+"En saanut avattua /dev/sequencer -laitetta.\n"
 "Mahdollisesti joku muu ohjelma k‰ytt‰‰ sit‰"
 
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"
-msgstr "Aseta Midi laitteita"
+msgstr "Aseta Midi-laitteita"
 
 #: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
 msgid "OK"
@@ -253,7 +253,7 @@ msgstr "Valitse midilaite jota haluat k‰ytt‰‰ :"
 
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
-msgstr "K‰yt‰ midi karttaa :"
+msgstr "K‰yt‰ midikarttaa :"
 
 #: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
 msgid "None"

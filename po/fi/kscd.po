@@ -16,15 +16,15 @@ msgstr ""
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
-msgstr "CDDB juurihakemisto"
+msgstr "CDDB-juurihakemisto"
 
 #: CDDBSetupData.cpp:62
 msgid "Send CDDB submissions to:"
-msgstr "Lähetä CDDB tietueet:"
+msgstr "Lähetä CDDB-tietueet:"
 
 #: CDDBSetupData.cpp:82
 msgid "CDDB server:"
-msgstr "CDDB palvelin:"
+msgstr "CDDB-palvelin:"
 
 #: CDDBSetupData.cpp:90
 msgid "Update"
@@ -32,7 +32,7 @@ msgstr "Päivitä"
 
 #: CDDBSetupData.cpp:108
 msgid "Enable Remote CDDB"
-msgstr "Salli etäpään CDDB"
+msgstr "Salli etä-CDDB"
 
 #: CDDBSetupData.cpp:116
 msgid "Defaults"
@@ -40,7 +40,7 @@ msgstr "Oletukset"
 
 #: CDDBSetupData.cpp:133
 msgid "Use HTTP proxy to access CDDB"
-msgstr "Käytä HTTP proxyä CDDB:n kanssa"
+msgstr "Käytä HTTP-proxyä CDDB:n kanssa"
 
 #: CDDialog.cpp:55
 msgid "CD Database Editor"
@@ -66,11 +66,11 @@ msgstr ""
 
 #: CDDialog.cpp:244
 msgid "Use this Editor to annotate this track"
-msgstr "Aseta editori kappaleen kuvaamiseksi"
+msgstr "Käytä tätä editoria kappaleen kuvaamiseksi"
 
 #: CDDialog.cpp:269
 msgid "Use this Editor to annotate the title"
-msgstr "Aseta editori kappaleen kuvaamiseksi"
+msgstr "Käytä tätä editoria otsikon kuvaamiseksi"
 
 #: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
@@ -83,7 +83,7 @@ msgstr "Mihin kategoriaan tämä levy kuuluu?"
 #: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
-msgstr "Lähetän cddb tietueen: %s\n"
+msgstr "Lähetän cddb-tietueen: %s\n"
 
 #: CDDialog.cpp:459
 #, c-format
@@ -91,12 +91,12 @@ msgid ""
 "Could not pipe contents into:\n"
 " %s"
 msgstr ""
-"En saanut putkitettua sisältöä:\n"
+"En voinut putkittaa sisältöä kohteeseen:\n"
 " %s"
 
 #: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
-msgstr "Minkä kategorian alle haluat tallentaa tämän CBBD tietueen?"
+msgstr "Minkä kategorian alle haluat tallentaa tämän CBBD-tietueen?"
 
 #: CDDialog.cpp:597
 #, c-format
@@ -105,7 +105,7 @@ msgid ""
 "%s\n"
 "Please check your permissions and make your category directories exist."
 msgstr ""
-"En saanut kirjoitettua tiedostoon:\n"
+"En vionut kirjoittaa tiedostoon:\n"
 "%s\n"
 "Tarkista tiedosto-oikeutesi ja että kategoria -hakemistot ovat olemassa."
 
@@ -122,7 +122,7 @@ msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
 msgstr ""
-"Levyn artisti / otsikko kenttää ei ole täytetty.\n"
+"Levyn artisti / otsikko -kenttää ei ole täytetty.\n"
 "Korjaa kenttä ja yritä uudelleen."
 
 #: CDDialog.cpp:777
@@ -131,8 +131,8 @@ msgid ""
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
 msgstr ""
-"Levyn artisti / otsikko kenttää ei ole täytetty oikein.\n"
-"Eroita artisti otsikosta normaalilla kauttamerkillä esimerkiksi \n"
+"Levyn artisti / otsikko -kenttää ei ole täytetty oikein.\n"
+"Erota artisti otsikosta normaalilla kauttamerkillä. Esimerkiksi \n"
 "Peter Gabriel / Greatest Hits\n"
 
 #: CDDialog.cpp:791 CDDialog.cpp:813
@@ -209,7 +209,7 @@ msgstr "CDROM Laite:"
 
 #: configdlg.cpp:118
 msgid "Unix mail command:"
-msgstr "Unix postikomento:"
+msgstr "Unix-postikomento:"
 
 #: configdlg.cpp:126
 msgid "WWW-Browser"
@@ -259,7 +259,7 @@ msgstr "Pienennä"
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr "Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevalta listalta."
+msgstr "Tarkkaa vastaavuutta ei löydy. Valitse oikea CD allaolevasta listasta."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -331,7 +331,7 @@ msgstr "Satunnainen soitto"
 
 #: kscd.cpp:521
 msgid "CDDB Dialog"
-msgstr "CDDB Valintaikkuna"
+msgstr "CDDB-Valintaikkuna"
 
 #: kscd.cpp:522
 msgid "CD Volume Control"
@@ -394,7 +394,7 @@ msgstr ""
 "workman 1.4 beta 3:ta\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Erikoiskiitokset Ti Kan ja Steve Scherf, CDDB tietokannan kehittämisestä. "
+"Erikoiskiitokset: Ti Kan ja Steve Scherf, CDDB-tietokannan kehittämisestä. "
 "Vieraile http://www.cddb.com:ssa saadaksesi lisätietoa CDDB:tä.\n"
 "\n"
 
@@ -413,8 +413,8 @@ msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 msgstr ""
-"Kiitokset Vadim Zaliva <lord@crocodile.org>\n"
-"hänen työstään proxy koodin kanssa.\n"
+"Kiitokset Vadim Zalivalle <lord@crocodile.org>\n"
+"hänen työstään proxy-koodin kanssa.\n"
 
 #: kscd.cpp:947
 msgid "Kscd Options"
@@ -449,15 +449,15 @@ msgstr "Ei levyä"
 
 #: kscd.cpp:1447
 msgid "Unable to get CDDB server list."
-msgstr "En saa CDDB palvelinlistaa."
+msgstr "En saa CDDB-palvelinlistaa."
 
 #: kscd.cpp:1569 kscd.cpp:1604
 msgid "No matching CDDB entry found."
-msgstr "Ei yhteensopivaa CDDB tietuetta."
+msgstr "Ei yhteensopivaa CDDB-tietuetta."
 
 #: kscd.cpp:1625
 msgid "CDDB query timed out."
-msgstr "CDDB hakuaika loppui."
+msgstr "CDDB-hakuaika loppui."
 
 #: kscd.cpp:1797
 msgid "Tra Rem"
@@ -485,7 +485,7 @@ msgid ""
 "Are you sure kscdmagic is installed?"
 msgstr ""
 "KSCD Magic lopetti epänormaalisti.\n"
-"Oletko varma että se on asennettu?"
+"Oletko varma, että se on asennettu?"
 
 #: kscd.cpp:2131
 msgid "-h: display commandline options\n"
@@ -501,18 +501,12 @@ msgstr "Magic Kscd"
 
 #: mgconfdlg.cpp:59
 msgid "Width of Magic Window:"
-msgstr "Magic ikkunan leveys:"
+msgstr "Magic-ikkunan leveys:"
 
 #: mgconfdlg.cpp:71
 msgid "Height of Magic Window:"
-msgstr "Magic ikkunan korkeus:"
+msgstr "Magic-ikkunan korkeus:"
 
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "MAGIC kirkkaus:"
-
-#~ msgid "Stop"
-#~ msgstr "Pysäytä"
-
-#~ msgid "Restore"
-#~ msgstr "Palauta"
