@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-5-11 HO:MI+ZONE\n"
 "Last-Translator: Pieter Eendebaj <pte@ddsw.nl>\n"
 "Language-Team: Dutch <LL@li.org>\n"
@@ -33,6 +33,10 @@ msgstr "Terug"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Spelen/Pauze"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Voorwaarts"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -91,9 +95,6 @@ msgstr "Niet gedefinieerd"
 
 #~ msgid "Stop"
 #~ msgstr "Stop"
-
-#~ msgid "Forward"
-#~ msgstr "Voorwaarts"
 
 #~ msgid "New view"
 #~ msgstr "Nieuwe view"

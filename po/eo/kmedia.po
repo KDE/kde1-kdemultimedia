@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia 1.0pre2\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -33,6 +33,10 @@ msgstr "Reiru"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Ek/Paýzo"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr ""
 
 #: kmediawin.cpp:200
 msgid "Next track"

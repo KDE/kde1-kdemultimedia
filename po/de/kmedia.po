@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-04-21 19:30+0100\n"
 "Last-Translator: Oliver Hensel <oliver.hensel@gmx.de>\n"
 
@@ -24,6 +24,10 @@ msgstr "Zurück"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Start/Pause"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Vorspulen"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -89,9 +93,6 @@ msgstr "Undefiniert"
 
 #~ msgid "Stop"
 #~ msgstr "Stop"
-
-#~ msgid "Forward"
-#~ msgstr "Vorspulen"
 
 #~ msgid "New view"
 #~ msgstr "Neues Fenster"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-01-22 08:53 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Slovak <sk@li.org>\n"
@@ -32,6 +32,10 @@ msgstr "Spä»"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Prehra»/Pauza"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Vpred"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -93,9 +97,6 @@ msgstr "Nedefinovaný"
 
 #~ msgid "Stop"
 #~ msgstr "Stop"
-
-#~ msgid "Forward"
-#~ msgstr "Vpred"
 
 #~ msgid "New view"
 #~ msgstr "Nový prehrávaè"

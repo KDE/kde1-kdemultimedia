@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix 1.0pre2\n"
-"POT-Creation-Date: 1998-10-01 13:39+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -14,15 +14,15 @@ msgstr ""
 "Content-Type: text/plain; charset=iso-8859-3\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: kmix.cpp:444
+#: kmix.cpp:506
 msgid "&Hide Menubar"
 msgstr "&Kaþu menulistelon"
 
-#: kmix.cpp:447
+#: kmix.cpp:509
 msgid "&Tickmarks On/Off"
 msgstr "&Tikmarkoj jes/ne"
 
-#: kmix.cpp:461
+#: kmix.cpp:523
 #, fuzzy
 msgid ""
 "\n"
@@ -44,35 +44,35 @@ msgstr ""
 "*BSD-korektoj de Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "kaj Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:481
+#: kmix.cpp:543
 msgid "&Left"
 msgstr "&Maldekstre"
 
-#: kmix.cpp:482
+#: kmix.cpp:544
 msgid "&Center"
 msgstr "&Centre"
 
-#: kmix.cpp:483
+#: kmix.cpp:545
 msgid "&Right"
 msgstr "&Dekstre"
 
-#: kmix.cpp:570
+#: kmix.cpp:632
 msgid "Un&mute"
 msgstr "&Sone"
 
-#: kmix.cpp:572
+#: kmix.cpp:634
 msgid "&Mute"
 msgstr "&Sensone"
 
-#: kmix.cpp:575
+#: kmix.cpp:637
 msgid "&Split"
 msgstr "&Splitigu"
 
-#: kmix.cpp:577
+#: kmix.cpp:639
 msgid "Un&split"
 msgstr "Mal&splitigu"
 
-#: kmix.cpp:579
+#: kmix.cpp:641
 msgid "&RecSource"
 msgstr "&Fonto"
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 0.8.0\n"
-"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-01-24 18:50+0100\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 
@@ -21,15 +21,15 @@ msgstr "CDDB poslu¾itelj"
 msgid "Update"
 msgstr "Osvje¾i"
 
-#: CDDBSetupData.cpp:108
+#: CDDBSetupData.cpp:112
 msgid "Enable Remote CDDB"
 msgstr "Dozvoli udaljeni CDDB"
 
-#: CDDBSetupData.cpp:116
+#: CDDBSetupData.cpp:120
 msgid "Defaults"
 msgstr "Uobièajeno"
 
-#: CDDBSetupData.cpp:133
+#: CDDBSetupData.cpp:137
 msgid "Use HTTP proxy to access CDDB"
 msgstr "Koristi HTTP proxy za pristup CDDBu"
 
@@ -63,20 +63,20 @@ msgstr "Koristi ovaj ureðivaè za obilje¾avanje ove pjesme"
 msgid "Use this Editor to annotate the title"
 msgstr "Koristi ovaj ureðivaè za obilje¾avanje ovog naslova"
 
-#: CDDialog.cpp:417 CDDialog.cpp:546
+#: CDDialog.cpp:418 CDDialog.cpp:547
 msgid "Please select a Category or press Cancel"
 msgstr "Molim izaberite kategoriju ili pritisnite Poni¹ti"
 
-#: CDDialog.cpp:418
+#: CDDialog.cpp:419
 msgid "To which category does the CD belong?"
 msgstr "Kojoj kategoriji pripada ovaj CD?"
 
-#: CDDialog.cpp:447
+#: CDDialog.cpp:453
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr "Prila¾em cddb unos: %s\n"
 
-#: CDDialog.cpp:459
+#: CDDialog.cpp:460
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
@@ -85,11 +85,11 @@ msgstr ""
 "Ne mogu preusmjeriti sadr¾aj u:\n"
 " %s"
 
-#: CDDialog.cpp:547
+#: CDDialog.cpp:548
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr "Pod kojom kategorijom ¾elite spremiti ovaj CDDB unos?"
 
-#: CDDialog.cpp:597
+#: CDDialog.cpp:599
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -100,15 +100,15 @@ msgstr ""
 "%s\n"
 "Molim provjerite privilegije."
 
-#: CDDialog.cpp:602
+#: CDDialog.cpp:604
 msgid "Kscd Error"
 msgstr "Kscd gre¹ka"
 
-#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
+#: CDDialog.cpp:772 CDDialog.cpp:787 CDDialog.cpp:801 CDDialog.cpp:823
 msgid "Invalid Database Entry"
 msgstr "Neispravan unos u bazu"
 
-#: CDDialog.cpp:762
+#: CDDialog.cpp:773
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
@@ -116,7 +116,7 @@ msgstr ""
 "Umjetnik / Naslov polje je prazno.\n"
 "Molim popravite unos i poku¹ajte ponovo."
 
-#: CDDialog.cpp:777
+#: CDDialog.cpp:788
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
@@ -126,7 +126,7 @@ msgstr ""
 "Molim odvojite ime umjetnika od naslova CDa uz pomoæ forward \n"
 "slash (/), npr. Peter Gabriel / Greatest Hits\n"
 
-#: CDDialog.cpp:791 CDDialog.cpp:813
+#: CDDialog.cpp:802 CDDialog.cpp:824
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
@@ -134,11 +134,11 @@ msgstr ""
 "Barem ime jedne pjesme mora biti uneseno.\n"
 "Molim popravite unos i poku¹ajte ponovo."
 
-#: CDDialog.cpp:823
+#: CDDialog.cpp:834
 msgid "Internal Error"
 msgstr "Interna gre¹ka"
 
-#: CDDialog.cpp:824
+#: CDDialog.cpp:835
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
@@ -146,7 +146,7 @@ msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Molim emailarajte autoru."
 
-#: CDDialog.cpp:853
+#: CDDialog.cpp:864
 msgid "Invalid Playlist\n"
 msgstr "Neispravni redoslijed sviranja\n"
 
@@ -182,49 +182,58 @@ msgstr "Disc ID"
 msgid "Upload"
 msgstr "Upload"
 
-#: configdlg.cpp:61
+#: configdlg.cpp:65
 msgid "Configure kscd"
 msgstr "Podesi kscd"
 
-#: configdlg.cpp:68
+#: configdlg.cpp:72
 msgid "LED Color:"
 msgstr "Boja LED:"
 
-#: configdlg.cpp:82
+#: configdlg.cpp:86
 msgid "Background Color:"
 msgstr "Boja pozadine:"
 
-#: configdlg.cpp:101
+#: configdlg.cpp:100
 msgid "CDROM Device:"
 msgstr "CDROM Ureðaj:"
 
-#: configdlg.cpp:118
+#: configdlg.cpp:117
 msgid "Unix mail command:"
 msgstr "Unix mail naredba:"
 
-#: configdlg.cpp:126
+#: configdlg.cpp:125
 msgid "WWW-Browser"
 msgstr "WWW-Preglednik"
 
-#: configdlg.cpp:129
+#: configdlg.cpp:128
 msgid "Use kfm as Browser"
 msgstr "Koristi kfm kao preglednik"
 
-#: configdlg.cpp:136
+#: configdlg.cpp:135
 msgid "Use Custom Browser:"
 msgstr "Izaberi preglednik"
 
-#: configdlg.cpp:148
+#: configdlg.cpp:147
 msgid "Show Tool Tips"
 msgstr "Prika¾i savjet nad alatima"
 
-#: configdlg.cpp:154
+#: configdlg.cpp:153
 msgid "Enable KPanel Docking"
 msgstr "Dozvoli pristajanje na ploèu"
 
-#: docking.cpp:72 kscd.cpp:507
+#: configdlg.cpp:159
+msgid "Play on Tray Close"
+msgstr ""
+
+#: docking.cpp:72 kscd.cpp:514
 msgid "Play/Pause"
 msgstr "Sviraj/Pauza"
+
+#: docking.cpp:74
+#, fuzzy
+msgid "Forward"
+msgstr "30 sekundi naprijed"
 
 #: docking.cpp:75
 msgid "Backward"
@@ -251,128 +260,134 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Nisam na¹ao istovjetni zapis. Molim izaberite odgovarajuæi CD sa donjeg"
-"popisa."
+"Nisam na¹ao istovjetni zapis. Molim izaberite odgovarajuæi CD sa "
+"donjegpopisa."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Izaberite ime diska ili pritisnite Poni¹ti"
 
-#: kscd.cpp:328
+#: kscd.cpp:333
 msgid "Vol: --"
 msgstr "Jaèina: --"
 
-#: kscd.cpp:473
+#: kscd.cpp:480
 msgid "Performances"
 msgstr "Nastupi"
 
-#: kscd.cpp:476
+#: kscd.cpp:483
 msgid "Purchases"
 msgstr "Kupovine"
 
-#: kscd.cpp:483
+#: kscd.cpp:490
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:509
+#: kscd.cpp:516
 msgid "Loop CD"
 msgstr "Ponavljaj CD"
 
-#: kscd.cpp:510
+#: kscd.cpp:517
 msgid "Track Selection"
 msgstr "Izaberi pjesme"
 
-#: kscd.cpp:511
+#: kscd.cpp:518
 msgid "30 Secs Forward"
 msgstr "30 sekundi naprijed"
 
-#: kscd.cpp:512
+#: kscd.cpp:519
 msgid "30 Secs Backward"
 msgstr "30 sekundi natrag"
 
-#: kscd.cpp:513
+#: kscd.cpp:520
 msgid "Next Track"
 msgstr "Slijedeæa pjesma"
 
-#: kscd.cpp:514
+#: kscd.cpp:521
 msgid "Previous Track"
 msgstr "Prethodna pjesma"
 
-#: kscd.cpp:515
-msgid "Exit Kscd"
-msgstr "Zatvori Kscd"
+#: kscd.cpp:522
+#, fuzzy
+msgid "Dock Kscd"
+msgstr "Magic Kscd"
 
-#: kscd.cpp:516
+#: kscd.cpp:523
 msgid "Cycle Time Display"
 msgstr "Kru¾no vrijeme"
 
-#: kscd.cpp:517
+#: kscd.cpp:524
 msgid "Configure Kscd"
 msgstr "Podesi Kscd"
 
-#: kscd.cpp:518
+#: kscd.cpp:525
 msgid "Eject CD"
 msgstr "Izbaci CD"
 
-#: kscd.cpp:519
+#: kscd.cpp:526
 msgid "The Artist on the Web"
 msgstr "Umjetnici na Webu"
 
-#: kscd.cpp:520
+#: kscd.cpp:527
 msgid "Random Play"
 msgstr "Sluèajni redoslijed"
 
-#: kscd.cpp:521
+#: kscd.cpp:528
 msgid "CDDB Dialog"
 msgstr "CDDB dijalog"
 
-#: kscd.cpp:522
+#: kscd.cpp:529
 msgid "CD Volume Control"
 msgstr "Jaèina zvuka CDa"
 
-#: kscd.cpp:573 kscd.cpp:610 kscd.cpp:1118
+#: kscd.cpp:580 kscd.cpp:631 kscd.cpp:1159
 msgid "Playing"
 msgstr "Sviram"
 
-#: kscd.cpp:578 kscd.cpp:1126 kscd.cpp:1164
+#: kscd.cpp:592 kscd.cpp:1173 kscd.cpp:1221 kscd.cpp:1614 kscd.cpp:1812
 #, c-format
-msgid "Track %02d"
-msgstr "Traka %02d"
+msgid "%02d: <Unknown>"
+msgstr ""
 
-#: kscd.cpp:602 kscd.cpp:1151
+#: kscd.cpp:623 kscd.cpp:1202
 msgid "Pause"
 msgstr "Pauza"
 
-#: kscd.cpp:607 kscd.cpp:818 kscd.cpp:1114
+#: kscd.cpp:628 kscd.cpp:845 kscd.cpp:1155
 msgid "Random"
 msgstr "Sluèajno"
 
-#: kscd.cpp:615
+#: kscd.cpp:636
 msgid "Strange...."
 msgstr "Èudno...."
 
-#: kscd.cpp:632
+#: kscd.cpp:653
 msgid "Stopped"
 msgstr "Zaustavljeno"
 
-#: kscd.cpp:784 kscd.cpp:1116
+#: kscd.cpp:811 kscd.cpp:1157
 msgid "Loop"
 msgstr "Kru¾i"
 
-#: kscd.cpp:796
+#: kscd.cpp:823
 msgid "Ejecting"
 msgstr "Izbacujem"
 
-#: kscd.cpp:869
+#: kscd.cpp:896
 msgid "kscd Configuraton"
 msgstr "kscd postava"
 
-#: kscd.cpp:885
+#: kscd.cpp:912
+#, fuzzy
 msgid ""
+"Maintained by:\n"
+"     Sam Maloney <thufir@illogic.ml.org>\n"
+"kscd (>=1.2.1) contains code from:\n"
+"\n"
+"kscd 1.2.0 (branched from)\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"kscd  contains code from:\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -387,11 +402,11 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Zahvale Ti Kanu i Steve Scherfu, izumiteljima CDDB koncepta."
-"Posjetite http://www.cddb.com za dodatne informacije o CDDBu.\n"
+"Zahvale Ti Kanu i Steve Scherfu, izumiteljima CDDB koncepta.Posjetite "
+"http://www.cddb.com za dodatne informacije o CDDBu.\n"
 "\n"
 
-#: kscd.cpp:897
+#: kscd.cpp:927
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -401,27 +416,37 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:901
+#: kscd.cpp:931
+#, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
+"\n"
 msgstr ""
 "Zahvale Vadimu Zalivu <lord@crocodile.org>\n"
 "za njegov http proxy kod.\n"
 
-#: kscd.cpp:947
+#: kscd.cpp:934
+msgid ""
+"Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
+"For the many CDDB code bug fixes, local CDDB record caching, and track "
+"tweek, and configuration fixes.\n"
+"\n"
+msgstr ""
+
+#: kscd.cpp:986
 msgid "Kscd Options"
 msgstr "Kscd Opcije"
 
-#: kscd.cpp:948
+#: kscd.cpp:987
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1029 kscd.cpp:1822
+#: kscd.cpp:1070 kscd.cpp:1944
 msgid "Vol: %02d%%"
 msgstr "Jaèina: %02d%%"
 
-#: kscd.cpp:1067
+#: kscd.cpp:1108
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -432,47 +457,52 @@ msgstr ""
 "Molim provjerite da imate odgovarajuæe pristupne privilegije na:\n"
 "%s"
 
-#: kscd.cpp:1159
+#: kscd.cpp:1209
 msgid "Ready"
 msgstr "Gotov"
 
-#: kscd.cpp:1191
+#: kscd.cpp:1253
 msgid "Ejected"
 msgstr "Izbaèen"
 
-#: kscd.cpp:1447
+#: kscd.cpp:1520
 msgid "Unable to get CDDB server list."
 msgstr "Ne mogu naæi CDDB listu poslu¾itelja."
 
-#: kscd.cpp:1569 kscd.cpp:1604
+#: kscd.cpp:1664 kscd.cpp:1669
 msgid "No matching CDDB entry found."
 msgstr "Ne mogu naæi podatke za ovaj CD"
 
-#: kscd.cpp:1625
+#: kscd.cpp:1693 kscd.cpp:1703
+#, fuzzy
+msgid "Error getting CDDB entry."
+msgstr "Ne mogu naæi podatke za ovaj CD"
+
+#: kscd.cpp:1719 kscd.cpp:1729
 msgid "CDDB query timed out."
 msgstr "Istek vremena za CDDB upit."
 
-#: kscd.cpp:1797
+#: kscd.cpp:1919
 msgid "Tra Rem"
 msgstr "Tra Ostalo"
 
-#: kscd.cpp:1801
+#: kscd.cpp:1923
 msgid "Tot Sec"
 msgstr "Uku Sek"
 
-#: kscd.cpp:1805
+#: kscd.cpp:1927
 msgid "Tot Rem"
 msgstr "Uku Ostalo"
 
-#: kscd.cpp:1810
+#: kscd.cpp:1932
 msgid "Tra Sec"
 msgstr "Tra Sek"
 
-#: kscd.cpp:1935
+#: kscd.cpp:2057
 msgid "Cannot start kscdmagic."
 msgstr "Ne mogu startati kscdmagic."
 
-#: kscd.cpp:1950
+#: kscd.cpp:2072
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -480,11 +510,11 @@ msgstr ""
 "KSCD Magic je neoèekivano zavr¹io.\n"
 "Da li ste sigurni da je kscdmagic instaliran?"
 
-#: kscd.cpp:2131
+#: kscd.cpp:2253
 msgid "-h: display commandline options\n"
 msgstr "-h: prika¾i opcije na komandnoj liniji\n"
 
-#: kscd.cpp:2132
+#: kscd.cpp:2254
 msgid "-d: enable debugging output.\n"
 msgstr "-d: ukljuèi debug ispis\n"
 
@@ -503,3 +533,9 @@ msgstr "Visina Magic prozora:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Svjetlina Magica:"
+
+#~ msgid "Exit Kscd"
+#~ msgstr "Zatvori Kscd"
+
+#~ msgid "Track %02d"
+#~ msgstr "Traka %02d"

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Serge \"sergio\" Tellène <tells@mygale.org>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -32,6 +32,10 @@ msgstr "Arrière"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Lecture/Pause"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Avant"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -93,9 +97,6 @@ msgstr "Non défini"
 
 #~ msgid "Stop"
 #~ msgstr "Stop"
-
-#~ msgid "Forward"
-#~ msgstr "Avant"
 
 #~ msgid "New view"
 #~ msgstr "Nouvelle vue"

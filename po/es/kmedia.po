@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-04-18 11:58+0200\n"
 "Last-Translator: Boris Wesslowski <bwess@gmx.net>\n"
 
@@ -24,6 +24,10 @@ msgstr "Retroceder"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Reproducir/Pausa"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Adelante"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -82,9 +86,6 @@ msgstr "Sin definir"
 
 #~ msgid "Stop"
 #~ msgstr "Parar"
-
-#~ msgid "Forward"
-#~ msgstr "Adelante"
 
 #~ msgid "New view"
 #~ msgstr "&Nueva ventana"

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-02-22 21:24:+0800\n"
 "Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
 "MIME-Version: 1.0\n"
@@ -32,6 +32,10 @@ msgstr "往回"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "播放/暫停"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "往前"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -90,9 +94,6 @@ msgstr "無定義"
 
 #~ msgid "Stop"
 #~ msgstr "停止"
-
-#~ msgid "Forward"
-#~ msgstr "往前"
 
 #~ msgid "New view"
 #~ msgstr "新的視窗"

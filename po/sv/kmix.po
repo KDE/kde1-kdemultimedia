@@ -6,22 +6,22 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-01 13:39+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-05-25 17:57:11+0800\n"
 "Last-Translator: Karl Backström <karl_b@geocities.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:444
+#: kmix.cpp:506
 msgid "&Hide Menubar"
 msgstr "&Göm menyfält"
 
-#: kmix.cpp:447
+#: kmix.cpp:509
 msgid "&Tickmarks On/Off"
 msgstr "&Bokmärken På/Av"
 
-#: kmix.cpp:461
+#: kmix.cpp:523
 #, fuzzy
 msgid ""
 "\n"
@@ -43,35 +43,35 @@ msgstr ""
 "*BSD fixar av Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "och Lennart Augustsson (augustss@cs.chalmers.se)."
 
-#: kmix.cpp:481
+#: kmix.cpp:543
 msgid "&Left"
 msgstr "&Vänster"
 
-#: kmix.cpp:482
+#: kmix.cpp:544
 msgid "&Center"
 msgstr "&Center"
 
-#: kmix.cpp:483
+#: kmix.cpp:545
 msgid "&Right"
 msgstr "&Högre"
 
-#: kmix.cpp:570
+#: kmix.cpp:632
 msgid "Un&mute"
 msgstr "Mute &av"
 
-#: kmix.cpp:572
+#: kmix.cpp:634
 msgid "&Mute"
 msgstr "&Mute"
 
-#: kmix.cpp:575
+#: kmix.cpp:637
 msgid "&Split"
 msgstr "&Dela"
 
-#: kmix.cpp:577
+#: kmix.cpp:639
 msgid "Un&split"
 msgstr "&Sammanfoga"
 
-#: kmix.cpp:579
+#: kmix.cpp:641
 msgid "&RecSource"
 msgstr "Mottagar &källa"
 

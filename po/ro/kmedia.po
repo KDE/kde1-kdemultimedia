@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kde-1.0pre\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-07-04 12:00+0200\n"
 "Last-Translator: Paul Ionescu <omy@main.romsoft.ro>\n"
 "Language-Team: ??? <ro@li.org>\n"
@@ -33,6 +33,10 @@ msgstr "Înapoi"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "Cântã/Pauzã"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "Înainte"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -91,9 +95,6 @@ msgstr "Nedefinit"
 
 #~ msgid "Stop"
 #~ msgstr "Opreºte"
-
-#~ msgid "Forward"
-#~ msgstr "Înainte"
 
 #~ msgid "New view"
 #~ msgstr "Instanþã nouã"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kcmkpanel\n"
-"POT-Creation-Date: 1998-07-16 15:14+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-02-21 05:04+0800\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -25,6 +25,10 @@ msgstr "回退"
 #: kmediawin.cpp:190
 msgid "Play/Pause"
 msgstr "播放/暂停"
+
+#: kmediawin.cpp:195
+msgid "Forward"
+msgstr "往前"
 
 #: kmediawin.cpp:200
 msgid "Next track"
@@ -83,9 +87,6 @@ msgstr "没有定义"
 
 #~ msgid "Stop"
 #~ msgstr "停止"
-
-#~ msgid "Forward"
-#~ msgstr "往前"
 
 #~ msgid "New view"
 #~ msgstr "新窗口"

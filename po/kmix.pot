@@ -1,20 +1,28 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Date: 1998-10-09 15:28:35+0200\n"
-"From: Christian Esken <chris@magicon>\n"
-"Content-Type: text/plain; charset=\n"
-"Xgettext-Options: -C -ki18n -x /usr/local/kde/include/kde.pot\n"
-"Files: kcontextmenu.cpp kmix.cpp mixer.cpp prefs.cpp docking.cpp sets.cpp channel.cpp\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
 
-#: kmix.cpp:445
+#: kmix.cpp:506
 msgid "&Hide Menubar"
 msgstr ""
 
-#: kmix.cpp:448
+#: kmix.cpp:509
 msgid "&Tickmarks On/Off"
 msgstr ""
 
-#: kmix.cpp:462
+#: kmix.cpp:523
 msgid ""
 "\n"
 "(C) 1997-1998 by Christian Esken (esken@kde.org).\n"
@@ -27,35 +35,35 @@ msgid ""
 "ALSA port by Nick Lopez (kimo_sabe@usa.net)."
 msgstr ""
 
-#: kmix.cpp:482
+#: kmix.cpp:543
 msgid "&Left"
 msgstr ""
 
-#: kmix.cpp:483
+#: kmix.cpp:544
 msgid "&Center"
 msgstr ""
 
-#: kmix.cpp:484
+#: kmix.cpp:545
 msgid "&Right"
 msgstr ""
 
-#: kmix.cpp:571
+#: kmix.cpp:632
 msgid "Un&mute"
 msgstr ""
 
-#: kmix.cpp:573
+#: kmix.cpp:634
 msgid "&Mute"
 msgstr ""
 
-#: kmix.cpp:576
+#: kmix.cpp:637
 msgid "&Split"
 msgstr ""
 
-#: kmix.cpp:578
+#: kmix.cpp:639
 msgid "Un&split"
 msgstr ""
 
-#: kmix.cpp:580
+#: kmix.cpp:641
 msgid "&RecSource"
 msgstr ""
 

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-10-01 13:39+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-03-20 12:20 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Slovak <bednar@isternet.sk>\n"
@@ -13,19 +13,19 @@ msgstr ""
 msgid "Play/Pause"
 msgstr "Hra»/Zastavi»"
 
-#: kmidframe.cpp:68 kmidframe.cpp:205
+#: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
 msgstr "Predchádzajúca pieseò"
 
-#: kmidframe.cpp:70 kmidframe.cpp:224
+#: kmidframe.cpp:70 kmidframe.cpp:228
 msgid "Next Song"
 msgstr "Nasledujúca pieseò"
 
-#: kmidframe.cpp:72 kmidframe.cpp:140
+#: kmidframe.cpp:72 kmidframe.cpp:142
 msgid "See &Text events"
 msgstr "&Textové udalosti"
 
-#: kmidframe.cpp:74 kmidframe.cpp:146
+#: kmidframe.cpp:74 kmidframe.cpp:148
 msgid "See &Lyrics events"
 msgstr "Udalosti v slovách"
 
@@ -53,11 +53,11 @@ msgstr "&Ulo¾i» slová..."
 msgid "&Play"
 msgstr "&Hra»"
 
-#: kmidframe.cpp:100
+#: kmidframe.cpp:99
 msgid "P&ause"
 msgstr "P&auza"
 
-#: kmidframe.cpp:101
+#: kmidframe.cpp:100
 msgid "&Stop"
 msgstr "&Stop"
 
@@ -66,76 +66,78 @@ msgid "P&revious Song"
 msgstr "P&redchádzajúca pesnièka"
 
 # ## Komentár: Navrhujem vôbec zameni» "pesnièka" za skladba, úplne v¹ade
-#: kmidframe.cpp:106
+#: kmidframe.cpp:107
 msgid "&Next Song"
 msgstr "&Nasledujúca pesnièka"
 
-#: kmidframe.cpp:109
+#: kmidframe.cpp:111
 msgid "&Loop"
 msgstr "Dooko&la"
 
-#: kmidframe.cpp:115
+#: kmidframe.cpp:117
 msgid "&Organize ..."
 msgstr "&Spravova» ..."
 
-#: kmidframe.cpp:118
+#: kmidframe.cpp:120
 msgid "In order mode"
 msgstr "Hra» v poradí"
 
-#: kmidframe.cpp:121
+#: kmidframe.cpp:123
 msgid "Shuffle mode"
 msgstr "Náhodné poradie"
 
-#: kmidframe.cpp:125
+#: kmidframe.cpp:127
 msgid "AutoAdd to Collection"
 msgstr "Automaticky pridáva»"
 
-#: kmidframe.cpp:131
+#: kmidframe.cpp:133
 msgid "&General Midi file"
 msgstr "&V¹eobecný Midi súbor"
 
-#: kmidframe.cpp:135
+#: kmidframe.cpp:137
 msgid "&MT-32 file"
 msgstr "&MT-32 súbor"
 
-#: kmidframe.cpp:152
+#: kmidframe.cpp:154
 msgid "&Automatic Text chooser"
 msgstr "&Automaticky vybera» text"
 
-#: kmidframe.cpp:158
+#: kmidframe.cpp:160
 msgid "Show &Volume Bar"
 msgstr "Ukáza» nasta&venie hlasitosti"
 
-#: kmidframe.cpp:163
+#: kmidframe.cpp:165
 msgid "Show &Channel View"
 msgstr "Ukáza» &kanály"
 
-#: kmidframe.cpp:168
+#: kmidframe.cpp:170
 msgid "Channel View &Options"
 msgstr "Nastavi» z&obrazenia kanálov"
 
-#: kmidframe.cpp:172
+#: kmidframe.cpp:174
 msgid "&Font Change ..."
 msgstr "&Zmena písma ..."
 
-#: kmidframe.cpp:174
+#: kmidframe.cpp:176
 msgid "Configure &Keys ..."
 msgstr "Nastavi» &klávesy ..."
 
-#: kmidframe.cpp:177
+#: kmidframe.cpp:179
 msgid "Midi &Setup ..."
 msgstr "&Nastavi» Midi.."
 
 # ## Prípadne "&Nastavenie Midi..."
-#: kmidframe.cpp:182
-#, c-format
+#: kmidframe.cpp:184
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
 "Malaga (Spain)\n"
 "\n"
 "Midi/Karaoke file player\n"
+"KMid's homepage is at : http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 "This is free software, and you are welcome to redistribute it\n"
@@ -152,35 +154,39 @@ msgstr ""
 "súbor COPYING. Toto je voµne ¹íriteµný softvér a privítame, keï ho budete\n"
 "¹íri» za daných podmienok\n"
 
-#: kmidframe.cpp:193
+#: kmidframe.cpp:197
 msgid "&Song"
 msgstr "&Pieseò"
 
-#: kmidframe.cpp:194
+#: kmidframe.cpp:198
 msgid "&Collections"
 msgstr "&Zbierky"
 
-#: kmidframe.cpp:208
+#: kmidframe.cpp:212
 msgid "Rewind"
 msgstr "Spä»"
 
-#: kmidframe.cpp:214
+#: kmidframe.cpp:218
 msgid "Pause"
 msgstr "Pauza"
 
-#: kmidframe.cpp:218
+#: kmidframe.cpp:222
 msgid "Play"
 msgstr "Hra»"
 
-#: kmidframe.cpp:230
+#: kmidframe.cpp:225
+msgid "Forward"
+msgstr "Vpred"
+
+#: kmidframe.cpp:234
 msgid "Show Channel View"
 msgstr "Ukáza» kanály"
 
-#: kmidframe.cpp:235
+#: kmidframe.cpp:239
 msgid "Show Volume Bar"
 msgstr "Ukáza» hlasitos»"
 
-#: kmidframe.cpp:555
+#: kmidframe.cpp:559
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -189,7 +195,7 @@ msgstr ""
 "niektoré informácie. Mo¾no ho pou¾íva iný program."
 
 # ## Chýba Ti èiarka za /dev/sequencer...
-#: kmidframe.cpp:674 kmidframe.cpp:675
+#: kmidframe.cpp:678 kmidframe.cpp:679
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -262,6 +268,10 @@ msgstr "Zvoµte midi zariadenie :"
 msgid "Use the midi map :"
 msgstr "Pou¾i» midi mapu :"
 
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "®iadnu"
+
 #: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Správca zbierok"
@@ -273,6 +283,10 @@ msgstr "Dostupné zbierky :"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Piesne vo zvolenej zbierke:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Nová"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -861,9 +875,6 @@ msgstr "Streµba"
 #~ msgid "Stop"
 #~ msgstr "Stop"
 
-#~ msgid "Forward"
-#~ msgstr "Vpred"
-
 #~ msgid "Error"
 #~ msgstr "Chyba"
 
@@ -876,14 +887,8 @@ msgstr "Streµba"
 #~ msgid "Cancel"
 #~ msgstr "Zru¹i»"
 
-#~ msgid "None"
-#~ msgstr "®iadnu"
-
 #~ msgid "Browse..."
 #~ msgstr "Listova»..."
-
-#~ msgid "New"
-#~ msgstr "Nová"
 
 #~ msgid "Copy"
 #~ msgstr "Kopírova»"

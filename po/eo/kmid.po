@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid 1.0pre2\n"
-"POT-Creation-Date: 1998-10-01 13:39+0200\n"
+"POT-Creation-Date: 1998-10-13 13:33+0200\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -19,19 +19,19 @@ msgstr ""
 msgid "Play/Pause"
 msgstr "Paýzo"
 
-#: kmidframe.cpp:68 kmidframe.cpp:205
+#: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
 msgstr "Antaýa kanto"
 
-#: kmidframe.cpp:70 kmidframe.cpp:224
+#: kmidframe.cpp:70 kmidframe.cpp:228
 msgid "Next Song"
 msgstr "Sekva kanto"
 
-#: kmidframe.cpp:72 kmidframe.cpp:140
+#: kmidframe.cpp:72 kmidframe.cpp:142
 msgid "See &Text events"
 msgstr "Vidu &Teksteventojn"
 
-#: kmidframe.cpp:74 kmidframe.cpp:146
+#: kmidframe.cpp:74 kmidframe.cpp:148
 msgid "See &Lyrics events"
 msgstr "Vidu &Lirikeventojn"
 
@@ -59,11 +59,11 @@ msgstr "&Sekurigu tekston ..."
 msgid "&Play"
 msgstr "&Ludu"
 
-#: kmidframe.cpp:100
+#: kmidframe.cpp:99
 msgid "P&ause"
 msgstr "&Paýzo"
 
-#: kmidframe.cpp:101
+#: kmidframe.cpp:100
 msgid "&Stop"
 msgstr "&Stop!"
 
@@ -71,76 +71,78 @@ msgstr "&Stop!"
 msgid "P&revious Song"
 msgstr "&Antaýa kanto"
 
-#: kmidframe.cpp:106
+#: kmidframe.cpp:107
 msgid "&Next Song"
 msgstr "&Sekva kanto"
 
-#: kmidframe.cpp:109
+#: kmidframe.cpp:111
 msgid "&Loop"
 msgstr "&Cikle"
 
-#: kmidframe.cpp:115
+#: kmidframe.cpp:117
 msgid "&Organize ..."
 msgstr "&Organizu..."
 
-#: kmidframe.cpp:118
+#: kmidframe.cpp:120
 msgid "In order mode"
 msgstr "Laývica"
 
-#: kmidframe.cpp:121
+#: kmidframe.cpp:123
 msgid "Shuffle mode"
 msgstr "Miksita"
 
-#: kmidframe.cpp:125
+#: kmidframe.cpp:127
 msgid "AutoAdd to Collection"
 msgstr ""
 
-#: kmidframe.cpp:131
+#: kmidframe.cpp:133
 msgid "&General Midi file"
 msgstr "Øenerala Midi-dosiero"
 
-#: kmidframe.cpp:135
+#: kmidframe.cpp:137
 msgid "&MT-32 file"
 msgstr "&MT-32-dosiero"
 
-#: kmidframe.cpp:152
+#: kmidframe.cpp:154
 msgid "&Automatic Text chooser"
 msgstr "&Aýtomata tekstelektilo"
 
-#: kmidframe.cpp:158
+#: kmidframe.cpp:160
 msgid "Show &Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:163
+#: kmidframe.cpp:165
 msgid "Show &Channel View"
 msgstr ""
 
-#: kmidframe.cpp:168
+#: kmidframe.cpp:170
 msgid "Channel View &Options"
 msgstr ""
 
-#: kmidframe.cpp:172
+#: kmidframe.cpp:174
 msgid "&Font Change ..."
 msgstr "Þanøu tiparon..."
 
-#: kmidframe.cpp:174
+#: kmidframe.cpp:176
 msgid "Configure &Keys ..."
 msgstr ""
 
-#: kmidframe.cpp:177
+#: kmidframe.cpp:179
 #, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Midi-konfigura¼o..."
 
-#: kmidframe.cpp:182
-#, c-format
+#: kmidframe.cpp:184
+#, fuzzy, c-format
 msgid ""
 "%s\n"
 "\n"
-"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"(C) 1997,98 Antonio Larrosa Jimenez\n"
+"larrosa@kde.org\t\tantlarr@arrakis.es\n"
 "Malaga (Spain)\n"
 "\n"
 "Midi/Karaoke file player\n"
+"KMid's homepage is at : http://www.arrakis.es/~rlarrosa/kmid.html\n"
 "\n"
 "KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
 "This is free software, and you are welcome to redistribute it\n"
@@ -157,35 +159,39 @@ msgstr ""
 "Tiu æi estas libera softvaro, kaj mi instigas vin redistribui øin\n"
 "sub certaj kondiæoj\n"
 
-#: kmidframe.cpp:193
+#: kmidframe.cpp:197
 msgid "&Song"
 msgstr "&Kanto"
 
-#: kmidframe.cpp:194
+#: kmidframe.cpp:198
 msgid "&Collections"
 msgstr "&Kolektoj"
 
-#: kmidframe.cpp:208
+#: kmidframe.cpp:212
 msgid "Rewind"
 msgstr "Malantaýen"
 
-#: kmidframe.cpp:214
+#: kmidframe.cpp:218
 msgid "Pause"
 msgstr "Paýzo"
 
-#: kmidframe.cpp:218
+#: kmidframe.cpp:222
 msgid "Play"
 msgstr "Ludu"
 
-#: kmidframe.cpp:230
+#: kmidframe.cpp:225
+msgid "Forward"
+msgstr "Antaýen"
+
+#: kmidframe.cpp:234
 msgid "Show Channel View"
 msgstr ""
 
-#: kmidframe.cpp:235
+#: kmidframe.cpp:239
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:555
+#: kmidframe.cpp:559
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
@@ -193,7 +199,7 @@ msgstr ""
 "Ne eblis malfermi /dev/sequencer por legi kelkajn\n"
 "informojn. Eble alia programo uzas la aparaton."
 
-#: kmidframe.cpp:674 kmidframe.cpp:675
+#: kmidframe.cpp:678 kmidframe.cpp:679
 #, c-format
 msgid ""
 "File %s already exists\n"
@@ -264,6 +270,10 @@ msgstr "Elektu la Midi-aparaton, kiun vi volas uzi:"
 msgid "Use the midi map :"
 msgstr ""
 
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "Neniu"
+
 #: collectdlg.cpp:39
 msgid "Collections Manager"
 msgstr "Kolektoadministrilo"
@@ -275,6 +285,10 @@ msgstr "Uzeblaj kolektoj:"
 #: collectdlg.cpp:67
 msgid "Songs in selected collection:"
 msgstr "Kantoj en la elektita kolekto:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Nova"
 
 #: collectdlg.cpp:151
 msgid "Enter the name of the new collection"
@@ -860,9 +874,6 @@ msgstr ""
 #~ msgid "Stop"
 #~ msgstr "Stop!"
 
-#~ msgid "Forward"
-#~ msgstr "Antaýen"
-
 #~ msgid "Error"
 #~ msgstr "Eraro"
 
@@ -875,14 +886,8 @@ msgstr ""
 #~ msgid "Cancel"
 #~ msgstr "Rezignu"
 
-#~ msgid "None"
-#~ msgstr "Neniu"
-
 #~ msgid "Browse..."
 #~ msgstr "Rigardu..."
-
-#~ msgid "New"
-#~ msgstr "Nova"
 
 #~ msgid "Copy"
 #~ msgstr "Kopiu"
