@@ -192,8 +192,9 @@ void CDDBSetup::insertServerList(const QStrList& list)
     bool have_email = false;
     bool have_srv   = false;
 
-    //we are not using next() here because list is const.
-    for(unsigned int i=0;i<list.count();i++) 
+    QListIterator<char> it(list);
+
+    for(;it.current();++it)
     {
         char ser   [CDDB_FIELD_BUFFER_LEN];
         char por   [CDDB_FIELD_BUFFER_LEN];
@@ -201,7 +202,7 @@ void CDDBSetup::insertServerList(const QStrList& list)
         char extra [CDDB_FIELD_BUFFER_LEN];
         char email [CDDB_FIELD_BUFFER_LEN];
         
-        const char* srv=list.at(i);
+        const char* srv=it.current();
         sscanf(srv,"%s %s %s %s",ser,proto,por,extra);
         CDDB::transport t=CDDB::decodeTransport(proto);
         if(t==CDDB::UNKNOWN)
