@@ -25,6 +25,7 @@
 
 class QPainter;
 class KTriangleButton;
+class QColor;
 
 class KLCDNumber : public QWidget
 {
@@ -68,8 +69,15 @@ protected:
     
     int numDigits;
     bool setUserChangeValue;
+    bool setUserDefaultValue;
+    bool doubleclicked;
 
-    int value;
+    QColor backgcolor;
+    QColor LCDcolor;
+    
+    double value;
+    double oldvalue;
+    double defaultValue;
 
     void drawVerticalBar(QPainter *qpaint,int x,int y,int w,int h,int d);
     void drawHorizBar(QPainter *qpaint,int x,int y,int w,int h,int d);
@@ -80,20 +88,33 @@ protected:
 public:
     KLCDNumber(int _numDigits,QWidget *parent,char *name);
     KLCDNumber(bool _setUserChangeValue,int _numDigits,QWidget *parent,char *name);
+
+    void setUserSetDefaultValue(bool _userSetDefaultValue);
+    void setDefaultValue(double v);
     
-    void setValue(int v);
-    int getValue(void) { return value; };
+    void setValue(double v);
+    double getValue(void) { return value; };
+    double getOldValue(void) { return oldvalue; };
+
+    void setLCDBackgroundColor (int r,int g,int b);
+    void setLCDColor (int r,int g,int b);
 
     void display (int v);
-    void display (double v) { display((int)v); };
+    void display (double v);
 
 protected:
 
     virtual void paintEvent ( QPaintEvent *e );
     virtual void resizeEvent ( QResizeEvent *e);
+    virtual void mouseDoubleClickEvent (QMouseEvent *e);
+    virtual void mousePressEvent (QMouseEvent *e);
+    virtual void timerEvent(QTimerEvent *e);
+    void defaultValueClicked();
     
     KTriangleButton *downBtn;
     KTriangleButton *upBtn;
+
+
     
 public slots:
 
@@ -104,6 +125,6 @@ public slots:
 
 signals:
 
-    void valueChanged(int v);
+    void valueChanged(double v);
     
 };

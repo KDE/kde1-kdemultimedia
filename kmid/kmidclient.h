@@ -66,6 +66,7 @@ private:
 //    timeval begintv;
     ulong beginmillisec;
     ulong pausedatmillisec;
+    double currentTempo;
     SpecialEvent *spev;
     NoteArray *noteArray;
 
@@ -164,7 +165,7 @@ public slots:
 
     void communicationFromChannelView(int *);
 
-    void changeTempo(int value);
+    void changeTempo(double value);
     
 signals:
     void mustRechooseTextEvent();

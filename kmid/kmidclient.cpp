@@ -98,9 +98,13 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     
     tempoLCD = new KLCDNumber(true,3,this,"TempoLCD");
     //	tempoLCD->setMode(QLCDNumber::DEC);
+    tempoLCD->setValue(120);
     tempoLCD->display(120);
-    tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,/*65*/83,28);
-    connect(tempoLCD,SIGNAL(valueChanged(int)),this,SLOT(changeTempo(int)));
+    currentTempo=120;
+    tempoLCD->setDefaultValue(120);
+    tempoLCD->setUserSetDefaultValue(true);
+    tempoLCD->setGeometry(5+qlabelTempo->width()+5,10+timebar->height()+timetags->height()+5,83,28);
+    connect(tempoLCD,SIGNAL(valueChanged(double)),this,SLOT(changeTempo(double)));
 
     
     comboSongs = new KCombo(FALSE,this,"Songs");
@@ -145,7 +149,7 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
     pctl->playing=0;
     pctl->gm=1;
     pctl->volumepercentage=100;
-    pctl->tempo=1000000;
+    pctl->tempo=500000;
     pctl->ratioTempo=1.0;
     for (int i=0;i<16;i++)
     {
@@ -302,6 +306,9 @@ int kmidClient::openFile(char *filename)
     kdispt->CursorToHome();
     kdispt->repaint(TRUE);
     emit mustRechooseTextEvent();
+    tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
+    currentTempo=tempoLCD->getValue();
+    tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
     
     char *fn=new char[strlen(filename)+20];
     extractFilename(filename,fn);
@@ -632,14 +639,16 @@ void kmidClient::timebarChange(int i)
     
     pctl->OK=0;
     tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
+    currentTempo=tempoLCD->getValue();
+    tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
     
 };
 
 void kmidClient::moveEventPointersTo(ulong ms)
 {
-#ifdef KMidDEBUG
+//#ifdef KMidDEBUG
     printf("Move To : %lu\n",ms);
-#endif
+//#endif
     spev=Player->takeSpecialEvents();
     while ((spev!=NULL)&&(spev->absmilliseconds<ms))
     {
@@ -858,6 +867,10 @@ void kmidClient::song_Stop()
 {
     for (int i=0;i<16;i++) pctl->forcepgm[i]=FALSE;
     if (channelView!=NULL) channelView->reset();
+    tempoLCD->display(tempoToMetronomeTempo(pctl->tempo));
+    currentTempo=tempoLCD->getValue();
+    tempoLCD->setDefaultValue(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo);
+    
 
 #ifndef MODE_DEMO_ONLYVISUAL
     if (pctl->playing==0) return;
@@ -973,6 +986,10 @@ void kmidClient::processSpecialEvent()
             else
             {
                 tempoLCD->display(tempoToMetronomeTempo(spev->tempo));
+                printf("Changing lcd tempo : spev->tempo : %d , ratio : %.9g\n",spev->tempo,pctl->ratioTempo);
+                printf("Result : %g %.9g %d\n",tempoToMetronomeTempo(spev->tempo),tempoToMetronomeTempo(spev->tempo),(int)tempoToMetronomeTempo(spev->tempo));
+                currentTempo=tempoLCD->getValue();
+                tempoLCD->setDefaultValue(tempoToMetronomeTempo(spev->tempo)*pctl->ratioTempo);
             };
             pctl->SPEVprocessed++;
             spev=spev->next;
@@ -1328,16 +1345,18 @@ void kmidClient::communicationFromChannelView(int *i)
     
 };
 
-void kmidClient::changeTempo(int value)
+void kmidClient::changeTempo(double value)
 {
     if (!Player->isSongLoaded())
     {
         tempoLCD->display(120);
+        currentTempo=120;
+        tempoLCD->setDefaultValue(120);
         return;
     };
 
 //#ifdef KMidDEBUG
-    printf("Change tempo to %d\n",value);
+    printf("Change tempo to %g\n",value);
 //#endif
     int autocontplaying=0;
 
@@ -1349,18 +1368,34 @@ void kmidClient::changeTempo(int value)
         song_Pause();
     }
 //    printf("a\n");
+
+//    double ratio=(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo)/(value);
+//    double ratio=(tempoLCD->getOldValue()*pctl->ratioTempo)/(value);
+    double ratio=(currentTempo*pctl->ratioTempo)/value;
+
+    /*
+    if ((int)(ratio*10000)!=10000) tempoLCD->setLCDBackgroundColor (90,0,0);
+    else tempoLCD->setLCDBackgroundColor (0,0,0);
+    */
+    char s[20];
+    sprintf(s,"%g",ratio);
+    if (strcmp(s,"1")!=0) tempoLCD->setLCDColor (255,100,100);
+    else tempoLCD->setLCDColor (100,255,100);
+    printf("ratio : (%.9g = %g ) tempo now : %g , new tempo %g\n",ratio,ratio,tempoToMetronomeTempo(pctl->tempo),value);
+    printf("OldValue : %g , value %g\n",tempoLCD->getOldValue(),value);
     
-    double ratio=(tempoToMetronomeTempo(pctl->tempo)*pctl->ratioTempo)/(value);
-//    printf("ratio %g  , pctl->tempo %ld , value %d\n",ratio,pctl->tempo ,value);
+        
+
+    //    printf("ratio %g  , pctl->tempo %ld , value %d\n",ratio,pctl->tempo ,value);
     /*
     pausedatmillisec=10;
     pctl->ratioTempo=1.434231992;
     ratio=1.6029648469;
     printf("pausedat : %ld\n",pausedatmillisec);
     */
-    if (autocontplaying)
+    if (pctl->paused==1)
     {
-        pausedatmillisec=(pausedatmillisec/pctl->ratioTempo)*ratio;
+        pausedatmillisec=(long)(((double)pausedatmillisec/pctl->ratioTempo)*ratio);
     }
 //    printf("pausedat : %ld\n",pausedatmillisec);
 
@@ -1376,7 +1411,8 @@ void kmidClient::changeTempo(int value)
 
     noteArray=Player->getNoteArray();
     spev=Player->takeSpecialEvents();
-
+    currentTempo=value;
+    
     while (spev!=NULL)
     {
         if ((spev->type==1) || (spev->type==5)) 
@@ -1390,8 +1426,9 @@ void kmidClient::changeTempo(int value)
     kdispt->calculatePositions();
     kdispt->CursorToHome();
 //    printf("d2 : pausedatmillisec %ld\n",pausedatmillisec);
-
-    moveEventPointersTo(pausedatmillisec);
+    if (pctl->paused==1)
+        moveEventPointersTo(pausedatmillisec);
+    
 //    kdispt->repaint(TRUE);
         
 //    printf("e\n");

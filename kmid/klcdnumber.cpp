@@ -35,10 +35,14 @@ KLCDNumber::KLCDNumber(int _numDigits,QWidget *parent,char *name)
     setUserChangeValue=false;
     numDigits=_numDigits;
     value=0;
-//    setPalette( QPalette (QColor(0,0,0)));
+    oldvalue=-1;
+    //    setPalette( QPalette (QColor(0,0,0)));
     upBtn=NULL;
     downBtn=NULL;
-
+    setUserDefaultValue=false;
+    doubleclicked=false;
+    setLCDBackgroundColor(0,0,0);
+    setLCDColor(100,255,100);
 }
 
 KLCDNumber::KLCDNumber(bool _setUserChangeValue,int _numDigits,QWidget *parent,char *name)
@@ -48,10 +52,15 @@ KLCDNumber::KLCDNumber(bool _setUserChangeValue,int _numDigits,QWidget *parent,c
     setUserChangeValue=_setUserChangeValue;
     numDigits=_numDigits;
     value=0;
+    oldvalue=-1;
 //    setBackgroundColor(QColor(0,0,0));
 //    setPalette( QPalette (QColor(0,0,0)));
     upBtn=NULL;
     downBtn=NULL;
+    setUserDefaultValue=false;
+    doubleclicked=false;
+    setLCDBackgroundColor(0,0,0);
+    setLCDColor(100,255,100);
     if (setUserChangeValue)
     {
         upBtn=new KTriangleButton(KTriangleButton::Right,this,"Up");
@@ -169,46 +178,63 @@ if (d.md) drawHorizBar (qpaint,x,y+h/2,w,w/5,2);
 }
 
 
-void KLCDNumber::setValue(int v)
+void KLCDNumber::setValue(double v)
 {
+    oldvalue=value;
     value=v;
+
 }
 
-void KLCDNumber::display (int v)
+void KLCDNumber::display (double v)
 {
     setValue(v);
     repaint(FALSE);
 }
 
+void KLCDNumber::display (int v)
+{
+    display((double)v);
+}
+
+
 void KLCDNumber::paintEvent ( QPaintEvent * )
 {
     QPainter qpaint(this);
-    qpaint.fillRect(0,0,width(),height(),QColor(0,0,0));
-    qpaint.setPen(QColor(100,255,100));
-
+    qpaint.fillRect(0,0,width(),height(),backgcolor);
+    qpaint.setPen(LCDcolor);
+    
     char *s=new char[numDigits+1];
-    char *f=new char[20];
-    sprintf(s,"%d",value);
+
+    sprintf(s,"%g",value);
     printf("(%s)\n",s);
+    char *f=s;
+    while ((*f!=0)&&(*f!='.')) f++;
+    *f=0;
+    f=new char[numDigits+1];
+    while (strlen(s)<numDigits)
+    {
+        sprintf(f," %s",s);
+        strcpy(s,f);
+    };
     delete f;
 
     f=s;
     int dx,dy,dw,dh;
     if (setUserChangeValue)
     {
-    dx=BUTTONWIDTH;
-    dy=height()/10;
-    dh=height()-dy*2;
-    dw=(width()-(BUTTONWIDTH*2))/numDigits;
+        dx=BUTTONWIDTH;
+        dy=height()/10;
+        dh=height()-dy*2;
+        dw=(width()-(BUTTONWIDTH*2))/numDigits;
     } else
     {
-    dx=0;
-    dy=height()/10;
-    dh=height()-dy*2;
-    dw=width()/numDigits;
+        dx=0;
+        dy=height()/10;
+        dh=height()-dy*2;
+        dw=width()/numDigits;
     };
     int sep=dw/10;
-
+    
     if ((int)strlen(s)<numDigits)
         for (int i=0;i<numDigits-(int)strlen(s);i++)
         {
@@ -224,8 +250,28 @@ void KLCDNumber::paintEvent ( QPaintEvent * )
         f++;
     };
     delete s;
-
+    
 }
+
+void KLCDNumber::setUserSetDefaultValue(bool _userSetDefaultValue)
+{
+    if (setUserDefaultValue!=_userSetDefaultValue)
+    {
+        setUserDefaultValue=_userSetDefaultValue;
+        /*        if (setUserDefaultValue)
+         connect();
+         else
+         disconnect();
+         */
+    }
+    
+}
+
+void KLCDNumber::setDefaultValue(double v)
+{
+    defaultValue=v;
+}
+
 
 void KLCDNumber::decreaseValue()
 {
@@ -238,6 +284,7 @@ void KLCDNumber::increaseValue()
     display( value+1 );
     emit valueChanged( value );
 }
+
 void KLCDNumber::decreaseValueFast()
 {
     display( value-1 );
@@ -247,3 +294,48 @@ void KLCDNumber::increaseValueFast()
 {
     display( value+1 );
 }
+
+void KLCDNumber::mouseDoubleClickEvent (QMouseEvent *)
+{
+    doubleclicked=true;
+    defaultValueClicked();
+}
+
+void KLCDNumber::mousePressEvent (QMouseEvent *e)
+{
+    startTimer(200);
+    QWidget::mousePressEvent(e);
+}
+
+void KLCDNumber::timerEvent(QTimerEvent *)
+{
+    killTimers();
+    if (doubleclicked==false)
+        printf("************************ 1 click\n");
+    doubleclicked=false;
+
+}
+
+
+void KLCDNumber::defaultValueClicked()
+{
+    printf("************************ 2 click\n");
+    if (setUserDefaultValue)
+    {
+        display( defaultValue );
+        emit valueChanged( value );
+    }
+}
+
+void KLCDNumber::setLCDBackgroundColor(int r,int g,int b)
+{
+    backgcolor=QColor(r,g,b);
+    repaint(FALSE);
+};
+
+void KLCDNumber::setLCDColor(int r,int g,int b)
+{
+    printf("***\n");
+    LCDcolor=QColor(r,g,b);
+    repaint(FALSE);
+};
