@@ -142,7 +142,7 @@ void CDDBSetup::set_defaults()
     submission_listbox->repaint();
     submission_listbox->setCurrentItem(0);
 
-    remote_cddb_cb->setChecked(true);
+    remote_cddb_cb->setChecked(false);
     cddb_http_cb->setChecked(false);
     // Leave proxy host and port values unchanged, just disable them
 

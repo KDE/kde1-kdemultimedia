@@ -136,7 +136,7 @@ KSCD::KSCD( QWidget *parent, const char *name ) :
     magic_brightness      = 3;
 
     cycle_flag		= false;
-    cddb_remote_enabled   = true;
+    cddb_remote_enabled   = false;
     setup 	       	= 0L;
     time_display_mode 	= TRACK_SEC;
     cddb_inexact_sentinel = false;
@@ -880,19 +880,22 @@ void KSCD::aboutClicked(){
     label->setGeometry(160,30,340,300);
     label->setAlignment( AlignCenter);
     QString labelstring;
-    labelstring = "kscd "KSCDVERSION"\n"\
-        "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"\
+    labelstring = "kscd "KSCDVERSION"\n";
+    labelstring += klocale->translate(
+        "Copyright (c) 1997-98 \nBernd Johannes Wuebben <wuebben@kde.org>\n\n"
         "kscd  contains code from:\n"
         "workman 1.4 beta 3\n"
-        "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"\
-        "Special thanks to Ti Kan and "\
-        "Steve Scherf, the inventors of "\
-        "the CDDB database concept. "\
-        "Visit http://www.cddb.com for "\
-        "more information on CDDB.\n\n"
+        "Copyright (c) Steven Grimm <koreth@hyperion.com>\n\n"
+        "Special thanks to Ti Kan and "
+        "Steve Scherf, the inventors of "
+        "the CDDB database concept. "
+        "Visit http://www.cddb.com for "
+        "more information on CDDB.\n\n");
+
 #ifdef KSCDMAGIC
-        "KSCD Magic based on Synaesthesia by "\
-        "Paul Harrison <pfh@yoyo.cc.monash.edu.au>\n\n"
+     labelstring += klocale->translate(
+        "KSCD Magic based on Synaesthesia by "
+        "Paul Harrison <pfh@yoyo.cc.monash.edu.au>\n\n");
 #endif
         "Thanks to Vadim Zaliva <lord@crocodile.org>\n"\
         "for his work on the http proxy code.\n"

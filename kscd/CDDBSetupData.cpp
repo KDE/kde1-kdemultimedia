@@ -130,7 +130,7 @@ CDDBSetupData::CDDBSetupData
 	cddb_http_cb->setMinimumSize( 10, 10 );
 	cddb_http_cb->setMaximumSize( 32767, 32767 );
 	connect( cddb_http_cb, SIGNAL(toggled(bool)), SLOT(http_access_toggled(bool)) );
-	cddb_http_cb->setText( "Use HTTP proxy to access CDDB" );
+	cddb_http_cb->setText( klocale->translate("Use HTTP proxy to access CDDB") );
 	cddb_http_cb->setAutoRepeat( FALSE );
 	cddb_http_cb->setAutoResize( FALSE );
 
