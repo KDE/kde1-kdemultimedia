@@ -3,7 +3,7 @@
 GMOFILES = kmedia.gmo kmix.gmo kscd.gmo kmid.gmo kmidi.gmo
 POFILES = $(GMOFILES:.gmo=.po)
 
-LANG = de
+LANG = et
 
 localedir = $(kde_locale)
 
