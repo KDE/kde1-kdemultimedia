@@ -244,9 +244,8 @@ msgid "Stop Playing on Exit"
 msgstr "Lopeta soitto lopetettaessa"
 
 #: configdlg.cpp:183
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Poistan levyä"
+msgstr "Poistan levy lopetettaessa"
 
 #: docking.cpp:73 kscd.cpp:562
 msgid "Play/Pause"
@@ -367,9 +366,8 @@ msgid "Previous Track"
 msgstr "Edellinen kappale"
 
 #: kscd.cpp:570
-#, fuzzy
 msgid "Quit Kscd"
-msgstr "Magic Kscd"
+msgstr "Lopeta Kscd"
 
 #: kscd.cpp:571
 msgid "Cycle Time Display"
@@ -437,7 +435,6 @@ msgid "kscd Configuraton"
 msgstr "kscd Asetukset"
 
 #: kscd.cpp:1006
-#, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -453,14 +450,13 @@ msgid ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 msgstr ""
-"Ylläpitää:\n"
-"     Sam Maloney <thufir@illogic.ml.org>\n"
-"kscd (>=1.2.1) sisältää koodia seuraavista lähteistä:\n"
-"\n"
-"kscd 1.2.0\n"
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
+"Ylläpitää:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
+"\n"
+"Kscd sisältää koodia ohjelmista:\n"
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
@@ -609,14 +605,3 @@ msgstr "Sähköpostiosoitteesi"
 
 #~ msgid "Dock Kscd"
 #~ msgstr "Upota Kscd"
-
-#~ msgid ""
-#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
-#~ "tweek, and configuration fixes.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Kiitokset Sam Maloney:lle <thufir@illogic.ml.org>\n"
-#~ "Monista CDDB virheiden korjauksista, paikallisesta CDDB-völimuistista, ja "
-#~ "kappale virityksistä, ja asetuskorjauksista.\n"
-#~ "\n"
