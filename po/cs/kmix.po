@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-12-18 11:34+01:00\n"
 "Last-Translator: Miroslav Flídr <flidr@kky.zcu.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
@@ -83,47 +83,47 @@ msgstr "&Sdru¾it"
 msgid "&RecSource"
 msgstr "Zd&roj nahrávání"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Obecné"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanály"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Nastavení pøi spu¹tìní"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Menu"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Stupnice"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Povolit dokování"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "Nastavení Kmixu"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Obecné"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanály"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Nastavení pøi spu¹tìní"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Menu"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Stupnice"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Povolit dokování"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Nastavení kanálù mixeru"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Zaøízení"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Zobrazovat"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Rozdìlit"
 

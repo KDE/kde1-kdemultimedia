@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-05-14 20:00-0500\n"
 "Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
 "Language-Team: Croatian <hr@li.org>\n"
@@ -84,47 +84,47 @@ msgstr "Spo&ji"
 msgid "&RecSource"
 msgstr "&Izvor snimka"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Opæeniti"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanali"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Postavke pri startu"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Izbornik"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Oznake"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Dozvoli pristajanje (docking)"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix Postava"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Opæeniti"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanali"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Postavke pri startu"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Izbornik"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Oznake"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Dozvoli pristajanje (docking)"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Postavi mikser kanala"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Ureðaj"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Prika¾i"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Podijeli"
 

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE 1.0\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-06-29 11:00+0200\n"
 "Last-Translator: Kerem ERZURUMLU <kerem@linux.org.tr>\n"
 "Language-Team: Hacettepe Linux Users Group <hacettepe@linux.org.tr>\n"
@@ -84,47 +84,47 @@ msgstr "&Birleþtir"
 msgid "&RecSource"
 msgstr "&Kaynak Kayýt"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Genel"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanallar"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Baþlangýç Ayarlarý"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Menu Çubuðu"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Ýþaretler"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Panele eklenebilsin"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix Seçenekleri"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Genel"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanallar"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Baþlangýç Ayarlarý"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Menu Çubuðu"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Ýþaretler"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Panele eklenebilsin"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Karýþýrýcý kanal ayarlarý"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Aygýt"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Göster"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Ayýr"
 

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix-1.1\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1999-03-12 15:49+0100\n"
 "Last-Translator: Romuald Texier <texierr@worldnet.fr>\n"
 "Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
@@ -85,47 +85,47 @@ msgstr "Di&frailhañ"
 msgid "&RecSource"
 msgstr "Orin an en&rolladur"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Hollek"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanolioù"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Kefluniadur loc'hañ"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Barrenn al lañser"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Derezadur"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Ensoc'hañ aotreet"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "Dibarzhoù KMix"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Hollek"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanolioù"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Kefluniadur loc'hañ"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Barrenn al lañser"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Derezadur"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Ensoc'hañ aotreet"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Neuziadur kanolioù ar mesker"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Trobarzhell"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Diskouez"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Frailhañ"
 

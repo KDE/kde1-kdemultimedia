@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,47 +85,47 @@ msgstr "좌우합침(&s)"
 msgid "&RecSource"
 msgstr "녹음소스"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "일반"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "채널"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "시작 설정사항"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "메뉴바"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "눈금"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "패널에 작은 아이콘 표시"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix 선택사항"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "일반"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "채널"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "시작 설정사항"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "메뉴바"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "눈금"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "패널에 작은 아이콘 표시"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "믹서 채널 설정"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "장치"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "보이기"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "나누기"
 

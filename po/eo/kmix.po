@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix 1.0pre2\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -85,47 +85,47 @@ msgstr "Mal&splitigu"
 msgid "&RecSource"
 msgstr "&Fonto"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Øenerale"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanaloj"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Komencaj difinoj"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Menulistelo"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Tikmarkoj"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Permesu algluadon"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix-Preferoj"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Øenerale"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanaloj"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Komencaj difinoj"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Menulistelo"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Tikmarkoj"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Permesu algluadon"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Miksila kanalkonfiguro"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Aparato"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Montru"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Splitigu"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-12-28 15:43+0200\n"
 "Last-Translator: Marcos Nieto <mnieto@arrakis.es>\n"
 "Language-Team: Spanish <kde-es@kyb.ml.org>\n"
@@ -79,47 +79,47 @@ msgstr "Regletas &sencillas"
 msgid "&RecSource"
 msgstr "&Fuente de Grabación"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "General"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Canales"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Configuración de Inicio"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Barra de Menús"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Marcas"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Anclaje en panel"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "Preferencias"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "General"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Canales"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Configuración de Inicio"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Barra de Menús"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Marcas"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Anclaje en panel"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Configuración canales del mezclador"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Dispositivo"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Mostrar"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Desdoblar"
 

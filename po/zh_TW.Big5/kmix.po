@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-04-22 03:31+0800\n"
 "Last-Translator: Chou Yeh-Jyi <ycchou@ccca.nctu.edu.tw>\n"
 "MIME-Version: 1.0\n"
@@ -78,49 +78,49 @@ msgstr "組合[&S]"
 msgid "&RecSource"
 msgstr "錄音來源[&R]"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "一般"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "頻道"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "初始設定"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "選單"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "刻度顯示"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr ""
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix 功\能設定"
 
+#: prefs.cpp:43
+msgid "General"
+msgstr "一般"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "頻道"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "初始設定"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "選單"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "刻度顯示"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr ""
+
 # , fuzzy
-#: prefs.cpp:96
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "混音器頻道設定 (還不能儲存)"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "裝置"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "顯示"
 
 # , fuzzy
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "分割[&S]"
 

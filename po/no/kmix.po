@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: KDE MULTIMEDIA/kmix\n"
-"POT-Creation-Date: 1998-12-24 02:12+0100\n"
+"POT-Creation-Date: 1999-03-29 03:24+0200\n"
 "PO-Revision-Date: 1998-05-22 21:53+0100\n"
 "Last-Translator: Hans Petter Bieker <zerium@webindex.no>\n"
 "Language-Team: no <LL@li.org>\n"
@@ -83,47 +83,47 @@ msgstr "S&lutt på splitt"
 msgid "&RecSource"
 msgstr "Mottager&kilde"
 
-#: prefs.cpp:42
-msgid "General"
-msgstr "Generelt"
-
-#: prefs.cpp:43
-msgid "Channels"
-msgstr "Kanaler"
-
-#: prefs.cpp:46
-msgid "Startup settings"
-msgstr "Oppstartinnstillinger"
-
-#: prefs.cpp:51
-msgid "Menubar"
-msgstr "Menylinje"
-
-#: prefs.cpp:56
-msgid "Tickmarks"
-msgstr "Målestreker"
-
-#: prefs.cpp:61
-msgid "Allow docking"
-msgstr "Tillate dokksetting"
-
-#: prefs.cpp:86
+#: prefs.cpp:38
 msgid "KMix Preferences"
 msgstr "KMix-valg"
 
-#: prefs.cpp:96
+#: prefs.cpp:43
+msgid "General"
+msgstr "Generelt"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Kanaler"
+
+#: prefs.cpp:70
+msgid "Startup settings"
+msgstr "Oppstartinnstillinger"
+
+#: prefs.cpp:77
+msgid "Menubar"
+msgstr "Menylinje"
+
+#: prefs.cpp:82
+msgid "Tickmarks"
+msgstr "Målestreker"
+
+#: prefs.cpp:87
+msgid "Allow docking"
+msgstr "Tillate dokksetting"
+
+#: prefs.cpp:100
 msgid "Mixer channel setup"
 msgstr "Mikserkanaloppsett"
 
-#: prefs.cpp:103
+#: prefs.cpp:110
 msgid "Device"
 msgstr "Enhet"
 
-#: prefs.cpp:109
+#: prefs.cpp:116
 msgid "Show"
 msgstr "Vis"
 
-#: prefs.cpp:115
+#: prefs.cpp:121
 msgid "Split"
 msgstr "Splitt"
 
