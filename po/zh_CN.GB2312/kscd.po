@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-12-14 02:08+0100\n"
+"POT-Creation-Date: 1998-12-16 02:08+0100\n"
 "PO-Revision-Date: 1998-05-31 22:49+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 )\n"
@@ -244,7 +244,7 @@ msgstr ""
 msgid "Eject on Finish"
 msgstr "Ejecting"
 
-#: docking.cpp:75 kscd.cpp:561
+#: docking.cpp:75 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "播放/暂停"
 
@@ -283,36 +283,36 @@ msgstr "没有找到完全匹配的.请从以下的选择中找出合适的 CD"
 msgid "Please select a Disk Title or press Cancel"
 msgstr "请选择一个 CD 标题或按 '取消' "
 
-#: kscd.cpp:225
+#: kscd.cpp:226
 msgid "Record submitted successfully"
 msgstr ""
 
-#: kscd.cpp:235
+#: kscd.cpp:236
 #, fuzzy
 msgid "Error connecting to server."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:238
+#: kscd.cpp:239
 msgid "Not connected."
 msgstr ""
 
-#: kscd.cpp:241
+#: kscd.cpp:242
 #, fuzzy
 msgid "Connection timed out."
 msgstr "CDDB 查询超时."
 
-#: kscd.cpp:244
+#: kscd.cpp:245
 msgid "Time out waiting for server interaction."
 msgstr ""
 
-#: kscd.cpp:247
+#: kscd.cpp:248
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
 
-#: kscd.cpp:249
+#: kscd.cpp:250
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -320,117 +320,117 @@ msgid ""
 "%s"
 msgstr ""
 
-#: kscd.cpp:377
+#: kscd.cpp:378
 msgid "Vol: --"
 msgstr "Vol: --"
 
-#: kscd.cpp:527
+#: kscd.cpp:528
 msgid "Performances"
 msgstr "演出"
 
-#: kscd.cpp:530
+#: kscd.cpp:531
 msgid "Purchases"
 msgstr "购买"
 
-#: kscd.cpp:537
+#: kscd.cpp:538
 msgid "KSCD Magic"
 msgstr "KSCD Magic"
 
-#: kscd.cpp:563
+#: kscd.cpp:564
 msgid "Loop CD"
 msgstr "循环播放"
 
-#: kscd.cpp:564
+#: kscd.cpp:565
 msgid "Track Selection"
 msgstr "选择音轨"
 
-#: kscd.cpp:565
+#: kscd.cpp:566
 msgid "30 Secs Forward"
 msgstr "前进 30 秒"
 
-#: kscd.cpp:566
+#: kscd.cpp:567
 msgid "30 Secs Backward"
 msgstr "倒后 30 秒"
 
-#: kscd.cpp:567
+#: kscd.cpp:568
 msgid "Next Track"
 msgstr "下一轨"
 
-#: kscd.cpp:568
+#: kscd.cpp:569
 msgid "Previous Track"
 msgstr "前一轨"
 
-#: kscd.cpp:569
+#: kscd.cpp:570
 #, fuzzy
 msgid "Quit Kscd"
 msgstr "退出 Kscd"
 
-#: kscd.cpp:570
+#: kscd.cpp:571
 msgid "Cycle Time Display"
 msgstr "循环时间显示"
 
-#: kscd.cpp:571
+#: kscd.cpp:572
 msgid "Configure Kscd"
 msgstr "配置 Kscd"
 
-#: kscd.cpp:572
+#: kscd.cpp:573
 msgid "Eject CD"
 msgstr "弹出 CD"
 
-#: kscd.cpp:573
+#: kscd.cpp:574
 msgid "The Artist on the Web"
 msgstr "在 Web 上的艺术家"
 
-#: kscd.cpp:574
+#: kscd.cpp:575
 msgid "Random Play"
 msgstr "随机播放"
 
-#: kscd.cpp:575
+#: kscd.cpp:576
 msgid "CDDB Dialog"
 msgstr "CDDB 对话"
 
-#: kscd.cpp:576
+#: kscd.cpp:577
 msgid "CD Volume Control"
 msgstr "CD 音量控制"
 
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1292
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1293
 msgid "Playing"
 msgstr "Playing"
 
-#: kscd.cpp:639 kscd.cpp:1306 kscd.cpp:1359 kscd.cpp:1768 kscd.cpp:1966
+#: kscd.cpp:640 kscd.cpp:1307 kscd.cpp:1360 kscd.cpp:1769 kscd.cpp:1967
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:670 kscd.cpp:1336
+#: kscd.cpp:671 kscd.cpp:1337
 msgid "Pause"
 msgstr "Pause"
 
-#: kscd.cpp:675 kscd.cpp:967 kscd.cpp:1288
+#: kscd.cpp:676 kscd.cpp:968 kscd.cpp:1289
 msgid "Random"
 msgstr "Random"
 
-#: kscd.cpp:683
+#: kscd.cpp:684
 msgid "Strange...."
 msgstr "Strange...."
 
-#: kscd.cpp:701
+#: kscd.cpp:702
 msgid "Stopped"
 msgstr "Stopped"
 
-#: kscd.cpp:930 kscd.cpp:1290
+#: kscd.cpp:931 kscd.cpp:1291
 msgid "Loop"
 msgstr "Loop"
 
-#: kscd.cpp:942
+#: kscd.cpp:943
 msgid "Ejecting"
 msgstr "Ejecting"
 
-#: kscd.cpp:1018
+#: kscd.cpp:1019
 msgid "kscd Configuraton"
 msgstr "Kscd 配置"
 
-#: kscd.cpp:1034
+#: kscd.cpp:1035
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -458,7 +458,7 @@ msgstr ""
 "database concept. Visit http://www.cddb.com for more information on CDDB.\n"
 "\n"
 
-#: kscd.cpp:1047
+#: kscd.cpp:1048
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -468,7 +468,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1051
+#: kscd.cpp:1052
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -478,23 +478,23 @@ msgstr ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
 
-#: kscd.cpp:1107
+#: kscd.cpp:1108
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1108
+#: kscd.cpp:1109
 msgid "Kscd Options"
 msgstr "Kscd 选项"
 
-#: kscd.cpp:1109
+#: kscd.cpp:1110
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1198 kscd.cpp:2098
+#: kscd.cpp:1199 kscd.cpp:2099
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
-#: kscd.cpp:1236
+#: kscd.cpp:1237
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -505,52 +505,52 @@ msgstr ""
 "请确定你有对 %s\n"
 "的访问权限"
 
-#: kscd.cpp:1347
+#: kscd.cpp:1348
 msgid "Ready"
 msgstr "Ready"
 
-#: kscd.cpp:1390
+#: kscd.cpp:1391
 msgid "Ejected"
 msgstr "Ejected"
 
-#: kscd.cpp:1674
+#: kscd.cpp:1675
 msgid "Unable to get CDDB server list."
 msgstr "不能得到 CDDB 服务器列表."
 
-#: kscd.cpp:1818 kscd.cpp:1823
+#: kscd.cpp:1819 kscd.cpp:1824
 msgid "No matching CDDB entry found."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:1847 kscd.cpp:1857
+#: kscd.cpp:1848 kscd.cpp:1858
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "没有找到匹配的 CDDB 条目."
 
-#: kscd.cpp:1873 kscd.cpp:1883
+#: kscd.cpp:1874 kscd.cpp:1884
 msgid "CDDB query timed out."
 msgstr "CDDB 查询超时."
 
-#: kscd.cpp:2073
+#: kscd.cpp:2074
 msgid "Tra Rem"
 msgstr "Tra Rem"
 
-#: kscd.cpp:2077
+#: kscd.cpp:2078
 msgid "Tot Sec"
 msgstr "Tot Sec"
 
-#: kscd.cpp:2081
+#: kscd.cpp:2082
 msgid "Tot Rem"
 msgstr "Tot Rem"
 
-#: kscd.cpp:2086
+#: kscd.cpp:2087
 msgid "Tra Sec"
 msgstr "Tra Sec"
 
-#: kscd.cpp:2211
+#: kscd.cpp:2212
 msgid "Cannot start kscdmagic."
 msgstr "不能启动 kscdmagic."
 
-#: kscd.cpp:2226
+#: kscd.cpp:2227
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -558,16 +558,16 @@ msgstr ""
 "KSCD Magic 不正常退出.\n"
 "你确定安装了 kscdmagic ?"
 
-#: kscd.cpp:2381
+#: kscd.cpp:2382
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "CDDB 数据目录"
 
-#: kscd.cpp:2421
+#: kscd.cpp:2436
 msgid "-h: display commandline options\n"
 msgstr "-h: 显示命令行选项\n"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2437
 msgid "-d: enable debugging output.\n"
 msgstr "-d: 允许调试信息输出.\n"
 

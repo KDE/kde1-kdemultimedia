@@ -3,7 +3,7 @@
 #
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-14 02:08+0100\n"
+"POT-Creation-Date: 1998-12-16 02:08+0100\n"
 "PO-Revision-Date: 1998-10-20 00:20+0200\n"
 "Last-Translator: Logi Ragnarsson <logir@hi.is>\n"
 "Language-Team: is\n"
@@ -238,7 +238,7 @@ msgstr ""
 msgid "Eject on Finish"
 msgstr "Spýti út"
 
-#: docking.cpp:75 kscd.cpp:561
+#: docking.cpp:75 kscd.cpp:562
 msgid "Play/Pause"
 msgstr "Spila/Bíða"
 
@@ -277,35 +277,35 @@ msgstr "Enginn einn diskur fannst. Veldu úr listanum."
 msgid "Please select a Disk Title or press Cancel"
 msgstr "Veldu diskanafn eða hættu við"
 
-#: kscd.cpp:225
+#: kscd.cpp:226
 msgid "Record submitted successfully"
 msgstr ""
 
-#: kscd.cpp:235
+#: kscd.cpp:236
 msgid "Error connecting to server."
 msgstr ""
 
-#: kscd.cpp:238
+#: kscd.cpp:239
 msgid "Not connected."
 msgstr ""
 
-#: kscd.cpp:241
+#: kscd.cpp:242
 #, fuzzy
 msgid "Connection timed out."
 msgstr "CDDB fyrirspurn úreltist."
 
-#: kscd.cpp:244
+#: kscd.cpp:245
 msgid "Time out waiting for server interaction."
 msgstr ""
 
-#: kscd.cpp:247
+#: kscd.cpp:248
 #, c-format
 msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
 
-#: kscd.cpp:249
+#: kscd.cpp:250
 #, c-format
 msgid ""
 "Error #%d sending message via SMTP.\n"
@@ -313,117 +313,117 @@ msgid ""
 "%s"
 msgstr ""
 
-#: kscd.cpp:377
+#: kscd.cpp:378
 msgid "Vol: --"
 msgstr "Afl: --"
 
-#: kscd.cpp:527
+#: kscd.cpp:528
 msgid "Performances"
 msgstr "Tónleikar"
 
-#: kscd.cpp:530
+#: kscd.cpp:531
 msgid "Purchases"
 msgstr "Tónlistarkaup"
 
-#: kscd.cpp:537
+#: kscd.cpp:538
 msgid "KSCD Magic"
 msgstr "KSCD Galdrar"
 
-#: kscd.cpp:563
+#: kscd.cpp:564
 msgid "Loop CD"
 msgstr "Spila í hring"
 
-#: kscd.cpp:564
+#: kscd.cpp:565
 msgid "Track Selection"
 msgstr "Velja lag"
 
-#: kscd.cpp:565
+#: kscd.cpp:566
 msgid "30 Secs Forward"
 msgstr "Framm um 30 sek."
 
-#: kscd.cpp:566
+#: kscd.cpp:567
 msgid "30 Secs Backward"
 msgstr "Aftur um 30 sek."
 
-#: kscd.cpp:567
+#: kscd.cpp:568
 msgid "Next Track"
 msgstr "Næsta lag"
 
-#: kscd.cpp:568
+#: kscd.cpp:569
 msgid "Previous Track"
 msgstr "Fyrra lag"
 
-#: kscd.cpp:569
+#: kscd.cpp:570
 #, fuzzy
 msgid "Quit Kscd"
 msgstr "Hætta í Kscd"
 
-#: kscd.cpp:570
+#: kscd.cpp:571
 msgid "Cycle Time Display"
 msgstr "Breyta tímamælingu"
 
-#: kscd.cpp:571
+#: kscd.cpp:572
 msgid "Configure Kscd"
 msgstr "Stilla Kscd"
 
-#: kscd.cpp:572
+#: kscd.cpp:573
 msgid "Eject CD"
 msgstr "Spýta diskinum út"
 
-#: kscd.cpp:573
+#: kscd.cpp:574
 msgid "The Artist on the Web"
 msgstr "Tónlist á vefnum"
 
-#: kscd.cpp:574
+#: kscd.cpp:575
 msgid "Random Play"
 msgstr "Slembispilun"
 
-#: kscd.cpp:575
+#: kscd.cpp:576
 msgid "CDDB Dialog"
 msgstr "Breyta CDDB-færslu"
 
-#: kscd.cpp:576
+#: kscd.cpp:577
 msgid "CD Volume Control"
 msgstr "Hljóðstyrkur"
 
-#: kscd.cpp:627 kscd.cpp:678 kscd.cpp:1292
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1293
 msgid "Playing"
 msgstr "Spila"
 
-#: kscd.cpp:639 kscd.cpp:1306 kscd.cpp:1359 kscd.cpp:1768 kscd.cpp:1966
+#: kscd.cpp:640 kscd.cpp:1307 kscd.cpp:1360 kscd.cpp:1769 kscd.cpp:1967
 #, c-format
 msgid "%02d: <Unknown>"
 msgstr ""
 
-#: kscd.cpp:670 kscd.cpp:1336
+#: kscd.cpp:671 kscd.cpp:1337
 msgid "Pause"
 msgstr "Bíð"
 
-#: kscd.cpp:675 kscd.cpp:967 kscd.cpp:1288
+#: kscd.cpp:676 kscd.cpp:968 kscd.cpp:1289
 msgid "Random"
 msgstr "Slembið"
 
-#: kscd.cpp:683
+#: kscd.cpp:684
 msgid "Strange...."
 msgstr "Undarlegt..."
 
-#: kscd.cpp:701
+#: kscd.cpp:702
 msgid "Stopped"
 msgstr "Stöðvað"
 
-#: kscd.cpp:930 kscd.cpp:1290
+#: kscd.cpp:931 kscd.cpp:1291
 msgid "Loop"
 msgstr "Í hring"
 
-#: kscd.cpp:942
+#: kscd.cpp:943
 msgid "Ejecting"
 msgstr "Spýti út"
 
-#: kscd.cpp:1018
+#: kscd.cpp:1019
 msgid "kscd Configuraton"
 msgstr "Kscd stillingar"
 
-#: kscd.cpp:1034
+#: kscd.cpp:1035
 #, fuzzy
 msgid ""
 "Copyright (c) 1997-98 \n"
@@ -449,7 +449,7 @@ msgstr ""
 "Sérstakar þakkir fá Ti Kan og Steve Scherf sem fundu upp CDDB "
 "gagnagrunnskerfið. Sjá nánar á http://www.cddb.com\n"
 
-#: kscd.cpp:1047
+#: kscd.cpp:1048
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -459,7 +459,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1051
+#: kscd.cpp:1052
 #, fuzzy
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
@@ -469,23 +469,23 @@ msgstr ""
 "Vadin Zaliva <lord@crocodile.org> fær\n"
 "fær þakkir fyrir http sel forritun.\n"
 
-#: kscd.cpp:1107
+#: kscd.cpp:1108
 msgid "SMTP Setup"
 msgstr ""
 
-#: kscd.cpp:1108
+#: kscd.cpp:1109
 msgid "Kscd Options"
 msgstr "Kscd stillingar"
 
-#: kscd.cpp:1109
+#: kscd.cpp:1110
 msgid "Kscd Magic"
 msgstr "Kscd Galdrar"
 
-#: kscd.cpp:1198 kscd.cpp:2098
+#: kscd.cpp:1199 kscd.cpp:2099
 msgid "Vol: %02d%%"
 msgstr "Strk %02d%%"
 
-#: kscd.cpp:1236
+#: kscd.cpp:1237
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -496,52 +496,52 @@ msgstr ""
 "úr skugga um að þú hafir lesretindi á:\n"
 "%s"
 
-#: kscd.cpp:1347
+#: kscd.cpp:1348
 msgid "Ready"
 msgstr "Tilbúinn"
 
-#: kscd.cpp:1390
+#: kscd.cpp:1391
 msgid "Ejected"
 msgstr "Úti"
 
-#: kscd.cpp:1674
+#: kscd.cpp:1675
 msgid "Unable to get CDDB server list."
 msgstr "Ekki tóksta ð sækja CDDB-þjónalista."
 
-#: kscd.cpp:1818 kscd.cpp:1823
+#: kscd.cpp:1819 kscd.cpp:1824
 msgid "No matching CDDB entry found."
 msgstr "CDDB færsla fyrir þennan disk fannst ekki."
 
-#: kscd.cpp:1847 kscd.cpp:1857
+#: kscd.cpp:1848 kscd.cpp:1858
 #, fuzzy
 msgid "Error getting CDDB entry."
 msgstr "CDDB færsla fyrir þennan disk fannst ekki."
 
-#: kscd.cpp:1873 kscd.cpp:1883
+#: kscd.cpp:1874 kscd.cpp:1884
 msgid "CDDB query timed out."
 msgstr "CDDB fyrirspurn úreltist."
 
-#: kscd.cpp:2073
+#: kscd.cpp:2074
 msgid "Tra Rem"
 msgstr "Lag Eftr"
 
-#: kscd.cpp:2077
+#: kscd.cpp:2078
 msgid "Tot Sec"
 msgstr "Alls Sek"
 
-#: kscd.cpp:2081
+#: kscd.cpp:2082
 msgid "Tot Rem"
 msgstr "Alls Eftr"
 
-#: kscd.cpp:2086
+#: kscd.cpp:2087
 msgid "Tra Sec"
 msgstr "Lag Sec"
 
-#: kscd.cpp:2211
+#: kscd.cpp:2212
 msgid "Cannot start kscdmagic."
 msgstr "Ekki tókst að ræsa kscdmagic."
 
-#: kscd.cpp:2226
+#: kscd.cpp:2227
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -549,16 +549,16 @@ msgstr ""
 "Keyrslu KSCD Galdra lauk óeðlilega.\n"
 "Ertu viss um að KSCD sé uppsett?"
 
-#: kscd.cpp:2381
+#: kscd.cpp:2382
 #, fuzzy
 msgid "Enter the local CDDB base Directory"
 msgstr "Grunnmappa fyrir CDDB"
 
-#: kscd.cpp:2421
+#: kscd.cpp:2436
 msgid "-h: display commandline options\n"
 msgstr "-h: sýna möguleg viðföng\n"
 
-#: kscd.cpp:2422
+#: kscd.cpp:2437
 msgid "-d: enable debugging output.\n"
 msgstr "-d: sýna upplýsingar til villuleitar\n"
 
