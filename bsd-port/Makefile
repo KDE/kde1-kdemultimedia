@@ -1,12 +1,12 @@
 # New ports collection makefile for:   kdemultimedia
 # Version required:    1.0
-# Date created:        28 October 1997
-# Whom:                Stefan Eßer <se@freebsd.org>
+# Date created:        18 June 1998
+# Whom:                Alex Zepeda <garbanzo@hooked.net>
 #
 # $Id$
 #
 PKGNAME=	kdemultimedia-`date "+%y%m%d"`
-CATEGORIES=	misc kde
+CATEGORIES=	audio kde
 
 MAINTAINER=	garbanzo@hooked.net
 
