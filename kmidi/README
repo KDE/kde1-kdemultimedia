@@ -17,11 +17,14 @@ New:
      o timidity is back (use Makefile.tim; see "further notes" below)
      o support for GUS InterWave fonts (.fff/.dat files)
      o multiple AWE soundfonts (.sf2 files)
+     o support for stereo or linked instruments in sound fonts
      o strict checking of patch declarations for soundfonts
        (no need to use "order" or "font" statements in cfg files)
      o sbk2cfg utility constructs cfg files for AWE soundfonts
      o use patches in bank 8, etc. (bugfix)
      o buffered output to /dev/dsp0 (Linux/FreeBSD) or /dev/audio (Sun)
+     o select patch set from command line with "-#<n>"
+     o use experimental cutoff filters with "-q"
 
 Greg Lee
 lee@hawaii.edu
@@ -154,7 +157,7 @@ Obtaining patch files:
 -rw-r--r--   1 root     root     18834162 Apr  3 04:13 megainst.dat
 -rw-r--r--   1 root     root        39438 Apr  2 17:34 megainst.fff
 
-	(For a time, at least, I'll keep copies of these on my system:
+	(For a time, at least, I'll keep copies of Megainst on my system:
 	ftp://moore5651.lll.hawaii.edu/pub/music .)
 
      C. AWE sound fonts.  At http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm
@@ -193,6 +196,13 @@ only the first declaration counts.  So put your best fonts first.
 There is a utility sbk2cfg to construct a cfg file for a sbk/sf2 sound font,
 which spits out all the patches that are present in the font.  Also, I've
 included sample cfg files for chaos8m.sf2 and chaos12m.sf2.
+
+If you have several patch sets and you've set up timidity.cfg appropriately,
+you can select among them with the command line switch "-#<n>".  If a "source"
+statement in a cfg file is preceded, e.g., by a line "if 2", then the
+"source" statement will be skipped over unless "-#2" was given on the
+command line.  A line "else" will cause the next "source" statement to
+be skipped if any non-zero n was requested by "-#<n>".
 
 ----------------------------------------------
 
