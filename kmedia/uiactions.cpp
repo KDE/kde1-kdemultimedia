@@ -106,7 +106,7 @@ void KMediaWin::onDrop( KDNDDropZone* _zone )
   QString urlQstr  = url->path();
   QString &urlQref = urlQstr;
   KURL::decodeURL(urlQref);
-  
+
   FileNameSet( FnamChunk, urlQstr.data());
   launchPlayer(urlQstr.data());
 
