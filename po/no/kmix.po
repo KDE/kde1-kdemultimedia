@@ -23,7 +23,7 @@ msgstr "&Målestreker på/av"
 
 #: kmix.cpp:524 kmix.cpp:642
 msgid "&Options..."
-msgstr ""
+msgstr "&Valg..."
 
 #: kmix.cpp:533
 msgid ""
