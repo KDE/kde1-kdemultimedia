@@ -228,11 +228,11 @@ msgstr "Hra» pri zavretí dvierok"
 
 #: configdlg.cpp:169
 msgid "AutoDock on Minimize"
-msgstr ""
+msgstr "Do panelu pri ikoniz."
 
 #: configdlg.cpp:175
 msgid "Stop Playing on Exit"
-msgstr ""
+msgstr "Presta» hra» pri ukonè."
 
 #: docking.cpp:72 kscd.cpp:517
 msgid "Play/Pause"
