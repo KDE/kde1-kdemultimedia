@@ -15,21 +15,19 @@ msgstr ""
 
 #: docking.cpp:70 docking.cpp:166
 msgid "Restore"
-msgstr ""
+msgstr "Obnovi»"
 
 #: docking.cpp:164
 msgid "Minimize"
-msgstr ""
+msgstr "Minimalizova»"
 
 #: kmix.cpp:414
-#, fuzzy
 msgid "&Hide Menubar"
-msgstr "Skry» menu"
+msgstr "&Skry» menu"
 
 #: kmix.cpp:417
-#, fuzzy
 msgid "&Tickmarks On/Off"
-msgstr "Stupnica zapnú»/vypnú»"
+msgstr "S&tupnica zapnú»/vypnú»"
 
 #: kmix.cpp:431
 msgid ""
@@ -42,6 +40,14 @@ msgid ""
 "*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
 "and Lennart Augustsson (augustss@cs.chalmers.se)."
 msgstr ""
+"\n"
+"(C) 1997 Christian Esken (esken@kde.org).\n"
+"\n"
+"Zvukový mixovací panel pre KDE Desktop Environment.\n"
+"Tento program mô¾e by» ¹írený podµa GPL.\n"
+"SGI Port spravil Paul Kendall (paul@orion.co.nz).\n"
+"*BSD opravy Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"a Lennart Augustsson (augustss@cs.chalmers.se)."
 
 #: kmix.cpp:455
 msgid "&Left"
