@@ -2,7 +2,7 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# , fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kde-1.0pre\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Poziþia de pleibec"
+msgstr "Pozi\376ia de pleibec"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
@@ -24,33 +24,33 @@ msgstr "Scoate sidiul"
 
 #: kmediawin.cpp:172
 msgid "Previous track"
-msgstr "Pista anterioarã"
+msgstr "Pista anterioar\343"
 
 #: kmediawin.cpp:177
 msgid "Backward"
-msgstr "Înapoi"
+msgstr "\316napoi"
 
 #: kmediawin.cpp:190
 msgid "Play/Pause"
-msgstr "Cântã/Pauzã"
+msgstr "C\342nt\343/Pauz\343"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr "Înainte"
+msgstr "\316nainte"
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "Pista urmãtoare"
+msgstr "Pista urm\343toare"
 
+# , fuzzy
 #: kmediawin.cpp:231
-#, fuzzy
 msgid "&Mixer"
 msgstr "Mixer"
 
+# , fuzzy
 #: kmediawin.cpp:233
-#, fuzzy
 msgid "&Preferences"
-msgstr "Preferinþe"
+msgstr "Preferin\376e"
 
 #: kmediawin.cpp:241
 msgid ""
@@ -67,11 +67,11 @@ msgstr ""
 
 #: kmediawin.cpp:308
 msgid "Exited"
-msgstr "Ieºit"
+msgstr "Ie\272it"
 
 #: kmediawin.cpp:309
 msgid "Init"
-msgstr "Iniþializat"
+msgstr "Ini\376ializat"
 
 #: kmediawin.cpp:310
 msgid "Busy"
@@ -79,40 +79,16 @@ msgstr "Ocupat"
 
 #: kmediawin.cpp:311
 msgid "Playing"
-msgstr "Cânt"
+msgstr "C\342nt"
 
 #: kmediawin.cpp:312
 msgid "Paused"
-msgstr "În pauzã"
+msgstr "\316n pauz\343"
 
 #: kmediawin.cpp:313
 msgid "Ready"
-msgstr "Operaþional"
+msgstr "Opera\376ional"
 
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Nedefinit"
-
-#~ msgid "Stop"
-#~ msgstr "Opreºte"
-
-#~ msgid "New view"
-#~ msgstr "Instanþã nouã"
-
-#~ msgid "Exit"
-#~ msgstr "Ieºire"
-
-#~ msgid "&Contents"
-#~ msgstr "&Cuprins"
-
-#~ msgid "&About"
-#~ msgstr "&Despre"
-
-#~ msgid "&File"
-#~ msgstr "&Fiºier"
-
-#~ msgid "&Options"
-#~ msgstr "&Opþiuni"
-
-#~ msgid "&Help"
-#~ msgstr "&Ajutor"

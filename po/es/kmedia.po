@@ -7,7 +7,7 @@ msgstr ""
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Posición de reproducción"
+msgstr "Posici\363n de reproducci\363n"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
@@ -33,13 +33,13 @@ msgstr "Adelante"
 msgid "Next track"
 msgstr "Siguiente pista"
 
+# , fuzzy
 #: kmediawin.cpp:231
-#, fuzzy
 msgid "&Mixer"
 msgstr "&Mezclador"
 
+# , fuzzy
 #: kmediawin.cpp:233
-#, fuzzy
 msgid "&Preferences"
 msgstr "&Preferencias"
 
@@ -83,27 +83,3 @@ msgstr "Listo"
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Sin definir"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"
-
-#~ msgid "New view"
-#~ msgstr "&Nueva ventana"
-
-#~ msgid "Exit"
-#~ msgstr "&Salir"
-
-#~ msgid "&Contents"
-#~ msgstr "&Contenido"
-
-#~ msgid "&About"
-#~ msgstr "&Acerca de"
-
-#~ msgid "&File"
-#~ msgstr "&Archivo"
-
-#~ msgid "&Options"
-#~ msgstr "&Opciones"
-
-#~ msgid "&Help"
-#~ msgstr "A&yuda"

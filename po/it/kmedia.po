@@ -37,13 +37,13 @@ msgstr "Avanti"
 msgid "Next track"
 msgstr "Prossima traccia"
 
+# , fuzzy
 #: kmediawin.cpp:231
-#, fuzzy
 msgid "&Mixer"
 msgstr "Mixer"
 
+# , fuzzy
 #: kmediawin.cpp:233
-#, fuzzy
 msgid "&Preferences"
 msgstr "Preferenze"
 
@@ -87,27 +87,3 @@ msgstr "Pronto"
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Indefinito"
-
-#~ msgid "Stop"
-#~ msgstr "Stop"
-
-#~ msgid "New view"
-#~ msgstr "Nuova finestra"
-
-#~ msgid "Exit"
-#~ msgstr "Esci"
-
-#~ msgid "&Contents"
-#~ msgstr "&Contenuti"
-
-#~ msgid "&About"
-#~ msgstr "&Info"
-
-#~ msgid "&File"
-#~ msgstr "&File"
-
-#~ msgid "&Options"
-#~ msgstr "&Opzioni"
-
-#~ msgid "&Help"
-#~ msgstr "&Aiuto"

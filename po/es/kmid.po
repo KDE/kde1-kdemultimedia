@@ -7,9 +7,8 @@ msgstr ""
 "First-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "Play/Pause"
-msgstr "Pausa"
+msgstr "Reproducir/Pausa"
 
 #: kmidframe.cpp:68 kmidframe.cpp:209
 msgid "Previous Song"
@@ -29,19 +28,19 @@ msgstr "Ver eventos de &Lírica"
 
 #: kmidframe.cpp:76
 msgid "Scroll down karaoke"
-msgstr ""
+msgstr "Desplazar karaoke hacia abajo"
 
 #: kmidframe.cpp:78
 msgid "Scroll up karaoke"
-msgstr ""
+msgstr "Desplazar karaoke hacia arriba"
 
 #: kmidframe.cpp:80
 msgid "Scroll page down karaoke"
-msgstr ""
+msgstr "Desplazar karaoke páagina abajo"
 
 #: kmidframe.cpp:82
 msgid "Scroll page up karaoke"
-msgstr ""
+msgstr "Desplazar karaoke página arriba"
 
 #: kmidframe.cpp:91
 msgid "&Save Lyrics ..."
@@ -101,15 +100,15 @@ msgstr "&Elegir evento automáticamente"
 
 #: kmidframe.cpp:160
 msgid "Show &Volume Bar"
-msgstr ""
+msgstr "Mostrar Barra de &Volumen"
 
 #: kmidframe.cpp:165
 msgid "Show &Channel View"
-msgstr ""
+msgstr "Mostrar Vista de &Canales"
 
 #: kmidframe.cpp:170
 msgid "Channel View &Options"
-msgstr ""
+msgstr "&Opciones de Vista de Canales"
 
 #: kmidframe.cpp:174
 msgid "&Font Change ..."
@@ -117,15 +116,14 @@ msgstr "Cambiar &fuente ..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr ""
+msgstr "Configurar &Teclas"
 
 #: kmidframe.cpp:179
-#, fuzzy
 msgid "Midi &Setup ..."
 msgstr "&Configuración Midi ..."
 
 #: kmidframe.cpp:184
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -178,11 +176,11 @@ msgstr "Adelantar"
 
 #: kmidframe.cpp:234
 msgid "Show Channel View"
-msgstr ""
+msgstr "Mostrar Vista de Canales"
 
 #: kmidframe.cpp:239
 msgid "Show Volume Bar"
-msgstr ""
+msgstr "Mostrar Barra de Volumen"
 
 #: kmidframe.cpp:559
 msgid ""
@@ -318,19 +316,19 @@ msgstr "Canal"
 
 #: channelcfgdlg.cpp:12
 msgid "Configure Channel View"
-msgstr ""
+msgstr "Configurar Vista de Canales"
 
 #: channelcfgdlg.cpp:22
 msgid "Choose look mode"
-msgstr ""
+msgstr "Elegir modo"
 
 #: channelcfgdlg.cpp:23
 msgid "3D look"
-msgstr ""
+msgstr "Modo 3D"
 
 #: channelcfgdlg.cpp:24
 msgid "3D - filled"
-msgstr ""
+msgstr "Modo 3D - Relleno"
 
 #: instrname.i18n:6
 msgid "Acoustic Grand Piano"
@@ -365,9 +363,8 @@ msgid "Clavinet"
 msgstr ""
 
 #: instrname.i18n:14
-#, fuzzy
 msgid "Celesta"
-msgstr "Borrar"
+msgstr ""
 
 #: instrname.i18n:15
 msgid "Glockenspiel"
@@ -774,9 +771,8 @@ msgid "Bagpipe"
 msgstr ""
 
 #: instrname.i18n:116
-#, fuzzy
 msgid "Fiddle"
-msgstr "&Archivo"
+msgstr ""
 
 #: instrname.i18n:117
 msgid "Shannai"
@@ -839,55 +835,10 @@ msgid "Helicopter"
 msgstr ""
 
 #: instrname.i18n:132
-#, fuzzy
 msgid "Applause"
-msgstr "Pausa"
+msgstr ""
 
 #: instrname.i18n:133
 msgid "Gunshot"
 msgstr ""
 
-#~ msgid "&Open ..."
-#~ msgstr "&Abrir ..."
-
-#~ msgid "&Quit"
-#~ msgstr "&Cerrar"
-
-#~ msgid "&File"
-#~ msgstr "&Archivo"
-
-#~ msgid "&Options"
-#~ msgstr "&Opciones"
-
-#~ msgid "&Help"
-#~ msgstr "Ay&uda"
-
-#~ msgid "Stop"
-#~ msgstr "Parar"
-
-#~ msgid "Error"
-#~ msgstr "Error"
-
-#~ msgid "Warning"
-#~ msgstr "Atención"
-
-#~ msgid "OK"
-#~ msgstr "OK"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
-
-#~ msgid "Browse..."
-#~ msgstr "Buscar..."
-
-#~ msgid "Copy"
-#~ msgstr "Copiar"
-
-#~ msgid "Delete"
-#~ msgstr "Borrar"
-
-#~ msgid "Add"
-#~ msgstr "Añadir"
-
-#~ msgid "Remove"
-#~ msgstr "Quitar"

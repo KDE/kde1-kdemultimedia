@@ -648,9 +648,9 @@ void kmidClient::timebarChange(int i)
 
 void kmidClient::moveEventPointersTo(ulong ms)
 {
-//#ifdef KMidDEBUG
+#ifdef KMidDEBUG
     printf("Move To : %lu\n",ms);
-//#endif
+#endif
     spev=Player->takeSpecialEvents();
     while ((spev!=NULL)&&(spev->absmilliseconds<ms))
     {
@@ -833,7 +833,6 @@ void kmidClient::song_Pause()
         pctl->OK=0;
         pctl->paused=0;
         
-        printf("e1\n");
         beginmillisec=pctl->beginmillisec-pausedatmillisec;
         ulong currentmillisec=pctl->beginmillisec;
         
@@ -842,7 +841,6 @@ void kmidClient::song_Pause()
         if (type!=0)
             timer4events->start(x-(currentmillisec-beginmillisec),TRUE);
         timer4timebar->start(1000);
-        printf("e2\n");
         
         if (noteArray!=NULL)
         {
@@ -858,8 +856,6 @@ void kmidClient::song_Pause()
             };
 
         };
-        printf("e3\n");
-
         
     };
 };
@@ -891,7 +887,9 @@ void kmidClient::song_Stop()
     if (playerProcessID!=0)
     {
         kill(playerProcessID,SIGTERM);
+#ifdef KMidDEBUG
 	printf("Killing\n");
+#endif
         waitpid(playerProcessID, NULL, 0);
         playerProcessID=0;
     };
@@ -941,7 +939,9 @@ void kmidClient::kmidOutput(void)
             char *text=new char[ev->length+1];
             strncpy(text,(char *)ev->data,ev->length);
             text[ev->length]=0;
+#ifdef KMidDEBUG
             printf("%s , played at : %ld\n",text,currentmillisec-beginmillisec);
+#endif
         }
         else if (ev->d1==ME_SET_TEMPO)
         {
@@ -995,8 +995,10 @@ void kmidClient::processSpecialEvent()
             else
             {
                 tempoLCD->display(tempoToMetronomeTempo(spev->tempo));
+#ifdef KMidDEBUG
                 printf("Changing lcd tempo : spev->tempo : %d , ratio : %.9g\n",spev->tempo,pctl->ratioTempo);
                 printf("Result : %g %.9g %d\n",tempoToMetronomeTempo(spev->tempo),tempoToMetronomeTempo(spev->tempo),(int)tempoToMetronomeTempo(spev->tempo));
+#endif
                 currentTempo=tempoLCD->getValue();
                 tempoLCD->setDefaultValue(tempoToMetronomeTempo(spev->tempo)*pctl->ratioTempo);
             };
@@ -1007,7 +1009,6 @@ void kmidClient::processSpecialEvent()
         {
             noteCmd *ncmd=noteArray->get();
             if (ncmd==NULL) {printf("ncmd is NULL !!!");return;};
-            // printf("%d %d\n",ncmd->chn,ncmd->note);
             if (channelView!=NULL)
             {
                 if (ncmd->cmd==1) channelView->noteOn(ncmd->chn,ncmd->note);
@@ -1343,9 +1344,6 @@ void kmidClient::communicationFromChannelView(int *i)
         pctl->pgm[i[1]-1]=i[2];
     else if (i[0]==CHN_CHANGE_FORCED_STATE)
         pctl->forcepgm[i[1]-1]=i[2];
-    /*    for (int j=0;j<16;j++) { printf("%d ",pctl->forcepgm[j]);};
-     printf("\n");
-     */
     if ((i[0]==CHN_CHANGE_PGM)||((i[0]==CHN_CHANGE_FORCED_STATE)&&(i[3]==1)))
     {
         if (autocontplaying)

@@ -1,18 +1,10 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Free Software Foundation, Inc.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-10-13 13:33+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
-"Content-Transfer-Encoding: ENCODING\n"
+"Date: 1998-10-16 23:08:11+0000\n"
+"From: antonio <antonio@jupiter.arrakis.es>\n"
+"Content-Type: text/plain; charset=\n"
+"Xgettext-Options: -C -ki18n -x /opt/kde/include/kde.pot\n"
+"Files: kmidframe.cpp kmidclient.cpp kdisptext.cpp kslidertime.cpp klcdnumber.cpp ktrianglebutton.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp randomlist.cpp channelview.cpp channel.cpp channel3d.cpp channel4d.cpp channelcfgdlg.cpp instrname.cpp main.cpp instrname.i18n\n"
 
 #: kmidframe.cpp:64
 msgid "Play/Pause"
@@ -131,7 +123,6 @@ msgid "Midi &Setup ..."
 msgstr ""
 
 #: kmidframe.cpp:184
-#, c-format
 msgid ""
 "%s\n"
 "\n"
@@ -179,60 +170,55 @@ msgstr ""
 msgid "Show Volume Bar"
 msgstr ""
 
-#: kmidframe.cpp:559
+#: kmidframe.cpp:563
 msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
 
-#: kmidframe.cpp:678 kmidframe.cpp:679
-#, c-format
+#: kmidframe.cpp:682 kmidframe.cpp:683
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
 msgstr ""
 
-#: kmidclient.cpp:94
+#: kmidclient.cpp:95
 msgid "Tempo :"
 msgstr ""
 
-#: kmidclient.cpp:258
-#, c-format
+#: kmidclient.cpp:260
 msgid "The file %s doesn't exist or can't be opened"
 msgstr ""
 
-#: kmidclient.cpp:261
-#, c-format
+#: kmidclient.cpp:263
 msgid "The file %s is not a midi file"
 msgstr ""
 
-#: kmidclient.cpp:263
-msgid ""
-"Ticks per cuarter note is negative, please, send this file to "
-"antlarr@arrakis.es"
-msgstr ""
-
 #: kmidclient.cpp:265
-msgid "Not enough memory !!"
+msgid "Ticks per cuarter note is negative, please, send this file to antlarr@arrakis.es"
 msgstr ""
 
 #: kmidclient.cpp:267
+msgid "Not enough memory !!"
+msgstr ""
+
+#: kmidclient.cpp:269
 msgid "This file is corrupted or not well built"
 msgstr ""
 
-#: kmidclient.cpp:268
+#: kmidclient.cpp:270
 msgid "Unknown error message"
 msgstr ""
 
-#: kmidclient.cpp:452
+#: kmidclient.cpp:454
 msgid "You must load a file before playing it"
 msgstr ""
 
-#: kmidclient.cpp:458
+#: kmidclient.cpp:460
 msgid "A song is already being played"
 msgstr ""
 
-#: kmidclient.cpp:464
+#: kmidclient.cpp:466
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -279,7 +265,6 @@ msgid "New Collection"
 msgstr ""
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
-#, c-format
 msgid "The name '%s' is already used"
 msgstr ""
 
@@ -299,7 +284,11 @@ msgstr ""
 msgid "Change Collection Name"
 msgstr ""
 
-#: channel.cpp:89
+#: channelview.cpp:33
+msgid "ChannelView"
+msgstr ""
+
+#: channel.cpp:87
 msgid "Channel"
 msgstr ""
 

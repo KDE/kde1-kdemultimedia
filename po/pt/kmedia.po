@@ -7,7 +7,7 @@ msgstr ""
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Posição"
+msgstr "Posi\347\343o"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
@@ -27,11 +27,11 @@ msgstr "Tocar/Pausar"
 
 #: kmediawin.cpp:195
 msgid "Forward"
-msgstr "Avançar"
+msgstr "Avan\347ar"
 
 #: kmediawin.cpp:200
 msgid "Next track"
-msgstr "Próxima faixa"
+msgstr "Pr\363xima faixa"
 
 #: kmediawin.cpp:231
 msgid "&Mixer"
@@ -52,8 +52,8 @@ msgstr ""
 "\n"
 "(C) 1996-1998 por Christian Esken (esken@kde.org).\n"
 "\n"
-"Reprodutor multimédia para o Ambiente de Trabalho KDE.\n"
-"Este programa está abrangido pela GPL.\n"
+"Reprodutor multim\351dia para o Ambiente de Trabalho KDE.\n"
+"Este programa est\341 abrangido pela GPL.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "

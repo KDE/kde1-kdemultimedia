@@ -397,3 +397,6 @@ Now also the ChannelView change its colors when the user change the
 global colors, kdisptext paints a frame over the karaoke text,
 KLCDNumber only accepts a range of values (from 3 to 999)
 
+Friday 16-10-98
+- Improved support for really broken files.
+- Added some translations to Spanish
