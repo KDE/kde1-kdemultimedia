@@ -7,6 +7,10 @@
 #include <kmsgbox.h>
 #include "version.h"
 
+#ifndef MAX
+#define MAX(a,b) ((a<b)?(b):(a))
+#endif
+
 ChannelViewConfigDialog::ChannelViewConfigDialog(QWidget *parent,const char *name) : QDialog(parent,name,TRUE)
 {
     setCaption(i18n("Configure Channel View"));
@@ -23,12 +27,15 @@ ChannelViewConfigDialog::ChannelViewConfigDialog(QWidget *parent,const char *nam
     rb0=new QRadioButton(i18n("3D look"),this,"3d");
     rb1=new QRadioButton(i18n("3D - filled"),this,"4d");
 
+    rb0->adjustSize();
+    rb1->adjustSize();
+
     rb0->move(20,30);
     rb1->move(20,70);
     
     qbg->setExclusive(TRUE);
 
-    qbg->setGeometry(5,5,160,100);
+    qbg->setGeometry(5,5,(MAX(rb0->width(),rb1->width()))+20,100);
     qbg->insert(rb0);
     qbg->insert(rb1);
 

@@ -439,3 +439,6 @@ Friday 11-12-98
 Thursday 17-12-98
 - Initial support for SoftOSS (this is making some sound now :))
 - Indentified the player directory sources and beautified them a little
+
+Friday 18-12-98
+- Fixed a geometry layout bug
