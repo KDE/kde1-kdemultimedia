@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1998-05-18 11:24+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,31 +68,31 @@ msgstr ""
 msgid "Use this Editor to annotate the title"
 msgstr ""
 
-#: CDDialog.cpp:415 CDDialog.cpp:544
+#: CDDialog.cpp:417 CDDialog.cpp:546
 msgid "Please select a Category or press Cancel"
 msgstr ""
 
-#: CDDialog.cpp:416
+#: CDDialog.cpp:418
 msgid "To which category does the CD belong?"
 msgstr ""
 
-#: CDDialog.cpp:445
+#: CDDialog.cpp:447
 #, c-format
 msgid "Submitting cddb entry: %s\n"
 msgstr ""
 
-#: CDDialog.cpp:457
+#: CDDialog.cpp:459
 #, c-format
 msgid ""
 "Could not pipe contents into:\n"
 " %s"
 msgstr ""
 
-#: CDDialog.cpp:545
+#: CDDialog.cpp:547
 msgid "Under which category would you like to store this CDDB entry?"
 msgstr ""
 
-#: CDDialog.cpp:595
+#: CDDialog.cpp:597
 #, c-format
 msgid ""
 "Unable to write to file:\n"
@@ -100,44 +100,44 @@ msgid ""
 "Please check your permissions and make your category directories exist."
 msgstr ""
 
-#: CDDialog.cpp:600
+#: CDDialog.cpp:602
 msgid "Kscd Error"
 msgstr ""
 
-#: CDDialog.cpp:759 CDDialog.cpp:774 CDDialog.cpp:788 CDDialog.cpp:810
+#: CDDialog.cpp:761 CDDialog.cpp:776 CDDialog.cpp:790 CDDialog.cpp:812
 msgid "Invalid Database Entry"
 msgstr ""
 
-#: CDDialog.cpp:760
+#: CDDialog.cpp:762
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
 msgstr ""
 
-#: CDDialog.cpp:775
+#: CDDialog.cpp:777
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
 msgstr ""
 
-#: CDDialog.cpp:789 CDDialog.cpp:811
+#: CDDialog.cpp:791 CDDialog.cpp:813
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
 msgstr ""
 
-#: CDDialog.cpp:821
+#: CDDialog.cpp:823
 msgid "Internal Error"
 msgstr ""
 
-#: CDDialog.cpp:822
+#: CDDialog.cpp:824
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
 msgstr ""
 
-#: CDDialog.cpp:851
+#: CDDialog.cpp:853
 msgid "Invalid Playlist\n"
 msgstr ""
 
@@ -217,10 +217,6 @@ msgstr ""
 msgid "Play/Pause"
 msgstr ""
 
-#: docking.cpp:73 kscd.cpp:508
-msgid "Stop"
-msgstr ""
-
 #: docking.cpp:75
 msgid "Backward"
 msgstr ""
@@ -235,10 +231,6 @@ msgstr ""
 
 #: docking.cpp:78
 msgid "Eject"
-msgstr ""
-
-#: docking.cpp:81 docking.cpp:177
-msgid "Restore"
 msgstr ""
 
 #: docking.cpp:175

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmix\n"
-"POT-Creation-Date: 1998-05-22 01:10+0200\n"
+"POT-Creation-Date: 1998-06-16 14:34+0200\n"
 "PO-Revision-Date: 1998-05-11 13:50+0100\n"
 "Last-Translator: Christian Esken <esken@kde.org>\n"
 "Language-Team: German <de@li.org>\n"
@@ -9,10 +9,6 @@ msgstr ""
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: ISO-8859-1\n"
 "Translator: Christian Esken <esken@kde.org>\n"
-
-#: docking.cpp:70 docking.cpp:168
-msgid "Restore"
-msgstr "Wiederherstellen"
 
 #: docking.cpp:166
 msgid "Minimize"
@@ -121,3 +117,6 @@ msgstr "Zeige"
 #: prefs.cpp:115
 msgid "Split"
 msgstr "Trennen"
+
+#~ msgid "Restore"
+#~ msgstr "Wiederherstellen"

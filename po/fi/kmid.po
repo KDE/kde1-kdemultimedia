@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-05-26 11:58+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "Content-Type: text/plain; charset=\n"
 "Date: 1998-04-03 19:18:58+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
@@ -161,7 +161,7 @@ msgstr "Eteen"
 msgid "Next Song"
 msgstr "Seuraava kappale"
 
-#: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
 msgid "Error"
 msgstr "Virhe"
 
@@ -182,52 +182,52 @@ msgstr ""
 "Tiedosto %s on jo olemassa\n"
 "Haluatko ylikirjoittaa sen ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
-#: kmidclient.cpp:320 kmidframe.cpp:617
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
 msgid "Warning"
 msgstr "Varoitus"
 
-#: kmidclient.cpp:87
+#: kmidclient.cpp:88
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:230
+#: kmidclient.cpp:231
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Tiedostoa %s ei ole olemassa tai sitä ei saada avattua"
 
-#: kmidclient.cpp:233
+#: kmidclient.cpp:234
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Tiedosto %s ei ole miditiedosto"
 
-#: kmidclient.cpp:235
+#: kmidclient.cpp:236
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
 
-#: kmidclient.cpp:237
+#: kmidclient.cpp:238
 msgid "Not enough memory !!"
 msgstr "Muistia ei ole tarpeeksi !!"
 
-#: kmidclient.cpp:239
+#: kmidclient.cpp:240
 msgid "This file is corrupted or not well built"
 msgstr "Tämä tiedosto on viallinen tai huonosti rakennettu"
 
-#: kmidclient.cpp:240
+#: kmidclient.cpp:241
 msgid "Unknown error message"
 msgstr "Tuntematon virhe"
 
-#: kmidclient.cpp:315
+#: kmidclient.cpp:316
 msgid "You must load a file before playing it"
 msgstr "Sinun on ladattava tiedosto ennen sen soittamista"
 
-#: kmidclient.cpp:321
+#: kmidclient.cpp:322
 msgid "A song is already being played"
 msgstr "Kappaletta soitetaan jo"
 
-#: kmidclient.cpp:327
+#: kmidclient.cpp:328
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

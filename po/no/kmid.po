@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-05-26 11:58+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Svein Olav Aasen <svein.aasen@caa.no>\n"
 "Language-Team: no \n"
@@ -164,7 +164,7 @@ msgstr "Fremover"
 msgid "Next Song"
 msgstr "Neste sang"
 
-#: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
 msgid "Error"
 msgstr "Feil"
 
@@ -185,26 +185,26 @@ msgstr ""
 "Fil %s eksisterer allerede\n"
 "Ønsker du å skrive over den ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
-#: kmidclient.cpp:320 kmidframe.cpp:617
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
 msgid "Warning"
 msgstr "Advarsel"
 
-#: kmidclient.cpp:87
+#: kmidclient.cpp:88
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:230
+#: kmidclient.cpp:231
 #, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Filen %s eksisterer ikke eller kan ikke åpnes"
 
-#: kmidclient.cpp:233
+#: kmidclient.cpp:234
 #, c-format
 msgid "The file %s is not a midi file"
 msgstr "Filen %s er ikke en midifil"
 
-#: kmidclient.cpp:235
+#: kmidclient.cpp:236
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
@@ -212,27 +212,27 @@ msgstr ""
 "Merking pr kvart note er negativ, vennligst, send denne fil til "
 "antlarr@arrakis.es"
 
-#: kmidclient.cpp:237
+#: kmidclient.cpp:238
 msgid "Not enough memory !!"
 msgstr "Ikke nok minne !!"
 
-#: kmidclient.cpp:239
+#: kmidclient.cpp:240
 msgid "This file is corrupted or not well built"
 msgstr "Denne fil er dårlig eller ikke skikkelig laget"
 
-#: kmidclient.cpp:240
+#: kmidclient.cpp:241
 msgid "Unknown error message"
 msgstr "Ukjent feil melding"
 
-#: kmidclient.cpp:315
+#: kmidclient.cpp:316
 msgid "You must load a file before playing it"
 msgstr "Du må laste inn en fil før du kan avspille den"
 
-#: kmidclient.cpp:321
+#: kmidclient.cpp:322
 msgid "A song is already being played"
 msgstr "En sang spilles allerede"
 
-#: kmidclient.cpp:327
+#: kmidclient.cpp:328
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-05-26 11:58+0200\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
 "PO-Revision-Date: 1998-03-20 12:20 MET\n"
 "Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
 "Language-Team: Slovak <bednar@isternet.sk>\n"
@@ -146,7 +146,7 @@ msgstr "Spä»"
 msgid "Stop"
 msgstr "Stop"
 
-#: kmidframe.cpp:16
+#: kmidframe.cpp:169
 msgid "Pause"
 msgstr "Pauza"
 
@@ -162,7 +162,7 @@ msgstr "Vpred"
 msgid "Next Song"
 msgstr "Nasledujúca pieseò"
 
-#: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
 msgid "Error"
 msgstr "Chyba"
 
@@ -175,6 +175,7 @@ msgstr ""
 "niektoré informácie. Mo¾no ho pou¾íva iný program."
 
 #: kmidframe.cpp:615 kmidframe.cpp:616
+#, c-format
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
@@ -182,52 +183,54 @@ msgstr ""
 "Súbor %s u¾ existuje\n"
 "Chcete ho prepísa» ?"
 
-#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
-#: kmidclient.cpp:320 kmidframe.cpp:617
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
 msgid "Warning"
 msgstr "Varovanie"
 
-#: kmidclient.cpp:87
+#: kmidclient.cpp:88
 msgid "Tempo :"
 msgstr "Tempo :"
 
-#: kmidclient.cpp:230
+#: kmidclient.cpp:231
+#, c-format
 msgid "The file %s doesn't exist or can't be opened"
 msgstr "Súbor %s neexistuje alebo ho nemô¾em otvori»."
 
-#: kmidclient.cpp:233
+#: kmidclient.cpp:234
+#, c-format
 msgid "The file %s is not a midi file"
 msgstr "Súbor %s nie je midi súbor."
 
-#: kmidclient.cpp:235
+#: kmidclient.cpp:236
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
-"Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tento"
-"súbor na adresu antlarr@arrakis.es."
+"Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tentosúbor na "
+"adresu antlarr@arrakis.es."
 
-#: kmidclient.cpp:237
+#: kmidclient.cpp:238
 msgid "Not enough memory !!"
 msgstr "Nedostatok pamäte !!"
 
-#: kmidclient.cpp:239
+#: kmidclient.cpp:240
 msgid "This file is corrupted or not well built"
 msgstr "Tento súbor je po¹kodený alebo zle urobený."
 
-#: kmidclient.cpp:240
+#: kmidclient.cpp:241
 msgid "Unknown error message"
 msgstr "Neznáma chyba"
 
-#: kmidclient.cpp:315
+#: kmidclient.cpp:316
 msgid "You must load a file before playing it"
 msgstr "Musíte naèíta» súbor pred hraním."
 
-#: kmidclient.cpp:321
+#: kmidclient.cpp:322
 msgid "A song is already being played"
 msgstr "U¾ hrá pesnièka."
 
-#: kmidclient.cpp:327
+#: kmidclient.cpp:328
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
@@ -304,6 +307,7 @@ msgid "New Collection"
 msgstr "Nová zbierka"
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
 msgid "The name '%s' is already used"
 msgstr "Názov '%s' je u¾ pou¾itý."
 
@@ -322,4 +326,3 @@ msgstr "Zadajte nový názov pre zvolenú zbierku"
 #: collectdlg.cpp:220
 msgid "Change Collection Name"
 msgstr "Zmeni» názov zbierky"
-
