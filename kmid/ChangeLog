@@ -46,3 +46,14 @@ Save Lyrics
 Some bug fixes
 More keys binded to functions (arrows, space, backspace, etc.)
 
+0.5.3  24-4-98
+-----  -------
+Improved Synchronization between gui and player
+Some bug fixes:
+  - One which caused kmid to freeze when playing a collection with only 1 song
+	in aleatory mode and changing to next song 
+	(reported by Jose Luis Sanchez)
+  - It was not possible to play a gzipped file that have spaces in its name
+  - There were some songs that played at a lower volume when moving the
+	slider, but not if playing from the beginning.
+Better support for shuffle mode (now it doesn't repeat songs :-))

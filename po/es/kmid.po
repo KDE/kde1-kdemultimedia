@@ -168,8 +168,8 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
-"No se pudo abrir /dev/sequencer para obtener información/nProbablemente hay "
-"otro programa usándolo"
+"No se pudo abrir /dev/sequencer para obtener información\n"
+"Probablemente hay otro programa usándolo"
 
 #: kmidframe.cpp:615 kmidframe.cpp:616
 msgid ""
@@ -229,7 +229,8 @@ msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
 msgstr ""
-"No se ha podido abrir /dev/sequencerProbablemente hay otro programa usándolo"
+"No se ha podido abrir /dev/sequencer\n"
+"Probablemente hay otro programa usándolo"
 
 #: midicfgdlg.cpp:37
 msgid "Configure Midi devices"

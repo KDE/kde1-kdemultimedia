@@ -5,7 +5,8 @@ LDFLAGS	= $(all_libraries) $(KDE_RPATH)
 LDADD = player/libplayer.a -lkdeui -lkdecore -lkfile -lkfm -lqt -lXext -lX11
 
 kmid_SOURCES = kmidframe.cpp kmidclient.cpp kdisptext.cpp \
-	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp main.cpp 
+	 kslidertime.cpp midicfgdlg.cpp collectdlg.cpp kaskdlg.cpp \
+	randomlist.cpp main.cpp 
 
 PLAYEROBJECTS = midiout.o player.o track.o midimapper.o midfile.o dattypes.o midistat.o deviceman.o synthout.o
 

@@ -80,6 +80,11 @@ private:
     int initializing_songs;
     int loopsong;
     int collectionplaymode;
+    int *collectionplaylist; // the list of songs ordered in the
+				// user selected mode
+
+    void generateCPL(void);
+    int searchInCPL(int song); // Returns the index of song
 
     void fillInComboSongs(void);
 

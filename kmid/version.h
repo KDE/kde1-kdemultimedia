@@ -1,9 +1,9 @@
 #ifndef _VERSION_H
 
 
-#define VERSION_NUM 0.5.2
-#define VERSION_SHORTTXT "0.5.2"
-#define VERSION_TXT "KMid 0.5.2" 
+#define VERSION_NUM 0.5.3
+#define VERSION_SHORTTXT "0.5.3"
+#define VERSION_TXT "KMid 0.5.3" 
 
 // Undefine WORKING for release versions
 //#define WORKING
@@ -21,7 +21,9 @@
 
 // Define MODE_DEMO_ONLYVISUAL for kmid to work on systems with no soundcard,
 // or when it is not well configured. You will only get visual feedback, that
-// is, you will see the letter changing of colors, but no music
+// is, you will see the letter changing of colors, but no music. Really, you
+// would get music if it is possible, but by defining this, many synchronization
+// routines will be turned off.
 //#define MODE_DEMO_ONLYVISUAL
 
 
@@ -31,7 +33,7 @@
 //#define KDISPTEXTDEBUG
 //#define COLLECTDLGDEBUG
 #define DEVICEMANDEBUG
-//#define FMOUTDEBUG
+#define FMOUTDEBUG
 //#define MIDFILEDEBUG
 #define MIDIOUTDEBUG
 //#define MIDISTATDEBUG
