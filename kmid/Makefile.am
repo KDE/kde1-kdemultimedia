@@ -52,7 +52,7 @@ messages: instrname.i18n
 
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) mini-kmid.xpm $(kde_minidir)/kmid.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kmid.xpm $(kde_minidir)/kmid.xpm
 	@echo "********************************************"
 	@echo "Thanks for installing kmid 1.2 !"
 	@echo "I have included some example songs that have been installed in"

@@ -8,8 +8,8 @@ install-data-local:
 	$(mkinstalldirs) $(TIMID_DIR)
 	@for i in $(CONFIG_FILES); do \
 	  if [ ! -f "$(TIMID_DIR)/$$i" ] ; then  \
-	    echo "$(INSTALL_DATA) $$i $(TIMID_DIR)"; \
-	    $(INSTALL_DATA) $$i $(TIMID_DIR) ; \
+	    echo "$(INSTALL_DATA) $(srcdir)/$$i $(TIMID_DIR)"; \
+	    $(INSTALL_DATA) $(srcdir)/$$i $(TIMID_DIR) ; \
           fi ; \
         done
 

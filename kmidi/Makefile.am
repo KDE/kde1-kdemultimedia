@@ -32,50 +32,28 @@ noinst_HEADERS = kmidi.h  playlist.h bwlednum.h configdlg.h\
 	tables.h controls.h output.h filter.h log.h version.h filepic.h \
 	cduppic.h constants.h folderpic.h sbk.h sflayer.h
 
-SRCMETA = kmidi.moc  playlist.moc bwlednum.moc configdlg.moc log.moc
-DISTCLEANSOURCES = $(SRCMETA)
-
-kmidi.cpp: kmidi.moc
-kmidi.moc: kmidi.h
-	$(MOC) -o kmidi.moc kmidi.h
-
-bwlednum.cpp: bwlednum.moc
-bwlednum.moc: bwlednum.h
-	$(MOC) -o bwlednum.moc bwlednum.h
-
-configdlg.cpp: configdlg.moc
-configdlg.moc: configdlg.h
-	$(MOC) -o configdlg.moc configdlg.h
-
-log.cpp: log.moc
-log.moc: log.h
-	$(MOC) -o log.moc log.h
-
-playlist.cpp: playlist.moc
-playlist.moc: playlist.h
-	$(MOC) -o playlist.moc playlist.h
+METASOURCES = kmidi.moc  playlist.moc bwlednum.moc configdlg.moc log.moc
 
 SUBDIRS = docs config bitmaps patch
 
 appsdir = $(kde_appsdir)/Multimedia
 apps_DATA = KMidi.kdelnk
 
-icondir = $(kde_icondir)
-icon_DATA = kmidi.xpm
+kde_icon_DATA = kmidi.xpm
 
 picsdir = $(kde_datadir)/kmidi/pics
 pics_DATA = kmidilogo.xpm
 
-EXTRA_DIST = $(apps_DATA) $(icon_DATA) $(pics_DATA) kmidi-mini.xpm
+EXTRA_DIST = $(apps_DATA) $(kde_icon_DATA) $(pics_DATA) kmidi-mini.xpm
 
 
 install-data-local:
 	$(mkinstalldirs) $(TIMID_DIR)/patch
-	if [ ! -f $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) patch/acpiano.pat $(TIMID_DIR)/patch ; fi
-	if [ ! -f $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
+	if [ ! -f $(TIMID_DIR)/patch/acpiano.pat ]; then $(INSTALL_DATA) $(srcdir)/patch/acpiano.pat $(TIMID_DIR)/patch ; fi
+	if [ ! -f $(TIMID_DIR)/patch/nylongt2.pat ]; then $(INSTALL_DATA) $(srcdir)/patch/nylongt2.pat $(TIMID_DIR)/patch ;fi
 
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
+	$(INSTALL_DATA) $(srcdir)/kmidi-mini.xpm $(kde_minidir)/kmidi.xpm
 
 	@echo ""
 	@echo "Important:"

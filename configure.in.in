@@ -138,9 +138,10 @@ AC_DEFUN(KDE_COPY_KSCD_DEFAULTS,
 [
 if echo $TOPSUBDIRS | grep "kscd" > /dev/null 2> /dev/null; then
   if test "$use_kscd_defaults" = "yes"; then
-    cp kscd/config.h.std kscd/config.h
+    test -d kscd || mkdir kscd
+    cp $srcdir/kscd/config.h.std kscd/config.h
   else
-    cd kscd && kscd-script
+    cd kscd && $srcdir/kscd-script
     cd $topdir
   fi
 fi 

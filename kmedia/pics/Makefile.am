@@ -9,7 +9,7 @@ EXTRA_DIST = $(pics_DATA) kmedia_mini.xpm
 
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) kmedia_mini.xpm $(kde_minidir)/kmedia.xpm
+	$(INSTALL_DATA) $(srcdir)/kmedia_mini.xpm $(kde_minidir)/kmedia.xpm
 
 uninstall-local:
 	-rm -f $(kde_minidir)/kmedia.xpm

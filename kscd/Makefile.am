@@ -33,15 +33,18 @@ SOURCES3=kscdmagic/bitmap.cpp  kscdmagic/core.cpp kscdmagic/main.cpp \
 OBJECTS3=kscdmagic/bitmap.o  kscdmagic/core.o kscdmagic/main.o \
 	kscdmagic/sound.o kscdmagic/xlibwrap.o kscdmagic/xlib.o
 
-DISTCLEANFILES = kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc \
+METASOURCES = kscd.moc bwlednum.moc configdlg.moc cddb.moc ledlamp.moc \
 	 inexact.moc CDDialog.moc CDDialogData.moc CDDBSetup.moc \
-	CDDBSetupData.moc docking.moc mgconfdlg.moc smtpconfig.moc
+	CDDBSetupData.moc docking.moc mgconfdlg.moc smtpconfig.moc \
+	smtp.moc
+
+DISTCLEANFILES = config.h
 
 bin_PROGRAMS = kscd cddaslave 
 TARGET3 = kscdmagic
 
 config.h: kscd-script 
-	$(SHELL) ./kscd-script
+	$(SHELL) $(srcdir)/kscd-script
 
 SUBDIRS = docs kscdmagic bitmaps sbpcdhack
 
@@ -60,17 +63,17 @@ install-data-local:
 	fi ;\
 	done 
 	$(mkinstalldirs) $(kde_icondir)
-	$(INSTALL_DATA) kscd.xpm $(kde_icondir)
-	$(INSTALL_DATA) bitmaps/cd.xpm $(kde_icondir)
+	$(INSTALL_DATA) $(srcdir)/kscd.xpm $(kde_icondir)
+	$(INSTALL_DATA) $(srcdir)/bitmaps/cd.xpm $(kde_icondir)
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) mini-kscd.xpm $(kde_minidir)/kscd.xpm
+	$(INSTALL_DATA) $(srcdir)/mini-kscd.xpm $(kde_minidir)/kscd.xpm
 	$(mkinstalldirs) $(PICSDIR)
-	$(INSTALL_DATA) kscdlogo.xpm $(PICSDIR)
-	$(INSTALL_DATA) bitmaps/cdsmall.xpm $(PICSDIR)
+	$(INSTALL_DATA) $(srcdir)/kscdlogo.xpm $(PICSDIR)
+	$(INSTALL_DATA) $(srcdir)/bitmaps/cdsmall.xpm $(PICSDIR)
 	$(mkinstalldirs) $(MIMEDIR)
-	$(INSTALL_DATA) xmcd.kdelnk $(MIMEDIR)/xmcd.kdelnk
+	$(INSTALL_DATA) $(srcdir)/xmcd.kdelnk $(MIMEDIR)/xmcd.kdelnk
 	$(mkinstalldirs) $(APPSDIR)
-	$(INSTALL_DATA) kscd.kdelnk $(APPSDIR)/kscd.kdelnk
+	$(INSTALL_DATA) $(srcdir)/kscd.kdelnk $(APPSDIR)/kscd.kdelnk
 
 uninstall:
 	rm -f $(APPSDIR)/kscd.kdelnk
@@ -83,72 +86,18 @@ uninstall:
 messages:
 	$(XGETTEXT) -C --keyword=translate *.cpp -x../../kdelibs/po/kde.pot && mv messages.po ../po/kscd.pot   
 
-####### Explicit dependencies
-
-CDDBSetup.cpp: CDDBSetup.moc
-CDDBSetup.cpp: CDDBSetupData.moc
-CDDialog.cpp: CDDialog.moc
-CDDialog.cpp: CDDialogData.moc
-bwlednum.cpp: bwlednum.moc
-cddb.cpp: cddb.moc version.h
-configdlg.cpp: configdlg.moc
-docking.cpp: docking.moc
-inexact.cpp: inexact.moc
-kscd.cpp: kscd.moc config.h version.h
-ledlamp.cpp: ledlamp.moc
-mgconfdlg.cpp: mgconfdlg.moc
-smtpconfig.cpp: smtpconfig.moc
-smtp.cpp: smtp.moc
-
-####### Meta objects
-
-kscd.moc: kscd.h
-	$(MOC) kscd.h -o kscd.moc
-
-bwlednum.moc: bwlednum.h
-	$(MOC) bwlednum.h -o bwlednum.moc
-
-configdlg.moc: configdlg.h
-	$(MOC) configdlg.h -o configdlg.moc
-
-cddb.moc: cddb.h
-	$(MOC) cddb.h -o cddb.moc
-
-smtpconfig.moc: smtpconfig.h
-	$(MOC) smtpconfig.h -o smtpconfig.moc
-
-smtp.moc: smtp.h
-	$(MOC) smtp.h -o smtp.moc
-
-ledlamp.moc: ledlamp.h
-	$(MOC) ledlamp.h -o ledlamp.moc
-
-inexact.moc: inexact.h
-	$(MOC) inexact.h -o inexact.moc
-
-CDDialog.moc: CDDialog.h
-	$(MOC) CDDialog.h -o CDDialog.moc
-
-CDDBSetup.moc: CDDBSetup.h
-	$(MOC) CDDBSetup.h -o CDDBSetup.moc
-
-CDDialogData.moc: CDDialogData.h
-	$(MOC) CDDialogData.h -o CDDialogData.moc
-
-CDDBSetupData.moc: CDDBSetupData.h
-	$(MOC) CDDBSetupData.h -o CDDBSetupData.moc
-
-docking.moc: docking.h
-	$(MOC) docking.h -o docking.moc
-
-mgconfdlg.moc: mgconfdlg.h
-	$(MOC) mgconfdlg.h -o mgconfdlg.moc
-
-
-
-
-
-
-
-
+cddaslave.c:config.h
+cdrom.c:config.h
+plat_bsd386.c:config.h
+plat_freebsd.c:config.h
+plat_hpux.c:config.h
+plat_irix.c:config.h
+plat_linux.c:config.h
+plat_news.c:config.h
+plat_osf1.c:config.h
+plat_sun.c:config.h
+plat_sun_audio.c:config.h
+plat_sun_cdda.c:config.h
+plat_svr4.c:config.h
+plat_ultrix.c:config.h     
 
