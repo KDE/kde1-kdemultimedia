@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-12-17 02:06+0100\n"
+"POT-Creation-Date: 1998-12-23 02:19+0100\n"
 "PO-Revision-Date: 1998-12-28 15:43+0200\n"
 "Last-Translator: Marcos Nieto <mnieto@arrakis.es>\n"
 "Language-Team: Spanish <kde-es@kyb.ml.org>\n"
@@ -89,7 +89,8 @@ msgstr "Remitiendo entrada cddb: %s\n"
 msgid ""
 "Could not pipe contents into:\n"
 " %s"
-msgstr "No pude introducir el contenido en:\n"
+msgstr ""
+"No pude introducir el contenido en:\n"
 " %s"
 
 #: CDDialog.cpp:590
@@ -105,7 +106,8 @@ msgid ""
 msgstr ""
 "Incapaz de escribir en fichero:\n"
 "%s\n"
-"Compruebe por favor sus permisos y que existen sus directorios de categoríasn."
+"Compruebe por favor sus permisos y que existen sus directorios de "
+"categoríasn."
 
 #: CDDialog.cpp:646
 msgid "Kscd Error"
@@ -119,24 +121,27 @@ msgstr "Entrada en Base Datos no válida"
 msgid ""
 "The Disc Artist / Title field is not filled in.\n"
 "Please correct the entry and try again."
-msgstr "No se ha rellenado el campo Artista/Título"
-"Corrija la entrada y repita por favor."
+msgstr ""
+"No se ha rellenado el campo Artista/TítuloCorrija la entrada y repita por "
+"favor."
 
 #: CDDialog.cpp:831
 msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
-msgstr "No se ha rellenado correctamente el campo Artista/Título."
-"Separe por favor al Artista del Título del CD con \n"
+msgstr ""
+"No se ha rellenado correctamente el campo Artista/Título.Separe por favor al "
+"Artista del Título del CD con \n"
 "una barra, tal como: Peter Gabriel / Grandes Exitos\n"
 
 #: CDDialog.cpp:845 CDDialog.cpp:867
 msgid ""
 "Not all track titles can be empty.\n"
 "Please correct the entry and try again."
-msgstr "No puede dejar vacíos todos los títulos de pistas"
-"Por favor, corríjalo e inténtelo nuevamente."
+msgstr ""
+"No puede dejar vacíos todos los títulos de pistasPor favor, corríjalo e "
+"inténtelo nuevamente."
 
 #: CDDialog.cpp:877
 msgid "Internal Error"
@@ -146,7 +151,8 @@ msgstr "Error interno"
 msgid ""
 "cdinfo.ntracks != title_list->count() + 1\n"
 "Please email the author."
-msgstr "cdinfo.ntracks != title_list->count() + 1\n"
+msgstr ""
+"cdinfo.ntracks != title_list->count() + 1\n"
 "Por favor, contacte con el autor."
 
 #: CDDialog.cpp:907
@@ -233,11 +239,11 @@ msgstr "Tocar al cerrarse bandeja"
 msgid "AutoDock on Minimize"
 msgstr "Autoanclarse al minimizar"
 
-#: configdlg.cpp:177
+#: configdlg.cpp:178
 msgid "Stop Playing on Exit"
 msgstr "Parar de tocar al salir"
 
-#: configdlg.cpp:183
+#: configdlg.cpp:184
 msgid "Eject on Finish"
 msgstr "Eyectar al salir"
 
@@ -265,7 +271,7 @@ msgstr "Anterior"
 msgid "Eject"
 msgstr "Eyectar"
 
-#: docking.cpp:169
+#: docking.cpp:174
 msgid "Minimize"
 msgstr "Minimizar"
 
@@ -274,8 +280,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"No se encontró nada acorde. Por favor escoja el CD adecuado de la "
-"lista de sugerencias mostrada."
+"No se encontró nada acorde. Por favor escoja el CD adecuado de la lista de "
+"sugerencias mostrada."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -393,20 +399,20 @@ msgstr "Diálogo CDDB"
 msgid "CD Volume Control"
 msgstr "Control de Volumen del CD"
 
-#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1264
+#: kscd.cpp:628 kscd.cpp:679 kscd.cpp:1279
 msgid "Playing"
 msgstr "Tocando"
 
-#: kscd.cpp:640 kscd.cpp:1278 kscd.cpp:1331 kscd.cpp:1740 kscd.cpp:1938
+#: kscd.cpp:640 kscd.cpp:1293 kscd.cpp:1346 kscd.cpp:1755 kscd.cpp:1953
 #, c-format
-msgid  "%02d: <Unknown>"
+msgid "%02d: <Unknown>"
 msgstr "%02d: <Desconocido>"
 
-#: kscd.cpp:671 kscd.cpp:1308
+#: kscd.cpp:671 kscd.cpp:1323
 msgid "Pause"
 msgstr "Pausa"
 
-#: kscd.cpp:676 kscd.cpp:939 kscd.cpp:1260
+#: kscd.cpp:676 kscd.cpp:941 kscd.cpp:1275
 msgid "Random"
 msgstr "Aleatorio"
 
@@ -418,19 +424,19 @@ msgstr "Extraño..."
 msgid "Stopped"
 msgstr "Parado"
 
-#: kscd.cpp:902 kscd.cpp:1262
+#: kscd.cpp:904 kscd.cpp:1277
 msgid "Loop"
 msgstr "Repetir"
 
-#: kscd.cpp:914
+#: kscd.cpp:916
 msgid "Ejecting"
 msgstr "Eyectando"
 
-#: kscd.cpp:990
+#: kscd.cpp:992
 msgid "kscd Configuraton"
 msgstr "Configuración del kscd"
 
-#: kscd.cpp:1006
+#: kscd.cpp:1008
 msgid ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
@@ -456,11 +462,12 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Copyright (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Reconocimiento especial para Ti Kan y Steve Scherf, inventores del concepto de "
-"base de datos CDDB. Visite http://www.cddb.com para más información sobre CDDB.\n"
+"Reconocimiento especial para Ti Kan y Steve Scherf, inventores del concepto "
+"de base de datos CDDB. Visite http://www.cddb.com para más información sobre "
+"CDDB.\n"
 "\n"
 
-#: kscd.cpp:1019
+#: kscd.cpp:1021
 msgid ""
 "KSCD Magic based on Synaesthesia by Paul Harrison "
 "<pfh@yoyo.cc.monash.edu.au>\n"
@@ -470,7 +477,7 @@ msgstr ""
 "<pfh@yoyo.cc.monash.edu.au>\n"
 "\n"
 
-#: kscd.cpp:1023
+#: kscd.cpp:1025
 msgid ""
 "Thanks to Vadim Zaliva <lord@crocodile.org>\n"
 "for his work on the http proxy code.\n"
@@ -480,23 +487,23 @@ msgstr ""
 "por su trabajo en el código del proxy de http.\n"
 "\n"
 
-#: kscd.cpp:1079
+#: kscd.cpp:1080
 msgid "SMTP Setup"
 msgstr "Configuración del SMTP"
 
-#: kscd.cpp:1080
+#: kscd.cpp:1081
 msgid "Kscd Options"
 msgstr "Opciones del Kscd"
 
-#: kscd.cpp:1081
+#: kscd.cpp:1082
 msgid "Kscd Magic"
 msgstr "Kscd Magic"
 
-#: kscd.cpp:1170 kscd.cpp:2070
+#: kscd.cpp:1185 kscd.cpp:2085
 msgid "Vol: %02d%%"
 msgstr "Vol: %02d%%"
 
-#: kscd.cpp:1208
+#: kscd.cpp:1223
 #, c-format
 msgid ""
 "CDROM read or access error.\n"
@@ -507,51 +514,51 @@ msgstr ""
 "Cerciórese por favor de tener permisos de acceso a:\n"
 "%s"
 
-#: kscd.cpp:1319
+#: kscd.cpp:1334
 msgid "Ready"
 msgstr "Listo"
 
-#: kscd.cpp:1362
+#: kscd.cpp:1377
 msgid "Ejected"
 msgstr "Eyectado"
 
-#: kscd.cpp:1646
+#: kscd.cpp:1661
 msgid "Unable to get CDDB server list."
 msgstr "Incapaz de conseguir lista de servidores CDDB"
 
-#: kscd.cpp:1790 kscd.cpp:1795
+#: kscd.cpp:1805 kscd.cpp:1810
 msgid "No matching CDDB entry found."
 msgstr "No se encontró entrada CDDB acorde."
 
-#: kscd.cpp:1819 kscd.cpp:1829
+#: kscd.cpp:1834 kscd.cpp:1844
 msgid "Error getting CDDB entry."
 msgstr "Error al conseguir entrada CDDB."
 
-#: kscd.cpp:1845 kscd.cpp:1855
+#: kscd.cpp:1860 kscd.cpp:1870
 msgid "CDDB query timed out."
 msgstr "Tiempo agotado en búsqueda CDDB."
 
-#: kscd.cpp:2045
+#: kscd.cpp:2060
 msgid "Tra Rem"
 msgstr "Tra Rem"
 
-#: kscd.cpp:2049
+#: kscd.cpp:2064
 msgid "Tot Sec"
 msgstr "Tot Seg"
 
-#: kscd.cpp:2053
+#: kscd.cpp:2068
 msgid "Tot Rem"
 msgstr "Tot Rem"
 
-#: kscd.cpp:2058
+#: kscd.cpp:2073
 msgid "Tra Sec"
 msgstr "Tra Seg"
 
-#: kscd.cpp:2183
+#: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
 msgstr "No puedo empezar kscdmagic."
 
-#: kscd.cpp:2198
+#: kscd.cpp:2213
 msgid ""
 "KSCD Magic exited abnormally.\n"
 "Are you sure kscdmagic is installed?"
@@ -559,15 +566,15 @@ msgstr ""
 "KSCD Magic terminó anómalamente.\n"
 "¿Está usted seguro que kscdmagic está instalado?"
 
-#: kscd.cpp:2353
+#: kscd.cpp:2368
 msgid "Enter the local CDDB base Directory"
 msgstr "Entre el directorio raíz de la CDDB local"
 
-#: kscd.cpp:2407
+#: kscd.cpp:2422
 msgid "-h: display commandline options\n"
 msgstr "-h: mostrar opciones en línea de comandos\n"
 
-#: kscd.cpp:2408
+#: kscd.cpp:2423
 msgid "-d: enable debugging output.\n"
 msgstr "-d: permitir salida de depuración.\n"
 
