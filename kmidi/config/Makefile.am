@@ -1,6 +1,6 @@
 
 CONFIG_FILES = gravis.cfg gsdrum.cfg midia.cfg mt32.cfg sndfont.cfg timidity.cfg wowpats.cfg \
-	chaos12-voices chaos8-voices megadrum megainst
+	chaos12-voices chaos8-voices megadrum megainst pila-voices sound-canvas-drums
 TIMID_DIR = $(kde_datadir)/kmidi/config
 
 install-data-local:
