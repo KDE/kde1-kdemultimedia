@@ -61,21 +61,20 @@ int main ( int argc, char *argv[] )
   kmedia  = new KMEDIA;
 
   /* Create initial Playlist from command line */
-  for ( i=1 ; i<argc; i++ )
-    {
-      if ( argv[i][0] != '-' )
-	/* {
-	   PlaylistAdd(kmedia->Playlist, argv[i],-1);
-	   }
-	 */
-	{
-	  KURL *url = new KURL( argv[i] );
-          kmedia->kmw->launchPlayer(url->path()); // Will be launched for a maximum of one time
-	  FileNameSet( kmedia->kmw->FnamChunk, url->path());
-	  delete url;
-	  break;
-	}
+  for ( i=1 ; i<argc; i++ ) {
+    if ( argv[i][0] != '-' ) {
+      /*
+	PlaylistAdd(kmedia->Playlist, argv[i],-1);
+      */
+      KURL *url = new KURL( argv[i] );
+      kmedia->kmw->launchPlayer(url->path()); // Will be launched only one time
+      // OK, this cast is umh ... not-so-good. But it is the low-level
+      // protocol, only kmedia and the media players speak lowlevel protocol.
+      FileNameSet( kmedia->kmw->FnamChunk, (char*)url->path());
+      delete url;
+      break;
     }
+  }
   globalKapp->connect( globalKapp, SIGNAL(lastWindowClosed()), kmedia->kmw, SLOT( quitAll()));
 
   return globalKapp->exec();
