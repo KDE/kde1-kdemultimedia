@@ -123,7 +123,7 @@ msgid ""
 "Please correct the entry and try again."
 msgstr ""
 "La artisto/titolo ne estas indikita.\n"
-"Bonvolu korekti la eron kaj reprovu." 
+"Bonvolu korekti la eron kaj reprovu."
 
 #: CDDialog.cpp:777
 msgid ""
@@ -259,8 +259,8 @@ msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
 msgstr ""
-"Neniu ekzakta kongruo troviøis. Bonvolu elekti la øustan KDon el la "
-"malsupra listo."
+"Neniu ekzakta kongruo troviøis. Bonvolu elekti la øustan KDon el la malsupra "
+"listo."
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -395,8 +395,8 @@ msgstr ""
 "workman 1.4 beta 3\n"
 "Kopirajto (c) Steven Grimm <koreth@hyperion.com>\n"
 "\n"
-"Apartan dankon al Ti Kan kaj Steve Scherf, la inventintoj de KDDB-"
-"koncepto. Vizitu http://www.cddb.com por pli da informoj pri KDDB.\n"
+"Apartan dankon al Ti Kan kaj Steve Scherf, la inventintoj de KDDB-koncepto. "
+"Vizitu http://www.cddb.com por pli da informoj pri KDDB.\n"
 "\n"
 
 #: kscd.cpp:897
@@ -511,7 +511,3 @@ msgstr "Alteco de Soræfenestro:"
 #: mgconfdlg.cpp:83
 msgid "MAGIC Brightness:"
 msgstr "Soræoheleco:"
-
-
-
-

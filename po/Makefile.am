@@ -1,6 +1,6 @@
 
 SUBDIRS = cs de fr pl fi es pt ro it zh_TW.Big5 \
-	zh_CN.GB2312 hr sk nl no pt_BR sv
+	zh_CN.GB2312 hr sk nl no pt_BR sv eo
 
 APPS = kmedia kmix kmid kscd
 

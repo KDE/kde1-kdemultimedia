@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmedia 1.0pre2\n"
-"POT-Creation-Date: 1998-06-18 23:29+0200\n"
+"POT-Creation-Date: 1998-07-16 15:14+0200\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -91,7 +91,3 @@ msgstr "Preta"
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Nedefinita"
-
-
-
-
