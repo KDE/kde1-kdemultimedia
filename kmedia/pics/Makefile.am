@@ -9,13 +9,13 @@ EXTRA_DIST = $(pics_DATA) kmedia_mini.xpm
 
 install-data-local:
 	$(mkinstalldirs) $(kde_minidir)
-	$(INSTALL_DATA) $(srcdir)/kmedia_mini.xpm $(kde_minidir)/kmedia.xpm
-	$(mkinstalldirs) $(kde_minidir)/../large
-	$(INSTALL_DATA) $(srcdir)/large-kmedia.xpm $(kde_minidir)/../large/kmedia.xpm
+	$(INSTALL_DATA) $(srcdir)/kmedia_mini.xpm $(kde_icondir)edia.xpm
+	$(mkinstalldirs) $(kde_icondir)/large
+	$(INSTALL_DATA) $(srcdir)/large-kmedia.xpm $(kde_icondir)/large/kmedia.xpm
 
 uninstall-local:
-	-rm -f $(kde_minidir)/kmedia.xpm
-	-rm -f $(kde_minidir)/../large/kmedia.xpm
+	-rm -f $(kde_icondir)edia.xpm
+	-rm -f $(kde_icondir)/large/kmedia.xpm
 
 icon_DATA = kmedia.xpm
 icondir = $(kde_icondir)
