@@ -33,7 +33,8 @@ AC_CHECK_LIB(cdaudio, main, [LIBCDAUDIO="-lcdaudio -lmediad -lds"],[],[-lmedia -
 AC_SUBST(LIBCDAUDIO)
 AC_CHECK_LIB(fpe, main, [LIBFPE="-lfpe"]) dnl for Irix CDDA
 AC_SUBST(LIBFPE) dnl for Irix CDDA
-
+AC_CHECK_LIB(cdrom, main, [LIBCDROM="-lcdrom"],[],[-lcdrom]) dnl for kscd FreeBSD
+AC_SUBST(LIBCDROM)
 
 dnl Checks for libraries.
 dnl added by wuebben Nov 27 1997
