@@ -90,6 +90,3 @@ msgstr "Klar"
 #: kmediawin.cpp:315
 msgid "Undefined"
 msgstr "Udefinert"
-
-#~ msgid "About KMedia "
-#~ msgstr "Om KMedia "

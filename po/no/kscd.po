@@ -603,17 +603,3 @@ msgstr "SMTP-adresse:port"
 #: smtpconfig.cpp:62
 msgid "Your Email Address"
 msgstr "Din epostadresse"
-
-#~ msgid "Dock Kscd"
-#~ msgstr "Dokk Kscd"
-
-#~ msgid ""
-#~ "Thanks to Sam Maloney <thufir@illogic.ml.org>\n"
-#~ "For the many CDDB code bug fixes, local CDDB record caching, and track "
-#~ "tweek, and configuration fixes.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Takk til Sam Maloney <thufir@illogic.ml.org>\n"
-#~ "For alle CDDB-kodefeilrettingene, lokal CDDB-oppføringshurtiglager og "
-#~ "sporendring og konfigureringsfikser.\n"
-#~ "\n"
