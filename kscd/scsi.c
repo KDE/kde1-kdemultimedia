@@ -56,7 +56,7 @@
 #define	PAGE_AUDIO		0x0e
 #define LEADOUT			0xaa
 
-extern int wm_scsi(), wmcd_open(), strncmp();
+extern int wm_scsi(), wmcd_open();
 extern char *getenv();
 
 /*
