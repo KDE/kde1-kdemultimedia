@@ -10,8 +10,8 @@
 
 <title>The KMid Handbook
 <author>Antonio Larrosa Jim&eacute;nez, <tt/larrosa@kde.org/
-<date>Version 1.6, 9/12/1998
-<abstract>This Handbook describes KMid Version 1.6
+<date>Version 1.7, 8/4/1999
+<abstract>This Handbook describes KMid Version 1.7
 
 <!-- Table of contents -->
 <toc>
@@ -24,7 +24,7 @@
 <p>
 
 KMid is KDE's midi and karaoke multimedia player. It features some features not found in any other unix midi player, such as realtime graphics and karaoke text
-highlighting among others. KMid has been reported to run on Linux and FreeBSD operating systems. It uses the OSS sound driver, so it should run on every system where KDE and OSS compile. KMid also supports the Linux Ultrasound Project Driver , which is required to get sound in GUS cards. I plan to support the ALSA
+highlighting among others. KMid runs on Linux and FreeBSD operating systems. It uses the OSS sound driver, so it should run on every system where KDE and OSS compile. KMid also supports the Linux Ultrasound Project Driver , which is required to get sound in GUS cards. I plan to support the ALSA
 driver as soon as it supports a sequencer device.
 <p>
 KMid shows the lyrics in the screen changing its color at the same 
@@ -623,7 +623,7 @@ You will really make me happy if you send me a postcard from where you live, or 
  KMid's friends of this file (provided they don't oppose to this) . Please
  contact me before sending me any midi files because I may have it already .
 <p>
-I'd like stress that KMid has been done completely on free time, without any monetary support from any company nor particular. So plese keep in mind when you use it, that the only think that keep me working on this is getting some feedback from its users (a postcard, or just an email).
+I'd like to stress that KMid has been done completely on free time, without any monetary support from any company nor particular. So plese keep in mind when you use it, that the only think that keep me working on this is getting some feedback from its users (a postcard, or just an email).
 <p>
 I would like to thanks the following persons their help in developing KMid:
 <itemize>
