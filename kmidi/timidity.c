@@ -737,6 +737,28 @@ int main(int argc, char **argv)
 #ifdef DANGEROUS_RENICE
 #include <sys/resource.h>
   int u_uid=getuid();
+#endif
+
+#ifdef KMIDI
+#define KMIDI_CONFIG_SUBDIR "/share/apps/kmidi/config"
+  char *KDEdir;
+  char *kmidi_config;                                                          
+
+  if ( ! (KDEdir = getenv("KDEDIR")))                                          
+   {
+     kmidi_config = DEFAULT_PATH;
+   }
+  else
+   {
+     kmidi_config = safe_malloc(strlen(KDEdir)+strlen(KMIDI_CONFIG_SUBDIR)+1);
+     strcpy(kmidi_config, KDEdir);
+     strcat(kmidi_config, KMIDI_CONFIG_SUBDIR); 
+     add_to_pathlist(kmidi_config);
+   }
+#endif
+
+
+#ifdef DANGEROUS_RENICE
   if (setpriority(PRIO_PROCESS, 0, DANGEROUS_RENICE) < 0)
 	 fprintf(stderr, "Couldn't set priority to %d.\n", DANGEROUS_RENICE);
   setreuid(u_uid, u_uid);
@@ -752,13 +774,7 @@ int main(int argc, char **argv)
 		return 0;
 	 }
 #endif
-/*
-I don't understand what the point was
-of reading the config file before program
-options.  I moved it down. --gl
-  if (!read_config_file(CONFIG_FILE))
-	 got_a_configuration=1;
-*/
+
   command_cutoff_allowed = 1;
 
   while ((c=getopt(argc, argv, "UI:P:L:c:A:C:ap:fo:O:s:Q:FD:hi:#:q"
