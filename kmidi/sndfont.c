@@ -88,8 +88,8 @@ typedef struct _SFOrder {
 /*----------------------------------------------------------------*/
 
 /*static void free_sample(InstList *ip);*/
-static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp);
-static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp);
+static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp, int brightness, int harmoniccontent);
+static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp, int brightness, int harmoniccontent);
 static int is_excluded(int bank, int preset, int keynote);
 static void free_exclude(void);
 static int is_ordered(int bank, int preset, int keynote);
@@ -119,7 +119,9 @@ static void convert_tremolo(Layer *lay, SFInfo *sf, SampleList *sp);
 #ifndef SF_SUPPRESS_VIBRATO
 static void convert_vibrato(Layer *lay, SFInfo *sf, SampleList *sp);
 #endif
+#ifndef SF_SUPPRESS_CUTOFF
 static void do_lowpass(Sample *sp, int32 freq, float resonance);
+#endif
 static void calc_cutoff(Layer *lay, SFInfo *sf, SampleList *sp);
 static void calc_filterQ(Layer *lay, SFInfo *sf, SampleList *sp);
 
@@ -265,7 +267,7 @@ Instrument *load_sbk_patch(int order, int gm_num, int tpgm, int reverb, int main
 Instrument *load_sbk_patch(int order, char *name, int gm_num, int bank, int percussion,
 			   int panning, int amp, int keynote,
 			   int strip_loop, int strip_envelope,
-			   int strip_tail) {
+			   int strip_tail, int brightness, int harmoniccontent) {
 #endif
 	int preset;
 	InstList *ip;
@@ -326,7 +328,7 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
 			(percussion)? keynote : preset, (percussion)? preset : bank, sfrec.fname);
 		sfrec.fd = ip->fd;
 		sfrec.fname = ip->fname;
-		inst = load_from_file(&sfrec, ip, amp);
+		inst = load_from_file(&sfrec, ip, amp, brightness, harmoniccontent);
 	}
 	else if (order) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "Can't find %s %s[%d,%d] in %s.",
 			(percussion)? "drum":"instrument", name,
@@ -351,7 +353,7 @@ printf("but bank %d voice %d is already loaded\n", bank, preset);
 }
 
 
-static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp)
+static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp, int brightness, int harmoniccontent)
 {
 	Instrument *inst;
 
@@ -372,8 +374,8 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp)
 	if (ip->rsamples) inst->right_sample = safe_malloc(sizeof(Sample)*ip->rsamples);
 	else inst->right_sample = 0;
 
-	if (load_one_side(rec, ip->slist, ip->samples, inst->sample, amp) &&
-	    load_one_side(rec, ip->rslist, ip->rsamples, inst->right_sample, amp))
+	if (load_one_side(rec, ip->slist, ip->samples, inst->sample, amp, brightness, harmoniccontent) &&
+	    load_one_side(rec, ip->rslist, ip->rsamples, inst->right_sample, amp, brightness, harmoniccontent))
 		return inst;
 
 	if (inst->right_sample) free(inst->right_sample);
@@ -383,7 +385,8 @@ static Instrument *load_from_file(SFInsts *rec, InstList *ip, int amp)
 }
 
 
-static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp)
+static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample *base_sample, int amp,
+	int brightness, int harmoniccontent)
 {
 	int i;
 
@@ -411,6 +414,40 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 		}
 #endif
 
+	/* Note: _One_ thing that keeps this from working right is that,
+	   apparently, zero-crossing points change so loops give clicks;
+	   Another problem is that have to reload voices between songs.
+	   The filter really ought to be in resample.c.
+	*/
+#define SF_SUPPRESS_DYN_CUTOFF
+#ifndef SF_SUPPRESS_DYN_CUTOFF
+		if (brightness >= 0 && brightness != 64) {
+			int32 fq = sp->cutoff_freq;
+#ifdef DYN_CUT_DEBUG
+printf("cutoff from %ld", fq);
+#endif
+			if (!fq) fq = 8400;
+			fq += (brightness - 64) * (fq / 40);
+#ifdef DYN_CUT_DEBUG
+printf(" to %ld\n", fq);
+#endif
+			if (fq < 349) fq = 349;
+			else if (fq > 19912) fq = 19912;
+			sp->cutoff_freq = fq;
+
+		}
+		if (harmoniccontent >= 0 && harmoniccontent != 64) {
+#ifdef DYN_CUT_DEBUG
+printf("resonance from %f", sp->resonance);
+#endif
+			sp->resonance = harmoniccontent / 256.0;
+#ifdef DYN_CUT_DEBUG
+printf(" to %f\n", sp->resonance);
+#endif
+		}
+#else
+	if (brightness+harmoniccontent > 1000) printf("gcc shush\n");
+#endif
 		/* do some filtering if necessary */
 #ifndef SF_SUPPRESS_CUTOFF
 		if (sp->cutoff_freq > 0 && cutoff_allowed) {
@@ -423,7 +460,6 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 			sample->data_length <<= FRACTION_BITS;
 		}
 #endif
-/********/
 
 #ifdef ADJUST_SAMPLE_VOLUMES
       if (amp!=-1)
@@ -453,7 +489,6 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 	sample->volume=1.0;
 #endif
 
-/********/
 
 		if (antialiasing_allowed) {
 			/* restore the normal value */
@@ -481,6 +516,55 @@ static int load_one_side(SFInsts *rec, SampleList *sp, int sample_count, Sample 
 			free(sample->data);
 			sample->data=(sample_t *)gulp;
 		}
+#endif
+
+/*
+printf("loop start %ld, loop end %ld, len %d\n", sample->loop_start>>FRACTION_BITS, sample->loop_end>>FRACTION_BITS,
+sample->data_length >> FRACTION_BITS);
+*/
+/*#define HANNU_CLICK_REMOVAL*/
+#ifdef HANNU_CLICK_REMOVAL
+    if ((sample->modes & MODES_LOOPING)) {
+	int nls = sample->loop_start>>FRACTION_BITS;
+	int nle = sample->loop_end>>FRACTION_BITS;
+	int ipt = 0, ips = 0;
+	char v1, v2;
+	while (!ipt) {
+		v1 = sample->data[nle-1];  v2 = sample->data[nle];
+		if (v2==0) {
+			if (v1 < 0) ipt = 1;
+			else if (v2 > 0) ipt = 2;
+		}
+		else {
+			if (v1 <= 0 && v2 > 0) ipt = 1;
+			else if (v1 >= 0 && v2 < 0) ipt = 2;
+		}
+		if (!ipt) nle--;
+		if (nle <= sample->loop_start) break;
+	}
+	if (ipt && nls > 0) while (!ips) {
+		v1 = sample->data[nls-1];  v2 = sample->data[nls];
+		if (v2==0) {
+			if (ipt == 1 && v1 < 0) ips = 1;
+			else if (ipt == 2 && v2 > 0) ips = 2;
+		}
+		else {
+			if (ipt == 1 && v1 <= 0 && v2 > 0) ips = 1;
+			else if (ipt == 2 && v1 >= 0 && v2 < 0) ips = 2;
+		}
+		if (!ips) nls--;
+		if (nls < 1) break;
+	}
+	if (ipt && ips && ipt == ips && nle <= sample->loop_end) {
+/*
+printf("changing loop start from %ld to %d, loop end from %ld to %d\n",
+sample->loop_start>>FRACTION_BITS, nls,
+sample->loop_end>>FRACTION_BITS, nle);
+*/
+		sample->loop_start = nls<<FRACTION_BITS;
+		sample->loop_end = nle<<FRACTION_BITS;
+	}
+    }
 #endif
 	}
 	return 1;
@@ -1432,7 +1516,13 @@ static void calc_filterQ(Layer *lay, SFInfo *sf, SampleList *sp)
 #define MIN_DATAVAL -32768
 #endif
 
+#define USE_BUTTERWORTH
+
+#ifdef USE_BUTTERWORTH
+static void do_lowpass_w_res(Sample *sp, int32 freq, float resonance)
+#else
 static void do_lowpass(Sample *sp, int32 freq, float resonance)
+#endif
 {
 	double A, B, C;
 	sample_t *buf, pv1, pv2;
@@ -1467,9 +1557,10 @@ static void do_lowpass(Sample *sp, int32 freq, float resonance)
 	}
 	/* */
 
-	A *= 0.30;
-	B *= 0.30;
-	C *= 0.30;
+/* some clipping w. 0.30, 0.25, 0.20, 0.15 */
+	A *= 0.10;
+	B *= 0.10;
+	C *= 0.10;
 
 	pv1 = 0;
 	pv2 = 0;
@@ -1485,4 +1576,74 @@ static void do_lowpass(Sample *sp, int32 freq, float resonance)
 		pv1 = *buf++ = (sample_t)d;
 	}
 }
+
+#ifdef USE_BUTTERWORTH
+static void do_lowpass(Sample *sp, int32 freq, float resonance)
+{
+	double C, a0, a1, a2, b0, b1;
+	sample_t *buf = sp->data;
+	double oldin=0, lastin=0, oldout=0, lastout=0;
+	int i, clips = 0;
+	double maxin=0, minin=0, inputgain=0.95;
+
+	if (resonance) do_lowpass_w_res(sp, freq, resonance);
+
+	if (freq > 12000) freq = 12000;
+
+	if (freq > sp->sample_rate * 2) {
+		ctl->cmsg(CMSG_ERROR, VERB_NORMAL,
+			  "Lowpass: center must be < data rate*2");
+		return;
+	}
+
+	C = 1.0 / tan(M_PI * freq / sp->sample_rate);
+
+	a0 = 1.0 / (1.0 + sqrt(2.0) * C + C * C);
+	a1 = 2.0 * a0;
+	a2 = a0;
+
+	b0 = 2 * (1.0 - C * C) * a0;
+	b1 = (1.0 - sqrt(2.0) * C + C * C) * a0;
+
+	if (a1 > 2.0) {
+		inputgain = 1 / a1;
+	}
+	for (i = 0; i < sp->data_length; i++) {
+		sample_t samp = *buf;
+		double outsamp, insamp;
+		insamp = samp * inputgain;
+		outsamp = a0 * insamp + a1 * lastin + a2 * oldin - b0 * lastout - b1 * oldout;
+		if (outsamp >maxin) maxin = outsamp;
+		if (outsamp <minin) minin = outsamp;
+		lastout = outsamp;
+		if (outsamp > MAX_DATAVAL) {
+			outsamp = MAX_DATAVAL;
+			clips++;
+		}
+		else if (outsamp < MIN_DATAVAL) {
+			outsamp = MIN_DATAVAL;
+			clips++;
+		}
+		*buf++ = (sample_t)outsamp;
+		oldin = lastin;
+		lastin = insamp;
+		oldout = lastout;
+	}
+#ifdef BUTTERWORTH_DEBUG
+if (resonance)
+printf("\tbandwith %f centerfreq %f f=%ld : a0=%f a1=%f a2=%f b0=%f b1=%f\n", bandwidth, centerfreq, freq,
+	 a0,a1,a2,b0,b1);
+/*
+else
+printf("\tgain %f , f=%ld : a0=%f a1=%f a2=%f b0=%f b1=%f\n", inputgain, freq, a0,a1,a2,b0,b1);
+*/
+	if (clips) {
+    		ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%d clips: maxout %f, minout %f : a0=%f a1=%f a2=%f b0=%f b1=%f",
+ clips, maxin, minin, a0,a1,a2,b0,b1);
+		/*if (clips>60) exit(1);*/
+	}
+#endif
+}
+#endif
+
 #endif
