@@ -1709,6 +1709,9 @@ void  KSCD::performances(int i){
   if(!getArtist(artist))
      return;
 
+  // primitive incomplete http encoding TODO fix!
+  artist = artist.replace( QRegExp(" "), "+" );
+
   switch(i){
   case 0:
       str = str.sprintf(
@@ -1733,6 +1736,9 @@ void  KSCD::purchases(int i){
 
   if(!getArtist(artist))
      return;
+
+  // primitive incomplete http encoding TODO fix!
+  artist = artist.replace( QRegExp(" "), "+" );
 
   switch(i){
   case 0:
