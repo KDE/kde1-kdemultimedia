@@ -57,7 +57,7 @@ KMediaWin::KMediaWin(QWidget * /*parent*/, const char* /*name*/) // :   QWidget(
   KmConfig=KApplication::getKApplication()->getConfig();
   prefDL = new Preferences(NULL);
   prefDL->kcfg = KApplication::getKApplication()->getConfig();
-  prefDL->mixerCommand = KmConfig->readEntry( "MixerCommand" );
+  prefDL->mixerCommand = KmConfig->readEntry( "MixerCommand", "kmix" );
   prefDL->mixerLE->setText(prefDL->mixerCommand);
 
   connect( timer, 	SIGNAL(timeout()), 	SLOT(SlaveStatusQuery()) );
@@ -89,6 +89,7 @@ QPushButton *KMediaWin::createButton( int x, int y, int w, int h, const char *na
 {
   QPushButton *pb = new QPushButton( Container,name );
   pb->setGeometry( x, y, w, h );
+  //pb->setLineWidth( 1 );
   if (TT)
     QToolTip::add( pb, TT );
   return pb;
@@ -170,20 +171,16 @@ void KMediaWin::createPanel()
   iy += HEIGHT;
 
 
-  Container->setMinimumSize(w   , iy);
-  Container->setMaximumSize(9999, iy);
-  Container->resize        (w   , iy );
-
+  Container->setMinimumSize(w       , iy);
+  Container->setMaximumSize(9999    , iy);
+  // Hehe. Now fooling around for de. fi is perhaps still messy ;-)
+  Container->resize        (w+WIDTH , iy );
   setView(Container);
 
-  setMinimumSize(w   , iy);//+mainmenu->height()+statbar->height());
-  setMaximumSize(2000, iy);//+mainmenu->height()+statbar->height());
-  resize(        w   , iy);//+mainmenu->height()+statbar->height());
+  //setMinimumSize(w         , iy);
+  //setMaximumSize(2000      , iy);
+  resize        (w+WIDTH   , iy);
 
-
-
-//  mainmenu->show();
-//  statbar->show();
   show();
 }
 
@@ -194,7 +191,7 @@ void KMediaWin::createMenu()
   QPopupMenu *Mfile = new QPopupMenu;
   CHECK_PTR( Mfile );
   Mfile->insertItem( klocale->translate("New view"),  this, SLOT(newviewClicked()), CTRL+Key_N );
-  Mfile->insertItem( klocale->translate("Exit")    ,  this, SLOT(quitClicked())   , ALT+Key_Q  );
+  Mfile->insertItem( klocale->translate("Exit")    ,  this, SLOT(quitClicked())   , CTRL+Key_Q  );
 
   QPopupMenu *Moptions = new QPopupMenu;
   CHECK_PTR( Moptions );
@@ -205,7 +202,7 @@ void KMediaWin::createMenu()
 
   QPopupMenu *Mhelp = new QPopupMenu;
   CHECK_PTR( Mhelp );
-  Mhelp->insertItem( klocale->translate("&Contents"), this, SLOT(launchHelp()), ALT+Key_H);
+  Mhelp->insertItem( klocale->translate("&Contents"), this, SLOT(launchHelp()), Key_F1);
   Mhelp->insertSeparator();
   Mhelp->insertItem( klocale->translate("&About"), this, SLOT(aboutClicked()));
   Mhelp->insertItem( klocale->translate("&About Qt..."), this, SLOT(aboutqt()));
@@ -250,8 +247,6 @@ void KMediaWin::loadBitmaps() {
 void KMediaWin::resizeEvent(QResizeEvent *e)
 {
   KTopLevelWidget::resizeEvent(e);
-
-//  Container->resize ( width(), Container->height());
   PosSB->resize     ( width(), PosSB->height());
 }
 

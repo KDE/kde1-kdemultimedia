@@ -107,10 +107,10 @@ private:
   const char   	*modetext;
   char		fnameOld[LEN_FNAME];
 
-  QPushButton	*makeButton( int, int, int, int, const char *, const char * );
   void		createPanel();
   void		createMenu();
-  QPushButton   *createButton( int x, int y, int w, int h, const char *name, const char *TT );
+  
+  QPushButton	*createButton( int x, int y, int w, int h, const char *name, const char *TT );
   void		loadBitmaps();
   QWidget	*Container;	// Container for everything
   QPushButton	*playPB;	// Play/Pause button

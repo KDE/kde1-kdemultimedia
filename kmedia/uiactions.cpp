@@ -65,13 +65,14 @@ bool KMediaWin::removePlayer()
   /* Press the exit "button". This tells the slave to quit */
   EventCounterRaise(&(KeysChunk->exit),1);
   /* Await end of player */
-  for (int i=0; i<40; i++)
+  for (int i=0; i<4; i++)
     {
       if (*StatStatPtr == MD_STAT_EXITED)
 	break;
       else
 	{
-	  usleep(100*1000);
+	  //usleep(100*1000);
+	  sleep(1);
 	  //QApplication::processEvents();
 	}
     }
@@ -149,11 +150,11 @@ void KMediaWin::aboutClicked()
   sprintf(TalkIdStr,"%i", m.talkid);
 
    msg = \
-         klocale->translate("kmedia 0.45\n(C) 1996, 1997 Christian Esken (esken@kde.org)\n\nMedia player for the KDE Desktop Environment.\n\n(Communication id: ");
+         klocale->translate("kmedia 0.45\n(C) 1996, 1997 Christian Esken (esken@kde.org)\n\nMedia player for the KDE Desktop Environment.\nThis program is in the GPL.\n<Communication id: ");
   msg += TalkIdStr;
-  msg += ")";
+  msg += ">";
 
-  QMessageBox::about( this, "kmedia 0.45",msg);
+  QMessageBox::about( this, "About kmedia 0.45",msg);
 }
 
 void KMediaWin::aboutqt()
