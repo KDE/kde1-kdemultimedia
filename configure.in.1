@@ -69,9 +69,10 @@ AC_CHECK_FUNCS(usleep)
 
 AC_ARG_WITH(alsa, [  --with-alsa             use an alternative driver for GUS],
 [
-   if test $witharg = "yes"; then
-     $kde_with_alsa=yes;
-    else kde_with_alsa=no
+   if test $withval = "yes"; then
+     kde_with_alsa=yes
+   else
+     kde_with_alsa=no
   fi
 ], kde_with_alsa=no)
 
