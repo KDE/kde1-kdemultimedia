@@ -1,14 +1,35 @@
 # KTranslator Generated File
 
-# KTranslator Generated File
-
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
-# KTranslator Generated File
-
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -17,26 +38,26 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 1999-01-28 02:46+0100\n"
-"PO-Revision-Date: Thu Apr 22 1999 01:23:23+0200\n"
+"POT-Creation-Date: 1999-04-03 02:43+0200\n"
+"PO-Revision-Date: Wed Jul 7 1999 16:19:07+0200\n"
 "Last-Translator: Kimiyasu Tomiyama <tomy@truga.com>\n"
 "Language-Team: Japanese <kde-jp@albert.nikkeibp.co.jp>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=euc-jp\n"
-"Content-Transfer-Encoding: 8-bit\n"
+"Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KTranslator v 0.4.0"
 
 #: CDDBSetupData.cpp:44
 msgid "CDDB Base Directory"
-msgstr "CDDBディレクトリ"
+msgstr "CDDBベースディレクトリ"
 
 #: CDDBSetupData.cpp:63
 msgid "Send CDDB submissions to:"
-msgstr "CDDB提出の送信先:"
+msgstr "CDDB提出の送信先 :"
 
 #: CDDBSetupData.cpp:84
 msgid "CDDB server:"
-msgstr "CDDBサーバ:"
+msgstr "CDDBサーバ :"
 
 #: CDDBSetupData.cpp:93
 msgid "Update"
@@ -95,7 +116,7 @@ msgstr "このCDのジャンルはどれですか？"
 #: CDDialog.cpp:501
 #, c-format
 msgid "Submitting cddb entry: %s\n"
-msgstr "CDDBエントリを提出する: %s\n"
+msgstr "CDDBエントリを提出する : %s\n"
 
 #: CDDialog.cpp:508
 #, c-format
@@ -141,10 +162,9 @@ msgid ""
 "The Disc Artist / Title field is not filled in correctly.\n"
 "Please separate the artist from the title of the CD with \n"
 "a forward slash, such as in: Peter Gabriel / Greatest Hits\n"
-msgstr ""
-"ディスクのアーティストとタイトルの欄が正しく埋まっていません\n"
-"アーティストとタイトルを / (スラッシュ) で区切ってください\n"
-"例: Peter Grbriel / Greatest Hits\n"
+msgstr "ディスクのアーティストとタイトルの欄が正しく埋まっていません\n"
+"アーティストとタイトルを / (スラッシュ) で区切って下さい\n"
+"例： Peter Grbriel / Greatest Hits\n"
 
 #: CDDialog.cpp:845 CDDialog.cpp:867
 msgid ""
@@ -164,11 +184,11 @@ msgid ""
 "Please email the author."
 msgstr ""
 "cdinfo.ntracks != title_list->count() + 1\n"
-"製作者にe-mail を送って下さい"
+"製作者に e-mail を送って下さい"
 
 #: CDDialog.cpp:907
 msgid "Invalid Playlist\n"
-msgstr "プレイリストが正しくありません\n"
+msgstr "無効なプレイリスト\n"
 
 #: CDDialogData.cpp:74
 msgid "Load"
@@ -204,7 +224,7 @@ msgstr "更新"
 
 #: configdlg.cpp:71
 msgid "Configure kscd"
-msgstr "kcsdの設定"
+msgstr "kcsd の設定"
 
 #: configdlg.cpp:78
 msgid "LED Color:"
@@ -220,7 +240,7 @@ msgstr "CDROMデバイス:"
 
 #: configdlg.cpp:124
 msgid "Unix mail command:"
-msgstr "Unix メールコマンド"
+msgstr "Unix メールコマンド:"
 
 #: configdlg.cpp:132
 msgid "WWW-Browser"
@@ -290,8 +310,8 @@ msgstr "最小化"
 msgid ""
 "No exact match could be found. Please select the appropriate CD from the "
 "list of choices presented below."
-msgstr ""
-"正確に一致するものがありませんでした 下のリストから該当するものを選択してください"
+msgstr "正確に一致するものがありませんでした "
+"下のリストから該当するものを選択して下さい"
 
 #: inexact.cpp:57
 msgid "Please select a Disk Title or press Cancel"
@@ -315,7 +335,7 @@ msgstr "接続の時間切れです"
 
 #: kscd.cpp:245
 msgid "Time out waiting for server interaction."
-msgstr "サーバーに反応待ちの時間切れです"
+msgstr "サーバーの反応待ち時間切れです"
 
 #: kscd.cpp:248
 #, c-format
@@ -465,18 +485,19 @@ msgstr ""
 "Copyright (c) 1997-98 \n"
 "Bernd Johannes Wuebben <wuebben@kde.org>\n"
 "\n"
-"現在のメンテナは :\n"
-"Sam Maloney <thufir@illogic.ml.org>です\n"
+"現在のメンテナは:\n"
+"Sam Maloney <thufir@illogic.ml.org>\n"
 "\n"
-"Kscdには workman 1.4 beta 3\n"
+"Kscd には workman 1.4 beta 3\n"
 "(Copyright (c) Steven Grimm <koreth@hyperion.com>による)\n"
-"のコードが含まれています\n"
+"コードが含まれています\n"
 "\n"
-"CDDB(データベースの概念)の発明者である\n"
-"Ti Kan と Steve Scherf には大変感謝しています\n"
-"CDDBの情報がさらに得たければ http://www.cddb.com\n"
-"へ訪れてください\n"
+"CDDB(CDデータベース)の概念の発明者である\n"
+"Ti Kan and Steve Scherf には大変感謝しています\n"
+"CDDBの情報をもっと知りたければ http://www.cddb.com\n"
+"へ訪れて下さい\n"
 "\n"
+""
 
 #: kscd.cpp:1021
 msgid ""
@@ -485,7 +506,7 @@ msgid ""
 "\n"
 msgstr ""
 "KSCD Magic は Paul Harrison\n"
-"<pfh@yoyo.cc.monash.edu.au>による\n"
+"<pfh@yoyo.cc.monash.edu.au> による\n"
 "Synaesthesia に基づいています\n"
 "\n"
 ""
@@ -497,7 +518,7 @@ msgid ""
 "\n"
 msgstr ""
 "Vadim Zaliva <lord@crocodile.org> に感謝します\n"
-"彼は http プロキシコードを担当してくれました\n"
+"彼は HTTP プロキシコードを担当してくれました\n"
 "\n"
 ""
 
@@ -507,7 +528,7 @@ msgstr "SMTPの設定"
 
 #: kscd.cpp:1081
 msgid "Kscd Options"
-msgstr "Kscdのオプション"
+msgstr "Kscd のオプション"
 
 #: kscd.cpp:1082
 msgid "Kscd Magic"
@@ -569,7 +590,7 @@ msgstr "Tra Sec"
 
 #: kscd.cpp:2198
 msgid "Cannot start kscdmagic."
-msgstr "kscdmagicが開始できません"
+msgstr "kscdmagic が開始できません"
 
 #: kscd.cpp:2213
 msgid ""
@@ -589,7 +610,7 @@ msgstr "-h: コマンドラインオプションの表示\n"
 
 #: kscd.cpp:2426
 msgid "-d: enable debugging output.\n"
-msgstr "-d: デバッグの出力を有効にする\n"
+msgstr "-d: デバッグ用出力を有効にする\n"
 
 #: mgconfdlg.cpp:52
 msgid "Magic Kscd"
