@@ -2,12 +2,11 @@
 # Copyright (C) YEAR Free Software Foundation, Inc.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: kscd 1.2.0\n"
 "POT-Creation-Date: 1998-06-16 14:19+0200\n"
-"PO-Revision-Date: 1998-06-17 15:25+0200\n"
+"PO-Revision-Date: 1998-06-19 09:22 MET DST\n"
 "Last-Translator: Stanislav Vi¹òovský <stano@mail.kolej.mff.cuni.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +23,7 @@ msgstr "Pøíspìvky do CDDB posílat na:"
 
 #: CDDBSetupData.cpp:82
 msgid "CDDB server:"
-msgstr ""
+msgstr "CDDB server:"
 
 #: CDDBSetupData.cpp:90
 msgid "Update"
