@@ -482,3 +482,6 @@ storing in one of them the value of the other one)
 Thursday 8-4-99
 - Fixed a problem that made Kmid consume 99% of CPU since a month ago, now it's back
 to the usual 0.00% of CPU use :-)
+
+Monday 12-4-99
+- Fixed a bug that made KMid freeze when trying to open a directory
