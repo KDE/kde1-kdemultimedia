@@ -102,7 +102,7 @@ public:
     int openURL(char *s);
 
     void repaintText(int typeoftextevents);
-    void kmidOutput(void);
+    static void kmidOutput(void);
 
     void songType(int i);
     int ChooseTypeOfTextEvents(void);
