@@ -14,93 +14,80 @@ msgid "&Open ..."
 msgstr "&Otvori» ..."
 
 #: kmidframe.cpp:64
-#, fuzzy
 msgid "&Save Lyrics ..."
-msgstr "Ulo¾i» ako..."
+msgstr "&Ulo¾i» slová..."
 
 #: kmidframe.cpp:67
 msgid "&Quit"
 msgstr "&Koniec"
 
 #: kmidframe.cpp:70
-#, fuzzy
 msgid "&Play"
-msgstr "Hraj !"
+msgstr "&Hra»"
 
 #: kmidframe.cpp:72
-#, fuzzy
 msgid "P&ause"
-msgstr "Pauza"
+msgstr "P&auza"
 
 #: kmidframe.cpp:73
 msgid "&Stop"
 msgstr "&Stop"
 
 #: kmidframe.cpp:76
-#, fuzzy
 msgid "P&revious Song"
-msgstr "Predchádzkajúci uzol"
+msgstr "P&redchádzajúca pesnièka"
 
 #: kmidframe.cpp:78
-#, fuzzy
 msgid "&Next Song"
-msgstr "&Nasledujúca strana"
+msgstr "&Nasledujúca pesnièka"
 
 #: kmidframe.cpp:81
-#, fuzzy
 msgid "&Loop"
-msgstr "Dookola"
+msgstr "Dooko&la"
 
 #: kmidframe.cpp:87
-#, fuzzy
 msgid "&Organize ..."
-msgstr "&Otvori» ..."
+msgstr "&Spravova» ..."
 
 #: kmidframe.cpp:90
-#, fuzzy
 msgid "In order mode"
-msgstr "Mód servera"
+msgstr "Hra» v poradí"
 
 #: kmidframe.cpp:93
-#, fuzzy
 msgid "Shuffle mode"
-msgstr "Podvádzanie"
+msgstr "Náhodné poradie"
 
 #: kmidframe.cpp:97
 msgid "AutoAdd to Collection"
-msgstr ""
+msgstr "Automaticky pridáva»"
 
 #: kmidframe.cpp:104
-#, fuzzy
 msgid "&General Midi file"
-msgstr "&V¹eobecné"
+msgstr "&V¹eobecný Midi súbor"
 
 #: kmidframe.cpp:108
 msgid "&MT-32 file"
-msgstr ""
+msgstr "&MT-32 súbor"
 
 #: kmidframe.cpp:113
 msgid "See &Text events"
-msgstr ""
+msgstr "&Textové udalosti"
 
 #: kmidframe.cpp:117
 msgid "See &Lyrics events"
-msgstr ""
+msgstr "Udalosti v slovách"
 
 #: kmidframe.cpp:122
-#, fuzzy
 msgid "&Automatic Text chooser"
-msgstr "Automaticky ukonèi»?"
+msgstr "&Automaticky vybera» text"
 
 #: kmidframe.cpp:127
-#, fuzzy
 msgid "&Font Change ..."
-msgstr "&Choï na stranu ..."
+msgstr "&Zmena písma ..."
 
 #: kmidframe.cpp:130
-#, fuzzy
 msgid "&Midi Setup ..."
-msgstr "&Nastavi».."
+msgstr "&Nastavi» Midi.."
 
 #: kmidframe.cpp:135
 #, c-format
@@ -116,20 +103,28 @@ msgid ""
 "This is free software, and you are welcome to redistribute it\n"
 "under certain conditions\n"
 msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Prehrávaè súborov Midi/Karaoke\n"
+"\n"
+"KMid prichádza BEZ AKEJKO¥VEK ZÁRUKY. Pre bli¾ie podrobnosti si pozrite\n"
+"súbor COPYING. Toto je voµne ¹íriteµný softvér a privítame, keï ho budete\n"
+"¹íri» za daných podmienok\n"
 
 #: kmidframe.cpp:146
 msgid "&File"
 msgstr "&Súbor"
 
 #: kmidframe.cpp:147
-#, fuzzy
 msgid "&Song"
-msgstr "Hodnotenie"
+msgstr "&Pieseò"
 
 #: kmidframe.cpp:148
-#, fuzzy
 msgid "&Collections"
-msgstr "Oddiel"
+msgstr "&Zbierky"
 
 #: kmidframe.cpp:149
 msgid "&Options"
@@ -140,14 +135,12 @@ msgid "&Help"
 msgstr "&Pomocník"
 
 #: kmidframe.cpp:160
-#, fuzzy
 msgid "Previous Song"
-msgstr "Predchádzkajúci uzol"
+msgstr "Predchádzajúca pieseò"
 
 #: kmidframe.cpp:163
-#, fuzzy
 msgid "Rewind"
-msgstr "Èervený"
+msgstr "Spä»"
 
 #: kmidframe.cpp:166
 msgid "Stop"
@@ -158,18 +151,16 @@ msgid "Pause"
 msgstr "Pauza"
 
 #: kmidframe.cpp:173
-#, fuzzy
 msgid "Play"
-msgstr "Hraj !"
+msgstr "Hra»"
 
 #: kmidframe.cpp:176
 msgid "Forward"
 msgstr "Vpred"
 
 #: kmidframe.cpp:179
-#, fuzzy
 msgid "Next Song"
-msgstr "Nasledujúci uzol"
+msgstr "Nasledujúca pieseò"
 
 #: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
 msgid "Error"
@@ -180,16 +171,16 @@ msgid ""
 "Couldn't open /dev/sequencer to get some info\n"
 "Probably there is another program using it"
 msgstr ""
+"Nemô¾em otvori» /dev/sequencer aby som získal\n"
+"niektoré informácie. Mo¾no ho pou¾íva iný program."
 
 #: kmidframe.cpp:615 kmidframe.cpp:616
-#, fuzzy, c-format
 msgid ""
 "File %s already exists\n"
 "Do you want to overwrite it ?"
 msgstr ""
-"Súbor s takýmto názvom u¾ existuje\n"
-"Chcete ho prepísa»?\n"
-"\n"
+"Súbor %s u¾ existuje\n"
+"Chcete ho prepísa» ?"
 
 #: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
 #: kmidclient.cpp:320 kmidframe.cpp:617
@@ -197,58 +188,56 @@ msgid "Warning"
 msgstr "Varovanie"
 
 #: kmidclient.cpp:87
-#, fuzzy
 msgid "Tempo :"
-msgstr "Komu:"
+msgstr "Tempo :"
 
 #: kmidclient.cpp:230
-#, fuzzy, c-format
 msgid "The file %s doesn't exist or can't be opened"
-msgstr "©pecifikovaný prieèinok neexistuje alebo sa nedá preèíta»."
+msgstr "Súbor %s neexistuje alebo ho nemô¾em otvori»."
 
 #: kmidclient.cpp:233
-#, fuzzy, c-format
 msgid "The file %s is not a midi file"
-msgstr "Tento dátum neexistuje!"
+msgstr "Súbor %s nie je midi súbor."
 
 #: kmidclient.cpp:235
 msgid ""
 "Ticks per cuarter note is negative, please, send this file to "
 "antlarr@arrakis.es"
 msgstr ""
+"Poèet taktov na ¹tvr»ovú notu je negatívny, prosím po¹lite tento"
+"súbor na adresu antlarr@arrakis.es."
 
 #: kmidclient.cpp:237
-#, fuzzy
 msgid "Not enough memory !!"
-msgstr "Nie je èíslo!"
+msgstr "Nedostatok pamäte !!"
 
 #: kmidclient.cpp:239
 msgid "This file is corrupted or not well built"
-msgstr ""
+msgstr "Tento súbor je po¹kodený alebo zle urobený."
 
 #: kmidclient.cpp:240
-#, fuzzy
 msgid "Unknown error message"
 msgstr "Neznáma chyba"
 
 #: kmidclient.cpp:315
 msgid "You must load a file before playing it"
-msgstr ""
+msgstr "Musíte naèíta» súbor pred hraním."
 
 #: kmidclient.cpp:321
 msgid "A song is already being played"
-msgstr ""
+msgstr "U¾ hrá pesnièka."
 
 #: kmidclient.cpp:327
 msgid ""
 "Couldn't open /dev/sequencer\n"
 "Probably there is another program using it"
 msgstr ""
+"Nemô¾em otvori» /dev/sequencer.\n"
+"Pravepodobne ho pou¾íva iný program."
 
 #: midicfgdlg.cpp:37
-#, fuzzy
 msgid "Configure Midi devices"
-msgstr "Konfigurácia kláves"
+msgstr "Konfigurácia midi zariadení"
 
 #: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
 msgid "OK"
@@ -260,38 +249,35 @@ msgstr "Zru¹i»"
 
 #: midicfgdlg.cpp:47
 msgid "Select the midi device you want to use :"
-msgstr ""
+msgstr "Zvoµte midi zariadenie :"
 
 #: midicfgdlg.cpp:67
 msgid "Use the midi map :"
-msgstr ""
+msgstr "Pou¾i» midi mapu :"
 
 #: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
 msgid "None"
-msgstr "Nikomu"
+msgstr "®iadnu"
 
 #: midicfgdlg.cpp:89
 msgid "Browse..."
 msgstr "Listova»..."
 
 #: collectdlg.cpp:39
-#, fuzzy
 msgid "Collections Manager"
-msgstr "Meno spojenia:"
+msgstr "Správca zbierok"
 
 #: collectdlg.cpp:47
-#, fuzzy
 msgid "Available collections :"
-msgstr "Dostupné pravidlá"
+msgstr "Dostupné zbierky :"
 
 #: collectdlg.cpp:67
-#, fuzzy
 msgid "Songs in selected collection:"
-msgstr "Umiestni» do zvoleného rohu"
+msgstr "Piesne vo zvolenej zbierke:"
 
 #: collectdlg.cpp:81
 msgid "New"
-msgstr "Nový"
+msgstr "Nová"
 
 #: collectdlg.cpp:85
 msgid "Copy"
@@ -299,7 +285,7 @@ msgstr "Kopírova»"
 
 #: collectdlg.cpp:89
 msgid "Delete"
-msgstr "Zma¾"
+msgstr "Zmaza»"
 
 #: collectdlg.cpp:94
 msgid "Add"
@@ -310,36 +296,30 @@ msgid "Remove"
 msgstr "Odstráni»"
 
 #: collectdlg.cpp:151
-#, fuzzy
 msgid "Enter the name of the new collection"
-msgstr "Zadajte meno diskusnej skupiny"
+msgstr "Zadajte názov novej zbierky"
 
 #: collectdlg.cpp:152
-#, fuzzy
 msgid "New Collection"
-msgstr "Výber oblasti"
+msgstr "Nová zbierka"
 
 #: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
-#, fuzzy, c-format
 msgid "The name '%s' is already used"
-msgstr "U¾ívateµ s menom %s u¾ existuje."
+msgstr "Názov '%s' je u¾ pou¾itý."
 
 #: collectdlg.cpp:177
-#, fuzzy
 msgid "Enter the name of the copy collection"
-msgstr "Zadajte meno diskusnej skupiny"
+msgstr "Zadajte názov skopírovanej zbierky"
 
 #: collectdlg.cpp:178
-#, fuzzy
 msgid "Copy Collection"
-msgstr "Kopírova» výber"
+msgstr "Kopírova» zbierku"
 
 #: collectdlg.cpp:219
 msgid "Enter the new name for the selected collection"
-msgstr ""
+msgstr "Zadajte nový názov pre zvolenú zbierku"
 
 #: collectdlg.cpp:220
-#, fuzzy
 msgid "Change Collection Name"
-msgstr "Zmena programu pripojenia"
+msgstr "Zmeni» názov zbierky"
 
