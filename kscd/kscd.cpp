@@ -1209,7 +1209,7 @@ void KSCD::readSettings(){
   tooltips  = (bool) config->readNumEntry("ToolTips",1);
   randomplay = (bool) config->readNumEntry("RandomPlay", 0);
   use_kfm   = (bool) config->readNumEntry("USEKFM", 1);
-printf("USE KFM %d\n",use_kfm);
+
   cd_device_str = config->readEntry("CDDevice",DEFAULT_CD_DEVICE);
   cd_device = cd_device_str.data();
 

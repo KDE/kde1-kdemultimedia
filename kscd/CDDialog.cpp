@@ -481,15 +481,24 @@ void CDDialog::save_cddb_entry(QString& path,bool upload){
   magic.sprintf("%08x",cdinfo->magicID);
   bool have_magic_already = false;
 
-  for(int i = 0 ; i < (int)discidlist.count();i ++){
-    if(magic == (QString)discidlist.at(i)){
-      have_magic_already = true;
-      break;
+  // Steve and Ti contacted me and sait they have changed the cddb upload specs
+  // Now, an uploaded entry must only contain one DISCID namely the one corresponding
+  // to the CD the user actually owns.
+  if( !upload ){
+    for(int i = 0 ; i < (int)discidlist.count();i ++){
+      if(magic == (QString)discidlist.at(i)){
+	have_magic_already = true;
+	break;
+      }
     }
-  }
 
-  if(!have_magic_already)
+    if(!have_magic_already)
+      discidlist.insert(0,magic.data());
+  }
+  else{ // uploading 
+    discidlist.clear();
     discidlist.insert(0,magic.data());
+  }
 
   QFile file(path.data());
 
