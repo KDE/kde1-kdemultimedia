@@ -57,6 +57,7 @@ extern "C" {
 KApplication 	*mykapp;
 KSCD 	         *k;
 DockWidget*     dock_widget;
+bool dockinginprogress = 0;
 
 bool             debugflag = true;
 char 		tmptime[100];
@@ -775,6 +776,7 @@ void KSCD::dockClicked()
         if(dock_widget)
             dock_widget->SaveKscdPosition();
         this->hide();
+        dockinginprogress = true;
     }
     
 
@@ -805,7 +807,8 @@ void KSCD::focusOutEvent(QFocusEvent *e)
 {
     qApp->processEvents();
     qApp->flushX();
-    if(docking &&
+    if(!dockinginprogress &&
+       docking &&
        autodock &&
        dock_widget &&
        e->lostFocus() == true &&
@@ -824,6 +827,7 @@ void KSCD::focusOutEvent(QFocusEvent *e)
                    docking, autodock, e->lostFocus(), this->isVisible(),
                    dock_widget->isToggled());
         }
+    dockinginprogress = false;
 }
 
 void KSCD::loopClicked(){
