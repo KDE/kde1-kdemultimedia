@@ -13,8 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ISO-8859-1\n"
 "Content-Transfer-Encoding: MIME\n"
-"Next-Translator: Philippe Thomin "
-"<Philippe.Thomin@univ-valenciennes.fr>\n"
+"Next-Translator: Philippe Thomin <Philippe.Thomin@univ-valenciennes.fr>\n"
 
 #: kmidframe.cpp:64
 msgid "Play/Pause"
