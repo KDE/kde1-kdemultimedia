@@ -590,6 +590,10 @@ void KSCD::cleanUp(){
   if (thiscd.trk != NULL)
     delete thiscd.trk;
   signal (SIGINT, SIG_DFL);
+  if(magicproc){
+    delete magicproc;
+    magicproc = 0L;
+  }
 
 }
 
