@@ -163,8 +163,8 @@ void InexactDialog::resizeEvent(QResizeEvent *){
     edit->setGeometry(2,45 + 5,w - 2 ,h - 60 -45 );
 
   statuslabel->setGeometry(2, h - 53 , w -2 , 20);
-  ok_button->setGeometry(w - 72 , h - 28, 70, 25);
-  cancel_button->setGeometry(w - 72 - 80 , h - 28, 70, 25);
+  ok_button->setGeometry(w - 72 - 80 , h - 28, 70, 25);
+  cancel_button->setGeometry(w - 72 , h - 28, 70, 25);
   
 }
 
