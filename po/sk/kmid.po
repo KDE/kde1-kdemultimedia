@@ -1,0 +1,345 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmid\n"
+"POT-Creation-Date: 1998-05-26 11:58+0200\n"
+"PO-Revision-Date: 1998-03-20 12:20 MET\n"
+"Last-Translator: Juraj Bednár <bednar@isternet.sk>\n"
+"Language-Team: Slovak <bednar@isternet.sk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: kmidframe.cpp:61
+msgid "&Open ..."
+msgstr "&Otvori» ..."
+
+#: kmidframe.cpp:64
+#, fuzzy
+msgid "&Save Lyrics ..."
+msgstr "Ulo¾i» ako..."
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "&Koniec"
+
+#: kmidframe.cpp:70
+#, fuzzy
+msgid "&Play"
+msgstr "Hraj !"
+
+#: kmidframe.cpp:72
+#, fuzzy
+msgid "P&ause"
+msgstr "Pauza"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "&Stop"
+
+#: kmidframe.cpp:76
+#, fuzzy
+msgid "P&revious Song"
+msgstr "Predchádzkajúci uzol"
+
+#: kmidframe.cpp:78
+#, fuzzy
+msgid "&Next Song"
+msgstr "&Nasledujúca strana"
+
+#: kmidframe.cpp:81
+#, fuzzy
+msgid "&Loop"
+msgstr "Dookola"
+
+#: kmidframe.cpp:87
+#, fuzzy
+msgid "&Organize ..."
+msgstr "&Otvori» ..."
+
+#: kmidframe.cpp:90
+#, fuzzy
+msgid "In order mode"
+msgstr "Mód servera"
+
+#: kmidframe.cpp:93
+#, fuzzy
+msgid "Shuffle mode"
+msgstr "Podvádzanie"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr ""
+
+#: kmidframe.cpp:104
+#, fuzzy
+msgid "&General Midi file"
+msgstr "&V¹eobecné"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr ""
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr ""
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr ""
+
+#: kmidframe.cpp:122
+#, fuzzy
+msgid "&Automatic Text chooser"
+msgstr "Automaticky ukonèi»?"
+
+#: kmidframe.cpp:127
+#, fuzzy
+msgid "&Font Change ..."
+msgstr "&Choï na stranu ..."
+
+#: kmidframe.cpp:130
+#, fuzzy
+msgid "&Midi Setup ..."
+msgstr "&Nastavi».."
+
+#: kmidframe.cpp:135
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "&Súbor"
+
+#: kmidframe.cpp:147
+#, fuzzy
+msgid "&Song"
+msgstr "Hodnotenie"
+
+#: kmidframe.cpp:148
+#, fuzzy
+msgid "&Collections"
+msgstr "Oddiel"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "&Mo¾nosti"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "&Pomocník"
+
+#: kmidframe.cpp:160
+#, fuzzy
+msgid "Previous Song"
+msgstr "Predchádzkajúci uzol"
+
+#: kmidframe.cpp:163
+#, fuzzy
+msgid "Rewind"
+msgstr "Èervený"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "Stop"
+
+#: kmidframe.cpp:16
+msgid "Pause"
+msgstr "Pauza"
+
+#: kmidframe.cpp:173
+#, fuzzy
+msgid "Play"
+msgstr "Hraj !"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "Vpred"
+
+#: kmidframe.cpp:179
+#, fuzzy
+msgid "Next Song"
+msgstr "Nasledujúci uzol"
+
+#: kmidclient.cpp:242 kmidclient.cpp:327 kmidframe.cpp:499
+msgid "Error"
+msgstr "Chyba"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+#, fuzzy, c-format
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"Súbor s takýmto názvom u¾ existuje\n"
+"Chcete ho prepísa»?\n"
+"\n"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:314
+#: kmidclient.cpp:320 kmidframe.cpp:617
+msgid "Warning"
+msgstr "Varovanie"
+
+#: kmidclient.cpp:87
+#, fuzzy
+msgid "Tempo :"
+msgstr "Komu:"
+
+#: kmidclient.cpp:230
+#, fuzzy, c-format
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "©pecifikovaný prieèinok neexistuje alebo sa nedá preèíta»."
+
+#: kmidclient.cpp:233
+#, fuzzy, c-format
+msgid "The file %s is not a midi file"
+msgstr "Tento dátum neexistuje!"
+
+#: kmidclient.cpp:235
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+
+#: kmidclient.cpp:237
+#, fuzzy
+msgid "Not enough memory !!"
+msgstr "Nie je èíslo!"
+
+#: kmidclient.cpp:239
+msgid "This file is corrupted or not well built"
+msgstr ""
+
+#: kmidclient.cpp:240
+#, fuzzy
+msgid "Unknown error message"
+msgstr "Neznáma chyba"
+
+#: kmidclient.cpp:315
+msgid "You must load a file before playing it"
+msgstr ""
+
+#: kmidclient.cpp:321
+msgid "A song is already being played"
+msgstr ""
+
+#: kmidclient.cpp:327
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+
+#: midicfgdlg.cpp:37
+#, fuzzy
+msgid "Configure Midi devices"
+msgstr "Konfigurácia kláves"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "OK"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "Zru¹i»"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr ""
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr ""
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "Nikomu"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "Listova»..."
+
+#: collectdlg.cpp:39
+#, fuzzy
+msgid "Collections Manager"
+msgstr "Meno spojenia:"
+
+#: collectdlg.cpp:47
+#, fuzzy
+msgid "Available collections :"
+msgstr "Dostupné pravidlá"
+
+#: collectdlg.cpp:67
+#, fuzzy
+msgid "Songs in selected collection:"
+msgstr "Umiestni» do zvoleného rohu"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "Nový"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "Kopírova»"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "Zma¾"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "Prida»"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "Odstráni»"
+
+#: collectdlg.cpp:151
+#, fuzzy
+msgid "Enter the name of the new collection"
+msgstr "Zadajte meno diskusnej skupiny"
+
+#: collectdlg.cpp:152
+#, fuzzy
+msgid "New Collection"
+msgstr "Výber oblasti"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, fuzzy, c-format
+msgid "The name '%s' is already used"
+msgstr "U¾ívateµ s menom %s u¾ existuje."
+
+#: collectdlg.cpp:177
+#, fuzzy
+msgid "Enter the name of the copy collection"
+msgstr "Zadajte meno diskusnej skupiny"
+
+#: collectdlg.cpp:178
+#, fuzzy
+msgid "Copy Collection"
+msgstr "Kopírova» výber"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr ""
+
+#: collectdlg.cpp:220
+#, fuzzy
+msgid "Change Collection Name"
+msgstr "Zmena programu pripojenia"
+
