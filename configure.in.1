@@ -49,6 +49,18 @@ AC_CHECK_LIB(fpe, main, [LIBFPE="-lfpe"]) dnl for Irix CDDA
 AC_SUBST(LIBFPE) dnl for Irix CDDA
 
 
+dnl Checks for libraries.
+dnl added by wuebben Nov 27 1997
+AC_CHECK_LIB(Alib, main, [LIBALIB="-lAlib"]) dnl HP-UX network audio server
+AC_SUBST(LIBALIB)
+AC_CHECK_LIB(audio,main,[LIBAUDIO="-laudio"]) dnl SunOS audio driver
+AC_SUBST(LIBAUDIO)
+AC_CHECK_LIB(mme, main, [LIBMME="-lmme";EXTRAINCS="-I/usr/include/mme"]) dnl DEC MMS audio server
+AC_SUBST(LIBMME)
+AC_SUBST(EXTRAINCS)
+AC_SUBST(EXTRALIBS)  
+
+
 AC_PATH_KDE
 
 KDE_RPATH="-rpath \$(kde_libraries)"
