@@ -1,3 +1,9 @@
+1999-03-17  Harri Porten  <porten@kde.org>
+
+	* kscd.cpp: applied patch from Petter Reinholdtsen <pere@hungry.com>
+	(bug#302) that prevents a segfault if cddb directory is invalid.
+	* CDDialog.cpp: fixed length of last title (bug#304).
+
 1999-02-18  Harri Porten  <porten@kde.org>
 
 	* cddb.cpp: work around snprintf() for non-GNUish systems

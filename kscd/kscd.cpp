@@ -2371,11 +2371,14 @@ void KSCD::get_pathlist(QStrList& _pathlist){
             delete dialog;
             return;
         }
-
+        
         dialog->getSelection(cddbbasedir);
         d.setPath(cddbbasedir.data());
         delete dialog;
     }
+
+    if(!d.exists()) // Bogus directory, don't try to read it
+      return;
 
     _pathlist.clear();
     list = *d.entryList();

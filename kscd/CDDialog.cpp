@@ -160,7 +160,7 @@ void CDDialog::setData(
     cdinfo.length  = cd->length;	/* Total running time in seconds */
 
 
-    for( int i = 0; i < cd->ntracks  ; i++){
+    for( int i = 0; i < cd->ntracks + 1; i++){
       cdinfo.cddbtoc[i].min = cd->cddbtoc[i].min;
       cdinfo.cddbtoc[i].sec = cd->cddbtoc[i].sec;
       cdinfo.cddbtoc[i].frame = cd->cddbtoc[i].frame;
