@@ -717,7 +717,7 @@ static void make_inst(SFInsts *rec, Layer *lay, SFInfo *sf, int pr_idx, int in_i
 	int preset = sf->presethdr[pr_idx].preset;
 	int sub_banknum = sf->presethdr[pr_idx].sub_bank;
 	int sub_preset = sf->presethdr[pr_idx].sub_preset;
-	int keynote, n_order, program, truebank;
+	int keynote, n_order, program, truebank, note_to_use;
 	int strip_loop = 0, strip_envelope = 0, strip_tail = 0, panning = 0;
 #ifndef ADAGIO
 	ToneBank *bank=0;
@@ -819,6 +819,7 @@ else printf("NO CFG NAME!\n");
 	strip_loop = bank->tone[program].strip_loop;
 	strip_envelope = bank->tone[program].strip_envelope;
 	strip_tail = bank->tone[program].strip_tail;
+	note_to_use = bank->tone[program].note;
 	/*if (!strip_envelope) strip_envelope = (banknum == 128);*/
 #endif
 
@@ -879,9 +880,6 @@ else printf("NO CFG NAME!\n");
 	}
 
 	/* set sample position */
-/** something is wrong here
- Try casting the layer offset to signed ints?
-**/
 	sp->startsample = ((short)lay->val[SF_startAddrsHi] * 32768)
 		+ (short)lay->val[SF_startAddrs]
 		+ sample->startsample;
@@ -1006,6 +1004,8 @@ if (strip_loop == 1) {
 	}
 	if (strip_tail == 1) sp->v.data_length = sp->v.loop_end + 1;
 
+	/*if (banknum == 128) sp->v.modes |= MODES_FAST_RELEASE;*/
+
       /* Strip any loops and envelopes we're permitted to */
       if ((strip_loop==1) && 
 	  (sp->v.modes & (MODES_SUSTAIN | MODES_LOOPING | 
@@ -1064,7 +1064,9 @@ if (strip_loop == 1) {
 #endif
 
 	/* set note to use for drum voices */
-	if (banknum == 128)
+	if (note_to_use!=-1)
+		sp->v.note_to_use = (uint8)note_to_use;
+	else if (banknum == 128)
 		sp->v.note_to_use = keynote;
 	else
 		sp->v.note_to_use = 0;
