@@ -29,11 +29,10 @@
  *
  * Todd Pfaff, 3/20/94
  *
+ * 11/26/95: Modified to work under FreeBSD 2.x
+ *           by Donald Burr <d_burr@ix.netcom.com>
+ *
  */
-
-
-/* Please check the includes and defines up until the mark "That's it". 
-   Thank you -- Bernd */
 #include "config.h"
 
 #if defined(__FreeBSD__) || defined(__NetBSD__)
@@ -48,12 +47,6 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 #include <fcntl.h>
 #include <sys/param.h>
 #include <sys/stat.h>
-
-/* this is for glibc 2.x which defines the ust structure in ustat.h not stat.h */
-#ifdef __GLIBC__
-#include <sys/ustat.h>
-#endif
-
 #include <sys/time.h>
 #include <string.h>
 #include <sys/ioctl.h>
@@ -70,26 +63,18 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 #include "/sys/scsi/scsi_cd.h"
 
 #else
-
-#include "/sys/scsi/scsi_all.h"
-#include "/sys/scsi/scsi_cd.h"
-
+#include <scsi.h>
+#include <sys/scsiio.h>
 #endif
 
 #include "struct.h"
 
-/* Please experiment with these ! If you have a good cdrom drive you might be 
-   able to get the whole range from 0 to 255. Let me know which range your
-   cdrom supports.-- Bernd */
+#define DEFAULT_CD_DEVICE       "/dev/rcd0c"
+
+void *malloc();
 
 int	min_volume = 10;
 int	max_volume = 255;
-
-
-/* That's it! Thanks for you patience Bernd */
-/*******************************************************************************/
-
-void *malloc();
 
 extern char	*cd_device;
 
@@ -244,7 +229,7 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 	}
 
 	if (ioctl(d->fd, CDIOCREADSUBCHANNEL, &sc)) {
-#ifdef __NetBSD__
+#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	    /* we need to release the device so the kernel will notice
 	       reloaded media */
 	    (void) close(d->fd);
@@ -342,6 +327,9 @@ gen_set_volume(d, left, right)
 
 	bzero((char *)&vol, sizeof(vol));
 
+#define LEFT_PORT 0
+#define RIGHT_PORT 1
+
 	vol.vol[LEFT_PORT] = left;
 	vol.vol[RIGHT_PORT] = right;
 
@@ -398,11 +386,9 @@ gen_play(d, start, end)
 	msf.end_s	= (end % (60*75)) / 75;
 	msf.end_f	= end % 75;
 
-	/* According to Marc van Kempen FreeBSD doesn't have CDIOCSTART -- Bernd */
-#ifndef __FreeBSD__
 	if (ioctl(d->fd, CDIOCSTART))
 		return (-1);
-#endif
+
 	if (ioctl(d->fd, CDIOCPLAYMSF, &msf))
 		return (-2);
 
@@ -428,12 +414,12 @@ gen_eject(d)
 	if (fstatfs(stbuf.st_rdev, &buf) == 0)
 		return (-3);
 
-#ifdef __NetBSD__
+#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	rval = ioctl(d->fd, CDIOCALLOW);
 	if (rval == 0)
 #endif
 	    rval = ioctl(d->fd, CDIOCEJECT);
-#ifdef __NetBSD__
+#if defined(__NetBSD__) || defined(__FreeBSD__) || defined(__OpenBSD__)
 	if (rval == 0)
 	    rval = ioctl(d->fd, CDIOCPREVENT);
 #endif
@@ -536,11 +522,8 @@ wmcd_open(d)
 	if (d->fd >= 0)		/* Device already open? */
 		return (0);
 
-	if (cd_device == NULL){
-	  fprintf(stderr,"cd_device string empty\n");
-	  return (-1);
-	}
-
+	if (cd_device == NULL)
+		cd_device = DEFAULT_CD_DEVICE;
 
 	d->fd = open(cd_device, 0);
 	if (d->fd < 0)
@@ -556,8 +539,8 @@ wmcd_open(d)
 			}
 		}
 
-		/* CDROM can not be accessed */
-		return (-1);
+		/* No CD in drive. */
+		return (1);
 	}
 
 	if (warned)
