@@ -168,7 +168,7 @@ static void reset_midi(void)
       channel[i].releasetime=64,
       channel[i].attacktime=64,
       channel[i].brightness=64,
-      channel[i].kit=0;
+      /*channel[i].kit=0;*/
       channel[i].sfx=0;
       /* channel[i].transpose is initialized in readmidi.c */
     }
@@ -298,21 +298,39 @@ static void recompute_freq(int v)
   voice[v].sample_increment = (int32)(a);
 }
 
+static int vcurve[128] = {
+0,0,18,29,36,42,47,51,55,58,
+60,63,65,67,69,71,73,74,76,77,
+79,80,81,82,83,84,85,86,87,88,
+89,90,91,92,92,93,94,95,95,96,
+97,97,98,99,99,100,100,101,101,102,
+103,103,104,104,105,105,106,106,106,107,
+107,108,108,109,109,109,110,110,111,111,
+111,112,112,112,113,113,114,114,114,115,
+115,115,116,116,116,116,117,117,117,118,
+118,118,119,119,119,119,120,120,120,120,
+121,121,121,122,122,122,122,123,123,123,
+123,123,124,124,124,124,125,125,125,125,
+126,126,126,126,126,127,127,127
+};
+
 static void recompute_amp(int v)
 {
   int32 tempamp;
   int chan = voice[v].channel;
   int vol = channel[chan].volume;
+  int vel = vcurve[voice[v].velocity];
+
 
   /* TODO: use fscale */
 
-  if (ISDRUMCHANNEL(chan) || channel[chan].kit)
+  if (channel[chan].kit)
    {
     int note = voice[v].sample->note_to_use;
     if (note && drumvolume[chan][note]>=0) vol = drumvolume[chan][note];
    }
 
-  tempamp= (voice[v].velocity *
+  tempamp= (vel *
 	    vol * 
 	    channel[chan].expression); /* 21 bits */
 
@@ -447,7 +465,7 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
   chorus = ip->sample->chorusdepth;
   reverb = ip->sample->reverberation;
 
-  if (ISDRUMCHANNEL(chan) || channel[chan].kit) {
+  if (channel[chan].kit) {
 	if ((k=drumreverberation[chan][voice[v].note]) >= 0) reverb = (reverb+k)/2;
 	if ((k=drumchorusdepth[chan][voice[v].note]) >= 0) chorus = (chorus+k)/2;
   }
@@ -519,10 +537,14 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 	/*voice[w].echo_delay = 50 * (play_mode->rate/1000);*/
 	voice[w].echo_delay = (reverb>>2) * milli;
 /* 500, 250, 100, 50 too long; 25 pretty good */
-	if (XG_System_reverb_type >= 0) switch (XG_System_reverb_type) {
+	if (XG_System_reverb_type >= 0) {
+	    int subtype = XG_System_reverb_type & 0x07;
+	    int rtype = XG_System_reverb_type >>3;
+	    switch (rtype) {
 		case 0: /* no effect */
 		  break;
 		case 1: /* hall */
+		  if (subtype) voice[w].echo_delay += 3 * milli;
 		  break;
 		case 2: /* room */
 		  voice[w].echo_delay /= 2;
@@ -546,7 +568,8 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 		case 19: /* basement */
 		  voice[w].velocity /= 2;
 		  break;
-	     default: break;
+	        default: break;
+	    }
 	}
   }
   played_note = voice[w].sample->note_to_use;
@@ -577,10 +600,14 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 /*fprintf(stderr, " to %ld (cr %d, depth %d).\n", voice[w].vibrato_sweep,
 	 voice[w].vibrato_control_ratio, voice[w].vibrato_depth);
 	voice[w].vibrato_phase = 20;*/
-	if (XG_System_chorus_type >= 0) switch (XG_System_chorus_type) {
+	if (XG_System_chorus_type >= 0) {
+	    int subtype = XG_System_chorus_type & 0x07;
+	    int chtype = XG_System_chorus_type >> 3;
+	    switch (chtype) {
 		case 0: /* no effect */
 		  break;
 		case 1: /* chorus */
+		  if (subtype) voice[w].vibrato_depth *= 2;
 		  break;
 		case 2: /* celeste */
 		  voice[w].orig_frequency += (voice[w].orig_frequency/128) * chorus;
@@ -598,6 +625,7 @@ static void clone_voice(Instrument *ip, int v, MidiEvent *e)
 		  break;
 	      default:
 		  break;
+	    }
 	}
   }
   recompute_freq(w);
@@ -628,7 +656,7 @@ static void start_note(MidiEvent *e, int i)
   else banknum=channel[e->channel].bank;
 
 #ifndef ADAGIO
-  if (ISDRUMCHANNEL(e->channel) || channel[e->channel].kit)
+  if (channel[e->channel].kit)
     {
       if (!(ip=drumset[banknum]->tone[e->a].instrument))
 	{
@@ -1077,8 +1105,7 @@ static void seek_forward(int32 until_time)
 	  break;
 	  
 	case ME_PROGRAM:
-	  /*if (ISDRUMCHANNEL(current_event->channel))*/
-  	  if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
+  	  if (channel[current_event->channel].kit)
 	    /* Change drum set */
 	    channel[current_event->channel].bank=current_event->a;
 	  else
@@ -1421,7 +1448,7 @@ int play_midi(MidiEvent *eventlist, int32 events, int32 samples)
 	      break;
 
 	    case ME_PROGRAM:
-  	      if (ISDRUMCHANNEL(current_event->channel) || channel[current_event->channel].kit)
+  	      if (channel[current_event->channel].kit)
 		{
 		  /* Change drum set */
 		  if (channel[current_event->channel].kit==126)
