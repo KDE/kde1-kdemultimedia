@@ -1,6 +1,7 @@
 # KDE Config File
 [KDE Desktop Entry]
 Comment=A CD Player
+Comment[is_IS]=kscd:  Geislaspilari
 Comment[es]=Un reproductor de CD
 Comment[fr]=Lecteur de CD audio
 Comment[de]=Ein CD-Spieler
@@ -18,6 +19,7 @@ Comment[ro]=Program de cântat sidiuri
 BinaryPattern=kscd;
 Protocols=
 Name=CD Player
+Name[is_IS]=Geislaspilari
 Name[es]=Reproductor CD
 Name[fr]=Lecteur de CD
 Name[de]=CD-Spieler

@@ -4,6 +4,7 @@ BinaryPattern=kmidi;
 Protocols=file;ftp;http;tar;cgi;
 MimeType=audio/x-midi;
 Comment=A Midi Player
+Comment[is_IS]=kmidi:  Midi spilari
 Comment[es]=Un reproductor Midi
 Comment[fr]=Platine MIDI
 Comment[de]=Ein Midi-Abspieler
