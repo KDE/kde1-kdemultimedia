@@ -108,16 +108,16 @@ EXTRAINCS += -I../include
 endif
 
 # Select the ncurses full-screen interface
-#SYSTEM += -DIA_NCURSES
-#SYSEXTRAS += ncurs_c.c
-#EXTRAINCS += -I/usr/include/ncurses
-#EXTRALIBS += -lncurses
+SYSTEM += -DIA_NCURSES
+SYSEXTRAS += ncurs_c.c
+EXTRAINCS += -I/usr/include/ncurses
+EXTRALIBS += -lncurses
 
 # Select the S-Lang full-screen interface
-#SYSTEM += -DIA_SLANG
-#SYSEXTRAS += slang_c.c
+SYSTEM += -DIA_SLANG
+SYSEXTRAS += slang_c.c
 #EXTRAINCS += -I/usr/include/slang
-#EXTRALIBS += -lslang
+EXTRALIBS += -lslang
 
 # Select the MOTIF interface
 #SYSTEM += -DMOTIF
@@ -129,13 +129,13 @@ endif
 #EXTRALIBS += -lgen
 
 # Select the Tcl/Tk interface
-#SYSTEM += -DTCLTK -DTKPROGPATH=\"$(TCL_DIR)/tkmidity.tcl\"
-#SYSEXTRAS += tk_c.c
-#INST_TK = install.tk
-##EXTRAINCS +=
-#EXTRALIBS += -ltk -ltcl -L/usr/X11R6/lib -lX11
+SYSTEM += -DTCLTK -DTKPROGPATH=\"$(TCL_DIR)/tkmidity.tcl\"
+SYSEXTRAS += tk_c.c
+INST_TK = install.tk
+#EXTRAINCS +=
+EXTRALIBS += -ltk -ltcl -L/usr/X11R6/lib -lX11
 # Linux user needs this.
-#EXTRALIBS += -ldl
+EXTRALIBS += -ldl
 
 ifndef ADAGIOFLAGS
 SYSTEM += '-DDEFAULT_CONTROL_MODE=&dumb_control_mode'
