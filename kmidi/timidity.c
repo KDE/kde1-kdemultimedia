@@ -617,7 +617,7 @@ int read_config_file(char *name)
 	strcpy((bank->tone[i].name=safe_malloc(strlen(w[1])+1)),w[1]);
 	bank->tone[i].note=bank->tone[i].amp=bank->tone[i].pan=
 	  bank->tone[i].strip_loop=bank->tone[i].strip_envelope=
-	    bank->tone[i].strip_tail=-1;
+	    bank->tone[i].strip_tail=bank->tone[i].brightness=bank->tone[i].harmoniccontent=-1;
 	bank->tone[i].font_type=font_type;
 
 	for (j=2; j<words; j++)
