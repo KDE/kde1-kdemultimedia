@@ -877,7 +877,6 @@ static void time_sync(int32 resync)
 		xmp_epoch = -1;
 		xxmp_epoch = 0; 
 		time_expired = 0;
-		return;
 	}
 	gettimeofday (&tv, &tz);
 	if (xmp_epoch < 0) {
@@ -910,9 +909,7 @@ static void show_markers(int32 until_time)
     buf[0] = '\0';
     while (meta)
 	if (meta->time <= time_expired) {
-	    /*ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~[%s]", meta->text);*/
 	    strcat(buf, meta->text);
-	    /*if (!meta->next) ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");*/
 	    if (!meta->next) strcat(buf, " \n");
 	    meta = meta->next;
 	}
@@ -925,7 +922,7 @@ static void show_markers(int32 until_time)
 	    else ctl->cmsg(CMSG_INFO, VERB_NORMAL, " ");
 	    i = j + 1;
 	}
-    if (i < j) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", buf + i);
+    if (j - i > 0) ctl->cmsg(CMSG_INFO, VERB_NORMAL, "~%s", buf + i);
 }
 #endif
 
