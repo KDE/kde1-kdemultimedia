@@ -219,6 +219,12 @@
 # else
 # error No byte sex defined
 # endif
+# if (__GLIBC__ >= 2)
+#  include <errno.h> /* needed for glibc 2 */
+#  include <math.h>
+#  define PI M_PI
+#  include <stdio.h>
+# endif        
 #endif /* linux */
 
 /* Win32 on Intel machines */
