@@ -1,0 +1,85 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkpanel\n"
+"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"PO-Revision-Date: 1998-02-21 05:04+0800\n"
+"Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
+"Language-Team: zh_CN ( gb2312 )\n"
+
+msgid "&About"
+msgstr "有关[&A]"
+
+msgid "&About Qt..."
+msgstr "有关&Qt..."
+
+msgid "&Center"
+msgstr "中间[&C]"
+
+msgid "&Contents"
+msgstr "内容[&C]"
+
+msgid "&File"
+msgstr "文件[&F]"
+
+msgid "&Help"
+msgstr "帮助[&H]"
+
+msgid "&Left"
+msgstr "左边[&L]"
+
+msgid "&Mute"
+msgstr "静音[&M]"
+
+msgid "&Options"
+msgstr "选项[&O]"
+
+msgid "&Quit"
+msgstr "离开[&Q]"
+
+msgid "&RecSource"
+msgstr "录音源[&R]"
+
+msgid "&Right"
+msgstr "右边[&R]"
+
+msgid "&Split"
+msgstr "分割[&S]"
+
+msgid "Channels"
+msgstr "频道"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "General"
+msgstr "一般"
+
+msgid "Hide Menubar"
+msgstr "隐藏菜单条"
+
+msgid "KMix Preferences"
+msgstr "KMix 偏好设定"
+
+msgid "Menubar"
+msgstr "菜单"
+
+msgid "Mixer channel setup (not saved yet)"
+msgstr "混音器频道设定 (未保存)"
+
+msgid "Show"
+msgstr "显示"
+
+msgid "Startup settings"
+msgstr "启动设定"
+
+msgid "Tickmarks"
+msgstr "刻度显示"
+
+msgid "Tickmarks On/Off"
+msgstr "刻度显示 开/关"
+
+msgid "Un&mute"
+msgstr "解除静音[&M]"
+
+msgid "Un&split"
+msgstr "不分割[&S]"

@@ -1,0 +1,79 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kcmkpanel\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"PO-Revision-Date: 1998-02-21 05:04+0800\n"
+"Last-Translator: Wang Jian <lark@ipc.ustc.edu.cn>\n"
+"Language-Team: zh_CN ( gb2312 )\n"
+
+msgid "&About"
+msgstr "有关[&A]"
+
+msgid "&Contents"
+msgstr "内容[&C]"
+
+msgid "&File"
+msgstr "文件[&F]"
+
+msgid "&Help"
+msgstr "帮助[&H]"
+
+msgid "&Options"
+msgstr "选项[&O]"
+
+msgid "Backward"
+msgstr "回退"
+
+msgid "Busy"
+msgstr "忙"
+
+msgid "Eject medium"
+msgstr "退出媒体"
+
+msgid "Exit"
+msgstr "结束"
+
+msgid "Exited"
+msgstr "已退出"
+
+msgid "Forward"
+msgstr "往前"
+
+msgid "Init"
+msgstr "初始化"
+
+msgid "Mixer"
+msgstr "混音器"
+
+msgid "New view"
+msgstr "新窗口"
+
+msgid "Next track"
+msgstr "下一轨"
+
+msgid "Paused"
+msgstr "已暂停"
+
+msgid "Play/Pause"
+msgstr "播放/暂停"
+
+msgid "Playback position"
+msgstr "播放位置"
+
+msgid "Playing"
+msgstr "播放中"
+
+msgid "Preferences"
+msgstr "偏好设定"
+
+msgid "Previous track"
+msgstr "前一轨"
+
+msgid "Ready"
+msgstr "准备好了"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Undefined"
+msgstr "没有定义"
