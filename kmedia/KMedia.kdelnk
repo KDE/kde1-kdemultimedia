@@ -1,0 +1,18 @@
+# KDE Config File
+[KDE Desktop Entry]
+BinaryPattern=kmedia;
+Protocols=file;
+Exec=kmedia %f
+Icon=media.xpm
+DocPath=kmedia/kmedia.html
+TerminalOptions=
+Path=
+Extensions=
+Type=Application
+MimeType=audio/x-wav
+#multimedia/midi;multimedia/mod;
+Terminal=0
+Comment=Multimedia playing tool
+Comment[de]=Multimedia-Wiedergabe
+Name=Media Player
+Name[de]=Medienwiedergabe
