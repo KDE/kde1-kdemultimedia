@@ -1,11 +1,3 @@
-
-# don't compile kmid if you have neither machine/soundcard.h nor sys/soundcard.h
-if test -z "`grep '#define HAVE_MACHINE_SOUNDCARD_H' confdefs.h`" ; then
-  if test -z "`grep '#define HAVE_SYS_SOUNDCARD_H' confdefs.h`" ; then
-    DO_NOT_COMPILE="$DO_NOT_COMPILE kmid"
-  fi
-fi
-
 if test ! -s ./inst-apps && test -s ./SUBDIRS; then
  cp ./SUBDIRS ./inst-apps
 fi
