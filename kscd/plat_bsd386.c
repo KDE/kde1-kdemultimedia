@@ -5,6 +5,7 @@
  */
 static char *ident = "@(#)plat_bsd386.c	1.6 12/26/93";
 
+#include "config.h"
 
 #ifdef __bsdi__
 
@@ -441,4 +442,4 @@ wmcd_open(d)
 void
 keep_cd_open() { }
 
-#endif /* KSCD_BSCD */
+#endif 

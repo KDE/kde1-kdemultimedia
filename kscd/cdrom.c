@@ -13,13 +13,7 @@ static char *ident = "@(#)cdrom.c	1.11 04 Jun 1995";
 #include <sys/time.h>
 
 #include "struct.h"
-
-/* Uncomment the following if you uncommented it in plat_linux.c
-   see the comments int plat_linux.c for the meaning of this    
-*/
-/*
-#define SBPCD_HACK
- */
+#include "config.h"
 
 extern struct wm_drive generic_proto, toshiba_proto, sony_proto,
 	toshiba33_proto;

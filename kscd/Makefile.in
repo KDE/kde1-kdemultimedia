@@ -15,12 +15,15 @@ INSTALL_DIR = $(install) -d -m 0755
 ###################################################################
 
 CXXFLAGS=	@CXXFLAGS@  -DHAVE_CONFIG_H -I..
-LDFLAGS	=	@LDFLAGS@ @all_libraries@  -lkdecore -lkdeui -lqt -lX11 -lXext
+LDFLAGS	=	@LDFLAGS@ @all_libraries@ @LIBCDAUDIO@ @LIBSOCKET@  -lkdecore -lkdeui  -lqt  -lX11 -lXext
 INCDIR	=	@all_includes@
 CXX	=	@CXX@
 MOC	=	@MOC@
 CC 	=	@CC@
 CFLAGS	=	
+
+#We need those for Irix. Don't know yet how to handle this with autoconf
+#IRIXLIBS = -lcdaudio -lmediad -lds
 
 ####### Files
 
@@ -29,17 +32,21 @@ HEADER = kscd.h struct.h bwlednum.h
 SOURCES	= kscd.cpp configdlg.cpp  cdinfo.c\
 	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
 	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
-	plat_svr4.c plat_freebsd.c plat_osf1.c bwlednum.cpp
+	plat_svr4.c plat_freebsd.c plat_osf1.c plat_irix.c bwlednum.cpp
+
+SOURCES2=plat_sun_audio.c plat_sun_cdda.c cddaslave.c  
 
 OBJECTS	= kscd.o configdlg.o  cdinfo.o\
 	plat_sun.o plat_hpux.o plat_linux.o plat_news.o \
 	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o \
-	plat_svr4.o plat_freebsd.o plat_osf1.o bwlednum.o
+	plat_svr4.o plat_freebsd.o plat_osf1.o plat_irix.o bwlednum.o
+
+OBJECTS2=plat_sun_audio.o plat_sun_cdda.o cddaslave.o 
 
 SRCMETA	= kscd.moc bwlednum.moc configdlg.moc
 
-
-TARGET = kscd
+TARGET1 = kscd
+TARGET2 = cddaslave
 
 ####### Implicit rules
 
@@ -52,36 +59,47 @@ TARGET = kscd
 
 ####### Build rules
 
-all: $(TARGET)
+all: $(TARGET1) $(TARGET2)
 
 Makefile: Makefile.in
 	cd .. && CONFIG_FILES=kscd/$@ CONFIG_HEADERS= $(SHELL) ./config.status
 
-$(TARGET): $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+
+config.h: kscd-script 
+	sh kscd-script
+
+kscd: config.h $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
+	$(CXX) $(OBJECTS) -o $(TARGET1) $(LDFLAGS)
+
+$(TARGET2): $(SOURCES2)  $(OBJECTS2) $(HEADER)
+	$(CXX) $(OBJECTS2) -o $(TARGET2) $(LDFLAGS)
 
 depend:
 	@makedepend -I$(INCDIR) $(SOURCES) 2> /dev/null
 clean:
 	-rm -f *.o *.bak *~ *% #*
-	-rm -f $(SRCMETA) $(TARGET)
+	-rm -f config.h
+	-rm -f $(SRCMETA) $(TARGET1) $(TARGET2)
 
 distclean: clean
 	rm -f Makefile
 
 install: all
+	strip kscd
 	$(INSTALL_DIR) $(BINDIR)
-	$(INSTALL) $(TARGET) $(BINDIR)
-	(cd docs && $(MAKE) install)
+	$(INSTALL) $(TARGET1) $(BINDIR)
+	$(INSTALL) $(TARGET2) $(BINDIR)
+	$(INSTALL_DIR) $(DOCSDIR)
+	$(INSTALL_DATA) ./docs/k* $(DOCSDIR)
 	$(INSTALL_DIR) $(PIXDIR)
 	$(INSTALL_DATA) kscd.xpm $(PIXDIR)
 	$(INSTALL_DIR) $(APPSDIR)
 	$(INSTALL_DATA) kscd.kdelnk $(APPSDIR)/kscd.kdelnk
 
 uninstall:
-	rm -f $(BINDIR)/$(TARGET)
-	(cd docs && $(MAKE) uninstall)
-	
+	rm -f $(BINDIR)/$(TARGET1)
+	rm -f $(BINDIR)/$(TARGET2)
+
 ####### Explicit dependencies
 
 

@@ -6,6 +6,9 @@
  * $Id$
  * 
  * $Log$
+ * o New interactive configuration script
+ * o  lot of header, define and configuration changes. -- Keep your
+ *   fingers crossed .... ;-)
  *
  * Revision 1.1  1997/08/14 23:51:07  wuebben
  * Initial revision

@@ -4,8 +4,6 @@
    $Id$
  
    Copyright (c) 1997 Bernd Johannes Wuebben math.cornell.edu
-   
-   portions: Copyright(c) 1996  Yat-Nam Lo
 
    This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -31,6 +29,7 @@ extern "C" {
 #include "kscd.h"
 #include "configdlg.h"
 #include "version.h"
+#include "config.h"
 
 #include "bitmaps/playpaus.xbm"
 #include "bitmaps/stop.xbm"
@@ -450,7 +449,7 @@ void KSCD::playClicked()
         qApp->processEvents();
 	qApp->flushX();
 
-#ifdef __FreeBSD__
+#ifdef NEW_BSD_PLAYCLICKED
 	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN  || cur_cdmode == BACK) {
 #else
 	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN ) {
@@ -712,9 +711,8 @@ void KSCD::aboutClicked()
 		 "Copyright (c) 1997 Bernd Johannes Wuebben\n"\
 		 "wuebben@math.cornell.edu\n"\
 		 "wuebben@kde.org\n\n"\
-		 "Portions:\nCopyright (c) 1996 Yat-Nam Lo\n"
-		 "\nkscd 0.3 contains code from:\n"
-                 "workman 1.3a\n"
+		 "\nkscd  contains code from:\n"
+                 "workman 1.4 beta 3\n"
                  "Copyright (c) Steven Grimm \n"\
                  "koreth@hyperion.com\n");
 

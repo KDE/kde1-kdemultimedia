@@ -5,13 +5,7 @@
  */
 static char *ident = "@(#)plat_osf1.c	1.3 02 Jun 1995";
 
-/* I HOPE THE FOLLOWING IS DEFINED AUTOMATICALLY ON YOUR OSF
-   SYSTEM. IF NOT, YOU MUST DEFINE IT. THAT IS ADD THE LINE 
-   #define OSF
-   RIGHT AFTER THIS COMMENT AND BEFORE #ifdef OSF
-
-   BERND
-*/
+#include "config.h"
 
 #if defined(__osf__)
 

@@ -1,3 +1,8 @@
+Thu Aug 14 19:49:18 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* added irix support
+        * added KSCD configuration script
+
 Wed Jun 25 01:24:39 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
 
 	* added Marc van Kempen's FreeBSD patches

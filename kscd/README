@@ -1,6 +1,13 @@
-Please see the html documentation in the docs directory for information about
-kscd.
+KSCD 0.4
+========
 
-Thanks you,
+This is version 0.4 of kscd. Kscd is now easier to build than
+ever with its new configuration script. Supprt was added
+for Irix and Sun/Solaris cdda. 
+
+Please see the html documentation in the docs directory for 
+information about kscd.
+
+Thank you,
 Bernd Wuebben
 wuebben@kde.org

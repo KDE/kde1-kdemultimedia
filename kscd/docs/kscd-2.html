@@ -40,25 +40,6 @@ directory of the Kscd distribution:
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
-<P>NOW YOU MUST CHECK THE FIRST FEW LINES OF THE plat_xxx.c FILE CORRESPONDING
-TO YOUR PLATFORM AND MAKE THE NECESSARY CHANGES.</P>
-
-<P>I apologize for the inconvenience, but a cdrom player is a device driver
-of sorts and it very hard if not impossible to find out what sort of 
-hardware you have. I hope to be able to provide an interactive installation
-script in the near future.</P>
-
-<P>I have made changes to the original workman cd placer source 
-code that made kscd the fastest, most responsive and quietest cd-player
-for an average Linux IDE cdrom drive. I hope you will find this to hold
-true for your particular hardware too. In the unlikely case that my changes do
-not work for your particular hardware setup, setting the proper defines will
-disable those changes and revert to the original workman behavior.</P>
-<P>I have also  added code from 
-<A HREF="milliByte@DeathsDoor.com">Dirk Foersterling</A>
-which should give you better playing if you use the sbpcd or mcdx drivers under
-Linux. You must however explicitely enable this by defining the appropriate
-defines in plat_linux.c.</P>
 
 <P>If you are experiencing trouble getting kscd to work on a non-Linux platform
 please study the original Workman documentation in the docs directory of
@@ -75,6 +56,17 @@ include those changes in future versions of kscd.</P>
 <BLOCKQUOTE><CODE>
 <PRE>
 % make
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This will start the KSCD configuration script. Please choose your platform
+and answer the questions posed. The configuration script will create
+the file "config.h" in the kscd directory. If you should experience
+problems with the script you can rename the file "config.h.std" to
+"config.h" and edit it to suit your platform.</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
 % make install
 </PRE>
 </CODE></BLOCKQUOTE>

@@ -5,12 +5,13 @@
  */
 static char *ident = "@(#)plat_ultrix.c	1.7 11/26/94";
 
+#include "config.h"
 
 #if defined(ultrix) || defined(__ultrix)
 
 
-#include <sys/rzdisk.h>
-#include <sys/cdrom.h>
+/*#include <sys/rzdisk.h>
+#include <sys/cdrom.h>*/
 
 /* I have confliciting reports  try adding any of the following if you 
    have trouble with the above and let me know if and how you succeed */
@@ -35,13 +36,10 @@ static char *ident = "@(#)plat_ultrix.c	1.7 11/26/94";
 
 #include "struct.h"
 
-/* Play with these, you might have a cdrom that supports the whole range from
-   0 to 255 */
 
-int	min_volume = 128;
-int	max_volume = 255;
+int	min_volume = MIN_VOLUME;
+int	max_volume = MAX_VOLUME;
 
-/* That's it,  thanks, Bernd */
 
 
 /*

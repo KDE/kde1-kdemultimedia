@@ -6,6 +6,8 @@
 static char *ident = "@(#)plat_hpux.c	1.8 4/13/95";
 
 
+#include "config.h"
+
 #if defined(hpux) || defined(__hpux)
 
 #include <errno.h>

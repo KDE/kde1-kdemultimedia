@@ -1,33 +1,13 @@
 /*
- * @(#)plat_sun.c	1.11	04 Jun 1995
+ * @(#)plat_sun.c	1.24 13 Sep 1995
  *
  * Sun-specific drive control routines.
  */
-static char *ident = "@(#)plat_sun.c	1.11 04 Jun 1995";
+static char *ident = "@(#)plat_sun.c	1.24 13 Sep 1995";
 
-/**************************************************************************/
+#include "config.h"
 
-/* Please check the includes and defines up until the mark "That's it".
-   Don't forget to notify me if you had to make changes in order to 
-   get kscd to work. Thank you -- Bernd */
-
-
-#if defined(sun) || defined(__sun__)
-
-
-/* **Begin Solaris 2.x**
-   Comment out the following two defines if you're not compiling on 
-   Solaris 2.x.
-
-   If you don't want WorkMan to try to activate the SPARCstation 5 internal
-   audio input so you get sound from the workstation, comment out the 
-   CODEC define.
-*/
-
-#define SYSV
-#define CODEC
-
-/* **End Solaris 2.x** */
+#ifdef sun /* { */
 
 #include <errno.h>
 #include <stdio.h>
@@ -37,59 +17,48 @@ static char *ident = "@(#)plat_sun.c	1.11 04 Jun 1995";
 #include <sys/param.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <sys/ioctl.h>
 
 #include <ustat.h>
 #include <unistd.h>
 #include <signal.h>
-
 #ifdef solbourne
-
 # include <mfg/dklabel.h>
 # include <mfg/dkio.h>
 # include <sys/unistd.h>
 # include <dev/srvar.h>
-
 #else /* A real Sun */
-
 # ifdef SYSV
-
+#  include <poll.h>
 #  include <stdlib.h>
 #  include <sys/cdio.h>
+#  include <sys/socket.h>
 #  include <sys/scsi/impl/uscsi.h>
-
+#  include "wmcdda.h"
 # else
-
 #  include <sys/buf.h>
 #  include <sun/dkio.h>
 #  include <scsi/targets/srdef.h>
 #  include <scsi/impl/uscsi.h>
 #  include <scsi/generic/commands.h>
-
 # endif
-
 #endif
 
 #include "struct.h"
 
-/* Experiment with min_volume! Some cd devices support 0 - 255 some don't */
-
-int	min_volume = 128;
-int	max_volume = 255;
-
-
-/* That's it! Thank you for your patience. Please notify me of any changes
-   you had to undertake to get kscd to work -- Bernd */
-
-/****************************************************************************/
-
-
 void *malloc();
-char *strchr();
+char *strchr(), *getenv();
 char *realpath();
 
+int	min_volume = 0;
+int	max_volume = 255;
 
-extern char	*cd_device;
-extern int	intermittent_dev, keep_open;
+extern char	*cd_device, *cddaslave_path;
+extern int	intermittent_dev;
+
+int	cdda_slave = -1;
+
+int	current_end;
 
 /*
  * find_cdrom
@@ -108,12 +77,15 @@ find_cdrom()
 	{
 		/* Volume manager.  Device might not be there. */
 		intermittent_dev = 1;
-		cd_device = "/vol/dev/aliases/cdrom0";
+
+		/* If vold is running us, it'll tell us the device name. */
+		cd_device = getenv("VOLUME_DEVICE");
+		if (cd_device == NULL)
+			cd_device = "/vol/dev/aliases/cdrom0";
 	}
 	else if (access("/dev/rdsk/c0t6d0s2", F_OK) == 0)
 	{
-		/* Solaris 2.x w/o volume manager.  Run keep_cd_open(). */
-		keep_open = 1;
+		/* Solaris 2.x w/o volume manager. */
 		cd_device = "/dev/rdsk/c0t6d0s2";
 	}
 	else if (access("/dev/rsr0", F_OK) == 0)
@@ -126,6 +98,25 @@ find_cdrom()
 }
 
 /*
+ * Wait for an acknowledgement from the CDDA slave.
+ */
+static int
+get_ack(fd)
+	int	fd;
+{
+#if defined(BUILD_CDDA) && defined(WMCDDA_DONE) /* { */
+	struct cdda_block	blk;
+
+	do
+		if (read(fd, &blk, sizeof(blk)) <= 0)
+			return (0);
+	while (blk.status != WMCDDA_ACK);
+#endif /* } */
+
+	return (1);
+}
+
+/*
  * Initialize the drive.  A no-op for the generic driver.
  */
 int
@@ -134,6 +125,88 @@ gen_init(d)
 {
 	codec_init();
 	return (0);
+}
+
+/*
+ * Try to initialize the CDDA slave.  Returns 0 on error.
+ */
+int
+cdda_init(d)
+	struct wm_drive	*d;
+{
+#if defined(BUILD_CDDA) && defined(WMCDDA_DONE) /* { */
+	int	slavefds[2];
+
+	if (cdda_slave > -1)
+		return (1);
+
+	if (socketpair(AF_UNIX, SOCK_STREAM, 0, slavefds))
+	{
+		perror("socketpair");
+		return (0);
+	}
+
+	switch (fork()) {
+	case 0:
+		close(slavefds[0]);
+		dup2(slavefds[1], 1);
+		dup2(slavefds[1], 0);
+		close(slavefds[1]);
+		close(d->fd);
+		/* Try the default path first. */
+		/*		execl(cddaslave_path, cddaslave_path, cd_device, NULL);*/
+		/* Search $PATH if that didn't work. */
+		execlp("cddaslave", "cddaslave", cd_device, NULL);
+		/*		perror("cddaslave");*/
+		fprintf(stderr,"Couldn't execute cddaslave!\nPlease copy cddaslave"\
+			"to a diretory in your path.");
+		exit(1);
+
+	case -1:
+		close(slavefds[0]);
+		close(slavefds[1]);
+		perror("fork");
+		return (0);
+	}
+
+	close(slavefds[1]);
+	cdda_slave = slavefds[0];
+
+	if (get_ack(cdda_slave))
+		/*about_set_drivetype("Digital Audio", "", "");*/ /*BERND*/
+		fprintf(stderr,"Got ack from cddaslave -- good");
+	else
+	{
+		cdda_slave = -1;
+		codec_start();
+		return (0);
+	}
+
+	return (1);
+
+#else /* BUILD_CDDA } { */
+	/*
+	 * If we're not building CDDA support, don't even bother trying.
+	 */
+	return (0);
+#endif
+}
+
+/*
+ * Turn off the CDDA slave.
+ */
+void
+cdda_kill(d)
+	struct wm_drive *d;
+{
+	if (cdda_slave > -1)
+	{
+		write(cdda_slave, "Q", 1);
+		get_ack(cdda_slave);
+		wait(NULL);
+		cdda_slave = -1;
+		codec_start();
+	}
 }
 
 /*
@@ -223,6 +296,65 @@ gen_get_drive_status(d, oldmode, mode, pos, track, index)
 			return (0);
 		}
 	}
+
+#if defined(BUILD_CDDA) && defined(WMCDDA_DONE) /* { */
+	if ((oldmode == PAUSED || oldmode == PLAYING || oldmode == STOPPED) &&
+		cdda_slave > -1)
+	{
+		struct cdda_block	blk;
+		struct pollfd		fds;
+		int			gotone = 0;
+
+		fds.fd = cdda_slave;
+		fds.events = POLLRDNORM;
+
+		*mode = oldmode;
+
+		while (poll(&fds, 1, 0) > 0)
+		{
+			read(cdda_slave, &blk, sizeof(blk));
+			gotone = 1;
+		}
+
+		/* We only want to use the latest status report. */
+		if (gotone)
+		{
+			if (blk.status == WMCDDA_PLAYED)
+			{
+				*track = blk.track;
+				*index = blk.index;
+				*pos = blk.minute * 60 * 75 +
+					blk.second * 75 +
+					blk.frame;
+
+				*mode = PLAYING;
+			}
+			else if (blk.status == WMCDDA_DONE)
+				*mode = TRACK_DONE;
+			else if (blk.status == WMCDDA_STOPPED)
+			{
+				if (oldmode == PLAYING || oldmode == PAUSED)
+					*mode = PAUSED;
+				else
+					*mode = STOPPED;
+			}
+			else if (blk.status == WMCDDA_ERROR)
+			{
+				/*
+				 * An error near the end of the CD probably
+				 * just means we hit the end.
+				 */
+				*mode = TRACK_DONE;
+			}
+			else if (blk.status == WMCDDA_EJECTED)
+			{
+				*mode = EJECTED;
+			}
+		}
+
+		return (0);
+	}
+#endif /* } */
 
 	/*
 	 * Solaris 2.2 hangs on this ioctl if someone else ejects the CD.
@@ -332,6 +464,31 @@ gen_set_volume(d, left, right)
 {
 	struct cdrom_volctrl v;
 
+	if (cdda_slave > -1)
+	{
+		int		bal, vol;
+		unsigned char	cmd[2];
+
+		bal = (right - left) + 100;
+		bal *= 255;
+		bal /= 200;
+		if (right > left)
+			vol = right;
+		else
+			vol = left;
+		vol *= 255;
+		vol /= 100;
+
+		cmd[0] = 'B';
+		cmd[1] = bal;
+		write(cdda_slave, cmd, 2);
+		cmd[0] = 'V';
+		cmd[1] = vol;
+		write(cdda_slave, cmd, 2);
+
+		return (0);
+	}
+
 	left = (left * (max_volume - min_volume)) / 100 + min_volume;
 	right = (right * (max_volume - min_volume)) / 100 + min_volume;
 
@@ -348,6 +505,19 @@ int
 gen_pause(d)
 	struct wm_drive	*d;
 {
+	if (cdda_slave > -1)
+	{
+		int	dummy, mode = PLAYING;
+
+		write(cdda_slave, "S", 1);
+		get_ack(cdda_slave);
+/*		while (mode != PAUSED)
+			gen_get_drive_status(d, PAUSED, &mode, &dummy, &dummy,
+						&dummy);
+*/
+		return (0);
+	}
+
 	codec_stop();
 	return (ioctl(d->fd, CDROMPAUSE));
 }
@@ -359,6 +529,9 @@ int
 gen_resume(d)
 	struct wm_drive	*d;
 {
+	if (cdda_slave > -1)
+		return (1);
+
 	codec_start();
 	return (ioctl(d->fd, CDROMRESUME));
 }
@@ -370,19 +543,53 @@ int
 gen_stop(d)
 	struct wm_drive *d;
 {
+	if (cdda_slave > -1)
+	{
+		write(cdda_slave, "S", 1);
+		get_ack(cdda_slave);
+		return (0);
+	}
 	codec_stop();
 	return (ioctl(d->fd, CDROMSTOP));
 }
 
 /*
- * Play the CD from one position to another (both in frames.)
+ * Play the CD from one position to another.
+ *
+ *	d		Drive structure.
+ *	start		Frame to start playing at.
+ *	end		End of this chunk.
+ *	realstart	Beginning of this chunk (<= start)
  */
 int
-gen_play(d, start, end)
+gen_play(d, start, end, realstart)
 	struct wm_drive	*d;
-	int		start, end;
+	int		start, end, realstart;
 {
 	struct cdrom_msf		msf;
+	unsigned char			cmdbuf[10];
+
+	current_end = end;
+
+	if (cdda_slave > -1)
+	{
+		cmdbuf[0] = 'P';
+		cmdbuf[1] = start / (60 * 75);
+		cmdbuf[2] = (start % (60*75)) / 75;
+		cmdbuf[3] = start % 75;
+		cmdbuf[4] = end / (60*75);
+		cmdbuf[5] = (end % (60*75)) / 75;
+		cmdbuf[6] = end % 75;
+		cmdbuf[7] = realstart / (60 * 75);
+		cmdbuf[8] = (realstart % (60*75)) / 75;
+		cmdbuf[9] = realstart % 75;
+
+		/* Write the play command and make sure the slave has it. */
+		write(cdda_slave, cmdbuf, 10);
+		get_ack(cdda_slave);
+
+		return (0);
+	}
 
 	msf.cdmsf_min0 = start / (60*75);
 	msf.cdmsf_sec0 = (start % (60*75)) / 75;
@@ -396,7 +603,7 @@ gen_play(d, start, end)
 		return (-1);
 	if (ioctl(d->fd, CDROMPLAYMSF, &msf))
 		return (-2);
-	
+
 	return (0);
 }
 
@@ -417,6 +624,12 @@ gen_eject(d)
 	if (ustat(stbuf.st_rdev, &ust) == 0)
 		return (-3);
 
+	if (cdda_slave > -1)
+	{
+		write(cdda_slave, "S", 1);
+		get_ack(cdda_slave);
+	}
+
 	if (ioctl(d->fd, CDROMEJECT))
 		return (-1);
 
@@ -431,40 +644,6 @@ gen_eject(d)
 }
 
 /*
- * Keep the CD open all the time.
- */
-void
-keep_cd_open()
-{
-	int	fd;
-	struct flock	fl;
-	extern	end;
-
-	for (fd = 0; fd < 256; fd++)
-		close(fd);
-
-	if (fork())
-		exit(0);
-
-	if ((fd = open("/tmp/cd.lock", O_RDWR | O_CREAT, 0666)) < 0)
-		exit(0);
-	fl.l_type = F_WRLCK;
-	fl.l_whence = 0;
-	fl.l_start = 0;
-	fl.l_len = 0;
-	if (fcntl(fd, F_SETLK, &fl) < 0)
-		exit(0);
-
-	if (open(cd_device, 0) >= 0)
-	{
-		brk(&end);
-		pause();
-	}
-
-	exit(0);
-}
-
-/*
  * Read the initial volume from the drive, if available.  Each channel
  * ranges from 0 to 100, with -1 indicating data not available.
  */
@@ -473,10 +652,110 @@ gen_get_volume(d, left, right)
 	struct wm_drive	*d;
 	int		*left, *right;
 {
+#if defined(BUILD_CDDA) && defined(WMCDDA_DONE) /* { */
+	struct cdda_block	blk;
+
+	if (cdda_slave > -1)
+	{
+		write(cdda_slave, "G", 1);
+		get_ack(cdda_slave);
+		read(cdda_slave, &blk, sizeof(blk));
+
+		*left = *right = (blk.volume * 100 + 254) / 255;
+
+		if (blk.balance < 110)
+			*right = (((blk.volume * blk.balance + 127) / 128) *
+				  100 + 254) / 255;
+		else if (blk.balance > 146)
+			*left = (((blk.volume * (255 - blk.balance) +
+				   127) / 128) * 100 + 254) / 255;
+
+		return (0);
+	}
+#endif /* } */
+
 	*left = *right = -1;
 
 	return (wm_scsi2_get_volume(d, left, right));
 }
+
+#ifdef BUILD_CDDA /* { */
+
+/*
+ * Tell the CDDA slave to set the play direction.
+ */
+void
+gen_set_direction(newdir)
+	int		newdir;
+{
+	unsigned char	buf[2];
+
+	if (cdda_slave > -1)
+	{
+		buf[0] = 'd';
+		buf[1] = newdir;
+		write(cdda_slave, buf, 2);
+		get_ack(cdda_slave);
+	}
+}
+
+/*
+ * Tell the CDDA slave to set the play speed.
+ */
+void
+gen_set_speed(speed)
+	int		speed;
+{
+	unsigned char	buf[2];
+
+	if (cdda_slave > -1)
+	{
+		buf[0] = 's';
+		buf[1] = speed;
+		write(cdda_slave, buf, 2);
+		get_ack(cdda_slave);
+	}
+}
+
+/*
+ * Tell the CDDA slave to set the loudness level.
+ */
+void
+gen_set_loudness(loud)
+	int		loud;
+{
+	unsigned char	buf[2];
+
+	if (cdda_slave > -1)
+	{
+		buf[0] = 'L';
+		buf[1] = loud;
+		write(cdda_slave, buf, 2);
+		get_ack(cdda_slave);
+	}
+}
+
+/*
+ * Tell the CDDA slave to start (or stop) saving to a file.
+ */
+void
+gen_save(filename)
+	char	*filename;
+{
+	int	len;
+
+	if (filename == NULL || filename[0] == '\0')
+		len = 0;
+	else
+		len = strlen(filename);
+	write(cdda_slave, "F", 1);
+	write(cdda_slave, &len, sizeof(len));
+	if (len)
+		write(cdda_slave, filename, len);
+	get_ack(cdda_slave);
+}
+
+#endif /* BUILD_CDDA } */
 
 #ifndef solbourne
 /*
@@ -579,6 +858,14 @@ wmcd_open(d)
 	/* Now fill in the relevant parts of the wm_drive structure. */
 	fd = d->fd;
 
+	/*
+	 * See if we can do digital audio.
+	 */
+	/*	if (cdda_init(d))
+		enable_cdda_controls(1);*/
+	if(!cdda_init(d))
+	  fprintf(stderr,"Couldn't init cdda.\n");
+
 	/* Can we figure out the drive type? */
 	vendor[0] = model[0] = rev[0] = '\0';
 	if (wm_scsi_get_drive_type(d, vendor, model, rev))
@@ -611,18 +898,31 @@ wmcd_open(d)
  * The following code activates the internal CD audio passthrough on
  * SPARCstation 5 systems (and possibly others.)
  *
- * Thanks to <stevep@ctc.ih.att.com>.
+ * Thanks to <stevep@ctc.ih.att.com> and Roger Oscarsson <roger@cs.umu.se>.
  */
 
-#if !defined(SYSV) || !defined(CODEC)
-/* not solaris, so don't do anything real */
+#ifdef CODEC /* { */
+#ifdef SYSV /* { */
+
+# include <sys/audioio.h>
+
+#else /* } { */
+
+# include <sun/audioio.h>
+# define AUDIO_DEV_SS5STYLE 5
+typedef int audio_device_t;
+
+#endif /* } */
+#endif /* } */
+
+/*
+ * Don't do anything with /dev/audio if we can't set it to high quality.
+ */
+#if !defined(AUDIO_ENCODING_LINEAR) || !defined(CODEC) /* { */
 codec_init() { return 0; }
 codec_start() { return 0; }
 codec_stop() { return 0; }
 #else
-
-#include <sys/ioctl.h>
-#include <sys/audioio.h>
 
 #ifndef AUDIO_INTERNAL_CD_IN
 #define AUDIO_INTERNAL_CD_IN	0x4
@@ -634,10 +934,10 @@ static int ctl_fd = -1;
 
 codec_init()
 {
-register int i;
-char* ctlname;
-audio_info_t foo;
-audio_device_t aud_dev;
+    register int i;
+    char* ctlname;
+    audio_info_t foo;
+    audio_device_t aud_dev;
 
     if (!(devname = getenv("AUDIODEV"))) devname = "/dev/audio";
     ctlname = strcat(strcpy(malloc(strlen(devname) + 4), devname), "ctl");
@@ -650,14 +950,24 @@ audio_device_t aud_dev;
 	ctl_fd = -1;
 	return -1;
     }
-    if (strcmp(aud_dev.name, "SUNW,CS4231")) {
+#ifdef SYSV
+    if (strcmp(aud_dev.name, "SUNW,CS4231"))
+#else
+    if (aud_dev != AUDIO_DEV_SS5STYLE)
+#endif
+    {
 	close(ctl_fd);
 	ctl_fd = -1;
 	return 0;					/* but it's okay */
     }
     AUDIO_INITINFO(&foo);
     foo.record.port = AUDIO_INTERNAL_CD_IN;
-    foo.monitor_gain = AUDIO_MAX_GAIN;
+#ifdef BUILD_CDDA
+    if (cdda_slave > -1)
+	foo.monitor_gain = 0;
+    else
+#endif
+	foo.monitor_gain = AUDIO_MAX_GAIN;
     ioctl(ctl_fd, AUDIO_SETINFO, &foo);
     return 0;
 }
@@ -678,6 +988,8 @@ int retval = 0;
     foo.play.channels = 2;
     foo.play.precision = 16;
     foo.play.encoding = AUDIO_ENCODING_LINEAR;
+    foo.record.port = AUDIO_INTERNAL_CD_IN;
+    foo.monitor_gain = AUDIO_MAX_GAIN;
     if ((retval = ioctl(dev_fd, AUDIO_SETINFO, &foo)) < 0) perror(devname);
     close(dev_fd);
     return retval;
@@ -706,5 +1018,5 @@ audio_info_t foo;
 
 codec_stop() { return 0; }
 
-#endif
-#endif
+#endif /* CODEC } */
+#endif /* sun } */

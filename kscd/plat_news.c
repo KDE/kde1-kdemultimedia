@@ -5,13 +5,7 @@
  */
 static char *ident = "@(#)plat_news.c	1.5 1/1/94";
 
-/* I HOPE THE FOLLOWING ARE DEFINED AUTOMATICALLY ON YOUR SONY_NEWS
-   SYSTEM. IF NOT, YOU MUST DEFINE IT. THAT IS .ADD THE LINE 
-   #define __sony_news 
-   RIGHT AFTER THIS COMMENT AND BEFORE #ifdef __sony_news
-
-   BERND
-*/
+#include "config.h"
 
 #if defined( __sony_news) || defined(sony_news)
 
@@ -24,32 +18,9 @@ static char *ident = "@(#)plat_news.c	1.5 1/1/94";
 #include <sys/time.h>
 #include <ustat.h>
 
-/*****************************************************************************/
-/* I have conflicting reports. You may need this */
+int	min_volume = MIN_VOLUME;
+int	max_volume = MAX_VOLUME;
 
-#include <CD.h>
-
-/* or this */
-
-/*
-#include <newsiodev/scu.h>
-#include <newsiodev/scsireg.h>
-*/
-
-/* or boths, please experiment and let me know the result, thanks -- Bernd */
-
-
-/* define the right device for you machine here */
-#define	DEFAULT_CD_DEVICE	"/dev/rsd/b0i6u0p2\0"
-
-/* Feel free to play with min_volume !!!! You might be able to get the whole
-   range from 0 to 255 */
-
-int	min_volume = 128;
-int	max_volume = 255;
-
-/* That's it. thanks -- Bernd */
-/******************************************************************************/
 
 #include "struct.h"
 

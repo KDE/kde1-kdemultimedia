@@ -6,6 +6,8 @@
 static char *ident = "@(#)plat_svr4.c	1.1\t1/2/94";
 
 
+#include "config.h"
+
 #if defined(SVR4) && !defined(sun) && !defined(__sun__)
 
 #define	DEFAULT_CD_DEVICE	"/dev/rcdrom/cd0"

@@ -5,13 +5,6 @@
  */
 static char *ident = "@(#)plat_linux.c	1.8 5/14/94";
 
-/* I HOPE THE FOLLOWING IS DEFINED AUTOMATICALLY ON YOUR LINUX
-   SYSTEM. IF NOT, YOU MUST DEFINE IT. THAT IS ADD THE LINE 
-   #define linux
-   RIGHT AFTER THIS COMMENT AND BEFORE #ifdef linux
-   READ ON HOWEVER, THERE IS MORE FOR YOU TO DO...
-   BERND
-*/
 #ifdef linux
 
 
@@ -26,75 +19,10 @@ static char *ident = "@(#)plat_linux.c	1.8 5/14/94";
 #include <linux/cdrom.h>
 #include "struct.h"
 
-/**********************************************************************************/
-/* Check the following few lines until the mark 'THAT'S IT'
- * Bernd
- */
+#include "config.h"
 
-/* define the correct cdrom device for your machine, /dev/cdrom should be 
-   a link to your cdrom device or, if you don't have that link you might want
-   to create it. Just for illustration, I have listed two more common
-   names for cdrom devices */
-
-#define DEFAULT_CD_DEVICE	"/dev/cdrom"
-
-/* Two examples in case you don't have a /dev/cdrom */
-/*
-#define DEFAULT_CD_DEVICE	"/dev/sbpcd"
-#define DEFAULT_CD_DEVICE       "/dev/sr0"
-*/
-
-/* I have hacked these sources a bit. I have now the fastest, most responsive
-   and least poping noises producing cd player available for linx and windows 95
-   However, my changes may not work for you. I recommend you leave the following
-   untouched for a first test drive. If things don't work properly come back
-   and uncomment the next line.
-/*
-#define WORKMAN_ORIGINAL
-*/
-
-/* I have incorporated a hack from dirk (milliByte@DeathsDoor.com)  which will
-   make the cd's play better on any drive using the sbpcd or mcdx drivers. If you
-   are using any of those you want to uncomment SBPCD_HACK. For more info about this
-   hack read the docs in the spbcd directory of this distribution 
-   NOTE: IF YOU UNCOMMENT THIS HERE, YOU ALSO MUST UNCOMMENT THIS AT THE BEGINNING
-   OF cdrom.c, THANK YOU.
-*/
-/*
-#define SBPCD_HACK
-*/
-
-/* Uncomment the next line if you have an SCSI cdrom drive */
-/*
-#define LINUX_SCSI_PASSTHROUGH
-*/
-
-int	min_volume = 0;  /* 
-			    Some cd players don't support the whole range 0 to 255. In
-			    such a case the correct choice for this range is most
-			    likely 128 - 255. Also try putting a 1 here. This will
-			    reduce cracking noises. In short -- play with it ;-)
-			    BERND 
-			    */
-int	max_volume = 255;
-
-/* If you have one of those weird cd player whose volume only works from 128 to 255
-   you might want to try the following, and only then.*/
-
-/*
-#define CURVED_VOLUME
-*/
-
-/* THAT'S IT, Thank you for your patience, I hope I didn't confuse you.
-   I realize that I will eventually have to write an interactive installation 
-   script for all this. If you have questions or would like to contribute 
-   such a script feel free to write to me.
-
-   Bernd 
-   wuebben@kde.org
-   wuebben@math.cornell.edu
-*/
-/*********************************************************************************/
+int	min_volume = MIN_VOLUME; 
+int	max_volume = MAX_VOLUME;
 
 
 #ifdef LINUX_SCSI_PASSTHROUGH

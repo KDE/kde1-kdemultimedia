@@ -10,8 +10,8 @@
 
 <title>The Kscd Handbook
 <author>Bernd Johannes Wuebben, <tt/wuebben@kde.org/
-<date>Version 0.3, 20 May 1997
-<abstract>This Handbook describes Kdscd Version 0.3
+<date>Version 0.4, Aug 14, 1997
+<abstract>This Handbook describes Kdscd Version 0.4
 
 <!-- Table of contents -->
 <toc>
@@ -22,9 +22,13 @@
 <sect>Introduction
 
 <p>
-This new release of Kscd is a complete rewrite of Yat-Nam Lo's kscd
-version 0.2. 
+Version 0.4:
+
+Kscd now features a new installation script. Support for Irix and Sun/Solaris
+cdda was added.
 <p>
+Version 0.3:
+
 The most notable technical change is
 that kscd is no longer based on workbone. I have given it a new engine
 taken from the <url url="http://www.midwinter.com/workman/index.html"
@@ -90,26 +94,6 @@ directory of the Kscd distribution:
 % ./configure
 </verb></tscreen>
 
-NOW YOU MUST CHECK THE FIRST FEW LINES OF THE plat_xxx.c FILE CORRESPONDING
-TO YOUR PLATFORM AND MAKE THE NECESSARY CHANGES.<p>
-
-I apologize for the inconvenience, but a cdrom player is a device driver
-of sorts and it very hard if not impossible to find out what sort of 
-hardware you have. I hope to be able to provide an interactive installation
-script in the near future.<p>
-
-I have made changes to the original workman cd placer source 
-code that made kscd the fastest, most responsive and quietest cd-player
-for an average Linux IDE cdrom drive. I hope you will find this to hold
-true for your particular hardware too. In the unlikely case that my changes do
-not work for your particular hardware setup, setting the proper defines will
-disable those changes and revert to the original workman behavior.
-<p>
-I have also  added code from <url url="milliByte@DeathsDoor.com" 
-name="Dirk Foersterling">
-which should give you better playing if you use the sbpcd or mcdx drivers under
-Linux. You must however explicitely enable this by defining the appropriate
-defines in plat_linux.c.<p>
 
 If you are experiencing trouble getting kscd to work on a non-Linux platform
 please study the original Workman documentation in the docs directory of
@@ -125,6 +109,15 @@ include those changes in future versions of kscd.
 <p>
 <tscreen><verb>
 % make
+</verb></tscreen>
+
+This will start the KSCD configuration script. Please choose your platform
+and answer the questions posed. The configuration script will create
+the file "config.h" in the kscd directory. If you should experience
+problems with the script you can rename the file "config.h.std" to
+"config.h" and edit it to suit your platform.
+
+<tscreen><verb>
 % make install
 </verb></tscreen>
 

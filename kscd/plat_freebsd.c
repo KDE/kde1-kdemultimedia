@@ -10,29 +10,9 @@ static char *ident = "@(#)plat_freebsd.c	1.2 2/20/95";
 
 /* Please check the includes and defines up until the mark "That's it". 
    Thank you -- Bernd */
+#include "config.h"
 
 #if defined(__FreeBSD__) || defined(__NetBSD__)
-
-/* Is this the most commonly used cd device on FreeBSD ? */
-
-#define DEFAULT_CD_DEVICE       "/dev/rmatcd0c"
-
-/*
-#define DEFAULT_CD_DEVICE       "/dev/rcd0d"
-*/
-
-/* Please have a look at void KSCD::playClicked() in kscd.cpp. You will find there
-   the following code:
-
-#ifdef __FreeBSD__
-	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN  || cur_cdmode == BACK) {
-#else
-	if (cur_cdmode == STOPPED || cur_cdmode == UNKNOWN ) {
-#endif
-
-Try either one there ( THAT IS IN kscd.cpp NOT HERE ), and tell me which version 
-works for you. -- thanks !
-*/
 
 
 #include <errno.h>
