@@ -55,6 +55,12 @@ msgid ""
 "Media player for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
 msgstr ""
+"\n"
+"(C) 1996-1998 di Christian Esken (esken@kde.org).\n"
+"\n"
+"Lettore Media  per il KDE Desktop Environment.\n"
+"Questo programma è coperto dalla licenza GPL.\n"
+
 
 #: kmediawin.cpp:309
 msgid "Exited"

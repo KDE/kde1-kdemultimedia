@@ -20,7 +20,7 @@ msgstr "&Graduatori On/Off"
 
 #: kmix.cpp:536 kmix.cpp:650
 msgid "&Options..."
-msgstr ""
+msgstr "&Opzioni..."
 
 #: kmix.cpp:545
 msgid ""
@@ -94,7 +94,7 @@ msgstr "Graduatori"
 
 #: prefs.cpp:61
 msgid "Allow docking"
-msgstr ""
+msgstr "Mostra nel pannello"
 
 #: prefs.cpp:86
 msgid "KMix Preferences"
@@ -118,4 +118,4 @@ msgstr "Separa"
 
 #: docking.cpp:156
 msgid "Minimize"
-msgstr ""
+msgstr "Minimiza"
