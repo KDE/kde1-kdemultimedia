@@ -125,7 +125,7 @@ msgstr "Modifier la &police..."
 
 #: kmidframe.cpp:176
 msgid "Configure &Keys ..."
-msgstr "Configurer le clavie&r..."
+msgstr "Raccourcis clavie&r..."
 
 #: kmidframe.cpp:179
 msgid "Midi &Setup ..."
