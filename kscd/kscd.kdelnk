@@ -1,6 +1,6 @@
 # KDE Config File
 [KDE Desktop Entry]
-Comment[C]=A CD Player
+Comment=A CD Player
 Comment[pl]=Prosty odtwarzacz p³yt CD
 Comment[fi]=CD Soitin
 Comment[hu]=CD lejátszó
@@ -8,7 +8,7 @@ Comment[pt]=Reprodutor de CDs
 Comment[cs]=CD pøehrávaè
 BinaryPattern=kscd;
 Protocols=
-Name[C]=CD Player
+Name=CD Player
 Name[pl]=Odtwarzacz CD
 Name[fi]=CD Soitin
 Name[hu]=CD lejátszó
