@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>The Kscd Handbook: Installation</TITLE>
+</HEAD>
+<BODY>
+<A HREF="kscd-1.html">Previous</A>
+<A HREF="kscd-3.html">Next</A>
+<A HREF="kscd.html#toc2">Table of Contents</A>
+<HR>
+<H2><A NAME="s2">2. Installation</A></H2>
+
+
+<H2><A NAME="ss2.1">2.1 How to obtain Kscd</A></H2>
+
+<P>Kscd is an application for the KDE project 
+<A HREF="http://www.kde.org">http://www.kde.org</A>.
+Kscd can be found on 
+<A HREF="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</A>, the main ftp site
+of the KDE project.</P>
+
+
+<H2><A NAME="ss2.2">2.2 Requirements</A></H2>
+
+<P>In order to successfully compile Kscd, you need the latest versions of <CODE> libkdecore</CODE>
+and <CODE> libkdeui</CODE>. All required libraries as well as Kscd itself can be found
+on 
+<A HREF="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</A>. </P>
+
+
+
+
+<H2><A NAME="ss2.3">2.3 Compilation and installation</A></H2>
+
+
+<P>In order to compile and install Kscd on your system, type the following in the base 
+directory of the Kscd distribution:
+<BLOCKQUOTE><CODE>
+<PRE>
+% ./configure
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>NOW YOU MUST CHECK THE FIRST FEW LINES OF THE plat_xxx.c FILE CORRESPONDING
+TO YOUR PLATFORM AND MAKE THE NECESSARY CHANGES.</P>
+
+<P>I apologize for the inconvenience, but a cdrom player is a device driver
+of sorts and it very hard if not impossible to find out what sort of 
+hardware you have. I hope to be able to provide an interactive installation
+script in the near future.</P>
+
+<P>I have made changes to the original workman cd placer source 
+code that made kscd the fastest, most responsive and quietest cd-player
+for an average Linux IDE cdrom drive. I hope you will find this to hold
+true for your particular hardware too. In the unlikely case that my changes do
+not work for your particular hardware setup, setting the proper defines will
+disable those changes and revert to the original workman behavior.</P>
+<P>I have also  added code from 
+<A HREF="milliByte@DeathsDoor.com">Dirk Foersterling</A>
+which should give you better playing if you use the sbpcd or mcdx drivers under
+Linux. You must however explicitely enable this by defining the appropriate
+defines in plat_linux.c.</P>
+
+<P>If you are experiencing trouble getting kscd to work on a non-Linux platform
+please study the original Workman documentation in the docs directory of
+the kscd distribution. They contain quite a bit of information and may prove to 
+be very helpful. The original makefiles are in the makefiles subdirectory
+and should also be of interest in case of trouble. </P>
+
+
+<P>Please inform me of any modification you had to undertake to the current 
+distribution in  order to get things to work on your platform. I will then 
+include those changes in future versions of kscd.</P>
+
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+% make
+% make install
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P><B>Again:</B> Should you run into problems, please report them to me. </P>
+
+
+<HR>
+<A HREF="kscd-1.html">Previous</A>
+<A HREF="kscd-3.html">Next</A>
+<A HREF="kscd.html#toc2">Table of Contents</A>
+</BODY>
+</HTML>

@@ -1,0 +1,26 @@
+INSTALL_DATA = @INSTALL@ -m 0644
+INSTALL_DIR = @INSTALL@ -d -m 0755
+
+FILES = kscd-1.html kscd-2.html kscd-3.html kscd-4.html kscd.html
+prefix = @prefix@
+destdir = $(prefix)/doc/HTML/kscd
+
+Makefile: Makefile.in
+	cd ../.. && CONFIG_FILES=kscd/docs/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+all:
+
+clean:
+
+install:
+	$(INSTALL_DIR) $(destdir)
+	@for i in $(FILES); do \
+	 echo "$(INSTALL_DATA) $$i $(destdir)/$$i"; \
+	 $(INSTALL_DATA) "$$i" $(destdir)/$$i; \
+	done
+
+uninstall:
+	for i in $(FILES); do \
+	 rm -f $(destdir)/$$i; \
+	done
+

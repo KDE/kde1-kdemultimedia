@@ -1,0 +1,144 @@
+<!doctype linuxdoc system>
+
+<!-- The Kscd Handbook.
+
+ -->
+
+<article>
+
+<!-- Title information -->
+
+<title>The Kscd Handbook
+<author>Bernd Johannes Wuebben, <tt/wuebben@kde.org/
+<date>Version 0.3, 20 May 1997
+<abstract>This Handbook describes Kdscd Version 0.3
+
+<!-- Table of contents -->
+<toc>
+
+<!-- Begin the document -->
+
+
+<sect>Introduction
+
+<p>
+This new release of Kscd is a complete rewrite of Yat-Nam Lo's kscd
+version 0.2. 
+<p>
+The most notable technical change is
+that kscd is no longer based on workbone. I have given it a new engine
+taken from the <url url="http://www.midwinter.com/workman/index.html"
+name="workman">
+a well known cd player for various Unix platforms  written by 
+<url url="mailto:koreth@midwinter.com" name="Stephen Grimm">.
+
+Due to the workman engine, Kscd 0.3 in contrast to Kscd 0.2 should compile and 
+work properly on a variety of
+different Unix platforms. Unfortunately this has also
+complicated the compilation and installation procedure a bit. 
+
+Having introduced a number of changes to the workman sources, Kscd is now on
+for the most common platform, a Linux IDE cdrom, a faster, more 
+responsive player than any other player I know of under Unix and Windows 95. 
+Incidentally, Kscd is also the first player under Unix which doesn't hang my 
+personal cdrom drive on exit. 
+
+While kscd does not yet offer all the bells and whistles that a
+cd player such as xmcd offers it is at about 80000 bytes definitely a lean
+mean cd-machine. Compare this to the  1 meg statically linked slow
+motif dog xmcd. 
+
+Nevertheless, while xmcd is big and slow, it 
+has invented the cddb database format and the cddb internet CD
+databases. Internet cddb is in my opinion a fantastic concept 
+and I am currently working on implementing cddb support for
+kscd.  Watch out for the next release.
+
+<bf/BTW:/ Kscd stands for "The KDE Project's small/simply CD player".
+
+
+<p>
+I hope you will enjoy this cd-player,
+<p>
+<tt>Bernd Johannes Wuebben</tt>
+<p>
+<htmlurl url="mailto:wuebben@kde.org" name="wuebben@kde.org">
+<p>
+
+<sect>Installation
+<p>
+<sect1>How to obtain Kscd
+<p>
+Kscd is an application for the KDE project <url url="http://www.kde.org">.
+Kscd can be found on <url url="ftp://ftp.kde.org/pub/kde/">, the main ftp site
+of the KDE project.
+
+<sect1>Requirements
+<p>
+In order to successfully compile Kscd, you need the latest versions of <tt> libkdecore</tt>
+and <tt> libkdeui</tt>. All required libraries as well as Kscd itself can be found
+on <url url="ftp://ftp.kde.org/pub/kde/">. 
+
+
+
+<sect1>Compilation and installation
+<p>
+
+In order to compile and install Kscd on your system, type the following in the base 
+directory of the Kscd distribution:
+<tscreen><verb>
+% ./configure
+</verb></tscreen>
+
+NOW YOU MUST CHECK THE FIRST FEW LINES OF THE plat_xxx.c FILE CORRESPONDING
+TO YOUR PLATFORM AND MAKE THE NECESSARY CHANGES.<p>
+
+I apologize for the inconvenience, but a cdrom player is a device driver
+of sorts and it very hard if not impossible to find out what sort of 
+hardware you have. I hope to be able to provide an interactive installation
+script in the near future.<p>
+
+I have made changes to the original workman cd placer source 
+code that made kscd the fastest, most responsive and quietest cd-player
+for an average Linux IDE cdrom drive. I hope you will find this to hold
+true for your particular hardware too. In the unlikely case that my changes do
+not work for your particular hardware setup, setting the proper defines will
+disable those changes and revert to the original workman behavior.
+<p>
+I have also  added code from <url url="milliByte@DeathsDoor.com" 
+name="Dirk Foersterling">
+which should give you better playing if you use the sbpcd or mcdx drivers under
+Linux. You must however explicitely enable this by defining the appropriate
+defines in plat_linux.c.<p>
+
+If you are experiencing trouble getting kscd to work on a non-Linux platform
+please study the original Workman documentation in the docs directory of
+the kscd distribution. They contain quite a bit of information and may prove to 
+be very helpful. The original makefiles are in the makefiles subdirectory
+and should also be of interest in case of trouble. <p>
+
+<p>
+Please inform me of any modification you had to undertake to the current 
+distribution in  order to get things to work on your platform. I will then 
+include those changes in future versions of kscd.
+
+<p>
+<tscreen><verb>
+% make
+% make install
+</verb></tscreen>
+
+<bf/Again:/ Should you run into problems, please report them to me. 
+
+<sect>Onscreen Fundamentals
+<p>
+
+Sorry, not written yet. I am sure however that you will have no trouble operating
+Kscd.
+
+<sect>Questions and answers
+
+
+
+<p>
+</article>

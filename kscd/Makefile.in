@@ -1,0 +1,106 @@
+# $Id$
+
+prefix  = @prefix@
+BINDIR  = $(prefix)/bin
+LIBDIR  = $(prefix)/lib
+PIXDIR  = $(prefix)/lib/pics
+DOCSDIR = $(prefix)/doc/HTML/kscd
+APPSDIR = $(prefix)/apps/Multimedia
+
+install = @INSTALL@
+INSTALL = $(install) -m 0755
+INSTALL_DATA = $(install) -m 0644
+INSTALL_DIR = $(install) -d -m 0755   
+
+###################################################################
+
+CXXFLAGS=	@CXXFLAGS@  -DHAVE_CONFIG_H -I..
+LDFLAGS	=	@LDFLAGS@ @all_libraries@  -lkdecore -lkdeui  -lqt  -lX11
+INCDIR	=	@all_includes@
+CXX	=	@CXX@
+MOC	=	@MOC@
+CC 	=	@CC@
+CFLAGS	=	
+
+####### Files
+
+HEADER = kscd.h struct.h bwlednum.h
+
+SOURCES	= kscd.cpp configdlg.cpp  cdinfo.c\
+	plat_sun.c plat_hpux.c plat_linux.c plat_news.c \
+	plat_bsd386.c plat_ultrix.c cdrom.c scsi.c drv_toshiba.c drv_sony.c \
+	plat_svr4.c plat_freebsd.c plat_osf1.c bwlednum.cpp
+
+OBJECTS	= kscd.o configdlg.o  cdinfo.o\
+	plat_sun.o plat_hpux.o plat_linux.o plat_news.o \
+	plat_bsd386.o plat_ultrix.o cdrom.o scsi.o drv_toshiba.o drv_sony.o \
+	plat_svr4.o plat_freebsd.o plat_osf1.o bwlednum.o
+
+SRCMETA	= kscd.moc bwlednum.moc configdlg.moc
+
+
+TARGET = kscd
+
+####### Implicit rules
+
+.SUFFIXES: .cpp
+
+.cpp.o:
+	$(CXX)  -c $(CXXFLAGS) $(DEFS) $(INCDIR) $<
+.c.o:
+	$(CC)  -c $(CFLAGS) $(DEFS) $(INCDIR) $<
+
+####### Build rules
+
+all: $(TARGET)
+
+Makefile: Makefile.in
+	cd .. && CONFIG_FILES=kscd/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+$(TARGET): $(SOURCES) $(SRCMETA) $(OBJECTS) $(HEADER)
+	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+
+depend:
+	@makedepend -I$(INCDIR) $(SOURCES) 2> /dev/null
+clean:
+	-rm -f *.o *.bak *~ *% #*
+	-rm -f $(SRCMETA) $(TARGET)
+
+distclean: clean
+	rm -f Makefile
+
+install: all
+	$(INSTALL_DIR) $(BINDIR)
+	$(INSTALL) $(TARGET) $(BINDIR)
+	(cd docs && $(MAKE) install)
+	$(INSTALL_DIR) $(PIXDIR)
+	$(INSTALL_DATA) kscd.xpm $(PIXDIR)
+	$(INSTALL_DIR) $(APPSDIR)
+	$(INSTALL_DATA) kscd.kdelnk $(APPSDIR)/kscd.kdelnk
+
+uninstall:
+	rm -f $(BINDIR)/$(TARGET)
+	(cd docs && $(MAKE) uninstall)
+	
+####### Explicit dependencies
+
+
+####### Meta objects
+
+kscd.moc: kscd.h
+	$(MOC) kscd.h -o kscd.moc
+
+bwlednum.moc: bwlednum.h
+	$(MOC) bwlednum.h -o bwlednum.moc
+
+configdlg.moc: configdlg.h
+	$(MOC) configdlg.h -o configdlg.moc
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+Wed Jun 25 01:24:39 1997  Bernd Johannes Wuebben  <wuebben@petit.cornell.edu>
+
+	* added Marc van Kempen's FreeBSD patches
+	  He reports also strange behaviour of kscd when reloading a CD
+	  Is this with the code or with his CD drive ? 
+
+	* Set proper defines that should allow for a smooth compile 
+	  on a SUN/ SUN SOLARIS
+	
+
