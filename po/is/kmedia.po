@@ -58,7 +58,7 @@ msgstr ""
 "Hljóðspilari fyrir KDE umhverfið.  Þetta forrit\n"
 "er undir GPL leyfinu.\n"
 "\n"
-"Þýðing: Bjarni <bre@mmedia.is>"
+"Þýðing: Bjarni <bre@mmedia.is>\n"
 
 #: kmediawin.cpp:309
 msgid "Exited"

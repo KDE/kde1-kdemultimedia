@@ -158,7 +158,7 @@ msgstr ""
 "toivonen@clinet.fi\n"
 "\n"
 "Þýðing: Guðmundur E.\n"
-"<gerl@vortex.is>"
+"<gerl@vortex.is>\n"
 
 #: kmidi.cpp:786
 msgid "Configure"
