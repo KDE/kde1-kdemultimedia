@@ -1,0 +1,110 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kmedia\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 1997-10-07 22:20+0200\n"
+"Last-Translator: FULL NAME <flidr@kky.zcu.cz>\n"
+"Language-Team: czech <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-2\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: kmediawin.cpp:132
+msgid "Playback position"
+msgstr "Pozice v pøehrávaném záznamu"
+
+#: kmediawin.cpp:138
+msgid "Eject medium"
+msgstr "Vysuò medium"
+
+#: kmediawin.cpp:142
+msgid "Previous track"
+msgstr "Pøedcházející stopa"
+
+#: kmediawin.cpp:147
+msgid "Backward"
+msgstr "Zpìt"
+
+#: kmediawin.cpp:152
+msgid "Stop"
+msgstr "Stop"
+
+#: kmediawin.cpp:156
+msgid "Play/Pause"
+msgstr "Pøehrát/Pauza"
+
+#: kmediawin.cpp:161
+msgid "Forward"
+msgstr "Vpøed"
+
+#: kmediawin.cpp:166
+msgid "Next track"
+msgstr "Následující stopa"
+
+#: kmediawin.cpp:196
+msgid "New view"
+msgstr "Nový pøehrávaè"
+
+#: kmediawin.cpp:197
+msgid "Exit"
+msgstr "Ukonèit"
+
+#: kmediawin.cpp:202
+msgid "Mixer"
+msgstr "Mixer"
+
+#: kmediawin.cpp:204
+msgid "Preferences"
+msgstr "Preference"
+
+#: kmediawin.cpp:208
+msgid "&Contents"
+msgstr "&Nápovìda"
+
+#: kmediawin.cpp:210
+msgid "&About"
+msgstr "&Informace"
+
+#: kmediawin.cpp:214
+msgid "&File"
+msgstr "&Soubor"
+
+#: kmediawin.cpp:215
+msgid "&Options"
+msgstr "&Mo¾nosti"
+
+#: kmediawin.cpp:217
+msgid "&Help"
+msgstr "&Nápovìda"
+
+#: kmediawin.cpp:272
+msgid "Exited"
+msgstr "Ukonèeno"
+
+#: kmediawin.cpp:273
+msgid "Init"
+msgstr "Init"
+
+#: kmediawin.cpp:274
+msgid "Busy"
+msgstr "Zaneprázdnìný"
+
+#: kmediawin.cpp:275
+msgid "Playing"
+msgstr "Hraji"
+
+#: kmediawin.cpp:276
+msgid "Paused"
+msgstr "Zastaveno"
+
+#: kmediawin.cpp:277
+msgid "Ready"
+msgstr "Pøipraven"
+
+#: kmediawin.cpp:278
+msgid "Undefined"
+msgstr "Nedefinován"
