@@ -5,6 +5,7 @@ Comment[de]=CD Dataenbank Datei
 Comment[fi]=CD Tietokantatiedosto
 Comment[pt]=Ficheiro de Dados de CDs
 Comment[hr]=CD baza datoteka
+Comment[sk]=Databázový súbor CD
 DefaultApp=kedit
 Icon=cd.xpm
 Type=MimeType
