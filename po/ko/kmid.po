@@ -1,0 +1,333 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-06-16 14:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8BIT\n"
+
+#: kmidframe.cpp:61
+msgid "&Open ..."
+msgstr "열기(&O)..."
+
+#: kmidframe.cpp:64
+msgid "&Save Lyrics ..."
+msgstr "가사 저장(&S)..."
+
+#: kmidframe.cpp:67
+msgid "&Quit"
+msgstr "종료(&Q)"
+
+#: kmidframe.cpp:70
+msgid "&Play"
+msgstr "연주(&P)"
+
+#: kmidframe.cpp:72
+msgid "P&ause"
+msgstr "잠시멈춤(&a)"
+
+#: kmidframe.cpp:73
+msgid "&Stop"
+msgstr "정지(&S)"
+
+#: kmidframe.cpp:76
+msgid "P&revious Song"
+msgstr "이전 곡(&r)"
+
+#: kmidframe.cpp:78
+msgid "&Next Song"
+msgstr "다음 곡(&N)"
+
+#: kmidframe.cpp:81
+msgid "&Loop"
+msgstr "반복(&L)"
+
+#: kmidframe.cpp:87
+msgid "&Organize ..."
+msgstr "앨범만들기(&O)..."
+
+#: kmidframe.cpp:90
+msgid "In order mode"
+msgstr "명령모드"
+
+#: kmidframe.cpp:93
+msgid "Shuffle mode"
+msgstr "셔플모드"
+
+#: kmidframe.cpp:97
+msgid "AutoAdd to Collection"
+msgstr "앨범에 자동 추가"
+
+#: kmidframe.cpp:104
+msgid "&General Midi file"
+msgstr "일반 미디 파일(&G)"
+
+#: kmidframe.cpp:108
+msgid "&MT-32 file"
+msgstr "MT-32 파일(&M)"
+
+#: kmidframe.cpp:113
+msgid "See &Text events"
+msgstr "텍스트 이벤트 보기(&T)"
+
+#: kmidframe.cpp:117
+msgid "See &Lyrics events"
+msgstr "가사 보기(&L)"
+
+#: kmidframe.cpp:122
+msgid "&Automatic Text chooser"
+msgstr "자동 텍스트 선택기(&A)"
+
+#: kmidframe.cpp:127
+msgid "&Font Change ..."
+msgstr "글꼴 변경(&F)..."
+
+#: kmidframe.cpp:130
+msgid "&Midi Setup ..."
+msgstr "미디 설정(&M)..."
+
+#: kmidframe.cpp:135
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"Midi/Karaoke file player\n"
+"\n"
+"KMid comes with ABSOLUTELY NO WARRANTY; for details view file COPYING\n"
+"This is free software, and you are welcome to redistribute it\n"
+"under certain conditions\n"
+msgstr ""
+"%s\n"
+"\n"
+"(C) 1997,98 Antonio Larrosa Jimenez (antlarr@arrakis.es)\n"
+"Malaga (Spain)\n"
+"\n"
+"미디/가라오케 파일 연주기\n"
+"\n"
+"KMid로 인한 피해는 책임지지 않습니다; 자세한 것은 COPYING을 참조하십시오\n"
+"이 프로그램은 공개 소프트웨어입니다. 어떤 조건으로 자유롭게\n"
+"재배포할 수 있습니다.\n"
+
+#: kmidframe.cpp:146
+msgid "&File"
+msgstr "파일(&F)"
+
+#: kmidframe.cpp:147
+msgid "&Song"
+msgstr "곡(&S)"
+
+#: kmidframe.cpp:148
+msgid "&Collections"
+msgstr "앨범(&C)"
+
+#: kmidframe.cpp:149
+msgid "&Options"
+msgstr "옵션(&O)"
+
+#: kmidframe.cpp:151
+msgid "&Help"
+msgstr "도움말(&H)"
+
+#: kmidframe.cpp:160
+msgid "Previous Song"
+msgstr "이전 곡"
+
+#: kmidframe.cpp:163
+msgid "Rewind"
+msgstr "되감기"
+
+#: kmidframe.cpp:166
+msgid "Stop"
+msgstr "정지"
+
+#: kmidframe.cpp:169
+msgid "Pause"
+msgstr "잠시멈춤"
+
+#: kmidframe.cpp:173
+msgid "Play"
+msgstr "연주"
+
+#: kmidframe.cpp:176
+msgid "Forward"
+msgstr "앞으로"
+
+#: kmidframe.cpp:179
+msgid "Next Song"
+msgstr "다음 곡"
+
+#: kmidclient.cpp:243 kmidclient.cpp:328 kmidframe.cpp:499
+msgid "Error"
+msgstr "오류"
+
+#: kmidframe.cpp:499
+msgid ""
+"Couldn't open /dev/sequencer to get some info\n"
+"Probably there is another program using it"
+msgstr ""
+"/dev/sequencer의 정보를 얻을 수 없읍니다\n"
+"다른 프로그램이 사용중인 것 같습니다\n"
+
+#: kmidframe.cpp:615 kmidframe.cpp:616
+#, c-format
+msgid ""
+"File %s already exists\n"
+"Do you want to overwrite it ?"
+msgstr ""
+"%s 파일이 이미 존재합니다\n"
+"파일에 덮어 쓰시겠습니까?"
+
+#: collectdlg.cpp:161 collectdlg.cpp:187 collectdlg.cpp:228 kmidclient.cpp:315
+#: kmidclient.cpp:321 kmidframe.cpp:617
+msgid "Warning"
+msgstr "경고"
+
+#: kmidclient.cpp:88
+msgid "Tempo :"
+msgstr "템포 :"
+
+#: kmidclient.cpp:231
+#, c-format
+msgid "The file %s doesn't exist or can't be opened"
+msgstr "%s 파일이 존재하지 않거나 열 수 없습니다"
+
+#: kmidclient.cpp:234
+#, c-format
+msgid "The file %s is not a midi file"
+msgstr "%s 파일은 미디 파일이 아닙니다"
+
+#: kmidclient.cpp:236
+msgid ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+msgstr ""
+"Ticks per cuarter note is negative, please, send this file to "
+"antlarr@arrakis.es"
+
+#: kmidclient.cpp:238
+msgid "Not enough memory !!"
+msgstr "메모리가 부족합니다 !!"
+
+#: kmidclient.cpp:240
+msgid "This file is corrupted or not well built"
+msgstr "파일이 손상되었거나 제대로 만들어지지 않았습니다"
+
+#: kmidclient.cpp:241
+msgid "Unknown error message"
+msgstr "알 수 없는 오류 메시지"
+
+#: kmidclient.cpp:316
+msgid "You must load a file before playing it"
+msgstr "연주하기 전에 파일을 불러들여야 합니다"
+
+#: kmidclient.cpp:322
+msgid "A song is already being played"
+msgstr "노래가 이미 연주중입니다"
+
+#: kmidclient.cpp:328
+msgid ""
+"Couldn't open /dev/sequencer\n"
+"Probably there is another program using it"
+msgstr ""
+"/dev/sequencer를 열 수 없읍니다\n"
+"다른 프로그램이 사용중인 것 같습니다\n"
+
+#: midicfgdlg.cpp:37
+msgid "Configure Midi devices"
+msgstr "미디 장치 설정"
+
+#: collectdlg.cpp:40 kaskdlg.cpp:37 midicfgdlg.cpp:40
+msgid "OK"
+msgstr "예"
+
+#: collectdlg.cpp:43 kaskdlg.cpp:40 midicfgdlg.cpp:43
+msgid "Cancel"
+msgstr "취소"
+
+#: midicfgdlg.cpp:47
+msgid "Select the midi device you want to use :"
+msgstr "사용할 미디 장치를 선택하십시오 :"
+
+#: midicfgdlg.cpp:67
+msgid "Use the midi map :"
+msgstr "미디 맵 사용 :"
+
+#: midicfgdlg.cpp:84 midicfgdlg.cpp:94 midicfgdlg.cpp:126
+msgid "None"
+msgstr "없음"
+
+#: midicfgdlg.cpp:89
+msgid "Browse..."
+msgstr "찾아보기..."
+
+#: collectdlg.cpp:39
+msgid "Collections Manager"
+msgstr "앨범 관리기"
+
+#: collectdlg.cpp:47
+msgid "Available collections :"
+msgstr "사용가능한 앨범 :"
+
+#: collectdlg.cpp:67
+msgid "Songs in selected collection:"
+msgstr "선택된 앨범에 담긴 노래:"
+
+#: collectdlg.cpp:81
+msgid "New"
+msgstr "새 파일"
+
+#: collectdlg.cpp:85
+msgid "Copy"
+msgstr "복사"
+
+#: collectdlg.cpp:89
+msgid "Delete"
+msgstr "삭제"
+
+#: collectdlg.cpp:94
+msgid "Add"
+msgstr "추가"
+
+#: collectdlg.cpp:98
+msgid "Remove"
+msgstr "제거"
+
+#: collectdlg.cpp:151
+msgid "Enter the name of the new collection"
+msgstr "새 앨범의 이름을 넣으십시오"
+
+#: collectdlg.cpp:152
+msgid "New Collection"
+msgstr "새 앨범"
+
+#: collectdlg.cpp:159 collectdlg.cpp:185 collectdlg.cpp:226
+#, c-format
+msgid "The name '%s' is already used"
+msgstr "'%s'라는 이름이 이미 사용되었습니다."
+
+#: collectdlg.cpp:177
+msgid "Enter the name of the copy collection"
+msgstr "앨범 복사본의 이름을 입력하십시오"
+
+#: collectdlg.cpp:178
+msgid "Copy Collection"
+msgstr "앨범 복사본"
+
+#: collectdlg.cpp:219
+msgid "Enter the new name for the selected collection"
+msgstr "선택된 앨범의 새 이름을 입력하십시오"
+
+#: collectdlg.cpp:220
+msgid "Change Collection Name"
+msgstr "앨범 이름 변경"

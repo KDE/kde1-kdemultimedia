@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-06-18 23:29+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8BIT\n"
+
+#: kmediawin.cpp:162
+msgid "Playback position"
+msgstr "플레이 위치"
+
+#: kmediawin.cpp:168
+msgid "Eject medium"
+msgstr "미디어 꺼내기"
+
+#: kmediawin.cpp:172
+msgid "Previous track"
+msgstr "이전 트랙"
+
+#: kmediawin.cpp:177
+msgid "Backward"
+msgstr "반대로"
+
+#: kmediawin.cpp:190
+msgid "Play/Pause"
+msgstr "연주/잠시멈춤"
+
+#: kmediawin.cpp:200
+msgid "Next track"
+msgstr "다음 트랙"
+
+#: kmediawin.cpp:231
+msgid "&Mixer"
+msgstr "믹서(&M)"
+
+#: kmediawin.cpp:233
+msgid "&Preferences"
+msgstr "선택사항(&P)"
+
+#: kmediawin.cpp:241
+msgid ""
+"\n"
+"(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Media player for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+msgstr ""
+"\n"
+"(C) 1996-1998 by Christian Esken (esken@kde.org).\n"
+"\n"
+"KDE 데스크탑 환경 미디어 연주기.\n"
+"이 프로그램은 GPL을 따릅니다.\n"
+
+#: kmediawin.cpp:245
+msgid "About KMedia "
+msgstr "KMedia 정보"
+
+#: kmediawin.cpp:308
+msgid "Exited"
+msgstr "나가기"
+
+#: kmediawin.cpp:309
+msgid "Init"
+msgstr "처음"
+
+#: kmediawin.cpp:310
+msgid "Busy"
+msgstr "작동중"
+
+#: kmediawin.cpp:311
+msgid "Playing"
+msgstr "연주중"
+
+#: kmediawin.cpp:312
+msgid "Paused"
+msgstr "잠시멈춤"
+
+#: kmediawin.cpp:313
+msgid "Ready"
+msgstr "준비"
+
+#: kmediawin.cpp:314
+msgid "Undefined"
+msgstr "정의 안됨"

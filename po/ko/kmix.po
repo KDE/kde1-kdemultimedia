@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1998-06-16 14:34+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: LinuxKorea Co. <kde@linuxkorea.co.kr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8BIT\n"
+
+#: docking.cpp:166
+msgid "Minimize"
+msgstr "최소화"
+
+#: kmix.cpp:425
+msgid "&Hide Menubar"
+msgstr "메뉴바 숨기기(&H)"
+
+#: kmix.cpp:428
+msgid "&Tickmarks On/Off"
+msgstr "눈금 보이기/감추기(&T)"
+
+#: kmix.cpp:442
+msgid ""
+"\n"
+"(C) 1997 by Christian Esken (esken@kde.org).\n"
+"\n"
+"Sound mixer panel for the KDE Desktop Environment.\n"
+"This program is in the GPL.\n"
+"SGI Port done by Paul Kendall (paul@orion.co.nz).\n"
+"*BSD fixes by Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+"and Lennart Augustsson (augustss@cs.chalmers.se)."
+msgstr ""
+"\n"
+"(C) 1997 Christian Esken (esken@kde.org).\n"
+"\n"
+"KDE 데스크탑 환경 사운드 믹서 패널.\n"
+"이 프로그램은 GPL을 따릅니다.\n"
+"SGI 포팅 : Paul Kendall (paul@orion.co.nz).\n"
+"*BSD 포팅 : Sebestyen Zoltan (szoli@digo.inf.elte.hu)\n"
+" 그리고 Lennart Augustsson (augustss@cs.chalmers.se)."
+
+#: kmix.cpp:461
+msgid "&Left"
+msgstr "왼쪽(&L)"
+
+#: kmix.cpp:462
+msgid "&Center"
+msgstr "중앙(&C)"
+
+#: kmix.cpp:463
+msgid "&Right"
+msgstr "오른쪽(&R)"
+
+#: kmix.cpp:553
+msgid "Un&mute"
+msgstr "소리냄(&m)"
+
+#: kmix.cpp:555
+msgid "&Mute"
+msgstr "조용히(&M)"
+
+#: kmix.cpp:558
+msgid "&Split"
+msgstr "좌우나눔(&S)"
+
+#: kmix.cpp:560
+msgid "Un&split"
+msgstr "좌우합침(&s)"
+
+#: kmix.cpp:562
+msgid "&RecSource"
+msgstr "녹음소스"
+
+#: prefs.cpp:42
+msgid "General"
+msgstr "일반"
+
+#: prefs.cpp:43
+msgid "Channels"
+msgstr "채널"
+
+#: prefs.cpp:46
+msgid "Startup settings"
+msgstr "시작 설정사항"
+
+#: prefs.cpp:51
+msgid "Menubar"
+msgstr "메뉴바"
+
+#: prefs.cpp:56
+msgid "Tickmarks"
+msgstr "눈금"
+
+#: prefs.cpp:61
+msgid "Allow docking"
+msgstr "패널에 작은 아이콘 표시"
+
+#: prefs.cpp:86
+msgid "KMix Preferences"
+msgstr "KMix 선택사항"
+
+#: prefs.cpp:96
+msgid "Mixer channel setup"
+msgstr "믹서 채널 설정"
+
+#: prefs.cpp:103
+msgid "Device"
+msgstr "장치"
+
+#: prefs.cpp:109
+msgid "Show"
+msgstr "보이기"
+
+#: prefs.cpp:115
+msgid "Split"
+msgstr "나누기"
