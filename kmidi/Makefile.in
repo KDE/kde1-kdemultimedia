@@ -27,6 +27,7 @@ BINDIR       = $(prefix)/bin
 PICSDIR      = $(prefix)/share/apps/kmidi/pics/
 ICONDIR      = $(prefix)/share/icons/
 DOCSDIR      = $(prefix)/share/doc/HTML/default/kmidi/
+DOCSDIRDE      = $(prefix)/share/doc/HTML/de/kmidi/
 APPSDIR      = $(prefix)/share/applnk/Multimedia/
 # Where to install the patches, config files, and MIDI files.
 # If you change this, it's a good idea to recompile the binary,
@@ -102,7 +103,15 @@ install:
 	$(INSTALL_DATA) docs/kmidi-3.html $(DOCSDIR)
 	$(INSTALL_DATA) docs/kmidi-4.html $(DOCSDIR)
 	$(INSTALL_DATA) docs/kmidi-5.html $(DOCSDIR)
-	$(INSTALL_DATA) docs/FAQ $(DOCSDIR)
+	$(INSTALL_DIR) $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi.sgml $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi.html $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi-1.html $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi-2.html $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi-3.html $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi-4.html $(DOCSDIRDE)
+	$(INSTALL_DATA) docs/de/kmidi-5.html $(DOCSDIRDE)	
+	$(INSTALL_DATA) docs/FAQ $(DOCSDIRDE)
 	$(INSTALL_DIR) $(APPSDIR)
 	$(INSTALL_DATA) KMidi.kdelnk $(APPSDIR)
 	$(INSTALL_DIR) $(PICSDIR)
