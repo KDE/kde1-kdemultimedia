@@ -1,0 +1,14 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kscd 0.8.0\n"
+"POT-Creation-Date: 1998-01-24 18:35+0100\n"
+"PO-Revision-Date: 1998-01-24 18:50+0100\n"
+"Last-Translator: Vladimir Vuksan <vuksan@veus.hr>\n"
+
+#: kscd.cpp:497
+msgid "Performances"
+msgstr "Nastupi"
+
+#: kscd.cpp:500
+msgid "Purchases"
+msgstr "Kupovine"
