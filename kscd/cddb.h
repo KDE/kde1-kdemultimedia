@@ -75,6 +75,7 @@ class CDDB:public QObject
 
     static void  sighandler(int sig);
     static void  setalarm();
+    static void  cddb_http_xlat(QString &s);
 
     void        queryCD(unsigned long magicID,QStrList& querylist);
     int		getState();
@@ -103,7 +104,7 @@ class CDDB:public QObject
  protected:
     void 	do_state_machine();
     void 	parse_serverlist();
-    void        send_http_command(QString command);
+    void        send_http_command(QString &command);
     void        strip_HTTP_header();
     
     typedef enum {CDDBP,CDDBHTTP,SMTP,UNKNOWN} transport;

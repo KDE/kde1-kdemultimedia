@@ -136,7 +136,8 @@ void CDDB::cddbgetServerList(QString& _server){
     if(protocol==CDDBHTTP)
     {
 	cddb_connect_internal();
-	send_http_command("sites");
+        QString cmd="sites";
+	send_http_command(cmd);
 	if(use_http_proxy)
 	{
 	    saved_state=SERVER_LIST_WAIT;
@@ -235,7 +236,7 @@ void CDDB::cddb_connect_internal()
 	fprintf(stderr,"CONNECTED\n");
 }
 
-void CDDB::send_http_command(QString command)
+void CDDB::send_http_command(QString &command)
 {
     QString request;
     QString prt;
@@ -244,9 +245,6 @@ void CDDB::send_http_command(QString command)
     QString domainname;
     QString username;
     
-    // primitive incomplete http encoding TODO fix!
-    command = command.replace(QRegExp(" "), "+");
-
     //TODO: We should get user/host name informations only once per session.
     uname(&uts);
     domainname = uts.nodename;
@@ -262,9 +260,12 @@ void CDDB::send_http_command(QString command)
 	username = "anonymous";
 
     identification="&hello="+username+"+"+domainname+"+Kscd+"+KSCDVERSION+"&proto=3";
-    
+
     prt.setNum(port);
     QString base  = "http://"+hostname+":"+prt;
+
+    cddb_http_xlat(command);
+
     if(use_http_proxy)
 	request="GET "+base+cgi+"?cmd="+command+identification+" HTTP/1.0\r\n\r\n";
     else
@@ -1210,6 +1211,38 @@ void CDDB::strip_HTTP_header()
 	// Let's strip HTTP header
 	int hl = respbuffer.find("\r\n\r\n",0,true);
 	respbuffer = respbuffer.right(respbuffer.length()-hl-4);
+    }
+}
+
+void CDDB::cddb_http_xlat(QString &s)
+{
+    char q[6];
+
+    if(s.isNull() || s.size()==0)
+        return;
+
+    unsigned int pos=0;
+    while(pos < s.size())
+    {
+        switch (s[pos]) 
+        {
+        case ' ':
+            s[pos]='+';
+            pos++;
+            break;
+        case '?':
+        case '=':
+        case '+':
+        case '&':
+        case '%':
+            (void) sprintf(q, "%%%02X", s[pos]);
+            s.remove(pos,1);
+            s.insert(pos+1,q);
+            pos += 3;
+            break;
+        default:
+            pos++;
+        }
     }
 }
 
