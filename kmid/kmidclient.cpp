@@ -148,7 +148,9 @@ kmidClient::kmidClient(QWidget *parent,const char *name)
         kconf->setGroup("Midimapper");
         QString qs=kconf->readEntry("Loadfile","gm.map");
 
+#ifdef KMidDEBUG
         printf("Read Config file : %s\n",(const char *)qs);
+#endif
 	tmp=new char[qs.length()+1];
 	strcpy(tmp,qs);
 	setMidiMapFilename(tmp);
@@ -874,7 +876,7 @@ initializing_songs=0;
  
 void kmidClient::fillInComboSongs(void)
 {
-int oldselected=comboSongs->currentItem();
+//int oldselected=comboSongs->currentItem();
 comboSongs->clear();
 //comboSongs->setCurrentItem(-1);
 if (currentsl==NULL) return;

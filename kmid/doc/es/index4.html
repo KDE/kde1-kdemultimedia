@@ -1,64 +1,60 @@
 <HTML>
 <TITLE>Ayuda de KMid - El Mapeador Midi</TITLE>
 <BODY>
-<P><H5>KMid 0.6  .  Antonio Larrosa Jimenez (antlarr@arrakis.es)  .  1-4-98 . Malaga (Espa&ntilde;a)</H5></P>
+<P><H5>KMid 1.0  .  Antonio Larrosa Jimenez (antlarr@arrakis.es)  . 22-6-98 . Malaga (Espa&ntilde;a)</H5></P>
 <HR>
-<P>
-El mapeador midi es algo muy importante para quien tiene un organo externo
-que no es General Midi, como esas personas son una minoria (de la que
-yo formo parte), espero que no les importe tener que leer esta secci&oacute;n
-en ingl&eacute;s. Para la siguiente versi&oacute;n ya lo tendr&eacute; traducido.
-<BR>Perdonad las molestias.
-</P>
 <P><A NAME="4."></A><H2>4. El Mapeador Midi</H2></P>
 <P><A NAME="4.1."></A><H3>4.1. Qu&eacute; es un mapa midi ?</H3></P>
 <P>
-A Midi Map is something that maps midi events in other midi events .
-<BR>This is very useful (totally needed) if a synthesizer doesn't understand
- the standard events (that is, if a synthesizer is not General Midi compliant)
- , in this case, a midi map will translate General Midi events in the events
- that that synthesizer understands.
-<BR>For example you can make a midi map that converts all the 'Change patch to
- Bright Piano' events, to 'Change patch to Trumpet' events, and so when a song
- tries to play a piano, it will play a trumpet instead.
-<BR>This may sound odd, (why playing a trumpet when the song is made to play
- a piano ?), but it is very useful. The GM standard specifies that when a
- midi keyboard receives an event to change patch to 0, it will change the
- current patch to 'Grand Piano', but older synthesizer will change to a
- 'Electric Guitar' (for example) when it receives a 0. This old keyboard,
- needed to receive a 3 (for example) to change to a Piano. And here comes
- the midi map in action, changing all 'change patch to 0' to 'change patch to 3'
- and thus really playing the correct instrument when it has to.
+Un Mapeador Midi es una herramienta que transforma unos eventos midi en otros.
+<BR>Esto es muy util (de hecho, totalmente necesario) para los &oacute;rganos que
+ no comprendan los eventos est&aacute;andares (o sea, si un teclado no es compatible General Midi)
+ , en este caso, el mapeador midi traducir&aacute; los eventos General Midi en eventos
+ que ese &oacute;rgano comprenda.
+<BR>Por ejemplo, puedes hacer un mapeador midi que convierta todos los eventos del tipo
+'Usar el instrumento piano', por 'Usar el instrumento trompeta', y asi cuando una canci&oacute;n
+ intente tocar un piano, tocar&aacute; una trompeta en su lugar.
+<BR>Esto puede resultar extra&ntilde;o, (¿Por qu&eacute; tocar una trompeta cuando la canci&oacute;n intenta tocar
+ un piano ?), pero es muy util. El estandar GM especifica que cuando un
+ teclado midi recibe un evento para cambiar al instrumento 0, cambiar&aacute; el instrumento
+ actual a un 'Grand Piano', pero un sintetizador antiguo cambiar&aacute; a una
+ 'Guitarra El&eacute;ctrica' (por ejemplo) cuando reciba un 0. Este teclado antiguo,
+ necesita recibir un 3 (por ejemplo) para cambiar a un Piano. Y aqu&iacute; se pone
+ el mapeador midi en acci&oacute;n, cambiando todos los eventos de 'Cambiar instrumento al 0'
+ por 'Cambiar instrumento al 3' y asi realmente tocar el instrumento correcto.
 </P>
 
 <P><A NAME="4.2."></A><H3>4.2. Necesito un mapa midi ?</H3></P>
 <P>
-Quickly, if you don't have an external synth, NO.
-<BR>If you only have a sound card, midi maps are not needed because all the sound
- cards are GM compliant (this include AWE cards, GUS cards, and so on).
-<BR>If you are playing music through an external synthesizer, and it is
-not GM compliant, you will need to make a midi map for your midi keyboard .
- Although you will perhaps be a whole afternoon doing your map file and
- trying different values for all the options, you will be fully rewarded
- when you finish it, because then you will find all the hidden possibilities
- of your keyboard. For example, I have a low-cost Yamaha PSS-790, which is not
- GM compatible, and doesn't has as many instruments as a GM synthesizer,
- but with the midi map I've made, it sounds even better than many soundcards
- (including AWE :-)), due to the sound quality found in external synths (even on
- non GM)
+Brevemente, si no tienes un &oacute;rgano externo, NO.
+<BR>Si s&oacute;lo tienes una tarjeta de sonido, no necesitas mapeador midi pues
+todas las tarjetas de sonido son compatibles GM (incluyendo a las AWE, GUS, etc.).
+<BR>Si est&aacute;s tocando musica a trav&eacute;s de un &oacute;rgano externo que no
+sea compatible GM, entonces necesitas hacer un mapeador midi para tu teclado midi.
+ Aunque est&eacute;s toda una tarde haciendo un fichero de confihuraci&oacute;n
+ e probando diferentes valores para todas las opciones, ser&aacute;s recompensado
+ cuando lo termines, porque s&oacute;lo entonces encontraras todas las caracteristicas
+ que tu teclado ten&iacute;a escondidas. Por ejemplo, yo tengo un Yamaha PSS-790,
+ que no es compatible GM, y no tiene tantos instrumentos como un sintetizador GM,
+ pero con el mapeador midi del KMid, suena incluso mejor que muchas tarjetas de sonido
+ (incluyendo a una AWE :-)), debido a la calidad de los sonidos que tiene un
+ sintetizados externo (incluso en los antiguos que no son GM)
 </P>
 
 <P><A NAME="4.3."></A><H3>4.3. Creando un mapa midi</H3></P>
 <P>
-There isn't any program (yet) to generate midi maps, so you will have to 
- edit a file by hand .
-<BR>A Midi map is a file that keeps all the needed translations there will
- be made when playing music .
-<BR>It consist of many sections: PATCHMAP, KEYMAP, CHANNELMAP, OPTIONS
-<BR>Each section must appear only once, except the KEYMAP section that
- can appear as many times as needed, provided that each appearance use
- a different TextID (continue reading for details) .
-<BR>The general structure of a map file is :
+No hay ning&uacute;n programa (todav&iacute;a) para generar mapas midi con lo que
+tendr&aacute;s que editar el fichero a mano . Un hecho que quisiera hacer notar es que
+mapa es una traducci&oacute;n mala de "map", pero en el fondo, tiene
+sentido y adem&aacute;s se parece a la expresi&oacute;n inglesa "midi map" con lo que usar&eacute;
+mapa midi para referirme al fichero de configuraci&oacute;n del mapeador midi.
+<BR>Un mapa midi es un archivo en el que se guardan todas las conversiones necesarias que
+se har&aacute;n cuando se toque la m&uacute;sica.
+<BR>Consiste en varias secciones: PATCHMAP, KEYMAP, CHANNELMAP, OPTIONS
+<BR>Cada secci&oacute;n debe aparecer s&oacute;lo una vez, excepto la secci&oacute;n KEYMAP que
+ puede aparecer tantas veces como sea necesario, siempre que en cada aparici&oacute;n
+ use un identificador distinto (continua leyendo para mas detalles)
+<BR>La estructura general de un fichero map es :
 <BR>-----------
 <BU>
 <BR>DEFINE PATCHMAP
@@ -79,46 +75,48 @@ There isn't any program (yet) to generate midi maps, so you will have to
 <BR>END
 </BU>
 <BR>----------
-<BR>You can see that the DEFINE word is used to specify which section is going
- to be started (except for OPTIONS), and END is put at the end of each section.
-<BR>You can put comments by starting the line with a '#' character .
-<BR>Please, don't forget to send me your map file by email, so that future
-releases of KMid will include support for more non General Midi compliant
-keyboards.
+<BR>Puedes ver que la palabra DEFINE se usa para especificar que secci&oacute;n
+ se va a empezar (excepto en OPTIONS), y que END se pone al final de cada secci&oacute;n.
+<BR>Puedes poner comentarios comenzando la linea con un caracter '#' .
+<BR>Por favor, no olvides mandarme tu fichero de configuraci&oacute;n de tu mapeador midi
+para que as&iacute; las versiones futuras de KMid incluyan soporte para mas teclados
+que no sean General Midi.
 </P>
 
 <P><A NAME="4.3.1."></A><H3>4.3.1. La secci&oacute;n PATCHMAP</H3></P>
 <P>
-This section is used to specify how are going to be mapped the Patches, from GM
- to your keyboard specs . The general usage is :
-<BR> (Name of GM Patch name)=(N) [AllKeysTo M]
-<BR>Where N is the number that you keyboard needs to receive to change the patch
- to the same that the GM standard does .
-<BR>Please note that the left side of the equal sign is ignored, so GM patches are
- supossed to be in order (from 0 to 127) , and so you are not allowed to change
- the order of the lines nor to omit any of the 128 instruments.
-<BR>The optional 'AllKeysTo M' is used to map all notes that use that instrument
- to the M key . For example, suppose that your midi keyboard doesn't have
- a Gun Shot sound (GM patch 127) so you want to map it to a percussion drum (i.e. key 60),
- which sounds similar to a gun shot, then you can put in the 127th line of
- the PATCHMAP section:
+Esta secci&oacute;n se usa para especificar como se van a traducir los instrumentos, de GM
+ a los requerimientos de tu teclado . El uso general es :
+<BR> (Nombre del instrumento GM )=(N) [AllKeysTo M]
+<BR>Donde N es el n&uacute;mero que tu teclado necesita recibir para cambiar al mismo instrumento
+ al que cambia el estandar GM .
+<BR>Importante: nota que la parte izquierda del signo igual es ignorada, asi que los instrumentos GM se
+ suponen que van en orden (de 0 a 127) , y no est&aacute; permitido el cambiar el
+ orden de las lineas, ni omitir ninguno de los 128 instrumentos.
+<BR>La opci&oacute;n 'AllKeysTo M' se usa para mapear todas las notas que usen ese instrumento
+ a la tecla M . Por ejemplo, supongamos que tu teclado midi no tiene un sonido
+ de 'Gun Shot' (sonido de disparo de pistola), que es el instrumento 127 seg&uacute;n el estandar GM,
+ asi que quieres mapearlo a un tambor de percusi&oacute;n (por ejemplo, la tecla 60),
+ que suena similar a un disparo, entonces puedes poner esto en la linea 127 de
+ la secci&oacute;n PATCHMAP :
 <BR> Gunshot       =100 AllKeysTo 60
-<BR>So when a midi file tries to play a note with the patch 127 (gun shot), it
- will be mapped to the patch 100 (your keyboard's percussion patch) and play
- the note 60 (independently of the key that was goind to be played) .
-<BR>Please note that when I use the expression 'Percussion patch', I mean
- the patch in which each key plays a different drum, cymbal and so on, and
- not to a possible sound which some keyboards have and which plays a
- different tone of the same drum with each key .
+<BR>Asi cuando un fichero midi intente tocar una nota con el instrumento 127, 
+ ser&aacute; mapeado al instrumento 100 (suponiendo que ese sea el numero usado en tu
+ teclado para el "instrumento de percusi&oacute;n") y tocar&aacute; la nota 60 (independientemente
+  de la tecla con la que fuera a ser tocado).
+<BR>N&oacute;tese que cuando uso la expresi&oacute;n 'instrumento de percusi&oacute;n',
+ me refiero al instrumento en el que cada tecla toca un tambor, platillo o caja
+ de percusi&oacute;n distinto, y no a un posible sonido que algunos teclados tienen
+ y que tocan un tono distinto de la misma bater&iacute;a con cada tecla.
 </P>
 
 <P><A NAME="4.3.2."></A><H3>4.3.2. La secci&oacute;n KEYMAP</H3></P>
 <P>
-The KEYMAP section is used to specify how keys are going to be mapped, within 
- a given channel or instrument . The usage is :
+La secci&oacute;n KEYMAP se usa para especificar como se van a mapear las teclas, dentro 
+de un canal o instrumento dado . El uso es :
 </P>
 <P>
-<BR>DEFINE KEYMAP "Name of Keymap"
+<BR>DEFINE KEYMAP "Nombre del mapa de teclas"
 <BR>C 0 =0
 <BR>C#0 =1
 <BR>D 0 =2
@@ -126,37 +124,38 @@ The KEYMAP section is used to specify how keys are going to be mapped, within
 <BR>END
 </P>
 <P>
-As with the PATCHMAP section, it is very important the order of the lines, and
- that they are all there (the 128 keys).
-<BR>As you can define multiple keymaps for different channels and instruments,
- you must give a different name to each one in the first line.
-<BR>Keymaps are mainly used to map keys in the percussion channel . Have a look
- at the distributed maps to see some examples.
+Igual que con la secci&oacute;n PATCHMAP, es muy importante el orden de las lineas
+y que est&eacute;n todas las 128 teclas .
+<BR>Como puedes definir varios "keymaps" para diferentes canales e instrumentos,
+ debes darle un nombre distinto a cada uno en la primera linea.
+<BR>Los mapas de teclas (Keymaps) se usan principalmente para mapear las teclas
+ en el canal de percusi&oacute;n . Hecha un vistazo a los mapas midi distribuidos
+ para ver algunos ejemplos.
 </P>
 
 <P><A NAME="4.3.3."></A><H3>4.3.3. La secci&oacute;n CHANNELMAP</H3></P>
 <P>           
-This section can be used to map some channels to different ones . For example,
- if you want to swap the first and second channels, you can easily do it within
- the CHANNELMAP section .
-<BR>However it is more usefull for keyboards that need the percussion channel 
- to be in a given channel (the GM standard use the channel 10, others use the
- channel 16 and others use channel 9).
-<BR>Note that midi devices use 16 channels, so the CHANNELMAP section, has
- 16 lines, from 0 to 15 , as this one :
-<BR> (N) = (M) [Keymap "Name"] [ForcePatch x]
-<BR>Where N is the channel which is mapped to the M channel .
- If the Keymap option is used, the Keymap with name "Name" will be used
- in this channel (this Keymap should be defined earlier in the map file !) .
- If the ForcePatch option is used, all events that try to change the patch
- which is used in this channel will be ignored, and patch x will be used instead .
-<BR>The ForcePatch option may be useful for example to always use the
- percussion patch on the percussion channel .
+Esta secci&oacute;n se usa para intercambiar unos canales por otros . Por ejemplo,
+ si tu quieres cambiar el primer y el segundo canal, lo puedes hacer muy f&aacute;cilmente
+ en esta secci&oacute;n .
+<BR>De todas formas, es todav&iacute;a mas &uacute;til, para los teclados que necesitan
+ que el canal de percusi&oacute;n est&eacute; en un determinado canal (el estandar GM usa
+ el canal 10, otros usan el 16 y otros el 9) .
+<BR>N&oacute;tese que los dispositivos midi usan  16 canales, as&iacute; que
+ la secci&oacute;n CHANNELMAP tiene 16 lineas (de 0 a 15),como esta :
+<BR> (N) = (M) [Keymap "Nombre"] [ForcePatch x]
+<BR>Donde N es el canal que va a ser mapeado al canal M .
+ Si se usa la opci&oacute;n Keymap, el mapa de teclas con nombre "Nombre" sera usado
+ en este canal (la secci&oacute;n Keymap debe haber sido definida ANTES en ese ficher !) .
+ Si se usa la opci&oacute;n ForcePatch, todos los eventos que intenten cambiar el instrumento
+ que se usa en ese canal ser&aacute;n ignorados, y el instrumento x ser&aacute; usado en su lugar .
+<BR>La opci&oacute;n ForcePatch es muy util por ejemplo, para usar
+siempre el instrumento de percusi&oacute;n en el canal de percusi&oacute;n .
 </P>
 
 <P><A NAME="4.3.4."></A><H3>4.3.4. La secci&oacute;n OPTIONS</H3></P>
 <P>
-The OPTIONS section has some general options that can be very useful :
+La secci&oacute;n OPTIONS tiene algunas opciones generales que pueden ser muy utiles :
 </P>
 <P>
 OPTIONS
@@ -165,33 +164,34 @@ OPTIONS
 <BR>END
 </P>
 <P>
-You can specify both options, only one, or none of them.
-<BR>The PitchBenderRatio r value, has the ratio by which pitch bender events
- will be multiplied . That is, when a midi file tries to send a pitch bender
- event with a n value, the real value that will be sent is n*(r/4096) (the
- 4096 value is for not having to put decimal points in the map file) .
-<BR>This is used because the GM standard says that when a midi keyboard receives
- a Pitch Bender event with a 4096 data value, it should bend the note to a
- higher one , but some midi keyboards try to bend the initial note by
- two or more higher notes (even an octave higher !) when they receive a 4096 .
- This can be easily fixed by trying different values so that instead of sending
- a 4096, KMid sends the appropiate value .
-<BR>When the MapExpressionToVolumeEvents option is set in the map file, and
- a midi file try to send an expression event, KMid will send a volume event
- which is understood by more non-GM keyboards, and which has a similar effect .
- There are many midi files which use expression events to fade out at the end
- of a song, so if you feel that music should be heard softer and softer, you
- can turn on this option and see if this is what you need, because your midi
- synthesizer could be ignoring the expression events because it doesn't
- understand them.
+Puedes especificar ambas opciones, s&oacute;lo una, o ninguna.
+<BR>El valor de r en PitchBenderRatio , especifica la proporci&oacute;n por la que ser&aacute;n
+ multiplicados los eventos de inflexi&oacute;n del tono (Pitch bender) .
+ O sea, cuando un fichero midi intenta mandar un evento de inflexi&oacute;n del tono
+ con un valor de n, el valor que realmente ser&aacute; mandado ser&aacute; n*(r/4096) (el
+ 4096 es para no tener que usar puntos decimales en el fichero map) .
+<BR>Esta opci&oacute;n se usa porque el estandar GM dice que cuando un dispositivo midi
+ recibe un evento de inflexi&oacute;n del tono con un valor de 4096, debe subir el tono
+ a uno mas agudo, pero algunos teclados intentan subir el tono a dos o mas notas
+ mas agudas (incluso una octava mas aguda!!) cuando reciben un 4096 .
+ Esto se arregla facilmente intentando distintos valores para que en vez de mandar un
+ 4096, KMid mande el valor apropiado .
+<BR>Cuando se especifica la opci&oacute;n MapExpressionToVolumeEvents en el fichero map, y
+ un fichero midi intenta mandar un evento de expresi&ocaute;n, KMid mandar&aacute; un evento
+ de volumen que comprenden todos los teclados que no son GM, y que tiene un efecto muy parecido .
+ Hay muchos ficheros midi que usan eventos de expresi&oacute;n para ir bajando el volumen
+ al final de la canci&oacute;n, asi que si tu crees que la m&uacute;sica deber&iacute;a
+ ir escuchandose cada vez mas baja, puedes activar esta opci&oacute;n y ver si es lo que necesitas,
+ porque posiblemente tu sintetizador midi, est&eacute; ignorando los eventos de
+ expresi&oacute;n porque no los comprenda .
 </P>
 
 <P><A NAME="4.4."></A><H3>4.4. Usando mapas midi</H3></P>
 <P>
-To use a midi map, simply open the 'Midi Setup' dialog by selecting the
-'Midi Setup ...' entry of the 'Options' menu .
-<BR>Then click on 'Browse ...', select the map file within the open file dialog
- and enjoy the music ! :-)
+Para usar un mapa midi, simplemente abre el di&aacute;logo 'Configurar dispositivos Midi' seleccionando
+la entrada 'Configuraci&oacute;n Midi ...' del men&uacute; 'Opciones' .
+<BR>Entonces pulsa en 'Buscar ...', selecciona el fichero en el dialogo de abir fichero
+ y disfruta de la m&uacute;usica ! :-)
 </P>
 <HR>
 <P ALIGN="RIGHT">

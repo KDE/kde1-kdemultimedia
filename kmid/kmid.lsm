@@ -1,7 +1,7 @@
 Begin3
 Title:          kmid
-Version:        0.6
-Entered-date:   06/05/1998
+Version:        1.0
+Entered-date:   22/06/1998
 Description:    A midi/karaoke player with a very friendly interface.
  Main features of kmid :
  - Shows the text of karaoke files changing its color synchronized with music

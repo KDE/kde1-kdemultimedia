@@ -332,3 +332,10 @@ got the time slider very desynchronized after pausing for a long time.
 Monday 25-5-98
 - Applied a patch submitted by Kevin Street, to compile kmid on FreeBSD 3.0
 systems with awe support (directory settings has changed since 2.2) 
+
+Saturday 20-6-98
+- I'm on exams, but just to relax a few minutes I've been hunting for bugs :-)
+
+Sunday 21-6-98
+- Wow, KDE-1.0 is finally here, and it is REAL, so I will prepare very quickly
+KMid 1.0 before the freeze of kdemultimedia.

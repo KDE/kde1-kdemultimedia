@@ -22,18 +22,13 @@
 
 ***************************************************************************/
 #include "kmidframe.moc"
-//#include "kmidframe.h"
 
-//#include <kapp.h>
 #include <qkeycode.h>
 #include <stdio.h>
 #include <kfiledialog.h>
 #include <kapp.h>
 #include <qstring.h>
 #include <unistd.h>
-//#include "player/midimapper.h"
-//#include "player/track.h"
-//#include "player/midispec.h"
 #include <sys/shm.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -142,7 +137,6 @@ kmidFrame::kmidFrame(const char *name)
 	m_help = (KApplication::getKApplication())->getHelpMenu(true, aboutstring);
 
 	menu = new KMenuBar(this);
-//	menu = menuBar();
 	menu->insertItem(i18n("&File"),m_file);
 	menu->insertItem(i18n("&Song"),m_song);
 	menu->insertItem(i18n("&Collections"),m_collections);
@@ -153,7 +147,6 @@ kmidFrame::kmidFrame(const char *name)
 	setMenu(menu);
 
 	toolbar=new KToolBar(this);
-//	toolbar=toolBar();
 
 	toolbar->insertButton(Icon("kmid_prev.xpm"),1,
 		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
@@ -178,8 +171,6 @@ kmidFrame::kmidFrame(const char *name)
 		SIGNAL(clicked(int)),this,SLOT(buttonClicked(int)),TRUE,
 		i18n("Next Song"));
 
-//	toolbar->setBarPos(KToolBar::Top);
-//	toolbar->enable(KToolBar::Show);
 	addToolBar(toolbar);
 
 	KConfig *kcfg=(KApplication::getKApplication())->getConfig();
@@ -319,8 +310,6 @@ switch (i)
     case (5) : kmidclient->song_Play();break;
     case (6) : kmidclient->song_Forward();break;
     case (7) : kmidclient->song_PlayNextSong();break; 
-//		kmidclient->timebarChange(4946);
-//		kmidclient->timebarChange(191733);
     };
 
 
@@ -504,12 +493,16 @@ MidiConfigDialog *dlg;
 dlg=new MidiConfigDialog(kmidclient->devman(),NULL,"MidiDialog");
 if (dlg->exec() == QDialog::Accepted) 
     {
+#ifdef GENERAL_DEBUG_MESSAGES
     printf("Device selected : %d\n",MidiConfigDialog::selecteddevice);
+#endif
     KConfig *kcfg=KApplication::getKApplication()->getConfig();
     kcfg->setGroup("KMid");
     kcfg->writeEntry("MidiPortNumber",MidiConfigDialog::selecteddevice);
     kmidclient->setMidiDevice(MidiConfigDialog::selecteddevice);
+#ifdef GENERAL_DEBUG_MESSAGES
     printf("Midi map : %s\n",MidiConfigDialog::selectedmap);
+#endif
     kcfg->setGroup("Midimapper"); 
     kcfg->writeEntry("LoadFile",(const char*)
        (MidiConfigDialog::selectedmap==NULL)? "":MidiConfigDialog::selectedmap);
@@ -605,7 +598,6 @@ void kmidFrame::file_SaveLyrics()
 char name[200];
 name[0]=0;
 QString filename;
-//filename=QFileDialog::getSaveFileName(0,"*.*",this,name);
 filename=KFileDialog::getSaveFileName(0,"*.*",this,name);
 if (!filename.isNull())
         {

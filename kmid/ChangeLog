@@ -62,3 +62,9 @@ Better support for shuffle mode (now it doesn't repeat songs :-))
 -----  ------
 Just thought that everything worked fine and did a major release to 
 put it in my homepage 
+
+1.0    22-6-98
+-----  -------
+Well, I should be studying, but KDE 1.0 good deserves a few minutes
+to change the version number everywhere, remove debug printfs, and
+clean the latest bugs, isn't it ? :-)

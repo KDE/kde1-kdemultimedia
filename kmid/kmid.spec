@@ -1,10 +1,10 @@
 Summary: Play midi/karaoke files and show lyrics. Support External synths, AWE, GUS, and FM devices. For X11/KDE
 Name: kmid
-Version: 0.6
+Version: 1.0
 Release: 1
 Copyright: GPL
 Group: X11/K Desktop Environment/Multimedia
-Source: kmid-0.6.tgz
+Source: kmid-1.0.tgz
 Requires: qt >= 1.3 , kdelibs
 
 %description
@@ -27,7 +27,7 @@ export KDEDIR=/opt/kde
 make install
 
 %files
-%doc kmid/README kmid/COPYING kmid/PEOPLE kmid/kmid-0.6.lsm kmid/ChangeLog
+%doc kmid/README kmid/COPYING kmid/PEOPLE kmid/kmid.lsm kmid/ChangeLog
 
 /opt/kde/bin/kmid
 /opt/kde/share/doc/HTML/en/kmid
@@ -41,7 +41,7 @@ make install
 /opt/kde/share/apps/kmid/maps/gm.map
 /opt/kde/share/apps/kmid/maps/YamahaPSS790.map
 /opt/kde/share/apps/kmid/maps/YamahaPSR500.map
-/opt/kde/share/apps/kmid/Gold.kar
-/opt/kde/share/apps/kmid/SpaceOddity.kar
-/opt/kde/share/apps/kmid/LaFlaca.kar
+/opt/kde/share/apps/kmid/TakingCareOfBusiness.kar
+/opt/kde/share/apps/kmid/AlwaysLookOnTheBrightSideOfLife.kar
+/opt/kde/share/apps/kmid/UnVeleroLlamadoLibertad.kar
 

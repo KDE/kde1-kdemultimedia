@@ -1,27 +1,4 @@
-Antonio Larrosa Jimenez
-antlarr@arrakis.es
-Original idea, programming, and mantainer
+Please take a look at the online help for a list of people who have helped
+me in the development of KMid.
 
-Paul J. Leonard
-P.J.Leonard@bath.ac.uk
-Some changes to make AWE32 work
-
-Sebestyen Zoltan
-szoli@digo.inf.elte.hu
-FreeBSD diffs and AWE testing
-
-Greetins go to :
-Rafael Larrosa - For his continuous help
-Christian Esken - For answering my (silly) questions in kdedevel ;-)
-Stephan Kulow - For the fabulous configure scripts and help with automake & CVS
-Jaroslav Kysela - For helping me supporting gusd
-Adrian Knoth    - For giving me good news and suggestions (as save lyrics)
-Kevin Street    - Patch to support FreeBSD 3.0
-
-Thanks go also to Marc Diefenbruch, Peter Gritsch, Magnus Pfeffer, 
-Urko Lusa, Peter-Paul Witta, Thorsten Westheider, Ulrich Cordes, Ola Sigurdson,
-Jose Luis Sanchez and everyone that sent me a patch, bug report or just an
-email to give me encouragement
-
-And of course to all the fabulous musicians over the net that keep giving us
-those wonderful midi files.
+			- Antonio Larrosa

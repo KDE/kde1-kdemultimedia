@@ -2,261 +2,104 @@
 		KKK  KK  MMM    MMM  IIIIII  DDDDD
 		KKK KK   MMMMMMMMMM   IIII   DDDDDDD
 		KKKKK    MMMMMMMMMM    II    DDD  DD
-		KKKKKK   MMM MM MMM   IIII   DDDDDDD
+	Console	KKKKKK   MMM MM MMM   IIII   DDDDDDD
 		KKK KKK  MMM    MMM  IIIIII  DDDDD
 
-				KMID
+				ConsoleKMID
 
 
-	This info is up to date if you have KMid version 0.5.2
+	This info is up to date if you have KMid version 1.0
 
 ________________________________________________		
-Help found in html pages are updated more often than this file, please
-read them first.
+If you are looking for a KMid README file, then this is NOT the one you are
+looking for. Please look the online documentation, that is, the html help 
+
+I've left this file only for help on the small cousin of KMid, ConsoleKMid.
+
 		- Antonio Larrosa
 ------------------------------------------------
 
 Index
 -------
- 1. What is KMid ?
- 2. Requirements
- 3. Quickstart
+ 1. What is ConsoleKMid ?
+ 2. Requirements of consoleKMid
+ 3. Compiling consoleKMid
  4. Installing
  5. Running
- 6. Uninstalling
- 7. How do I use a Midi Mapper ?
- 8. Playlists / Collections
- 9. What is ConsoleKMid ?
- 10. Where can I download KMid from ?
- 11. To do list
+ 6. How do I use a Midi Mapper ?
+ 7. Where can I download KMid and consoleKMid from ?
+ 8. To do list
 
-1. What is KMid
----------------
+1. What is ConsoleKMid ?
+------------------------
+   ConsoleKMid is a small program for Unix in console mode, which uses the same
+   player engine of KMid. Of course it doesn't have the same friendly
+   interface of KMid but it works to play midi files.
 
-   KMid is a midi/karaoke player for X11, it uses the KDE environment and libs
-   along with Qt libs
-   KMid can use midi mappers to do some amazing (and powerful) things.
-   It can play midi and karaoke files through the sequencer device, and it
-   plays even broken midis which other programs can't !!
-   KMid has a very beautiful user interface, which lets you customize the
-   fonts, use drag&drop thus allowing the user to drag a file from a kfm
-   window and drop it in a kmid window to play it, and other features ... 
-   Session Management is also supported, thus if you logout of KDE while
-   a song is playing, the next time you log in, kmid will be restored and
-   the song will continue playing !.
-   As of version 0.4, AWE and GUS cards are also supported. KMid will also
-   read any gzipped midi file just as it reads a normal midi file.
-   From version 0.5 on, KMid also supports FM devices such as adlib cards,
-   or opl chipsets included in nearly all sound cards (including sb pro,sb16
-   and more)
-   Version 0.5.2 includes internationalization and some bug fixes.
+   If you have the rpm distribution, you will not find the consolekmid program
+   unless you also have the src.rpm distribution
+   
 
+2. Requirements of consoleKMid
+-------------------------------
 
-2. Requirements
----------------
-
-   A UNIX machine with X11, KDE, Qt libs, a soundcard and a /dev/sequencer 
-   device well installed 
+   A UNIX machine, a soundcard and a /dev/sequencer device well installed 
    If you have a GUS, you need a properly installed driver from the Linux 
    Ultrasound Project, AWE cards are also supported, but you will probably
-   need to compile KMid in order to get an AWE card to work.
+   need to compile consoleKMid in order to get an AWE card to work.
    FM devices are also supported. 
    I have only tested KMid in Linux, but I have had sucessful reports getting 
    KMid to work on FreeBSD
    If you sucessfully run KMid in other unices, please tell me !
 
-3. Quickstart
+3. Compiling consoleKMid
 -----------------
-   Read the Installing section (it's a quite quick start :-)
-   Then just type "kmid" and it runs.
+   Do a configure from the parent directory, then go to the player directory,
+   and do a 'make' . Simple , isn't it ?
+
+   By default it will use the external midi device, if you want to use another
+   one (fm, awe, or anything else), edit the file main.cc and change the value
+   of DEVICETOUSE to the one you want.
 
 4. Installing 
 -----------------
-   To install the rpm version, just do "rpm -i kmid-0.5-1.rpm" (as root).
-
-   To install the tgz version, follow these steps:
-
-   Go to the parent directory (../.) and type "./configure" then come back to
-   this directory and do a "make", now you should have compiled the kmid
-   executable.
-   If you want to compile also the consolekmid program, do a "make" in the
-   player directory.
-
-   To install the binary, toolbar pictures, icon and the help file do also a 
-   "make install" (highly recommended - required (?)) 
+   No installing of consoleKMid is actually done, just copy the consoleKMid file
+   yourself to where you want.
 
 5. Running
 --------------
-   Well, it's quite easy, just type "kmid" and it should run :-)
-   If you have made a "make install" you will be able to run kmid from any
-   directory, but if you haven't, then you will have to go to this directory
-   to execute it.
+   Well, it's quite easy, just type "consolekmid" and it should run :-)
 
-   If you want to use KMid with an AWE,GUS, or FM cards you will have to open
-   the Options | Midi Setup ...  dialog and select the appropiate device.
-   By default it is set to external midi port. 
-
-
-6. Uninstalling
-------------------
-   To uninstall the rpm version, type "rpm -e kmid"
-   To uninstall the tgz version, follow these steps:
-
-   Erase the kmid_*.xpm files in the /opt/kde/share/toolbar directory and
-   the file kmid in /opt/kde/bin, also erase the file ~/.kde/share/config/kmidrc
-   that should have been created in each user's home directory.
-   Go to /opt/kde/share/doc/HTML/default and erase the file kmid.html also,
-   if you want to delete the help.
-   Now that you have deleted the binary you will not need the icon, so you
-   can delete it, it should be in $PREFIX/share/icons/kmid.xpm
-   There's also another method, to uninstall you can run "make uninstall",
-   but I don't guarantee it to work (in fact, I don't guarantee anything to
-   work :-))
-
-7. How do I use a Midi Mapper ?
+6. How do I use a Midi Mapper ?
 -------------------------------
    A Midi Mapper is the feature you have been waiting for in Linux for years,
    (at least I have been :-) it makes a non General Midi synth, appear to the
    computer as General Midi compliant. Thus, a GM synth is emulated with a
    nonGM.
-   To use a midi mapper, insert two lines like these at 
-    ~/kde/share/config/kmidrc :
+   Look the KMid docs for more info on creating/using a midi map.
+   If you want to use one with consolekmid, just edit main.cc in the player
+   directory and change the value of MAP_PATH to whatever you want. 
 
-[Midimapper]
-Loadfile=<map file>
+   If you want to define a new map for your midi keyboard, I recommend you to
+   start by copying the file yamaha790.map and modifying it. And remember to
+   send it to me so that it will be included in future revisions and other
+   people can use it !
 
-   yamaha790.map is included as an example map (look in the maps directory).
-
-   From version 0.4 you can easily select the map to use from 
-   Options | Midi Setup , then press on the Browse button and select the
-   appropiate map file for your synthesizer.
-
-   Note: I have had one report telling me that GM synths use inappropiate
-   patches and that a gm map must be used instead of no map at all.
-   Could someone with a GM synth verify this situation ?
-
-   The map file must have the following structure and everything is 0 based:
----8<----8<----8<------
-
-<patchmap definition>
-<keymap definition>
-<...>
-<keymap definition>
-<channelmap definition>
-
-You can define as many keymaps as you like but patchs and channels map MUST only
-appear once.
-The structure of each definition is the following :
-
-
-# Line beggining with # are comments
-DEFINE PATCHMAP
-<Name of patch>=<Number of patch in your keyboard> [AllKeysTo <Number>]
-...
-#Must have 128 lines, and the name of patch is ignored, so the mapped number is
-# assigned based in the order
-#AllKeysTo <Number>
-#     Number is the key number to which all keys will be mapped, when this 
-#     sound is used
-#
-#
-
-...
-END
-
-DEFINE KEYMAP "Name"
-<Name of Key>=<Mapped Key>
-...
-#Must have 128 keys (and again, the name is ignored)
-END
-
-DEFINE CHANNELMAP
-<Number of channel> = <Mapped channel> [Keymap "Name"] [ForcePatch patch] 
-...
-#Keymap "<Name>"
-#  The Keymap PREVIOUSLY DEFINED with name "Name" will be used in this channel
-#Must have 16 channels
-#ForcePatch patch
-#  Requests to change the patch (voice) of a channel will be ignored and
-#  patch will be used instead (remember that 'patch' is sent directly without
-#  further mapping through PATCHMAP nor anything)
-END
-
-OPTIONS
-PitchBenderRatio = rrr
-# rrr is the constant ratio by which pitch bender events will be multiplied
-# In fact, it will be multiplied by (rrr/4096)
-
-MapExpressionToVolumeEvents
-# If you set this option, expression events will be mapped to volume events,
-# which aren't exactly the same but they are very similar, and so keyboards
-# with no support for exp. events will sound better. 
-END
----8<----8<----8<------
-
-If you want to define a new map for your midi keyboard, I recommend you to start
-by copying the file yamaha790.map and modifying it. And remember to send
-it to me so that it will be included in future revisions and other people
-can use it !
-The map files are in /opt/kde/share/apps/kmid/maps (Some people should
-substitute /opt/kde for the value of the KDEDIR environment variable)
-
-8. Playlists / Collections
---------------------------
-   Collections have been added in KMid in version 0.5.
-   By using them you will be able to prepare a list of midis so that when
-   you finish playing one, the next one will start playing. That way,
-   you can leave KMid in the background (or in another desktop) playing,
-   and don't need to interrupt your work to play another song.
-
-   To configure your collections, you have to select Organize, from the
-   Collections menu, and then create (with "New") as many collections as 
-   you wish.  Once created, you can add songs to the selected collection
-   by pressing "Add" or add them later by using Drag & Drop or "File|Open ..."
-
-   There's a "Temporary Collection" that you cannot delete, it is used
-   to hold the files that you want to play but don't want to add to any
-   collection. Keep in mind that when you close KMid, the contents of this
-   temporary collection will be lost.
-
-   There's an option called "autoAdd to Collection", when turned on, every
-   file you open will be automatically added to the current collection, that
-   way, you can use Drag & drop to easily add files.
-   When this option is turned off, if you open a file, the current collection
-   will be automatically set to the temporary collection, it will be cleaned
-   and the file(s) you want to hear will be added to it. That means that
-   you will get a collection with only the files you have dropped in KMid.
-
-
-9. What is ConsoleKMid ? 
-------------------------
-   ConsoleKMid is a small program for Linux in console mode, which uses the same
-   player engine of KMid. Of course it doesn't have the same friendly
-   interface of KMid but it works to play midi files.
-   If you want it to use a mapper you will have to change the definition at
-   the beginning of the file main.cc (you'll see a commentary there) and
-   then compile it again.
-
-   If you have the rpm distribution, you will not find the consolekmid program
-   unless you also have the src.rpm distribution
-
-10. Where can I download KMid from ?
------------------------------------
+7. Where can I download KMid and consoleKMidfrom ?
+---------------------------------------------------
 
    KMid's homepage is at :
    www.arrakis.es/~rlarrosa/kmid.html
 
    From there you can download latest versions as well as know the latest
-   changes and improvements of KMid
+   changes and improvements of KMid and consoleKMid
 	 
-11. To do list
--------------
-   Write better documentation 
-	(meanwhile I will answer any question by email)
+8. To do list
+---------------
    Better AWE and GUS support and use Soundfonts
    The KMidServer and make KMid use it.
 
 -------
-3-4-1998
+22-6-1998
 Antonio Larrosa Jimenez
 antlarr@arrakis.es
