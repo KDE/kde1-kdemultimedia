@@ -276,25 +276,23 @@ msgstr "Prosím zvoµte titulok disku alebo stlaète Zru¹i»"
 
 #: kscd.cpp:223
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Záznam úspe¹ne zaslaný"
 
 #: kscd.cpp:233
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Chyba pri získavaní CDDB polo¾ky."
+msgstr "Chyba pri pripájaní sa k serveru."
 
 #: kscd.cpp:236
 msgid "Not connected."
-msgstr ""
+msgstr "Nepripojený."
 
 #: kscd.cpp:239
-#, fuzzy
 msgid "Connection timed out."
-msgstr "CDDB otázke vypr¹al èas."
+msgstr "Spojenie vypr¹alo."
 
 #: kscd.cpp:242
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Èas pri èakaní na interakciu servera vypr¹al."
 
 #: kscd.cpp:245
 #, c-format
@@ -302,6 +300,8 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
+"Server povedal:\n"
+"\"%s\""
 
 #: kscd.cpp:247
 #, c-format
@@ -310,6 +310,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Chyba #%d pri posielaní cez SMTP.\n"
+"\n"
+"%s"
 
 #: kscd.cpp:376
 msgid "Vol: --"
@@ -485,7 +488,7 @@ msgstr ""
 
 #: kscd.cpp:1085
 msgid "SMTP Setup"
-msgstr ""
+msgstr "Nastavenie SMTP"
 
 #: kscd.cpp:1086
 msgid "Kscd Options"
@@ -588,18 +591,12 @@ msgstr "Svetlos» Magic:"
 
 #: smtpconfig.cpp:14
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Povoli» posielanie cez SMTP"
 
 #: smtpconfig.cpp:21
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP adresa:port"
 
 #: smtpconfig.cpp:39
 msgid "Your Email Address"
-msgstr ""
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Ukonèi» Kscd"
-
-#~ msgid "Track %02d"
-#~ msgstr "Stopa %02d"
+msgstr "Va¹a email adresa"

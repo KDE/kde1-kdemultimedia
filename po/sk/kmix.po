@@ -23,7 +23,7 @@ msgstr "Zapnú»/vypnú» z&naèkovanie"
 
 #: kmix.cpp:524 kmix.cpp:642
 msgid "&Options..."
-msgstr ""
+msgstr "&Nastavenie..."
 
 #: kmix.cpp:533
 msgid ""
@@ -60,9 +60,8 @@ msgid "&Right"
 msgstr "Vp&ravo"
 
 #: kmix.cpp:641
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Menu"
+msgstr "&Ukáza» menu"
 
 #: kmix.cpp:686
 msgid "Un&mute"
