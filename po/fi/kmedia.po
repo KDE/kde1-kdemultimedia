@@ -47,9 +47,8 @@ msgid "&Mixer"
 msgstr "&Mikseri"
 
 #: kmediawin.cpp:234
-#, fuzzy
 msgid "&Preferences..."
-msgstr "&Asetukset"
+msgstr "&Asetukset..."
 
 #: kmediawin.cpp:240
 msgid ""
@@ -95,29 +94,24 @@ msgstr "Määrittelemätön"
 
 #: prefs.cpp:38
 msgid "Players"
-msgstr ""
+msgstr "Soittajat"
 
 #: prefs.cpp:44
-#, fuzzy
 msgid "Mixer"
-msgstr "&Mikseri"
+msgstr "Mikseri"
 
 #: prefs.cpp:53
 msgid "Use sound device"
-msgstr ""
+msgstr "Käytä äänilaitetta"
 
 #: prefs.cpp:58
 msgid "Device 1"
-msgstr ""
+msgstr "Laite 1"
 
 #: prefs.cpp:60
 msgid "Device 2"
-msgstr ""
+msgstr "Laite 2"
 
 #: prefs.cpp:82
-#, fuzzy
 msgid "KMedia Preferences"
-msgstr "&Asetukset"
-
-#~ msgid "About KMedia "
-#~ msgstr "Tietoja KMedia:ta"
+msgstr "KMedia Asetukset"
