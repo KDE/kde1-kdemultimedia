@@ -2,7 +2,6 @@
 [KDE Desktop Entry]
 BinaryPattern=kmid;
 Name=Midi/Karaoke Player
-Name[br]=Soner Midi/Karaoke
 Name[ca]=Reproductor Midi/Karaoke
 Name[cs]=Pøehrávaè Midi/Karaoke
 Name[da]=Midi/Karaoke afspiller
@@ -26,7 +25,6 @@ Name[sv]=MIDI-/Karaoke-spelare
 Protocols=file;
 MimeType=audio/x-karaoke;audio/x-midi;
 Comment=A midi / karaoke file player
-Comment[br]=Ur soner restroù midi / karaoke 
 Comment[ca]=Un reproductor midi/karaoke
 Comment[cs]=Pøehrávaè midi nebo karaoke souborù
 Comment[da]=En midi/karaoke-afspiller

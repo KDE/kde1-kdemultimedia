@@ -1,7 +1,6 @@
 # KDE Config File
 [KDE Desktop Entry]
 Comment=A CD Player
-Comment[br]=Ur soner pladennoù arc'hant
 Comment[ca]=Un reproductor de CD
 Comment[cs]=CD pøehrávaè
 Comment[da]=En CD-afspiller
@@ -25,7 +24,6 @@ Comment[sv]=En CD-spelare
 BinaryPattern=kscd;
 Protocols=
 Name=CD Player
-Name[br]=Soner CD
 Name[ca]=Reproductor de CD
 Name[cs]=CD pøehrávaè
 Name[da]=CD-afspiller

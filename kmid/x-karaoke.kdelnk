@@ -5,7 +5,6 @@ MimeType=audio/x-karaoke
 Icon=sound.xpm
 Patterns=*.kar;*.KAR;
 Comment=Karaoke file
-Comment[br]=Restr Karaoke
 Comment[ca]=Fitxer karaoke
 Comment[cs]=Karaoke soubor
 Comment[da]=Karaoke-fil
