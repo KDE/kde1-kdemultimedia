@@ -283,25 +283,23 @@ msgstr "Valitse Levyn otsikko tai paina Peruuta"
 
 #: kscd.cpp:223
 msgid "Record submitted successfully"
-msgstr ""
+msgstr "Tallenne siirretty"
 
 #: kscd.cpp:233
-#, fuzzy
 msgid "Error connecting to server."
-msgstr "Virhe haettaessa CDDB-tietuetta."
+msgstr "Virhe palvelimeen yhdistettäessä."
 
 #: kscd.cpp:236
 msgid "Not connected."
-msgstr ""
+msgstr "Ei yhteyttä."
 
 #: kscd.cpp:239
-#, fuzzy
 msgid "Connection timed out."
-msgstr "CDDB-hakuaika loppui."
+msgstr "Yhteyden aikavalvonta laukesi."
 
 #: kscd.cpp:242
 msgid "Time out waiting for server interaction."
-msgstr ""
+msgstr "Yhteyden aikavalvonta laukesi osotettaessa palvelinta."
 
 #: kscd.cpp:245
 #, c-format
@@ -309,6 +307,8 @@ msgid ""
 "Server said:\n"
 "\"%s\""
 msgstr ""
+"Palvelin sanoi:\n"
+"\"%s\""
 
 #: kscd.cpp:247
 #, c-format
@@ -317,6 +317,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Virhe #%d lähetettäessä viestiä SMTP:llä.\n"
+"\n"
+"%s"
 
 #: kscd.cpp:376
 msgid "Vol: --"
@@ -493,7 +496,7 @@ msgstr ""
 
 #: kscd.cpp:1085
 msgid "SMTP Setup"
-msgstr ""
+msgstr "SMTP Asetukset"
 
 #: kscd.cpp:1086
 msgid "Kscd Options"
@@ -571,9 +574,8 @@ msgstr ""
 "Oletko varma, että se on asennettu?"
 
 #: kscd.cpp:2352
-#, fuzzy
 msgid "Enter the local CDDB base Directory"
-msgstr "CDDB-juurihakemisto"
+msgstr "Anna CDDB-juurihakemisto"
 
 #: kscd.cpp:2392
 msgid "-h: display commandline options\n"
@@ -601,18 +603,12 @@ msgstr "MAGIC kirkkaus:"
 
 #: smtpconfig.cpp:14
 msgid "Enable submission via SMTP"
-msgstr ""
+msgstr "Lähetä tietueet SMTP:llä"
 
 #: smtpconfig.cpp:21
 msgid "SMTP Address:Port"
-msgstr ""
+msgstr "SMTP Osoite:Portti"
 
 #: smtpconfig.cpp:39
 msgid "Your Email Address"
-msgstr ""
-
-#~ msgid "Exit Kscd"
-#~ msgstr "Lopeta Kscd"
-
-#~ msgid "Track %02d"
-#~ msgstr "Kappale %02d"
+msgstr "Sähköpostiosoitteesi"

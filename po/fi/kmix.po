@@ -24,7 +24,7 @@ msgstr "&Merkit On/Off"
 
 #: kmix.cpp:524 kmix.cpp:642
 msgid "&Options..."
-msgstr ""
+msgstr "&Asetukset..."
 
 #: kmix.cpp:533
 msgid ""
@@ -61,9 +61,8 @@ msgid "&Right"
 msgstr "&Oikea"
 
 #: kmix.cpp:641
-#, fuzzy
 msgid "&Show Menubar"
-msgstr "Valikkorivi"
+msgstr "Näytä &Valikkorivi"
 
 #: kmix.cpp:686
 msgid "Un&mute"
