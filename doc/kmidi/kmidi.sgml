@@ -170,13 +170,13 @@ and Takahis's Page:
 
 Each of the above patch sets ( you need only one) should come with a .cfg
 configuration file similar to the .cfg files which come with KMidi 
-and reside in /usr/local/lib/timidity  <p>
+and reside in <tt>KDEDIR/share/apps/kmidi/config</tt>  <p>
 
 KMidi has configurations files ready made for you for a number
 of common patch sets, such as the media patch set. 
 
 In order to complete the installation of a complete patch set 
-edit timidity.cfg and source the appropriate config files for the patch 
+edit the file timidity.cfg and source the appropriate config files for the patch 
 set/sets you downloaded. ( If you have a look at timidity.cfg it
 will be totally obvious what I am talking about)
  
