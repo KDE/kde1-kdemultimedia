@@ -1,13 +1,12 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: kdemultimedia\n"
 "POT-Creation-Date: 1998-10-13 13:33+0200\n"
-"PO-Revision-Date: 1998-04-18 11:58+0200\n"
-"Last-Translator: Boris Wesslowski <bwess@gmx.net>\n"
+"PO-Revision-Date: 1998-10-18 16:58+0200\n"
+"Last-Translator: Alonso Lara <jlaram@nexo.es>\n"
 
 #: kmediawin.cpp:162
 msgid "Playback position"
-msgstr "Posici\363n de reproducci\363n"
+msgstr "Posición de reproducción"
 
 #: kmediawin.cpp:168
 msgid "Eject medium"
@@ -33,12 +32,10 @@ msgstr "Adelante"
 msgid "Next track"
 msgstr "Siguiente pista"
 
-# , fuzzy
 #: kmediawin.cpp:231
 msgid "&Mixer"
 msgstr "&Mezclador"
 
-# , fuzzy
 #: kmediawin.cpp:233
 msgid "&Preferences"
 msgstr "&Preferencias"
@@ -51,10 +48,15 @@ msgid ""
 "Media player for the KDE Desktop Environment.\n"
 "This program is in the GPL.\n"
 msgstr ""
+"\n"
+"(C) 1996-1998 por Christian Esken (esken@kde.org).\n"
+"\n"
+"Media player para el Entorno de Escritorio KDE.\n"
+"Este programa está en la GPL.\n"
 
 #: kmediawin.cpp:245
 msgid "About KMedia "
-msgstr ""
+msgstr "Sobre KMedia "
 
 #: kmediawin.cpp:308
 msgid "Exited"
@@ -83,3 +85,27 @@ msgstr "Listo"
 #: kmediawin.cpp:314
 msgid "Undefined"
 msgstr "Sin definir"
+
+#~ msgid "Stop"
+#~ msgstr "Parar"
+
+#~ msgid "New view"
+#~ msgstr "&Nueva ventana"
+
+#~ msgid "Exit"
+#~ msgstr "&Salir"
+
+#~ msgid "&Contents"
+#~ msgstr "&Contenido"
+
+#~ msgid "&About"
+#~ msgstr "&Acerca de"
+
+#~ msgid "&File"
+#~ msgstr "&Archivo"
+
+#~ msgid "&Options"
+#~ msgstr "&Opciones"
+
+#~ msgid "&Help"
+#~ msgstr "A&yuda"
