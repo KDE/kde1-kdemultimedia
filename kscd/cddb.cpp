@@ -482,7 +482,8 @@ void CDDB::query_exact(QString line)
 
 void CDDB::do_state_machine()
 {
-    char tbuf[4096];
+    QString tbuf;
+    char idStr[20];
     static int cddbfh = 0;
     int cddblinelen;
 
@@ -648,10 +649,16 @@ void CDDB::do_state_machine()
 	    emit cddb_done();
 	} else {
             if(!cddbfh){
-                snprintf(tbuf, 4096, "%s/%s/%08x", cddbbasedirtext, category.data(), magicID);
+                tbuf = cddbbasedirtext;
+                tbuf += "/";
+                tbuf += category.data();
+                tbuf += "/";
+                sprintf(idStr, "%08lx", magicID);
+                tbuf += idStr;
                 if(debugflag)
-                    fprintf(stderr, "dir/file path: %s\n", tbuf);
-                cddbfh = open(tbuf, O_CREAT|O_WRONLY|O_TRUNC, S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
+                  fprintf(stderr, "dir/file path: %s\n", (const char *)tbuf);
+                cddbfh = open((const char*)tbuf, O_CREAT|O_WRONLY|O_TRUNC,
+                              S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
             }
             cddblinelen = strlen(lastline.data());
             write(cddbfh, lastline.data(), cddblinelen);

@@ -1,3 +1,7 @@
+1999-02-18  Harri Porten  <porten@kde.org>
+
+	* cddb.cpp: work around snprintf() for non-GNUish systems
+
 1998-12-22  Sam Maloney <thufir@illogic.ml.org>
 
 	* Added to last commit, as so the 'autodock' checkbox would be
