@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid 1.0pre2\n"
-"POT-Creation-Date: 1998-12-12 02:09+0100\n"
+"POT-Creation-Date: 1998-12-20 02:22+0100\n"
 "PO-Revision-Date: 1998-07-30 19:00+0100\n"
 "Last-Translator: Wolfram Diestel <diestel@rzaix340.rz-uni-leipzig.de>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
@@ -329,19 +329,19 @@ msgstr "Rezignu"
 msgid "Channel"
 msgstr "Rezignu"
 
-#: channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr ""
 
-#: channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr ""
 
-#: channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr ""
 
-#: channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr ""
 

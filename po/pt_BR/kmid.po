@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kmid\n"
-"POT-Creation-Date: 1998-12-12 02:09+0100\n"
+"POT-Creation-Date: 1998-12-20 02:22+0100\n"
 "PO-Revision-Date: 1998-06-23 09:00-0300\n"
 "Last-Translator: Elvis Pfützenreuter <epx@netville.com.br>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,19 +322,19 @@ msgstr "Visão de Canais"
 msgid "Channel"
 msgstr "Canal"
 
-#: channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr "Configurar visão dos Canais"
 
-#: channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr "Escolher modo de apresentação"
 
-#: channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr "Apresentação 3D"
 
-#: channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr "3D - preenchido"
 

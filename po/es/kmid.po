@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kdemultimedia\n"
-"POT-Creation-Date: 1998-12-12 02:09+0100\n"
+"POT-Creation-Date: 1998-12-20 02:22+0100\n"
 "PO-Revision-Date: 1998-04-18 12:02+0200\n"
 "Last-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
 "First-Translator: Antonio Larrosa <antlarr@arrakis.es>\n"
@@ -318,19 +318,19 @@ msgstr "Vista de Canales"
 msgid "Channel"
 msgstr "Canal"
 
-#: channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr "Configurar Vista de Canales"
 
-#: channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr "Elegir modo"
 
-#: channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr "Modo 3D"
 
-#: channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr "Modo 3D - Relleno"
 

@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-12 02:09+0100\n"
+"POT-Creation-Date: 1998-12-20 02:22+0100\n"
 "PO-Revision-Date: 1998-05-25 21:29+0100\n"
 "Last-Translator: Wang Jian <lark@linux.ustc.edu.cn>\n"
 "Language-Team: zh_CN ( gb2312 ) \n"
@@ -322,19 +322,19 @@ msgstr "取消"
 msgid "Channel"
 msgstr "取消"
 
-#: channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr ""
 
-#: channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr ""
 
-#: channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr ""
 
-#: channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr ""
 

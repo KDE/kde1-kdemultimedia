@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"POT-Creation-Date: 1998-12-12 02:09+0100\n"
+"POT-Creation-Date: 1998-12-20 02:22+0100\n"
 "Content-Type: text/plain; charset=\n"
 "Date: 1998-04-03 19:18:58+0000\n"
 "From: antonio <antonio@jupiter.arrakis.es>\n"
@@ -320,19 +320,19 @@ msgstr "Kanavan‰kym‰"
 msgid "Channel"
 msgstr "Kanava"
 
-#: channelcfgdlg.cpp:12
+#: channelcfgdlg.cpp:16
 msgid "Configure Channel View"
 msgstr "Aseta kanavan‰kym‰‰"
 
-#: channelcfgdlg.cpp:22
+#: channelcfgdlg.cpp:26
 msgid "Choose look mode"
 msgstr "Valitse n‰kym‰tila"
 
-#: channelcfgdlg.cpp:23
+#: channelcfgdlg.cpp:27
 msgid "3D look"
 msgstr "3D n‰kym‰"
 
-#: channelcfgdlg.cpp:24
+#: channelcfgdlg.cpp:28
 msgid "3D - filled"
 msgstr "3D - t‰ytetty"
 
