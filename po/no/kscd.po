@@ -244,9 +244,8 @@ msgid "Stop Playing on Exit"
 msgstr "Stopp spilling ved avslutt"
 
 #: configdlg.cpp:183
-#, fuzzy
 msgid "Eject on Finish"
-msgstr "Kaster ut"
+msgstr "Kaster ut når fullført"
 
 #: docking.cpp:75 kscd.cpp:561
 msgid "Play/Pause"
