@@ -269,6 +269,7 @@ char *fn=new char[strlen(filename)+20];
 extractFilename(filename,fn);
 char *capt=new char[strlen(fn)+20];
 sprintf(capt,"KMid - %s",fn);
+delete fn;
 topLevelWidget()->setCaption(capt);
 delete capt;
 

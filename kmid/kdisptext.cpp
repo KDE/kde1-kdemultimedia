@@ -81,6 +81,8 @@ while (tmpl->ev!=NULL)
     {
     tmpe=tmpl->ev;
     tmpl->ev=tmpe->next;
+//    delete tmpe->spev; Remember that the Special Events that this pointer
+//		 pointers to is the same that the Player object has instantiated
     delete tmpe;
     };
 };
