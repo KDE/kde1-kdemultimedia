@@ -1,0 +1,33 @@
+/* XPM */
+/* Drawn  by Nico Schwiring and Mark Donohoe for the K Desktop Environment */
+/* See http://www.kde.org */
+static char*kscd[]={
+"16 16 11 1",
+"# c #000000",
+"h c #ffffff",
+"a c #c0c0c0",
+"b c #585858",
+"e c #ff0000",
+"i c #008000",
+"c c #004040",
+"g c #00ffff",
+"d c #ffa85a",
+"f c #00ff00",
+". c None",
+".##############.",
+"#aaaaaaaaaaaaaa#",
+"#a##########bbb#",
+"#a#cccdceccabbb#",
+"#a#cfcfcfccabbb#",
+"#a#cfcfcfccabbb#",
+"#a#aaaaaaaaabbb#",
+"################",
+"#b###baaaaaaaaa#",
+"##aaa#bbbbbbbbb#",
+"#gaaah#bbbbbb#b#",
+"#ag#haa#######b#",
+"#ah#gaa#bababfi#",
+"#haaag#bbbbbbii#",
+".#aaa######bbb#.",
+"..###......###.."};
+

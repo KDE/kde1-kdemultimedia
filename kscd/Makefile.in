@@ -93,6 +93,8 @@ install: all
 	$(INSTALL) $(TARGET2) $(BINDIR)
 	$(INSTALL_DIR) $(ICONDIR)
 	$(INSTALL_DATA) kscd.xpm $(ICONDIR)
+	$(INSTALL_DIR) $(MINIDIR)
+	$(INSTALL_DATA) mini-kscd.xpm $(MINIDIR)
 	$(INSTALL_DIR) $(PICSDIR)
 	$(INSTALL_DATA) kscdlogo.xpm $(PICSDIR)
 	$(INSTALL_DIR) $(APPSDIR)
@@ -103,7 +105,9 @@ uninstall:
 	rm -f $(BINDIR)/$(TARGET2)
 	(cd docs && $(MAKE) uninstall)
 	rm -f $(APPSDIR)/kscd.kdelnk
-	rm -f $(PIXDIR)/kscd.xpm
+	rm -f $(PICSDIR)/kscdlogo.xpm
+	rm -f $(ICONDIR)/kscd.xpm
+	rm -f $(MINIDIR)/kscd.xpm
 
 ####### Explicit dependencies
 
