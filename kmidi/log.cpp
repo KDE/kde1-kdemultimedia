@@ -228,8 +228,7 @@ void LogWindow::resizeEvent(QResizeEvent* ){
 
 void LogWindow::enter() {
 
-  char character[3];
-  character = "\r\n";
+  char character[3] = "\r\n";
 
   text_window->append(character);
 
