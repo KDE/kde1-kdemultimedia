@@ -1,0 +1,48 @@
+%define version Beta3
+%define name kdemultimedia
+Name: %{name}
+Summary: K Desktop Environment - Multimedia Applications
+Version: %{version}
+Release: 1 
+Source: ftp.kde.org:/pub/kde/unstable/CVS/snapshots/current/%{name}-%{version}.tar.gz
+Group: X11/KDE/Multimedia
+BuildRoot: /tmp/realhot_%{name}
+Copyright: GPL
+Requires: qt >= 1.31
+Packager: Magnus Pfeffer <pfeffer@unix-ag.uni-kl.de>
+Vendor: The KDE Team
+Distribution: KDE
+
+%description
+Multimedia applications for the K Desktop Environment.
+
+Included with this package are:
+
+kmedia: media player tool
+kmid: midi/karaoke player
+kmidi: midi-to-wav player/converter
+kmix: mixer tool
+kscd: CD audio player
+
+%prep
+rm -rf $RPM_BUILD_ROOT
+
+%setup -n kdemultimedia
+
+%build
+export KDEDIR=/opt/kde
+./configure --prefix=/opt/kde --with-install-root=$RPM_BUILD_ROOT
+make install_root=/
+
+%install
+make install
+
+cd $RPM_BUILD_ROOT
+find . -type d | sed '1,2d;s,^\.,\%attr(-\,root\,root) \%dir ,' > $RPM_BUILD_DIR/file.list.%{name}
+find . -type f | sed 's,^\.,\%attr(-\,root\,root) ,' >> $RPM_BUILD_DIR/file.list.%{name}
+find . -type l | sed 's,^\.,\%attr(-\,root\,root) ,' >> $RPM_BUILD_DIR/file.list.%{name}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -f ../file.list.%{name}
