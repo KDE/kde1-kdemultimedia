@@ -1,0 +1,110 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kmix\n"
+"POT-Creation-Date: 1998-01-24 19:05+0100\n"
+"PO-Revision-Date: 1998-01-26 20:00+0000\n"
+"Last-Translator: Pedro Morais <pmmm@camoes.rnl.ist.utl.pt>\n"
+
+#: kmix.cpp:411
+msgid "Hide Menubar"
+msgstr "Esconder Barra de Menu"
+
+#: kmix.cpp:414
+msgid "Tickmarks On/Off"
+msgstr "Marcas Ligado/Desligado"
+
+#: kmix.cpp:417
+msgid "&Options"
+msgstr "&Opções"
+
+#: kmix.cpp:419
+msgid "&Quit"
+msgstr "&Sair"
+
+#: kmix.cpp:423
+msgid "&Contents"
+msgstr "&Conteúdo"
+
+#: kmix.cpp:426
+msgid "&About"
+msgstr "&Acerca"
+
+#: kmix.cpp:427
+msgid "&About Qt..."
+msgstr "&Acerca do Qt..."
+
+#: kmix.cpp:431
+msgid "&File"
+msgstr "&Ficheiro"
+
+#: kmix.cpp:433
+msgid "&Help"
+msgstr "&Ajuda"
+
+#: kmix.cpp:437
+msgid "&Left"
+msgstr "&Esquerda"
+
+#: kmix.cpp:438
+msgid "&Center"
+msgstr "&Centro"
+
+#: kmix.cpp:439
+msgid "&Right"
+msgstr "&Direita"
+
+#: kmix.cpp:561
+msgid "Un&mute"
+msgstr "&Com som"
+
+#: kmix.cpp:563
+msgid "&Mute"
+msgstr "Se&m som"
+
+#: kmix.cpp:566
+msgid "&Split"
+msgstr "&Dividir"
+
+#: kmix.cpp:568
+msgid "Un&split"
+msgstr "&Juntar"
+
+#: kmix.cpp:570
+msgid "&RecSource"
+msgstr "Fonte G&ravação"
+
+#: prefs.cpp:43
+msgid "General"
+msgstr "Geral"
+
+#: prefs.cpp:44
+msgid "Channels"
+msgstr "Canais"
+
+#: prefs.cpp:47
+msgid "Startup settings"
+msgstr "Configurações iniciais"
+
+#: prefs.cpp:52
+msgid "Menubar"
+msgstr "Barra de menu"
+
+#: prefs.cpp:57
+msgid "Tickmarks"
+msgstr "Marcas"
+
+#: prefs.cpp:82
+msgid "KMix Preferences"
+msgstr "Preferências do KMix"
+
+#: prefs.cpp:88
+msgid "Mixer channel setup (not saved yet)"
+msgstr "Configuração dos canais do mixer (ainda não foi gravada)"
+
+#: prefs.cpp:95
+msgid "Device"
+msgstr "Dispositivo"
+
+#: prefs.cpp:98
+msgid "Show"
+msgstr "Mostrar"
