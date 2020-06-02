@@ -20,7 +20,7 @@
 // $Id$
 // KMediaWin implementation
 
-#include <iostream.h>
+#include <iostream>
 #include <string.h>
 #include <klocale.h>
 #include <kiconloader.h>
