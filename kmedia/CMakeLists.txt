@@ -32,5 +32,5 @@ target_link_libraries(kmedia
 )
 
 install(TARGETS kmedia RUNTIME DESTINATION ${KDE1_BINDIR})
-install(FILES kmedia.kdelnk DESTINATION ${KDE1_APPSDIR}/Games)
+install(FILES KMedia.kdelnk DESTINATION ${KDE1_APPSDIR}/Multimedia)
 install_icon(kmedia.xpm)
