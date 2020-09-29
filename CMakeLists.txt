@@ -26,7 +26,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 add_subdirectory(kmedia)
 #add_subdirectory(kmid)
 #add_subdirectory(kmidi)
-#add_subdirectory(kmix)
+#add_subdirectory(kmix) # The ALSA API completely changed during the summer 2000, probably easier to just implement PA support
 #add_subdirectory(kscd)
 
 #add_subdirectory(po)
