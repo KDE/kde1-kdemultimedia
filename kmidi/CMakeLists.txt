@@ -67,9 +67,6 @@ install(FILES
 )
 
 install(FILES
-    patch/acpiano.pat
-    patch/nylongt2.pat
-
     config/gravis.cfg
     config/gsdrum.cfg
     config/midia.cfg
@@ -85,6 +82,12 @@ install(FILES
     config/sound-canvas-drums
     DESTINATION "${KDE1_DATADIR}/kmidi/config/"
 )
+
+install(FILES
+    patch/acpiano.pat
+    patch/nylongt2.pat
+    DESTINATION "${KDE1_DATADIR}/kmidi/config/patch/"
+    )
 
 # TODO: german doc
 install(FILES
