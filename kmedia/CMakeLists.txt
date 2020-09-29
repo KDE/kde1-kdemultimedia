@@ -35,3 +35,13 @@ install(TARGETS kmedia RUNTIME DESTINATION ${KDE1_BINDIR})
 install(FILES KMedia.kdelnk DESTINATION ${KDE1_APPSDIR}/Multimedia)
 
 add_subdirectory(pics)
+
+install(FILES
+    docs/index-1.html
+    docs/index-2.html
+    docs/index-3.html
+    docs/index-4.html
+    docs/index-5.html
+    docs/index.html
+    docs/logotp3.gif
+DESTINATION ${KDE1_HTMLDIR}/en/kmedia)
