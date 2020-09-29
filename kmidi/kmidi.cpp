@@ -81,7 +81,7 @@ int pipenumber;
 KMidi::KMidi( QWidget *parent, const char *name ) :
     QDialog( parent, name )
 {
-
+    blink = false;
     playlistdlg = NULL;
     randomplay = false;
     looping = false;
