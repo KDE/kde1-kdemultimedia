@@ -23,7 +23,7 @@
 #include <stdlib.h>
 #include <errno.h>
 
-#if (defined(SUN) && defined(SYSV)) | defined(__WIN32__)
+#if (defined(SUN) && defined(SYSV)) | defined(__WIN32__) || defined(__linux__)
 # include <string.h>
 #else
 #include <strings.h>
@@ -355,7 +355,7 @@ static MidiEventList *read_midi_event(void)
       if (fread(&me,1,1,fp)!=1)
 	{
 	  ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: read_midi_event: %s", 
-	       current_filename, sys_errlist[errno]);
+	       current_filename, strerror(errno));
 	  return 0;
 	}
       
@@ -950,7 +950,7 @@ MidiEvent *read_midi_file(FILE *mfp, int32 *count, int32 *sp)
       if (ferror(fp))
 	{
 	  ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s", current_filename, 
-	       sys_errlist[errno]);
+	       strerror(errno));
 	}
       else
 	ctl->cmsg(CMSG_ERROR, VERB_NORMAL, 

@@ -25,7 +25,7 @@
 
 #include <stdio.h>
 
-#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__)
+#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__) || defined(__linux__)
 #include <string.h>
 #else
 #include <strings.h>

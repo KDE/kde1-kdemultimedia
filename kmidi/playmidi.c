@@ -27,7 +27,7 @@
 #endif
 #include <stdlib.h>
 
-#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__)
+#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__) || defined(__linux__)
 # include <string.h>
 #else
 #include <strings.h>
@@ -382,13 +382,13 @@ static void recompute_amp(int v)
 }
 
 static int current_polyphony = 0;
+static void kill_note(int);
 
 /* just a variant of note_on() */
 static int vc_alloc(int j)
 {
   int i=voices, lowest=-1; 
   int32 lv=0x7FFFFFFF, v;
-  static void kill_note(int);
 
   current_polyphony = 0;
 
@@ -1056,7 +1056,7 @@ static int xmp_epoch = -1;
 static unsigned xxmp_epoch = 0;
 static unsigned time_expired = 0;
 static unsigned last_time_expired = 0;
-#if !defined( _UNIXWARE ) && ! defined(__hpux__) && ! defined (sun) && ! defined(_SCO_DS)
+#if !defined( _UNIXWARE ) && ! defined(__hpux__) && ! defined (sun) && ! defined(_SCO_DS) && !defined(__linux__)
 extern int gettimeofday(struct timeval *, struct timezone *);
 #endif
 static struct timeval tv;
@@ -2013,7 +2013,7 @@ static void read_seq(unsigned char *from, unsigned char *to)
   } /* for */
 
 }
-#endif ADAGIO
+#endif//ADAGIO
 
 
 #ifndef ADAGIO

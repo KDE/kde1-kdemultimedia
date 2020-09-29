@@ -16,6 +16,7 @@ include(KDE1InstallDirs)
 
 if (CMAKE_COMPILER_IS_GNUCXX)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-write-strings")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-write-strings")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fpermissive -std=c++98")
     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined")
 endif()
@@ -25,7 +26,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 add_subdirectory(kmedia)
 #add_subdirectory(kmid)
-#add_subdirectory(kmidi)
+add_subdirectory(kmidi)
 #add_subdirectory(kmix) # The ALSA API completely changed during the summer 2000, probably easier to just implement PA support
 #add_subdirectory(kscd)
 

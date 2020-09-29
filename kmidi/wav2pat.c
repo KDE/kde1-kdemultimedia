@@ -28,7 +28,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#ifdef SOLARIS
+#if defined(SOLARIS) || defined(__linux__)
 #include <string.h>
 #else
 #include <strings.h>

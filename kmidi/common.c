@@ -24,7 +24,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__)
+#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__) || defined(__linux__)
 #include <string.h>
 #else
 #include <strings.h>
@@ -138,7 +138,7 @@ FILE *open_file(char *name, int decompress, int noise_mode)
   if (noise_mode && (errno != ENOENT))
     {
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s", 
-	   current_filename, sys_errlist[errno]);
+	   current_filename, strerror(errno));
       return 0;
     }
   
@@ -160,7 +160,7 @@ FILE *open_file(char *name, int decompress, int noise_mode)
 	if (noise_mode && (errno != ENOENT))
 	  {
 	    ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s", 
-		 current_filename, sys_errlist[errno]);
+		 current_filename, strerror(errno));
 	    return 0;
 	  }
 	plp=plp->next;
@@ -171,7 +171,7 @@ FILE *open_file(char *name, int decompress, int noise_mode)
   *current_filename=0;
   
   if (noise_mode>=2)
-    ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s", name, sys_errlist[errno]);
+    ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s", name, strerror(errno));
   
   return 0;
 }
@@ -197,7 +197,7 @@ void skip(FILE *fp, size_t len)
       len-=c;
       if (c!=fread(tmp, 1, c, fp))
 	ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: skip: %s",
-	     current_filename, sys_errlist[errno]);
+	     current_filename, strerror(errno));
     }
 }
 

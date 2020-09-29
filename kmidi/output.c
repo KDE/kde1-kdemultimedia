@@ -33,7 +33,7 @@ extern PlayMode dec_play_mode;
 #define DEFAULT_PLAY_MODE &dec_play_mode
 #endif
 
-#if defined(linux) || defined(__FreeBSD__)
+#if defined(__linux__) || defined(__FreeBSD__)
 extern PlayMode linux_play_mode;
 #define DEFAULT_PLAY_MODE &linux_play_mode
 #endif

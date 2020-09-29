@@ -21,13 +21,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__)
+#if (defined(SUN) && defined(SYSV)) || defined(__WIN32__) || defined(__linux__)
 #include <string.h>
 #else
 #include <strings.h>
 #endif
 
-#if defined(linux) || defined(__FreeBSD__)
+#if defined(__linux__) || defined(__FreeBSD__)
 #ifndef AU_LINUX
 #define AU_LINUX
 #endif
@@ -715,7 +715,7 @@ int read_config_file(char *name)
 	 }
   if (ferror(fp))
 	 {
-		fprintf(stderr, "Can't read %s: %s\n", name, sys_errlist[errno]);
+		fprintf(stderr, "Can't read %s: %s\n", name, strerror(errno));
 		close_file(fp);
 		return -2;
 	 }

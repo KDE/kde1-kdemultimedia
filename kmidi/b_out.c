@@ -4,7 +4,7 @@
 
 #include "config.h"
 
-#ifdef __FreeBSD__
+#if defined(__FreeBSD__) || defined(__linux__)
 #include <stdlib.h>
 #else
 #include <malloc.h>

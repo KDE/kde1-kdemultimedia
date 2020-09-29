@@ -54,7 +54,7 @@ void pipe_error(char *st)
 {
     fprintf(stderr,"CONNECTION PROBLEM WITH MOTIF PROCESS IN %s BECAUSE:%s\n",
 	    st,
-	    sys_errlist[errno]);
+	    sterror(errno));
     exit(1);
 }
 

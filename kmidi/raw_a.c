@@ -29,6 +29,7 @@
 #include <string.h>
 #else
 #include <unistd.h>
+#include <string.h>
 #endif
 #include <fcntl.h>
 #include <errno.h>
@@ -90,7 +91,7 @@ static int open_output(void)
       if (dpm.fd<0)
 	{
 	  ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s",
-		    dpm.name, sys_errlist[errno]);
+		    dpm.name, strerror(errno));
 	  return -1;
 	}
     }

@@ -611,7 +611,7 @@ void pipe_error(char *st)
 {
     fprintf(stderr,"Kmidi:Problem with %s due to:%s\n",
 	    st,
-	    sys_errlist[errno]);
+	    strerror(errno));
     exit(1);
 }
 

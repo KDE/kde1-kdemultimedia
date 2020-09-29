@@ -39,6 +39,8 @@
 #include <qchkbox.h>
 #include <kcolordlg.h>
 
+#include <time.h>
+
 struct configstruct{
   QColor led_color;
   QColor background_color;
@@ -56,7 +58,7 @@ public:
   ~ConfigDlg() {}
 
 
-  struct configstruct * ConfigDlg::getData();
+  struct configstruct * getData();
 
 private slots:
   void cancelbutton();

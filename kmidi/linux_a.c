@@ -23,14 +23,15 @@
 
 */
 
-#if defined(linux) || defined(__FreeBSD__)
+#if defined(__linux__) || defined(__FreeBSD__)
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h>
 
-#ifdef linux
+#ifdef __linux__
 #include <sys/ioctl.h> /* new with 1.2.0? Didn't need this under 1.1.64 */
 #include <linux/soundcard.h>
+#include <string.h>
 #endif
 
 #ifdef __FreeBSD__
@@ -83,7 +84,7 @@ static int open_output(void)
   if (fd<0)
     {
       ctl->cmsg(CMSG_ERROR, VERB_NORMAL, "%s: %s",
-	   dpm.name, sys_errlist[errno]);
+	   dpm.name, strerror(errno));
       return -1;
     }
 
@@ -278,4 +279,4 @@ static void purge_output(void)
   ioctl(dpm.fd, SNDCTL_DSP_RESET);
 }
 
-#endif /* defined(linux) || defined(__FreeBSD__) */
+#endif /* defined(__linux__) || defined(__FreeBSD__) */
